@@ -1,0 +1,126 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Proyecto Ovillo · Ovillo</title><meta name="description" content="Andamio estándar de proyectos del ecosistema &lt;strong&gt;Ovillo&lt;/strong&gt;."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Proyecto Ovillo · Ovillo"><meta property="og:description" content="Andamio estándar de proyectos del ecosistema &lt;strong&gt;Ovillo&lt;/strong&gt;."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/readme.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/readme.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/readme.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Empezar (2)</h4><ul class="sibs"><li><a href="../guias/inicio_rapido.html">Guía de inicio rápido</a></li><li><a href="../guias/readme.html" class="cur">Proyecto Ovillo</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Empezar</span><span>Proyecto Ovillo</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Empezar</span><span>español</span></div><h1>Proyecto Ovillo</h1><p class="lede">Andamio estándar de proyectos del ecosistema <strong>Ovillo</strong>.</p><div class="meta-grid"><div><b>2 min</b><span>lectura</span></div><div><b>459</b><span>palabras</span></div><div><b>9</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>6</b><span>cambios</span></div></div><p class="lede">Andamio estándar de proyectos del ecosistema <strong>Ovillo</strong>.</p>
+<p>Un proyecto Ovillo está <strong>autocontextualizado</strong>: contiene toda la información necesaria para que Claude Code entienda el proyecto y asista en el desarrollo, y la mantiene al día sesión a sesión.</p>
+<hr>
+<section class="sec" id="sec-instalación-rápida">
+<h3 id="instalación-rápida">🚀 Instalación rápida</h3>
+<h4 id="proyecto-existente-recomendado">Proyecto existente (recomendado)</h4>
+<pre><code># 1. Instalar el plugin (una vez por usuario)
+claude plugin marketplace add hvaler/ovillo
+claude plugin install hv@ovillo
+
+# 2. Preparar el repositorio
+cd C:\MiProyecto
+claude
+/hv:init          # layout, Hilo, Patrón, CLAUDE.md, configuración; nunca pisa lo existente
+
+# 3. Onboarding guiado
+/hv:onboarding</code></pre>
+<h4 id="proyecto-nuevo">Proyecto nuevo</h4>
+<pre><code>mkdir C:\MiNuevoProyecto &amp;&amp; cd C:\MiNuevoProyecto
+git init
+claude
+/hv:init
+dotnet new sln -n MiProyecto -o src      # y los proyectos de la solución
+/hv:onboarding</code></pre>
+<p>Guía paso a paso: <code>INICIO_RAPIDO.md</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-estructura-del-proyecto">
+<h3 id="estructura-del-proyecto">Estructura del proyecto</h3>
+<pre><code>Proyecto/
+│
+├── CLAUDE.md                ← Memoria raíz de la sesión (la completa /hv:onboarding)
+├── README.md                ← Este archivo
+├── INICIO_RAPIDO.md         ← Guía de inicio en 30 minutos
+├── ecosystem.config.json    ← Identidad de la organización (opcional; sin él, defaults neutrales)
+│
+├── .claude/                 ← Configuración de Claude Code para este proyecto
+│   ├── rules/               #   3 reglas incondicionales
+│   ├── schemas/             #   schema de ecosystem.config.json
+│   ├── CLAUDE_BASE.md       #   estándares del ecosistema, siempre en contexto
+│   └── commands/integracion-vs.ps1   # Solution Folders (solo con organization.ide = visual-studio)
+│
+├── _hilo/                   ← Hilo: memoria del proyecto
+│   ├── ESTADO_PROYECTO.json #   configuración y estado
+│   ├── SESION_ACTUAL.md     #   handoff entre sesiones y personas
+│   ├── DEPENDENCIAS.md      #   stack y NuGets, con matriz de impacto
+│   ├── FUNCIONALIDADES.md   #   módulos y features
+│   ├── DECISIONES.md        #   ADR del proyecto
+│   ├── LECCIONES.md         #   patrones y errores aprendidos
+│   ├── DEUDA_TECNICA.md     #   issues conocidos
+│   └── HISTORIAL_CAMBIOS.md #   changelog
+│
+├── _patron/                 ← Patrón: base de conocimiento de la organización
+│   ├── 01_Estructura_Tecnica/      # stack, arquitectura, seguridad, infraestructura
+│   ├── 02_Diseno_Usabilidad/        # guía de estilos UI
+│   ├── 03_Consideraciones_Comunes/ # normativa y regulación de la organización
+│   ├── 04_Plantillas_Documentacion/
+│   ├── 05_Plantillas_SQL/
+│   ├── 06_Observabilidad/  07_Resiliencia/  08_CICD/
+│   └── PATRON.md                   # qué es y cómo se mantiene
+│
+├── src/                     ← Código fuente: soluciones .NET y sus proyectos de test
+│
+├── docs/                    ← Lo que se lee
+│   ├── management/          #   configuración, requisitos, actas (el equipo)
+│   ├── architecture/        #   diagramas y auditorías (/hv:analizar, /hv:analisis-arquitectura)
+│   ├── api/ manuals/ postman/ migration/   # los generan las skills de documentación
+│   ├── testing/             #   informes de tests y cobertura
+│   └── support/             #   soporte en producción (el equipo)
+│
+└── ops/                     ← Lo que se ejecuta para entregar
+    ├── environment/         #   docker-compose.yml, .env.example
+    ├── cicd/                #   runbooks, permisos, scripts (/hv:cicd-init)
+    └── testing/             #   coverlet.runsettings, .security-exceptions.yml</code></pre>
+<p>Las skills, los agents y los hooks <strong>no viven en el repositorio</strong>: los aporta el plugin <code>hv</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-integración-con-el-ide">
+<h3 id="integración-con-el-ide">Integración con el IDE</h3>
+<p>Ovillo solo necesita el SDK de .NET. La integración con el IDE depende de <code>organization.ide</code> en <code>ecosystem.config.json</code>:</p>
+<div class="tbl"><table><thead><tr><th>Valor</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>none</code> (por defecto)</td><td>Nada.</td></tr><tr><td><code>visual-studio</code></td><td><code>integracion-vs.ps1</code> añade al <code>.sln</code> un contenedor <strong>Ovillo</strong> con <code>Raiz</code>, <code>_hilo</code>, <code>_patron</code>, <code>docs</code> y <code>ops</code>.</td></tr><tr><td><code>vscode</code></td><td><code>/hv:init</code> escribe <code>.vscode/</code> (solución en <code>src</code>, exclusiones de búsqueda, tareas de build, test y docker).</td></tr><tr><td><code>rider</code></td><td>Sin acciones específicas por ahora.</td></tr></tbody></table></div>
+<p>Si las carpetas no aparecen en Visual Studio: <code>.\.claude\scripts\integracion-vs.ps1</code> desde la raíz.</p>
+<hr>
+</section>
+<section class="sec" id="sec-stack-tecnológico">
+<h3 id="stack-tecnológico">Stack tecnológico</h3>
+<div class="tbl"><table><thead><tr><th>Capa</th><th>Tecnología</th></tr></thead><tbody><tr><td>Backend</td><td>.NET 10 para proyectos nuevos; .NET 8 y 4.x en mantenimiento</td></tr><tr><td>Acceso a datos</td><td>EF Core 10 o Dapper según el proyecto</td></tr><tr><td>Base de datos</td><td>SQL Server por defecto; PostgreSQL, MySQL y SQLite configurables (<code>database.engine</code>)</td></tr><tr><td>Caché</td><td>Redis en infraestructura balanceada</td></tr><tr><td>Cloud</td><td>Azure, AWS o GCP según <code>cloud.provider</code></td></tr><tr><td>Contenedores</td><td>Docker</td></tr></tbody></table></div>
+<p>Detalle: <code>_patron/01_Estructura_Tecnica/</code> y <code>.claude/CLAUDE_BASE.md</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-skills-de-claude-code">
+<h3 id="skills-de-claude-code">Skills de Claude Code</h3>
+<div class="tbl"><table><thead><tr><th>Skill</th><th>Descripción</th></tr></thead><tbody><tr><td><code>/hv:onboarding</code></td><td>Configuración guiada en 8 fases</td></tr><tr><td><code>/hv:analizar</code></td><td>Análisis profundo del código</td></tr><tr><td><code>/hv:nuevo-evolutivo</code></td><td>Iniciar una funcionalidad</td></tr><tr><td><code>/hv:commit</code></td><td>Commit con mensaje estructurado</td></tr><tr><td><code>/hv:testing-patterns</code></td><td>Generar y ejecutar tests</td></tr><tr><td><code>/hv:estado</code></td><td>Dashboard del proyecto</td></tr><tr><td><code>/hv:sos</code></td><td>Ayuda y catálogo completo</td></tr></tbody></table></div>
+<p>Actualizar: <code>claude plugin update hv@ovillo</code> y de nuevo <code>/hv:init</code>, que solo añade lo que falte.</p>
+<hr>
+</section>
+<section class="sec" id="sec-patrón">
+<h3 id="patrón">Patrón</h3>
+<p>La carpeta <code>_patron/</code> contiene las <strong>referencias técnicas de la organización</strong>: estructura técnica, diseño y usabilidad, consideraciones comunes (normativa, protección de datos, integraciones), plantillas de documentación y SQL, observabilidad, resiliencia y CI/CD. Son la fuente de verdad para las decisiones técnicas y las skills las leen bajo demanda. Un cambio de estándar es una decisión de arquitectura: registrarla en <code>_hilo/DECISIONES.md</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-reglas-de-desarrollo">
+<h3 id="reglas-de-desarrollo">Reglas de desarrollo</h3>
+<ul>
+<li>Todo código generado con IA pasa por <strong>code review humano</strong>.</li>
+<li>Sin datos sensibles en prompts (usar placeholders).</li>
+<li>Secretos en el servicio configurado (<code>cloud.secrets</code>); nunca en el repositorio.</li>
+<li>Storage y caché distribuidos en infraestructura balanceada; sin estado local.</li>
+<li>Estrategia de ramas y convención de commits según <code>configuracion.branching</code> del Hilo.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-contacto">
+<h3 id="contacto">Contacto</h3>
+<ul>
+<li><strong>Dudas técnicas</strong>: líder técnico del proyecto</li>
+<li><strong>Dudas de proceso</strong>: jefe de proyecto</li>
+<li><strong>Soporte del ecosistema</strong>: <code>organization.supportEmail</code> de <code>ecosystem.config.json</code></li>
+</ul>
+<hr>
+<p><em>Ovillo</em></p>
+</section>
+<section class="sec" id="sec-licencia">
+<h3 id="licencia">Licencia</h3>
+<p>Ovillo se distribuye bajo la licencia Apache 2.0 (<code>.claude/LICENSE</code> y <code>.claude/NOTICE</code>). Copyright 2026 Hugo Valer Rojas. Lo que <code>/hv:init</code> escribe en tu proyecto es tuyo: el <code>NOTICE</code> incluye una excepción explícita para el andamiaje, sin obligación de atribución. Portal de documentación: https://hvaler.github.io/ovillo-docs/</p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/README.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/api.html">api</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/sos.html">sos</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/inicio_rapido.html"><small>Anterior</small>Guía de inicio rápido</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/README.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#instalación-rápida">🚀 Instalación rápida</a></li><li class="l3"><a href="#proyecto-existente-recomendado">Proyecto existente (recomendado)</a></li><li class="l3"><a href="#proyecto-nuevo">Proyecto nuevo</a></li><li class="l2"><a href="#estructura-del-proyecto">Estructura del proyecto</a></li><li class="l2"><a href="#integración-con-el-ide">Integración con el IDE</a></li><li class="l2"><a href="#stack-tecnológico">Stack tecnológico</a></li><li class="l2"><a href="#skills-de-claude-code">Skills de Claude Code</a></li><li class="l2"><a href="#patrón">Patrón</a></li><li class="l2"><a href="#reglas-de-desarrollo">Reglas de desarrollo</a></li><li class="l2"><a href="#contacto">Contacto</a></li><li class="l2"><a href="#licencia">Licencia</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

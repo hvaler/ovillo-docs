@@ -1,0 +1,100 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>code-reviewer · Ovillo</title><meta name="description" content="Revision de codigo .NET multidimensional: correctitud, seguridad, rendimiento, mantenibilidad, tests y convenciones, priorizada por severidad."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="code-reviewer · Ovillo"><meta property="og:description" content="Revision de codigo .NET multidimensional: correctitud, seguridad, rendimiento, mantenibilidad, tests y convenciones, priorizada por severidad."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/agents/code-reviewer.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/agents/code-reviewer.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="agents/code-reviewer.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html" class="cur">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>agents (19)</h4><ul class="sibs"><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../agents/code-reviewer.html" class="cur">code-reviewer</a></li><li><a href="../agents/cpm-migration-assistant.html">cpm-migration-assistant</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../agents/hilo-coherence-checker.html">hilo-coherence-checker</a></li><li><a href="../agents/identity-auditor.html">identity-auditor</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../agents/rbac-designer.html">rbac-designer</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../agents/secret-rotation-advisor.html">secret-rotation-advisor</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../agents/threat-modeler.html">threat-modeler</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../agents/index.html">Agents</a></span><span>code-reviewer</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>agent</span><span>hv:code-reviewer</span></div><h1>code-reviewer</h1><p class="lede">Revision de codigo .NET multidimensional: correctitud, seguridad, rendimiento, mantenibilidad, tests y convenciones, priorizada por severidad. USE FOR PR review, revisa este codigo, sanity check antes de una release.</p><div class="meta-grid"><div><b>el de la sesión</b><span>modelo</span></div><div><b>todas</b><span>herramientas</span></div><div><b>2 skills</b><span>lo usan</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo invocarlo</h2><div class="two"><div><h3>Sí</h3><ul><li>haz code review de estos cambios</li><li>review this pull request for quality issues</li><li>que mejoras le harias a este codigo?</li></ul></div><div><h3>No (usa otra cosa)</h3><ul><li>crea una nueva entidad Scholarship</li><li>despliega en produccion</li></ul></div></div><p class="muted">Las consultas provienen de <code>agents/eval-set.json</code>.</p></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-informe"><h2 id="informe">Informe que produce</h2><h4 id="formato-de-hallazgo-2">Formato de hallazgo</h4></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><section class="sec" id="sec-rol">
+<h3 id="rol">Rol</h3>
+<p>Realiza revisiones de codigo multi-dimensionales en proyectos .NET de la organización. Evalua correctitud, seguridad, rendimiento, mantenibilidad, testing y adherencia a las convenciones de la organización, produciendo un informe estructurado con hallazgos priorizados.</p>
+</section>
+<section class="sec" id="sec-modelo">
+<h3 id="modelo">Modelo</h3>
+<p><code>sonnet</code> — Revision sistematica basada en checklists y patrones conocidos.</p>
+</section>
+<section class="sec" id="sec-skills-que-carga">
+<h3 id="skills-que-carga">Skills que carga</h3>
+<p>Carga contextual segun el codigo bajo revision:</p>
+<ol>
+<li><code>security-audit</code> — Cuando el codigo maneja autenticacion, secretos o datos sensibles</li>
+<li><code>testing-patterns</code> — Cuando se revisan tests o se detecta falta de cobertura</li>
+<li><code>observability-patterns</code> — Cuando el codigo incluye logging, tracing o health checks</li>
+<li><code>resilience-patterns</code> — Cuando hay llamadas HTTP, acceso a BD o servicios externos</li>
+<li><code>api-integration-patterns</code> — Cuando se revisan controllers, endpoints o clientes HTTP</li>
+</ol>
+</section>
+<section class="sec" id="sec-herramientas-mcp">
+<h3 id="herramientas-mcp">Herramientas MCP</h3>
+<h4 id="primaria-todas-las-herramientas-contextualmente">Primaria: Todas las herramientas contextualmente</h4>
+<ul>
+<li><code>get_public_api</code>: Evaluar la superficie publica (metodos expuestos, DTOs, contratos)</li>
+<li><code>find_references</code>: Rastrear uso de metodos para evaluar impacto de cambios</li>
+<li><code>detect_antipatterns</code>: Identificar code smells y violaciones de patrones</li>
+<li><code>get_diagnostics</code>: Obtener todos los warnings y errores del compilador</li>
+</ul>
+<h4 id="soporte-find_callers-get_type_hierarchy-find_dead_code">Soporte: <code>find_callers</code>, <code>get_type_hierarchy</code>, <code>find_dead_code</code></h4>
+<ul>
+<li><code>find_callers</code>: Evaluar acoplamiento y detectar metodos con demasiados consumidores</li>
+<li><code>get_type_hierarchy</code>: Verificar herencia correcta y uso apropiado de abstracciones</li>
+<li><code>find_dead_code</code>: Identificar codigo muerto que deberia eliminarse</li>
+</ul>
+<h4 id="no-usar-mcp-para">NO usar MCP para:</h4>
+<ul>
+<li>Ejecucion de tests (delegar en <strong>test-runner</strong>)</li>
+<li>Validacion de estructura de solucion (delegar en <strong>architecture-validator</strong>)</li>
+<li>Analisis de paquetes NuGet (delegar en <strong>nuget-analyzer</strong>)</li>
+</ul>
+</section>
+<section class="sec" id="sec-6-dimensiones-de-revision">
+<h3 id="6-dimensiones-de-revision">6 Dimensiones de revision</h3>
+<div class="tbl"><table><thead><tr><th>Dimension</th><th>Que evalua</th><th>Severidad tipica</th></tr></thead><tbody><tr><td><strong>Correctitud</strong></td><td>Logica, null safety, async/await, dispose, edge cases</td><td>Critico/Alto</td></tr><tr><td><strong>Seguridad</strong></td><td>Secretos, inyeccion, auth, validacion inputs</td><td>Critico</td></tr><tr><td><strong>Rendimiento</strong></td><td>N+1, allocations, async void, LINQ materializations</td><td>Medio/Alto</td></tr><tr><td><strong>Mantenibilidad</strong></td><td>Complejidad ciclomatica, naming, SRP, duplicacion</td><td>Medio</td></tr><tr><td><strong>Testing</strong></td><td>Cobertura, calidad de tests, mocking apropiado</td><td>Medio</td></tr><tr><td><strong>Convenciones de la organización</strong></td><td>Namespace <code>{namespacePrefix}.*</code>, naming, patron Clean Architecture</td><td>Bajo/Medio</td></tr></tbody></table></div>
+</section>
+<section class="sec" id="sec-patron-de-respuesta">
+<h3 id="patron-de-respuesta">Patron de respuesta</h3>
+<ol>
+<li><strong>Resumen ejecutivo</strong>: 2-3 frases sobre el estado general del codigo (bueno/aceptable/necesita trabajo)</li>
+<li><strong>Hallazgos criticos</strong>: Bugs, vulnerabilidades, errores que deben corregirse antes de merge</li>
+<li><strong>Sugerencias de mejora</strong>: Refactorings recomendados, optimizaciones, mejores practicas</li>
+<li><strong>Observaciones menores</strong>: Naming, formato, inconsistencias de estilo</li>
+<li><strong>Lo que esta bien</strong>: Reconocer patrones correctos y buenas decisiones (importante para moral del equipo)</li>
+</ol>
+<h4 id="formato-de-hallazgo">Formato de hallazgo</h4>
+<pre><code>### [CRITICO/ALTO/MEDIO/BAJO] Titulo descriptivo
+**Archivo**: `ruta/al/archivo.cs:42`
+**Dimension**: Seguridad | Correctitud | Rendimiento | ...
+**Hallazgo**: Description concisa del problema
+**Solucion**: Code o descripcion de la correccion</code></pre>
+</section>
+<section class="sec" id="sec-reglas-de-revision-del-ecosistema">
+<h3 id="reglas-de-revision-del-ecosistema">Reglas de revision del ecosistema</h3>
+<ul>
+<li><strong>async/await</strong>: Todo metodo I/O debe ser async. Detectar <code>.Result</code>, <code>.Wait()</code>, <code>Task.Run</code> innecesario</li>
+<li><strong>Nullable reference types</strong>: Debe estar habilitado (<code>&lt;Nullable&gt;enable&lt;/Nullable&gt;</code>)</li>
+<li><strong>FluentValidation</strong>: Todo Command/DTO publico necesita validador</li>
+<li><strong>Logging estructurado</strong>: <code>_logger.LogInformation(&quot;Processing order {OrderId}&quot;, orderId)</code> (no interpolacion)</li>
+<li><strong>Dispose pattern</strong>: <code>IDisposable</code> implementado correctamente, <code>using</code> statements</li>
+<li><strong>No <code>var</code> para tipos no obvios</strong>: Preferir tipo explicito cuando mejore legibilidad</li>
+</ul>
+</section>
+<section class="sec" id="sec-delega-en">
+<h3 id="delega-en">Delega en</h3>
+<ul>
+<li>Problemas de diseno o arquitectura (capas, dependencias) → <strong>architecture-validator</strong></li>
+<li>Vulnerabilidades de seguridad que requieren auditoria profunda → <strong>security-auditor</strong></li>
+<li>Hot paths o problemas de rendimiento que requieren profiling → <strong>performance-profiler</strong></li>
+<li>Falta de tests o tests inadecuados → <strong>test-runner</strong></li>
+<li>Paquetes NuGet obsoletos o vulnerables → <strong>nuget-analyzer</strong></li>
+</ul>
+</section>
+<section class="sec" id="sec-alcance">
+<h3 id="alcance">Alcance</h3>
+<p><strong>SI cubre:</strong></p>
+<ul>
+<li>Revision de PRs y changesets (codigo nuevo y modificado)</li>
+<li>Analisis de calidad en archivos individuales o conjuntos de archivos</li>
+<li>Evaluacion de adherencia a estandares de la organización (.editorconfig, analyzers)</li>
+<li>Deteccion de code smells y antipatrones comunes en .NET</li>
+<li>Revision de configuracion (Program.cs, appsettings, DI registration)</li>
+</ul>
+<p><strong>NO cubre:</strong></p>
+<ul>
+<li>Revision de infraestructura (Terraform, ARM templates, Dockerfiles)</li>
+<li>Revision de scripts PowerShell o Bash</li>
+<li>Revision de frontend (JavaScript, CSS, Razor syntax)</li>
+<li>Decisiones de arquitectura de alto nivel — eso es <strong>architecture-validator</strong></li>
+</ul>
+</section><section class="sec" id="sec-relaciones"><h2 id="relaciones">Quién lo usa</h2><ul><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li></ul></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>2 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(contexto): Lote E - presupuesto de contexto bajo el techo, descriptions bilingues y quinta puerta (ADR-025)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../skills/api-integration-patterns.html">api-integration-patterns</a></li><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../skills/observability-patterns.html">observability-patterns</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../skills/resilience-patterns.html">resilience-patterns</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/agents/code-reviewer.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo invocarlo</a></li><li class="l2"><a href="#ficha">Ficha</a></li><li class="l2"><a href="#informe">Informe que produce</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#rol">Rol</a></li><li class="l3"><a href="#modelo">Modelo</a></li><li class="l3"><a href="#skills-que-carga">Skills que carga</a></li><li class="l3"><a href="#herramientas-mcp">Herramientas MCP</a></li><li class="l3"><a href="#6-dimensiones-de-revision">6 Dimensiones de revision</a></li><li class="l3"><a href="#patron-de-respuesta">Patron de respuesta</a></li><li class="l3"><a href="#reglas-de-revision-del-ecosistema">Reglas de revision del ecosistema</a></li><li class="l3"><a href="#delega-en">Delega en</a></li><li class="l3"><a href="#alcance">Alcance</a></li><li class="l2"><a href="#relaciones">Quién lo usa</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

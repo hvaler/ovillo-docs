@@ -1,0 +1,445 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>domain · Ovillo</title><meta name="description" content="Convenciones de la capa de dominio: entidades, objetos de valor, agregados y eventos de dominio."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="domain · Ovillo"><meta property="og:description" content="Convenciones de la capa de dominio: entidades, objetos de valor, agregados y eventos de dominio."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/domain.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/domain.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/domain.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>regla por ruta (13)</h4><ul class="sibs"><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/blazor.html">blazor</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html" class="cur">domain</a></li><li><a href="../skills/domain-api-docs.html">domain-api-docs</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/mcp-config.html">mcp-config</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/webapp.html">webapp</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>domain</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>/hv:domain</span></div><h1>domain</h1><p class="lede">Convenciones de la capa de dominio: entidades, objetos de valor, agregados y eventos de dominio.</p><div class="meta-grid"><div><b>regla por ruta</b><span>clase</span></div><div><b><code>/hv:domain</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>270</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>user-invocable</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Se carga sola al tocar ficheros que casan con sus rutas (<code>paths:</code>). No entra en el listado de skills.</p><pre data-lang="yaml"><code>paths:
+  - &quot;**/Domain/**/*.cs&quot;
+  - &quot;**/Entities/**/*.cs&quot;
+  - &quot;**/ValueObjects/**/*.cs&quot;
+  - &quot;**/Aggregates/**/*.cs&quot;
+  - &quot;**/Events/**/*.cs&quot;
+  - &quot;**/*Entity.cs&quot;
+  - &quot;**/*Aggregate.cs&quot;</code></pre></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Se carga por ruta, no por invocacion</strong>: el campo <code>paths:</code> la activa cuando Claude trabaja con ficheros que casan con esos patrones. No aparece en el menu (<code>user-invocable: false</code>) y <strong>no ocupa contexto</strong> mientras no case ningun fichero.</p>
+<p>Procede de <code>.claude/skills/domain/SKILL.md</code>. Se convirtio en skill porque un plugin no distribuye <code>rules/</code>.</p></blockquote>
+<hr>
+<h2 id="reglas-para-capa-de-dominio">Reglas para Capa de Dominio</h2>
+<blockquote><p>Este archivo aplica cuando Claude trabaja con entidades, value objects y lógica de dominio. El dominio debe ser <strong>agnóstico a la infraestructura</strong>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-principios-fundamentales">
+<h3 id="principios-fundamentales">PRINCIPIOS FUNDAMENTALES</h3>
+<div class="tbl"><table><thead><tr><th>Principio</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>Agnóstico</strong></td><td>Sin dependencias de EF, HTTP, bases de datos</td></tr><tr><td><strong>Rico</strong></td><td>Lógica de negocio en entidades, no en servicios</td></tr><tr><td><strong>Inmutable</strong></td><td>Value Objects inmutables</td></tr><tr><td><strong>Validado</strong></td><td>Entidades siempre en estado válido</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-parte-1-entidad-base">
+<h3 id="parte-1-entidad-base">PARTE 1: ENTIDAD BASE</h3>
+<h4 id="entity-base---net-10-c-13">Entity Base - .NET 10 (C# 13)</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">abstract</span> <span class="tk-k">class</span> Entity : IEquatable&lt;Entity&gt;
+{
+    <span class="tk-k">public</span> <span class="tk-k">int</span> Id { <span class="tk-k">get</span>; <span class="tk-k">protected</span> <span class="tk-k">set</span>; }
+
+    <span class="tk-c">// Eventos de dominio</span>
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> List&lt;IDomainEvent&gt; _domainEvents = [];
+    <span class="tk-k">public</span> IReadOnlyCollection&lt;IDomainEvent&gt; DomainEvents =&gt; _domainEvents.AsReadOnly();
+
+    <span class="tk-k">protected</span> <span class="tk-k">void</span> AddDomainEvent(IDomainEvent domainEvent)
+    {
+        _domainEvents.Add(domainEvent);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">void</span> ClearDomainEvents()
+    {
+        _domainEvents.Clear();
+    }
+
+    <span class="tk-c">// Igualdad por ID</span>
+    <span class="tk-k">public</span> <span class="tk-k">override</span> <span class="tk-k">bool</span> Equals(<span class="tk-k">object</span>? obj)
+    {
+        <span class="tk-k">return</span> obj <span class="tk-k">is</span> Entity entity &amp;&amp; Equals(entity);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">bool</span> Equals(Entity? other)
+    {
+        <span class="tk-k">if</span> (other <span class="tk-k">is</span> <span class="tk-k">null</span>) <span class="tk-k">return</span> <span class="tk-k">false</span>;
+        <span class="tk-k">if</span> (ReferenceEquals(<span class="tk-k">this</span>, other)) <span class="tk-k">return</span> <span class="tk-k">true</span>;
+        <span class="tk-k">if</span> (GetType() != other.GetType()) <span class="tk-k">return</span> <span class="tk-k">false</span>;
+        <span class="tk-k">if</span> (Id == <span class="tk-k">default</span> || other.Id == <span class="tk-k">default</span>) <span class="tk-k">return</span> <span class="tk-k">false</span>;
+        <span class="tk-k">return</span> Id == other.Id;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">override</span> <span class="tk-k">int</span> GetHashCode()
+    {
+        <span class="tk-k">return</span> Id.GetHashCode();
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">bool</span> operator ==(Entity? left, Entity? right)
+    {
+        <span class="tk-k">return</span> Equals(left, right);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">bool</span> operator !=(Entity? left, Entity? right)
+    {
+        <span class="tk-k">return</span> !Equals(left, right);
+    }
+}
+
+<span class="tk-c">// Entidad auditable</span>
+<span class="tk-k">public</span> <span class="tk-k">abstract</span> <span class="tk-k">class</span> AuditableEntity : Entity, IAuditable
+{
+    <span class="tk-k">public</span> DateTime CreatedAt { <span class="tk-k">get</span>; <span class="tk-k">set</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span>? CreatedBy { <span class="tk-k">get</span>; <span class="tk-k">set</span>; }
+    <span class="tk-k">public</span> DateTime? ModifiedAt { <span class="tk-k">get</span>; <span class="tk-k">set</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span>? ModifiedBy { <span class="tk-k">get</span>; <span class="tk-k">set</span>; }
+}
+
+<span class="tk-c">// Soft delete</span>
+<span class="tk-k">public</span> <span class="tk-k">interface</span> ISoftDelete
+{
+    <span class="tk-k">bool</span> IsDeleted { <span class="tk-k">get</span>; }
+    DateTime? DeletedAt { <span class="tk-k">get</span>; }
+    <span class="tk-k">string</span>? DeletedBy { <span class="tk-k">get</span>; }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-2-entidad-de-dominio">
+<h3 id="parte-2-entidad-de-dominio">PARTE 2: ENTIDAD DE DOMINIO</h3>
+<h4 id="ejemplo-scholarship">Ejemplo: Scholarship</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> Scholarship : AuditableEntity, ISoftDelete
+{
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// PROPIEDADES - Solo getters públicos, setters privados</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Code { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; } = <span class="tk-k">null</span>!;
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; } = <span class="tk-k">null</span>!;
+    <span class="tk-k">public</span> <span class="tk-k">string</span>? Description { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">decimal</span> Amount { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+    <span class="tk-k">public</span> Period Period { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; } = <span class="tk-k">null</span>!;  <span class="tk-c">// Value Object</span>
+    <span class="tk-k">public</span> ScholarshipStatus Status { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+    
+    <span class="tk-c">// Soft delete</span>
+    <span class="tk-k">public</span> <span class="tk-k">bool</span> IsDeleted { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+    <span class="tk-k">public</span> DateTime? DeletedAt { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span>? DeletedBy { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+
+    <span class="tk-c">// Navegación (solo lectura)</span>
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> List&lt;ScholarshipApplication&gt; _applications = [];
+    <span class="tk-k">public</span> IReadOnlyCollection&lt;ScholarshipApplication&gt; Applications =&gt; _applications.AsReadOnly();
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// CONSTRUCTOR - Privado para forzar uso de factory</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    
+    <span class="tk-k">private</span> Scholarship() { } <span class="tk-c">// Para EF</span>
+
+    <span class="tk-k">private</span> Scholarship(<span class="tk-k">string</span> code, <span class="tk-k">string</span> name, <span class="tk-k">decimal</span> amount, Period period)
+    {
+        Code = code;
+        Name = name;
+        Amount = amount;
+        Period = period;
+        Status = ScholarshipStatus.Draft;
+    }
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// FACTORY - Punto único de creación con validación</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Scholarship Create(<span class="tk-k">string</span> code, <span class="tk-k">string</span> name, <span class="tk-k">decimal</span> amount, Period period)
+    {
+        <span class="tk-c">// Validaciones de dominio</span>
+        <span class="tk-k">if</span> (<span class="tk-k">string</span>.IsNullOrWhiteSpace(code))
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Code is required&quot;</span>);
+        
+        <span class="tk-k">if</span> (<span class="tk-k">string</span>.IsNullOrWhiteSpace(name))
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Name is required&quot;</span>);
+        
+        <span class="tk-k">if</span> (name.Length &gt; <span class="tk-n">200</span>)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Name cannot exceed 200 characters&quot;</span>);
+        
+        <span class="tk-k">if</span> (amount &lt;= <span class="tk-n">0</span>)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Amount must be positive&quot;</span>);
+        
+        <span class="tk-k">if</span> (amount &gt; 100_000)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Maximum amount is 100,000&quot;</span>);
+
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">new</span> Scholarship(code.ToUpperInvariant(), name.Trim(), amount, period);
+        
+        <span class="tk-c">// Evento de dominio</span>
+        scholarship.AddDomainEvent(<span class="tk-k">new</span> ScholarshipCreatedEvent(scholarship.Id, scholarship.Code, scholarship.Name));
+        
+        <span class="tk-k">return</span> scholarship;
+    }
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// COMPORTAMIENTOS - Métodos con lógica de negocio</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Publish()
+    {
+        <span class="tk-k">if</span> (Status != ScholarshipStatus.Draft)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Only draft scholarships can be published&quot;</span>);
+        
+        <span class="tk-k">if</span> (!Period.IsFuture())
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Cannot publish a scholarship with a past period&quot;</span>);
+
+        Status = ScholarshipStatus.Published;
+        AddDomainEvent(<span class="tk-k">new</span> ScholarshipPublishedEvent(Id, Code));
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Close()
+    {
+        <span class="tk-k">if</span> (Status != ScholarshipStatus.Published)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Only published scholarships can be closed&quot;</span>);
+
+        Status = ScholarshipStatus.Closed;
+        AddDomainEvent(<span class="tk-k">new</span> ScholarshipClosedEvent(Id));
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">void</span> UpdateAmount(<span class="tk-k">decimal</span> newAmount)
+    {
+        <span class="tk-k">if</span> (Status != ScholarshipStatus.Draft)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Amount can only be modified in draft state&quot;</span>);
+        
+        <span class="tk-k">if</span> (newAmount &lt;= <span class="tk-n">0</span>)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Amount must be positive&quot;</span>);
+
+        <span class="tk-k">var</span> previousAmount = Amount;
+        Amount = newAmount;
+        
+        AddDomainEvent(<span class="tk-k">new</span> ScholarshipAmountModifiedEvent(Id, previousAmount, newAmount));
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">void</span> AddScholarshipApplication(ScholarshipApplication application)
+    {
+        <span class="tk-k">if</span> (Status != ScholarshipStatus.Published)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Applications are only accepted for published scholarships&quot;</span>);
+        
+        <span class="tk-k">if</span> (!Period.Contains(DateTime.Today))
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Outside the application period&quot;</span>);
+        
+        <span class="tk-k">if</span> (_applications.Any(s =&gt; s.StudentId == application.StudentId))
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Student already has an application for this scholarship&quot;</span>);
+
+        _applications.Add(application);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Delete(<span class="tk-k">string</span> user)
+    {
+        <span class="tk-k">if</span> (Status == ScholarshipStatus.Published &amp;&amp; _applications.Any())
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Cannot delete a scholarship with applications&quot;</span>);
+
+        IsDeleted = <span class="tk-k">true</span>;
+        DeletedAt = DateTime.UtcNow;
+        DeletedBy = user;
+    }
+}
+
+<span class="tk-c">// Enum de dominio</span>
+<span class="tk-k">public</span> <span class="tk-k">enum</span> ScholarshipStatus
+{
+    Draft = <span class="tk-n">0</span>,
+    Published = <span class="tk-n">1</span>,
+    Closed = <span class="tk-n">2</span>,
+    Cancelled = <span class="tk-n">3</span>
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-3-value-objects">
+<h3 id="parte-3-value-objects">PARTE 3: VALUE OBJECTS</h3>
+<h4 id="value-object-base">Value Object Base</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">abstract</span> <span class="tk-k">class</span> ValueObject : IEquatable&lt;ValueObject&gt;
+{
+    <span class="tk-k">protected</span> <span class="tk-k">abstract</span> IEnumerable&lt;<span class="tk-k">object</span>?&gt; GetEqualityComponents();
+
+    <span class="tk-k">public</span> <span class="tk-k">override</span> <span class="tk-k">bool</span> Equals(<span class="tk-k">object</span>? obj)
+    {
+        <span class="tk-k">if</span> (obj <span class="tk-k">is</span> <span class="tk-k">null</span> || obj.GetType() != GetType())
+            <span class="tk-k">return</span> <span class="tk-k">false</span>;
+
+        <span class="tk-k">return</span> Equals((ValueObject)obj);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">bool</span> Equals(ValueObject? other)
+    {
+        <span class="tk-k">if</span> (other <span class="tk-k">is</span> <span class="tk-k">null</span>) <span class="tk-k">return</span> <span class="tk-k">false</span>;
+        <span class="tk-k">return</span> GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">override</span> <span class="tk-k">int</span> GetHashCode()
+    {
+        <span class="tk-k">return</span> GetEqualityComponents()
+            .Select(x =&gt; x?.GetHashCode() ?? <span class="tk-n">0</span>)
+            .Aggregate((x, y) =&gt; x ^ y);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">bool</span> operator ==(ValueObject? left, ValueObject? right)
+    {
+        <span class="tk-k">return</span> Equals(left, right);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">bool</span> operator !=(ValueObject? left, ValueObject? right)
+    {
+        <span class="tk-k">return</span> !Equals(left, right);
+    }
+}</code></pre>
+<h4 id="ejemplo-period">Ejemplo: Period</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> Period : ValueObject
+{
+    <span class="tk-k">public</span> DateTime StartDate { <span class="tk-k">get</span>; }
+    <span class="tk-k">public</span> DateTime EndDate { <span class="tk-k">get</span>; }
+
+    <span class="tk-c">// Duración calculada</span>
+    <span class="tk-k">public</span> <span class="tk-k">int</span> TotalDays =&gt; (EndDate - StartDate).Days;
+
+    <span class="tk-k">private</span> Period() { } <span class="tk-c">// Para EF</span>
+
+    <span class="tk-k">public</span> Period(DateTime startDate, DateTime endDate)
+    {
+        <span class="tk-k">if</span> (endDate &lt;= startDate)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;End date must be after start date&quot;</span>);
+
+        StartDate = startDate.Date;
+        EndDate = endDate.Date;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">bool</span> Contains(DateTime date) 
+        =&gt; date.Date &gt;= StartDate &amp;&amp; date.Date &lt;= EndDate;
+
+    <span class="tk-k">public</span> <span class="tk-k">bool</span> IsFuture() 
+        =&gt; StartDate &gt; DateTime.Today;
+
+    <span class="tk-k">public</span> <span class="tk-k">bool</span> IsActive() 
+        =&gt; Contains(DateTime.Today);
+
+    <span class="tk-k">public</span> <span class="tk-k">bool</span> Overlaps(Period other)
+        =&gt; StartDate &lt;= other.EndDate &amp;&amp; other.StartDate &lt;= EndDate;
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> IEnumerable&lt;<span class="tk-k">object</span>?&gt; GetEqualityComponents()
+    {
+        <span class="tk-k">yield</span> <span class="tk-k">return</span> StartDate;
+        <span class="tk-k">yield</span> <span class="tk-k">return</span> EndDate;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">override</span> <span class="tk-k">string</span> ToString() 
+        =&gt; <span class="tk-s">$&quot;{StartDate:dd/MM/yyyy} - {EndDate:dd/MM/yyyy}&quot;</span>;
+}</code></pre>
+<h4 id="ejemplo-money-money-pattern">Ejemplo: Money (Money Pattern)</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> Money : ValueObject
+{
+    <span class="tk-k">public</span> <span class="tk-k">decimal</span> Amount { <span class="tk-k">get</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Currency { <span class="tk-k">get</span>; }
+
+    <span class="tk-k">private</span> Money() { }
+
+    <span class="tk-k">public</span> Money(<span class="tk-k">decimal</span> amount, <span class="tk-k">string</span> currency = <span class="tk-s">&quot;EUR&quot;</span>)
+    {
+        <span class="tk-k">if</span> (amount &lt; <span class="tk-n">0</span>)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Amount cannot be negative&quot;</span>);
+        
+        Amount = Math.Round(amount, <span class="tk-n">2</span>);
+        Currency = currency.ToUpperInvariant();
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Money Euros(<span class="tk-k">decimal</span> amount) =&gt; <span class="tk-k">new</span>(amount, <span class="tk-s">&quot;EUR&quot;</span>);
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Money Zero =&gt; <span class="tk-k">new</span>(<span class="tk-n">0</span>, <span class="tk-s">&quot;EUR&quot;</span>);
+
+    <span class="tk-k">public</span> Money Add(Money other)
+    {
+        <span class="tk-k">if</span> (Currency != other.Currency)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Cannot add different currencies&quot;</span>);
+        
+        <span class="tk-k">return</span> <span class="tk-k">new</span> Money(Amount + other.Amount, Currency);
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> IEnumerable&lt;<span class="tk-k">object</span>?&gt; GetEqualityComponents()
+    {
+        <span class="tk-k">yield</span> <span class="tk-k">return</span> Amount;
+        <span class="tk-k">yield</span> <span class="tk-k">return</span> Currency;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">override</span> <span class="tk-k">string</span> ToString() =&gt; <span class="tk-s">$&quot;{Amount:N2} {Currency}&quot;</span>;
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-4-eventos-de-dominio">
+<h3 id="parte-4-eventos-de-dominio">PARTE 4: EVENTOS DE DOMINIO</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">interface</span> IDomainEvent
+{
+    DateTime OccurredOn { <span class="tk-k">get</span>; }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">abstract</span> <span class="tk-k">record</span> DomainEvent : IDomainEvent
+{
+    <span class="tk-k">public</span> DateTime OccurredOn { <span class="tk-k">get</span>; } = DateTime.UtcNow;
+}
+
+<span class="tk-c">// Eventos específicos</span>
+<span class="tk-k">public</span> <span class="tk-k">record</span> ScholarshipCreatedEvent(<span class="tk-k">int</span> ScholarshipId, <span class="tk-k">string</span> Code, <span class="tk-k">string</span> Name) : DomainEvent;
+<span class="tk-k">public</span> <span class="tk-k">record</span> ScholarshipPublishedEvent(<span class="tk-k">int</span> ScholarshipId, <span class="tk-k">string</span> Code) : DomainEvent;
+<span class="tk-k">public</span> <span class="tk-k">record</span> ScholarshipClosedEvent(<span class="tk-k">int</span> ScholarshipId) : DomainEvent;
+<span class="tk-k">public</span> <span class="tk-k">record</span> ScholarshipAmountModifiedEvent(<span class="tk-k">int</span> ScholarshipId, <span class="tk-k">decimal</span> PreviousAmount, <span class="tk-k">decimal</span> NewAmount) : DomainEvent;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-5-excepciones-de-dominio">
+<h3 id="parte-5-excepciones-de-dominio">PARTE 5: EXCEPCIONES DE DOMINIO</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> DomainException : Exception
+{
+    <span class="tk-k">public</span> DomainException(<span class="tk-k">string</span> message) : <span class="tk-k">base</span>(message) { }
+    <span class="tk-k">public</span> DomainException(<span class="tk-k">string</span> message, Exception innerException) : <span class="tk-k">base</span>(message, innerException) { }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> NotFoundException : DomainException
+{
+    <span class="tk-k">public</span> NotFoundException(<span class="tk-k">string</span> entityName, <span class="tk-k">object</span> id) 
+        : <span class="tk-k">base</span>(<span class="tk-s">$&quot;{entityName} with ID {id} not found&quot;</span>) { }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> BusinessRuleException : DomainException
+{
+    <span class="tk-k">public</span> <span class="tk-k">string</span> RuleCode { <span class="tk-k">get</span>; }
+    
+    <span class="tk-k">public</span> BusinessRuleException(<span class="tk-k">string</span> ruleCode, <span class="tk-k">string</span> message) : <span class="tk-k">base</span>(message)
+    {
+        RuleCode = ruleCode;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-6-interfaces-de-repositorio">
+<h3 id="parte-6-interfaces-de-repositorio">PARTE 6: INTERFACES DE REPOSITORIO</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// En Domain - Solo contratos</span>
+<span class="tk-k">public</span> <span class="tk-k">interface</span> IScholarshipRepository
+{
+    Task&lt;Scholarship?&gt; GetByIdAsync(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>);
+    Task&lt;Scholarship?&gt; GetByCodeAsync(<span class="tk-k">string</span> code, CancellationToken ct = <span class="tk-k">default</span>);
+    Task&lt;IReadOnlyList&lt;Scholarship&gt;&gt; GetActiveAsync(CancellationToken ct = <span class="tk-k">default</span>);
+    Task&lt;Scholarship&gt; AddAsync(Scholarship scholarship, CancellationToken ct = <span class="tk-k">default</span>);
+    Task UpdateAsync(Scholarship scholarship, CancellationToken ct = <span class="tk-k">default</span>);
+    Task&lt;<span class="tk-k">bool</span>&gt; ExistsCodeAsync(<span class="tk-k">string</span> code, CancellationToken ct = <span class="tk-k">default</span>);
+}
+
+<span class="tk-c">// Patrón Specification (opcional)</span>
+<span class="tk-k">public</span> <span class="tk-k">interface</span> ISpecification&lt;T&gt;
+{
+    Expression&lt;Func&lt;T, <span class="tk-k">bool</span>&gt;&gt; ToExpression();
+}
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ActiveScholarshipsSpec : ISpecification&lt;Scholarship&gt;
+{
+    <span class="tk-k">public</span> Expression&lt;Func&lt;Scholarship, <span class="tk-k">bool</span>&gt;&gt; ToExpression()
+        =&gt; b =&gt; b.Status == ScholarshipStatus.Published &amp;&amp; !b.IsDeleted;
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-CHECKLIST">
+<h3 id="CHECKLIST">CHECKLIST</h3>
+<h4 id="entidades">Entidades</h4>
+<ul>
+<li><input type="checkbox" disabled> Constructor privado + factory Create()</li>
+<li><input type="checkbox" disabled> Propiedades con setter privado</li>
+<li><input type="checkbox" disabled> Validaciones en factory/métodos</li>
+<li><input type="checkbox" disabled> Eventos de dominio para cambios importantes</li>
+<li><input type="checkbox" disabled> Sin dependencias de infraestructura</li>
+</ul>
+<h4 id="value-objects">Value Objects</h4>
+<ul>
+<li><input type="checkbox" disabled> Inmutables (sin setters)</li>
+<li><input type="checkbox" disabled> Validación en constructor</li>
+<li><input type="checkbox" disabled> Igualdad por valor</li>
+<li><input type="checkbox" disabled> Operaciones que retornan nuevo VO</li>
+</ul>
+<h4 id="general">General</h4>
+<ul>
+<li><input type="checkbox" disabled> Excepciones de dominio específicas</li>
+<li><input type="checkbox" disabled> Interfaces de repositorio (solo contratos)</li>
+<li><input type="checkbox" disabled> Sin referencias a EF, HTTP, JSON</li>
+</ul>
+<hr>
+<p><em>Regla incondicional — Domain-Driven Design</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>96</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 270 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>5 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(puertas): Lote B — metadata.kind declarativo y verificado, hook skill-guard, puertas semanticas del portal (ADR-022, ADR-003 enmendado)</em> (<code>55ad636</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/application.html">application</a></li><li><a href="../skills/estado.html">estado</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/domain/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#principios-fundamentales">PRINCIPIOS FUNDAMENTALES</a></li><li class="l3"><a href="#parte-1-entidad-base">PARTE 1: ENTIDAD BASE</a></li><li class="l3"><a href="#parte-2-entidad-de-dominio">PARTE 2: ENTIDAD DE DOMINIO</a></li><li class="l3"><a href="#parte-3-value-objects">PARTE 3: VALUE OBJECTS</a></li><li class="l3"><a href="#parte-4-eventos-de-dominio">PARTE 4: EVENTOS DE DOMINIO</a></li><li class="l3"><a href="#parte-5-excepciones-de-dominio">PARTE 5: EXCEPCIONES DE DOMINIO</a></li><li class="l3"><a href="#parte-6-interfaces-de-repositorio">PARTE 6: INTERFACES DE REPOSITORIO</a></li><li class="l3"><a href="#CHECKLIST">CHECKLIST</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

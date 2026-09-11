@@ -1,0 +1,151 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CLAUDE_BASE.md · Ovillo</title><meta name="description" content="Estándares que Claude debe aplicar en &lt;strong&gt;todos&lt;/strong&gt; los proyectos de la organización."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="CLAUDE_BASE.md · Ovillo"><meta property="og:description" content="Estándares que Claude debe aplicar en &lt;strong&gt;todos&lt;/strong&gt; los proyectos de la organización."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/claude_base.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/claude_base.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/claude_base.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Estándares (3)</h4><ul class="sibs"><li><a href="../guias/claude_base.html" class="cur">CLAUDE_BASE.md</a></li><li><a href="../guias/claude_base_extendido.html">CLAUDE_BASE_EXTENDIDO.md</a></li><li><a href="../guias/configuracion.html">Configuración en Ovillo: una sola superficie</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Estándares</span><span>CLAUDE_BASE.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Estándares</span><span>español</span></div><h1>CLAUDE_BASE.md</h1><p class="lede">Estándares que Claude debe aplicar en <strong>todos</strong> los proyectos de la organización.</p><div class="meta-grid"><div><b>8 min</b><span>lectura</span></div><div><b>1666</b><span>palabras</span></div><div><b>11</b><span>secciones</span></div><div><b>2026-09-10</b><span>última edición</span></div><div><b>5</b><span>cambios</span></div></div><blockquote><p><strong>Organización</strong>: definida en <code>ecosystem.config.json</code> (raíz del proyecto). Sin ese archivo, aplican los <strong>defaults neutrales</strong> indicados en cada sección.</p></blockquote>
+<p class="lede">Estándares que Claude debe aplicar en <strong>todos</strong> los proyectos de la organización.</p>
+<p><strong>Este archivo NO se carga solo</strong> (ADR-025): salió de los <code>@imports</code> de <code>CLAUDE.md</code> porque no hace falta en cada sesión. Quien lo trae es la skill por ruta <code>estandares-base</code>, que se activa al tocar <code>src/</code>, un <code>.csproj</code>, un <code>.sln</code>/<code>.slnx</code>, un <code>.sql</code> u <code>ops/</code>, y manda leerlo antes de escribir código. Léelo con <code>Read</code> cuando la tarea toque alguna de sus materias.</p>
+<ul>
+<li><strong>Ejemplos de código y detalle extendido</strong> (patrones, Serilog, errores, EF, testing AAA, git, legacy): <code>.claude/CLAUDE_BASE_EXTENDIDO.md</code>. <strong>Numeración compartida</strong> con este archivo: aquí están las secciones 0-3, 7-9 y 11-14, y allí las 4, 5, 6, 10 y la mitad larga de 7, 8, 9, 11 y 12, así que una referencia como §8.1 apunta al mismo sitio en los dos.</li>
+<li><strong>Estándares por tipo de archivo</strong> (api, application, domain, infrastructure, tests, database, blazor, webapp, console): son <strong>skills por ruta</strong> en <code>.claude/skills/</code> (ADR-003), y se activan solas con su campo <code>paths:</code>. En <code>.claude/rules/</code> solo quedan las tres incondicionales.</li>
+<li><strong>Infraestructura y seguridad avanzada</strong>: §14.</li>
+</ul>
+<blockquote><p><strong>Se versiona con el proyecto.</strong> Es el estándar del equipo: si cada clon tuviera el suyo, o no lo tuviera, <code>estandares-base</code> mandaría leer un fichero que no existe. Lo único del ecosistema que se ignora en git es lo <strong>per-dev</strong>: <code>.claude/user-config.json</code>, <code>.claude/settings.local.json</code>, <code>.claude/sql-legacy-baseline.txt</code> y los <code>_hilo/.*</code> de credenciales y cachés.</p></blockquote>
+<hr>
+<section class="sec" id="sec-0-configuración-de-organización-ecosystemconfigjson">
+<h3 id="0-configuración-de-organización-ecosystemconfigjson">0. CONFIGURACIÓN DE ORGANIZACIÓN (ecosystem.config.json)</h3>
+<p>La identidad de la organización es <strong>configuración, no código</strong>.</p>
+<blockquote><p>Precedencia de configuración: <code>.claude/user-config.json</code> (personal, solo <code>preferencias.*</code>) › <code>_hilo/ESTADO_PROYECTO.json</code> (proyecto) › <code>ecosystem.config.json</code> (organización) › defaults neutrales. Resuelve <code>hooks/lib/config.js → resolve()</code>; alias y claves deprecadas en <code>.claude/CONFIGURACION.md</code>.</p></blockquote>
+<p>Claves que usan estas reglas: <code>organization.namespacePrefix</code>, <code>organization.supportEmail</code>, <code>identity.*</code> (IdP y roles), <code>cloud.*</code> (secretos/storage/telemetría), <code>database.*</code> (motor, versión, naming SQL), <code>theme.*</code> (tokens de marca), <code>vcs.*</code> / <code>cicd.*</code> (branching y pipelines), <code>workflow.taskTypes</code>. Validación: <code>node .claude/scripts/validate-config.js</code>.</p>
+<p><strong>Regla para Claude</strong>: si <code>ecosystem.config.json</code> no existe o no define una clave, usar el default neutral — NUNCA fallar ni preguntar por su ausencia.</p>
+<hr>
+</section>
+<section class="sec" id="sec-1-versiones-net-soportadas">
+<h3 id="1-versiones-net-soportadas">1. VERSIONES .NET SOPORTADAS</h3>
+<div class="tbl"><table><thead><tr><th>Versión</th><th>Tipo</th><th>Soporte hasta</th><th>Recomendación</th></tr></thead><tbody><tr><td><strong>.NET 10</strong></td><td>LTS</td><td>Nov 2028</td><td>✅ <strong>Usar para nuevos proyectos</strong></td></tr><tr><td><strong>.NET 9</strong></td><td>STS</td><td><strong>May 2026</strong></td><td>⚠️ <strong>Migrar a .NET 10 urgente</strong></td></tr><tr><td><strong>.NET 8</strong></td><td>LTS</td><td><strong>Nov 2026</strong></td><td>⚠️ <strong>Planificar migración a .NET 10</strong></td></tr><tr><td><strong>.NET 4.x</strong></td><td>Legacy</td><td>Mantenimiento</td><td>📦 Mantener, migrar según prioridad</td></tr></tbody></table></div>
+<pre><code>NUEVOS PROYECTOS      → .NET 10 (obligatorio)
+EVOLUTIVOS .NET 10    → Mantener en .NET 10
+EVOLUTIVOS .NET 9     → Migrar a .NET 10 antes de trabajar
+EVOLUTIVOS .NET 8     → Evaluar migración según size
+EVOLUTIVOS .NET 4.x   → Mantener en 4.x (migración separada)</code></pre>
+<p><strong>Detectar la versión</strong> antes de aplicar reglas: <code>&lt;TargetFramework&gt;</code> en el <code>.csproj</code> (<code>net10.0</code> / <code>net9.0</code> / <code>net8.0</code> / <code>net48</code>).</p>
+<hr>
+</section>
+<section class="sec" id="sec-2-nomenclatura-y-convenciones">
+<h3 id="2-nomenclatura-y-convenciones">2. NOMENCLATURA Y CONVENCIONES</h3>
+<p><strong>Namespaces</strong>: <code>{prefix}.[Área].[Proyecto].[Capa]</code> — el <code>{prefix}</code> es <code>organization.namespacePrefix</code> del <code>ecosystem.config</code> (default: <code>MyCompany</code>). Ej. <code>MyCompany.HR.ScholarshipManagement.Domain</code>, <code>MyCompany.Academic.Enrollment.Api</code>.</p>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Convención</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Entidad</td><td>Sustantivo singular</td><td><code>Scholarship</code>, <code>Student</code></td></tr><tr><td>Servicio</td><td>Sustantivo + Service</td><td><code>ScholarshipService</code></td></tr><tr><td>Repositorio</td><td>Sustantivo + Repository</td><td><code>ScholarshipRepository</code></td></tr><tr><td>Controlador</td><td>Sustantivo + Controller</td><td><code>ScholarshipsController</code></td></tr><tr><td>Validador</td><td>Nombre + Validator</td><td><code>CreateScholarshipRequestValidator</code></td></tr><tr><td>DTO / Request / Response</td><td><code>ScholarshipDto</code> / <code>CreateScholarshipRequest</code> / <code>PaginatedResponse&lt;T&gt;</code></td><td></td></tr></tbody></table></div>
+<p><strong>Variables</strong> camelCase · <strong>Métodos</strong> PascalCase verbo+sustantivo · <strong>async</strong> sufijo <code>Async</code> · <strong>booleanos</strong> prefijo <code>Is/Has/Can</code> (en ingles; una organizacion puede anadir los suyos via convencion propia) · <strong>campos privados</strong> <code>_camelCase</code> · <strong>interfaces</strong> <code>IPrefijo</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-3-estructura-de-proyectos">
+<h3 id="3-estructura-de-proyectos">3. ESTRUCTURA DE PROYECTOS</h3>
+<p><strong>Nuevos (.NET 10) — Clean Architecture</strong>: <code>src/{prefix}.MyApp.{Domain|Application|Infrastructure|Web}</code> + <code>tests/{prefix}.MyApp.{Domain|Application|Integration}.Tests</code>.</p>
+<p><strong>Legacy (.NET 4.x)</strong>: <strong>respetar</strong> la estructura existente (<code>.Web</code>/<code>.Business</code>/<code>.Data</code>/<code>.Entities</code>). <strong>No imponer Clean Architecture</strong> en legacy.</p>
+<hr>
+</section>
+<section class="sec" id="sec-7-seguridad">
+<h3 id="7-seguridad">7. SEGURIDAD</h3>
+<p><strong>Política de secretos (WARN-first, default)</strong>: los hooks defensivos <strong>avisan pero no bloquean</strong> (exit 1) salvo que la organización eleve la política (<code>hooks.policy: &quot;block&quot;</code> o <code>hooks.blockList</code> en <code>ecosystem.config</code>). Al detectar un secreto hardcoded: registrar <code>SEC-XXX</code> en <code>_hilo/DEUDA_TECNICA.md</code> y migrar al servicio de secretos configurado cuando se pueda.</p>
+<ul>
+<li>✅ User Secrets / <code>.env</code> en desarrollo · en producción, el servicio de <code>cloud.secrets</code>: <code>keyvault</code> (Azure Key Vault) · <code>secrets-manager</code> (AWS) · <code>gsm</code> (Google) · <code>dotenv</code> (default: variables de entorno gestionadas fuera del repo)</li>
+<li>✅ Autenticación estándar: el IdP de <code>identity.idp</code> (<code>entra</code>, <code>auth0</code>, <code>keycloak</code>, <code>okta</code>, <code>oidc-generic</code>; default <code>none</code> = no asumir auth). Con <code>entra</code>: <code>AddMicrosoftIdentityWebApi</code>.</li>
+<li>✅ Roles estándar: <code>identity.defaultRoles</code> (default <code>Admin</code>, <code>Manager</code>, <code>User</code>) + policies personalizadas</li>
+</ul>
+<blockquote><p>Detalle (patrón WARN-first vs BLOCK, escalada, ejemplos por IdP): <code>CLAUDE_BASE_EXTENDIDO.md §7</code>.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-8-base-de-datos">
+<h3 id="8-base-de-datos">8. BASE DE DATOS</h3>
+<h4 id="81-sql--motor-y-nomenclatura-obligatorio--aplica-en-archivos-y-chat">8.1 SQL — motor y nomenclatura (OBLIGATORIO · aplica en archivos Y chat)</h4>
+<blockquote><p><strong>Esta sección se carga cuando se toca la base de datos</strong>, no siempre (ADR-025). La traen la skill por ruta <code>estandares-base</code> (<code>**/*.sql</code>, <code>src/**</code>, <code>ops/**</code>) y la skill <code>database</code>, y en la escritura la vigila el hook <code>sql-nomenclatura-guard</code>. <strong>Consecuencia a tener presente</strong>: un SP que se propone en <strong>chat</strong> sin tocar ningún fichero no activa nada de esto, así que si vas a proponer nomenclatura SQL en conversación, lee antes esta sección.</p></blockquote>
+<h5 id="motor-y-versión-desde-ecosystemconfigdatabase">Motor y versión: desde <code>ecosystem.config.database</code></h5>
+<ul>
+<li><strong>Motor</strong> (<code>database.engine</code>): <code>sqlserver</code> (default) · <code>postgres</code> · <code>mysql</code> · <code>sqlite</code>. El proyecto puede sobrescribirlo en <code>_hilo/ESTADO_PROYECTO.json</code> (campo <code>baseDatos</code>).</li>
+<li><strong>Versión</strong> (<code>database.version</code>): si la organización fija una versión (ej. SQL Server <code>&quot;2017&quot;</code>), aplicar <strong>feature-gating</strong>: no usar features posteriores a esa versión. La tabla de features por versión de SQL Server vive en <code>.claude/skills/database/SKILL.md</code> (se carga sola al tocar <code>.sql</code>). Si <code>version</code> es <code>null</code> (default): sin gating, usar features actuales del motor.</li>
+</ul>
+<h5 id="nomenclatura--patrón-configurable-databasenaming">Nomenclatura — patrón configurable (<code>database.naming</code>)</h5>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Patrón (default)</th><th>OK</th><th>KO</th></tr></thead><tbody><tr><td><strong>Stored Procedure</strong></td><td><code>{schema}.{Verb}{Entity}</code> (pegados, PascalCase)</td><td><code>scholarships.GetNomination</code></td><td><code>usp_GetNomination</code>, <code>scholarships.Nomination_Get</code>, <code>sp_GetNomination</code></td></tr><tr><td><strong>Función escalar</strong></td><td><code>{schema}.fn_{Description}</code></td><td><code>scholarships.fn_CalculateRate</code></td><td><code>scholarships.CalculateRate</code> (falta prefijo)</td></tr><tr><td><strong>Función tabla (TVF)</strong></td><td><code>{schema}.fnt_{Description}</code></td><td><code>scholarships.fnt_ScholarshipsByYear</code></td><td><code>scholarships.fn_ScholarshipsByYear</code> (usa <code>fn_</code>)</td></tr><tr><td><strong>Vista</strong></td><td><code>{schema}.vw_{Description}</code></td><td><code>scholarships.vw_ActiveNominations</code></td><td><code>scholarships.View_Active</code>, <code>scholarships.Active</code></td></tr><tr><td><strong>Trigger</strong></td><td><code>{schema}.tr_{Table}_{Event}</code></td><td><code>academic.tr_Student_AfterInsert</code></td><td><code>academic.trg_Student</code></td></tr><tr><td><strong>Índice</strong></td><td><code>IX_{Table}_{Columns}</code></td><td><code>IX_Student_Email</code></td><td><code>idx1</code>, <code>index_email</code></td></tr><tr><td><strong>Constraint PK/FK</strong></td><td><code>PK_{Table}</code> / <code>FK_{Child}_{Parent}</code></td><td><code>PK_Student</code>, <code>FK_ScholarshipApplication_Student</code></td><td><code>PrimaryKey_1</code>, <code>FK_1</code></td></tr></tbody></table></div>
+<p>Los prefijos (<code>fn_</code>, <code>fnt_</code>, <code>vw_</code>, <code>tr_</code>) y el patrón de SP se leen de <code>database.naming</code> (los de la tabla son los defaults neutrales).</p>
+<h5 id="verbos-para-sps">Verbos para SPs</h5>
+<p>Si <code>database.naming.allowedVerbs</code> define una lista, usar SOLO esos verbos. Si está vacía (default): cualquier verbo, siempre en forma <code>{Verb}{Entity}</code> PascalCase pegado.</p>
+<h5 id="schemas">Schemas</h5>
+<ul>
+<li>Convención de casing: <code>database.naming.schemaCase</code> (default <strong>lowercase</strong>: <code>academic</code>, <code>finance</code>, <code>scholarships</code>).</li>
+<li><strong>Excepciones legacy</strong> (<code>database.naming.legacySchemas</code>, default vacío): schemas históricos que se mantienen tal cual, NO normalizar.</li>
+<li><strong>Nombres sin schema prohibidos</strong>: siempre prefijar, incluso en <code>dbo</code> (<code>dbo.Insert…</code>).</li>
+</ul>
+<h5 id="prohibido-configurable">Prohibido (configurable)</h5>
+<ul>
+<li><strong>Prefijos</strong> (<code>naming.forbiddenPrefixes</code>, default): <code>usp_</code>, <code>sp_</code>, <code>pr_</code>, <code>proc_</code>, <code>pa_</code>.</li>
+<li><strong>Sufijos</strong> (<code>naming.forbiddenSuffixes</code>, default vacío; ejemplo de organización: <code>_Listar</code>, <code>_Guardar</code>, <code>_L</code>, <code>_G</code>).</li>
+<li><strong>Separador <code>_</code> entre verbo y sustantivo</strong>: <code>GetNomination</code>, no <code>Get_Nomination</code>.</li>
+<li><strong>Funciones sin prefijo</strong>: <code>fn_</code> para escalares, <code>fnt_</code> para tabla.</li>
+</ul>
+<h5 id="excepciones--código-legacy">Excepciones — código legacy</h5>
+<p>Si se toca código migrado que ya tiene convención vieja, <strong>mantener los nombres existentes</strong>. NO renombrar en el mismo commit donde se toca la lógica — provoca conflictos en <code>sqlproj</code> y referencias cruzadas. Marcadores del modo &quot;legacy respetar&quot;:</p>
+<ul>
+<li>El archivo está en <code>Legacy/</code>, <code>Obsoleto/</code>, <code>MigracionPendiente/</code>.</li>
+<li>Comentario <code>-- LEGACY: no renombrar</code> al inicio del archivo.</li>
+<li>El nombre actual empieza por un prefijo prohibido (asumir código migrado).</li>
+<li>La ruta está en el baseline (<code>database.naming.legacyBaselineFile</code>, default <code>.claude/sql-legacy-baseline.txt</code>).</li>
+</ul>
+<blockquote><p>⚠️ <strong>TRAMPA — BD cross-schema con SPs legacy mayoritarios</strong></p>
+<p>La regla &quot;respetar legacy&quot; <strong>SOLO aplica al MODIFICAR SPs existentes</strong>. Al crear un SP <strong>nuevo</strong> en una BD llena de SPs con patrón antiguo (ej. <code>int_ListaDegrees_leer</code>), <strong>NO replicar ese patrón</strong>: los SPs nuevos siempre siguen §8.1, incluso siendo el único moderno en su BD. El sesgo de imitación visual (&quot;toda la BD usa <code>int_*_leer</code>, el mío también por coherencia&quot;) es razonamiento defectuoso: la coherencia se logra <strong>migrando los legacy progresivamente</strong>, no clonando el patrón viejo.</p>
+<p><strong>Antes de cualquier <code>CREATE PROCEDURE [schema].[Nombre]</code> en archivo nuevo:</strong> verificar la tabla §8.1. NO inferir nomenclatura por archivos vecinos. El hook de nomenclatura SQL detecta esta trampa con los prefijos de <code>database.naming.legacyPrefixes</code> (ej. <code>int_</code>, <code>aud_</code>, <code>tmp_</code>, <code>migr_</code>).</p></blockquote>
+<h5 id="baseline-legacy">Baseline legacy</h5>
+<p>Para proyectos con mucho SQL preexistente que incumple la convención, generar un <strong>baseline</strong> (una ruta relativa por línea, forward-slashes) que el hook de nomenclatura respetará. Generación: <code>node .claude/hooks/sql-baseline-generate.js</code> (<code>--dry-run</code> para previsualizar). Archivos en baseline se editan sin bloqueo (nota no bloqueante); archivos NUEVOS o fuera del baseline siguen sujetos a la convención estricta. Commitear el baseline al repo.</p>
+<h5 id="plantilla-mínima-de-sp-correcta-sql-server">Plantilla mínima de SP correcta (SQL Server)</h5>
+<pre data-lang="sql"><code><span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- Author:           {team}</span>
+<span class="tk-c">-- Created:  YYYY-MM-DD</span>
+<span class="tk-c">-- Description:     {what it does}</span>
+<span class="tk-c">-- Engine:           {database.engine} {database.version}</span>
+<span class="tk-c">-- =============================================</span>
+<span class="tk-k">CREATE</span> <span class="tk-k">OR</span> <span class="tk-k">ALTER</span> <span class="tk-k">PROCEDURE</span> [scholarships].[GetNomination]
+    <span class="tk-v">@Id</span> <span class="tk-k">INT</span>
+<span class="tk-k">AS</span>
+<span class="tk-k">BEGIN</span>
+    <span class="tk-k">SET</span> NOCOUNT <span class="tk-k">ON</span>;
+    <span class="tk-k">SET</span> XACT_ABORT <span class="tk-k">ON</span>;
+
+    <span class="tk-k">SELECT</span> Id, StudentId, Status, CreatedAt
+    <span class="tk-k">FROM</span> scholarships.Nomination
+    <span class="tk-k">WHERE</span> Id = <span class="tk-v">@Id</span>;
+<span class="tk-k">END</span>
+<span class="tk-k">GO</span></code></pre>
+<h4 id="82-entity-framework">8.2+ Entity Framework</h4>
+<p>EF Core 10 en nuevos (retry-on-failure, SplitQuery, AsNoTracking, proyecciones, paginación); EF 6 en legacy (mantener patrones). Snippets: <code>CLAUDE_BASE_EXTENDIDO.md §8</code> y regla <code>.claude/skills/infrastructure/SKILL.md</code> (se activa sola por su campo <code>paths:</code>).</p>
+<hr>
+</section>
+<section class="sec" id="sec-9-testing">
+<h3 id="9-testing">9. TESTING</h3>
+<p><strong>xUnit + FluentAssertions 6.x (fijar — v8+ comercial) + Moq + Testcontainers.</strong> Nomenclatura <code>Method_Scenario_ExpectedResult</code>, patrón AAA. Cobertura mínima: Domain 90% · Application 80% · Infrastructure 60%. Detalle: <code>CLAUDE_BASE_EXTENDIDO.md §9</code> y <code>.claude/skills/tests/SKILL.md</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-11-git-y-commits">
+<h3 id="11-git-y-commits">11. GIT Y COMMITS</h3>
+<p><strong>Conventional Commits</strong>: <code>tipo(ámbito): descripción</code> — tipos <code>feat|fix|docs|style|refactor|test|chore</code>. <strong>Ramas</strong>: estrategia, rama base y nomenclatura se resuelven con <code>resolve('vcs.branchingStrategy')</code>, <code>resolve('vcs.defaultBranch')</code> y <code>resolve('vcs.branchNamingConvention')</code> (proyecto › organización; ver <code>.claude/CONFIGURACION.md §Resolución</code>). Semántica <code>feature/{codigo}-{descripcion}</code> por defecto; temporal <code>yyyyMMdd-{tipo}-{codigo}-{descripcion}</code> en developer-branch. Detalle: <code>CLAUDE_BASE_EXTENDIDO.md §11</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-12-consideraciones-especiales--proyectos-net-4x">
+<h3 id="12-consideraciones-especiales--proyectos-net-4x">12. CONSIDERACIONES ESPECIALES — proyectos .NET 4.x</h3>
+<ol>
+<li><strong>Respetar arquitectura existente</strong> — no imponer Clean Architecture</li>
+<li><strong>Mantener patrones del proyecto</strong></li>
+<li><strong>No introducir dependencias incompatibles</strong></li>
+<li><strong>Entity Framework 6</strong> — no usar EF Core</li>
+<li><strong>Web.config</strong> — no usar appsettings.json</li>
+</ol>
+<p>Migración a .NET 10 (por capas, tests de regresión): <code>CLAUDE_BASE_EXTENDIDO.md §12</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-13-contacto">
+<h3 id="13-contacto">13. CONTACTO</h3>
+<p>Soporte del ecosistema: <code>organization.supportEmail</code> del <code>ecosystem.config</code> (si está vacío, omitir referencias de contacto en docs generadas).</p>
+<hr>
+</section>
+<section class="sec" id="sec-14-referencias-a-documentación-complementaria">
+<h3 id="14-referencias-a-documentación-complementaria">14. REFERENCIAS A DOCUMENTACIÓN COMPLEMENTARIA</h3>
+<p>Este documento define <strong>cómo escribir código</strong>. Para <strong>infraestructura, seguridad avanzada y entorno de desarrollo</strong>, consultar <strong><code>_patron/01_Estructura_Tecnica/ESTRUCTURA_TECNICA.md</code></strong>:</p>
+<div class="tbl"><table><thead><tr><th>Sección</th><th>Tema</th><th>Cuándo consultar</th></tr></thead><tbody><tr><td><strong>3. Seguridad</strong></td><td>OWASP Top 10, checklist obligatorio</td><td>Código que maneje datos</td></tr><tr><td><strong>3.2</strong></td><td>Servicio de secretos (<code>cloud.secrets</code>)</td><td>Cualquier secreto o credencial</td></tr><tr><td><strong>3.4</strong></td><td>Validación de inputs (FluentValidation)</td><td>Cualquier entrada de usuario</td></tr><tr><td><strong>4. Infraestructura Balanceada</strong></td><td>Principio &quot;sin estado local&quot;</td><td>Diseño de cualquier servicio</td></tr><tr><td><strong>4.2</strong></td><td>Storage configurado (<code>cloud.storage</code>) — en infra balanceada NUNCA disco local/wwwroot/uploads</td><td>Almacenamiento de archivos</td></tr><tr><td><strong>4.3</strong></td><td>Caché distribuida (Redis) — en infra balanceada NUNCA MemoryCache/Session en memoria</td><td>Caché, sesiones</td></tr><tr><td><strong>5. Proyectos Legacy</strong></td><td>WebForms, Web.config, hardening</td><td>Proyectos .NET 4.x</td></tr><tr><td><strong>6. Docker Compose</strong></td><td>BD, Redis, emuladores, Mailhog</td><td>Entorno de desarrollo</td></tr><tr><td><strong>10. Telemetría</strong> (<code>cloud.telemetry</code>)</td><td>NUNCA loguear contraseñas/tokens/documentos de identidad/emails</td><td>Telemetría avanzada</td></tr></tbody></table></div>
+<p><strong>Otras referencias</strong>: <code>.claude/skills/</code> (estándares por tipo de archivo, activados por <code>paths:</code>) · <code>_hilo/ESTADO_PROYECTO.json</code> + <code>_hilo/ESTADO_PROYECTO.schema.md</code> (estado y schema) · <code>_hilo/DEPENDENCIAS.md</code> · <code>_patron/05_Plantillas_SQL/</code> · <code>_patron/01_Estructura_Tecnica/GUIA_ARQUITECTURA.md</code> (perfiles + Mediator vs MediatR).</p>
+<hr>
+<p><em>Base de estándares para todos los proyectos. Ejemplos extendidos en <code>CLAUDE_BASE_EXTENDIDO.md</code> (numeración compartida); las skills por ruta de <code>.claude/skills/</code> complementan por tipo de archivo. La identidad de la organización vive en <code>ecosystem.config.json</code>.</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/.claude/CLAUDE_BASE.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/blazor.html">blazor</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/migrar.html">migrar</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a><a class="next" href="../guias/claude_base_extendido.html"><small>Siguiente</small>CLAUDE_BASE_EXTENDIDO.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/CLAUDE_BASE.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#0-configuración-de-organización-ecosystemconfigjson">0. CONFIGURACIÓN DE ORGANIZACIÓN (ecosystem.config.json)</a></li><li class="l2"><a href="#1-versiones-net-soportadas">1. VERSIONES .NET SOPORTADAS</a></li><li class="l2"><a href="#2-nomenclatura-y-convenciones">2. NOMENCLATURA Y CONVENCIONES</a></li><li class="l2"><a href="#3-estructura-de-proyectos">3. ESTRUCTURA DE PROYECTOS</a></li><li class="l2"><a href="#7-seguridad">7. SEGURIDAD</a></li><li class="l2"><a href="#8-base-de-datos">8. BASE DE DATOS</a></li><li class="l3"><a href="#81-sql--motor-y-nomenclatura-obligatorio--aplica-en-archivos-y-chat">8.1 SQL — motor y nomenclatura (OBLIGATORIO · aplica en archivos Y chat)</a></li><li class="l3"><a href="#82-entity-framework">8.2+ Entity Framework</a></li><li class="l2"><a href="#9-testing">9. TESTING</a></li><li class="l2"><a href="#11-git-y-commits">11. GIT Y COMMITS</a></li><li class="l2"><a href="#12-consideraciones-especiales--proyectos-net-4x">12. CONSIDERACIONES ESPECIALES — proyectos .NET 4.x</a></li><li class="l2"><a href="#13-contacto">13. CONTACTO</a></li><li class="l2"><a href="#14-referencias-a-documentación-complementaria">14. REFERENCIAS A DOCUMENTACIÓN COMPLEMENTARIA</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,201 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>commit · Ovillo</title><meta name="description" content="Crea un commit con conventional commits y verificaciones previas (secretos, build, mensaje)."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="commit · Ovillo"><meta property="og:description" content="Crea un commit con conventional commits y verificaciones previas (secretos, build, mensaje)."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/commit.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/commit.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/commit.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html" class="cur">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>commit</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:commit</span><span>solo usuario</span></div><h1>commit</h1><p class="lede">Crea un commit con conventional commits y verificaciones previas (secretos, build, mensaje).</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:commit</code></b><span>invocación</span></div><div><b>2</b><span>ficheros</span></div><div><b>440</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr><tr><th>allowed-tools</th><td><code>Read, Grep, Glob, Bash(git *)</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:commit</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">1</span></h2><div class="tree"><ul><li><span class="dir">references/</span><ul><li><a href="../skills/commit/references/config-y-flujo.html">config-y-flujo.md</a> <span class="muted">2375 B</span></li></ul></li></ul></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo NO puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta unicamente cuando la invocas con <code>/hv:commit</code>. Es un workflow con efectos: hace staging y crea el commit.</p></blockquote>
+<blockquote><p><strong>El conocimiento va aparte</strong>: la convencion de mensajes NO se repite aqui. Vive en la skill <code>git-best-practices</code> -&gt; <code>patterns/conventional-commits.md</code> (tipos, scopes, breaking changes, ejemplos). Este fichero es el procedimiento; esa skill es el porque.</p></blockquote>
+<blockquote><p>Configuracion y diagrama de flujo: <code>references/config-y-flujo.md</code>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-1-flujo-de-commit-git">
+<h3 id="1-flujo-de-commit-git">1. Flujo de commit (Git)</h3>
+<h4 id="21-show-pending-changes">2.1 Show pending changes</h4>
+<pre data-lang="bash"><code><span class="tk-k">git</span> status --short
+<span class="tk-k">git</span> diff --stat</code></pre>
+<h4 id="22-selective-staging">2.2 Selective staging</h4>
+<blockquote><p>⚠️ <strong>Never git add all</strong> <code>git add -A</code> Git add all risk</p></blockquote>
+<pre data-lang="bash"><code><span class="tk-c"># ✅ Staging selectivo - solo archivos relevantes</span>
+<span class="tk-k">git</span> add src/Controllers/ScholarshipsController.cs
+<span class="tk-k">git</span> add src/Services/ScholarshipService.cs
+<span class="tk-k">git</span> add tests/ScholarshipServiceTests.cs
+
+<span class="tk-c"># ✅ Staging por directorio</span>
+<span class="tk-k">git</span> add src/Features/Scholarships/
+
+<span class="tk-c"># ✅ Staging interactivo (revisar cambio por cambio)</span>
+<span class="tk-k">git</span> add -p
+
+<span class="tk-c"># ❌ NUNCA: git add -A (puede incluir .env, secrets, binarios)</span>
+<span class="tk-c"># ❌ NUNCA: git add . (mismo problema)</span></code></pre>
+<p>Staging behavior:</p>
+<div class="tbl"><table><thead><tr><th>Nivel de integracion</th><th>Staging action</th></tr></thead><tbody><tr><td><strong>Level basic</strong></td><td>Staging basic</td></tr><tr><td><strong>Level medium</strong></td><td>Staging medium</td></tr><tr><td><strong>Level high</strong></td><td>Staging high</td></tr></tbody></table></div>
+<h4 id="23-secrets-scan">2.3 Secrets scan</h4>
+<blockquote><p>🔒 <strong>Mandatory before commit</strong></p></blockquote>
+<pre data-lang="bash"><code><span class="tk-c"># Escanear archivos staged por patterns de secrets</span>
+<span class="tk-k">git</span> diff --cached --name-only | <span class="tk-k">while</span> read file; <span class="tk-k">do</span>
+    <span class="tk-c"># Buscar patterns peligrosos</span>
+    grep -nE <span class="tk-s">&quot;(password|secret|api[_-]?key|connectionstring|token)\s*[:=]&quot;</span> <span class="tk-s">&quot;$file&quot;</span> <span class="tk-n">2</span>&gt;/dev/null
+<span class="tk-k">done</span></code></pre>
+<p>Secrets patterns:</p>
+<div class="tbl"><table><thead><tr><th>Pattern</th><th>Riesgo</th><th>Ejemplo</th></tr></thead><tbody><tr><td><code>password\s*[:=]</code></td><td>🔴 Critico</td><td><code>password = &quot;abc123&quot;</code></td></tr><tr><td>`(api[_-]?key\</td><td>secret)\s*[:=]`</td><td>🔴 Critico</td><td><code>apiKey = &quot;sk-...&quot;</code></td></tr><tr><td><code>connectionstring.*password</code></td><td>🔴 Critico</td><td><code>Server=prod;Password=...</code></td></tr><tr><td><code>-----BEGIN.*PRIVATE KEY</code></td><td>🔴 Critico</td><td>Private key</td></tr><tr><td><code>Bearer [a-zA-Z0-9._-]{20,}</code></td><td>🟠 Alto</td><td>Hardcoded token</td></tr></tbody></table></div>
+<p>Secrets action:</p>
+<pre><code>🔴 SECRETS DETECTADOS - COMMIT BLOQUEADO
+
+Secrets found in:
+  • src/appsettings.json:14 → password = &quot;...&quot;
+  • src/Services/ApiClient.cs:8 → apiKey = &quot;sk-...&quot;
+
+Secrets options:
+  [1] Secrets exclude
+  [2] Secrets review
+  [3] Secrets abort</code></pre>
+<h4 id="24-pre-commit-checks">2.4 Pre commit checks</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># 1. Verificar compilación (en src/)</span>
+Push-Location <span class="tk-s">&quot;src&quot;</span>
+dotnet build --no-restore --verbosity quiet
+Pop-Location
+
+<span class="tk-c"># 2. Invocar hooks existentes si están configurados</span>
+<span class="tk-c"># Ver skill git-best-practices → tools/git-hooks-automation.md</span></code></pre>
+<p>Hooks check:</p>
+<pre><code>💡 No hooks detected
+
+Hooks recommendation:
+  - pre-commit: build + format check
+  - commit-msg: Conventional Commits validation
+
+Hooks install suggestion:
+  → Ver skill git-best-practices → tools/git-hooks-automation.md
+  → O ejecutar: .claude/skills/git-best-practices/templates/commit-msg-hook.sh.template</code></pre>
+<h4 id="25-build-message">2.5 Build message</h4>
+<p>Build message intro:</p>
+<pre><code>📝 CONVENTIONAL COMMITS (v1.0)
+
+Tipo:
+  1. feat      - Type feat
+  2. fix       - Type fix
+  3. refactor  - Type refactor
+  4. docs      - Type docs
+  5. test      - Type test
+  6. chore     - Type chore
+  7. perf      - Type perf
+  8. style     - Type style
+  9. ci        - Type ci
+  10. build    - Type build
+  11. revert   - Type revert
+
+Ambito (Opcional): api, auth, scholarships, domain, infrastructure, deps, ci...
+Short description:
+Breaking change (s/n):</code></pre>
+<h4 id="26-message-validation">2.6 Message validation</h4>
+<blockquote><p>Validate before commit</p></blockquote>
+<pre data-lang="regex"><code>^(feat|fix|docs|style|refactor|perf|test|chore|ci|build|revert)(\(.+\))?(!)?: .{1,100}$</code></pre>
+<p>Validation examples:</p>
+<div class="tbl"><table><thead><tr><th>Mensaje</th><th>Valido</th><th>Razon</th></tr></thead><tbody><tr><td><code>feat(scholarships): añadir filtro por estado</code></td><td>✅</td><td>Valid format</td></tr><tr><td><code>feat(api)!: cambiar formato respuesta</code></td><td>✅</td><td>Breaking format</td></tr><tr><td><code>Fixed bug</code></td><td>❌</td><td>No type</td></tr><tr><td><code>feat: a</code></td><td>❌</td><td>Too short</td></tr><tr><td><code>update</code></td><td>❌</td><td>No conventional</td></tr></tbody></table></div>
+<h4 id="27-breaking-changes">2.7 Breaking changes</h4>
+<p>Breaking changes intro:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Opcion 1: Con &quot;!&quot; despues del tipo</span>
+feat(api)!: cambiar formato de respuesta paginada
+
+<span class="tk-c"># Opcion 2: Con BREAKING CHANGE en el footer</span>
+feat(api): cambiar formato de respuesta paginada
+
+BREAKING CHANGE: PaginatedResult ahora usa TotalPages en lugar de TotalCount.
+Los clientes deben actualizar sus modelos de respuesta.</code></pre>
+<h4 id="28-footer-references">2.8 Footer references</h4>
+<p>Footer intro:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Cerrar ticket</span>
+feat(scholarships): implementar exportacion Excel
+
+Closes: EV-18
+
+<span class="tk-c"># Azure DevOps Work Items</span>
+feat(scholarships): implementar exportacion Excel
+
+AB<span class="tk-c">#1234</span>
+
+<span class="tk-c"># Multiples referencias</span>
+fix(auth): corregir refresh de token Azure AD
+
+Fixes: HV-25
+See also: HV-22, HV-24
+Co-authored-by: Juan Garcia &lt;jgarcia@example.com&gt;</code></pre>
+<h4 id="29-associate-evolutivo">2.9 Associate evolutivo</h4>
+<p>Associate intro:</p>
+<blockquote><p>Leer <code>configuracion.branching.convencionRamas</code> de <code>_hilo/ESTADO_PROYECTO.json</code> para determinar el formato del prefijo.</p></blockquote>
+<p><strong>Nomenclatura semantica</strong> (<code>feature/{codigo}-{descripcion}</code>):</p>
+<pre><code>Message result: [HV-05] feat(api): Agregar paginación</code></pre>
+<p><strong>Nomenclatura temporal</strong> (<code>yyyyMMdd-{tipo}-{codigo}-{descripcion}</code>):</p>
+<pre><code>Rama actual: 20260406-EV-18-filter-scholarships
+Mensaje: [20260406-EV-18] feat(scholarships): Agregar filter por estado</code></pre>
+<p>Si <code>convencionRamas</code> contiene <code>{tipo}</code>, el prefijo del commit incluye la fecha y tipo de la rama actual.</p>
+<h4 id="210-signing-reminder">2.10 Signing reminder</h4>
+<p>Signing intro:</p>
+<pre><code>🔐 Signing detected
+
+Signing method: SSH (Git 2.34+)
+Signing key: ~/.ssh/id_ed25519.pub
+
+Commit will be signed
+→ Ver skill git-best-practices → patterns/ssh-signing.md</code></pre>
+<h4 id="211-execute-commit">2.11 Execute commit</h4>
+<p>Execute by level:</p>
+<div class="tbl"><table><thead><tr><th>Nivel de integracion</th><th>Comportamiento</th></tr></thead><tbody><tr><td><strong>Level basic</strong></td><td>Behavior basic</td></tr><tr><td><strong>Level medium</strong></td><td>Behavior medium</td></tr><tr><td><strong>Level high</strong></td><td>Behavior high</td></tr></tbody></table></div>
+<pre data-lang="bash"><code><span class="tk-c"># Staging selectivo (ya realizado en 2.2)</span>
+<span class="tk-k">git</span> commit -m <span class="tk-s">&quot;[HV-05] feat(api): Agregar paginación
+
+Closes: HV-05&quot;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-update-context">
+<h3 id="4-update-context">4. Update context</h3>
+<p>Update context intro <code>_hilo/HISTORIAL_CAMBIOS.md</code>:</p>
+<pre data-lang="markdown"><code>### [FECHA] - feat(api): Agregar paginación
+- **Commit/Changeset**: [hash o pendiente de checkin]
+- **Evolutivo**: HV-05
+- **Archivos**: 5 archivos modificados
+- **Firmado**: ✅ SSH / ❌ Sin firmar
+
+**Cambios:**
+- `ScholarshipsController.cs` - Añadido parámetros de paginación
+- `GetScholarshipsQuery.cs` - Implementado paginación</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-confirmation">
+<h3 id="5-confirmation">5. Confirmation</h3>
+<h4 id="git">Git:</h4>
+<pre><code>✅ COMMIT EXITOSO
+
+📝 Mensaje: [HV-05] feat(api): Agregar paginación
+🔢 Hash: abc1234
+📁 Archivos: 5 (staged selectivamente)
+📋 Evolutivo: HV-05
+🔐 Firmado: ✅ SSH
+🔍 Secrets scan: ✅ No secrets found
+✅ Validacion: Conventional Commits OK
+
+💡 Siguiente paso: /git-sync Or manual git push</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-critical-reminders">
+<h3 id="critical-reminders">⚠️ Critical reminders</h3>
+<h4 id="siempre">Siempre</h4>
+<ul>
+<li>✅ Always detect vcs</li>
+<li>✅ Always scan secrets (2.3)</li>
+<li>✅ Always selective staging (2.2)</li>
+<li>✅ Always validate message (2.6)</li>
+<li>✅ Always build (2.4)</li>
+<li>✅ Always evolutivo</li>
+<li>✅ Always conventional commits</li>
+<li>✅ Always update historial</li>
+</ul>
+<h4 id="nunca">Nunca</h4>
+<ul>
+<li>❌ <code>git add -A</code> / <code>git add .</code> — Never git add all reason</li>
+<li>❌ Never commit without build</li>
+<li>❌ Never generic messages (&quot;cambios&quot;, &quot;updates&quot;, &quot;WIP&quot;)</li>
+<li>❌ Never commit secrets</li>
+<li>❌ Never skip validation</li>
+</ul>
+<h4 id="skill-integration">Skill integration</h4>
+<p>Skill integration intro <code>git-best-practices</code>:</p>
+<div class="tbl"><table><thead><tr><th>Recurso</th><th>Uso</th></tr></thead><tbody><tr><td><code>patterns/conventional-commits.md</code></td><td>Skill cc</td></tr><tr><td><code>patterns/ssh-signing.md</code></td><td>Skill signing</td></tr><tr><td><code>tools/git-hooks-automation.md</code></td><td>Skill hooks</td></tr><tr><td><code>templates/commit-msg-hook.sh.template</code></td><td>Skill hook template</td></tr><tr><td><code>checklists/pre-merge.md</code></td><td>Skill pre merge</td></tr></tbody></table></div>
+<hr>
+<p><em>Skill commit · kind: workflow</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>92</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 440 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>4 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(fuentes): Lote A de la auditoria externa — prosa fosil, dato personal, frases rotas, /hv: canonico y correctivos del generador (ADR-022)</em> (<code>ff4b4fb</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/commit/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#1-flujo-de-commit-git">1. Flujo de commit (Git)</a></li><li class="l3"><a href="#4-update-context">4. Update context</a></li><li class="l3"><a href="#5-confirmation">5. Confirmation</a></li><li class="l3"><a href="#critical-reminders">⚠️ Critical reminders</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

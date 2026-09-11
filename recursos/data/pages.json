@@ -1,0 +1,5038 @@
+{
+  "_generado_por": "scripts/build-portal.js",
+  "version": "1.2.3",
+  "total": 559,
+  "pages": [
+    {
+      "out": "acerca.html",
+      "template": "T22",
+      "family": "portal",
+      "title": "Acerca del portal",
+      "source": "publicacion/src/acerca.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-001.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-001 Identidad y alcance de Ovillo",
+      "source": "adr/ADR-001-identidad-y-alcance.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-002.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-002 Configuración de organización: ecosystem.config.json",
+      "source": "adr/ADR-002-configuracion-de-organizacion.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-003.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-003 La skill es la única primitiva: conocimiento, workflow y regla por ruta",
+      "source": "adr/ADR-003-primitiva-unica-skill.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-004.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-004 Hooks en Node con política WARN-first",
+      "source": "adr/ADR-004-hooks-node-warn-first.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-005.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-005 Layout del proyecto consumidor: src/ docs/ ops/ _hilo/ _patron/",
+      "source": "adr/ADR-005-layout-del-proyecto.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-006.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-006 Distribución: plugin hv en el marketplace ovillo, /hv:init y fallback en-repo",
+      "source": "adr/ADR-006-distribucion-plugin.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-007.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-007 Ovillo.Hub: servidor MCP + REST portátil y opt-in",
+      "source": "adr/ADR-007-ovillo-hub.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-008.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-008 Solo Git; IDE condicional con organization.ide",
+      "source": "adr/ADR-008-solo-git-e-ide-condicional.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-009.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-009 Artefactos generados y puertas de release",
+      "source": "adr/ADR-009-artefactos-generados-y-puertas-de-release.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-010.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-010 Versión 1.0.0, versionado semántico y deuda declarada",
+      "source": "adr/ADR-010-version-1-0-0-y-deuda.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-011.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-011 Integración con GitHub, ola 0: tres defectos corregidos y vocabulario «Azure DevOps»",
+      "source": "adr/ADR-011-github-ola-0-higiene-y-vocabulario.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-012.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-012 Integración con GitHub, ola 1: git-best-practices cubre la higiene completa del repositorio",
+      "source": "adr/ADR-012-github-ola-1-git-best-practices.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-013.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-013 Integración con GitHub, ola 2: invariantes G15-G19 y el agent github-actions-reviewer",
+      "source": "adr/ADR-013-github-ola-2-invariantes-y-auditor.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-014.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-014 Integración con GitHub, ola 3: generación de workflows desde /cicd-init",
+      "source": "adr/ADR-014-github-ola-3-generacion-de-workflows.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-015.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-015 Integración con GitHub, ola 4: cicd-status, cicd-deploy y cicd-release vía gh",
+      "source": "adr/ADR-015-github-ola-4-ejecucion-via-gh.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-016.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-016 Integración con GitHub, ola 5: issue-tracker-sync con Issues, sub-issues y Projects v2",
+      "source": "adr/ADR-016-github-ola-5-issues-y-projects.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-017.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-017 Integración con GitHub, ola 6: calidad, seguridad opt-in y guías",
+      "source": "adr/ADR-017-github-ola-6-calidad-seguridad-y-guias.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-018.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-018 Gate de cobertura propio (coverage-gate.ps1) y agente de build configurable",
+      "source": "adr/ADR-018-gate-de-cobertura-propio-y-agente-de-build-configurable.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-019.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-019 Verificación en vivo en hvaler/ovillo-sandbox y release 1.0.0",
+      "source": "adr/ADR-019-verificacion-en-vivo-sandbox-y-release-1-0-0.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-020.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-020 Portal v2: 22 plantillas, un motor de presentación y puertas de enlaces, cifras y manifiesto",
+      "source": "adr/ADR-020-portal-v2-plantillas-y-puertas.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-021.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-021 Licencia Apache 2.0, titularidad y avisos de terceros",
+      "source": "adr/ADR-021-licencia-y-autoria.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-022.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-022 Correctivos de la auditoría externa (1.0.1): generador, cifras, prosa y puertas",
+      "source": "adr/ADR-022-correctivos-auditoria-externa.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-023.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-023 Superficie única de configuración: precedencia canónica, resolución única y claves deprecadas",
+      "source": "adr/ADR-023-superficie-unica-de-configuracion.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-024.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-024 Política de datos: telemetría hasheada en origen, retención efectiva y una página que lo publica",
+      "source": "adr/ADR-024-datos-privacidad-y-telemetria.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-025.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-025 Presupuesto de contexto: lo que se carga siempre, lo que se carga por ruta y en qué idioma se declara",
+      "source": "adr/ADR-025-presupuesto-de-contexto-e-idioma-de-las-descriptions.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-026.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-026 Promesas verificables: acceso al repositorio, guards que bloquean, esquema del Hub y trampas de licencia",
+      "source": "adr/ADR-026-distribucion-por-invitacion-y-promesas-verificables.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-027.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-027 El código que el ecosistema escribe en el proyecto del cliente",
+      "source": "adr/ADR-027-el-codigo-que-genera-el-ecosistema.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-028.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-028 Instrumentos que miden de verdad, y cobertura declarada en vez de prometida",
+      "source": "adr/ADR-028-instrumentos-que-miden-y-cobertura-declarada.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-029.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-029 El portal como espejo fiel: lo que publica es lo que hay",
+      "source": "adr/ADR-029-el-portal-como-espejo-fiel.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-030.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-030 Lote J: lo que las puertas comprobaban era la forma, no la función",
+      "source": "adr/ADR-030-lote-j-lo-que-las-puertas-no-comprobaban.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-031.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-031 generador-crud: una sola familia de plantillas, y el conjunto compila",
+      "source": "adr/ADR-031-generador-crud-una-familia-que-compila.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-032.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-032 Lote K: la columna «próxima versión» de la tercera auditoría",
+      "source": "adr/ADR-032-lote-k-proxima-version-de-la-tercera-auditoria.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-033.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-033 Clave de lectura opcional del Hub",
+      "source": "adr/ADR-033-clave-de-lectura-opcional-del-hub.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-034.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-034 Lote L: la columna «puede esperar» de la tercera auditoría",
+      "source": "adr/ADR-034-lote-l-lo-que-podia-esperar.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-035.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-035 El plugin en un proyecto real: lo que solo se ve instalándolo",
+      "source": "adr/ADR-035-el-plugin-en-un-proyecto-real.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-036.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-036 Un argumento que el script no entiende nunca escribe",
+      "source": "adr/ADR-036-un-flag-desconocido-nunca-escribe.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-037.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-037 Un solo resolvedor del objetivo de compilación, y el fichero de solución deja de ser obligatorio",
+      "source": "adr/ADR-037-un-solo-resolvedor-del-objetivo-de-compilacion.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-038.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-038 El verificador validaba la plantilla que la dieta de contexto había retirado",
+      "source": "adr/ADR-038-el-verificador-validaba-la-plantilla-retirada.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-039.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-039 La fuente de los estándares se describía a sí misma mal, y quién la versiona",
+      "source": "adr/ADR-039-la-fuente-de-los-estandares-se-describia-a-si-misma-mal.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "adr/ADR-040.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "ADR-040 Medir la ejecución de una skill, y el consumidor que la quinta puerta no medía",
+      "source": "adr/ADR-040-medir-la-ejecucion-y-el-consumidor-que-la-puerta-no-media.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/api-contract-validator.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "api-contract-validator",
+      "source": "ovillo/.claude/agents/api-contract-validator.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/architecture-validator.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "architecture-validator",
+      "source": "ovillo/.claude/agents/architecture-validator.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/build-fixer.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "build-fixer",
+      "source": "ovillo/.claude/agents/build-fixer.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/cicd-pipeline-reviewer.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "cicd-pipeline-reviewer",
+      "source": "ovillo/.claude/agents/cicd-pipeline-reviewer.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/code-reviewer.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "code-reviewer",
+      "source": "ovillo/.claude/agents/code-reviewer.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/cpm-migration-assistant.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "cpm-migration-assistant",
+      "source": "ovillo/.claude/agents/cpm-migration-assistant.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/database-reviewer.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "database-reviewer",
+      "source": "ovillo/.claude/agents/database-reviewer.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/github-actions-reviewer.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "github-actions-reviewer",
+      "source": "ovillo/.claude/agents/github-actions-reviewer.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/hilo-coherence-checker.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "hilo-coherence-checker",
+      "source": "ovillo/.claude/agents/hilo-coherence-checker.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/identity-auditor.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "identity-auditor",
+      "source": "ovillo/.claude/agents/identity-auditor.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/index.html",
+      "template": "T02",
+      "family": "catálogo",
+      "title": "Agents",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/migration-assistant.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "migration-assistant",
+      "source": "ovillo/.claude/agents/migration-assistant.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/nuget-analyzer.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "nuget-analyzer",
+      "source": "ovillo/.claude/agents/nuget-analyzer.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/performance-profiler.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "performance-profiler",
+      "source": "ovillo/.claude/agents/performance-profiler.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/rbac-designer.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "rbac-designer",
+      "source": "ovillo/.claude/agents/rbac-designer.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/refactor-cleaner.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "refactor-cleaner",
+      "source": "ovillo/.claude/agents/refactor-cleaner.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/secret-rotation-advisor.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "secret-rotation-advisor",
+      "source": "ovillo/.claude/agents/secret-rotation-advisor.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/security-auditor.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "security-auditor",
+      "source": "ovillo/.claude/agents/security-auditor.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/test-runner.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "test-runner",
+      "source": "ovillo/.claude/agents/test-runner.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "agents/threat-modeler.html",
+      "template": "T07",
+      "family": "agent",
+      "title": "threat-modeler",
+      "source": "ovillo/.claude/agents/threat-modeler.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "buscar.html",
+      "template": "T04",
+      "family": "portal",
+      "title": "Buscar",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "changelog.html",
+      "template": "T14",
+      "family": "versiones",
+      "title": "Versiones",
+      "source": "publicacion/VERSION.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "chuletas/comandos-hv.html",
+      "template": "T18",
+      "family": "chuleta",
+      "title": "Comandos /hv",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "chuletas/flujo-cicd.html",
+      "template": "T18",
+      "family": "chuleta",
+      "title": "Flujo CI/CD con Ovillo",
+      "source": "publicacion/src/chuletas/flujo-cicd.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "chuletas/index.html",
+      "template": "T18",
+      "family": "chuleta",
+      "title": "Chuletas",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "contexto.html",
+      "template": "T16",
+      "family": "calidad",
+      "title": "Contexto",
+      "source": "scripts/measure-context.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "curso/index.html",
+      "template": "T19",
+      "family": "curso",
+      "title": "Curso",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "curso/inicio-rapido/01-instalar.html",
+      "template": "T19",
+      "family": "curso",
+      "title": "Instalar el plugin y preparar el repositorio",
+      "source": "publicacion/src/curso/inicio-rapido/01-instalar.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "curso/inicio-rapido/02-onboarding.html",
+      "template": "T19",
+      "family": "curso",
+      "title": "Onboarding con /hv:init",
+      "source": "publicacion/src/curso/inicio-rapido/02-onboarding.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "curso/inicio-rapido/03-proyecto-nuevo.html",
+      "template": "T19",
+      "family": "curso",
+      "title": "Empezar un proyecto nuevo",
+      "source": "publicacion/src/curso/inicio-rapido/03-proyecto-nuevo.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "curso/inicio-rapido/04-flujo-y-configuracion.html",
+      "template": "T19",
+      "family": "curso",
+      "title": "El flujo de trabajo y la configuración de la organización",
+      "source": "publicacion/src/curso/inicio-rapido/04-flujo-y-configuracion.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "curso/inicio-rapido/05-validar.html",
+      "template": "T19",
+      "family": "curso",
+      "title": "Validar la instalación y resolver problemas",
+      "source": "publicacion/src/curso/inicio-rapido/05-validar.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "decisiones.html",
+      "template": "T10",
+      "family": "decisión",
+      "title": "Decisiones",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "evaluaciones.html",
+      "template": "T15",
+      "family": "calidad",
+      "title": "Evaluaciones",
+      "source": "scripts/eval-results/eval-results-latest.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/01-activation.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Smoke 01 · Activacion de skills",
+      "source": "ovillo/.claude/smoke-tests/01-activation.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/02-compilation.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Smoke 02 · Compilacion",
+      "source": "ovillo/.claude/smoke-tests/02-compilation.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/03-conventions.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Smoke 03 · Convenciones locales del proyecto",
+      "source": "ovillo/.claude/smoke-tests/03-conventions.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/arquitectura.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "guia_arquitectura",
+      "source": null,
+      "lang": "es",
+      "kind": "redirect"
+    },
+    {
+      "out": "guias/auditar_pipeline.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Auditar tu pipeline CI/CD (`cicd-pipeline-reviewer` · `github-actions-reviewer`)",
+      "source": "ovillo/_patron/08_CICD/AUDITAR_PIPELINE.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/cicd-readme.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "08_CICD — Integracion Continua / Despliegue Continuo",
+      "source": "ovillo/_patron/08_CICD/README.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/cicd.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "guia_completa_cicd",
+      "source": null,
+      "lang": "es",
+      "kind": "redirect"
+    },
+    {
+      "out": "guias/claude_base_extendido.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "CLAUDE_BASE_EXTENDIDO.md",
+      "source": "ovillo/.claude/CLAUDE_BASE_EXTENDIDO.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/claude_base.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "CLAUDE_BASE.md",
+      "source": "ovillo/.claude/CLAUDE_BASE.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/configuracion.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Configuración en Ovillo: una sola superficie",
+      "source": "ovillo/.claude/CONFIGURACION.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/consideraciones.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Common Considerations — TEMPLATE",
+      "source": "ovillo/_patron/03_Consideraciones_Comunes/CONSIDERACIONES_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/consideraciones.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Consideraciones Comunes — PLANTILLA",
+      "source": "ovillo/_patron/03_Consideraciones_Comunes/CONSIDERACIONES.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/estructura_tecnica.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Technical Structure Document",
+      "source": "ovillo/_patron/01_Estructura_Tecnica/ESTRUCTURA_TECNICA_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/estructura_tecnica.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Documento de Estructura Técnica",
+      "source": "ovillo/_patron/01_Estructura_Tecnica/ESTRUCTURA_TECNICA.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/eval-gap-template.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Plantilla · Work Item «Eval gap»",
+      "source": "ovillo/.claude/smoke-tests/eval-gap-template.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_acceso_datos.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guía de Acceso a Datos: Dapper vs ADO.NET",
+      "source": "ovillo/_patron/01_Estructura_Tecnica/GUIA_ACCESO_DATOS.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_arquitectura.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Architecture and Patterns Guide",
+      "source": "ovillo/_patron/01_Estructura_Tecnica/GUIA_ARQUITECTURA_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_arquitectura.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guia de Arquitectura y Patrones",
+      "source": "ovillo/_patron/01_Estructura_Tecnica/GUIA_ARQUITECTURA.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_completa_cicd.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guía completa de CI/CD Ovillo — los comandos `/cicd-*` y todas sus variantes",
+      "source": "ovillo/_patron/08_CICD/GUIA_COMPLETA_CICD.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_estilos.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Design and Usability Guide",
+      "source": "ovillo/_patron/02_Diseno_Usabilidad/GUIA_ESTILOS_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_estilos.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guía de Diseño y Usabilidad",
+      "source": "ovillo/_patron/02_Diseno_Usabilidad/GUIA_ESTILOS.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_fases_adopcion.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guia de adopcion CI/CD — Fases 0, 1 y 2",
+      "source": "ovillo/_patron/08_CICD/GUIA_FASES_ADOPCION.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_github_actions.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guía CI/CD con GitHub Actions — Fases 0, 1 y 2, comandos y seguridad",
+      "source": "ovillo/_patron/08_CICD/GUIA_GITHUB_ACTIONS.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_mcp_instalacion.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guía: Instalación y uso de MCPs en Ovillo",
+      "source": "ovillo/_patron/01_Estructura_Tecnica/GUIA_MCP_INSTALACION.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_observabilidad.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Observability Guide",
+      "source": "ovillo/_patron/06_Observabilidad/GUIA_OBSERVABILIDAD_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_observabilidad.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guia de Observabilidad",
+      "source": "ovillo/_patron/06_Observabilidad/GUIA_OBSERVABILIDAD.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_resiliencia.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Resilience Guide",
+      "source": "ovillo/_patron/07_Resiliencia/GUIA_RESILIENCIA_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/guia_resiliencia.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guia de Resiliencia",
+      "source": "ovillo/_patron/07_Resiliencia/GUIA_RESILIENCIA.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/hub-readme.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Ovillo.Hub",
+      "source": "hub/README.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/index.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guías",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/inicio_rapido.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Guía de inicio rápido",
+      "source": "ovillo/INICIO_RAPIDO.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/inicio-rapido.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "inicio_rapido",
+      "source": null,
+      "lang": "es",
+      "kind": "redirect"
+    },
+    {
+      "out": "guias/instalacion.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "readme",
+      "source": null,
+      "lang": "es",
+      "kind": "redirect"
+    },
+    {
+      "out": "guias/observabilidad.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "guia_observabilidad",
+      "source": null,
+      "lang": "es",
+      "kind": "redirect"
+    },
+    {
+      "out": "guias/patron.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Patrón — Base de conocimiento de la organización",
+      "source": "ovillo/_patron/PATRON.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/permisos_cicd.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Permisos e infraestructura CI/CD — PLANTILLA",
+      "source": "ovillo/_patron/08_CICD/PERMISOS_CICD.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/plantilla_doc_funcional.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "User Manual - [Project Name]",
+      "source": "ovillo/_patron/04_Plantillas_Documentacion/PLANTILLA_DOC_FUNCIONAL_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/plantilla_doc_funcional.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Manual de Usuario - [Nombre del Proyecto]",
+      "source": "ovillo/_patron/04_Plantillas_Documentacion/PLANTILLA_DOC_FUNCIONAL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/plantilla_doc_tecnica.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Technical Documentation - [Project Name]",
+      "source": "ovillo/_patron/04_Plantillas_Documentacion/PLANTILLA_DOC_TECNICA_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/plantilla_doc_tecnica.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Documentacion Tecnica - [Nombre del Proyecto]",
+      "source": "ovillo/_patron/04_Plantillas_Documentacion/PLANTILLA_DOC_TECNICA.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/plantillas_documentacion-readme.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "04_Plantillas_Documentacion",
+      "source": "ovillo/_patron/04_Plantillas_Documentacion/README.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/plantillas_sql-readme.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "📁 Plantillas SQL - Base de Datos",
+      "source": "ovillo/_patron/05_Plantillas_SQL/README.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/readme.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Proyecto Ovillo",
+      "source": "ovillo/README.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/resiliencia.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "guia_resiliencia",
+      "source": null,
+      "lang": "es",
+      "kind": "redirect"
+    },
+    {
+      "out": "guias/runbook_actualizar_pipeline.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Runbook — Actualizar el pipeline tras un refresco de plantilla",
+      "source": "ovillo/_patron/08_CICD/RUNBOOK_ACTUALIZAR_PIPELINE.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/runbook_deploy_manual.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Runbook deploy manual — Fase 0",
+      "source": "ovillo/_patron/08_CICD/RUNBOOK_DEPLOY_MANUAL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/runbook_template.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Runbook operacional CI/CD — `{{PROYECTO_NOMBRE}}`",
+      "source": "ovillo/_patron/08_CICD/RUNBOOK_TEMPLATE.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/sistema_contexto_claude.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Intelligent Context System for Claude Code",
+      "source": "ovillo/_patron/SISTEMA_CONTEXTO_CLAUDE_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/sistema_contexto_claude.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Sistema de Contexto Inteligente para Claude Code",
+      "source": "ovillo/_patron/SISTEMA_CONTEXTO_CLAUDE.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/sistema-contexto.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "sistema_contexto_claude",
+      "source": null,
+      "lang": "es",
+      "kind": "redirect"
+    },
+    {
+      "out": "guias/smoke-tests-readme.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Ovillo · Smoke Tests del proyecto consumidor",
+      "source": "ovillo/.claude/smoke-tests/README.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "guias/tareas_comite_tecnico.en.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Pending Tasks - Technical Committee",
+      "source": "ovillo/_patron/TAREAS_COMITE_TECNICO_EN.md",
+      "lang": "en",
+      "kind": "page"
+    },
+    {
+      "out": "guias/tareas_comite_tecnico.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Tareas Pendientes - Comité Técnico",
+      "source": "ovillo/_patron/TAREAS_COMITE_TECNICO.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "Hooks",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/agent-telemetry.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "agent-telemetry",
+      "source": "ovillo/.claude/hooks/agent-telemetry.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/antipattern-guard.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "antipattern-guard",
+      "source": "ovillo/.claude/hooks/antipattern-guard.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/auth-config-guard.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "auth-config-guard",
+      "source": "ovillo/.claude/hooks/auth-config-guard.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/auto-format.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "auto-format",
+      "source": "ovillo/.claude/hooks/auto-format.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/banner.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "banner",
+      "source": "ovillo/.claude/hooks/banner.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/bash-guard.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "bash-guard",
+      "source": "ovillo/.claude/hooks/bash-guard.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/cert-expiry-reminder.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "cert-expiry-reminder",
+      "source": "ovillo/.claude/hooks/cert-expiry-reminder.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/hilo-checkpoint.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "hilo-checkpoint",
+      "source": "ovillo/.claude/hooks/hilo-checkpoint.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/hilo-freshness.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "hilo-freshness",
+      "source": "ovillo/.claude/hooks/hilo-freshness.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/hilo-json-guard.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "hilo-json-guard",
+      "source": "ovillo/.claude/hooks/hilo-json-guard.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/mcp-check.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "mcp-check",
+      "source": "ovillo/.claude/hooks/mcp-check.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/multi-rol-coordination.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "multi-rol-coordination",
+      "source": "ovillo/.claude/hooks/multi-rol-coordination.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/post-build-check.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "post-build-check",
+      "source": "ovillo/.claude/hooks/post-build-check.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/pre-cicd-init.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "pre-cicd-init",
+      "source": "ovillo/.claude/hooks/pre-cicd-init.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/protect-files.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "protect-files",
+      "source": "ovillo/.claude/hooks/protect-files.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/quality-alert.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "quality-alert",
+      "source": "ovillo/.claude/hooks/quality-alert.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/secret-scanner.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "secret-scanner",
+      "source": "ovillo/.claude/hooks/secret-scanner.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/session-checkpoint.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "session-checkpoint",
+      "source": "ovillo/.claude/hooks/session-checkpoint.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/skill-guard.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "skill-guard",
+      "source": "ovillo/.claude/hooks/skill-guard.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/sql-injection-guard.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "sql-injection-guard",
+      "source": "ovillo/.claude/hooks/sql-injection-guard.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/sql-nomenclatura-guard.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "sql-nomenclatura-guard",
+      "source": "ovillo/.claude/hooks/sql-nomenclatura-guard.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hooks/token-validation-guard.html",
+      "template": "T08",
+      "family": "hook",
+      "title": "token-validation-guard",
+      "source": "ovillo/.claude/hooks/token-validation-guard.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hub.html",
+      "template": "T11",
+      "family": "hub",
+      "title": "Ovillo.Hub",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hub/cicd.html",
+      "template": "T11",
+      "family": "hub",
+      "title": "Hub · CI/CD",
+      "source": "hub/Endpoints/McpCicdTools.cs",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hub/docs.html",
+      "template": "T11",
+      "family": "hub",
+      "title": "Hub · Documentación",
+      "source": "hub/Endpoints/McpDocsTools.cs",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hub/feedback.html",
+      "template": "T11",
+      "family": "hub",
+      "title": "Hub · Feedback del ecosistema",
+      "source": "hub/Endpoints/McpFeedbackTools.cs",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hub/knowledge.html",
+      "template": "T11",
+      "family": "hub",
+      "title": "Hub · Conocimiento (decisiones, lecciones, proyectos)",
+      "source": "hub/Endpoints/McpKnowledgeTools.cs",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "hub/protocol.html",
+      "template": "T11",
+      "family": "hub",
+      "title": "Hub · Protocolo (ping, versión, conteo)",
+      "source": "hub/Endpoints/McpProtocolTools.cs",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "index.html",
+      "template": "T01",
+      "family": "inicio",
+      "title": "Ovillo",
+      "source": "publicacion/src/inicio.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "indice.html",
+      "template": "T03",
+      "family": "índice",
+      "title": "Índice",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "patron.html",
+      "template": "T17",
+      "family": "guía",
+      "title": "Patrón",
+      "source": "ovillo/_patron/PATRON.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "presentaciones/guia-completa-cicd.html",
+      "template": "T20",
+      "family": "deck",
+      "title": "Guía completa de CI/CD",
+      "source": "ovillo/_patron/08_CICD/GUIA_COMPLETA_CICD.md",
+      "lang": "es",
+      "kind": "deck"
+    },
+    {
+      "out": "presentaciones/index.html",
+      "template": "T20",
+      "family": "deck",
+      "title": "Presentaciones",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "presentaciones/ovillo-en-10.html",
+      "template": "T20",
+      "family": "deck",
+      "title": "Ovillo en 10 diapositivas",
+      "source": "inventory.json",
+      "lang": "es",
+      "kind": "deck"
+    },
+    {
+      "out": "privacidad.html",
+      "template": "T23",
+      "family": "portal",
+      "title": "Datos y privacidad",
+      "source": "publicacion/src/privacidad.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "referencia-config.html",
+      "template": "T12",
+      "family": "referencia",
+      "title": "Referencia de configuración",
+      "source": "ovillo/.claude/schemas/ecosystem.config.schema.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "referencia-hilo.html",
+      "template": "T13",
+      "family": "referencia",
+      "title": "Referencia del Hilo",
+      "source": "ovillo/_hilo/",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "reglas.html",
+      "template": "T09",
+      "family": "regla",
+      "title": "Reglas",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "reglas/context-optimization.html",
+      "template": "T09",
+      "family": "regla",
+      "title": "context-optimization",
+      "source": "ovillo/.claude/rules/context-optimization.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "reglas/developer-branch.html",
+      "template": "T09",
+      "family": "regla",
+      "title": "developer-branch",
+      "source": "ovillo/.claude/rules/developer-branch.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "reglas/devops-awareness.html",
+      "template": "T09",
+      "family": "regla",
+      "title": "devops-awareness",
+      "source": "ovillo/.claude/rules/devops-awareness.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "analisis-arquitectura",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/checklists/api-design-review.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · checklists/api-design-review.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/checklists/api-design-review.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/checklists/clean-architecture.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · checklists/clean-architecture.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/checklists/clean-architecture.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/checklists/database-review.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · checklists/database-review.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/checklists/database-review.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/checklists/microservices-review.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · checklists/microservices-review.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/checklists/microservices-review.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/checklists/migration-viability.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · checklists/migration-viability.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/checklists/migration-viability.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/checklists/performance-review.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · checklists/performance-review.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/checklists/performance-review.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/checklists/security-review.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · checklists/security-review.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/checklists/security-review.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · eval-set.json",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/patterns/architecture-diagrams.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · patterns/architecture-diagrams.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/patterns/architecture-diagrams.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/patterns/dependency-analysis.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · patterns/dependency-analysis.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/patterns/dependency-analysis.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/patterns/design-pattern-catalog.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · patterns/design-pattern-catalog.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/patterns/design-pattern-catalog.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/prompts/prompt-clean-architecture.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · prompts/prompt-clean-architecture.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/prompts/prompt-clean-architecture.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/prompts/prompt-contexto-agente.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · prompts/prompt-contexto-agente.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/prompts/prompt-contexto-agente.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/prompts/prompt-general.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · prompts/prompt-general.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/prompts/prompt-general.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/README.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · README.md",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/README.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · templates/ANALISIS_ARQUITECTURA.html.template",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · templates/ANALISIS_ARQUITECTURA.md.template",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analisis-arquitectura/templates/CONTEXTO_AGENTE.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analisis-arquitectura · templates/CONTEXTO_AGENTE.md.template",
+      "source": "ovillo/.claude/skills/analisis-arquitectura/templates/CONTEXTO_AGENTE.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analizar.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "analizar",
+      "source": "ovillo/.claude/skills/analizar/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analizar/references/formato-salida.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analizar · references/formato-salida.md",
+      "source": "ovillo/.claude/skills/analizar/references/formato-salida.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/analizar/references/recordatorios-y-ejemplo.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "analizar · references/recordatorios-y-ejemplo.md",
+      "source": "ovillo/.claude/skills/analizar/references/recordatorios-y-ejemplo.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "api-integration-patterns",
+      "source": "ovillo/.claude/skills/api-integration-patterns/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/checklists/api-integration-checklist.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · checklists/api-integration-checklist.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/checklists/api-integration-checklist.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/checklists/security-checklist.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · checklists/security-checklist.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/checklists/security-checklist.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · eval-set.json",
+      "source": "ovillo/.claude/skills/api-integration-patterns/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/examples/external-api-example.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · examples/external-api-example.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/examples/external-api-example.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/examples/polly-advanced.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · examples/polly-advanced.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/examples/polly-advanced.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/patterns/api-versioning.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · patterns/api-versioning.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/patterns/api-versioning.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/patterns/circuit-breaker.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · patterns/circuit-breaker.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/patterns/circuit-breaker.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/patterns/httpclient-factory.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · patterns/httpclient-factory.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/patterns/httpclient-factory.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/patterns/oauth2-client-credentials.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · patterns/oauth2-client-credentials.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/patterns/oauth2-client-credentials.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/patterns/response-caching.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · patterns/response-caching.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/patterns/response-caching.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/patterns/retry-policy.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · patterns/retry-policy.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/patterns/retry-policy.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/references/integration-examples.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · references/integration-examples.md",
+      "source": "ovillo/.claude/skills/api-integration-patterns/references/integration-examples.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/scripts/Generate-ApiClient.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · scripts/Generate-ApiClient.ps1",
+      "source": "ovillo/.claude/skills/api-integration-patterns/scripts/Generate-ApiClient.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/scripts/Test-ApiConnection.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · scripts/Test-ApiConnection.ps1",
+      "source": "ovillo/.claude/skills/api-integration-patterns/scripts/Test-ApiConnection.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/templates/ApiClient.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · templates/ApiClient.cs.template",
+      "source": "ovillo/.claude/skills/api-integration-patterns/templates/ApiClient.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/templates/ApiOptions.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · templates/ApiOptions.cs.template",
+      "source": "ovillo/.claude/skills/api-integration-patterns/templates/ApiOptions.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/templates/ApiResponse.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · templates/ApiResponse.cs.template",
+      "source": "ovillo/.claude/skills/api-integration-patterns/templates/ApiResponse.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/templates/DelegatingHandler.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · templates/DelegatingHandler.cs.template",
+      "source": "ovillo/.claude/skills/api-integration-patterns/templates/DelegatingHandler.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api-integration-patterns/templates/ExternalApiClient.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "api-integration-patterns · templates/ExternalApiClient.cs.template",
+      "source": "ovillo/.claude/skills/api-integration-patterns/templates/ExternalApiClient.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/api.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "api",
+      "source": "ovillo/.claude/skills/api/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/application.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "application",
+      "source": "ovillo/.claude/skills/application/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/asignar.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "asignar",
+      "source": "ovillo/.claude/skills/asignar/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/blazor.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "blazor",
+      "source": "ovillo/.claude/skills/blazor/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/calidad-codigo-sync.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "calidad-codigo-sync",
+      "source": "ovillo/.claude/skills/calidad-codigo-sync/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/calidad-codigo-sync/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "calidad-codigo-sync · eval-set.json",
+      "source": "ovillo/.claude/skills/calidad-codigo-sync/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/calidad-codigo-sync/references/ci-wiring.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "calidad-codigo-sync · references/ci-wiring.md",
+      "source": "ovillo/.claude/skills/calidad-codigo-sync/references/ci-wiring.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/calidad-codigo-sync/references/workflow-calidad-sync.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "calidad-codigo-sync · references/workflow-calidad-sync.md",
+      "source": "ovillo/.claude/skills/calidad-codigo-sync/references/workflow-calidad-sync.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/calidad-codigo-sync/references/workflow-metrics.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "calidad-codigo-sync · references/workflow-metrics.md",
+      "source": "ovillo/.claude/skills/calidad-codigo-sync/references/workflow-metrics.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/calidad-codigo-sync/scripts/coverage.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "calidad-codigo-sync · scripts/coverage.runsettings",
+      "source": "ovillo/.claude/skills/calidad-codigo-sync/scripts/coverage.runsettings",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/calidad-codigo-sync/scripts/Sync-QualityRecord.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "calidad-codigo-sync · scripts/Sync-QualityRecord.ps1",
+      "source": "ovillo/.claude/skills/calidad-codigo-sync/scripts/Sync-QualityRecord.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "cicd-architect",
+      "source": "ovillo/.claude/skills/cicd-architect/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · eval-set.json",
+      "source": "ovillo/.claude/skills/cicd-architect/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · references/azure-devops-server-2020-quick-ref.md",
+      "source": "ovillo/.claude/skills/cicd-architect/references/azure-devops-server-2020-quick-ref.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/references/classic-migration.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · references/classic-migration.md",
+      "source": "ovillo/.claude/skills/cicd-architect/references/classic-migration.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/references/diseno-stages.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · references/diseno-stages.md",
+      "source": "ovillo/.claude/skills/cicd-architect/references/diseno-stages.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/references/fases-adopcion.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · references/fases-adopcion.md",
+      "source": "ovillo/.claude/skills/cicd-architect/references/fases-adopcion.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/references/invariantes-resumen.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · references/invariantes-resumen.md",
+      "source": "ovillo/.claude/skills/cicd-architect/references/invariantes-resumen.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/references/troubleshooting-frecuente.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · references/troubleshooting-frecuente.md",
+      "source": "ovillo/.claude/skills/cicd-architect/references/troubleshooting-frecuente.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/azure-pipelines.fase1.netfx.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/azure-pipelines.fase2.console.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/azure-pipelines.fase2.dotnet.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/azure-pipelines.fase2.netfx.branch-gated.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/azure-pipelines.fase2.netfx.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/azure-pipelines.fase2.vue.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/azure-pipelines.nettool.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/azure-pipelines.nettool.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.nettool.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/coverage-gate.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/coverage-gate.ps1",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/coverage-gate.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/Get-TemplateStamp.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/Get-TemplateStamp.ps1",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/Get-TemplateStamp.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/_reusable-dotnet-build.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/actions/coverage-gate/action.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/actions/quality-sync/action.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/actions/quality-sync/action.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/actions/security-gate/action.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/actions/security-gate/action.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/actions/security-gate/action.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/actions/security-scan/action.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/actions/security-scan/action.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/actions/security-scan/action.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/cd.fase2.dotnet.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/cd.fase2.vue.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/cd.fase2.vue.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/cd.fase2.vue.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/ci.fase1.dotnet.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/ci.nettool.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/ci.nettool.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/ci.nettool.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/README.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/README.md",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/README.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/github/security.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/github/security.yml.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/github/security.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/Provision-QualityCiKey.github.ps1.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/Provision-QualityCiKey.ps1.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/Provision-QualityCiKey.ps1.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/registrar-pipeline-azure-devops.ps1.template",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/security-scan.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/security-scan.ps1",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/security-scan.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/backup-pre-deploy.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/backup-pre-deploy.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/backup-pre-deploy.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/coverage-gate.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/coverage-gate.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/coverage-gate.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/deploy-scheduled-task.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/deploy-scheduled-task.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/deploy-scheduled-task.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/download-artifact-rest.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/download-artifact-rest.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/download-artifact-rest.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/quality-sync.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/quality-sync.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/quality-sync.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/rollback-on-fail.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/rollback-on-fail.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/rollback-on-fail.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/security-scan-build.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/security-scan-build.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/security-scan-build.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/security-verdict-gate.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/security-verdict-gate.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/security-verdict-gate.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/smoke-besteffort-spa.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/smoke-besteffort-spa.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/smoke-besteffort-spa.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/smoke-besteffort.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/smoke-besteffort.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/smoke-besteffort.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/steps/smoke-strict-dotnet.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/steps/smoke-strict-dotnet.yml",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/steps/smoke-strict-dotnet.yml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-architect/templates/validate-pipeline-complete.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-architect · templates/validate-pipeline-complete.ps1",
+      "source": "ovillo/.claude/skills/cicd-architect/templates/validate-pipeline-complete.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-deploy.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "cicd-deploy",
+      "source": "ovillo/.claude/skills/cicd-deploy/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-init.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "cicd-init",
+      "source": "ovillo/.claude/skills/cicd-init/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-init/references/fase-0-deteccion.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-init · references/fase-0-deteccion.md",
+      "source": "ovillo/.claude/skills/cicd-init/references/fase-0-deteccion.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-init/references/fase-1-wizard.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-init · references/fase-1-wizard.md",
+      "source": "ovillo/.claude/skills/cicd-init/references/fase-1-wizard.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-init/references/fase-2-generacion.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-init · references/fase-2-generacion.md",
+      "source": "ovillo/.claude/skills/cicd-init/references/fase-2-generacion.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-init/references/fases-3-4-y-cierre.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-init · references/fases-3-4-y-cierre.md",
+      "source": "ovillo/.claude/skills/cicd-init/references/fases-3-4-y-cierre.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-init/references/fases-registro.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cicd-init · references/fases-registro.md",
+      "source": "ovillo/.claude/skills/cicd-init/references/fases-registro.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-release.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "cicd-release",
+      "source": "ovillo/.claude/skills/cicd-release/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-runtime.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "cicd-runtime",
+      "source": "ovillo/.claude/skills/cicd-runtime/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cicd-status.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "cicd-status",
+      "source": "ovillo/.claude/skills/cicd-status/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/clean.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "clean",
+      "source": "ovillo/.claude/skills/clean/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "cloud-config",
+      "source": "ovillo/.claude/skills/cloud-config/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · eval-set.json",
+      "source": "ovillo/.claude/skills/cloud-config/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/patterns/azure-ad-auth.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · patterns/azure-ad-auth.md",
+      "source": "ovillo/.claude/skills/cloud-config/patterns/azure-ad-auth.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/patterns/azure-functions.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · patterns/azure-functions.md",
+      "source": "ovillo/.claude/skills/cloud-config/patterns/azure-functions.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/patterns/cosmosdb.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · patterns/cosmosdb.md",
+      "source": "ovillo/.claude/skills/cloud-config/patterns/cosmosdb.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/patterns/health-checks-azure.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · patterns/health-checks-azure.md",
+      "source": "ovillo/.claude/skills/cloud-config/patterns/health-checks-azure.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/patterns/managed-identity.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · patterns/managed-identity.md",
+      "source": "ovillo/.claude/skills/cloud-config/patterns/managed-identity.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/patterns/service-bus.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · patterns/service-bus.md",
+      "source": "ovillo/.claude/skills/cloud-config/patterns/service-bus.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/templates/AzureHealthChecksConfig.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · templates/AzureHealthChecksConfig.cs.template",
+      "source": "ovillo/.claude/skills/cloud-config/templates/AzureHealthChecksConfig.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/templates/BlobStorageService.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · templates/BlobStorageService.cs.template",
+      "source": "ovillo/.claude/skills/cloud-config/templates/BlobStorageService.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/templates/KeyVaultConfig.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · templates/KeyVaultConfig.cs.template",
+      "source": "ovillo/.claude/skills/cloud-config/templates/KeyVaultConfig.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/cloud-config/templates/ServiceBusPublisher.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "cloud-config · templates/ServiceBusPublisher.cs.template",
+      "source": "ovillo/.claude/skills/cloud-config/templates/ServiceBusPublisher.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/commit.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "commit",
+      "source": "ovillo/.claude/skills/commit/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/commit/references/config-y-flujo.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "commit · references/config-y-flujo.md",
+      "source": "ovillo/.claude/skills/commit/references/config-y-flujo.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/console.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "console",
+      "source": "ovillo/.claude/skills/console/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/continuar.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "continuar",
+      "source": "ovillo/.claude/skills/continuar/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/continuar/references/procedimiento.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "continuar · references/procedimiento.md",
+      "source": "ovillo/.claude/skills/continuar/references/procedimiento.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/database.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "database",
+      "source": "ovillo/.claude/skills/database/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/docs-agente-sync.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "docs-agente-sync",
+      "source": "ovillo/.claude/skills/docs-agente-sync/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/docs-agente-sync/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "docs-agente-sync · eval-set.json",
+      "source": "ovillo/.claude/skills/docs-agente-sync/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/docs-agente-sync/references/ci-wiring.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "docs-agente-sync · references/ci-wiring.md",
+      "source": "ovillo/.claude/skills/docs-agente-sync/references/ci-wiring.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/docs-agente-sync/references/hub-contract.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "docs-agente-sync · references/hub-contract.md",
+      "source": "ovillo/.claude/skills/docs-agente-sync/references/hub-contract.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/docs-agente-sync/references/workflow-docs-sync.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "docs-agente-sync · references/workflow-docs-sync.md",
+      "source": "ovillo/.claude/skills/docs-agente-sync/references/workflow-docs-sync.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/docs-agente-sync/scripts/Get-SourceStamp.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "docs-agente-sync · scripts/Get-SourceStamp.ps1",
+      "source": "ovillo/.claude/skills/docs-agente-sync/scripts/Get-SourceStamp.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/docs-agente-sync/scripts/Sync-AgentDoc.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "docs-agente-sync · scripts/Sync-AgentDoc.ps1",
+      "source": "ovillo/.claude/skills/docs-agente-sync/scripts/Sync-AgentDoc.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "documentacion-tecnica",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · eval-set.json",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/patterns/diagrams-mermaid.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · patterns/diagrams-mermaid.md",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/patterns/diagrams-mermaid.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/patterns/documentation-standards.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · patterns/documentation-standards.md",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/patterns/documentation-standards.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/references/workflow-documentar.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · references/workflow-documentar.md",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/references/workflow-documentar.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/templates/ADR.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · templates/ADR.md.template",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/templates/ADR.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/templates/API-REFERENCE.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · templates/API-REFERENCE.md.template",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/templates/API-REFERENCE.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/templates/ARCHITECTURE.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · templates/ARCHITECTURE.md.template",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/templates/ARCHITECTURE.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/templates/CHANGELOG.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · templates/CHANGELOG.md.template",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/templates/CHANGELOG.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/templates/CONTRIBUTING.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · templates/CONTRIBUTING.md.template",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/templates/CONTRIBUTING.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/templates/DEPLOYMENT.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · templates/DEPLOYMENT.md.template",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/templates/DEPLOYMENT.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/templates/SECURITY.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · templates/SECURITY.md.template",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/templates/SECURITY.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/documentacion-tecnica/templates/TROUBLESHOOTING.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "documentacion-tecnica · templates/TROUBLESHOOTING.md.template",
+      "source": "ovillo/.claude/skills/documentacion-tecnica/templates/TROUBLESHOOTING.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/domain-api-docs.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "domain-api-docs",
+      "source": "ovillo/.claude/skills/domain-api-docs/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/domain.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "domain",
+      "source": "ovillo/.claude/skills/domain/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/equipo.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "equipo",
+      "source": "ovillo/.claude/skills/equipo/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/estado.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "estado",
+      "source": "ovillo/.claude/skills/estado/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/estandares-base.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "estandares-base",
+      "source": "ovillo/.claude/skills/estandares-base/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/eval-gap.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "eval-gap",
+      "source": "ovillo/.claude/skills/eval-gap/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/finalizar-evolutivo.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "finalizar-evolutivo",
+      "source": "ovillo/.claude/skills/finalizar-evolutivo/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/finalizar-evolutivo/references/procedimiento.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "finalizar-evolutivo · references/procedimiento.md",
+      "source": "ovillo/.claude/skills/finalizar-evolutivo/references/procedimiento.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "generador-crud",
+      "source": "ovillo/.claude/skills/generador-crud/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · eval-set.json",
+      "source": "ovillo/.claude/skills/generador-crud/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/ApplicationDbContext.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/ApplicationDbContext.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/ApplicationDbContext.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/AuditableEntity.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/AuditableEntity.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/AuditableEntity.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Command.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Command.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Command.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/CommandHandler.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/CommandHandler.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/CommandHandler.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Configuration.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Configuration.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Configuration.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Controller.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Controller.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Controller.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/DomainException.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/DomainException.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/DomainException.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Dto.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Dto.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Dto.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/EndpointFilters.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/EndpointFilters.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/EndpointFilters.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Entity.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Entity.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Entity.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Exceptions.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Exceptions.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Exceptions.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Interceptors.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Interceptors.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Interceptors.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Interfaces.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Interfaces.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Interfaces.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/IRepository.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/IRepository.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/IRepository.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/LookupEntity.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/LookupEntity.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/LookupEntity.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/LookupRepository.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/LookupRepository.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/LookupRepository.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/MinimalApiEndpoints.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/MinimalApiEndpoints.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/MinimalApiEndpoints.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/PaginatedResult.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/PaginatedResult.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/PaginatedResult.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Query.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Query.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Query.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/QueryHandler.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/QueryHandler.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/QueryHandler.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Repository.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Repository.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Repository.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/SoftDeleteEntity.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/SoftDeleteEntity.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/SoftDeleteEntity.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/generador-crud/templates/Validator.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "generador-crud · templates/Validator.cs.template",
+      "source": "ovillo/.claude/skills/generador-crud/templates/Validator.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "git-best-practices",
+      "source": "ovillo/.claude/skills/git-best-practices/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/checklists/branching-antipatterns.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · checklists/branching-antipatterns.md",
+      "source": "ovillo/.claude/skills/git-best-practices/checklists/branching-antipatterns.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/checklists/git3-readiness.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · checklists/git3-readiness.md",
+      "source": "ovillo/.claude/skills/git-best-practices/checklists/git3-readiness.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/checklists/pre-merge.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · checklists/pre-merge.md",
+      "source": "ovillo/.claude/skills/git-best-practices/checklists/pre-merge.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/checklists/repository-setup.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · checklists/repository-setup.md",
+      "source": "ovillo/.claude/skills/git-best-practices/checklists/repository-setup.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · eval-set.json",
+      "source": "ovillo/.claude/skills/git-best-practices/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/patterns/azure-devops-branching.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · patterns/azure-devops-branching.md",
+      "source": "ovillo/.claude/skills/git-best-practices/patterns/azure-devops-branching.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/patterns/conventional-commits.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · patterns/conventional-commits.md",
+      "source": "ovillo/.claude/skills/git-best-practices/patterns/conventional-commits.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/patterns/gitattributes-config.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · patterns/gitattributes-config.md",
+      "source": "ovillo/.claude/skills/git-best-practices/patterns/gitattributes-config.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/patterns/gitignore-patterns.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · patterns/gitignore-patterns.md",
+      "source": "ovillo/.claude/skills/git-best-practices/patterns/gitignore-patterns.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/patterns/monorepo-patterns.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · patterns/monorepo-patterns.md",
+      "source": "ovillo/.claude/skills/git-best-practices/patterns/monorepo-patterns.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/patterns/ssh-signing.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · patterns/ssh-signing.md",
+      "source": "ovillo/.claude/skills/git-best-practices/patterns/ssh-signing.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/references/workflow-branching.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · references/workflow-branching.md",
+      "source": "ovillo/.claude/skills/git-best-practices/references/workflow-branching.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/strategies/branching-models.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · strategies/branching-models.md",
+      "source": "ovillo/.claude/skills/git-best-practices/strategies/branching-models.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/strategies/merge-strategies.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · strategies/merge-strategies.md",
+      "source": "ovillo/.claude/skills/git-best-practices/strategies/merge-strategies.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/strategies/release-management.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · strategies/release-management.md",
+      "source": "ovillo/.claude/skills/git-best-practices/strategies/release-management.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/branch-ruleset.json.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/branch-ruleset.json.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/branch-ruleset.json.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/CODEOWNERS.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/CODEOWNERS.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/CODEOWNERS.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/commit-msg-hook.sh.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/commit-msg-hook.sh.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/commit-msg-hook.sh.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/dependabot.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/dependabot.yml.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/dependabot.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/github-workflow.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/github-workflow.yml.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/github-workflow.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/ISSUE_TEMPLATE/bug_report.yml.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/ISSUE_TEMPLATE/config.yml.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/ISSUE_TEMPLATE/feature_request.yml.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/pull_request_template.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/pull_request_template.md.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/pull_request_template.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/templates/tag-ruleset.json.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · templates/tag-ruleset.json.template",
+      "source": "ovillo/.claude/skills/git-best-practices/templates/tag-ruleset.json.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/tools/context7-git.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · tools/context7-git.md",
+      "source": "ovillo/.claude/skills/git-best-practices/tools/context7-git.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/tools/git-hooks-automation.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · tools/git-hooks-automation.md",
+      "source": "ovillo/.claude/skills/git-best-practices/tools/git-hooks-automation.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/tools/github-actions-patterns.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · tools/github-actions-patterns.md",
+      "source": "ovillo/.claude/skills/git-best-practices/tools/github-actions-patterns.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-best-practices/tools/github-rulesets.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-best-practices · tools/github-rulesets.md",
+      "source": "ovillo/.claude/skills/git-best-practices/tools/github-rulesets.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-sync.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "git-sync",
+      "source": "ovillo/.claude/skills/git-sync/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/git-sync/references/procedimiento.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "git-sync · references/procedimiento.md",
+      "source": "ovillo/.claude/skills/git-sync/references/procedimiento.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/hub-client.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "hub-client",
+      "source": "ovillo/.claude/skills/hub-client/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/hub-client/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "hub-client · eval-set.json",
+      "source": "ovillo/.claude/skills/hub-client/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/hub-client/references/workflow-mcp-sync.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "hub-client · references/workflow-mcp-sync.md",
+      "source": "ovillo/.claude/skills/hub-client/references/workflow-mcp-sync.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/index.html",
+      "template": "T02",
+      "family": "catálogo",
+      "title": "Skills",
+      "source": null,
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/infrastructure.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "infrastructure",
+      "source": "ovillo/.claude/skills/infrastructure/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/init.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "init",
+      "source": "ovillo/.claude/skills/init/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/init/scripts/init.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "init · scripts/init.js",
+      "source": "ovillo/.claude/skills/init/scripts/init.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/issue-tracker-sync.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "issue-tracker-sync",
+      "source": "ovillo/.claude/skills/issue-tracker-sync/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/issue-tracker-sync/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "issue-tracker-sync · eval-set.json",
+      "source": "ovillo/.claude/skills/issue-tracker-sync/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/issue-tracker-sync/references/azure-devops-rest-playbook.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "issue-tracker-sync · references/azure-devops-rest-playbook.md",
+      "source": "ovillo/.claude/skills/issue-tracker-sync/references/azure-devops-rest-playbook.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/issue-tracker-sync/references/github-playbook.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "issue-tracker-sync · references/github-playbook.md",
+      "source": "ovillo/.claude/skills/issue-tracker-sync/references/github-playbook.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/issue-tracker-sync/references/workflow-devops-sync.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "issue-tracker-sync · references/workflow-devops-sync.md",
+      "source": "ovillo/.claude/skills/issue-tracker-sync/references/workflow-devops-sync.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/issue-tracker-sync/references/workflow-github-sync.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "issue-tracker-sync · references/workflow-github-sync.md",
+      "source": "ovillo/.claude/skills/issue-tracker-sync/references/workflow-github-sync.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/jira.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "jira",
+      "source": "ovillo/.claude/skills/jira/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/jira/references/procedimiento.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "jira · references/procedimiento.md",
+      "source": "ovillo/.claude/skills/jira/references/procedimiento.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/liberar.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "liberar",
+      "source": "ovillo/.claude/skills/liberar/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/mcp-config.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "mcp-config",
+      "source": "ovillo/.claude/skills/mcp-config/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/mcp-forget.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "mcp-forget",
+      "source": "ovillo/.claude/skills/mcp-forget/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/mcp-register.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "mcp-register",
+      "source": "ovillo/.claude/skills/mcp-register/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/mi-config.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "mi-config",
+      "source": "ovillo/.claude/skills/mi-config/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/migrar.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "migrar",
+      "source": "ovillo/.claude/skills/migrar/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/migrate-to-cpm.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "migrate-to-cpm",
+      "source": "ovillo/.claude/skills/migrate-to-cpm/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nuevo-evolutivo.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "nuevo-evolutivo",
+      "source": "ovillo/.claude/skills/nuevo-evolutivo/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nuevo-evolutivo/references/pasos-1-4.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nuevo-evolutivo · references/pasos-1-4.md",
+      "source": "ovillo/.claude/skills/nuevo-evolutivo/references/pasos-1-4.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nuevo-evolutivo/references/pasos-5-6-y-cierre.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nuevo-evolutivo · references/pasos-5-6-y-cierre.md",
+      "source": "ovillo/.claude/skills/nuevo-evolutivo/references/pasos-5-6-y-cierre.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nuevo-proyecto.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "nuevo-proyecto",
+      "source": "ovillo/.claude/skills/nuevo-proyecto/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nuevo-proyecto/references/ejecucion-y-plantillas.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nuevo-proyecto · references/ejecucion-y-plantillas.md",
+      "source": "ovillo/.claude/skills/nuevo-proyecto/references/ejecucion-y-plantillas.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "nugets-management",
+      "source": "ovillo/.claude/skills/nugets-management/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · eval-set.json",
+      "source": "ovillo/.claude/skills/nugets-management/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/patterns/central-package-management.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · patterns/central-package-management.md",
+      "source": "ovillo/.claude/skills/nugets-management/patterns/central-package-management.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/patterns/version-strategy.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · patterns/version-strategy.md",
+      "source": "ovillo/.claude/skills/nugets-management/patterns/version-strategy.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/patterns/vulnerability-remediation.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · patterns/vulnerability-remediation.md",
+      "source": "ovillo/.claude/skills/nugets-management/patterns/vulnerability-remediation.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/references/workflow-nugets.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · references/workflow-nugets.md",
+      "source": "ovillo/.claude/skills/nugets-management/references/workflow-nugets.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/scripts/Audit-Packages.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · scripts/Audit-Packages.ps1",
+      "source": "ovillo/.claude/skills/nugets-management/scripts/Audit-Packages.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/scripts/Migrate-ToCPM.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · scripts/Migrate-ToCPM.ps1",
+      "source": "ovillo/.claude/skills/nugets-management/scripts/Migrate-ToCPM.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/templates/Directory.Build.props.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · templates/Directory.Build.props.template",
+      "source": "ovillo/.claude/skills/nugets-management/templates/Directory.Build.props.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/templates/Directory.Packages.props.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · templates/Directory.Packages.props.template",
+      "source": "ovillo/.claude/skills/nugets-management/templates/Directory.Packages.props.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/nugets-management/templates/nuget.config.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "nugets-management · templates/nuget.config.template",
+      "source": "ovillo/.claude/skills/nugets-management/templates/nuget.config.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/observability-patterns.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "observability-patterns",
+      "source": "ovillo/.claude/skills/observability-patterns/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/observability-patterns/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "observability-patterns · eval-set.json",
+      "source": "ovillo/.claude/skills/observability-patterns/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/observability-patterns/patterns/opentelemetry-setup.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "observability-patterns · patterns/opentelemetry-setup.md",
+      "source": "ovillo/.claude/skills/observability-patterns/patterns/opentelemetry-setup.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/observability-patterns/patterns/serilog-config.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "observability-patterns · patterns/serilog-config.md",
+      "source": "ovillo/.claude/skills/observability-patterns/patterns/serilog-config.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/observability-patterns/patterns/structured-logging.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "observability-patterns · patterns/structured-logging.md",
+      "source": "ovillo/.claude/skills/observability-patterns/patterns/structured-logging.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/observability-patterns/references/workflow-add-telemetry.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "observability-patterns · references/workflow-add-telemetry.md",
+      "source": "ovillo/.claude/skills/observability-patterns/references/workflow-add-telemetry.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/observability-patterns/templates/SerilogConfig.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "observability-patterns · templates/SerilogConfig.cs.template",
+      "source": "ovillo/.claude/skills/observability-patterns/templates/SerilogConfig.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/observability-patterns/templates/TelemetryConfig.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "observability-patterns · templates/TelemetryConfig.cs.template",
+      "source": "ovillo/.claude/skills/observability-patterns/templates/TelemetryConfig.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/onboarding.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "onboarding",
+      "source": "ovillo/.claude/skills/onboarding/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/onboarding/references/fases-0-5.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "onboarding · references/fases-0-5.md",
+      "source": "ovillo/.claude/skills/onboarding/references/fases-0-5.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/onboarding/references/fases-6-9-y-visual-studio.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "onboarding · references/fases-6-9-y-visual-studio.md",
+      "source": "ovillo/.claude/skills/onboarding/references/fases-6-9-y-visual-studio.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/optimizar.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "optimizar",
+      "source": "ovillo/.claude/skills/optimizar/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/pausar.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "pausar",
+      "source": "ovillo/.claude/skills/pausar/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/pausar/references/workflow-sesion.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "pausar · references/workflow-sesion.md",
+      "source": "ovillo/.claude/skills/pausar/references/workflow-sesion.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "postman-collection",
+      "source": "ovillo/.claude/skills/postman-collection/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/checklists/auth-configuration-checklist.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · checklists/auth-configuration-checklist.md",
+      "source": "ovillo/.claude/skills/postman-collection/checklists/auth-configuration-checklist.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · eval-set.json",
+      "source": "ovillo/.claude/skills/postman-collection/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/patterns/auth-detection.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · patterns/auth-detection.md",
+      "source": "ovillo/.claude/skills/postman-collection/patterns/auth-detection.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/patterns/azure-ad-auth.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · patterns/azure-ad-auth.md",
+      "source": "ovillo/.claude/skills/postman-collection/patterns/azure-ad-auth.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/patterns/http-signature-mtls.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · patterns/http-signature-mtls.md",
+      "source": "ovillo/.claude/skills/postman-collection/patterns/http-signature-mtls.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/patterns/oauth2-token-lifecycle.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · patterns/oauth2-token-lifecycle.md",
+      "source": "ovillo/.claude/skills/postman-collection/patterns/oauth2-token-lifecycle.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/references/auth-examples.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · references/auth-examples.md",
+      "source": "ovillo/.claude/skills/postman-collection/references/auth-examples.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/references/test-assertions.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · references/test-assertions.md",
+      "source": "ovillo/.claude/skills/postman-collection/references/test-assertions.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/references/workflow-postman.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · references/workflow-postman.md",
+      "source": "ovillo/.claude/skills/postman-collection/references/workflow-postman.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/templates/auth-prerequest-apikey.js.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · templates/auth-prerequest-apikey.js.template",
+      "source": "ovillo/.claude/skills/postman-collection/templates/auth-prerequest-apikey.js.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/templates/auth-prerequest-azuread.js.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · templates/auth-prerequest-azuread.js.template",
+      "source": "ovillo/.claude/skills/postman-collection/templates/auth-prerequest-azuread.js.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/templates/auth-prerequest-basic.js.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · templates/auth-prerequest-basic.js.template",
+      "source": "ovillo/.claude/skills/postman-collection/templates/auth-prerequest-basic.js.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/templates/collection.json.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · templates/collection.json.template",
+      "source": "ovillo/.claude/skills/postman-collection/templates/collection.json.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/templates/environment.json.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · templates/environment.json.template",
+      "source": "ovillo/.claude/skills/postman-collection/templates/environment.json.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/templates/request.json.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · templates/request.json.template",
+      "source": "ovillo/.claude/skills/postman-collection/templates/request.json.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/postman-collection/templates/tests.js.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "postman-collection · templates/tests.js.template",
+      "source": "ovillo/.claude/skills/postman-collection/templates/tests.js.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/prepara-entrega.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "prepara-entrega",
+      "source": "ovillo/.claude/skills/prepara-entrega/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/recuperar.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "recuperar",
+      "source": "ovillo/.claude/skills/recuperar/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/resilience-patterns.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "resilience-patterns",
+      "source": "ovillo/.claude/skills/resilience-patterns/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/resilience-patterns/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "resilience-patterns · eval-set.json",
+      "source": "ovillo/.claude/skills/resilience-patterns/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/resilience-patterns/patterns/graceful-shutdown.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "resilience-patterns · patterns/graceful-shutdown.md",
+      "source": "ovillo/.claude/skills/resilience-patterns/patterns/graceful-shutdown.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/resilience-patterns/patterns/health-checks.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "resilience-patterns · patterns/health-checks.md",
+      "source": "ovillo/.claude/skills/resilience-patterns/patterns/health-checks.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/resilience-patterns/patterns/polly-policies.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "resilience-patterns · patterns/polly-policies.md",
+      "source": "ovillo/.claude/skills/resilience-patterns/patterns/polly-policies.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/resilience-patterns/references/workflow-add-resilience.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "resilience-patterns · references/workflow-add-resilience.md",
+      "source": "ovillo/.claude/skills/resilience-patterns/references/workflow-add-resilience.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/resilience-patterns/references/workflow-health-check.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "resilience-patterns · references/workflow-health-check.md",
+      "source": "ovillo/.claude/skills/resilience-patterns/references/workflow-health-check.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/resilience-patterns/templates/HealthChecksConfig.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "resilience-patterns · templates/HealthChecksConfig.cs.template",
+      "source": "ovillo/.claude/skills/resilience-patterns/templates/HealthChecksConfig.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/resilience-patterns/templates/ResiliencePolicies.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "resilience-patterns · templates/ResiliencePolicies.cs.template",
+      "source": "ovillo/.claude/skills/resilience-patterns/templates/ResiliencePolicies.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/revision.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "revision",
+      "source": "ovillo/.claude/skills/revision/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "security-audit",
+      "source": "ovillo/.claude/skills/security-audit/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/ai-security/llm-security.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · ai-security/llm-security.md",
+      "source": "ovillo/.claude/skills/security-audit/ai-security/llm-security.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/attacks/clickjacking.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · attacks/clickjacking.md",
+      "source": "ovillo/.claude/skills/security-audit/attacks/clickjacking.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/attacks/csrf-attacks.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · attacks/csrf-attacks.md",
+      "source": "ovillo/.claude/skills/security-audit/attacks/csrf-attacks.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/attacks/jwt-security.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · attacks/jwt-security.md",
+      "source": "ovillo/.claude/skills/security-audit/attacks/jwt-security.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/attacks/mass-assignment.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · attacks/mass-assignment.md",
+      "source": "ovillo/.claude/skills/security-audit/attacks/mass-assignment.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/attacks/path-traversal.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · attacks/path-traversal.md",
+      "source": "ovillo/.claude/skills/security-audit/attacks/path-traversal.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/attacks/ssrf-attacks.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · attacks/ssrf-attacks.md",
+      "source": "ovillo/.claude/skills/security-audit/attacks/ssrf-attacks.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/attacks/xss-in-depth.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · attacks/xss-in-depth.md",
+      "source": "ovillo/.claude/skills/security-audit/attacks/xss-in-depth.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/attacks/xxe-attacks.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · attacks/xxe-attacks.md",
+      "source": "ovillo/.claude/skills/security-audit/attacks/xxe-attacks.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/checklists/api-security.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · checklists/api-security.md",
+      "source": "ovillo/.claude/skills/security-audit/checklists/api-security.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/checklists/code-review-security.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · checklists/code-review-security.md",
+      "source": "ovillo/.claude/skills/security-audit/checklists/code-review-security.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/checklists/http-methods-security.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · checklists/http-methods-security.md",
+      "source": "ovillo/.claude/skills/security-audit/checklists/http-methods-security.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/checklists/post-remediation.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · checklists/post-remediation.md",
+      "source": "ovillo/.claude/skills/security-audit/checklists/post-remediation.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/checklists/pre-deployment.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · checklists/pre-deployment.md",
+      "source": "ovillo/.claude/skills/security-audit/checklists/pre-deployment.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/checklists/wstg-checklist.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · checklists/wstg-checklist.md",
+      "source": "ovillo/.claude/skills/security-audit/checklists/wstg-checklist.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · eval-set.json",
+      "source": "ovillo/.claude/skills/security-audit/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/mobile/owasp-mastg.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · mobile/owasp-mastg.md",
+      "source": "ovillo/.claude/skills/security-audit/mobile/owasp-mastg.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/owasp/owasp-dotnet.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · owasp/owasp-dotnet.md",
+      "source": "ovillo/.claude/skills/security-audit/owasp/owasp-dotnet.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/owasp/owasp-frameworks.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · owasp/owasp-frameworks.md",
+      "source": "ovillo/.claude/skills/security-audit/owasp/owasp-frameworks.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/owasp/owasp-top10-2025.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · owasp/owasp-top10-2025.md",
+      "source": "ovillo/.claude/skills/security-audit/owasp/owasp-top10-2025.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/patterns/attack-surface-mapping.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · patterns/attack-surface-mapping.md",
+      "source": "ovillo/.claude/skills/security-audit/patterns/attack-surface-mapping.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/patterns/authentication-patterns.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · patterns/authentication-patterns.md",
+      "source": "ovillo/.claude/skills/security-audit/patterns/authentication-patterns.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/patterns/secret-detection.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · patterns/secret-detection.md",
+      "source": "ovillo/.claude/skills/security-audit/patterns/secret-detection.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/patterns/secure-coding-checklist.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · patterns/secure-coding-checklist.md",
+      "source": "ovillo/.claude/skills/security-audit/patterns/secure-coding-checklist.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/patterns/secure-headers.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · patterns/secure-headers.md",
+      "source": "ovillo/.claude/skills/security-audit/patterns/secure-headers.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/reports/cwe-references.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · reports/cwe-references.md",
+      "source": "ovillo/.claude/skills/security-audit/reports/cwe-references.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/reports/mitigation-plan.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · reports/mitigation-plan.md",
+      "source": "ovillo/.claude/skills/security-audit/reports/mitigation-plan.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/reports/report-format.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · reports/report-format.md",
+      "source": "ovillo/.claude/skills/security-audit/reports/report-format.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/templates/AttackSimulation.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · templates/AttackSimulation.md",
+      "source": "ovillo/.claude/skills/security-audit/templates/AttackSimulation.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/templates/SecureStartup.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · templates/SecureStartup.cs.template",
+      "source": "ovillo/.claude/skills/security-audit/templates/SecureStartup.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/templates/SecurityHeaders.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · templates/SecurityHeaders.cs.template",
+      "source": "ovillo/.claude/skills/security-audit/templates/SecurityHeaders.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/tools/context7-security.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · tools/context7-security.md",
+      "source": "ovillo/.claude/skills/security-audit/tools/context7-security.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/security-audit/tools/sast-integration.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "security-audit · tools/sast-integration.md",
+      "source": "ovillo/.claude/skills/security-audit/tools/sast-integration.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/sos.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "sos",
+      "source": "ovillo/.claude/skills/sos/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/sos/references/workflow-cp.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "sos · references/workflow-cp.md",
+      "source": "ovillo/.claude/skills/sos/references/workflow-cp.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/sync.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "sync",
+      "source": "ovillo/.claude/skills/sync/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "testing-patterns",
+      "source": "ovillo/.claude/skills/testing-patterns/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · eval-set.json",
+      "source": "ovillo/.claude/skills/testing-patterns/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/patterns/api-contract-testing.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · patterns/api-contract-testing.md",
+      "source": "ovillo/.claude/skills/testing-patterns/patterns/api-contract-testing.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/patterns/builders.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · patterns/builders.md",
+      "source": "ovillo/.claude/skills/testing-patterns/patterns/builders.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/patterns/bunit-patterns.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · patterns/bunit-patterns.md",
+      "source": "ovillo/.claude/skills/testing-patterns/patterns/bunit-patterns.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/patterns/integration-fixtures.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · patterns/integration-fixtures.md",
+      "source": "ovillo/.claude/skills/testing-patterns/patterns/integration-fixtures.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/patterns/mocking-avanzado.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · patterns/mocking-avanzado.md",
+      "source": "ovillo/.claude/skills/testing-patterns/patterns/mocking-avanzado.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/patterns/performance-testing.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · patterns/performance-testing.md",
+      "source": "ovillo/.claude/skills/testing-patterns/patterns/performance-testing.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/patterns/snapshot-testing.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · patterns/snapshot-testing.md",
+      "source": "ovillo/.claude/skills/testing-patterns/patterns/snapshot-testing.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/patterns/test-data-factory.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · patterns/test-data-factory.md",
+      "source": "ovillo/.claude/skills/testing-patterns/patterns/test-data-factory.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/references/test-helpers.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · references/test-helpers.md",
+      "source": "ovillo/.claude/skills/testing-patterns/references/test-helpers.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/references/test-templates.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · references/test-templates.md",
+      "source": "ovillo/.claude/skills/testing-patterns/references/test-templates.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/references/workflow-test.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · references/workflow-test.md",
+      "source": "ovillo/.claude/skills/testing-patterns/references/workflow-test.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/templates/ApiTestBase.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · templates/ApiTestBase.cs.template",
+      "source": "ovillo/.claude/skills/testing-patterns/templates/ApiTestBase.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/templates/FakeBuilder.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · templates/FakeBuilder.cs.template",
+      "source": "ovillo/.claude/skills/testing-patterns/templates/FakeBuilder.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/templates/IntegrationTestBase.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · templates/IntegrationTestBase.cs.template",
+      "source": "ovillo/.claude/skills/testing-patterns/templates/IntegrationTestBase.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/testing-patterns/templates/TestBase.cs.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "testing-patterns · templates/TestBase.cs.template",
+      "source": "ovillo/.claude/skills/testing-patterns/templates/TestBase.cs.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/tests.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "tests",
+      "source": "ovillo/.claude/skills/tests/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/tomar.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "tomar",
+      "source": "ovillo/.claude/skills/tomar/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "user-documentation",
+      "source": "ovillo/.claude/skills/user-documentation/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · eval-set.json",
+      "source": "ovillo/.claude/skills/user-documentation/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/patterns/screenshots-guide.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · patterns/screenshots-guide.md",
+      "source": "ovillo/.claude/skills/user-documentation/patterns/screenshots-guide.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/patterns/user-flows.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · patterns/user-flows.md",
+      "source": "ovillo/.claude/skills/user-documentation/patterns/user-flows.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/references/api-consumer-guide.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · references/api-consumer-guide.md",
+      "source": "ovillo/.claude/skills/user-documentation/references/api-consumer-guide.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/references/cli-guide.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · references/cli-guide.md",
+      "source": "ovillo/.claude/skills/user-documentation/references/cli-guide.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/references/operations-guide.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · references/operations-guide.md",
+      "source": "ovillo/.claude/skills/user-documentation/references/operations-guide.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/references/user-guide-template.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · references/user-guide-template.md",
+      "source": "ovillo/.claude/skills/user-documentation/references/user-guide-template.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/references/workflow-documentar-uso.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · references/workflow-documentar-uso.md",
+      "source": "ovillo/.claude/skills/user-documentation/references/workflow-documentar-uso.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/templates/api-guide.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · templates/api-guide.md.template",
+      "source": "ovillo/.claude/skills/user-documentation/templates/api-guide.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/templates/faq.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · templates/faq.md.template",
+      "source": "ovillo/.claude/skills/user-documentation/templates/faq.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/templates/postman-collection.json.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · templates/postman-collection.json.template",
+      "source": "ovillo/.claude/skills/user-documentation/templates/postman-collection.json.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/user-documentation/templates/webapp-guide.md.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "user-documentation · templates/webapp-guide.md.template",
+      "source": "ovillo/.claude/skills/user-documentation/templates/webapp-guide.md.template",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/verificar-claude.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "verificar-claude",
+      "source": "ovillo/.claude/skills/verificar-claude/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/verificar-claude/references/procedimiento.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "verificar-claude · references/procedimiento.md",
+      "source": "ovillo/.claude/skills/verificar-claude/references/procedimiento.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/verify.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "verify",
+      "source": "ovillo/.claude/skills/verify/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-dashboard.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "webapp-dashboard",
+      "source": "ovillo/.claude/skills/webapp-dashboard/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-dashboard/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-dashboard · eval-set.json",
+      "source": "ovillo/.claude/skills/webapp-dashboard/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-dashboard/references/tokens-y-temas.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-dashboard · references/tokens-y-temas.md",
+      "source": "ovillo/.claude/skills/webapp-dashboard/references/tokens-y-temas.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-dashboard/templates/wwwroot/css/dashboard.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-dashboard · templates/wwwroot/css/dashboard.css",
+      "source": "ovillo/.claude/skills/webapp-dashboard/templates/wwwroot/css/dashboard.css",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-dashboard/templates/wwwroot/js/dashboard.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-dashboard · templates/wwwroot/js/dashboard.js",
+      "source": "ovillo/.claude/skills/webapp-dashboard/templates/wwwroot/js/dashboard.js",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-dashboard/templates/wwwroot/lib/FETCH-LIBS.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-dashboard · templates/wwwroot/lib/FETCH-LIBS.ps1",
+      "source": "ovillo/.claude/skills/webapp-dashboard/templates/wwwroot/lib/FETCH-LIBS.ps1",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-dashboard/templates/wwwroot/lib/fonts/fonts.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-dashboard · templates/wwwroot/lib/fonts/fonts.css",
+      "source": "ovillo/.claude/skills/webapp-dashboard/templates/wwwroot/lib/fonts/fonts.css",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-dashboard/templates/wwwroot/lib/README.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-dashboard · templates/wwwroot/lib/README.md",
+      "source": "ovillo/.claude/skills/webapp-dashboard/templates/wwwroot/lib/README.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "webapp-layout",
+      "source": "ovillo/.claude/skills/webapp-layout/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/eval-set.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · eval-set.json",
+      "source": "ovillo/.claude/skills/webapp-layout/eval-set.json",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/patterns/accesibilidad.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · patterns/accesibilidad.md",
+      "source": "ovillo/.claude/skills/webapp-layout/patterns/accesibilidad.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/patterns/colores-corporativos.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · patterns/colores-corporativos.md",
+      "source": "ovillo/.claude/skills/webapp-layout/patterns/colores-corporativos.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/patterns/dark-mode.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · patterns/dark-mode.md",
+      "source": "ovillo/.claude/skills/webapp-layout/patterns/dark-mode.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/patterns/layout-estandar.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · patterns/layout-estandar.md",
+      "source": "ovillo/.claude/skills/webapp-layout/patterns/layout-estandar.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/patterns/print-styles.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · patterns/print-styles.md",
+      "source": "ovillo/.claude/skills/webapp-layout/patterns/print-styles.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/patterns/responsive.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · patterns/responsive.md",
+      "source": "ovillo/.claude/skills/webapp-layout/patterns/responsive.md",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/templates/_ErrorPage.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · templates/_ErrorPage.cshtml",
+      "source": "ovillo/.claude/skills/webapp-layout/templates/_ErrorPage.cshtml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/templates/_Footer.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · templates/_Footer.cshtml",
+      "source": "ovillo/.claude/skills/webapp-layout/templates/_Footer.cshtml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/templates/_Header.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · templates/_Header.cshtml",
+      "source": "ovillo/.claude/skills/webapp-layout/templates/_Header.cshtml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/templates/_Layout.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · templates/_Layout.cshtml",
+      "source": "ovillo/.claude/skills/webapp-layout/templates/_Layout.cshtml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/templates/_Loading.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · templates/_Loading.cshtml",
+      "source": "ovillo/.claude/skills/webapp-layout/templates/_Loading.cshtml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/templates/_Sidebar.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · templates/_Sidebar.cshtml",
+      "source": "ovillo/.claude/skills/webapp-layout/templates/_Sidebar.cshtml",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/templates/forms.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · templates/forms.css",
+      "source": "ovillo/.claude/skills/webapp-layout/templates/forms.css",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp-layout/templates/site.html",
+      "template": "T06",
+      "family": "skill-recurso",
+      "title": "webapp-layout · templates/site.css",
+      "source": "ovillo/.claude/skills/webapp-layout/templates/site.css",
+      "lang": "es",
+      "kind": "page"
+    },
+    {
+      "out": "skills/webapp.html",
+      "template": "T05",
+      "family": "skill",
+      "title": "webapp",
+      "source": "ovillo/.claude/skills/webapp/SKILL.md",
+      "lang": "es",
+      "kind": "page"
+    }
+  ]
+}

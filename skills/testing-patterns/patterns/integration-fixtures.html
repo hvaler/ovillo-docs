@@ -1,0 +1,402 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · patterns/integration-fixtures.md · Ovillo</title><meta name="description" content="Fichero patterns/integration-fixtures.md de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · patterns/integration-fixtures.md · Ovillo"><meta property="og:description" content="Fichero patterns/integration-fixtures.md de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/integration-fixtures.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/integration-fixtures.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/patterns/integration-fixtures.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (16)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html" class="cur">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>patterns</span><span>integration-fixtures.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>patterns/</span></div><h1>integration-fixtures.md</h1><p class="lede">Referencia que <code>testing-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>13.047 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: testing-patterns</p></blockquote>
+<hr>
+<section class="sec" id="sec-descripción">
+<h3 id="descripción">Descripción</h3>
+<p>Configuración de fixtures para tests de integración con WebApplicationFactory, Testcontainers y base de datos real en contenedor Docker.</p>
+<blockquote><p>⚠️ <strong>Cobertura + WebApplicationFactory (FB-008)</strong>: recolectar cobertura con Coverlet (<code>--collect &quot;XPlat Code Coverage&quot;</code>, IL-rewrite) sobre tests de integración con <code>WebApplicationFactory</code>/TestServer <strong>cuelga</strong> el testhost (CPU plana), sobre todo a nivel solución en paralelo. Para medir esos proyectos: usa <strong><code>dotnet-coverage</code></strong> (profiler out-of-process: <code>dotnet-coverage collect -f cobertura -o cov.xml &quot;dotnet test &lt;proj&gt; --no-build&quot;</code>) <strong>por-proyecto y secuencial</strong>, o <code>dotnet test --blame-hang-timeout 120s</code> + ejecución secuencial (<code>[assembly: CollectionBehavior(DisableTestParallelization=true)]</code>). Ver la skill <code>calidad-codigo-sync</code> (QR) para el pliegue de esa cobertura en las métricas.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-webapplicationfactory-básica">
+<h3 id="webapplicationfactory-básica">WebApplicationFactory Básica</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> WebApplicationFixture : WebApplicationFactory&lt;Program&gt;
+{
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">void</span> ConfigureWebHost(IWebHostBuilder builder)
+    {
+        builder.ConfigureServices(services =&gt;
+        {
+            <span class="tk-c">// Reemplazar servicios para tests</span>
+            <span class="tk-k">var</span> descriptor = services.SingleOrDefault(
+                d =&gt; d.ServiceType == <span class="tk-k">typeof</span>(DbContextOptions&lt;ApplicationDbContext&gt;));
+
+            <span class="tk-k">if</span> (descriptor != <span class="tk-k">null</span>)
+                services.Remove(descriptor);
+
+            <span class="tk-c">// Usar base de datos en memoria</span>
+            services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+                options.UseInMemoryDatabase(<span class="tk-s">&quot;TestDb&quot;</span>));
+
+            <span class="tk-c">// Configurar autenticación de test</span>
+            services.AddAuthentication(<span class="tk-s">&quot;Test&quot;</span>)
+                .AddScheme&lt;AuthenticationSchemeOptions, TestAuthHandler&gt;(<span class="tk-s">&quot;Test&quot;</span>, <span class="tk-k">null</span>);
+        });
+
+        builder.UseEnvironment(<span class="tk-s">&quot;Testing&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-fixture-con-testcontainers-sql-server">
+<h3 id="fixture-con-testcontainers-sql-server">Fixture con Testcontainers (SQL Server)</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> SqlServerFixture : WebApplicationFactory&lt;Program&gt;, IAsyncLifetime
+{
+    <span class="tk-k">private</span> MsSqlContainer _sqlContainer = <span class="tk-k">null</span>!;
+
+    <span class="tk-k">public</span> <span class="tk-k">string</span> ConnectionString =&gt; _sqlContainer.GetConnectionString();
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task InitializeAsync()
+    {
+        _sqlContainer = <span class="tk-k">new</span> MsSqlBuilder()
+            .WithImage(<span class="tk-s">&quot;mcr.microsoft.com/mssql/server:2022-latest&quot;</span>)
+            .WithPassword(<span class="tk-s">&quot;Test@123456&quot;</span>)
+            .WithWaitStrategy(Wait.ForUnixContainer()
+                .UntilPortIsAvailable(<span class="tk-n">1433</span>))
+            .Build();
+
+        <span class="tk-k">await</span> _sqlContainer.StartAsync();
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">void</span> ConfigureWebHost(IWebHostBuilder builder)
+    {
+        builder.ConfigureServices(services =&gt;
+        {
+            <span class="tk-c">// Remover DbContext existente</span>
+            <span class="tk-k">var</span> descriptor = services.SingleOrDefault(
+                d =&gt; d.ServiceType == <span class="tk-k">typeof</span>(DbContextOptions&lt;ApplicationDbContext&gt;));
+
+            <span class="tk-k">if</span> (descriptor != <span class="tk-k">null</span>)
+                services.Remove(descriptor);
+
+            <span class="tk-c">// Usar SQL Server en contenedor</span>
+            services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+                options.UseSqlServer(_sqlContainer.GetConnectionString()));
+        });
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">new</span> <span class="tk-k">async</span> Task DisposeAsync()
+    {
+        <span class="tk-k">await</span> _sqlContainer.DisposeAsync();
+        <span class="tk-k">await</span> <span class="tk-k">base</span>.DisposeAsync();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-fixture-con-múltiples-contenedores">
+<h3 id="fixture-con-múltiples-contenedores">Fixture con Múltiples Contenedores</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> FullStackFixture : WebApplicationFactory&lt;Program&gt;, IAsyncLifetime
+{
+    <span class="tk-k">private</span> MsSqlContainer _sqlContainer = <span class="tk-k">null</span>!;
+    <span class="tk-k">private</span> RedisContainer _redisContainer = <span class="tk-k">null</span>!;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task InitializeAsync()
+    {
+        <span class="tk-c">// Iniciar contenedores en paralelo</span>
+        <span class="tk-k">var</span> sqlTask = StartSqlContainerAsync();
+        <span class="tk-k">var</span> redisTask = StartRedisContainerAsync();
+
+        <span class="tk-k">await</span> Task.WhenAll(sqlTask, redisTask);
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">async</span> Task StartSqlContainerAsync()
+    {
+        _sqlContainer = <span class="tk-k">new</span> MsSqlBuilder()
+            .WithImage(<span class="tk-s">&quot;mcr.microsoft.com/mssql/server:2022-latest&quot;</span>)
+            .Build();
+        <span class="tk-k">await</span> _sqlContainer.StartAsync();
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">async</span> Task StartRedisContainerAsync()
+    {
+        _redisContainer = <span class="tk-k">new</span> RedisBuilder()
+            .WithImage(<span class="tk-s">&quot;redis:7-alpine&quot;</span>)
+            .Build();
+        <span class="tk-k">await</span> _redisContainer.StartAsync();
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">void</span> ConfigureWebHost(IWebHostBuilder builder)
+    {
+        builder.ConfigureServices(services =&gt;
+        {
+            <span class="tk-c">// SQL Server</span>
+            services.RemoveAll&lt;DbContextOptions&lt;ApplicationDbContext&gt;&gt;();
+            services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+                options.UseSqlServer(_sqlContainer.GetConnectionString()));
+
+            <span class="tk-c">// Redis</span>
+            services.RemoveAll&lt;IDistributedCache&gt;();
+            services.AddStackExchangeRedisCache(options =&gt;
+            {
+                options.Configuration = _redisContainer.GetConnectionString();
+            });
+        });
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">new</span> <span class="tk-k">async</span> Task DisposeAsync()
+    {
+        <span class="tk-k">await</span> _sqlContainer.DisposeAsync();
+        <span class="tk-k">await</span> _redisContainer.DisposeAsync();
+        <span class="tk-k">await</span> <span class="tk-k">base</span>.DisposeAsync();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-handler-de-autenticación-para-tests">
+<h3 id="handler-de-autenticación-para-tests">Handler de Autenticación para Tests</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> TestAuthHandler : AuthenticationHandler&lt;AuthenticationSchemeOptions&gt;
+{
+    <span class="tk-k">public</span> <span class="tk-k">const</span> <span class="tk-k">string</span> TestScheme = <span class="tk-s">&quot;Test&quot;</span>;
+    <span class="tk-k">public</span> <span class="tk-k">const</span> <span class="tk-k">string</span> DefaultUserId = <span class="tk-s">&quot;test-user-id&quot;</span>;
+    <span class="tk-k">public</span> <span class="tk-k">const</span> <span class="tk-k">string</span> DefaultUserName = <span class="tk-s">&quot;test@example.com&quot;</span>;
+
+    <span class="tk-k">public</span> TestAuthHandler(
+        IOptionsMonitor&lt;AuthenticationSchemeOptions&gt; options,
+        ILoggerFactory logger,
+        UrlEncoder encoder)
+        : <span class="tk-k">base</span>(options, logger, encoder)
+    {
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> Task&lt;AuthenticateResult&gt; HandleAuthenticateAsync()
+    {
+        <span class="tk-c">// Obtener claims del header (para tests con usuarios específicos)</span>
+        <span class="tk-k">var</span> userId = Context.Request.Headers[<span class="tk-s">&quot;X-Test-UserId&quot;</span>].FirstOrDefault() ?? DefaultUserId;
+        <span class="tk-k">var</span> userName = Context.Request.Headers[<span class="tk-s">&quot;X-Test-UserName&quot;</span>].FirstOrDefault() ?? DefaultUserName;
+        <span class="tk-k">var</span> roles = Context.Request.Headers[<span class="tk-s">&quot;X-Test-Roles&quot;</span>].FirstOrDefault()?.Split(<span class="tk-s">','</span>) ?? [<span class="tk-s">&quot;User&quot;</span>];
+
+        <span class="tk-k">var</span> claims = <span class="tk-k">new</span> List&lt;Claim&gt;
+        {
+            <span class="tk-k">new</span>(ClaimTypes.NameIdentifier, userId),
+            <span class="tk-k">new</span>(ClaimTypes.Name, userName),
+            <span class="tk-k">new</span>(ClaimTypes.Email, userName)
+        };
+
+        claims.AddRange(roles.Select(r =&gt; <span class="tk-k">new</span> Claim(ClaimTypes.Role, r.Trim())));
+
+        <span class="tk-k">var</span> identity = <span class="tk-k">new</span> ClaimsIdentity(claims, TestScheme);
+        <span class="tk-k">var</span> principal = <span class="tk-k">new</span> ClaimsPrincipal(identity);
+        <span class="tk-k">var</span> ticket = <span class="tk-k">new</span> AuthenticationTicket(principal, TestScheme);
+
+        <span class="tk-k">return</span> Task.FromResult(AuthenticateResult.Success(ticket));
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-base-class-para-tests-de-integración">
+<h3 id="base-class-para-tests-de-integración">Base Class para Tests de Integración</h3>
+<pre data-lang="csharp"><code>[Collection(<span class="tk-s">&quot;Integration&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">abstract</span> <span class="tk-k">class</span> IntegrationTestBase : IClassFixture&lt;SqlServerFixture&gt;, IAsyncLifetime
+{
+    <span class="tk-k">protected</span> <span class="tk-k">readonly</span> SqlServerFixture Factory;
+    <span class="tk-k">protected</span> <span class="tk-k">readonly</span> HttpClient Client;
+    <span class="tk-k">protected</span> <span class="tk-k">readonly</span> IServiceScope Scope;
+    <span class="tk-k">protected</span> <span class="tk-k">readonly</span> ApplicationDbContext DbContext;
+
+    <span class="tk-k">protected</span> IntegrationTestBase(SqlServerFixture factory)
+    {
+        Factory = factory;
+        Client = factory.CreateClient();
+        Scope = factory.Services.CreateScope();
+        DbContext = Scope.ServiceProvider.GetRequiredService&lt;ApplicationDbContext&gt;();
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">virtual</span> <span class="tk-k">async</span> Task InitializeAsync()
+    {
+        <span class="tk-c">// Limpiar y recrear DB para cada test</span>
+        <span class="tk-k">await</span> DbContext.Database.EnsureDeletedAsync();
+        <span class="tk-k">await</span> DbContext.Database.EnsureCreatedAsync();
+
+        <span class="tk-c">// Seed de datos base si es necesario</span>
+        <span class="tk-k">await</span> SeedDataAsync();
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">virtual</span> Task SeedDataAsync()
+    {
+        <span class="tk-k">return</span> Task.CompletedTask;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">virtual</span> Task DisposeAsync()
+    {
+        Scope.Dispose();
+        <span class="tk-k">return</span> Task.CompletedTask;
+    }
+
+    <span class="tk-c">// Helpers para autenticación en tests</span>
+    <span class="tk-k">protected</span> <span class="tk-k">void</span> AuthenticateAs(<span class="tk-k">string</span> userId, <span class="tk-k">string</span> userName, <span class="tk-k">params</span> <span class="tk-k">string</span>[] roles)
+    {
+        Client.DefaultRequestHeaders.Add(<span class="tk-s">&quot;X-Test-UserId&quot;</span>, userId);
+        Client.DefaultRequestHeaders.Add(<span class="tk-s">&quot;X-Test-UserName&quot;</span>, userName);
+        Client.DefaultRequestHeaders.Add(<span class="tk-s">&quot;X-Test-Roles&quot;</span>, <span class="tk-k">string</span>.Join(<span class="tk-s">&quot;,&quot;</span>, roles));
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">void</span> AuthenticateAsAdmin()
+    {
+        AuthenticateAs(<span class="tk-s">&quot;admin-id&quot;</span>, <span class="tk-s">&quot;admin@example.com&quot;</span>, <span class="tk-s">&quot;Admin&quot;</span>);
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">void</span> AuthenticateAsGestor()
+    {
+        AuthenticateAs(<span class="tk-s">&quot;gestor-id&quot;</span>, <span class="tk-s">&quot;gestor@example.com&quot;</span>, <span class="tk-s">&quot;Gestor&quot;</span>);
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">void</span> AuthenticateAsUser()
+    {
+        AuthenticateAs(<span class="tk-s">&quot;user-id&quot;</span>, <span class="tk-s">&quot;user@example.com&quot;</span>, <span class="tk-s">&quot;User&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-tests-de-integración-ejemplo">
+<h3 id="tests-de-integración-ejemplo">Tests de Integración Ejemplo</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsControllerTests : IntegrationTestBase
+{
+    <span class="tk-k">public</span> ScholarshipsControllerTests(SqlServerFixture factory) : <span class="tk-k">base</span>(factory) { }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">async</span> Task SeedDataAsync()
+    {
+        <span class="tk-c">// Datos de prueba</span>
+        DbContext.Scholarships.AddRange(
+            <span class="tk-k">new</span> Scholarship { Id = <span class="tk-n">1</span>, Code = <span class="tk-s">&quot;BECA-001&quot;</span>, Name = <span class="tk-s">&quot;Scholarship Test 1&quot;</span>, Amount = <span class="tk-n">5000</span> },
+            <span class="tk-k">new</span> Scholarship { Id = <span class="tk-n">2</span>, Code = <span class="tk-s">&quot;BECA-002&quot;</span>, Name = <span class="tk-s">&quot;Scholarship Test 2&quot;</span>, Amount = <span class="tk-n">3000</span> }
+        );
+        <span class="tk-k">await</span> DbContext.SaveChangesAsync();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetAll_ReturnsAllScholarships()
+    {
+        <span class="tk-c">// Arrange</span>
+        AuthenticateAsUser();
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> Client.GetAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+
+        <span class="tk-k">var</span> content = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;PaginatedResult&lt;ScholarshipDto&gt;&gt;();
+        content.Should().NotBeNull();
+        content!.Items.Should().HaveCount(<span class="tk-n">2</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetById_ExistingScholarship_ReturnsScholarship()
+    {
+        <span class="tk-c">// Arrange</span>
+        AuthenticateAsUser();
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> Client.GetAsync(<span class="tk-s">&quot;/api/scholarships/1&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;ScholarshipDto&gt;();
+        scholarship.Should().NotBeNull();
+        scholarship!.Code.Should().Be(<span class="tk-s">&quot;BECA-001&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_AsAdmin_ReturnsCreated()
+    {
+        <span class="tk-c">// Arrange</span>
+        AuthenticateAsAdmin();
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> CreateScholarshipCommand
+        {
+            Code = <span class="tk-s">&quot;BECA-NEW&quot;</span>,
+            Name = <span class="tk-s">&quot;New Scholarship&quot;</span>,
+            Amount = 4000m,
+            StartDate = DateTime.Today,
+            EndDate = DateTime.Today.AddMonths(<span class="tk-n">6</span>)
+        };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> Client.PostAsJsonAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>, request);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.Created);
+        response.Headers.Location.Should().NotBeNull();
+
+        <span class="tk-c">// Verificar en BD</span>
+        <span class="tk-k">var</span> becaEnBd = <span class="tk-k">await</span> DbContext.Scholarships.FirstOrDefaultAsync(b =&gt; b.Code == <span class="tk-s">&quot;BECA-NEW&quot;</span>);
+        becaEnBd.Should().NotBeNull();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_AsUser_ReturnsForbidden()
+    {
+        <span class="tk-c">// Arrange</span>
+        AuthenticateAsUser();
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> CreateScholarshipCommand { Code = <span class="tk-s">&quot;BECA-NEW&quot;</span>, Name = <span class="tk-s">&quot;Test&quot;</span> };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> Client.PostAsJsonAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>, request);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Delete_ScholarshipWithApplications_ReturnsConflict()
+    {
+        <span class="tk-c">// Arrange</span>
+        AuthenticateAsAdmin();
+
+        <span class="tk-c">// Añadir application a la scholarship</span>
+        DbContext.Applications.Add(<span class="tk-k">new</span> ScholarshipApplication { ScholarshipId = <span class="tk-n">1</span>, StudentId = <span class="tk-n">1</span> });
+        <span class="tk-k">await</span> DbContext.SaveChangesAsync();
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> Client.DeleteAsync(<span class="tk-s">&quot;/api/scholarships/1&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.Conflict);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-collection-fixture-compartir-entre-tests">
+<h3 id="collection-fixture-compartir-entre-tests">Collection Fixture (Compartir entre Tests)</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Definir colección</span>
+[CollectionDefinition(<span class="tk-s">&quot;Integration&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> IntegrationCollection : ICollectionFixture&lt;SqlServerFixture&gt;
+{
+    <span class="tk-c">// Esta clase no tiene código, solo define la colección</span>
+}
+
+<span class="tk-c">// Usar en tests</span>
+[Collection(<span class="tk-s">&quot;Integration&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsControllerTests : IntegrationTestBase
+{
+    <span class="tk-c">// Los tests comparten el mismo contenedor SQL Server</span>
+}
+
+[Collection(<span class="tk-s">&quot;Integration&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ApplicationsControllerTests : IntegrationTestBase
+{
+    <span class="tk-c">// También comparte el mismo contenedor</span>
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-packages-necesarios">
+<h3 id="packages-necesarios">Packages Necesarios</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.AspNetCore.Mvc.Testing&quot;</span> Version=<span class="tk-s">&quot;10.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Testcontainers.MsSql&quot;</span> Version=<span class="tk-s">&quot;3.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Testcontainers.Redis&quot;</span> Version=<span class="tk-s">&quot;3.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;xunit&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;FluentAssertions&quot;</span> Version=<span class="tk-s">&quot;6.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-para-tests-de-integración">
+<h3 id="checklist-para-tests-de-integración">Checklist para Tests de Integración</h3>
+<ul>
+<li><input type="checkbox" disabled> Fixture implementa <code>IAsyncLifetime</code></li>
+<li><input type="checkbox" disabled> Base de datos se limpia entre tests</li>
+<li><input type="checkbox" disabled> Autenticación configurada para diferentes roles</li>
+<li><input type="checkbox" disabled> Contenedores se detienen en <code>DisposeAsync</code></li>
+<li><input type="checkbox" disabled> Tests usan <code>[Collection]</code> para compartir fixtures</li>
+<li><input type="checkbox" disabled> Seeds de datos reutilizables</li>
+</ul>
+<hr>
+<p><em>Pattern v1.0 - testing-patterns skill</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html"><small>Anterior</small>patterns/bunit-patterns.md</a><a class="next" href="../../../skills/testing-patterns/patterns/mocking-avanzado.html"><small>Siguiente</small>patterns/mocking-avanzado.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/patterns/integration-fixtures.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#descripción">Descripción</a></li><li class="l2"><a href="#webapplicationfactory-básica">WebApplicationFactory Básica</a></li><li class="l2"><a href="#fixture-con-testcontainers-sql-server">Fixture con Testcontainers (SQL Server)</a></li><li class="l2"><a href="#fixture-con-múltiples-contenedores">Fixture con Múltiples Contenedores</a></li><li class="l2"><a href="#handler-de-autenticación-para-tests">Handler de Autenticación para Tests</a></li><li class="l2"><a href="#base-class-para-tests-de-integración">Base Class para Tests de Integración</a></li><li class="l2"><a href="#tests-de-integración-ejemplo">Tests de Integración Ejemplo</a></li><li class="l2"><a href="#collection-fixture-compartir-entre-tests">Collection Fixture (Compartir entre Tests)</a></li><li class="l2"><a href="#packages-necesarios">Packages Necesarios</a></li><li class="l2"><a href="#checklist-para-tests-de-integración">Checklist para Tests de Integración</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

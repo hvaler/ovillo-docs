@@ -1,0 +1,328 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · patterns/api-versioning.md · Ovillo</title><meta name="description" content="Fichero patterns/api-versioning.md de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · patterns/api-versioning.md · Ovillo"><meta property="og:description" content="Fichero patterns/api-versioning.md de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/patterns/api-versioning.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/patterns/api-versioning.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/patterns/api-versioning.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html" class="cur">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>patterns</span><span>api-versioning.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>patterns/</span></div><h1>api-versioning.md</h1><p class="lede">Referencia que <code>api-integration-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>9919 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Pattern</strong>: API Versioning <strong>Problema</strong>: Evolución de APIs sin romper clientes existentes <strong>Solución</strong>: Versionado URL, Header o Query String</p></blockquote>
+<hr>
+<section class="sec" id="sec-problema">
+<h3 id="problema">🎯 Problema</h3>
+<p>APIs evolucionan con el tiempo:</p>
+<ul>
+<li><strong>Breaking changes</strong> (campos eliminados, tipos cambiados)</li>
+<li><strong>Nuevos endpoints</strong> (funcionalidad adicional)</li>
+<li><strong>Deprecación</strong> (endpoints obsoletos)</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ Sin versionado - rompe clientes existentes</span>
+<span class="tk-c">// v1: GET /api/students → { &quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 20 }</span>
+<span class="tk-c">// v2: GET /api/students → { &quot;fullName&quot;: &quot;John Doe&quot;, &quot;birthDate&quot;: &quot;2005-01-01&quot; }</span>
+<span class="tk-c">// ❌ Los clientes v1 se rompen porque &quot;name&quot; ya no existe</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-solución-api-versioning">
+<h3 id="solución-api-versioning">✅ Solución: API Versioning</h3>
+<h4 id="estrategias-de-versionado">Estrategias de Versionado</h4>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>Ejemplo</th><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody><tr><td><strong>URL</strong></td><td><code>/api/v1/students</code></td><td>Clara, cacheable</td><td>Duplica rutas</td></tr><tr><td><strong>Header</strong></td><td><code>X-API-Version: 1</code></td><td>URLs limpias</td><td>Menos visible</td></tr><tr><td><strong>Query String</strong></td><td><code>/api/students?v=1</code></td><td>Simple</td><td>Mezcla semántica</td></tr><tr><td><strong>Media Type</strong></td><td><code>Accept: application/vnd.api+json;version=1</code></td><td>RESTful puro</td><td>Complejo</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-1-url-versioning-recomendado">
+<h3 id="1-url-versioning-recomendado">1. URL Versioning (Recomendado)</h3>
+<h4 id="configuración-en-programcs">Configuración en Program.cs</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Asp.Versioning;
+
+builder.Services.AddApiVersioning(options =&gt;
+{
+    options.DefaultApiVersion = <span class="tk-k">new</span> ApiVersion(<span class="tk-n">1</span>, <span class="tk-n">0</span>);
+    options.AssumeDefaultVersionWhenUnspecified = <span class="tk-k">true</span>;
+    options.ReportApiVersions = <span class="tk-k">true</span>; <span class="tk-c">// Header con versiones soportadas</span>
+    options.ApiVersionReader = <span class="tk-k">new</span> UrlSegmentApiVersionReader();
+})
+.AddApiExplorer(options =&gt;
+{
+    options.GroupNameFormat = <span class="tk-s">&quot;'v'VVV&quot;</span>; <span class="tk-c">// v1, v2, v3...</span>
+    options.SubstituteApiVersionInUrl = <span class="tk-k">true</span>;
+});</code></pre>
+<h4 id="controller-v1">Controller v1</h4>
+<pre data-lang="csharp"><code>[ApiController]
+[Route(<span class="tk-s">&quot;api/v{version:apiVersion}/[controller]&quot;</span>)]
+[ApiVersion(<span class="tk-s">&quot;1.0&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> StudentsV1Controller : ControllerBase
+{
+    [HttpGet(<span class="tk-s">&quot;{id}&quot;</span>)]
+    <span class="tk-k">public</span> ActionResult&lt;StudentV1Dto&gt; GetById(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">return</span> Ok(<span class="tk-k">new</span> StudentV1Dto
+        {
+            Id = id,
+            Name = <span class="tk-s">&quot;John&quot;</span>,
+            Age = <span class="tk-n">20</span>
+        });
+    }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> StudentV1Dto
+{
+    <span class="tk-k">public</span> <span class="tk-k">int</span> Id { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+    <span class="tk-k">public</span> <span class="tk-k">int</span> Age { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+}</code></pre>
+<h4 id="controller-v2">Controller v2</h4>
+<pre data-lang="csharp"><code>[ApiController]
+[Route(<span class="tk-s">&quot;api/v{version:apiVersion}/[controller]&quot;</span>)]
+[ApiVersion(<span class="tk-s">&quot;2.0&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> StudentsV2Controller : ControllerBase
+{
+    [HttpGet(<span class="tk-s">&quot;{id}&quot;</span>)]
+    <span class="tk-k">public</span> ActionResult&lt;StudentV2Dto&gt; GetById(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">return</span> Ok(<span class="tk-k">new</span> StudentV2Dto
+        {
+            Id = id,
+            FullName = <span class="tk-s">&quot;John Doe&quot;</span>,
+            BirthDate = <span class="tk-k">new</span> DateTime(<span class="tk-n">2005</span>, <span class="tk-n">1</span>, <span class="tk-n">1</span>)
+        });
+    }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> StudentV2Dto
+{
+    <span class="tk-k">public</span> <span class="tk-k">int</span> Id { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span> FullName { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+    <span class="tk-k">public</span> DateTime BirthDate { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+}</code></pre>
+<h4 id="llamadas-desde-cliente">Llamadas desde Cliente</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Customer v1</span>
+<span class="tk-k">var</span> response = <span class="tk-k">await</span> _httpClient.GetAsync(<span class="tk-s">&quot;https://api.example.org/api/v1/students/123&quot;</span>);
+
+<span class="tk-c">// Customer v2</span>
+<span class="tk-k">var</span> response = <span class="tk-k">await</span> _httpClient.GetAsync(<span class="tk-s">&quot;https://api.example.org/api/v2/students/123&quot;</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-header-versioning">
+<h3 id="2-header-versioning">2. Header Versioning</h3>
+<h4 id="configuración">Configuración</h4>
+<pre data-lang="csharp"><code>builder.Services.AddApiVersioning(options =&gt;
+{
+    options.ApiVersionReader = <span class="tk-k">new</span> HeaderApiVersionReader(<span class="tk-s">&quot;X-API-Version&quot;</span>);
+    options.DefaultApiVersion = <span class="tk-k">new</span> ApiVersion(<span class="tk-n">1</span>, <span class="tk-n">0</span>);
+    options.AssumeDefaultVersionWhenUnspecified = <span class="tk-k">true</span>;
+});</code></pre>
+<h4 id="controller-sin-version-en-ruta">Controller (sin version en ruta)</h4>
+<pre data-lang="csharp"><code>[ApiController]
+[Route(<span class="tk-s">&quot;api/[controller]&quot;</span>)]
+[ApiVersion(<span class="tk-s">&quot;1.0&quot;</span>)]
+[ApiVersion(<span class="tk-s">&quot;2.0&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> StudentsController : ControllerBase
+{
+    [HttpGet(<span class="tk-s">&quot;{id}&quot;</span>)]
+    [MapToApiVersion(<span class="tk-s">&quot;1.0&quot;</span>)]
+    <span class="tk-k">public</span> ActionResult&lt;StudentV1Dto&gt; GetByIdV1(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">return</span> Ok(<span class="tk-k">new</span> StudentV1Dto { Id = id, Name = <span class="tk-s">&quot;John&quot;</span> });
+    }
+
+    [HttpGet(<span class="tk-s">&quot;{id}&quot;</span>)]
+    [MapToApiVersion(<span class="tk-s">&quot;2.0&quot;</span>)]
+    <span class="tk-k">public</span> ActionResult&lt;StudentV2Dto&gt; GetByIdV2(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">return</span> Ok(<span class="tk-k">new</span> StudentV2Dto { Id = id, FullName = <span class="tk-s">&quot;John Doe&quot;</span> });
+    }
+}</code></pre>
+<h4 id="cliente">Cliente</h4>
+<pre data-lang="csharp"><code>_httpClient.DefaultRequestHeaders.Add(<span class="tk-s">&quot;X-API-Version&quot;</span>, <span class="tk-s">&quot;2&quot;</span>);
+<span class="tk-k">var</span> response = <span class="tk-k">await</span> _httpClient.GetAsync(<span class="tk-s">&quot;https://api.example.org/api/students/123&quot;</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-3-query-string-versioning">
+<h3 id="3-query-string-versioning">3. Query String Versioning</h3>
+<h4 id="configuración-2">Configuración</h4>
+<pre data-lang="csharp"><code>builder.Services.AddApiVersioning(options =&gt;
+{
+    options.ApiVersionReader = <span class="tk-k">new</span> QueryStringApiVersionReader(<span class="tk-s">&quot;v&quot;</span>);
+});</code></pre>
+<h4 id="cliente-2">Cliente</h4>
+<pre data-lang="csharp"><code><span class="tk-k">var</span> response = <span class="tk-k">await</span> _httpClient.GetAsync(<span class="tk-s">&quot;https://api.example.org/api/students/123?v=2&quot;</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-deprecación-de-versiones">
+<h3 id="4-deprecación-de-versiones">4. Deprecación de Versiones</h3>
+<h4 id="marcar-como-obsoleta">Marcar como Obsoleta</h4>
+<pre data-lang="csharp"><code>[ApiController]
+[Route(<span class="tk-s">&quot;api/v{version:apiVersion}/[controller]&quot;</span>)]
+[ApiVersion(<span class="tk-s">&quot;1.0&quot;</span>, Deprecated = <span class="tk-k">true</span>)] <span class="tk-c">// ⚠️ Marcada como deprecated</span>
+[ApiVersion(<span class="tk-s">&quot;2.0&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> StudentsController : ControllerBase
+{
+    [HttpGet]
+    [MapToApiVersion(<span class="tk-s">&quot;1.0&quot;</span>)]
+    [Obsolete(<span class="tk-s">&quot;Esta versión será eliminada el 2026-12-31. Usa v2.&quot;</span>)]
+    <span class="tk-k">public</span> ActionResult&lt;IEnumerable&lt;StudentV1Dto&gt;&gt; GetAllV1()
+    {
+        <span class="tk-c">// Implementación v1 (deprecated)</span>
+    }
+
+    [HttpGet]
+    [MapToApiVersion(<span class="tk-s">&quot;2.0&quot;</span>)]
+    <span class="tk-k">public</span> ActionResult&lt;IEnumerable&lt;StudentV2Dto&gt;&gt; GetAllV2()
+    {
+        <span class="tk-c">// Implementación v2 (actual)</span>
+    }
+}</code></pre>
+<h4 id="response-header">Response Header</h4>
+<pre data-lang="http"><code>HTTP/1.1 200 OK
+api-supported-versions: 2.0
+api-deprecated-versions: 1.0
+Sunset: Mon, 31 Dec 2026 23:59:59 GMT</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-openapi--swagger-con-múltiples-versiones">
+<h3 id="5-openapi--swagger-con-múltiples-versiones">5. OpenAPI / Swagger con Múltiples Versiones</h3>
+<h4 id="configuración-3">Configuración</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Asp.Versioning.ApiExplorer;
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.ConfigureOptions&lt;ConfigureSwaggerOptions&gt;();
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ConfigureSwaggerOptions : IConfigureOptions&lt;SwaggerGenOptions&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IApiVersionDescriptionProvider _provider;
+
+    <span class="tk-k">public</span> ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider)
+    {
+        _provider = provider;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Configure(SwaggerGenOptions options)
+    {
+        <span class="tk-k">foreach</span> (<span class="tk-k">var</span> description <span class="tk-k">in</span> _provider.ApiVersionDescriptions)
+        {
+            options.SwaggerDoc(
+                description.GroupName,
+                <span class="tk-k">new</span> OpenApiInfo
+                {
+                    Title = <span class="tk-s">$&quot;Mi API {description.ApiVersion}&quot;</span>,
+                    Version = description.ApiVersion.ToString(),
+                    Description = description.IsDeprecated
+                        ? <span class="tk-s">&quot;⚠️ Esta versión está deprecada&quot;</span>
+                        : <span class="tk-s">&quot;Versión actual&quot;</span>
+                });
+        }
+    }
+}
+
+<span class="tk-c">// Middleware</span>
+app.UseSwagger();
+app.UseSwaggerUI(options =&gt;
+{
+    <span class="tk-k">var</span> descriptions = app.Services.GetRequiredService&lt;IApiVersionDescriptionProvider&gt;()
+        .ApiVersionDescriptions;
+
+    <span class="tk-k">foreach</span> (<span class="tk-k">var</span> description <span class="tk-k">in</span> descriptions)
+    {
+        options.SwaggerEndpoint(
+            <span class="tk-s">$&quot;/swagger/{description.GroupName}/swagger.json&quot;</span>,
+            description.GroupName.ToUpperInvariant());
+    }
+});</code></pre>
+<h4 id="resultado">Resultado</h4>
+<pre><code>Swagger UI mostrará:
+- v1 (deprecated)
+- v2 (current)
+- v3 (beta)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-6-versionado-de-dtos">
+<h3 id="6-versionado-de-dtos">6. Versionado de DTOs</h3>
+<h4 id="namespace-por-versión">Namespace por Versión</h4>
+<pre data-lang="csharp"><code><span class="tk-k">namespace</span> MyApp.Api.V1.Models
+{
+    <span class="tk-k">public</span> <span class="tk-k">record</span> StudentDto
+    {
+        <span class="tk-k">public</span> <span class="tk-k">int</span> Id { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+        <span class="tk-k">public</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+    }
+}
+
+<span class="tk-k">namespace</span> MyApp.Api.V2.Models
+{
+    <span class="tk-k">public</span> <span class="tk-k">record</span> StudentDto
+    {
+        <span class="tk-k">public</span> <span class="tk-k">int</span> Id { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+        <span class="tk-k">public</span> <span class="tk-k">string</span> FullName { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+        <span class="tk-k">public</span> DateTime BirthDate { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-7-políticas-de-versionado">
+<h3 id="7-políticas-de-versionado">7. Políticas de Versionado</h3>
+<h4 id="política-de-la-organización">Política de la organización</h4>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>Regla</th></tr></thead><tbody><tr><td><strong>Formato</strong></td><td>Major.Minor (1.0, 2.0)</td></tr><tr><td><strong>Breaking changes</strong></td><td>Incrementan Major (1.0 → 2.0)</td></tr><tr><td><strong>Nuevas features</strong></td><td>Pueden añadirse a versión existente si compatibles</td></tr><tr><td><strong>Deprecación</strong></td><td>Mínimo 12 meses de aviso</td></tr><tr><td><strong>Soporte</strong></td><td>Últimas 2 versiones Major</td></tr></tbody></table></div>
+<h4 id="ejemplo-timeline">Ejemplo Timeline</h4>
+<pre><code>2025-01-01: v1.0 lanzada
+2025-06-01: v2.0 lanzada (v1.0 marcada deprecated)
+2026-01-01: v3.0 lanzada (v2.0 soportada, v1.0 deprecated)
+2026-06-01: v1.0 eliminada (tras 12 meses deprecated)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-comparativa-estrategias">
+<h3 id="comparativa-estrategias">📊 Comparativa Estrategias</h3>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>URL</th><th>Header</th><th>Query String</th></tr></thead><tbody><tr><td><strong>Claridad</strong></td><td>⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐</td></tr><tr><td><strong>Cacheabilidad</strong></td><td>⭐⭐⭐</td><td>⭐</td><td>⭐⭐</td></tr><tr><td><strong>Simplicidad</strong></td><td>⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td></tr><tr><td><strong>SEO</strong></td><td>⭐⭐⭐</td><td>⭐</td><td>⭐</td></tr><tr><td><strong>Recomendado para</strong></td><td>APIs públicas</td><td>APIs internas</td><td>Prototipos</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-errores-comunes">
+<h3 id="errores-comunes">⚠️ Errores Comunes</h3>
+<h4 id="no-hacer">❌ NO hacer</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ Modificar DTOs existentes (rompe v1)</span>
+<span class="tk-k">public</span> <span class="tk-k">record</span> StudentDto
+{
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } <span class="tk-c">// Eliminado en v2</span>
+    <span class="tk-k">public</span> <span class="tk-k">string</span> FullName { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } <span class="tk-c">// Añadido en v2</span>
+}
+
+<span class="tk-c">// ❌ Eliminar versiones sin aviso</span>
+[ApiVersion(<span class="tk-s">&quot;1.0&quot;</span>)] <span class="tk-c">// Eliminada repentinamente</span>
+
+<span class="tk-c">// ❌ Versionado inconsistente</span>
+/api/v1/students
+/api/<span class="tk-n">2.0</span>/scholarships <span class="tk-c">// Formato diferente</span></code></pre>
+<h4 id="hacer">✅ Hacer</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ DTOs separados por versión</span>
+<span class="tk-k">namespace</span> Api.V1.Models { <span class="tk-k">public</span> <span class="tk-k">record</span> StudentDto { ... } }
+<span class="tk-k">namespace</span> Api.V2.Models { <span class="tk-k">public</span> <span class="tk-k">record</span> StudentDto { ... } }
+
+<span class="tk-c">// ✅ Deprecar con aviso</span>
+[ApiVersion(<span class="tk-s">&quot;1.0&quot;</span>, Deprecated = <span class="tk-k">true</span>)]
+[Obsolete(<span class="tk-s">&quot;Usa v2. Eliminación prevista: 2026-12-31&quot;</span>)]
+
+<span class="tk-c">// ✅ Formato consistente</span>
+/api/v1/students
+/api/v2/students</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-testing">
+<h3 id="testing">🧪 Testing</h3>
+<pre data-lang="csharp"><code>[Fact]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task GetStudent_V1_ReturnsV1Schema()
+{
+    <span class="tk-c">// Arrange</span>
+    <span class="tk-k">var</span> client = _factory.CreateClient();
+    client.DefaultRequestHeaders.Add(<span class="tk-s">&quot;X-API-Version&quot;</span>, <span class="tk-s">&quot;1&quot;</span>);
+
+    <span class="tk-c">// Act</span>
+    <span class="tk-k">var</span> response = <span class="tk-k">await</span> client.GetAsync(<span class="tk-s">&quot;/api/students/123&quot;</span>);
+
+    <span class="tk-c">// Assert</span>
+    response.StatusCode.Should().Be(HttpStatusCode.OK);
+
+    <span class="tk-k">var</span> content = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;StudentV1Dto&gt;();
+    content.Should().NotBeNull();
+    content!.Name.Should().NotBeNullOrEmpty(); <span class="tk-c">// Campo solo en v1</span>
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-referencias">
+<h3 id="referencias">📚 Referencias</h3>
+<ul>
+<li><a href="https://github.com/dotnet/aspnet-api-versioning" rel="noopener">ASP.NET Core API Versioning</a></li>
+<li><a href="https://www.freecodecamp.org/news/rest-api-best-practices-rest-endpoint-design-examples/" rel="noopener">REST API Versioning Best Practices</a></li>
+</ul>
+<hr>
+<p><em>Pattern: api-versioning - Ovillo</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html"><small>Anterior</small>examples/polly-advanced.md</a><a class="next" href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html"><small>Siguiente</small>patterns/circuit-breaker.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/patterns/api-versioning.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#problema">🎯 Problema</a></li><li class="l2"><a href="#solución-api-versioning">✅ Solución: API Versioning</a></li><li class="l3"><a href="#estrategias-de-versionado">Estrategias de Versionado</a></li><li class="l2"><a href="#1-url-versioning-recomendado">1. URL Versioning (Recomendado)</a></li><li class="l3"><a href="#configuración-en-programcs">Configuración en Program.cs</a></li><li class="l3"><a href="#controller-v1">Controller v1</a></li><li class="l3"><a href="#controller-v2">Controller v2</a></li><li class="l3"><a href="#llamadas-desde-cliente">Llamadas desde Cliente</a></li><li class="l2"><a href="#2-header-versioning">2. Header Versioning</a></li><li class="l3"><a href="#configuración">Configuración</a></li><li class="l3"><a href="#controller-sin-version-en-ruta">Controller (sin version en ruta)</a></li><li class="l3"><a href="#cliente">Cliente</a></li><li class="l2"><a href="#3-query-string-versioning">3. Query String Versioning</a></li><li class="l3"><a href="#configuración-2">Configuración</a></li><li class="l3"><a href="#cliente-2">Cliente</a></li><li class="l2"><a href="#4-deprecación-de-versiones">4. Deprecación de Versiones</a></li><li class="l3"><a href="#marcar-como-obsoleta">Marcar como Obsoleta</a></li><li class="l3"><a href="#response-header">Response Header</a></li><li class="l2"><a href="#5-openapi--swagger-con-múltiples-versiones">5. OpenAPI / Swagger con Múltiples Versiones</a></li><li class="l3"><a href="#configuración-3">Configuración</a></li><li class="l3"><a href="#resultado">Resultado</a></li><li class="l2"><a href="#6-versionado-de-dtos">6. Versionado de DTOs</a></li><li class="l3"><a href="#namespace-por-versión">Namespace por Versión</a></li><li class="l2"><a href="#7-políticas-de-versionado">7. Políticas de Versionado</a></li><li class="l3"><a href="#política-de-la-organización">Política de la organización</a></li><li class="l3"><a href="#ejemplo-timeline">Ejemplo Timeline</a></li><li class="l2"><a href="#comparativa-estrategias">📊 Comparativa Estrategias</a></li><li class="l2"><a href="#errores-comunes">⚠️ Errores Comunes</a></li><li class="l3"><a href="#no-hacer">❌ NO hacer</a></li><li class="l3"><a href="#hacer">✅ Hacer</a></li><li class="l2"><a href="#testing">🧪 Testing</a></li><li class="l2"><a href="#referencias">📚 Referencias</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

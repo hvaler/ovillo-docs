@@ -1,0 +1,163 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guía: Instalación y uso de MCPs en Ovillo · Ovillo</title><meta name="description" content="Guía: Instalación y uso de MCPs en Ovillo"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Guía: Instalación y uso de MCPs en Ovillo · Ovillo"><meta property="og:description" content="Guía: Instalación y uso de MCPs en Ovillo"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/guia_mcp_instalacion.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/guia_mcp_instalacion.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/guia_mcp_instalacion.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 01_Estructura_Tecnica (4)</h4><ul class="sibs"><li><a href="../guias/estructura_tecnica.html">Documento de Estructura Técnica</a></li><li><a href="../guias/guia_acceso_datos.html">Guía de Acceso a Datos: Dapper vs ADO.NET</a></li><li><a href="../guias/guia_arquitectura.html">Guia de Arquitectura y Patrones</a></li><li><a href="../guias/guia_mcp_instalacion.html" class="cur">Guía: Instalación y uso de MCPs en Ovillo</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 01_Estructura_Tecnica</span><span>Guía: Instalación y uso de MCPs en Ovillo</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 01_Estructura_Tecnica</span><span>español</span></div><h1>Guía: Instalación y uso de MCPs en Ovillo</h1><div class="meta-grid"><div><b>5 min</b><span>lectura</span></div><div><b>1018</b><span>palabras</span></div><div><b>9</b><span>secciones</span></div><div><b>2026-09-07</b><span>última edición</span></div><div><b>2</b><span>cambios</span></div></div><blockquote><p><strong>Versión</strong>: 1.0 <strong>Audiencia</strong>: Desarrolladores <strong>Propósito</strong>: Documentar las formas oficiales de instalar y usar Model Context Protocol (MCP) servers en proyectos Ovillo, los patrones recomendados de credenciales, y las mitigaciones de seguridad implementadas en el ecosistema.</p></blockquote>
+<hr>
+<section class="sec" id="sec-1-qué-es-un-mcp">
+<h3 id="1-qué-es-un-mcp">1. Qué es un MCP</h3>
+<p>Un <strong>Model Context Protocol server</strong> expone funcionalidad (tools, resources, prompts) a Claude Code mediante un protocolo estándar. Claude Code lanza el MCP como subproceso (stdio) o se conecta vía HTTP/SSE, y puede invocar las tools que expone como si fueran nativas.</p>
+<p>Ejemplos en uso en la organización:</p>
+<ul>
+<li><strong>Context7</strong> (<code>https://mcp.context7.com/mcp</code>): documentación actualizada de librerías</li>
+<li><strong>CWM.RoslynNavigator</strong> (local): análisis semántico C# (15 tools)</li>
+<li>Próximos: GitHub, Jira, MS SQL (en evaluación)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-2-tres-ejes-ortogonales">
+<h3 id="2-tres-ejes-ortogonales">2. Tres ejes ortogonales</h3>
+<p>Toda instalación de MCP combina tres dimensiones:</p>
+<h4 id="eje-1--scope-quién-lo-ve">Eje 1 — Scope (quién lo ve)</h4>
+<div class="tbl"><table><thead><tr><th>Scope</th><th>Fichero</th><th>Vida</th><th>Uso típico</th></tr></thead><tbody><tr><td><strong>user</strong></td><td><code>~/.claude.json</code></td><td>Todos los proyectos del usuario</td><td>MCPs personales (Context7, GitHub)</td></tr><tr><td><strong>project</strong></td><td><code>&lt;repo&gt;/.mcp.json</code></td><td>Equipo, va a git</td><td>MCPs del equipo (Roslyn, BD del proyecto)</td></tr><tr><td><strong>local</strong></td><td><code>&lt;repo&gt;/.claude/settings.local.json</code></td><td>Solo tú, gitignored</td><td>Override personal, secrets locales</td></tr></tbody></table></div>
+<p>Precedencia: <strong>local &gt; project &gt; user</strong> (el más específico gana).</p>
+<h4 id="eje-2--mecanismo-de-instalación">Eje 2 — Mecanismo de instalación</h4>
+<div class="tbl"><table><thead><tr><th>Forma</th><th>Ejemplo</th><th>Cuándo usar</th></tr></thead><tbody><tr><td><strong>CLI <code>claude mcp add</code></strong></td><td><code>claude mcp add roslyn -s project -- dotnet run --project D:\Tools\RoslynMCP</code></td><td>Recomendado: idiomático y validado por Claude Code</td></tr><tr><td><strong>Edición manual JSON</strong></td><td>Editar <code>.mcp.json</code> directamente</td><td>Scripts de instalación masiva, control total del JSON</td></tr><tr><td><strong>Plugin bundle</strong></td><td>MCP empaquetado dentro de un plugin marketplace</td><td>Distribución a equipos vía <code>/plugin install</code></td></tr><tr><td><strong>Built-in / hosted</strong></td><td>Algunos MCPs ya integrados (filesystem, fetch)</td><td>Cero config</td></tr></tbody></table></div>
+<h4 id="eje-3--transporte-cómo-se-comunica">Eje 3 — Transporte (cómo se comunica)</h4>
+<div class="tbl"><table><thead><tr><th>Transporte</th><th>Sintaxis típica</th><th>Cuándo</th></tr></thead><tbody><tr><td><strong>stdio</strong></td><td><code>command + args</code> (lanza proceso local)</td><td>Default. La mayoría: <code>npx</code>, <code>dotnet</code>, <code>python</code>, <code>uvx</code></td></tr><tr><td><strong>SSE</strong></td><td><code>url: https://server/sse</code></td><td>MCP remoto vía Server-Sent Events</td></tr><tr><td><strong>HTTP streamable</strong></td><td><code>url: https://server/mcp</code></td><td>Protocolo nuevo 2026, oficial Anthropic</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-3-patrones-recomendados">
+<h3 id="3-patrones-recomendados">3. Patrones recomendados</h3>
+<h4 id="patrón-a--mcp-de-equipo-todos-lo-necesitan">Patrón A — MCP de equipo, todos lo necesitan</h4>
+<p><strong>Scope</strong>: project · <strong>Mecanismo</strong>: <code>claude mcp add</code> o <code>.mcp.json</code> versionado · <strong>Transporte</strong>: stdio</p>
+<pre data-lang="json"><code>// .mcp.json (en raíz del repo, va a git)
+{
+  <span class="tk-s">&quot;mcpServers&quot;</span>: {
+    <span class="tk-s">&quot;roslyn&quot;</span>: {
+      <span class="tk-s">&quot;command&quot;</span>: <span class="tk-s">&quot;dotnet&quot;</span>,
+      <span class="tk-s">&quot;args&quot;</span>: [<span class="tk-s">&quot;run&quot;</span>, <span class="tk-s">&quot;--project&quot;</span>, <span class="tk-s">&quot;D:/Tools/RoslynMCP&quot;</span>],
+      <span class="tk-s">&quot;env&quot;</span>: {}
+    }
+  }
+}</code></pre>
+<p>Lo instala el <code>irm | iex</code> o el <code>install.ps1</code> durante onboarding.</p>
+<h4 id="patrón-b--mcp-personal-sin-secretos">Patrón B — MCP personal sin secretos</h4>
+<p><strong>Scope</strong>: user · <strong>Mecanismo</strong>: CLI · <strong>Transporte</strong>: stdio o HTTP</p>
+<pre data-lang="bash"><code><span class="tk-k">claude</span> mcp add github -s user -- npx -y @modelcontextprotocol/server-github
+<span class="tk-k">claude</span> mcp add context7 -s user --transport http https://mcp.context7.com/mcp</code></pre>
+<h4 id="patrón-c--mcp-con-secretos-jira-github-pat-atlassian">Patrón C — MCP con secretos (Jira, GitHub PAT, Atlassian)</h4>
+<p><strong>Scope</strong>: local (gitignored) · <strong>Mecanismo</strong>: edición manual · <strong>Transporte</strong>: stdio · <strong>Credenciales</strong>: variables de entorno</p>
+<p><strong>Paso 1</strong> — generar el token en el proveedor (ej. https://id.atlassian.com/manage/api-tokens).</p>
+<p><strong>Paso 2</strong> — persistir en sesión Windows:</p>
+<pre data-lang="powershell"><code><span class="tk-c"># Persistente entre reinicios (NO usar `set` que solo dura la sesión actual)</span>
+setx JIRA_API_TOKEN <span class="tk-s">&quot;ATATT3xxxxxxxxxxxxxxxxxx&quot;</span>
+setx JIRA_EMAIL <span class="tk-s">&quot;tu_email@example.com&quot;</span>
+<span class="tk-c"># Reabrir la terminal para que el env var esté disponible</span></code></pre>
+<p><strong>Paso 3</strong> — <code>.claude/settings.local.json</code> con placeholder <code>${env:VAR}</code>:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;mcpServers&quot;</span>: {
+    <span class="tk-s">&quot;jira&quot;</span>: {
+      <span class="tk-s">&quot;command&quot;</span>: <span class="tk-s">&quot;npx&quot;</span>,
+      <span class="tk-s">&quot;args&quot;</span>: [<span class="tk-s">&quot;-y&quot;</span>, <span class="tk-s">&quot;@atlassian/mcp-server-jira&quot;</span>],
+      <span class="tk-s">&quot;env&quot;</span>: {
+        <span class="tk-s">&quot;JIRA_URL&quot;</span>: <span class="tk-s">&quot;https://myorg.atlassian.net&quot;</span>,
+        <span class="tk-s">&quot;JIRA_EMAIL&quot;</span>: <span class="tk-s">&quot;${env:JIRA_EMAIL}&quot;</span>,
+        <span class="tk-s">&quot;JIRA_API_TOKEN&quot;</span>: <span class="tk-s">&quot;${env:JIRA_API_TOKEN}&quot;</span>
+      }
+    }
+  }
+}</code></pre>
+<p><strong>Paso 4</strong> — añadir <code>.claude/settings.local.json</code> a <code>.gitignore</code> (ya viene así por defecto en Ovillo).</p>
+<h4 id="patrón-d--mcp-remoto-compartido-servidor-on-prem-la-organización">Patrón D — MCP remoto compartido (servidor on-prem la organización)</h4>
+<p><strong>Scope</strong>: user · <strong>Mecanismo</strong>: CLI con <code>--transport http</code> · <strong>Transporte</strong>: HTTP/SSE · <strong>Auth</strong>: Windows integrada o token corporativo</p>
+<pre data-lang="bash"><code><span class="tk-k">claude</span> mcp add miorg-sistema -s user --transport http https://www.example.org/mcp/sistema</code></pre>
+<p>Sin proceso local, sin credenciales en disco. La auth la maneja el servidor (NTLM, Azure AD, etc.).</p>
+<h4 id="patrón-e--mcp-de-toda-la-organización-vía-plugin">Patrón E — MCP de toda la organización vía plugin</h4>
+<p><strong>Scope</strong>: user (instalado por marketplace) · <strong>Mecanismo</strong>: plugin · <strong>Transporte</strong>: stdio + HTTP</p>
+<p>Ovillo ya se distribuye así (<code>claude plugin marketplace add hvaler/ovillo</code> + <code>claude plugin install hv@ovillo</code>). Una organización puede publicar en su propio marketplace un plugin con sus MCP (Context7, Roslyn, Jira y futuros) con configuración pre-empaquetada.</p>
+<hr>
+</section>
+<section class="sec" id="sec-4-anti-patrones-prohibido">
+<h3 id="4-anti-patrones-prohibido">4. Anti-patrones (PROHIBIDO)</h3>
+<div class="tbl"><table><thead><tr><th>❌ KO</th><th>✅ OK</th><th>Razón</th></tr></thead><tbody><tr><td>Token literal en <code>.mcp.json</code> versionado</td><td>Token en env var + placeholder <code>${env:VAR}</code></td><td>Filtración a git, repo público interno</td></tr><tr><td><code>set VAR=value</code> en CMD</td><td><code>setx VAR &quot;value&quot;</code> (persistente)</td><td><code>set</code> solo dura la sesión actual</td></tr><tr><td><code>JIRA_API_TOKEN</code> en <code>~/.claude.json</code> (user scope, plain)</td><td>Mismo token vía <code>${env:JIRA_API_TOKEN}</code></td><td><code>~/.claude.json</code> no está cifrado</td></tr><tr><td>MCP que requiere admin para correr</td><td>MCP user-scope sin elevación</td><td>Friction operativa, riesgo de elevación</td></tr><tr><td>Dejar MCP de tests apuntando a BD producción</td><td>MCP separado por entorno (dev/pre/pro)</td><td>Riesgo de mutaciones accidentales</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-5-mitigaciones-de-seguridad-implementadas">
+<h3 id="5-mitigaciones-de-seguridad-implementadas">5. Mitigaciones de seguridad implementadas</h3>
+<h4 id="hook-secret-scannerjs-v110">Hook <code>secret-scanner.js</code> v1.1.0+</h4>
+<p>Bloquea automáticamente al hacer <code>Write/Edit</code> sobre <code>.mcp.json</code>, <code>~/.claude.json</code> o <code>.claude/settings.json</code> si detecta:</p>
+<ul>
+<li><strong>GitHub PAT</strong> literal: <code>ghp_...</code> o <code>github_pat_...</code></li>
+<li><strong>Atlassian API token</strong> literal: en claves <code>JIRA_API_TOKEN</code>, <code>ATLASSIAN_API_TOKEN</code>, <code>CONFLUENCE_API_TOKEN</code></li>
+<li><strong>Anthropic API key</strong> literal: <code>sk-ant-...</code></li>
+<li><strong>Bloque genérico</strong> en <code>env</code>: cualquier clave <code>*_TOKEN</code>, <code>*_KEY</code>, <code>*_SECRET</code>, <code>*_PASSWORD</code> con valor literal (no <code>${env:...}</code>, no <code>&lt;placeholder&gt;</code>, no <code>TODO</code>, no <code>EXAMPLE</code>)</li>
+</ul>
+<p>Pasa correctamente:</p>
+<ul>
+<li><code>${env:VAR}</code> placeholders</li>
+<li><code>&lt;TODO_REPLACE&gt;</code> placeholders</li>
+<li><code>EXAMPLE_KEY</code>, <code>YOUR_TOKEN_HERE</code></li>
+</ul>
+<h4 id="hook-auth-config-guardjs">Hook <code>auth-config-guard.js</code></h4>
+<p>Detecta configuraciones de autenticación incorrectas en código C# (Azure AD, OAuth2). Complementario al secret-scanner pero opera sobre código fuente, no sobre <code>.mcp.json</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-6-comandos-útiles">
+<h3 id="6-comandos-útiles">6. Comandos útiles</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Listar todos los MCPs activos en el contexto actual</span>
+<span class="tk-k">claude</span> mcp list
+
+<span class="tk-c"># Detalle de un MCP concreto</span>
+<span class="tk-k">claude</span> mcp get &lt;name&gt;
+
+<span class="tk-c"># Quitar un MCP de un scope</span>
+<span class="tk-k">claude</span> mcp remove &lt;name&gt; -s &lt;user|project|<span class="tk-k">local</span>&gt;
+
+<span class="tk-c"># Importar configuración desde Claude Desktop (app distinta)</span>
+<span class="tk-k">claude</span> mcp add-from-claude-desktop
+
+<span class="tk-c"># Ver logs de un MCP que falla</span>
+<span class="tk-k">claude</span> mcp logs &lt;name&gt;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-7-troubleshooting">
+<h3 id="7-troubleshooting">7. Troubleshooting</h3>
+<h4 id="el-mcp-no-aparece-tras-claude-mcp-add">El MCP no aparece tras <code>claude mcp add</code></h4>
+<ol>
+<li>Verificar que el comando devolvió exit 0</li>
+<li>Reiniciar Claude Code (algunos MCPs solo se registran en startup)</li>
+<li>Comprobar <code>claude mcp list</code> y <code>claude mcp get &lt;name&gt;</code></li>
+</ol>
+<h4 id="el-mcp-aparece-pero-falla-al-usar-tools">El MCP aparece pero falla al usar tools</h4>
+<ol>
+<li><code>claude mcp logs &lt;name&gt;</code> — ver el output del proceso</li>
+<li>Comprobar env vars con <code>Get-ChildItem Env:</code> en una nueva terminal</li>
+<li>Si es <code>claude mcp add --transport http</code>, comprobar conectividad: <code>irm &lt;url&gt;/health</code></li>
+</ol>
+<h4 id="tokens-expirados-atlassian-github">Tokens expirados (Atlassian, GitHub)</h4>
+<ul>
+<li>Atlassian: tokens vencen tras 12 meses si no se rotan. Generar nuevo y <code>setx</code> en sesión.</li>
+<li>GitHub PATs clásicos: configurables. Fine-grained: 1 año máximo.</li>
+<li>Anthropic OAuth (Claude Code): se renueva automáticamente con refresh token.</li>
+</ul>
+<h4 id="el-secret-scanner-bloquea-un-valor-que-no-es-un-secret">El secret-scanner bloquea un valor que no es un secret</h4>
+<ul>
+<li>Si es genuino placeholder, asegurar que cumple uno de los formatos reconocidos: <code>${env:...}</code>, <code>&lt;TODO_...&gt;</code>, <code>YOUR_...</code>, <code>PLACEHOLDER_...</code>, <code>EXAMPLE_...</code></li>
+<li>Si necesitas commitear un valor real (raro), añadir comentario <code>// PUBLIC: ...</code> o exportar a una variable env y reescribir con placeholder</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-8-roadmap-mcps-de-la-organización">
+<h3 id="8-roadmap-mcps-de-la-organización">8. Roadmap MCPs de la organización</h3>
+<div class="tbl"><table><thead><tr><th>MCP</th><th>Scope previsto</th><th>Estado</th><th>Notas</th></tr></thead><tbody><tr><td>Context7</td><td>user</td><td>✅ Producción</td><td>Pre-instalado vía install.ps1</td></tr><tr><td>CWM.RoslynNavigator</td><td>user (opcional)</td><td>✅ Producción</td><td>Selector complementos en install.ps1</td></tr><tr><td>GitHub</td><td>user</td><td>🟡 Evaluación</td><td>Requiere PAT personal</td></tr><tr><td>Jira/Atlassian</td><td>local</td><td>🟡 Evaluación</td><td>Requiere API token + email</td></tr><tr><td>MS SQL Server</td><td>project (entornos no-prod)</td><td>🔴 Riesgo</td><td>Solo lectura, mascarado de PII</td></tr><tr><td>Banner la organización</td><td>user (corporativo)</td><td>🟡 A diseñar</td><td>Auth Azure AD</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-9-referencias">
+<h3 id="9-referencias">9. Referencias</h3>
+<ul>
+<li><a href="https://modelcontextprotocol.io/" rel="noopener">Documentación oficial MCP</a></li>
+<li><a href="https://code.claude.com/docs/en/mcp" rel="noopener">Claude Code MCP docs</a></li>
+<li><code>_estado/DECISIONES.md</code> — ADR sobre selección de MCPs en Ovillo</li>
+<li><code>.claude/CLAUDE_BASE.md</code> §7 — Seguridad (gestión de secretos)</li>
+<li><code>.claude/hooks/secret-scanner.js</code> — Implementación del bloqueo automático</li>
+</ul>
+<hr>
+<p><em>Guía v1.0 - la organización</em> <em>Última actualización: 2026-05-08</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/01_Estructura_Tecnica/GUIA_MCP_INSTALACION.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/guia_arquitectura.html"><small>Anterior</small>Guia de Arquitectura y Patrones</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/01_Estructura_Tecnica/GUIA_MCP_INSTALACION.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-qué-es-un-mcp">1. Qué es un MCP</a></li><li class="l2"><a href="#2-tres-ejes-ortogonales">2. Tres ejes ortogonales</a></li><li class="l3"><a href="#eje-1--scope-quién-lo-ve">Eje 1 — Scope (quién lo ve)</a></li><li class="l3"><a href="#eje-2--mecanismo-de-instalación">Eje 2 — Mecanismo de instalación</a></li><li class="l3"><a href="#eje-3--transporte-cómo-se-comunica">Eje 3 — Transporte (cómo se comunica)</a></li><li class="l2"><a href="#3-patrones-recomendados">3. Patrones recomendados</a></li><li class="l3"><a href="#patrón-a--mcp-de-equipo-todos-lo-necesitan">Patrón A — MCP de equipo, todos lo necesitan</a></li><li class="l3"><a href="#patrón-b--mcp-personal-sin-secretos">Patrón B — MCP personal sin secretos</a></li><li class="l3"><a href="#patrón-c--mcp-con-secretos-jira-github-pat-atlassian">Patrón C — MCP con secretos (Jira, GitHub PAT, Atlassian)</a></li><li class="l3"><a href="#patrón-d--mcp-remoto-compartido-servidor-on-prem-la-organización">Patrón D — MCP remoto compartido (servidor on-prem la organización)</a></li><li class="l3"><a href="#patrón-e--mcp-de-toda-la-organización-vía-plugin">Patrón E — MCP de toda la organización vía plugin</a></li><li class="l2"><a href="#4-anti-patrones-prohibido">4. Anti-patrones (PROHIBIDO)</a></li><li class="l2"><a href="#5-mitigaciones-de-seguridad-implementadas">5. Mitigaciones de seguridad implementadas</a></li><li class="l3"><a href="#hook-secret-scannerjs-v110">Hook secret-scanner.js v1.1.0+</a></li><li class="l3"><a href="#hook-auth-config-guardjs">Hook auth-config-guard.js</a></li><li class="l2"><a href="#6-comandos-útiles">6. Comandos útiles</a></li><li class="l2"><a href="#7-troubleshooting">7. Troubleshooting</a></li><li class="l3"><a href="#el-mcp-no-aparece-tras-claude-mcp-add">El MCP no aparece tras claude mcp add</a></li><li class="l3"><a href="#el-mcp-aparece-pero-falla-al-usar-tools">El MCP aparece pero falla al usar tools</a></li><li class="l3"><a href="#tokens-expirados-atlassian-github">Tokens expirados (Atlassian, GitHub)</a></li><li class="l3"><a href="#el-secret-scanner-bloquea-un-valor-que-no-es-un-secret">El secret-scanner bloquea un valor que no es un secret</a></li><li class="l2"><a href="#8-roadmap-mcps-de-la-organización">8. Roadmap MCPs de la organización</a></li><li class="l2"><a href="#9-referencias">9. Referencias</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

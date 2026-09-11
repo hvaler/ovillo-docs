@@ -1,0 +1,87 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>nuevo-proyecto · Ovillo</title><meta name="description" content="Crea un proyecto .NET desde cero con un wizard interactivo, segun los estandares de la organizacion."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="nuevo-proyecto · Ovillo"><meta property="og:description" content="Crea un proyecto .NET desde cero con un wizard interactivo, segun los estandares de la organizacion."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/nuevo-proyecto.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/nuevo-proyecto.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/nuevo-proyecto.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html" class="cur">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>nuevo-proyecto</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:nuevo-proyecto</span><span>solo usuario</span></div><h1>nuevo-proyecto</h1><p class="lede">Crea un proyecto .NET desde cero con un wizard interactivo, segun los estandares de la organizacion.</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:nuevo-proyecto</code></b><span>invocación</span></div><div><b>3</b><span>ficheros</span></div><div><b>336</b><span>palabras</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr><tr><th>allowed-tools</th><td><code>Read, Grep, Glob, Write, Edit, Bash(dotnet *), Bash(git *)</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:nuevo-proyecto</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">2</span></h2><div class="tree"><ul><li><span class="dir">references/</span><ul><li><a href="../skills/nuevo-proyecto/references/ejecucion-y-plantillas.html">ejecucion-y-plantillas.md</a> <span class="muted">7571 B</span></li><li>wizard-pasos.md <span class="muted">48.051 B</span></li></ul></li></ul></div><p class="muted">Los ficheros sin enlace son binarios o superan los 32 KB: solo se listan.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo cuando la invocas con <code>/hv:nuevo-proyecto</code>.</p></blockquote>
+<blockquote><p>Wizard <strong>interactivo</strong>: pregunta paso a paso y escribe ficheros. No se ejecuta en subagente porque necesita dialogo con el usuario.</p></blockquote>
+<hr>
+<blockquote><p>🏗️ <strong>OBJETIVO</strong>: Crear un proyecto .NET nuevo siguiendo los estándares del ecosistema de la organización, con nomenclatura <code>MyCompany.NombreProyecto.*</code> y estructura en <code>src/</code>.</p></blockquote>
+<section class="sec" id="sec-modos-de-uso">
+<h3 id="modos-de-uso">Modos de Uso</h3>
+<div class="tbl"><table><thead><tr><th>Modo</th><th>Comando</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>Wizard</strong></td><td><code>/hv:nuevo-proyecto</code></td><td>Interactivo paso a paso (recomendado)</td></tr><tr><td><strong>Rápido</strong></td><td><code>/hv:nuevo-proyecto MiApi --quick</code></td><td>Con valores por defecto</td></tr><tr><td><strong>Descripción</strong></td><td><code>/hv:nuevo-proyecto &quot;Sistema de gestión de becas&quot;</code></td><td>Inferir configuración</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-reglas-de-nomenclatura-claude_base">
+<h3 id="reglas-de-nomenclatura-claude_base">📋 REGLAS DE NOMENCLATURA (CLAUDE_BASE)</h3>
+<h4 id="convención-de-nombres">Convención de nombres</h4>
+<pre><code>{namespacePrefix}.&lt;NombreProyecto&gt;.&lt;Capa&gt;
+
+Ejemplos:
+├── MyCompany.ScholarshipManagement.sln    ← o .slnx en .NET 8+
+├── MyCompany.ScholarshipManagement.Api
+├── MyCompany.ScholarshipManagement.Web
+├── MyCompany.ScholarshipManagement.Application
+├── MyCompany.ScholarshipManagement.Domain
+├── MyCompany.ScholarshipManagement.Infrastructure
+├── MyCompany.ScholarshipManagement.Worker
+└── MyCompany.ScholarshipManagement.Tests</code></pre>
+<h4 id="formatos-de-solución-sln-vs-slnx">Formatos de Solución (.sln vs .slnx)</h4>
+<div class="tbl"><table><thead><tr><th>Formato</th><th>Compatibilidad</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>.sln</strong></td><td>.NET 4.x, 7, 8, 9, 10</td><td>Formato tradicional, compatibilidad máxima</td></tr><tr><td><strong>.slnx</strong></td><td>.NET 8+ (VS 2022 17.10+)</td><td>Formato XML limpio, recomendado para nuevos proyectos</td></tr></tbody></table></div>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│ MATRIZ DE COMPATIBILIDAD - FORMATO DE SOLUCIÓN                  │
+├─────────────────────────────────────────────────────────────────┤
+│ .NET 4.x  │ .NET 7  │ .NET 8  │ .NET 9  │ .NET 10 │ Formato    │
+├───────────┼─────────┼─────────┼─────────┼─────────┼────────────┤
+│    ✅     │   ✅    │   ✅    │   ✅    │   ✅    │ .sln       │
+│    ❌     │   ❌    │   ✅    │   ✅    │   ✅    │ .slnx      │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<p><strong>Ventajas de .slnx:</strong></p>
+<ul>
+<li>Formato XML legible y editable manualmente</li>
+<li>Sin GUIDs complejos ni secciones difíciles de entender</li>
+<li>Mejor integración con control de versiones (menos conflictos)</li>
+<li>Estructura declarativa más limpia</li>
+</ul>
+<h4 id="detección-inteligente-del-nombre">Detección inteligente del nombre</h4>
+<div class="tbl"><table><thead><tr><th>Usuario escribe</th><th>Se interpreta como</th><th>Resultado</th></tr></thead><tbody><tr><td><code>ScholarshipManagement</code></td><td>Nombre sin prefijo</td><td><code>MyCompany.ScholarshipManagement.*</code></td></tr><tr><td><code>MyCompany.ScholarshipManagement</code></td><td>Ya tiene prefijo</td><td><code>MyCompany.ScholarshipManagement.*</code></td></tr><tr><td><code>mycompany.scholarship-management</code></td><td>Minúsculas</td><td><code>MyCompany.ScholarshipManagement.*</code></td></tr><tr><td><code>COMILLAS.GESTIONBECAS</code></td><td>Mayúsculas</td><td><code>MyCompany.ScholarshipManagement.*</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-estructura-de-archivos-claudemd">
+<h3 id="estructura-de-archivos-claudemd">📁 ESTRUCTURA DE ARCHIVOS CLAUDE.md</h3>
+<h4 id="jerarquía-de-claudemd">Jerarquía de CLAUDE.md</h4>
+<pre><code>MiProyecto/                          ← Raíz del proyecto
+├── CLAUDE.md                        ← 🔵 PRINCIPAL (generado por plantilla)
+│   │                                   @imports (solo dos, ADR-025):
+│   │                                   @_hilo/ESTADO_PROYECTO.json
+│   │                                   @_hilo/SESION_ACTUAL.md
+│   │
+├── .claude/
+│   └── CLAUDE_BASE.md      ← Estándares base: NO se importa; lo recuerda
+│                              la regla por ruta `estandares-base`
+│
+├── _hilo/                       ← Estado del proyecto
+│
+└── src/
+    └── MyCompany.ScholarshipManagement/       ← Carpeta de la solución
+        └── CLAUDE.md                ← 🟢 ESPECÍFICO de la solución (opcional)
+                                        Solo si hay configuración específica
+                                        que no aplica al proyecto general</code></pre>
+<h4 id="cuándo-crear-claudemd-en-la-carpeta-de-la-solución">¿Cuándo crear CLAUDE.md en la carpeta de la solución?</h4>
+<div class="tbl"><table><thead><tr><th>Escenario</th><th>¿Crear CLAUDE.md en src/?</th></tr></thead><tbody><tr><td>Proyecto nuevo con <code>/hv:nuevo-proyecto</code></td><td>❌ No necesario (usa el principal)</td></tr><tr><td>Proyecto existente migrado</td><td>✅ Sí, para documentar particularidades</td></tr><tr><td>Múltiples soluciones en src</td><td>✅ Sí, uno por cada solución</td></tr><tr><td>Configuración específica de build</td><td>✅ Sí, para comandos específicos</td></tr></tbody></table></div>
+<h4 id="contenido-del-claudemd-específico-si-se-crea">Contenido del CLAUDE.md específico (si se crea)</h4>
+<pre data-lang="markdown"><code># CLAUDE.md - MyCompany.ScholarshipManagement
+
+&gt; Este archivo complementa el CLAUDE.md principal del proyecto.
+&gt; Para estándares generales, ver: @../CLAUDE.md
+
+## Configuración específica de esta solución
+[Particularidades de build, deploy, etc.]
+
+## Referencias
+@../../CLAUDE.md</code></pre>
+<hr>
+<hr>
+</section>
+<section class="sec" id="sec-indice-del-workflow">
+<h3 id="indice-del-workflow">Indice del workflow</h3>
+<p>El procedimiento completo vive en <code>references/</code> y se lee por partes, segun la fase en la que estes:</p>
+<div class="tbl"><table><thead><tr><th>Referencia</th><th>Contenido</th></tr></thead><tbody><tr><td><code>references/wizard-pasos.md</code></td><td>Los 8 pasos del wizard, con sus preguntas y validaciones</td></tr><tr><td><code>references/ejecucion-y-plantillas.md</code></td><td>Ejecucion de la creacion, ficheros generados y plantillas predefinidas</td></tr></tbody></table></div>
+<hr>
+<p><em>Skill nuevo-proyecto · kind: workflow</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>100</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 336 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>6 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>fix: el verificador validaba la plantilla que la dieta habia retirado (ADR-038)</em> (<code>60e6e0d</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/estandares-base.html">estandares-base</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/nuevo-proyecto/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#modos-de-uso">Modos de Uso</a></li><li class="l3"><a href="#reglas-de-nomenclatura-claude_base">📋 REGLAS DE NOMENCLATURA (CLAUDE_BASE)</a></li><li class="l3"><a href="#estructura-de-archivos-claudemd">📁 ESTRUCTURA DE ARCHIVOS CLAUDE.md</a></li><li class="l3"><a href="#indice-del-workflow">Indice del workflow</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,139 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>security-audit · tools/sast-integration.md · Ovillo</title><meta name="description" content="Fichero tools/sast-integration.md de la skill security-audit"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="security-audit · tools/sast-integration.md · Ovillo"><meta property="og:description" content="Fichero tools/sast-integration.md de la skill security-audit"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/security-audit/tools/sast-integration.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/security-audit/tools/sast-integration.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/security-audit/tools/sast-integration.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de security-audit (33)</h4><ul class="sibs"><li><a href="../../../skills/security-audit/ai-security/llm-security.html">ai-security/llm-security.md</a></li><li><a href="../../../skills/security-audit/attacks/clickjacking.html">attacks/clickjacking.md</a></li><li><a href="../../../skills/security-audit/attacks/csrf-attacks.html">attacks/csrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/jwt-security.html">attacks/jwt-security.md</a></li><li><a href="../../../skills/security-audit/attacks/mass-assignment.html">attacks/mass-assignment.md</a></li><li><a href="../../../skills/security-audit/attacks/path-traversal.html">attacks/path-traversal.md</a></li><li><a href="../../../skills/security-audit/attacks/ssrf-attacks.html">attacks/ssrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/xss-in-depth.html">attacks/xss-in-depth.md</a></li><li><a href="../../../skills/security-audit/attacks/xxe-attacks.html">attacks/xxe-attacks.md</a></li><li><a href="../../../skills/security-audit/checklists/api-security.html">checklists/api-security.md</a></li><li><a href="../../../skills/security-audit/checklists/code-review-security.html">checklists/code-review-security.md</a></li><li><a href="../../../skills/security-audit/checklists/http-methods-security.html">checklists/http-methods-security.md</a></li><li><a href="../../../skills/security-audit/checklists/post-remediation.html">checklists/post-remediation.md</a></li><li><a href="../../../skills/security-audit/checklists/pre-deployment.html">checklists/pre-deployment.md</a></li><li><a href="../../../skills/security-audit/checklists/wstg-checklist.html">checklists/wstg-checklist.md</a></li><li><a href="../../../skills/security-audit/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/security-audit/mobile/owasp-mastg.html">mobile/owasp-mastg.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-dotnet.html">owasp/owasp-dotnet.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-frameworks.html">owasp/owasp-frameworks.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-top10-2025.html">owasp/owasp-top10-2025.md</a></li><li><a href="../../../skills/security-audit/patterns/attack-surface-mapping.html">patterns/attack-surface-mapping.md</a></li><li><a href="../../../skills/security-audit/patterns/authentication-patterns.html">patterns/authentication-patterns.md</a></li><li><a href="../../../skills/security-audit/patterns/secret-detection.html">patterns/secret-detection.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-coding-checklist.html">patterns/secure-coding-checklist.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-headers.html">patterns/secure-headers.md</a></li><li><a href="../../../skills/security-audit/reports/cwe-references.html">reports/cwe-references.md</a></li><li><a href="../../../skills/security-audit/reports/mitigation-plan.html">reports/mitigation-plan.md</a></li><li><a href="../../../skills/security-audit/reports/report-format.html">reports/report-format.md</a></li><li><a href="../../../skills/security-audit/templates/AttackSimulation.html">templates/AttackSimulation.md</a></li><li><a href="../../../skills/security-audit/templates/SecureStartup.cs.html">templates/SecureStartup.cs.template</a></li><li><a href="../../../skills/security-audit/templates/SecurityHeaders.cs.html">templates/SecurityHeaders.cs.template</a></li><li><a href="../../../skills/security-audit/tools/context7-security.html">tools/context7-security.md</a></li><li><a href="../../../skills/security-audit/tools/sast-integration.html" class="cur">tools/sast-integration.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/security-audit.html">security-audit</a></span><span>tools</span><span>sast-integration.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>security-audit</span><span>tools/</span></div><h1>sast-integration.md</h1><p class="lede">Referencia que <code>security-audit</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/security-audit.html">security-audit</a></b><span>skill</span></div><div><b>tools</b><span>carpeta</span></div><div><b>6045 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: security-audit</p></blockquote>
+<p class="lede">Configuracion e integracion de herramientas de analisis estatico de seguridad (SAST) en el ciclo de desarrollo.</p>
+<blockquote><p>Ver tambien: <code>patterns/secure-coding-checklist.md</code>, <code>reports/report-format.md</code></p></blockquote>
+<hr>
+<section class="sec" id="sec-net---analizadores-integrados">
+<h3 id="net---analizadores-integrados">.NET - Analizadores Integrados</h3>
+<pre data-lang="xml"><code><span class="tk-c">&lt;!-- En .csproj - Habilitar analizadores de seguridad --&gt;</span>
+<span class="tk-t">&lt;PropertyGroup</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;EnableNETAnalyzers</span><span class="tk-t">&gt;</span>true<span class="tk-t">&lt;/EnableNETAnalyzers</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;AnalysisLevel</span><span class="tk-t">&gt;</span>latest-all<span class="tk-t">&lt;/AnalysisLevel</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/PropertyGroup</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- SecurityCodeScan - Analizador SAST para .NET --&gt;</span>
+<span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;SecurityCodeScan.VS2019&quot;</span> Version=<span class="tk-s">&quot;5.*&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;PrivateAssets</span><span class="tk-t">&gt;</span>all<span class="tk-t">&lt;/PrivateAssets</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;IncludeAssets</span><span class="tk-t">&gt;</span>runtime; build; native; contentfiles; analyzers<span class="tk-t">&lt;/IncludeAssets</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/PackageReference</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<pre data-lang="bash"><code><span class="tk-c"># Escaneo de vulnerabilidades en dependencias .NET</span>
+<span class="tk-k">dotnet</span> list package --vulnerable --include-transitive</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-semgrep-multi-lenguaje">
+<h3 id="semgrep-multi-lenguaje">Semgrep (Multi-lenguaje)</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Escaneo de seguridad general</span>
+semgrep --config p/default
+
+<span class="tk-c"># Escaneos especificos por lenguaje</span>
+semgrep scan --config p/python
+semgrep scan --config p/javascript
+semgrep scan --config p/golang
+semgrep scan --config p/ruby
+semgrep scan --config p/java
+semgrep scan --config p/csharp
+
+<span class="tk-c"># Reglas OWASP</span>
+semgrep --config p/owasp-top-ten
+
+<span class="tk-c"># Multiples configuraciones</span>
+semgrep scan --config reglas.yaml --config mas_reglas.yaml</code></pre>
+<h4 id="regla-semgrep-personalizada-inyeccion-sql">Regla Semgrep Personalizada (Inyeccion SQL)</h4>
+<pre data-lang="yaml"><code>rules:
+  - id: deteccion-inyeccion-sql
+    languages: [java]
+    severity: ERROR
+    mode: taint
+    message: Potencial inyeccion SQL - entrada del usuario fluye hacia consulta SQL
+    options:
+      taint_assume_safe_booleans: <span class="tk-k">true</span>
+      taint_assume_safe_numbers: <span class="tk-k">true</span>
+      interfile: <span class="tk-k">true</span>
+    pattern-sources:
+      - patterns:
+          - pattern: |
+              $X(..., $SRC, ...) { ... }
+          - focus-metavariable: $SRC
+    pattern-sinks:
+      - pattern: Statement.executeQuery(...)
+      - pattern: Statement.execute(...)
+    pattern-sanitizers:
+      - pattern: PreparedStatement.setString(...)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-otras-herramientas-sast">
+<h3 id="otras-herramientas-sast">Otras Herramientas SAST</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Python - Bandit</span>
+bandit -r /ruta/al/codigo
+
+<span class="tk-c"># JavaScript - ESLint con plugin de seguridad</span>
+eslint --config .eslintrc.security.js src/
+
+<span class="tk-c"># Go - GoSec</span>
+gosec ./...
+
+<span class="tk-c"># Dependencias multi-lenguaje</span>
+<span class="tk-k">npm</span> audit                    <span class="tk-c"># Node.js</span>
+pip-audit                    <span class="tk-c"># Python</span>
+safety check                 <span class="tk-c"># Python</span>
+snyk test                    <span class="tk-c"># Multi-lenguaje</span>
+trivy fs .                   <span class="tk-c"># Escaneo de sistema de archivos</span>
+
+<span class="tk-c"># Infraestructura como Code</span>
+checkov --directory .        <span class="tk-c"># Terraform, CloudFormation, K8s</span>
+tfsec .                      <span class="tk-c"># Especifico de Terraform</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-integracion-en-cicd">
+<h3 id="integracion-en-cicd">Integracion en CI/CD</h3>
+<h4 id="github-actions">GitHub Actions</h4>
+<p>Con <code>cicd.platform = github-actions</code>, <code>/hv:cicd-init</code> ya genera el gate <strong>G8</strong> (composite <code>security-scan</code> + <code>security-gate</code>) y el job <code>Security</code> de <code>ci.yml</code> (<code>dotnet list package --vulnerable</code>, falla con Critical/High). El workflow opcional <code>security.yml</code> (<code>skills/cicd-architect/templates/github/security.yml.template</code>) añade <strong>CodeQL</strong> y <strong>dependency review</strong>. Todas las acciones van pinneadas por SHA con la versión en comentario (G16); nunca <code>@v4</code> ni <code>@master</code>.</p>
+<pre data-lang="yaml"><code><span class="tk-c"># .github/workflows/security.yml (extracto; el template completo lleva permisos minimos, concurrency y matriz)</span>
+permissions:
+  contents: read
+jobs:
+  codeql:
+    permissions: { contents: read, actions: read, security-events: write, packages: read }
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+      - uses: github/codeql-action/init@486fec2a3ea2626afcd8c7e9208b4f515078dd7e <span class="tk-c"># codeql-bundle-v2.26.4</span>
+        with: { languages: csharp, build-mode: none, queries: security-extended }
+      - uses: github/codeql-action/analyze@486fec2a3ea2626afcd8c7e9208b4f515078dd7e <span class="tk-c"># codeql-bundle-v2.26.4</span>
+  dependency-review:
+    if: github.event_name == <span class="tk-s">'pull_request'</span>
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 <span class="tk-c"># v5.0.0</span>
+        with: { fail-on-severity: high }</code></pre>
+<p>Semgrep u otros SAST de terceros se añaden como steps propios, también pinneados por SHA; sus hallazgos se pueden subir a Code scanning como SARIF (<code>github/codeql-action/upload-sarif</code>) si el repo tiene la función.</p>
+<p><strong>Funciones nativas de GitHub (opt-in, con degradación)</strong></p>
+<div class="tbl"><table><thead><tr><th>Función</th><th>Coste</th><th>Activar</th><th>Sin licencia</th></tr></thead><tbody><tr><td>Dependabot alerts / security updates</td><td>gratis</td><td><code>gh api -X PUT repos/{o}/{r}/vulnerability-alerts</code> · <code>.../automated-security-fixes</code></td><td>—</td></tr><tr><td>Dependency review en PRs</td><td>gratis (Dependency graph)</td><td>job <code>dependency-review</code></td><td>—</td></tr><tr><td>Secret scanning + push protection</td><td>gratis en públicos; GHAS en privados</td><td><code>PATCH repos/{o}/{r}</code> con <code>security_and_analysis.secret_scanning{,_push_protection}.status=enabled</code></td><td>hook <code>secret-scanner</code> de Ovillo + G5</td></tr><tr><td>Code scanning (CodeQL)</td><td>gratis en públicos; GHAS (Code Security) en privados</td><td><code>security.yml</code> o <code>PATCH repos/{o}/{r}/code-scanning/default-setup -f state=configured</code></td><td>gate G8 (<code>security-scan.ps1</code>)</td></tr></tbody></table></div>
+<p><code>/hv:cicd-init</code> FASE 2.5-gh intenta activarlas y, ante <code>403</code>/<code>422</code>, lo anota en <code>ops/cicd/SEGURIDAD_PIPELINE.md</code> y sigue.</p>
+<h4 id="azure-devops">Azure DevOps</h4>
+<pre data-lang="yaml"><code><span class="tk-c"># azure-pipelines.yml</span>
+steps:
+  - task: DotNetCoreCLI@<span class="tk-n">2</span>
+    displayName: <span class="tk-s">'Vulnerability Scan'</span>
+    inputs:
+      command: custom
+      custom: list
+      arguments: <span class="tk-s">'package --vulnerable --include-transitive'</span>
+
+  - script: semgrep --config p/owasp-top-ten --json -o semgrep-results.json
+    displayName: <span class="tk-s">'Semgrep SAST Scan'</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-de-integracion-sast">
+<h3 id="checklist-de-integracion-sast">Checklist de Integracion SAST</h3>
+<ul>
+<li><input type="checkbox" disabled> Analizadores .NET habilitados en .csproj (AnalysisLevel: latest-all)</li>
+<li><input type="checkbox" disabled> SecurityCodeScan instalado como NuGet en proyectos .NET</li>
+<li><input type="checkbox" disabled> Semgrep configurado con reglas OWASP en pipeline CI</li>
+<li><input type="checkbox" disabled> <code>dotnet list package --vulnerable</code> ejecutado en cada build</li>
+<li><input type="checkbox" disabled> Escaneo de dependencias (Trivy/Snyk) en pipeline</li>
+<li><input type="checkbox" disabled> Resultados de SAST bloquean merge si hay hallazgos criticos/altos</li>
+</ul>
+<hr>
+<p><em>Pattern 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/security-audit.html#ficheros">← Volver a la ficha de security-audit</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/security-audit/tools/context7-security.html"><small>Anterior</small>tools/context7-security.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/security-audit/tools/sast-integration.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#net---analizadores-integrados">.NET - Analizadores Integrados</a></li><li class="l2"><a href="#semgrep-multi-lenguaje">Semgrep (Multi-lenguaje)</a></li><li class="l3"><a href="#regla-semgrep-personalizada-inyeccion-sql">Regla Semgrep Personalizada (Inyeccion SQL)</a></li><li class="l2"><a href="#otras-herramientas-sast">Otras Herramientas SAST</a></li><li class="l2"><a href="#integracion-en-cicd">Integracion en CI/CD</a></li><li class="l3"><a href="#github-actions">GitHub Actions</a></li><li class="l3"><a href="#azure-devops">Azure DevOps</a></li><li class="l2"><a href="#checklist-de-integracion-sast">Checklist de Integracion SAST</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

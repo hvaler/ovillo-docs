@@ -1,0 +1,86 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>sql-injection-guard · Ovillo</title><meta name="description" content="Detectar SQL inseguro en codigo C#"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="sql-injection-guard · Ovillo"><meta property="og:description" content="Detectar SQL inseguro en codigo C#"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/sql-injection-guard.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/sql-injection-guard.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/sql-injection-guard.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html" class="cur">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>sql-injection-guard</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>PreToolUse[Write|Edit]</span><span class="kind kind-workflow">configurable</span></div><h1>sql-injection-guard</h1><p class="lede">Detectar SQL inseguro en codigo C#</p><div class="meta-grid"><div><b><code>PreToolUse</code></b><span>evento</span></div><div><b><code>Write|Edit</code></b><span>matcher</span></div><div><b><span class="kind kind-workflow">configurable</span></b><span>política</span></div><div><b>1.0.0</b><span>versión</span></div><div><b>10 s</b><span>timeout</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p>Salida: hallazgos y motivo del bloqueo por stderr, que es lo que Claude Code muestra con exit 1 y 2 (stdout solo es contexto en SessionStart y UserPromptSubmit; ADR-004 D1 enmendado por ADR-030) WARN-first: el .ps1 v1.0.0 salia siempre 0 (avisos, el dev decide); en el port, con hallazgos resolvePolicy(cfg, '<a href="../hooks/sql-injection-guard.html">sql-injection-guard</a>') decide exit 1 (warn, default) o exit 2 (block) segun ecosystem.config -&gt; hooks.policy / hooks.blockList. Los patrones se aplican sobre el contenido REAL del tool_input (h.getNewContent, que des-escapa). Antes se casaban sobre el JSON serializado y una interpolacion llegaba como $\&quot; : falsos negativos por construccion.</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>0</code></td><td>sin hallazgos</td></tr><tr><td><code>1</code></td><td>AVISO (politica warn)</td></tr><tr><td><code>2</code></td><td>BLOCK (politica block)</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>WARN-first: avisa (exit 1) por defecto y bloquea (exit 2) solo si la organización lo pone en <code>hooks.blockList</code> o sube <code>hooks.policy</code> a <code>block</code>.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>sql-injection-guard.js · 86 líneas</summary><pre data-lang="javascript"><code>#!/usr/bin/env node
+<span class="tk-c">// sql-injection-guard.js - Detectar SQL inseguro en codigo C#</span>
+<span class="tk-c">// Evento: PreToolUse[Write|Edit] (para que exit 2 pueda impedir la escritura)</span>
+<span class="tk-c">// Exit 0 = sin hallazgos · Exit 1 = AVISO (politica warn) · Exit 2 = BLOCK (politica block)</span>
+<span class="tk-c">// Salida: hallazgos y motivo del bloqueo por stderr, que es lo que Claude Code muestra con exit 1 y 2 (stdout solo es</span>
+<span class="tk-c">//         contexto en SessionStart y UserPromptSubmit; ADR-004 D1 enmendado por ADR-030)</span>
+<span class="tk-c">// Version: 1.0.0</span>
+<span class="tk-c">//   WARN-first: el .ps1 v1.0.0 salia siempre 0 (avisos, el dev decide); en el port,</span>
+<span class="tk-c">//   con hallazgos resolvePolicy(cfg, 'sql-injection-guard') decide exit 1 (warn,</span>
+<span class="tk-c">//   default) o exit 2 (block) segun ecosystem.config -&gt; hooks.policy / hooks.blockList.</span>
+<span class="tk-c">//   Los patrones se aplican sobre el contenido REAL del tool_input (h.getNewContent, que</span>
+<span class="tk-c">//   des-escapa). Antes se casaban sobre el JSON serializado y una interpolacion llegaba como</span>
+<span class="tk-c">//   $\&quot; : falsos negativos por construccion.</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(<span class="tk-s">'./lib/helpers'</span>);
+<span class="tk-k">const</span> cfgLib = <span class="tk-k">require</span>(<span class="tk-s">'./lib/config'</span>);
+
+<span class="tk-k">function</span> main() {
+  <span class="tk-k">const</span> hookData = h.readHookInput();
+
+  <span class="tk-c">// Solo archivos .cs</span>
+  <span class="tk-k">const</span> filePath = h.getFilePath(hookData) || <span class="tk-s">''</span>;
+  <span class="tk-k">if</span> (!/\.cs$/i.test(filePath)) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Contenido REAL, ya des-escapado (h.getNewContent). Casar los patrones sobre el JSON</span>
+  <span class="tk-c">// serializado daba falsos negativos por construccion: una interpolacion llega como $\&quot; y</span>
+  <span class="tk-c">// ningun patron escrito contra la comilla sin escapar la ve.</span>
+  <span class="tk-k">const</span> content = h.getNewContent(hookData);
+  <span class="tk-k">if</span> (!content) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-k">let</span> warnings = <span class="tk-n">0</span>;
+
+  <span class="tk-c">// === PATRONES SQL INSEGURO ===</span>
+
+  <span class="tk-c">// FromSqlRaw con interpolacion de string</span>
+  <span class="tk-k">if</span> (/FromSqlRaw\s*\(\s*\$<span class="tk-s">&quot;/i.test(content) || /FromSqlRaw\s*\(\s*&quot;</span>[^<span class="tk-s">&quot;]*&quot;</span>\s*\+/i.test(content)) {
+    console.error(<span class="tk-s">'SQL INJECTION: FromSqlRaw con interpolacion/concatenacion. Usar FromSqlInterpolated o parametros.'</span>);
+    warnings++;
+  }
+
+  <span class="tk-c">// ExecuteSqlRaw con interpolacion</span>
+  <span class="tk-k">if</span> (/ExecuteSqlRaw\s*\(\s*\$<span class="tk-s">&quot;/i.test(content) || /ExecuteSqlRaw\s*\(\s*&quot;</span>[^<span class="tk-s">&quot;]*&quot;</span>\s*\+/i.test(content)) {
+    console.error(<span class="tk-s">'SQL INJECTION: ExecuteSqlRaw con interpolacion. Usar ExecuteSqlInterpolated.'</span>);
+    warnings++;
+  }
+
+  <span class="tk-c">// SqlCommand con concatenacion</span>
+  <span class="tk-k">if</span> (/SqlCommand\s*\(\s*<span class="tk-s">&quot;[^&quot;</span>]*<span class="tk-s">&quot;\s*\+/i.test(content) || /CommandText\s*=\s*&quot;</span>[^<span class="tk-s">&quot;]*&quot;</span>\s*\+/i.test(content)) {
+    console.error(<span class="tk-s">'SQL INJECTION: SqlCommand con concatenacion de string. Usar SqlParameter.'</span>);
+    warnings++;
+  }
+
+  <span class="tk-c">// EXEC con concatenacion en string SQL</span>
+  <span class="tk-k">if</span> (/EXEC\s*\(\s*<span class="tk-s">'[^'</span>]*'\s*\+|EXEC\s*\(\s*<span class="tk-s">&quot;[^&quot;</span>]*&quot;\s*\+/i.test(content)) {
+    console.error(<span class="tk-s">'SQL INJECTION: EXEC con concatenacion. Usar sp_executesql con parametros.'</span>);
+    warnings++;
+  }
+
+  <span class="tk-c">// string.Format en queries SQL</span>
+  <span class="tk-k">if</span> (/string\.Format\s*\(.*SELECT|string\.Format\s*\(.*INSERT|string\.Format\s*\(.*UPDATE|string\.Format\s*\(.*DELETE/i.test(content)) {
+    console.error(<span class="tk-s">'SQL INJECTION: string.Format en query SQL. Usar parametros.'</span>);
+    warnings++;
+  }
+
+  <span class="tk-k">if</span> (warnings &gt; <span class="tk-n">0</span>) {
+    <span class="tk-k">const</span> policy = cfgLib.resolvePolicy(cfgLib.load(), <span class="tk-s">'sql-injection-guard'</span>);
+    console.error(<span class="tk-s">''</span>);
+    console.error(<span class="tk-s">`Se detectaron ${warnings} patron(es) de SQL injection potencial.`</span>);
+    console.error(<span class="tk-s">'Referencia: OWASP A03:2021 - Injection'</span>);
+    console.error(<span class="tk-s">'Solucion: Usar siempre parametros (@param) o FromSqlInterpolated.'</span>);
+    console.error(<span class="tk-s">`Politica: ${policy} (ecosystem.config hooks.policy)`</span>);
+    <span class="tk-k">return</span> policy === <span class="tk-s">'block'</span> ? <span class="tk-n">2</span> : <span class="tk-n">1</span>;
+  }
+
+  <span class="tk-k">return</span> <span class="tk-n">0</span>;
+}
+
+<span class="tk-k">try</span> {
+  process.exit(main());
+} <span class="tk-k">catch</span> (e) {
+  console.error(<span class="tk-s">`sql-injection-guard: error inesperado (${e.message}) - no se bloquea el flujo`</span>);
+  process.exit(<span class="tk-n">0</span>);
+}
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>4 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(hooks): los cuatro guards emiten hallazgos y motivos de bloqueo por stderr, con test del contrato (H-01)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/console.html">console</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/sql-injection-guard.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

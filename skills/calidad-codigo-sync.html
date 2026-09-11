@@ -1,0 +1,127 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>calidad-codigo-sync · Ovillo</title><meta name="description" content="Publishes the project's Quality Records (QR) to the Ovillo Hub so the portfolio quality dashboard shows them."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="calidad-codigo-sync · Ovillo"><meta property="og:description" content="Publishes the project's Quality Records (QR) to the Ovillo Hub so the portfolio quality dashboard shows them."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/calidad-codigo-sync.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/calidad-codigo-sync.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/calidad-codigo-sync.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>conocimiento (20)</h4><ul class="sibs"><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/api-integration-patterns.html">api-integration-patterns</a></li><li><a href="../skills/calidad-codigo-sync.html" class="cur">calidad-codigo-sync</a></li><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cloud-config.html">cloud-config</a></li><li><a href="../skills/docs-agente-sync.html">docs-agente-sync</a></li><li><a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../skills/hub-client.html">hub-client</a></li><li><a href="../skills/issue-tracker-sync.html">issue-tracker-sync</a></li><li><a href="../skills/nugets-management.html">nugets-management</a></li><li><a href="../skills/observability-patterns.html">observability-patterns</a></li><li><a href="../skills/postman-collection.html">postman-collection</a></li><li><a href="../skills/resilience-patterns.html">resilience-patterns</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li><li><a href="../skills/user-documentation.html">user-documentation</a></li><li><a href="../skills/webapp-dashboard.html">webapp-dashboard</a></li><li><a href="../skills/webapp-layout.html">webapp-layout</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>calidad-codigo-sync</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>/hv:calidad-codigo-sync</span></div><h1>calidad-codigo-sync</h1><p class="lede">Publishes the project's Quality Records (QR) to the Ovillo Hub so the portfolio quality dashboard shows them.</p><div class="meta-grid"><div><b>conocimiento</b><span>clase</span></div><div><b><code>/hv:calidad-codigo-sync</code></b><span>invocación</span></div><div><b>7</b><span>ficheros</span></div><div><b>1160</b><span>palabras</span></div><div><b>0.86</b><span>F1 de disparo</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo se activa</h2><ul><li>sincronizar metricas de calidad (cobertura linea/rama, CRAP, complejidad ciclomatica, NPath, risk hotspots, quality gate) al hub tras correr los tests con cobertura</li><li>normalmente como paso de CI; tambien para emitir un QR manual en local</li></ul></section><section class="sec" id="sec-cuando-no"><h2 id="cuando-no">Cuándo no</h2><ul><li>el gate de cobertura del pipeline (eso es el gate de cobertura G7/R18, coverage-gate.ps1)</li><li>ni para el analisis interactivo de CRAP de un dev (eso es el catalogo de patrones / crap-analysis)</li><li>ni para recalcular metricas en el dashboard (el dashboard es solo-lectura)</li></ul></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><div class="kpi"><div><b>0.86</b><span>F1</span></div><div><b>0.75</b><span>precisión</span></div><div><b>1.00</b><span>recall</span></div><div><b>9 / 11</b><span>consultas correctas</span></div></div><details><summary>2 consultas que fallan (falsos positivos y negativos)</summary><div class="tbl"><table><thead><tr><th>Consulta</th><th>Idioma</th><th>Resultado</th><th>Nota</th></tr></thead><tbody><tr><td>analiza el CRAP de mi codigo y dime que metodos refactorizar</td><td>es</td><td>esperada <em>otra</em>, disparó esta</td><td><span class="muted">analisis interactivo -&gt; crap-analysis, no publicar</span></td></tr><tr><td>el dashboard recalcula la cobertura del proyecto</td><td>es</td><td>esperada <em>otra</em>, disparó esta</td><td><span class="muted">el dashboard es solo-lectura</span></td></tr></tbody></table></div></details><p class="muted">Motor: <code>run_eval.py</code> deriva el vocabulario de la description real; baseline en <a href="../evaluaciones.html">Evaluaciones</a>.</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">6</span></h2><div class="tree"><ul><li><span class="dir">references/</span><ul><li><a href="../skills/calidad-codigo-sync/references/ci-wiring.html">ci-wiring.md</a> <span class="muted">8245 B</span></li><li><a href="../skills/calidad-codigo-sync/references/workflow-calidad-sync.html">workflow-calidad-sync.md</a> <span class="muted">9360 B</span></li><li><a href="../skills/calidad-codigo-sync/references/workflow-metrics.html">workflow-metrics.md</a> <span class="muted">8507 B</span></li></ul></li><li><span class="dir">scripts/</span><ul><li><a href="../skills/calidad-codigo-sync/scripts/coverage.html">coverage.runsettings</a> <span class="muted">1624 B</span></li><li><a href="../skills/calidad-codigo-sync/scripts/Sync-QualityRecord.html">Sync-QualityRecord.ps1</a> <span class="muted">23.183 B</span></li></ul></li><li><a href="../skills/calidad-codigo-sync/eval-set.html">eval-set.json</a> <span class="muted">2274 B</span></li></ul></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><p class="lede">Productor de <strong>Registros de Calidad (QR)</strong> del ecosistema Ovillo. Calcula las metricas de calidad del proyecto desde el coverage y las <strong>publica en el Hub</strong> (<code>POST /v2/sync/quality-batch</code>), que es lo que lee el <strong>dashboard de calidad del portfolio</strong> (<code>docs/dashboard/calidad.html</code>, hub v1.3.0+).</p>
+<p>Es la <strong>otra mitad</strong> del dashboard: el dashboard LEE los QR; esta skill los PRODUCE.</p>
+<section class="sec" id="sec-cuando-usar">
+<h3 id="cuando-usar">Cuando usar</h3>
+<ul>
+<li><strong>En CI</strong>, tras <code>dotnet test</code> con cobertura, para que cada build publique su QR.</li>
+<li><strong>En local</strong>, para emitir un QR manual (con <code>-DryRun</code> para inspeccionar sin enviar).</li>
+</ul>
+</section>
+<section class="sec" id="sec-cuando-no-usar">
+<h3 id="cuando-no-usar">Cuando NO usar</h3>
+<ul>
+<li><strong>Gate de cobertura del pipeline</strong> -&gt; es <strong><code>coverage-gate.ps1</code></strong> (G7/R18; <code>steps/coverage-gate.yml</code> en Azure, composite <code>coverage-gate</code> en GitHub). Esta skill NO gatea el build.</li>
+<li><strong>Analisis interactivo de CRAP</strong> de un dev -&gt; patron <code>crap-analysis</code> (inspeccionar, no publicar).</li>
+<li><strong>Recalcular metricas en el dashboard</strong> -&gt; el dashboard es solo-lectura; el verdict del gate lo computa ESTA skill (productor) y se almacena en el QR.</li>
+</ul>
+</section>
+<section class="sec" id="sec-como-funciona-verificado-en-el-spike-f0">
+<h3 id="como-funciona-verificado-en-el-spike-f0">Como funciona (verificado en el spike F0)</h3>
+<ol>
+<li><strong>Cobertura en 2 formatos</strong> (una pasada). El coverage debe emitir <code>cobertura,opencover</code>:</li>
+<ul>
+<li><code>cobertura</code> -&gt; sigue alimentando el gate de cobertura (G7/R18) <strong>y</strong> aporta CRAP.</li>
+<li><code>opencover</code> -&gt; aporta complejidad ciclomatica + <strong>NPath</strong> por metodo. Usa el runsettings incluido:</li>
+</ul>
+</ol>
+<pre><code>   dotnet test --collect:&quot;XPlat Code Coverage&quot; \
+     --settings .claude/skills/calidad-codigo-sync/scripts/coverage.runsettings \
+     --results-directory ./TestResults</code></pre>
+<ol>
+<li><strong>Calcular + publicar</strong>: el script parsea el <code>coverage.opencover.xml</code> (ciclomatica, NPath y cobertura por metodo), computa <strong>CRAP = ciclomatica^2 x (1 - cobertura)^3 + ciclomatica</strong> (formula estandar, la misma que ReportGenerator), agrega el QR (CRAP max, nº metodos CRAPpy, ciclomatica media, NPath max, cobertura linea/rama, top-N risk hotspots, desglose <code>clases[]</code> por clase/namespace), evalua el <strong>quality gate</strong> y hace el POST al hub:</li>
+</ol>
+<pre><code>   pwsh &quot;${CLAUDE_PLUGIN_ROOT}/skills/calidad-codigo-sync/scripts/Sync-QualityRecord.ps1&quot; `
+     -ProjectId &lt;GUID&gt; `
+     -CodeSearchBase 'https://devops.example.org/&lt;col&gt;/&lt;proj&gt;/_search?type=code&amp;text=' `
+     -CrapThreshold 30 -CoverageLineMin 75</code></pre>
+<p>   (la service-key se resuelve sola; ver Autenticacion)</p>
+</section>
+<section class="sec" id="sec-autenticacion--por-defecto-no-pasas-ninguna-key">
+<h3 id="autenticacion--por-defecto-no-pasas-ninguna-key">Autenticacion — por defecto NO pasas ninguna key</h3>
+<blockquote><p><strong>REGLA (dev y agente IA que publica en su nombre): ejecuta el script SIN <code>-ApiKey</code>.</strong> El script resuelve la credencial <strong>solo</strong>. Teclear/pegar la key a mano la deja en el historial PSReadLine y en el transcript del agente IA. El <strong>unico</strong> sitio donde se pasa <code>-ApiKey</code> es CI (recuadro de abajo). Si eres un agente: NO pases <code>-ApiKey</code>, NO pidas la key al usuario — limitate a <code>-ProjectId</code>.</p></blockquote>
+<p><strong>Caso normal (cero-config, lo que hace el 99%)</strong> — cualquier miembro del equipo que haya ejecutado <code>irm | iex</code> en su clon ya tiene su <strong>apiKey per-dev</strong> en <code>_hilo/.mcp-credentials.json</code> (gitignored, ligada a su email). Publica directamente y el QR queda atribuido a <strong>su devAlias</strong>:</p>
+<pre><code>.\Sync-QualityRecord.ps1 -ProjectId &lt;GUID&gt;</code></pre>
+<p><strong>SOLO CI</strong> (lo lanza el pipeline, no una persona) — la <strong>service-key per-proyecto</strong> (credencial de automatizacion) viene de la Variable Group secreta (R16) y se pasa explicita. El QR queda atribuido a <code>'ci'</code>:</p>
+<pre><code>.\Sync-QualityRecord.ps1 -ProjectId &lt;GUID&gt; -ApiKey $(HUB_SERVICE_KEY)</code></pre>
+<p><strong>Cadena de resolucion interna</strong> (precedencia real del script; en local nunca necesitas las 2 primeras, deja que caiga a la per-dev): <code>-ApiKey</code> explicito (CI) &gt; DPAPI por-proyecto &gt; DPAPI generico &gt; <strong>apiKey per-dev del repo</strong> &gt; env <code>HUB_SERVICE_KEY</code> &gt; error accionable.</p>
+<p><strong>Maquina sin per-dev</strong> (raro: runner local, dev no registrado en el proyecto) — alta de la service-key con prompt oculto, <strong>nunca como argumento</strong> (DPAPI per-user, una vez por maquina):</p>
+<pre><code>.\Sync-QualityRecord.ps1 -StoreKey                      # generica
+.\Sync-QualityRecord.ps1 -StoreKey -ProjectId &lt;GUID&gt;    # variante por proyecto</code></pre>
+<p><strong>Emision/rotacion de la service-key (admin del hub)</strong>:</p>
+<ul>
+<li>Emitir: <code>EXEC mcp.EmitirServiceKey @ProyectoId='&lt;GUID&gt;', @Label='ci-quality', @ServiceKey=@k OUTPUT, @Id=@id OUTPUT</code> (plaintext UNA vez -&gt; al Variable Group, NUNCA al chat).</li>
+<li>Rotar/baja (sospecha de exposicion, baja de un miembro): <code>EXEC mcp.RevocarServiceKey @Id=&lt;id&gt;</code> + emitir nueva. Sintoma de key rotada/revocada: <strong>401</strong> en el POST -&gt; en CI actualizar la VG; en local con DPAPI, re-<code>-StoreKey</code>.</li>
+</ul>
+</section>
+<section class="sec" id="sec-cobertura-multi-proyecto-e-integracion-d1fb-009--d2fb-008">
+<h3 id="cobertura-multi-proyecto-e-integracion-d1fb-009--d2fb-008">Cobertura multi-proyecto e integracion (D1/FB-009 + D2/FB-008)</h3>
+<ul>
+<li><strong>Fusion multi-proyecto (D1)</strong>: el script descubre <strong>todos</strong> los <code>coverage.opencover.xml</code> y <strong>fusiona la cobertura por <code>(clase::metodo)</code></strong> tomando el <strong>maximo</strong> (cc/NPath son estaticos). Antes tomaba el valor por-fichero (el peor 0%) y un assembly compartido cargado por varios proyectos de test salia a 0% -&gt; <code>crapMax</code>/<code>hotspots</code>/<code>clases[]</code> falsos. Ya no.</li>
+<li><strong>Integracion con <code>WebApplicationFactory</code> (D2)</strong>: Coverlet (<code>XPlat Code Coverage</code>, IL-rewrite) <strong>cuelga</strong> el testhost con TestServer (FB-008), sobre todo a nivel solucion en paralelo. Mide esos proyectos con <strong><code>dotnet-coverage</code></strong> (profiler out-of-process) <strong>por-proyecto SECUENCIAL</strong>:</li>
+</ul>
+<pre><code>  **NO filtres a solo-integracion** (`--filter ~Integration`): aislar todos los `WebApplicationFactory`
+  juntos reactiva el cuelgue (FB-008, Portal 2026-06-16). Mide el proyecto de test **entero** (la parte
+  unit se remide en el Paso 3 -&gt; inofensivo, el pliegue es raise-only). Si el proyecto entero aun
+  cuelga: `--blame-hang-timeout 180s`.
+  El producer descubre tambien `*.cobertura.xml` y **pliega su cobertura por metodo/clase en modo
+  raise-only** (nunca baja; cc/NPath del opencover). Asi la integracion **medida** deja de salir a 0%.
+- **Flag `-CoberturaIntegracionMedida`**: si el proyecto **tiene** integracion y **NO** se pudo medir
+  (Coverlet colgo y no se hizo dotnet-coverage), pasa `-CoberturaIntegracionMedida:$false`. El QR lo
+  lleva al hub y el dashboard muestra &quot;integracion no medida&quot; en vez de leer el 0% como deuda.
+  Default `$true` (medida/no aplica).
+
+## Parametros del script (Sync-QualityRecord.ps1)
+
+| Param | Default | Uso |
+|---|---|---|
+| `-ProjectId` (req salvo `-StoreKey`) | — | GUID del proyecto en el hub |
+| `-ApiKey` | — | service-key explicita (CI/VG). Si se omite: cadena de resolucion |
+| `-StoreKey` | off | alta segura de la key en esta maquina (prompt oculto, DPAPI) y salir |
+| `-ServerUrl` | `…` | base del hub |
+| `-ResultsDir` | `./TestResults` | donde `dotnet test` dejo el coverage |
+| `-CodeSearchBase` | null | base ADO Code Search (el dashboard concatena el fichero) |
+| `-CrapThreshold` | 30 | umbral CRAP del gate (coincide con thresholds de ReportGenerator) |
+| `-CoverageLineMin` / `-CoverageBranchMin` | 75 / 60 | minimos de cobertura del gate |
+| `-TopHotspots` | 20 | nº de risk hotspots a publicar |
+| `-AdrRelacionados` | @() | codigos ADR relacionados (referencias cruzadas) |
+| `-CoberturaIntegracionMedida` | `$true` | D2/FB-008: `$false` si hay integracion (WebApplicationFactory) y NO se midio -&gt; dashboard marca &quot;integracion no medida&quot; |
+| `-DryRun` | off | calcula + imprime el payload, NO envia |
+
+## Comportamiento
+
+- **QR-nnn secuencial por proyecto**: consulta el ultimo via `GET /v2/stats/quality/{id}` y
+  numera el siguiente. Idempotente en el hub (UPSERT por ProyectoId+Codigo).
+- **Best-effort**: si el hub no expone `/v2/sync/quality-batch` (&lt; v1.3.0) o el POST falla,
+  loguea `[SKIP]`/`[FAIL]` y **no rompe el build** (la calidad no debe tumbar CI; eso es el gate de cobertura).
+- **Solo-lectura del codigo**: NO modifica fuentes; NO llama a Azure DevOps.
+
+## Notas
+
+- Requiere ReportGenerator solo si quieres el HTML para humanos; el productor NO lo necesita
+  (parsea el OpenCover directamente). CRAP, ciclomatica y NPath salen del propio `opencover.xml`.
+- CRAP &gt; 30 = alto riesgo (umbral del gate). Escala de referencia: &lt;5 bajo, 5-30 medio, &gt;30 alto.
+- El runsettings excluye tests/benchmarks/generado/migraciones (adoptado de `crap-analysis`).
+
+---
+
+## Workflow (solo si se invoca la skill o se pide aplicar)
+
+**Regla de oro**: el disparo semantico responde con el conocimiento de arriba y
+para ahi. Nada de lo que sigue se ejecuta por haber mencionado el tema: hace falta invocacion
+explicita o una peticion de accion clara. El workflow **nunca** se alcanza por accidente.
+
+El procedimiento vive aparte para no cargarlo al consultar conocimiento: **`references/workflow-calidad-sync.md`**.
+
+| Intencion del usuario | Que hacer |
+|---|---|
+| &quot;que mide el CRAP&quot;, &quot;que umbral de cobertura usamos&quot; | Responder con el `SKILL.md`. **No** leer el workflow |
+| &quot;mide la calidad y registrala&quot;, `/calidad-codigo-sync` | Leer el workflow y ejecutarlo (`--dry-run` primero) |
+
+---
+
+## Modo `--reporte` (absorbe el antiguo `/metrics`)
+
+Version ligera del procedimiento, procedente de `/metrics`, retirado por duplicidad:
+la duplicidad real no era con `estado` sino con `calidad-codigo-sync`, que ya mide cobertura, CRAP y hotspots. Detalle en **`references/workflow-metrics.md`**.
+</code></pre>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>831</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 1160 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>12 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>feat: el objetivo de compilacion lo resuelve una sola funcion (ADR-037)</em> (<code>f30140e</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/calidad-codigo-sync/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo se activa</a></li><li class="l2"><a href="#cuando-no">Cuándo no</a></li><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#cuando-usar">Cuando usar</a></li><li class="l3"><a href="#cuando-no-usar">Cuando NO usar</a></li><li class="l3"><a href="#como-funciona-verificado-en-el-spike-f0">Como funciona (verificado en el spike F0)</a></li><li class="l3"><a href="#autenticacion--por-defecto-no-pasas-ninguna-key">Autenticacion — por defecto NO pasas ninguna key</a></li><li class="l3"><a href="#cobertura-multi-proyecto-e-integracion-d1fb-009--d2fb-008">Cobertura multi-proyecto e integracion (D1/FB-009 + D2/FB-008)</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

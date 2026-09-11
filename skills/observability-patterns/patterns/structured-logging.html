@@ -1,0 +1,164 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>observability-patterns · patterns/structured-logging.md · Ovillo</title><meta name="description" content="Fichero patterns/structured-logging.md de la skill observability-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="observability-patterns · patterns/structured-logging.md · Ovillo"><meta property="og:description" content="Fichero patterns/structured-logging.md de la skill observability-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/observability-patterns/patterns/structured-logging.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/observability-patterns/patterns/structured-logging.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/observability-patterns/patterns/structured-logging.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de observability-patterns (7)</h4><ul class="sibs"><li><a href="../../../skills/observability-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/observability-patterns/patterns/opentelemetry-setup.html">patterns/opentelemetry-setup.md</a></li><li><a href="../../../skills/observability-patterns/patterns/serilog-config.html">patterns/serilog-config.md</a></li><li><a href="../../../skills/observability-patterns/patterns/structured-logging.html" class="cur">patterns/structured-logging.md</a></li><li><a href="../../../skills/observability-patterns/references/workflow-add-telemetry.html">references/workflow-add-telemetry.md</a></li><li><a href="../../../skills/observability-patterns/templates/SerilogConfig.cs.html">templates/SerilogConfig.cs.template</a></li><li><a href="../../../skills/observability-patterns/templates/TelemetryConfig.cs.html">templates/TelemetryConfig.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/observability-patterns.html">observability-patterns</a></span><span>patterns</span><span>structured-logging.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>observability-patterns</span><span>patterns/</span></div><h1>structured-logging.md</h1><p class="lede">Referencia que <code>observability-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/observability-patterns.html">observability-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>7255 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Guia de logging estructurado para proyectos de la organización con cumplimiento RGPD.</p></blockquote>
+<hr>
+<section class="sec" id="sec-principio-templates-con-parametros">
+<h3 id="principio-templates-con-parametros">Principio: Templates con Parametros</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// CORRECTO - Structured logging con templates</span>
+_logger.LogInformation(<span class="tk-s">&quot;Scholarship {ScholarshipId} creada por user {UserId}&quot;</span>, scholarship.Id, userId);
+_logger.LogWarning(<span class="tk-s">&quot;Intento de acceso denegado a scholarship {ScholarshipId} desde IP {IpAddress}&quot;</span>, scholarshipId, ip);
+_logger.LogError(ex, <span class="tk-s">&quot;Error al procesar scholarship {ScholarshipId}&quot;</span>, scholarshipId);
+
+<span class="tk-c">// INCORRECTO - Concatenacion de strings (no estructurado)</span>
+_logger.LogInformation(<span class="tk-s">&quot;Scholarship &quot;</span> + scholarship.Id + <span class="tk-s">&quot; creada por &quot;</span> + userId);  <span class="tk-c">// MAL</span>
+_logger.LogInformation(<span class="tk-s">$&quot;Scholarship {scholarship.Id} creada por {userId}&quot;</span>);          <span class="tk-c">// MAL</span></code></pre>
+<p><strong>Motivo</strong>: Los templates permiten que las herramientas de logging (App Insights, Seq) indexen y busquen por propiedades individuales. La concatenacion pierde esta capacidad.</p>
+<hr>
+</section>
+<section class="sec" id="sec-que-loguear-por-nivel">
+<h3 id="que-loguear-por-nivel">Que Loguear por Nivel</h3>
+<div class="tbl"><table><thead><tr><th>Nivel</th><th>Cuando usar</th><th>Ejemplo</th></tr></thead><tbody><tr><td><strong>Debug</strong></td><td>Detalle tecnico, solo desarrollo</td><td><code>&quot;Query ejecutada: {Query} en {ElapsedMs}ms&quot;</code></td></tr><tr><td><strong>Information</strong></td><td>Operaciones normales importantes</td><td><code>&quot;Scholarship {ScholarshipId} creada por {UsuarioId}&quot;</code></td></tr><tr><td><strong>Warning</strong></td><td>Situaciones anomalas no criticas</td><td><code>&quot;Timeout en intento {Intento}/{MaxIntentos} para {Servicio}&quot;</code></td></tr><tr><td><strong>Error</strong></td><td>Errores que requieren atencion</td><td><code>&quot;Error al procesar beca {ScholarshipId}: {ErrorMessage}&quot;</code></td></tr><tr><td><strong>Fatal</strong></td><td>Errores que impiden funcionamiento</td><td><code>&quot;No se puede conectar a SQL Server: {ConnectionError}&quot;</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-que-no-loguear-rgpd">
+<h3 id="que-no-loguear-rgpd">Que NO Loguear (RGPD)</h3>
+<h4 id="datos-prohibidos">Datos Prohibidos</h4>
+<div class="tbl"><table><thead><tr><th>Dato</th><th>Ejemplo prohibido</th><th>Alternativa correcta</th></tr></thead><tbody><tr><td>Contrasenas</td><td><code>&quot;Login con password {Password}&quot;</code></td><td><code>&quot;Login para usuario {UsuarioId}&quot;</code></td></tr><tr><td>Tokens</td><td><code>&quot;Token: {BearerToken}&quot;</code></td><td><code>&quot;Token validado para {UsuarioId}&quot;</code></td></tr><tr><td>DNI/NIE</td><td><code>&quot;DNI: {Dni}&quot;</code></td><td><code>&quot;Student {StudentId} verificado&quot;</code></td></tr><tr><td>Email personal</td><td><code>&quot;Email: {Email}&quot;</code></td><td><code>&quot;Notificacion enviada a usuario {UsuarioId}&quot;</code></td></tr><tr><td>Telefono</td><td><code>&quot;Tel: {Telefono}&quot;</code></td><td>No loguear</td></tr><tr><td>Tarjeta credito</td><td><code>&quot;Tarjeta: {CardNumber}&quot;</code></td><td><code>&quot;Payment processed {PaymentId}&quot;</code></td></tr><tr><td>Datos salud</td><td><code>&quot;Diagnostico: {Diagnostico}&quot;</code></td><td>No loguear</td></tr><tr><td>Direccion</td><td><code>&quot;Direccion: {Domicilio}&quot;</code></td><td>No loguear</td></tr></tbody></table></div>
+<h4 id="regla-general">Regla General</h4>
+<pre><code>LOGUEAR: IDs internos, codigos, estados, metricas, errores tecnicos
+NO LOGUEAR: datos personales, credenciales, datos sensibles</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-correlacion-de-trazas">
+<h3 id="correlacion-de-trazas">Correlacion de Trazas</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// El TraceId se propaga automaticamente con OpenTelemetry</span>
+<span class="tk-c">// Serilog lo captura via enricher FromLogContext</span>
+
+<span class="tk-c">// En el log aparecera:</span>
+<span class="tk-c">// [2026-01-20 10:30:00] [INF] (ScholarshipService) TraceId=abc123 Scholarship 42 creada</span>
+<span class="tk-c">// [2026-01-20 10:30:01] [INF] (EmailService) TraceId=abc123 Email enviado para scholarship 42</span>
+<span class="tk-c">// -&gt; Misma traza, facil de correlacionar</span>
+
+<span class="tk-c">// Anadir contexto adicional manualmente</span>
+<span class="tk-k">using</span> (LogContext.PushProperty(<span class="tk-s">&quot;ScholarshipId&quot;</span>, scholarshipId))
+<span class="tk-k">using</span> (LogContext.PushProperty(<span class="tk-s">&quot;OperationId&quot;</span>, operacionId))
+{
+    _logger.LogInformation(<span class="tk-s">&quot;Iniciando procesamiento de scholarship&quot;</span>);
+    <span class="tk-k">await</span> ProcessAsync(scholarshipId);
+    _logger.LogInformation(<span class="tk-s">&quot;Procesamiento completado&quot;</span>);
+}
+<span class="tk-c">// Ambos logs tendran ScholarshipId y OperationId como propiedades</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patrones-de-logging-por-capa">
+<h3 id="patrones-de-logging-por-capa">Patrones de Logging por Capa</h3>
+<h4 id="controllers">Controllers</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Loguear entrada/salida de endpoints criticos</span>
+[HttpPost]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&lt;ScholarshipDto&gt;&gt; Create(CreateScholarshipRequest request, CancellationToken ct)
+{
+    _logger.LogInformation(<span class="tk-s">&quot;Creando scholarship {ScholarshipCode} por {User}&quot;</span>,
+        request.Code, User.Identity?.Name);
+
+    <span class="tk-k">var</span> result = <span class="tk-k">await</span> _service.CreateAsync(request, ct);
+
+    _logger.LogInformation(<span class="tk-s">&quot;Scholarship {ScholarshipId} creada exitosamente&quot;</span>, result.Id);
+
+    <span class="tk-k">return</span> CreatedAtAction(nameof(GetById), <span class="tk-k">new</span> { id = result.Id }, result);
+}</code></pre>
+<h4 id="services">Services</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Loguear operaciones de negocio significativas</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto&gt; ProcessAsync(<span class="tk-k">int</span> scholarshipId, CancellationToken ct)
+{
+    _logger.LogDebug(<span class="tk-s">&quot;Procesando scholarship {ScholarshipId}&quot;</span>, scholarshipId);
+
+    <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _repository.GetByIdAsync(scholarshipId, ct);
+    <span class="tk-k">if</span> (scholarship <span class="tk-k">is</span> <span class="tk-k">null</span>)
+    {
+        _logger.LogWarning(<span class="tk-s">&quot;Scholarship {ScholarshipId} no encontrada&quot;</span>, scholarshipId);
+        <span class="tk-k">throw</span> <span class="tk-k">new</span> NotFoundException(<span class="tk-s">&quot;Scholarship&quot;</span>, scholarshipId);
+    }
+
+    <span class="tk-k">try</span>
+    {
+        scholarship.Publish();
+        <span class="tk-k">await</span> _repository.UpdateAsync(scholarship, ct);
+        _logger.LogInformation(<span class="tk-s">&quot;Scholarship {ScholarshipId} publicada. Status: {Estado}&quot;</span>, scholarshipId, scholarship.Status);
+    }
+    <span class="tk-k">catch</span> (DomainException ex)
+    {
+        _logger.LogWarning(ex, <span class="tk-s">&quot;No se pudo publicar scholarship {ScholarshipId}: {Motivo}&quot;</span>, scholarshipId, ex.Message);
+        <span class="tk-k">throw</span>;
+    }
+
+    <span class="tk-k">return</span> MapToDto(scholarship);
+}</code></pre>
+<h4 id="infrastructure-llamadas-externas">Infrastructure (llamadas externas)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Loguear integraciones con sistemas externos</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ExternalResponse&gt; CallExternalServiceAsync(<span class="tk-k">string</span> endpoint, CancellationToken ct)
+{
+    _logger.LogDebug(<span class="tk-s">&quot;Llamando a servicio externo {Endpoint}&quot;</span>, endpoint);
+    <span class="tk-k">var</span> sw = Stopwatch.StartNew();
+
+    <span class="tk-k">try</span>
+    {
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _httpClient.GetAsync(endpoint, ct);
+        sw.Stop();
+
+        _logger.LogInformation(
+            <span class="tk-s">&quot;Respuesta de {Endpoint}: {StatusCode} en {ElapsedMs}ms&quot;</span>,
+            endpoint, (<span class="tk-k">int</span>)response.StatusCode, sw.ElapsedMilliseconds);
+
+        <span class="tk-k">return</span> <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;ExternalResponse&gt;(ct);
+    }
+    <span class="tk-k">catch</span> (HttpRequestException ex)
+    {
+        sw.Stop();
+        _logger.LogError(ex,
+            <span class="tk-s">&quot;Error llamando a {Endpoint} tras {ElapsedMs}ms: {ErrorMessage}&quot;</span>,
+            endpoint, sw.ElapsedMilliseconds, ex.Message);
+        <span class="tk-k">throw</span>;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-Anti-Patrones">
+<h3 id="Anti-Patrones">Anti-Patrones</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// 1. NO loguear dentro de bucles sin control</span>
+<span class="tk-k">foreach</span> (<span class="tk-k">var</span> item <span class="tk-k">in</span> items)  <span class="tk-c">// 10,000 items!</span>
+{
+    _logger.LogInformation(<span class="tk-s">&quot;Procesando {ItemId}&quot;</span>, item.Id);  <span class="tk-c">// MAL: 10K logs</span>
+}
+<span class="tk-c">// MEJOR: Loguear antes y despues con conteo</span>
+_logger.LogInformation(<span class="tk-s">&quot;Procesando {Count} items&quot;</span>, items.Count);
+
+<span class="tk-c">// 2. NO usar ToString() en objetos complejos</span>
+_logger.LogInformation(<span class="tk-s">&quot;Scholarship: {Scholarship}&quot;</span>, scholarship.ToString());  <span class="tk-c">// MAL</span>
+_logger.LogInformation(<span class="tk-s">&quot;Scholarship {ScholarshipId} status {Estado}&quot;</span>, scholarship.Id, scholarship.Status);  <span class="tk-c">// BIEN</span>
+
+<span class="tk-c">// 3. NO catch vacio o sin logging</span>
+<span class="tk-k">catch</span> (Exception) { }  <span class="tk-c">// MAL: error silencioso</span>
+<span class="tk-k">catch</span> (Exception ex) { _logger.LogError(ex, <span class="tk-s">&quot;Error en...&quot;</span>); <span class="tk-k">throw</span>; }  <span class="tk-c">// BIEN</span>
+
+<span class="tk-c">// 4. NO loguear y luego throw new sin inner exception</span>
+<span class="tk-k">catch</span> (Exception ex)
+{
+    _logger.LogError(ex, <span class="tk-s">&quot;Error&quot;</span>);
+    <span class="tk-k">throw</span> <span class="tk-k">new</span> Exception(<span class="tk-s">&quot;Error&quot;</span>);  <span class="tk-c">// MAL: pierde stack trace</span>
+    <span class="tk-k">throw</span>;  <span class="tk-c">// BIEN: preserva stack trace</span>
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-de-logging">
+<h3 id="checklist-de-logging">Checklist de Logging</h3>
+<ul>
+<li><input type="checkbox" disabled> Usar templates con parametros (no concatenacion ni interpolacion)</li>
+<li><input type="checkbox" disabled> No loguear datos personales ni credenciales (RGPD)</li>
+<li><input type="checkbox" disabled> Loguear IDs internos para trazabilidad</li>
+<li><input type="checkbox" disabled> Nivel apropiado (Debug-&gt;Info-&gt;Warning-&gt;Error-&gt;Fatal)</li>
+<li><input type="checkbox" disabled> Incluir exception como primer parametro en LogError</li>
+<li><input type="checkbox" disabled> No loguear dentro de bucles de alto volumen</li>
+<li><input type="checkbox" disabled> Configurar niveles por namespace en appsettings.json</li>
+<li><input type="checkbox" disabled> Correlacion de trazas con TraceId/OperacionId</li>
+</ul>
+<hr>
+<p><em>Pattern structured-logging</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/observability-patterns.html#ficheros">← Volver a la ficha de observability-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/observability-patterns/patterns/serilog-config.html"><small>Anterior</small>patterns/serilog-config.md</a><a class="next" href="../../../skills/observability-patterns/references/workflow-add-telemetry.html"><small>Siguiente</small>references/workflow-add-telemetry.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/observability-patterns/patterns/structured-logging.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#principio-templates-con-parametros">Principio: Templates con Parametros</a></li><li class="l2"><a href="#que-loguear-por-nivel">Que Loguear por Nivel</a></li><li class="l2"><a href="#que-no-loguear-rgpd">Que NO Loguear (RGPD)</a></li><li class="l3"><a href="#datos-prohibidos">Datos Prohibidos</a></li><li class="l3"><a href="#regla-general">Regla General</a></li><li class="l2"><a href="#correlacion-de-trazas">Correlacion de Trazas</a></li><li class="l2"><a href="#patrones-de-logging-por-capa">Patrones de Logging por Capa</a></li><li class="l3"><a href="#controllers">Controllers</a></li><li class="l3"><a href="#services">Services</a></li><li class="l3"><a href="#infrastructure-llamadas-externas">Infrastructure (llamadas externas)</a></li><li class="l2"><a href="#Anti-Patrones">Anti-Patrones</a></li><li class="l2"><a href="#checklist-de-logging">Checklist de Logging</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

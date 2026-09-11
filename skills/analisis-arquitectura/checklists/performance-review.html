@@ -1,0 +1,322 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>analisis-arquitectura · checklists/performance-review.md · Ovillo</title><meta name="description" content="Fichero checklists/performance-review.md de la skill analisis-arquitectura"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="analisis-arquitectura · checklists/performance-review.md · Ovillo"><meta property="og:description" content="Fichero checklists/performance-review.md de la skill analisis-arquitectura"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/checklists/performance-review.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/checklists/performance-review.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/analisis-arquitectura/checklists/performance-review.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de analisis-arquitectura (18)</h4><ul class="sibs"><li><a href="../../../skills/analisis-arquitectura/checklists/api-design-review.html">checklists/api-design-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/clean-architecture.html">checklists/clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/database-review.html">checklists/database-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/microservices-review.html">checklists/microservices-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/migration-viability.html">checklists/migration-viability.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/performance-review.html" class="cur">checklists/performance-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/security-review.html">checklists/security-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/architecture-diagrams.html">patterns/architecture-diagrams.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/dependency-analysis.html">patterns/dependency-analysis.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/design-pattern-catalog.html">patterns/design-pattern-catalog.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-clean-architecture.html">prompts/prompt-clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-contexto-agente.html">prompts/prompt-contexto-agente.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-general.html">prompts/prompt-general.md</a></li><li><a href="../../../skills/analisis-arquitectura/README.html">README.md</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html">templates/ANALISIS_ARQUITECTURA.html.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.md.html">templates/ANALISIS_ARQUITECTURA.md.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/CONTEXTO_AGENTE.md.html">templates/CONTEXTO_AGENTE.md.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></span><span>checklists</span><span>performance-review.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>analisis-arquitectura</span><span>checklists/</span></div><h1>performance-review.md</h1><p class="lede">Referencia que <code>analisis-arquitectura</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></b><span>skill</span></div><div><b>checklists</b><span>carpeta</span></div><div><b>8952 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: analisis-arquitectura</p></blockquote>
+<hr>
+<section class="sec" id="sec-descripción">
+<h3 id="descripción">Descripción</h3>
+<p>Checklist para identificar problemas de rendimiento y optimizar aplicaciones .NET con Entity Framework Core y SQL Server.</p>
+<hr>
+</section>
+<section class="sec" id="sec-1-entity-framework-core">
+<h3 id="1-entity-framework-core">1. Entity Framework Core</h3>
+<h4 id="consultas">Consultas</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>AsNoTracking()</code> en consultas de solo lectura</li>
+<li><input type="checkbox" disabled> <code>Select()</code> para proyecciones (no cargar entidad completa)</li>
+<li><input type="checkbox" disabled> <code>AsSplitQuery()</code> para evitar explosión cartesiana</li>
+<li><input type="checkbox" disabled> Paginación en listados (<code>Skip/Take</code>)</li>
+<li><input type="checkbox" disabled> <code>FirstOrDefaultAsync</code> en lugar de <code>SingleOrDefaultAsync</code> si es posible</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ Carga entidad completa</span>
+<span class="tk-k">var</span> scholarships = <span class="tk-k">await</span> _context.Scholarships.ToListAsync();
+
+<span class="tk-c">// ✅ Solo campos necesarios</span>
+<span class="tk-k">var</span> scholarships = <span class="tk-k">await</span> _context.Scholarships
+    .AsNoTracking()
+    .Select(b =&gt; <span class="tk-k">new</span> ScholarshipListDto
+    {
+        Id = b.Id,
+        Name = b.Name,
+        Status = b.Status
+    })
+    .ToListAsync();</code></pre>
+<h4 id="eager-loading">Eager Loading</h4>
+<ul>
+<li><input type="checkbox" disabled> Include solo lo necesario</li>
+<li><input type="checkbox" disabled> ThenInclude con cuidado (N+1 queries)</li>
+<li><input type="checkbox" disabled> Considerar Split Queries para múltiples includes</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ⚠️ Puede causar explosión cartesiana</span>
+<span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _context.Scholarships
+    .Include(b =&gt; b.Applications)
+        .ThenInclude(s =&gt; s.Documentos)
+    .Include(b =&gt; b.Applications)
+        .ThenInclude(s =&gt; s.Student)
+    .FirstOrDefaultAsync(b =&gt; b.Id == id);
+
+<span class="tk-c">// ✅ Mejor con Split Query</span>
+<span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _context.Scholarships
+    .Include(b =&gt; b.Applications)
+        .ThenInclude(s =&gt; s.Documentos)
+    .Include(b =&gt; b.Applications)
+        .ThenInclude(s =&gt; s.Student)
+    .AsSplitQuery()
+    .FirstOrDefaultAsync(b =&gt; b.Id == id);</code></pre>
+<h4 id="compiled-queries">Compiled Queries</h4>
+<ul>
+<li><input type="checkbox" disabled> Usar para consultas frecuentes</li>
+<li><input type="checkbox" disabled> Evitar para consultas con parámetros dinámicos</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Compiled Query para consultas frecuentes</span>
+<span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> Func&lt;AppDbContext, <span class="tk-k">int</span>, Task&lt;Scholarship?&gt;&gt; GetByIdQuery =
+    EF.CompileAsyncQuery((AppDbContext ctx, <span class="tk-k">int</span> id) =&gt;
+        ctx.Scholarships.FirstOrDefault(b =&gt; b.Id == id));
+
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;Scholarship?&gt; GetByIdAsync(<span class="tk-k">int</span> id)
+{
+    <span class="tk-k">return</span> <span class="tk-k">await</span> GetByIdQuery(_context, id);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-base-de-datos">
+<h3 id="2-base-de-datos">2. Base de Datos</h3>
+<h4 id="índices">Índices</h4>
+<ul>
+<li><input type="checkbox" disabled> Índices en columnas de filtro frecuente</li>
+<li><input type="checkbox" disabled> Índices en foreign keys</li>
+<li><input type="checkbox" disabled> Índices compuestos para consultas comunes</li>
+<li><input type="checkbox" disabled> Evitar índices en columnas poco selectivas</li>
+</ul>
+<pre data-lang="sql"><code><span class="tk-c">-- ✅ Índices útiles</span>
+<span class="tk-k">CREATE</span> <span class="tk-k">INDEX</span> IX_Scholarship_Estado <span class="tk-k">ON</span> Scholarships(Status);
+<span class="tk-k">CREATE</span> <span class="tk-k">INDEX</span> IX_Scholarship_Estado_EndDate <span class="tk-k">ON</span> Scholarships(Status, EndDate) <span class="tk-k">WHERE</span> IsDeleted = <span class="tk-n">0</span>;
+<span class="tk-k">CREATE</span> <span class="tk-k">INDEX</span> IX_ScholarshipApplication_ScholarshipId <span class="tk-k">ON</span> Applications(ScholarshipId);</code></pre>
+<h4 id="query-analysis">Query Analysis</h4>
+<ul>
+<li><input type="checkbox" disabled> Revisar query plan de consultas lentas</li>
+<li><input type="checkbox" disabled> Evitar Table Scans en tablas grandes</li>
+<li><input type="checkbox" disabled> Verificar que los índices se usan</li>
+</ul>
+<pre data-lang="sql"><code><span class="tk-c">-- Ver plan de ejecución</span>
+<span class="tk-k">SET</span> STATISTICS IO <span class="tk-k">ON</span>;
+<span class="tk-k">SET</span> STATISTICS TIME <span class="tk-k">ON</span>;
+
+<span class="tk-k">SELECT</span> * <span class="tk-k">FROM</span> Scholarships <span class="tk-k">WHERE</span> Status = <span class="tk-s">'Published'</span>;
+
+<span class="tk-c">-- Ver índices no usados</span>
+<span class="tk-k">SELECT</span> * <span class="tk-k">FROM</span> sys.dm_db_index_usage_stats
+<span class="tk-k">WHERE</span> database_id = DB_ID() <span class="tk-k">AND</span> user_seeks = <span class="tk-n">0</span> <span class="tk-k">AND</span> user_scans = <span class="tk-n">0</span>;</code></pre>
+<h4 id="stored-procedures">Stored Procedures</h4>
+<ul>
+<li><input type="checkbox" disabled> Usar SET NOCOUNT ON</li>
+<li><input type="checkbox" disabled> Parámetros tipados correctamente</li>
+<li><input type="checkbox" disabled> Sin SELECT * en producción</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-3-asyncawait">
+<h3 id="3-asyncawait">3. Async/Await</h3>
+<h4 id="buenas-prácticas">Buenas Prácticas</h4>
+<ul>
+<li><input type="checkbox" disabled> Todo I/O es async (DB, HTTP, archivos)</li>
+<li><input type="checkbox" disabled> No mezclar sync y async (evitar .Result, .Wait())</li>
+<li><input type="checkbox" disabled> CancellationToken propagado</li>
+<li><input type="checkbox" disabled> ConfigureAwait(false) en librerías</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ Bloquea thread</span>
+<span class="tk-k">var</span> result = _service.GetByIdAsync(id).Result;
+
+<span class="tk-c">// ✅ Completamente async</span>
+<span class="tk-k">var</span> result = <span class="tk-k">await</span> _service.GetByIdAsync(id, cancellationToken);</code></pre>
+<h4 id="paralelización">Paralelización</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>Task.WhenAll</code> para operaciones independientes</li>
+<li><input type="checkbox" disabled> <code>Parallel.ForEachAsync</code> para procesamiento paralelo</li>
+<li><input type="checkbox" disabled> Limitar grado de paralelismo</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Operaciones paralelas</span>
+<span class="tk-k">var</span> task1 = _service1.GetDataAsync();
+<span class="tk-k">var</span> task2 = _service2.GetDataAsync();
+<span class="tk-k">var</span> task3 = _service3.GetDataAsync();
+
+<span class="tk-k">await</span> Task.WhenAll(task1, task2, task3);
+
+<span class="tk-c">// ✅ Procesamiento paralelo con límite</span>
+<span class="tk-k">await</span> Parallel.ForEachAsync(
+    items,
+    <span class="tk-k">new</span> ParallelOptions { MaxDegreeOfParallelism = <span class="tk-n">4</span> },
+    <span class="tk-k">async</span> (item, ct) =&gt; <span class="tk-k">await</span> ProcessAsync(item, ct));</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-caché">
+<h3 id="4-caché">4. Caché</h3>
+<h4 id="estrategias">Estrategias</h4>
+<ul>
+<li><input type="checkbox" disabled> IMemoryCache para datos locales frecuentes</li>
+<li><input type="checkbox" disabled> IDistributedCache (Redis) para caché compartida</li>
+<li><input type="checkbox" disabled> Response caching para respuestas HTTP</li>
+<li><input type="checkbox" disabled> Output caching (.NET 10)</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Memory Cache con expiration</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;List&lt;ScholarshipDto&gt;&gt; GetActiveScholarshipsAsync()
+{
+    <span class="tk-k">return</span> <span class="tk-k">await</span> _cache.GetOrCreateAsync(
+        <span class="tk-s">&quot;becas_activas&quot;</span>,
+        <span class="tk-k">async</span> entry =&gt;
+        {
+            entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(<span class="tk-n">5</span>);
+            <span class="tk-k">return</span> <span class="tk-k">await</span> _repository.GetActiveAsync();
+        });
+}
+
+<span class="tk-c">// ✅ Distributed Cache</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto?&gt; GetByIdAsync(<span class="tk-k">int</span> id)
+{
+    <span class="tk-k">var</span> cacheKey = <span class="tk-s">$&quot;scholarship:{id}&quot;</span>;
+    <span class="tk-k">var</span> cached = <span class="tk-k">await</span> _distributedCache.GetStringAsync(cacheKey);
+
+    <span class="tk-k">if</span> (cached != <span class="tk-k">null</span>)
+        <span class="tk-k">return</span> JsonSerializer.Deserialize&lt;ScholarshipDto&gt;(cached);
+
+    <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _repository.GetByIdAsync(id);
+    <span class="tk-k">if</span> (scholarship != <span class="tk-k">null</span>)
+    {
+        <span class="tk-k">await</span> _distributedCache.SetStringAsync(
+            cacheKey,
+            JsonSerializer.Serialize(scholarship),
+            <span class="tk-k">new</span> DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(<span class="tk-n">10</span>)
+            });
+    }
+
+    <span class="tk-k">return</span> scholarship;
+}</code></pre>
+<h4 id="invalidación">Invalidación</h4>
+<ul>
+<li><input type="checkbox" disabled> Estrategia de invalidación definida</li>
+<li><input type="checkbox" disabled> Cache tags para invalidación en grupo</li>
+<li><input type="checkbox" disabled> No cachear datos sensibles</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-5-http-y-apis">
+<h3 id="5-http-y-apis">5. HTTP y APIs</h3>
+<h4 id="configuración">Configuración</h4>
+<ul>
+<li><input type="checkbox" disabled> Connection pooling habilitado</li>
+<li><input type="checkbox" disabled> Timeouts configurados</li>
+<li><input type="checkbox" disabled> Retry policies con Polly</li>
+<li><input type="checkbox" disabled> HttpClientFactory en lugar de new HttpClient</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ HttpClientFactory con retry</span>
+builder.Services.AddHttpClient(<span class="tk-s">&quot;ExternalApi&quot;</span>, client =&gt;
+{
+    client.BaseAddress = <span class="tk-k">new</span> Uri(<span class="tk-s">&quot;https://api.externa.com&quot;</span>);
+    client.Timeout = TimeSpan.FromSeconds(<span class="tk-n">30</span>);
+})
+.AddTransientHttpErrorPolicy(p =&gt;
+    p.WaitAndRetryAsync(<span class="tk-n">3</span>, retryAttempt =&gt;
+        TimeSpan.FromSeconds(Math.Pow(<span class="tk-n">2</span>, retryAttempt))));</code></pre>
+<h4 id="response">Response</h4>
+<ul>
+<li><input type="checkbox" disabled> Compresión habilitada (Gzip, Brotli)</li>
+<li><input type="checkbox" disabled> Paginación en listados</li>
+<li><input type="checkbox" disabled> Campos parciales (GraphQL-like)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-6-memory-management">
+<h3 id="6-memory-management">6. Memory Management</h3>
+<h4 id="evitar-leaks">Evitar Leaks</h4>
+<ul>
+<li><input type="checkbox" disabled> Dispose de IDisposable</li>
+<li><input type="checkbox" disabled> using para recursos</li>
+<li><input type="checkbox" disabled> Evitar closures que capturen objetos grandes</li>
+<li><input type="checkbox" disabled> WeakReference para cachés</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ using para dispose automático</span>
+<span class="tk-k">await</span> <span class="tk-k">using</span> <span class="tk-k">var</span> stream = <span class="tk-k">await</span> response.Content.ReadAsStreamAsync();
+
+<span class="tk-c">// ✅ Dispose explícito en servicios</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> MyService : IDisposable
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> HttpClient _client;
+
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Dispose()
+    {
+        _client?.Dispose();
+    }
+}</code></pre>
+<h4 id="large-object-heap">Large Object Heap</h4>
+<ul>
+<li><input type="checkbox" disabled> Evitar arrays &gt; 85KB</li>
+<li><input type="checkbox" disabled> ArrayPool para arrays temporales</li>
+<li><input type="checkbox" disabled> Streaming para archivos grandes</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ ArrayPool para evitar LOH allocations</span>
+<span class="tk-k">var</span> buffer = ArrayPool&lt;byte&gt;.Shared.Rent(<span class="tk-n">4096</span>);
+<span class="tk-k">try</span>
+{
+    <span class="tk-c">// usar buffer</span>
+}
+<span class="tk-k">finally</span>
+{
+    ArrayPool&lt;byte&gt;.Shared.Return(buffer);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-7-logging">
+<h3 id="7-logging">7. Logging</h3>
+<h4 id="rendimiento">Rendimiento</h4>
+<ul>
+<li><input type="checkbox" disabled> Logging estructurado (no concatenar strings)</li>
+<li><input type="checkbox" disabled> Nivel apropiado (no Debug en producción)</li>
+<li><input type="checkbox" disabled> Async sinks para logs</li>
+<li><input type="checkbox" disabled> Sampling en alta carga</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ Concatenación de strings</span>
+_logger.LogInformation(<span class="tk-s">&quot;Procesando scholarship &quot;</span> + id + <span class="tk-s">&quot; con amount &quot;</span> + amount);
+
+<span class="tk-c">// ✅ Structured logging</span>
+_logger.LogInformation(<span class="tk-s">&quot;Procesando scholarship {ScholarshipId} con amount {Amount}&quot;</span>, id, amount);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-8-métricas-a-monitorizar">
+<h3 id="8-métricas-a-monitorizar">8. Métricas a Monitorizar</h3>
+<h4 id="application-insights">Application Insights</h4>
+<ul>
+<li><input type="checkbox" disabled> Request duration</li>
+<li><input type="checkbox" disabled> Dependency duration</li>
+<li><input type="checkbox" disabled> Exception rate</li>
+<li><input type="checkbox" disabled> Memory usage</li>
+</ul>
+<h4 id="umbrales-sugeridos">Umbrales Sugeridos</h4>
+<div class="tbl"><table><thead><tr><th>Métrica</th><th>Aceptable</th><th>Revisar</th><th>Crítico</th></tr></thead><tbody><tr><td>Response Time P95</td><td>&lt; 200ms</td><td>200-500ms</td><td>&gt; 500ms</td></tr><tr><td>DB Query Time</td><td>&lt; 50ms</td><td>50-200ms</td><td>&gt; 200ms</td></tr><tr><td>Error Rate</td><td>&lt; 0.1%</td><td>0.1-1%</td><td>&gt; 1%</td></tr><tr><td>Memory Growth</td><td>Stable</td><td>10%/hour</td><td>&gt; 20%/hour</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-9-checklist-rápido">
+<h3 id="9-checklist-rápido">9. Checklist Rápido</h3>
+<h4 id="queries">Queries</h4>
+<ul>
+<li><input type="checkbox" disabled> ¿Se usa AsNoTracking?</li>
+<li><input type="checkbox" disabled> ¿Se proyecta solo lo necesario?</li>
+<li><input type="checkbox" disabled> ¿Hay paginación?</li>
+<li><input type="checkbox" disabled> ¿Los índices están creados?</li>
+</ul>
+<h4 id="async">Async</h4>
+<ul>
+<li><input type="checkbox" disabled> ¿Todo I/O es async?</li>
+<li><input type="checkbox" disabled> ¿Se propaga CancellationToken?</li>
+<li><input type="checkbox" disabled> ¿Se usa Task.WhenAll para paralelo?</li>
+</ul>
+<h4 id="caché">Caché</h4>
+<ul>
+<li><input type="checkbox" disabled> ¿Se cachean datos frecuentes?</li>
+<li><input type="checkbox" disabled> ¿La invalidación está definida?</li>
+<li><input type="checkbox" disabled> ¿El TTL es apropiado?</li>
+</ul>
+<h4 id="HTTP">HTTP</h4>
+<ul>
+<li><input type="checkbox" disabled> ¿Se usa HttpClientFactory?</li>
+<li><input type="checkbox" disabled> ¿Hay retry policies?</li>
+<li><input type="checkbox" disabled> ¿Compresión habilitada?</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-resultado-de-la-revisión">
+<h3 id="resultado-de-la-revisión">Resultado de la Revisión</h3>
+<div class="tbl"><table><thead><tr><th>Área</th><th>Cumple</th><th>Parcial</th><th>No Cumple</th></tr></thead><tbody><tr><td>Entity Framework</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Base de Datos</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Async/Await</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Caché</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>HTTP</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Memory</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Logging</td><td>☐</td><td>☐</td><td>☐</td></tr></tbody></table></div>
+<hr>
+<p><strong>Fecha de revisión:</strong> _______________ <strong>Revisado por:</strong> _______________ <strong>Proyecto:</strong> _______________</p>
+<hr>
+<p><em>Checklist v1.0 - analisis-arquitectura skill</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/analisis-arquitectura.html#ficheros">← Volver a la ficha de analisis-arquitectura</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/analisis-arquitectura/checklists/migration-viability.html"><small>Anterior</small>checklists/migration-viability.md</a><a class="next" href="../../../skills/analisis-arquitectura/checklists/security-review.html"><small>Siguiente</small>checklists/security-review.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/analisis-arquitectura/checklists/performance-review.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#descripción">Descripción</a></li><li class="l2"><a href="#1-entity-framework-core">1. Entity Framework Core</a></li><li class="l3"><a href="#consultas">Consultas</a></li><li class="l3"><a href="#eager-loading">Eager Loading</a></li><li class="l3"><a href="#compiled-queries">Compiled Queries</a></li><li class="l2"><a href="#2-base-de-datos">2. Base de Datos</a></li><li class="l3"><a href="#índices">Índices</a></li><li class="l3"><a href="#query-analysis">Query Analysis</a></li><li class="l3"><a href="#stored-procedures">Stored Procedures</a></li><li class="l2"><a href="#3-asyncawait">3. Async/Await</a></li><li class="l3"><a href="#buenas-prácticas">Buenas Prácticas</a></li><li class="l3"><a href="#paralelización">Paralelización</a></li><li class="l2"><a href="#4-caché">4. Caché</a></li><li class="l3"><a href="#estrategias">Estrategias</a></li><li class="l3"><a href="#invalidación">Invalidación</a></li><li class="l2"><a href="#5-http-y-apis">5. HTTP y APIs</a></li><li class="l3"><a href="#configuración">Configuración</a></li><li class="l3"><a href="#response">Response</a></li><li class="l2"><a href="#6-memory-management">6. Memory Management</a></li><li class="l3"><a href="#evitar-leaks">Evitar Leaks</a></li><li class="l3"><a href="#large-object-heap">Large Object Heap</a></li><li class="l2"><a href="#7-logging">7. Logging</a></li><li class="l3"><a href="#rendimiento">Rendimiento</a></li><li class="l2"><a href="#8-métricas-a-monitorizar">8. Métricas a Monitorizar</a></li><li class="l3"><a href="#application-insights">Application Insights</a></li><li class="l3"><a href="#umbrales-sugeridos">Umbrales Sugeridos</a></li><li class="l2"><a href="#9-checklist-rápido">9. Checklist Rápido</a></li><li class="l3"><a href="#queries">Queries</a></li><li class="l3"><a href="#async">Async</a></li><li class="l3"><a href="#caché">Caché</a></li><li class="l3"><a href="#HTTP">HTTP</a></li><li class="l2"><a href="#resultado-de-la-revisión">Resultado de la Revisión</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

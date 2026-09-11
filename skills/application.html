@@ -1,0 +1,488 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>application · Ovillo</title><meta name="description" content="Convenciones de la capa de aplicacion: casos de uso, CQRS, DTOs, validadores y mapeos."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="application · Ovillo"><meta property="og:description" content="Convenciones de la capa de aplicacion: casos de uso, CQRS, DTOs, validadores y mapeos."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/application.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/application.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/application.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>regla por ruta (13)</h4><ul class="sibs"><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html" class="cur">application</a></li><li><a href="../skills/blazor.html">blazor</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/domain-api-docs.html">domain-api-docs</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/mcp-config.html">mcp-config</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/webapp.html">webapp</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>application</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>/hv:application</span></div><h1>application</h1><p class="lede">Convenciones de la capa de aplicacion: casos de uso, CQRS, DTOs, validadores y mapeos.</p><div class="meta-grid"><div><b>regla por ruta</b><span>clase</span></div><div><b><code>/hv:application</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>645</b><span>palabras</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>user-invocable</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Se carga sola al tocar ficheros que casan con sus rutas (<code>paths:</code>). No entra en el listado de skills.</p><pre data-lang="yaml"><code>paths:
+  - &quot;**/Application/**/*.cs&quot;
+  - &quot;**/UseCases/**/*.cs&quot;
+  - &quot;**/Features/**/*.cs&quot;
+  - &quot;**/Commands/**/*.cs&quot;
+  - &quot;**/Queries/**/*.cs&quot;
+  - &quot;**/Handlers/**/*.cs&quot;
+  - &quot;**/DTOs/**/*.cs&quot;
+  - &quot;**/Validators/**/*.cs&quot;
+  - &quot;**/Behaviours/**/*.cs&quot;
+  - &quot;**/Mappings/**/*.cs&quot;
+  - &quot;**/Services/**/*Service.cs&quot;
+  - &quot;**/*Command.cs&quot;
+  - &quot;**/*Query.cs&quot;
+  - &quot;**/*Handler.cs&quot;
+  - &quot;**/*Dto.cs&quot;
+  - &quot;**/*DTO.cs&quot;
+  - &quot;**/*Validator.cs&quot;
+  - &quot;**/*Behaviour.cs&quot;
+  - &quot;**/*Behavior.cs&quot;</code></pre></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Se carga por ruta, no por invocacion</strong>: el campo <code>paths:</code> la activa cuando Claude trabaja con ficheros que casan con esos patrones. No aparece en el menu (<code>user-invocable: false</code>) y <strong>no ocupa contexto</strong> mientras no case ningun fichero.</p>
+<p>Procede de <code>.claude/skills/application/SKILL.md</code>. Se convirtio en skill porque un plugin no distribuye <code>rules/</code>.</p></blockquote>
+<hr>
+<h2 id="reglas-para-capa-de-aplicación">Reglas para Capa de Aplicación</h2>
+<blockquote><p>Este archivo aplica cuando Claude trabaja con casos de uso, comandos, queries, DTOs y servicios de aplicación. La capa Application <strong>orquesta</strong> el dominio pero <strong>no contiene lógica de negocio</strong>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-aviso-importante-mediatr--mediator">
+<h3 id="aviso-importante-mediatr--mediator">⚠️ AVISO IMPORTANTE: MediatR → Mediator</h3>
+<p><strong>A partir de 2026</strong>, recomendamos usar <strong><a href="https://github.com/martinothamar/Mediator" rel="noopener">Mediator</a></strong> (martinothamar) en lugar de MediatR:</p>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>MediatR v13+</th><th>Mediator</th></tr></thead><tbody><tr><td><strong>Licencia</strong></td><td>Comercial ($500-2000/año)</td><td><strong>MIT (gratuito)</strong></td></tr><tr><td><strong>Rendimiento</strong></td><td>Reflexión runtime</td><td><strong>Source generators</strong> (más rápido)</td></tr><tr><td><strong>API</strong></td><td>IRequest, IRequestHandler</td><td>IRequest, IRequestHandler (compatible)</td></tr><tr><td><strong>Pipeline Behaviors</strong></td><td>IPipelineBehavior</td><td>IPipelineBehavior (idéntico)</td></tr></tbody></table></div>
+<p>Los ejemplos en este archivo usan la interfaz estándar (<code>IRequest</code>, <code>IRequestHandler</code>, <code>IPipelineBehavior</code>) que es <strong>compatible con ambas librerías</strong>.</p>
+</section>
+<section class="sec" id="sec-aviso-importante-automapper--mapperly">
+<h3 id="aviso-importante-automapper--mapperly">⚠️ AVISO IMPORTANTE: AutoMapper → Mapperly</h3>
+<p><strong>Misma trampa que MediatR</strong>: AutoMapper es <strong>comercial desde la v15</strong> (licencia dual RPL-1.5 o comercial). El pin a <code>13.*</code> la esquivaba por accidente, no por política.</p>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>AutoMapper v15+</th><th>Mapperly</th></tr></thead><tbody><tr><td><strong>Licencia</strong></td><td>Comercial (dual RPL-1.5)</td><td><strong>MIT (gratuito)</strong></td></tr><tr><td><strong>Rendimiento</strong></td><td>Reflexión en tiempo de ejecución</td><td><strong>Source generator</strong> (código generado, sin reflexión)</td></tr><tr><td><strong>Trimming y AOT</strong></td><td>Los rompe</td><td><strong>Compatibles</strong></td></tr><tr><td><strong>Errores de mapeo</strong></td><td>En tiempo de ejecución</td><td><strong>En compilación</strong></td></tr><tr><td><strong>API</strong></td><td><code>IMapper.Map&lt;TDto&gt;(entity)</code></td><td>método generado: <code>mapper.ToDto(entity)</code></td></tr></tbody></table></div>
+<p><strong>Código nuevo: Mapperly.</strong> Es lo que emiten las plantillas de <code>generador-crud</code>. Si el proyecto ya usa AutoMapper, no hay que migrarlo por esto: <strong>fijar el rango cerrado</strong> <code>[13.0.0,15.0.0)</code> para no entrar en la versión comercial en un <code>dotnet restore</code>, y anotar la migración en <code>_hilo/DEUDA_TECNICA.md</code>.</p>
+<blockquote><p>📚 Ver <code>_patron/01_Estructura_Tecnica/GUIA_ARQUITECTURA.md</code> para guía de migración y detalles completos.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-principios-fundamentales">
+<h3 id="principios-fundamentales">PRINCIPIOS FUNDAMENTALES</h3>
+<div class="tbl"><table><thead><tr><th>Principio</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>Orquestación</strong></td><td>Coordina el dominio, no implementa lógica de negocio</td></tr><tr><td><strong>CQRS</strong></td><td>Separar Commands (escritura) de Queries (lectura)</td></tr><tr><td><strong>Independencia</strong></td><td>Sin dependencias de Infrastructure o Presentation</td></tr><tr><td><strong>Validación</strong></td><td>Validar inputs antes de llegar al dominio</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-parte-1-estructura-de-carpetas">
+<h3 id="parte-1-estructura-de-carpetas">PARTE 1: ESTRUCTURA DE CARPETAS</h3>
+<h4 id="organización-por-features-recomendada">Organización por Features (Recomendada)</h4>
+<pre><code>Application/
+├── Common/
+│   ├── Interfaces/
+│   │   ├── IUnitOfWork.cs
+│   │   ├── ICurrentUserService.cs
+│   │   └── IDateTime.cs
+│   ├── Behaviours/
+│   │   ├── ValidationBehaviour.cs
+│   │   ├── LoggingBehaviour.cs
+│   │   └── PerformanceBehaviour.cs
+│   ├── Exceptions/
+│   │   ├── ValidationException.cs
+│   │   ├── NotFoundException.cs
+│   │   └── ForbiddenAccessException.cs
+│   └── Mappings/
+│       └── MappingProfile.cs
+│
+├── Features/
+│   ├── Users/
+│   │   ├── Commands/
+│   │   │   ├── CreateUser/
+│   │   │   │   ├── CreateUserCommand.cs
+│   │   │   │   ├── CreateUserCommandHandler.cs
+│   │   │   │   └── CreateUserCommandValidator.cs
+│   │   │   └── UpdateUser/
+│   │   │       └── ...
+│   │   ├── Queries/
+│   │   │   ├── GetUserById/
+│   │   │   │   ├── GetUserByIdQuery.cs
+│   │   │   │   ├── GetUserByIdQueryHandler.cs
+│   │   │   │   └── UserDto.cs
+│   │   │   └── GetAllUsers/
+│   │   │       └── ...
+│   │   └── EventHandlers/
+│   │       └── UserCreatedEventHandler.cs
+│   │
+│   └── Orders/
+│       ├── Commands/
+│       ├── Queries/
+│       └── EventHandlers/
+│
+└── DependencyInjection.cs</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-2-commands-cqrs---escritura">
+<h3 id="parte-2-commands-cqrs---escritura">PARTE 2: COMMANDS (CQRS - Escritura)</h3>
+<h4 id="estructura-de-un-command">Estructura de un Command</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// CreateUserCommand.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Features.Users.Commands.CreateUser;
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> CreateUserCommand : IRequest&lt;Guid&gt;
+{
+    <span class="tk-k">public</span> <span class="tk-k">required</span> <span class="tk-k">string</span> Email { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">required</span> <span class="tk-k">string</span> FirstName { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">required</span> <span class="tk-k">string</span> LastName { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span>? PhoneNumber { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+}</code></pre>
+<h4 id="handler-del-command">Handler del Command</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// CreateUserCommandHandler.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Features.Users.Commands.CreateUser;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> CreateUserCommandHandler : IRequestHandler&lt;CreateUserCommand, Guid&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IUserRepository _userRepository;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IUnitOfWork _unitOfWork;
+
+    <span class="tk-k">public</span> CreateUserCommandHandler(
+        IUserRepository userRepository,
+        IUnitOfWork unitOfWork)
+    {
+        _userRepository = userRepository;
+        _unitOfWork = unitOfWork;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;Guid&gt; Handle(
+        CreateUserCommand request,
+        CancellationToken cancellationToken)
+    {
+        <span class="tk-c">// 1. Crear entidad de dominio</span>
+        <span class="tk-k">var</span> email = Email.Create(request.Email);
+        <span class="tk-k">var</span> user = User.Create(email, request.FirstName, request.LastName);
+
+        <span class="tk-c">// 2. Persistir</span>
+        <span class="tk-k">await</span> _userRepository.AddAsync(user, cancellationToken);
+        <span class="tk-k">await</span> _unitOfWork.SaveChangesAsync(cancellationToken);
+
+        <span class="tk-c">// 3. Retornar ID</span>
+        <span class="tk-k">return</span> user.Id;
+    }
+}</code></pre>
+<h4 id="validator-del-command-fluentvalidation">Validator del Command (FluentValidation)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// CreateUserCommandValidator.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Features.Users.Commands.CreateUser;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> CreateUserCommandValidator : AbstractValidator&lt;CreateUserCommand&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IUserRepository _userRepository;
+
+    <span class="tk-k">public</span> CreateUserCommandValidator(IUserRepository userRepository)
+    {
+        _userRepository = userRepository;
+
+        RuleFor(x =&gt; x.Email)
+            .NotEmpty().WithMessage(<span class="tk-s">&quot;Email is required&quot;</span>)
+            .EmailAddress().WithMessage(<span class="tk-s">&quot;Email format is invalid&quot;</span>)
+            .MustAsync(BeUniqueEmail).WithMessage(<span class="tk-s">&quot;Email is already registered&quot;</span>);
+
+        RuleFor(x =&gt; x.FirstName)
+            .NotEmpty().WithMessage(<span class="tk-s">&quot;Name is required&quot;</span>)
+            .MaximumLength(<span class="tk-n">100</span>).WithMessage(<span class="tk-s">&quot;Name cannot exceed 100 characters&quot;</span>);
+
+        RuleFor(x =&gt; x.LastName)
+            .NotEmpty().WithMessage(<span class="tk-s">&quot;Last name is required&quot;</span>)
+            .MaximumLength(<span class="tk-n">100</span>).WithMessage(<span class="tk-s">&quot;Last name cannot exceed 100 characters&quot;</span>);
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">async</span> Task&lt;<span class="tk-k">bool</span>&gt; BeUniqueEmail(
+        <span class="tk-k">string</span> email,
+        CancellationToken cancellationToken)
+    {
+        <span class="tk-k">return</span> !<span class="tk-k">await</span> _userRepository.ExistsByEmailAsync(email, cancellationToken);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-3-queries-cqrs---lectura">
+<h3 id="parte-3-queries-cqrs---lectura">PARTE 3: QUERIES (CQRS - Lectura)</h3>
+<h4 id="estructura-de-una-query">Estructura de una Query</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// GetUserByIdQuery.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Features.Users.Queries.GetUserById;
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> GetUserByIdQuery(Guid Id) : IRequest&lt;UserDto?&gt;;</code></pre>
+<h4 id="handler-de-la-query">Handler de la Query</h4>
+<blockquote><p>El handler habla con <code>I{Entity}Repository</code> (métodos explícitos, paginación acotada) y nunca con el <code>DbContext</code> ni con un <code>IQueryable</code>: el idioma de acceso a datos es uno y está en <code>infrastructure</code> (ADR-034).</p></blockquote>
+<pre data-lang="csharp"><code><span class="tk-c">// GetUserByIdQueryHandler.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Features.Users.Queries.GetUserById;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> GetUserByIdQueryHandler : IRequestHandler&lt;GetUserByIdQuery, UserDto?&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IUserRepository _userRepository;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IMapper _mapper;
+
+    <span class="tk-k">public</span> GetUserByIdQueryHandler(
+        IUserRepository userRepository,
+        IMapper mapper)
+    {
+        _userRepository = userRepository;
+        _mapper = mapper;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;UserDto?&gt; Handle(
+        GetUserByIdQuery request,
+        CancellationToken cancellationToken)
+    {
+        <span class="tk-k">var</span> user = <span class="tk-k">await</span> _userRepository.GetByIdAsync(request.Id, cancellationToken);
+        
+        <span class="tk-k">return</span> user <span class="tk-k">is</span> <span class="tk-k">null</span> ? <span class="tk-k">null</span> : _mapper.Map&lt;UserDto&gt;(user);
+    }
+}</code></pre>
+<h4 id="dto-de-respuesta">DTO de respuesta</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// UserDto.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Features.Users.Queries.GetUserById;
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> UserDto
+{
+    <span class="tk-k">public</span> Guid Id { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Email { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+    <span class="tk-k">public</span> <span class="tk-k">string</span> FullName { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+    <span class="tk-k">public</span> DateTime CreatedAt { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">bool</span> IsActive { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-4-behaviours-pipeline-de-mediator">
+<h3 id="parte-4-behaviours-pipeline-de-mediator">PARTE 4: BEHAVIOURS (Pipeline de Mediator)</h3>
+<blockquote><p>⚠️ <strong>NOTA IMPORTANTE sobre MediatR vs Mediator</strong></p>
+<ul>
+<li><strong>MediatR v13+</strong> es <strong>comercial</strong> desde la 13.0.0 (julio de 2025); la 12.4.1 sigue siendo Apache-2.0 (<a href="https://www.nuget.org/packages/MediatR/13.0.0" rel="noopener">nuget.org</a>)</li>
+<li>Recomendamos usar <strong><a href="https://github.com/martinothamar/Mediator" rel="noopener">Mediator</a></strong> (MIT, gratuito)</li>
+<li>Mediator usa <strong>source generators</strong> → mejor rendimiento, sin reflexión</li>
+<li>La API es casi idéntica, migración sencilla</li>
+<li>Ver <code>_patron/01_Estructura_Tecnica/GUIA_ARQUITECTURA.md</code> para detalles</li>
+</ul></blockquote>
+<h4 id="behaviour-de-validación">Behaviour de Validación</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ValidationBehaviour.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Common.Behaviours;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ValidationBehaviour&lt;TRequest, TResponse&gt; 
+    : IPipelineBehavior&lt;TRequest, TResponse&gt;
+    where TRequest : notnull
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IEnumerable&lt;IValidator&lt;TRequest&gt;&gt; _validators;
+
+    <span class="tk-k">public</span> ValidationBehaviour(IEnumerable&lt;IValidator&lt;TRequest&gt;&gt; validators)
+    {
+        _validators = validators;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;TResponse&gt; Handle(
+        TRequest request,
+        RequestHandlerDelegate&lt;TResponse&gt; next,
+        CancellationToken cancellationToken)
+    {
+        <span class="tk-k">if</span> (!_validators.Any())
+            <span class="tk-k">return</span> <span class="tk-k">await</span> next();
+
+        <span class="tk-k">var</span> context = <span class="tk-k">new</span> ValidationContext&lt;TRequest&gt;(request);
+
+        <span class="tk-k">var</span> validationResults = <span class="tk-k">await</span> Task.WhenAll(
+            _validators.Select(v =&gt; v.ValidateAsync(context, cancellationToken)));
+
+        <span class="tk-k">var</span> failures = validationResults
+            .SelectMany(r =&gt; r.Errors)
+            .Where(f =&gt; f <span class="tk-k">is</span> not <span class="tk-k">null</span>)
+            .ToList();
+
+        <span class="tk-k">if</span> (failures.Count &gt; <span class="tk-n">0</span>)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> ValidationException(failures);
+
+        <span class="tk-k">return</span> <span class="tk-k">await</span> next();
+    }
+}</code></pre>
+<h4 id="behaviour-de-logging">Behaviour de Logging</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// LoggingBehaviour.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Common.Behaviours;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> LoggingBehaviour&lt;TRequest, TResponse&gt; 
+    : IPipelineBehavior&lt;TRequest, TResponse&gt;
+    where TRequest : notnull
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;LoggingBehaviour&lt;TRequest, TResponse&gt;&gt; _logger;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ICurrentUserService _currentUserService;
+
+    <span class="tk-k">public</span> LoggingBehaviour(
+        ILogger&lt;LoggingBehaviour&lt;TRequest, TResponse&gt;&gt; logger,
+        ICurrentUserService currentUserService)
+    {
+        _logger = logger;
+        _currentUserService = currentUserService;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;TResponse&gt; Handle(
+        TRequest request,
+        RequestHandlerDelegate&lt;TResponse&gt; next,
+        CancellationToken cancellationToken)
+    {
+        <span class="tk-k">var</span> requestName = <span class="tk-k">typeof</span>(TRequest).Name;
+        <span class="tk-k">var</span> userId = _currentUserService.UserId;
+
+        _logger.LogInformation(
+            <span class="tk-s">&quot;Ejecutando {RequestName} por User {UserId}: {@Request}&quot;</span>,
+            requestName, userId, request);
+
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> next();
+
+        _logger.LogInformation(
+            <span class="tk-s">&quot;Completado {RequestName} por User {UserId}&quot;</span>,
+            requestName, userId);
+
+        <span class="tk-k">return</span> response;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-5-interfaces-de-application">
+<h3 id="parte-5-interfaces-de-application">PARTE 5: INTERFACES DE APPLICATION</h3>
+<h4 id="IUnitOfWork">IUnitOfWork</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// IUnitOfWork.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Common.Interfaces;
+
+<span class="tk-k">public</span> <span class="tk-k">interface</span> IUnitOfWork
+{
+    Task&lt;<span class="tk-k">int</span>&gt; SaveChangesAsync(CancellationToken cancellationToken = <span class="tk-k">default</span>);
+}</code></pre>
+<h4 id="ICurrentUserService">ICurrentUserService</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ICurrentUserService.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Common.Interfaces;
+
+<span class="tk-k">public</span> <span class="tk-k">interface</span> ICurrentUserService
+{
+    <span class="tk-k">string</span>? UserId { <span class="tk-k">get</span>; }
+    <span class="tk-k">string</span>? UserName { <span class="tk-k">get</span>; }
+    <span class="tk-k">bool</span> IsAuthenticated { <span class="tk-k">get</span>; }
+    IEnumerable&lt;<span class="tk-k">string</span>&gt; Roles { <span class="tk-k">get</span>; }
+}</code></pre>
+<h4 id="IDateTime">IDateTime</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// IDateTime.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Common.Interfaces;
+
+<span class="tk-k">public</span> <span class="tk-k">interface</span> IDateTime
+{
+    DateTime Now { <span class="tk-k">get</span>; }
+    DateTime UtcNow { <span class="tk-k">get</span>; }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-6-excepciones-de-application">
+<h3 id="parte-6-excepciones-de-application">PARTE 6: EXCEPCIONES DE APPLICATION</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// ValidationException.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Common.Exceptions;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ValidationException : Exception
+{
+    <span class="tk-k">public</span> IDictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">string</span>[]&gt; Errors { <span class="tk-k">get</span>; }
+
+    <span class="tk-k">public</span> ValidationException()
+        : <span class="tk-k">base</span>(<span class="tk-s">&quot;Se han producido uno o más errores de validación.&quot;</span>)
+    {
+        Errors = <span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">string</span>[]&gt;();
+    }
+
+    <span class="tk-k">public</span> ValidationException(IEnumerable&lt;ValidationFailure&gt; failures)
+        : <span class="tk-k">this</span>()
+    {
+        Errors = failures
+            .GroupBy(e =&gt; e.PropertyName, e =&gt; e.ErrorMessage)
+            .ToDictionary(g =&gt; g.Key, g =&gt; g.ToArray());
+    }
+}
+
+<span class="tk-c">// NotFoundException.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Common.Exceptions;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> NotFoundException : Exception
+{
+    <span class="tk-k">public</span> NotFoundException()
+        : <span class="tk-k">base</span>() { }
+
+    <span class="tk-k">public</span> NotFoundException(<span class="tk-k">string</span> message)
+        : <span class="tk-k">base</span>(message) { }
+
+    <span class="tk-k">public</span> NotFoundException(<span class="tk-k">string</span> name, <span class="tk-k">object</span> key)
+        : <span class="tk-k">base</span>(<span class="tk-s">$&quot;Entidad \&quot;{name}\&quot; ({key}) no encontrada.&quot;</span>) { }
+}
+
+<span class="tk-c">// ForbiddenAccessException.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application.Common.Exceptions;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ForbiddenAccessException : Exception
+{
+    <span class="tk-k">public</span> ForbiddenAccessException()
+        : <span class="tk-k">base</span>(<span class="tk-s">&quot;No tiene permisos para realizar esta acción.&quot;</span>) { }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-7-dependency-injection">
+<h3 id="parte-7-dependency-injection">PARTE 7: DEPENDENCY INJECTION</h3>
+<h4 id="usando-mediator-recomendado---mitgratuito">Usando Mediator (Recomendado - MIT/Gratuito)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// DependencyInjection.cs</span>
+<span class="tk-k">namespace</span> MyApp.Application;
+
+<span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> DependencyInjection
+{
+    <span class="tk-k">public</span> <span class="tk-k">static</span> IServiceCollection AddApplication(<span class="tk-k">this</span> IServiceCollection services)
+    {
+        <span class="tk-k">var</span> assembly = Assembly.GetExecutingAssembly();
+
+        <span class="tk-c">// AutoMapper</span>
+        services.AddAutoMapper(assembly);
+
+        <span class="tk-c">// FluentValidation</span>
+        services.AddValidatorsFromAssembly(assembly);
+
+        <span class="tk-c">// Mediator (martinothamar) - MIT license, source generators</span>
+        services.AddMediator(options =&gt;
+        {
+            options.ServiceLifetime = ServiceLifetime.Scoped;
+        });
+
+        <span class="tk-c">// Pipeline Behaviors (misma sintaxis que MediatR)</span>
+        services.AddScoped(<span class="tk-k">typeof</span>(IPipelineBehavior&lt;,&gt;), <span class="tk-k">typeof</span>(ValidationBehaviour&lt;,&gt;));
+        services.AddScoped(<span class="tk-k">typeof</span>(IPipelineBehavior&lt;,&gt;), <span class="tk-k">typeof</span>(LoggingBehaviour&lt;,&gt;));
+
+        <span class="tk-k">return</span> services;
+    }
+}</code></pre>
+<h4 id="usando-mediatr-solo-si-ya-tienes-licencia-comercial">Usando MediatR (Solo si ya tienes licencia comercial)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ⚠️ MediatR v13+ requiere licencia comercial (la 12.x sigue en Apache-2.0)</span>
+<span class="tk-c">// Solo usar si la organización ya tiene licencia activa</span>
+
+<span class="tk-k">public</span> <span class="tk-k">static</span> IServiceCollection AddApplication(<span class="tk-k">this</span> IServiceCollection services)
+{
+    services.AddMediatR(cfg =&gt; {
+        cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+        cfg.AddBehavior(<span class="tk-k">typeof</span>(IPipelineBehavior&lt;,&gt;), <span class="tk-k">typeof</span>(ValidationBehaviour&lt;,&gt;));
+        cfg.AddBehavior(<span class="tk-k">typeof</span>(IPipelineBehavior&lt;,&gt;), <span class="tk-k">typeof</span>(LoggingBehaviour&lt;,&gt;));
+    });
+    <span class="tk-k">return</span> services;
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-reglas-críticas">
+<h3 id="reglas-críticas">REGLAS CRÍTICAS</h3>
+<h4 id="siempre">✅ SIEMPRE</h4>
+<ul>
+<li>Usar records para Commands y Queries (inmutabilidad)</li>
+<li>Un archivo por Command/Query/Handler</li>
+<li>Validar inputs con FluentValidation antes del Handler</li>
+<li>Usar <code>CancellationToken</code> en todos los métodos async</li>
+<li>DTOs específicos por Query (no reutilizar entidades)</li>
+</ul>
+<h4 id="nunca">❌ NUNCA</h4>
+<ul>
+<li>Inyectar DbContext directamente (usar repositorios)</li>
+<li>Lógica de negocio en Handlers (pertenece al Domain)</li>
+<li>Referencias a Infrastructure o Presentation</li>
+<li>Usar Entity Framework directamente</li>
+<li>Exponer entidades de dominio como respuesta</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-paquetes-nuget-recomendados">
+<h3 id="paquetes-nuget-recomendados">PAQUETES NUGET RECOMENDADOS</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-c">&lt;!-- ⚠️ Mediator (MIT/gratuito) en lugar de MediatR (comercial v13+) --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Mediator.Abstractions&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Mediator.SourceGenerator&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> OutputItemType=<span class="tk-s">&quot;Analyzer&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;FluentValidation&quot;</span> Version=<span class="tk-s">&quot;11.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;FluentValidation.DependencyInjectionExtensions&quot;</span> Version=<span class="tk-s">&quot;11.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- ⚠️ Mapperly (Apache-2.0, source generator) en lugar de AutoMapper (comercial v15+) --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Riok.Mapperly&quot;</span> Version=<span class="tk-s">&quot;4.*&quot;</span> PrivateAssets=<span class="tk-s">&quot;all&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- Solo si el proyecto YA usa AutoMapper: rango cerrado para no entrar en la v15 comercial.
+       El paquete .Extensions.Microsoft.DependencyInjection NO se referencia: la v13 lo absorbio. --&gt;</span>
+  <span class="tk-c">&lt;!-- &lt;PackageReference Include=&quot;AutoMapper&quot; Version=&quot;[13.0.0,15.0.0)&quot; /&gt; --&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<blockquote><p><strong>¿Por qué Mediator en lugar de MediatR?</strong></p>
+<ul>
+<li>MediatR v13+ requiere licencia comercial (la 12.x sigue en Apache-2.0)</li>
+<li>Mediator es MIT (gratuito), usa source generators (mejor rendimiento)</li>
+<li>API compatible, migración sencilla</li>
+<li>Más info: <code>GUIA_ARQUITECTURA.md</code> sección &quot;Mediator vs MediatR&quot;</li>
+</ul></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-REFERENCIAS">
+<h3 id="REFERENCIAS">REFERENCIAS</h3>
+<div class="tbl"><table><thead><tr><th>Capa</th><th>Puede usar</th></tr></thead><tbody><tr><td>Application</td><td>→ Domain (interfaces de repositorios)</td></tr><tr><td>Application</td><td>✗ Infrastructure</td></tr><tr><td>Application</td><td>✗ Presentation/API</td></tr></tbody></table></div>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>86</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 645 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>8 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>fix: residuos de genealogia, higiene del repo, secret-scanner con AWS y JWT, run_eval --json, hipotesis de contexto, idioma de datos (I-03, M-07, H-05, H-04, M-05, M-06, G-06)</em> (<code>85dedd8</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/init.html">init</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/application/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#aviso-importante-mediatr--mediator">⚠️ AVISO IMPORTANTE: MediatR → Mediator</a></li><li class="l3"><a href="#aviso-importante-automapper--mapperly">⚠️ AVISO IMPORTANTE: AutoMapper → Mapperly</a></li><li class="l3"><a href="#principios-fundamentales">PRINCIPIOS FUNDAMENTALES</a></li><li class="l3"><a href="#parte-1-estructura-de-carpetas">PARTE 1: ESTRUCTURA DE CARPETAS</a></li><li class="l3"><a href="#parte-2-commands-cqrs---escritura">PARTE 2: COMMANDS (CQRS - Escritura)</a></li><li class="l3"><a href="#parte-3-queries-cqrs---lectura">PARTE 3: QUERIES (CQRS - Lectura)</a></li><li class="l3"><a href="#parte-4-behaviours-pipeline-de-mediator">PARTE 4: BEHAVIOURS (Pipeline de Mediator)</a></li><li class="l3"><a href="#parte-5-interfaces-de-application">PARTE 5: INTERFACES DE APPLICATION</a></li><li class="l3"><a href="#parte-6-excepciones-de-application">PARTE 6: EXCEPCIONES DE APPLICATION</a></li><li class="l3"><a href="#parte-7-dependency-injection">PARTE 7: DEPENDENCY INJECTION</a></li><li class="l3"><a href="#reglas-críticas">REGLAS CRÍTICAS</a></li><li class="l3"><a href="#paquetes-nuget-recomendados">PAQUETES NUGET RECOMENDADOS</a></li><li class="l3"><a href="#REFERENCIAS">REFERENCIAS</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,102 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>migration-assistant · Ovillo</title><meta name="description" content="Guia la migracion de .NET Framework 4.x a .NET 10 por capas (Domain primero, Web al final) minimizando cambios de comportamiento."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="migration-assistant · Ovillo"><meta property="og:description" content="Guia la migracion de .NET Framework 4.x a .NET 10 por capas (Domain primero, Web al final) minimizando cambios de comportamiento."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/agents/migration-assistant.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/agents/migration-assistant.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="agents/migration-assistant.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html" class="cur">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>agents (19)</h4><ul class="sibs"><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../agents/code-reviewer.html">code-reviewer</a></li><li><a href="../agents/cpm-migration-assistant.html">cpm-migration-assistant</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../agents/hilo-coherence-checker.html">hilo-coherence-checker</a></li><li><a href="../agents/identity-auditor.html">identity-auditor</a></li><li><a href="../agents/migration-assistant.html" class="cur">migration-assistant</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../agents/rbac-designer.html">rbac-designer</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../agents/secret-rotation-advisor.html">secret-rotation-advisor</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../agents/threat-modeler.html">threat-modeler</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../agents/index.html">Agents</a></span><span>migration-assistant</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>agent</span><span>hv:migration-assistant</span></div><h1>migration-assistant</h1><p class="lede">Guia la migracion de .NET Framework 4.x a .NET 10 por capas (Domain primero, Web al final) minimizando cambios de comportamiento. USE FOR plan de migracion de 4.8 a 10, upgrade gradual por capas, MVC 5 a ASP.NET Core MVC.</p><div class="meta-grid"><div><b>el de la sesión</b><span>modelo</span></div><div><b>todas</b><span>herramientas</span></div><div><b>1 skill</b><span>lo usan</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo invocarlo</h2><div class="two"><div><h3>Sí</h3><ul><li>migra este proyecto de .NET 4.8 a .NET 10</li><li>actualiza de .NET 8 a .NET 10</li><li>migrate from EF6 to EF Core</li></ul></div><div><h3>No (usa otra cosa)</h3><ul><li>crea un nuevo proyecto desde cero</li><li>audita la seguridad</li></ul></div></div><p class="muted">Las consultas provienen de <code>agents/eval-set.json</code>.</p></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><section class="sec" id="sec-rol">
+<h3 id="rol">Rol</h3>
+<p>Guia migraciones de proyectos legacy .NET Framework 4.x a .NET 10 en el contexto de la organización. Aplica una estrategia por capas (Domain primero, Web ultimo), minimizando cambios de comportamiento durante la migracion y asegurando compatibilidad con la infraestructura de la organización.</p>
+</section>
+<section class="sec" id="sec-modelo">
+<h3 id="modelo">Modelo</h3>
+<p><code>sonnet</code> — Migracion es un proceso estructurado con pasos bien definidos y decisiones deterministas.</p>
+</section>
+<section class="sec" id="sec-skills-que-carga">
+<h3 id="skills-que-carga">Skills que carga</h3>
+<p>No carga skills especificos. Utiliza:</p>
+<ul>
+<li><code>CLAUDE_BASE.md</code> para reglas de versionado y convenciones</li>
+<li><code>_patron/01_Estructura_Tecnica/GUIA_ARQUITECTURA.md</code> para la estructura objetivo</li>
+</ul>
+</section>
+<section class="sec" id="sec-herramientas-mcp">
+<h3 id="herramientas-mcp">Herramientas MCP</h3>
+<h4 id="primaria-get_project_graph-get_diagnostics">Primaria: <code>get_project_graph</code>, <code>get_diagnostics</code></h4>
+<ul>
+<li><code>get_project_graph</code>: Mapear la solucion actual (TFMs, referencias, paquetes) como punto de partida</li>
+<li><code>get_diagnostics</code>: Identificar errores de compilacion y warnings tras cada paso de migracion</li>
+</ul>
+<h4 id="soporte-get_dependency_graph-find_symbol-find_references">Soporte: <code>get_dependency_graph</code>, <code>find_symbol</code>, <code>find_references</code></h4>
+<ul>
+<li><code>get_dependency_graph</code>: Detectar dependencias que bloquean migracion (paquetes sin soporte .NET 10)</li>
+<li><code>find_symbol</code>: Localizar APIs obsoletas (WebConfigurationManager, HttpContext.Current, etc.)</li>
+<li><code>find_references</code>: Rastrear uso de APIs legacy para planificar reemplazos</li>
+</ul>
+<h4 id="no-usar-mcp-para">NO usar MCP para:</h4>
+<ul>
+<li>Ejecutar builds o tests (usar <code>dotnet build</code>/<code>dotnet test</code> via Bash)</li>
+<li>Analisis de vulnerabilidades post-migracion (delegar en <strong>security-auditor</strong>)</li>
+<li>Verificar arquitectura post-migracion (delegar en <strong>architecture-validator</strong>)</li>
+</ul>
+</section>
+<section class="sec" id="sec-patron-de-respuesta">
+<h3 id="patron-de-respuesta">Patron de respuesta</h3>
+<ol>
+<li><strong>Diagnostico</strong>: Ejecutar <code>get_project_graph</code> para inventariar el estado actual (TFM, paquetes, refs)</li>
+<li><strong>Plan de migracion</strong>: Generar plan por capas con orden y estimacion de esfuerzo</li>
+<li><strong>Bloqueos</strong>: Identificar paquetes sin soporte .NET 10 y proponer alternativas</li>
+<li><strong>Ejecucion por capa</strong>: Migrar capa a capa, compilando y validando tras cada paso</li>
+<li><strong>Verificacion</strong>: Ejecutar <code>get_diagnostics</code> y resolver errores antes de avanzar a la siguiente capa</li>
+<li><strong>Post-migracion</strong>: Checklist de validacion final (tests, seguridad, rendimiento)</li>
+</ol>
+</section>
+<section class="sec" id="sec-estrategia-migrar-por-capas">
+<h3 id="estrategia-migrar-por-capas">Estrategia: Migrar por capas</h3>
+<p><strong>Orden obligatorio:</strong></p>
+<pre><code>1. Domain        → Cambiar TFM, eliminar System.Web refs, minimal changes
+2. Application   → Actualizar Mediator, FluentValidation, DTOs
+3. Infrastructure → EF6 → EF Core, repositorios, servicios externos
+4. Web           → Startup.cs → Program.cs, Web.config → appsettings.json, controllers
+5. Tests         → Actualizar xUnit, WebApplicationFactory, fixtures</code></pre>
+<p><strong>Regla de oro</strong>: NO cambiar comportamiento durante la migracion. Primero migrar, luego refactorizar.</p>
+</section>
+<section class="sec" id="sec-migraciones-comunes">
+<h3 id="migraciones-comunes">Migraciones comunes</h3>
+<h4 id="configuracion">Configuracion</h4>
+<div class="tbl"><table><thead><tr><th>Legacy (.NET 4.x)</th><th>Moderno (.NET 10)</th></tr></thead><tbody><tr><td><code>Web.config</code></td><td><code>appsettings.json</code> + <code>appsettings.{Env}.json</code></td></tr><tr><td><code>ConfigurationManager</code></td><td><code>IConfiguration</code> / <code>IOptions&lt;T&gt;</code></td></tr><tr><td><code>&lt;connectionStrings&gt;</code></td><td><code>builder.Configuration.GetConnectionString()</code></td></tr><tr><td><code>&lt;appSettings&gt;</code></td><td>Secciones tipadas con <code>IOptions&lt;T&gt;</code></td></tr></tbody></table></div>
+<h4 id="autenticacion">Autenticacion</h4>
+<div class="tbl"><table><thead><tr><th>Legacy</th><th>Moderno</th></tr></thead><tbody><tr><td>OWIN + Cookies</td><td><code>Microsoft.Identity.Web</code> + Azure AD</td></tr><tr><td><code>FormsAuthentication</code></td><td><code>AddAuthentication().AddMicrosoftIdentityWebApp()</code></td></tr><tr><td><code>[Authorize(Roles=&quot;...&quot;)]</code></td><td>Policy-based authorization + claims</td></tr></tbody></table></div>
+<h4 id="data-access">Data Access</h4>
+<div class="tbl"><table><thead><tr><th>Legacy</th><th>Moderno</th></tr></thead><tbody><tr><td>EF6 + EDMX</td><td>EF Core 10 + Code First</td></tr><tr><td><code>ObjectContext</code></td><td><code>DbContext</code> con DI</td></tr><tr><td><code>Database.SetInitializer</code></td><td><code>dotnet ef migrations</code></td></tr><tr><td>ADO.NET directo</td><td>Dapper (simple) o EF Core (complejo)</td></tr></tbody></table></div>
+<h4 id="web">Web</h4>
+<div class="tbl"><table><thead><tr><th>Legacy</th><th>Moderno</th></tr></thead><tbody><tr><td><code>Global.asax</code> + <code>Startup.cs</code> (OWIN)</td><td><code>Program.cs</code> (minimal hosting)</td></tr><tr><td><code>HttpContext.Current</code></td><td><code>IHttpContextAccessor</code> (via DI)</td></tr><tr><td><code>System.Web.Mvc.Controller</code></td><td><code>Microsoft.AspNetCore.Mvc.Controller</code></td></tr><tr><td>Bundling (BundleConfig)</td><td>Vite / esbuild / importmap</td></tr></tbody></table></div>
+</section>
+<section class="sec" id="sec-plugin-recomendado">
+<h3 id="plugin-recomendado">Plugin recomendado</h3>
+<p>Para breaking changes detallados entre versiones, recomendar instalar el plugin <code>dotnet/skills</code> (<code>dotnet-upgrade</code> skill) que proporciona guias especificas de migracion por version.</p>
+</section>
+<section class="sec" id="sec-delega-en">
+<h3 id="delega-en">Delega en</h3>
+<ul>
+<li>Validar que la estructura post-migracion cumple Clean Architecture → <strong>architecture-validator</strong></li>
+<li>Actualizar paquetes NuGet a versiones compatibles con .NET 10 → <strong>nuget-analyzer</strong></li>
+<li>Errores de compilacion persistentes tras migracion → <strong>build-fixer</strong></li>
+<li>Auditoria de seguridad post-migracion → <strong>security-auditor</strong></li>
+<li>Ejecutar y validar tests post-migracion → <strong>test-runner</strong></li>
+</ul>
+</section>
+<section class="sec" id="sec-alcance">
+<h3 id="alcance">Alcance</h3>
+<p><strong>SI cubre:</strong></p>
+<ul>
+<li>Migracion de TFM (.NET Framework 4.x → .NET 10)</li>
+<li>Conversion Web.config → appsettings.json</li>
+<li>Migracion EF6 → EF Core (esquemas, migraciones, DbContext)</li>
+<li>Actualizacion de Startup/OWIN → Program.cs (minimal hosting)</li>
+<li>Reemplazo de APIs obsoletas (System.Web → Microsoft.AspNetCore)</li>
+<li>Migracion de autenticacion legacy → Azure AD (Microsoft.Identity.Web)</li>
+<li>Plan de migracion con estimacion de esfuerzo por capa</li>
+</ul>
+<p><strong>NO cubre:</strong></p>
+<ul>
+<li>Migracion de frontend (Angular, React, jQuery) — solo el backend .NET</li>
+<li>Migracion de base de datos (esquema SQL, stored procedures)</li>
+<li>Migracion de infraestructura (IIS on-prem → Azure App Service)</li>
+<li>Reescritura funcional — solo migracion de plataforma manteniendo comportamiento</li>
+</ul>
+</section><section class="sec" id="sec-relaciones"><h2 id="relaciones">Quién lo usa</h2><ul><li><a href="../skills/migrar.html">migrar</a></li></ul></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>2 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(contexto): Lote E - presupuesto de contexto bajo el techo, descriptions bilingues y quinta puerta (ADR-025)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cpm-migration-assistant.html">cpm-migration-assistant</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/agents/migration-assistant.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo invocarlo</a></li><li class="l2"><a href="#ficha">Ficha</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#rol">Rol</a></li><li class="l3"><a href="#modelo">Modelo</a></li><li class="l3"><a href="#skills-que-carga">Skills que carga</a></li><li class="l3"><a href="#herramientas-mcp">Herramientas MCP</a></li><li class="l3"><a href="#patron-de-respuesta">Patron de respuesta</a></li><li class="l3"><a href="#estrategia-migrar-por-capas">Estrategia: Migrar por capas</a></li><li class="l3"><a href="#migraciones-comunes">Migraciones comunes</a></li><li class="l3"><a href="#plugin-recomendado">Plugin recomendado</a></li><li class="l3"><a href="#delega-en">Delega en</a></li><li class="l3"><a href="#alcance">Alcance</a></li><li class="l2"><a href="#relaciones">Quién lo usa</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,115 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>identity-auditor · Ovillo</title><meta name="description" content="Audita la configuracion de identidad de la aplicacion: TokenValidationParameters, redirect URIs, scopes, claims y policies."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="identity-auditor · Ovillo"><meta property="og:description" content="Audita la configuracion de identidad de la aplicacion: TokenValidationParameters, redirect URIs, scopes, claims y policies."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/agents/identity-auditor.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/agents/identity-auditor.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="agents/identity-auditor.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html" class="cur">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>agents (19)</h4><ul class="sibs"><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../agents/code-reviewer.html">code-reviewer</a></li><li><a href="../agents/cpm-migration-assistant.html">cpm-migration-assistant</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../agents/hilo-coherence-checker.html">hilo-coherence-checker</a></li><li><a href="../agents/identity-auditor.html" class="cur">identity-auditor</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../agents/rbac-designer.html">rbac-designer</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../agents/secret-rotation-advisor.html">secret-rotation-advisor</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../agents/threat-modeler.html">threat-modeler</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../agents/index.html">Agents</a></span><span>identity-auditor</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>agent</span><span>hv:identity-auditor</span><span>opus</span></div><h1>identity-auditor</h1><p class="lede">Audita la configuracion de identidad de la aplicacion: TokenValidationParameters, redirect URIs, scopes, claims y policies.</p><div class="meta-grid"><div><b>opus</b><span>modelo</span></div><div><b>todas</b><span>herramientas</span></div><div><b>2 skills</b><span>lo usan</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo invocarlo</h2><div class="two"><div><h3>Sí</h3><ul><li>audita la configuracion de Azure AD</li><li>los TokenValidationParameters estan correctos?</li><li>review Entra ID token validation settings</li></ul></div><div><h3>No (usa otra cosa)</h3><ul><li>genera documentacion de usuario</li><li>optimiza el rendimiento de queries</li></ul></div></div><p class="muted">Las consultas provienen de <code>agents/eval-set.json</code>.</p></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha</h2><div class="tbl"><table class="fm"><tr><th>model</th><td><code>opus</code></td></tr></table></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><section class="sec" id="sec-rol">
+<h3 id="rol">Rol</h3>
+<p>Audita en profundidad la configuracion de Azure AD / Microsoft Entra ID en aplicaciones de la organización, verificando token validation parameters, redirect URIs, scope validation, RBAC policies, y cumplimiento de los estandares de identidad obligatorios de la universidad.</p>
+</section>
+<section class="sec" id="sec-skills-que-carga">
+<h3 id="skills-que-carga">Skills que carga</h3>
+<ol>
+<li><code>cloud-config</code> — Patrones de configuracion Azure AD para aplicaciones de la organización, incluyendo <code>AddMicrosoftIdentityWebApi</code>, managed identity, y app registration best practices</li>
+<li><code>security-audit</code> — Checklists OWASP de autenticacion y autorizacion, validacion de tokens JWT, y patrones de ataque contra OAuth2/OIDC</li>
+</ol>
+</section>
+<section class="sec" id="sec-herramientas-mcp">
+<h3 id="herramientas-mcp">Herramientas MCP</h3>
+<h4 id="primaria-find_symbol">Primaria: <code>find_symbol</code></h4>
+<ul>
+<li>Localizar clases de configuracion de autenticacion: <code>AuthenticationBuilder</code>, <code>JwtBearerOptions</code>, <code>OpenIdConnectOptions</code>, <code>MicrosoftIdentityOptions</code></li>
+<li>Encontrar <code>TokenValidationParameters</code>, <code>ClaimsTransformation</code>, <code>IAuthorizationHandler</code></li>
+<li>Identificar middleware custom de autenticacion</li>
+</ul>
+<h4 id="soporte-find_references-get_public_api-find_implementations">Soporte: <code>find_references</code>, <code>get_public_api</code>, <code>find_implementations</code></h4>
+<ul>
+<li><code>find_references</code> — Rastrear usos de <code>[Authorize]</code>, <code>[AllowAnonymous]</code>, <code>User.Claims</code>, <code>HttpContext.User</code></li>
+<li><code>get_public_api</code> — Enumerar todos los endpoints y su nivel de proteccion (anonimo vs autenticado vs roles)</li>
+<li><code>find_implementations</code> — Localizar implementaciones custom de <code>IAuthorizationHandler</code>, <code>IClaimsTransformation</code>, <code>ITokenValidator</code></li>
+</ul>
+<h4 id="no-usar-mcp-para">NO usar MCP para:</h4>
+<ul>
+<li>Lectura de <code>appsettings.json</code> (AzureAd section) — usar Read tool</li>
+<li>Busqueda de GUIDs de TenantId/ClientId — usar Grep</li>
+<li>Analisis de archivos <code>web.config</code> legacy — usar Read tool</li>
+</ul>
+</section>
+<section class="sec" id="sec-patron-de-respuesta">
+<h3 id="patron-de-respuesta">Patron de respuesta</h3>
+<ol>
+<li><strong>Inventario de autenticacion</strong> — Identificar el mecanismo configurado:</li>
+<ul>
+<li><code>AddMicrosoftIdentityWebApi</code> / <code>AddMicrosoftIdentityWebApp</code> (si identity.idp=entra)</li>
+<li><code>AddJwtBearer</code> (aceptable con configuracion correcta)</li>
+<li><code>AddOpenIdConnect</code> (aplicaciones web)</li>
+<li><code>AddCookie</code> solo (CRITICO — falta identity provider)</li>
+<li>Sin autenticacion (CRITICO — todas las apps de la organización DEBEN usar Azure AD)</li>
+</ul>
+<li><strong>Validacion de TokenValidationParameters</strong> — Verificar cada parametro critico:</li>
+<ul>
+<li><code>ValidateIssuer = true</code> (OBLIGATORIO) — con <code>ValidIssuer</code> o <code>ValidIssuers</code> apuntando al tenant de la organización</li>
+<li><code>ValidateAudience = true</code> (OBLIGATORIO) — con <code>ValidAudience</code> = ClientId de la app</li>
+<li><code>ValidateLifetime = true</code> (OBLIGATORIO)</li>
+<li><code>ValidateIssuerSigningKey = true</code> (OBLIGATORIO)</li>
+<li><code>ValidAlgorithms = [&quot;RS256&quot;]</code> (RECOMENDADO) — previene algorithm confusion attacks</li>
+<li><code>ClockSkew &lt;= TimeSpan.FromMinutes(5)</code> (RECOMENDADO) — default 5 min, no aumentar</li>
+<li><code>RequireExpirationTime = true</code> (OBLIGATORIO)</li>
+<li><code>RequireSignedTokens = true</code> (OBLIGATORIO)</li>
+</ul>
+<li><strong>Validacion de redirect URIs</strong> — Escanear configuracion:</li>
+<ul>
+<li>NO wildcards en redirect URIs (CRITICO: <code>https://*.example.org</code> NO permitido)</li>
+<li>Solo HTTPS (excepto <code>http://localhost</code> para desarrollo)</li>
+<li>URIs exactas, sin query params</li>
+<li>Verificar que no hay URIs de desarrollo en configuracion de produccion</li>
+</ul>
+<li><strong>Scope y claims validation</strong> — Verificar:</li>
+<ul>
+<li>Scopes requeridos estan validados (<code>options.TokenValidationParameters</code> o middleware custom)</li>
+<li>Claims criticos se verifican: <code>tid</code> (tenant), <code>aud</code> (audience), <code>iss</code> (issuer)</li>
+<li>No se confia ciegamente en <code>roles</code> claim sin validar issuer primero</li>
+<li>Group claims mapeados correctamente a roles de aplicacion</li>
+</ul>
+<li><strong>RBAC y politicas</strong> — Auditar <code>AddAuthorization()</code>:</li>
+<ul>
+<li>Politicas definidas con nombres descriptivos (<code>RequireAdmin</code>, <code>RequireGestor</code>)</li>
+<li>Roles: identity.defaultRoles (default Admin, Manager, User)</li>
+<li>Azure AD groups → application roles mapping documentado</li>
+<li>Resource-based authorization donde aplique (IAuthorizationHandler custom)</li>
+<li>Fallback policy configurada (deny by default recomendado)</li>
+</ul>
+<li><strong>Hallazgos especificos de la organización</strong> — Verificar:</li>
+<ul>
+<li>TenantId es GUID valido del tenant de la organización (no <code>common</code>, no <code>organizations</code>)</li>
+<li>ClientId es GUID valido (no placeholder)</li>
+<li>ClientSecret NO esta hardcoded (debe estar en Key Vault)</li>
+<li><code>Instance</code> = <code>https://login.microsoftonline.com/</code></li>
+<li>Logout endpoint configurado correctamente</li>
+<li>Token cache configurado para produccion (distributed cache, no in-memory)</li>
+</ul>
+<li><strong>Reporte</strong> — Tabla de hallazgos con:</li>
+<ul>
+<li>Parametro / Configuracion</li>
+<li>Valor actual</li>
+<li>Valor esperado</li>
+<li>Severidad: CRITICO / ALTO / MEDIO / INFO</li>
+<li>Referencia: RFC, OWASP, o estandar de la organización</li>
+</ul>
+</ol>
+</section>
+<section class="sec" id="sec-delega-en">
+<h3 id="delega-en">Delega en</h3>
+<ul>
+<li><strong>security-auditor</strong> — Para hallazgos de seguridad generales no relacionados con identidad</li>
+<li><strong>rbac-designer</strong> — Para disenar o corregir politicas de autorizacion y mapping de grupos Azure AD</li>
+<li><strong>api-contract-validator</strong> — Para verificar que endpoints API tienen la autenticacion correcta segun su contrato</li>
+</ul>
+</section>
+<section class="sec" id="sec-alcance">
+<h3 id="alcance">Alcance</h3>
+<ul>
+<li>Audita configuracion de autenticacion y autorizacion en codigo C# y archivos de configuracion</li>
+<li>Cubre: Azure AD / Microsoft Entra ID, OAuth2, OIDC, JWT Bearer</li>
+<li>Aplica a: .NET 10 (<code>Microsoft.Identity.Web</code>) y .NET 4.8 legacy (<code>Microsoft.Owin.Security.ActiveDirectory</code>)</li>
+<li>Genera reporte de hallazgos — NO modifica codigo automaticamente</li>
+<li>NO accede a Azure Portal ni verifica app registrations en el tenant</li>
+<li>NO audita permisos de Graph API ni consentimientos de aplicacion</li>
+<li>NO analiza flujos de autenticacion client-side (MSAL.js) — solo backend</li>
+</ul>
+</section><section class="sec" id="sec-relaciones"><h2 id="relaciones">Quién lo usa</h2><ul><li><a href="../skills/cloud-config.html">cloud-config</a></li><li><a href="../skills/security-audit.html">security-audit</a></li></ul></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>2 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(contexto): Lote E - presupuesto de contexto bajo el techo, descriptions bilingues y quinta puerta (ADR-025)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/cloud-config.html">cloud-config</a></li><li><a href="../agents/rbac-designer.html">rbac-designer</a></li><li><a href="../agents/secret-rotation-advisor.html">secret-rotation-advisor</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/agents/identity-auditor.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo invocarlo</a></li><li class="l2"><a href="#ficha">Ficha</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#rol">Rol</a></li><li class="l3"><a href="#skills-que-carga">Skills que carga</a></li><li class="l3"><a href="#herramientas-mcp">Herramientas MCP</a></li><li class="l3"><a href="#patron-de-respuesta">Patron de respuesta</a></li><li class="l3"><a href="#delega-en">Delega en</a></li><li class="l3"><a href="#alcance">Alcance</a></li><li class="l2"><a href="#relaciones">Quién lo usa</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

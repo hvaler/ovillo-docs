@@ -1,0 +1,202 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>mcp-register · Ovillo</title><meta name="description" content="Registra el proyecto y al desarrollador en el Hub Ovillo (opt-in explicito) y gestiona el opt-in de telemetria de agents."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="mcp-register · Ovillo"><meta property="og:description" content="Registra el proyecto y al desarrollador en el Hub Ovillo (opt-in explicito) y gestiona el opt-in de telemetria de agents."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/mcp-register.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/mcp-register.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/mcp-register.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html" class="cur">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>mcp-register</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:mcp-register</span><span>solo usuario</span></div><h1>mcp-register</h1><p class="lede">Registra el proyecto y al desarrollador en el Hub Ovillo (opt-in explicito) y gestiona el opt-in de telemetria de agents. Requiere hub.enabled y hub.url en ecosystem.config.json.</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:mcp-register</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>690</b><span>palabras</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:mcp-register</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:mcp-register</code>.</p></blockquote>
+<hr>
+<p class="lede">Registra el proyecto y al dev en el <strong>Hub del ecosistema</strong> (opt-in explicito) y gestiona el opt-in de <strong>telemetria de agents</strong>.</p>
+<blockquote><p>⚠️ Requiere <code>hub.enabled: true</code> + <code>hub.url</code> en <code>ecosystem.config.json</code> (sin Hub configurado: avisar y salir). El registro es SIEMPRE opt-in: este comando es el punto de entrada — crea el registro inicial, une a un dev nuevo via <code>/v2/join</code> si <code>.mcp-project.json</code> ya existe, y pregunta la telemetria. El instalador solo registra automaticamente si la organizacion fijo <code>hub.registerOnInstall: true</code>.</p></blockquote>
+<blockquote><p><strong>Privacidad</strong>: la telemetria se envia SOLO si el usuario otorga opt-in explicito (privacy notice). Privacy notice completo: https://hvaler.github.io/ovillo-docs/privacidad.html</p></blockquote>
+<hr>
+<section class="sec" id="sec-que-habilita-el-registro-sin-telemetria">
+<h3 id="que-habilita-el-registro-sin-telemetria">¿Que habilita el registro (sin telemetria)?</h3>
+<ul>
+<li>✅ Proyecto registrado en el hub con identidad per-dev (<code>git config user.email</code>)</li>
+<li>✅ <code>/hub-client</code> sincroniza decisiones, lecciones, nugets, evolutivos, equipo, branching</li>
+<li>✅ Dashboard tab &quot;Equipo&quot; muestra el dev como miembro del proyecto</li>
+<li>✅ Heartbeat semanal (proyecto vivo)</li>
+</ul>
+</section>
+<section class="sec" id="sec-que-añade-el-opt-in-de-telemetria">
+<h3 id="que-añade-el-opt-in-de-telemetria">¿Que añade el opt-in de telemetria?</h3>
+<ul>
+<li>🔔 Hook <code>agent-telemetry.js</code> envia invocaciones (qué agent invocas cuándo) al hub</li>
+<li>🔔 Dashboard tab &quot;Operativo&quot; muestra ranking de uso de agents per-dev</li>
+<li>🔔 Deteccion de RETIRE candidates (agents sin uso en 30d ventana)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-cuando-ejecutar">
+<h3 id="cuando-ejecutar">Cuando ejecutar</h3>
+<ul>
+<li>Primer registro del proyecto en el Hub (o unirse como 2º dev a un proyecto ya registrado)</li>
+<li>Quieres activar telemetria de agents (opt-in con privacy notice)</li>
+<li>Tras ejecutar <code>/hv:mcp-forget</code> previamente y querer re-registrar</li>
+<li>Cambiar <code>telemetryOptIn</code> de <code>false</code> → <code>true</code> (o revocar de <code>true</code> → <code>false</code>)</li>
+</ul>
+<p>NO usar para:</p>
+<ul>
+<li>Sincronizar contenido del proyecto (<code>/hub-client</code> se encarga, no requiere re-ejecutar esto)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-flujo">
+<h3 id="flujo">Flujo</h3>
+<h4 id="paso-0-detectar-registro-previo">Paso 0: Detectar registro previo</h4>
+<p>Antes de mostrar el privacy notice, comprobar si el proyecto ya esta registrado (por una ejecucion anterior de este comando, por el instalador con <code>hub.registerOnInstall=true</code>).</p>
+<pre data-lang="powershell"><code><span class="tk-v">$credsPath</span> = <span class="tk-s">'_hilo/.mcp-credentials.json'</span>
+<span class="tk-k">if</span> (Test-Path <span class="tk-v">$credsPath</span>) {
+    <span class="tk-v">$creds</span> = Get-Content <span class="tk-v">$credsPath</span> -Raw | ConvertFrom-Json
+    <span class="tk-k">if</span> (<span class="tk-v">$creds</span>.telemetryOptIn) {
+        Write-Host <span class="tk-s">&quot;Proyecto ya registrado con telemetria activada. Nada que hacer.&quot;</span>
+        <span class="tk-k">return</span>
+    }
+    <span class="tk-c"># Ya registrado sin telemetria: mostrar el privacy notice y cambiar solo el opt-in.</span>
+    <span class="tk-c"># → saltar a &quot;Paso 1.bis: activar o revocar la telemetria&quot;</span>
+}</code></pre>
+<h4 id="paso-1bis-activar-o-revocar-la-telemetria">Paso 1.bis: activar o revocar la telemetria</h4>
+<p>Si el proyecto ya esta registrado (hay credentials locales), mostrar el privacy notice (Paso 1 abajo) y llamar solo al endpoint de opt-in, sin crear un proyecto nuevo:</p>
+<pre data-lang="powershell"><code><span class="tk-v">$body</span> = @{ projectId = <span class="tk-v">$creds</span>.projectId; telemetryOptIn = <span class="tk-v">$true</span> } | ConvertTo-Json
+<span class="tk-v">$resp</span> = Invoke-RestMethod -Uri <span class="tk-s">&quot;$($creds.serverUrl)/v2/opt-in&quot;</span> -Method Post `
+    -Headers @{ <span class="tk-s">'X-Hub-Api-Key'</span> = <span class="tk-v">$creds</span>.apiKey } `
+    -Body <span class="tk-v">$body</span> -ContentType <span class="tk-s">'application/json'</span>
+<span class="tk-c"># Actualizar credentials locales: telemetryOptIn=true</span>
+<span class="tk-v">$creds</span>.telemetryOptIn = <span class="tk-v">$true</span>
+<span class="tk-v">$utf8</span> = New-Object System.Text.UTF8Encoding(<span class="tk-v">$false</span>)
+[System.IO.File]::WriteAllText(<span class="tk-v">$credsPath</span>, (<span class="tk-v">$creds</span> | ConvertTo-Json -Depth <span class="tk-n">4</span>), <span class="tk-v">$utf8</span>)
+<span class="tk-c"># Activar sync en ESTADO_PROYECTO.json</span>
+<span class="tk-c"># ... actualizar mcpSync.habilitado=true</span></code></pre>
+<p>Saltar el resto del flujo (no se hace POST /v2/register cuando el proyecto ya esta registrado).</p>
+<h4 id="paso-1-mostrar-privacy-notice-y-pedir-opt-in">Paso 1: Mostrar privacy notice y pedir opt-in</h4>
+<p>Mostrar al usuario:</p>
+<pre><code>================================================================
+  REGISTRO EN MCP SERVER Ovillo - Privacidad
+================================================================
+
+Vas a registrar este proyecto en https://hub.example.org
+
+Datos que se enviaran (detalle: https://hvaler.github.io/ovillo-docs/privacidad.html):
+  - Nombre del proyecto
+  - Alias git del owner (NO email)
+  - Version Ovillo y stack (.NET version)
+  - Heartbeat semanal con N agents disponibles
+  - Telemetria de agents invocados (solo si opt-in):
+      timestamp + nombre del agent + exito/fallo
+      hash SHA-256 del prompt, calculado en tu equipo (el prompt en CLARO no sale de aqui)
+
+Lo que NUNCA se envia:
+  - Contenido del codigo
+  - Connection strings, secrets, tokens
+  - Datos de negocio o de usuarios finales
+  - Emails (solo alias git; el email del dev solo si lo introduces al registrarte)
+  - Nombre completo de los miembros del equipo (salvo que el proyecto active mcpSync.enviarNombreCompleto)
+
+Retencion: 90 dias los eventos de telemetria, 365 dias los heartbeats (el Hub los borra a diario).
+Right to be forgotten: ejecuta /mcp-forget para borrar TODO el rastro.
+
+================================================================</code></pre>
+<p>Preguntar:</p>
+<pre><code>[1] Registrar SIN telemetria de agents (solo heartbeat + inventario)
+[2] Registrar CON telemetria de agents (opt-in completo)
+[3] Cancelar
+
+Eleccion (1-3):</code></pre>
+<h4 id="paso-2-lectura-de-datos-del-proyecto">Paso 2: Lectura de datos del proyecto</h4>
+<p>De <code>_hilo/ESTADO_PROYECTO.json</code>:</p>
+<ul>
+<li><code>nombreProyecto</code>: campo <code>proyecto.nombre</code> (si esta sin completar, pedir al usuario)</li>
+<li><code>ecosystemVersion</code>: campo <code>ecosistema.version</code></li>
+<li><code>ownerAlias</code>: usuario git (<code>git config user.name</code> o usuario actual del SO)</li>
+<li><code>stack</code>: detectar de <code>.csproj</code> o <code>package.json</code> (ej: &quot;.NET 10 + EF Core 10&quot;)</li>
+</ul>
+<p>Confirmar al usuario antes de enviar.</p>
+<h4 id="paso-3-post-v2register">Paso 3: POST /v2/register</h4>
+<pre data-lang="powershell"><code><span class="tk-v">$serverUrl</span> = <span class="tk-s">'&lt;hub.url del ecosystem.config.json&gt;'</span>   <span class="tk-c"># ej. https://hub.example.org</span>
+<span class="tk-v">$body</span> = @{
+    nombreProyecto = <span class="tk-v">$nombreProyecto</span>
+    ecosystemVersion    = <span class="tk-v">$ecosystemVersion</span>
+    ownerAlias     = <span class="tk-v">$ownerAlias</span>
+    stack          = <span class="tk-v">$stack</span>
+    telemetryOptIn = <span class="tk-v">$optIn</span>  <span class="tk-c"># true/false segun eleccion paso 1</span>
+} | ConvertTo-Json
+
+<span class="tk-c"># Token de alta (ADR-032 D9): solo si el responsable del Hub configuro Hub:RegistrationToken. Se toma de la variable de</span>
+<span class="tk-c"># entorno HUB_REGISTRATION_TOKEN; nunca se escribe en el repo. /v2/join lleva la misma cabecera.</span>
+<span class="tk-v">$headers</span> = @{}
+<span class="tk-k">if</span> (<span class="tk-v">$env:HUB_REGISTRATION_TOKEN</span>) { <span class="tk-v">$headers</span>[<span class="tk-s">'X-Hub-Registration-Token'</span>] = <span class="tk-v">$env:HUB_REGISTRATION_TOKEN</span> }
+
+<span class="tk-v">$resp</span> = Invoke-RestMethod -Uri <span class="tk-s">&quot;$serverUrl/v2/register&quot;</span> -Method Post -Headers <span class="tk-v">$headers</span> `
+    -Body <span class="tk-v">$body</span> -ContentType <span class="tk-s">'application/json'</span></code></pre>
+<p>Posibles respuestas:</p>
+<ul>
+<li><strong>201 Created</strong> -&gt; capturar <code>projectId</code> y <code>apiKey</code></li>
+<li><strong>401 Unauthorized</strong> -&gt; el Hub exige token de alta (<code>registration_token_required: true</code> en <code>GET /v2/version</code>). Pedir el valor al responsable del Hub y exportarlo en <code>HUB_REGISTRATION_TOKEN</code> antes de repetir; no guardarlo en ficheros del repo</li>
+<li><strong>429 Too Many Requests</strong> -&gt; limite de altas por IP y minuto (<code>Hub:AltaPorMinuto</code>); esperar un minuto</li>
+<li><strong>409 Conflict</strong> -&gt; proyecto ya registrado. Pedir confirmacion antes de hacer <code>/hv:mcp-forget</code> primero</li>
+</ul>
+<h4 id="paso-4-guardar-credenciales-locales">Paso 4: Guardar credenciales locales</h4>
+<p>Crear <code>_hilo/.mcp-credentials.json</code> (gitignored automaticamente — anadir si no esta):</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;projectId&quot;</span>: <span class="tk-s">&quot;uuid&quot;</span>,
+  <span class="tk-s">&quot;apiKey&quot;</span>: <span class="tk-s">&quot;sk_proj_...&quot;</span>,
+  <span class="tk-s">&quot;registeredAt&quot;</span>: <span class="tk-s">&quot;2026-05-19T...&quot;</span>,
+  <span class="tk-s">&quot;serverUrl&quot;</span>: <span class="tk-s">&quot;https://hub.example.org&quot;</span>
+}</code></pre>
+<p><strong>IMPORTANTE</strong>: anadir <code>_hilo/.mcp-credentials.json</code> a <code>.gitignore</code> si no esta.</p>
+<h4 id="paso-5-actualizar-estado_proyectojsonmcpsync">Paso 5: Actualizar ESTADO_PROYECTO.json.mcpSync</h4>
+<pre data-lang="json"><code><span class="tk-s">&quot;mcpSync&quot;</span>: {
+  <span class="tk-s">&quot;habilitado&quot;</span>: true,
+  <span class="tk-s">&quot;serverUrl&quot;</span>: <span class="tk-s">&quot;https://hub.example.org&quot;</span>,
+  <span class="tk-s">&quot;projectId&quot;</span>: <span class="tk-s">&quot;uuid&quot;</span>,
+  <span class="tk-s">&quot;ultimaSync&quot;</span>: null,
+  <span class="tk-s">&quot;enviarNombreCompleto&quot;</span>: false,
+  <span class="tk-s">&quot;categorias&quot;</span>: {
+    <span class="tk-s">&quot;decisiones&quot;</span>: true,
+    <span class="tk-s">&quot;lecciones&quot;</span>: true,
+    <span class="tk-s">&quot;nugets&quot;</span>: true,
+    <span class="tk-s">&quot;deuda&quot;</span>: true,
+    <span class="tk-s">&quot;evolutivos&quot;</span>: true,
+    <span class="tk-s">&quot;equipo&quot;</span>: true,
+    <span class="tk-s">&quot;feedbackEcosistema&quot;</span>: true
+  }
+}</code></pre>
+<p><strong>Nunca</strong> escribir <code>telemetryOptIn</code> aqui: es per-dev y vive en <code>_hilo/.mcp-credentials.json</code> (<code>ESTADO_PROYECTO.schema.md#mcpSync</code>). Las categorias son las siete reales del Hub.</p>
+<h4 id="paso-6-hacer-primer-heartbeat-validacion">Paso 6: Hacer primer heartbeat (validacion)</h4>
+<pre data-lang="powershell"><code><span class="tk-v">$hb</span> = @{
+    projectId        = <span class="tk-v">$resp</span>.projectId
+    ecosystemVersion      = <span class="tk-v">$ecosystemVersion</span>
+    agentsDisponibles = <span class="tk-n">18</span>
+    skillsDisponibles = <span class="tk-n">45</span>
+} | ConvertTo-Json
+Invoke-RestMethod -Uri <span class="tk-s">&quot;$serverUrl/v2/heartbeat&quot;</span> -Method Post `
+    -Headers @{ <span class="tk-s">'X-Hub-Api-Key'</span> = <span class="tk-v">$resp</span>.apiKey } `
+    -Body <span class="tk-v">$hb</span> -ContentType <span class="tk-s">'application/json'</span></code></pre>
+<h4 id="paso-7-mostrar-resumen">Paso 7: Mostrar resumen</h4>
+<pre><code>================================================================
+  Registro completado
+================================================================
+
+Project ID:     {projectId}
+Telemetria:     {SI/NO} (opt-in)
+Servidor:       https://hub.example.org
+Dashboard:      &lt;distribution.baseUrl&gt;/docs/dashboard/
+
+Credenciales guardadas en _hilo/.mcp-credentials.json (gitignored)
+
+Proximo paso opcional:
+  /mcp-sync   - sincronizar documentacion Hilo al hub
+  /mcp-forget - desregistrar y borrar todos los datos (RGPD)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-mensajes-de-error-comunes">
+<h3 id="mensajes-de-error-comunes">Mensajes de error comunes</h3>
+<div class="tbl"><table><thead><tr><th>HTTP</th><th>Causa</th><th>Mensaje al usuario</th></tr></thead><tbody><tr><td>409</td><td>Conflict - ya registrado</td><td>&quot;Este proyecto ya esta registrado. Usar /mcp-forget primero si quieres re-registrar&quot;</td></tr><tr><td>400</td><td>Validacion</td><td>&quot;Faltan campos requeridos. Comprueba que ESTADO_PROYECTO.json tiene proyecto.nombre&quot;</td></tr><tr><td>5xx</td><td>Servidor caido</td><td>&quot;El MCP Server no responde. Reintentar mas tarde - tus credenciales NO se han guardado&quot;</td></tr><tr><td>timeout</td><td>Red del Hub no disponible</td><td>&quot;Sin conexion al hub.url configurado. Comprueba red/VPN&quot;</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patrones">
+<h3 id="anti-patrones">Anti-patrones</h3>
+<ul>
+<li>NO commitear <code>_hilo/.mcp-credentials.json</code> (es secret per-proyecto)</li>
+<li>NO mostrar la apiKey en stdout despues del registro inicial (solo guardarla)</li>
+<li>NO permitir re-registrar sin /mcp-forget previo (conflict 409 es correcto)</li>
+<li>NO enviar telemetria si telemetryOptIn = false (el server lo rechaza con 403)</li>
+</ul>
+<hr>
+<p><em>Skill mcp-register · kind: workflow</em></p>
+</section><section class="sec" id="sec-reglas"><h2 id="reglas">Reglas</h2><div class="two"><div><h3>Siempre</h3></div><div><h3>Nunca</h3><ul><li>escribir telemetryOptIn aqui: es per-dev y vive en _hilo/.mcp-credentials.json</li></ul></div></div></section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>178</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 690 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>7 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>feat(hub): alta acotada (limite por IP y token opcional), lectura anonima declarada, y privacidad derivada del codigo (HB-02, HB-03, HB-04)</em> (<code>45c1b9e</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/hub-client.html">hub-client</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/sync.html">sync</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/mcp-register/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#que-habilita-el-registro-sin-telemetria">¿Que habilita el registro (sin telemetria)?</a></li><li class="l3"><a href="#que-añade-el-opt-in-de-telemetria">¿Que añade el opt-in de telemetria?</a></li><li class="l3"><a href="#cuando-ejecutar">Cuando ejecutar</a></li><li class="l3"><a href="#flujo">Flujo</a></li><li class="l3"><a href="#mensajes-de-error-comunes">Mensajes de error comunes</a></li><li class="l3"><a href="#anti-patrones">Anti-patrones</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

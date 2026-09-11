@@ -1,0 +1,235 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · scripts/Test-ApiConnection.ps1 · Ovillo</title><meta name="description" content="Fichero scripts/Test-ApiConnection.ps1 de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · scripts/Test-ApiConnection.ps1 · Ovillo"><meta property="og:description" content="Fichero scripts/Test-ApiConnection.ps1 de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/scripts/Test-ApiConnection.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/scripts/Test-ApiConnection.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/scripts/Test-ApiConnection.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html" class="cur">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>scripts</span><span>Test-ApiConnection.ps1</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>scripts/</span><span>7798 B</span></div><h1>Test-ApiConnection.ps1</h1><p class="lede">Fichero que <code>/hv:api-integration-patterns</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>scripts</b><span>carpeta</span></div><div><b>7798 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="powershell"><code><span class="tk-c">#Requires -Version 5.1</span>
+<span class="tk-c">&lt;#
+.SYNOPSIS
+    Test connection to external API
+
+.DESCRIPTION
+    Script para probar conexión a API externa con autenticación OAuth2 o API Key.
+    Útil para validar credenciales y verificar que la API está accesible.
+
+.PARAMETER ApiUrl
+    URL base de la API (ej: https://api.example.org)
+
+.PARAMETER Endpoint
+    Endpoint específico a probar (ej: /api/v1/health)
+
+.PARAMETER AuthType
+    Tipo de autenticación: OAuth2, ApiKey, None
+
+.PARAMETER ClientId
+    Client ID para OAuth2
+
+.PARAMETER ClientSecret
+    Client Secret para OAuth2
+
+.PARAMETER TokenUrl
+    URL para obtener token OAuth2
+
+.PARAMETER ApiKey
+    API Key para autenticación simple
+
+.EXAMPLE
+    .\Test-ApiConnection.ps1 -ApiUrl &quot;https://external-api.example.org/api&quot; -Endpoint &quot;/health&quot; -AuthType None
+
+.EXAMPLE
+    .\Test-ApiConnection.ps1 -ApiUrl &quot;https://external-api.example.org/api&quot; -Endpoint &quot;/students&quot; -AuthType OAuth2 -ClientId &quot;myorg-app&quot; -ClientSecret &quot;secret&quot; -TokenUrl &quot;https://auth.example.org/oauth/token&quot;
+
+.EXAMPLE
+    .\Test-ApiConnection.ps1 -ApiUrl &quot;https://api.external.com&quot; -Endpoint &quot;/data&quot; -AuthType ApiKey -ApiKey &quot;sk-1234567890&quot;
+#&gt;</span>
+
+[CmdletBinding()]
+<span class="tk-k">param</span>(
+    [Parameter(Mandatory = <span class="tk-v">$true</span>)]
+    [string]<span class="tk-v">$ApiUrl</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$true</span>)]
+    [string]<span class="tk-v">$Endpoint</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [ValidateSet(<span class="tk-s">&quot;None&quot;</span>, <span class="tk-s">&quot;OAuth2&quot;</span>, <span class="tk-s">&quot;ApiKey&quot;</span>)]
+    [string]<span class="tk-v">$AuthType</span> = <span class="tk-s">&quot;None&quot;</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [string]<span class="tk-v">$ClientId</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [string]<span class="tk-v">$ClientSecret</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [string]<span class="tk-v">$TokenUrl</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [string]<span class="tk-v">$ApiKey</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [int]<span class="tk-v">$TimeoutSeconds</span> = <span class="tk-n">30</span>
+)
+
+<span class="tk-c"># ============================================================================</span>
+<span class="tk-c"># FUNCIONES</span>
+<span class="tk-c"># ============================================================================</span>
+
+<span class="tk-k">function</span> Write-ColorOutput {
+    <span class="tk-k">param</span>(
+        [string]<span class="tk-v">$Message</span>,
+        [string]<span class="tk-v">$Color</span> = <span class="tk-s">&quot;White&quot;</span>
+    )
+    Write-Host <span class="tk-v">$Message</span> -ForegroundColor <span class="tk-v">$Color</span>
+}
+
+<span class="tk-k">function</span> Get-OAuth2Token {
+    <span class="tk-k">param</span>(
+        [string]<span class="tk-v">$TokenUrl</span>,
+        [string]<span class="tk-v">$ClientId</span>,
+        [string]<span class="tk-v">$ClientSecret</span>
+    )
+
+    Write-ColorOutput <span class="tk-s">&quot;`n[OAuth2] Obteniendo token...&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+    Write-ColorOutput <span class="tk-s">&quot;Token URL: $TokenUrl&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+    <span class="tk-v">$body</span> = @{
+        grant_type    = <span class="tk-s">&quot;client_credentials&quot;</span>
+        client_id     = <span class="tk-v">$ClientId</span>
+        client_secret = <span class="tk-v">$ClientSecret</span>
+    }
+
+    <span class="tk-k">try</span> {
+        <span class="tk-v">$response</span> = Invoke-RestMethod -Uri <span class="tk-v">$TokenUrl</span> -Method Post -Body <span class="tk-v">$body</span> -ContentType <span class="tk-s">&quot;application/x-www-form-urlencoded&quot;</span> -TimeoutSec <span class="tk-v">$TimeoutSeconds</span>
+
+        Write-ColorOutput <span class="tk-s">&quot;[OAuth2] ✅ Token obtenido correctamente&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+        Write-ColorOutput <span class="tk-s">&quot;Token Type: $($response.token_type)&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+        Write-ColorOutput <span class="tk-s">&quot;Expires In: $($response.expires_in) segundos&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+        <span class="tk-k">return</span> <span class="tk-v">$response</span>.access_token
+    }
+    <span class="tk-k">catch</span> {
+        Write-ColorOutput <span class="tk-s">&quot;[OAuth2] ❌ Error al obtener token&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+        Write-ColorOutput <span class="tk-s">&quot;Error: $($_.Exception.Message)&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+        <span class="tk-k">throw</span>
+    }
+}
+
+<span class="tk-k">function</span> Test-ApiEndpoint {
+    <span class="tk-k">param</span>(
+        [string]<span class="tk-v">$FullUrl</span>,
+        [hashtable]<span class="tk-v">$Headers</span>,
+        [int]<span class="tk-v">$TimeoutSeconds</span>
+    )
+
+    Write-ColorOutput <span class="tk-s">&quot;`n[API] Llamando endpoint...&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+    Write-ColorOutput <span class="tk-s">&quot;URL: $FullUrl&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+    Write-ColorOutput <span class="tk-s">&quot;Headers: $($Headers.Keys -join ', ')&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+    <span class="tk-v">$stopwatch</span> = [System.Diagnostics.Stopwatch]::StartNew()
+
+    <span class="tk-k">try</span> {
+        <span class="tk-v">$response</span> = Invoke-WebRequest -Uri <span class="tk-v">$FullUrl</span> -Method Get -Headers <span class="tk-v">$Headers</span> -TimeoutSec <span class="tk-v">$TimeoutSeconds</span>
+
+        <span class="tk-v">$stopwatch</span>.Stop()
+
+        Write-ColorOutput <span class="tk-s">&quot;`n[API] ✅ Llamada exitosa&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+        Write-ColorOutput <span class="tk-s">&quot;Status Code: $($response.StatusCode) $($response.StatusDescription)&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+        Write-ColorOutput <span class="tk-s">&quot;Tiempo: $($stopwatch.ElapsedMilliseconds)ms&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+        Write-ColorOutput <span class="tk-s">&quot;Content-Type: $($response.Headers['Content-Type'])&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+        Write-ColorOutput <span class="tk-s">&quot;Content-Length: $($response.RawContentLength) bytes&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+        <span class="tk-c"># Mostrar primeros 500 caracteres del body</span>
+        <span class="tk-k">if</span> (<span class="tk-v">$response</span>.Content.Length -gt <span class="tk-n">0</span>) {
+            Write-ColorOutput <span class="tk-s">&quot;`nResponse Body (primeros 500 chars):&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+            <span class="tk-v">$preview</span> = <span class="tk-v">$response</span>.Content.Substring(<span class="tk-n">0</span>, [Math]::Min(<span class="tk-n">500</span>, <span class="tk-v">$response</span>.Content.Length))
+            Write-ColorOutput <span class="tk-v">$preview</span> <span class="tk-s">&quot;White&quot;</span>
+
+            <span class="tk-k">if</span> (<span class="tk-v">$response</span>.Content.Length &gt; <span class="tk-n">500</span>) {
+                Write-ColorOutput <span class="tk-s">&quot;...&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+            }
+        }
+
+        <span class="tk-k">return</span> <span class="tk-v">$true</span>
+    }
+    <span class="tk-k">catch</span> {
+        <span class="tk-v">$stopwatch</span>.Stop()
+
+        Write-ColorOutput <span class="tk-s">&quot;`n[API] ❌ Error en llamada&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+        Write-ColorOutput <span class="tk-s">&quot;Error: $($_.Exception.Message)&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+
+        <span class="tk-k">if</span> (<span class="tk-v">$_</span>.Exception.Response) {
+            <span class="tk-v">$statusCode</span> = <span class="tk-v">$_</span>.Exception.Response.StatusCode.value__
+            Write-ColorOutput <span class="tk-s">&quot;Status Code: $statusCode&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+
+            <span class="tk-c"># Leer body de error si existe</span>
+            <span class="tk-v">$reader</span> = New-Object System.IO.StreamReader(<span class="tk-v">$_</span>.Exception.Response.GetResponseStream())
+            <span class="tk-v">$errorBody</span> = <span class="tk-v">$reader</span>.ReadToEnd()
+            <span class="tk-v">$reader</span>.Close()
+
+            <span class="tk-k">if</span> (<span class="tk-v">$errorBody</span>) {
+                Write-ColorOutput <span class="tk-s">&quot;`nError Body:&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+                Write-ColorOutput <span class="tk-v">$errorBody</span> <span class="tk-s">&quot;Red&quot;</span>
+            }
+        }
+
+        <span class="tk-k">return</span> <span class="tk-v">$false</span>
+    }
+}
+
+<span class="tk-c"># ============================================================================</span>
+<span class="tk-c"># MAIN</span>
+<span class="tk-c"># ============================================================================</span>
+
+Write-ColorOutput <span class="tk-s">&quot;╔══════════════════════════════════════════════════════════╗&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;║  TEST DE CONEXIÓN API                                    ║&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;╚══════════════════════════════════════════════════════════╝&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+
+Write-ColorOutput <span class="tk-s">&quot;`nConfiguración:&quot;</span> <span class="tk-s">&quot;Yellow&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;API URL: $ApiUrl&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;Endpoint: $Endpoint&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;Auth Type: $AuthType&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;Timeout: ${TimeoutSeconds}s&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+<span class="tk-c"># Preparar headers</span>
+<span class="tk-v">$headers</span> = @{
+    <span class="tk-s">&quot;User-Agent&quot;</span> = <span class="tk-s">&quot;Ovillo-API-Test/1.0&quot;</span>
+    <span class="tk-s">&quot;Accept&quot;</span>     = <span class="tk-s">&quot;application/json&quot;</span>
+}
+
+<span class="tk-c"># Manejar autenticación</span>
+<span class="tk-k">switch</span> (<span class="tk-v">$AuthType</span>) {
+    <span class="tk-s">&quot;OAuth2&quot;</span> {
+        <span class="tk-k">if</span> (-not <span class="tk-v">$ClientId</span> -or -not <span class="tk-v">$ClientSecret</span> -or -not <span class="tk-v">$TokenUrl</span>) {
+            Write-ColorOutput <span class="tk-s">&quot;`n❌ Error: OAuth2 requiere ClientId, ClientSecret y TokenUrl&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+            <span class="tk-k">exit</span> <span class="tk-n">1</span>
+        }
+
+        <span class="tk-v">$token</span> = Get-OAuth2Token -TokenUrl <span class="tk-v">$TokenUrl</span> -ClientId <span class="tk-v">$ClientId</span> -ClientSecret <span class="tk-v">$ClientSecret</span>
+        <span class="tk-v">$headers</span>[<span class="tk-s">&quot;Authorization&quot;</span>] = <span class="tk-s">&quot;Bearer $token&quot;</span>
+    }
+    <span class="tk-s">&quot;ApiKey&quot;</span> {
+        <span class="tk-k">if</span> (-not <span class="tk-v">$ApiKey</span>) {
+            Write-ColorOutput <span class="tk-s">&quot;`n❌ Error: ApiKey es requerido para AuthType=ApiKey&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+            <span class="tk-k">exit</span> <span class="tk-n">1</span>
+        }
+
+        <span class="tk-v">$headers</span>[<span class="tk-s">&quot;X-API-Key&quot;</span>] = <span class="tk-v">$ApiKey</span>
+    }
+    <span class="tk-s">&quot;None&quot;</span> {
+        Write-ColorOutput <span class="tk-s">&quot;`n[INFO] Sin autenticación&quot;</span> <span class="tk-s">&quot;Yellow&quot;</span>
+    }
+}
+
+<span class="tk-c"># Construir URL completa</span>
+<span class="tk-v">$fullUrl</span> = <span class="tk-s">&quot;$ApiUrl$Endpoint&quot;</span>
+
+<span class="tk-c"># Probar endpoint</span>
+<span class="tk-v">$success</span> = Test-ApiEndpoint -FullUrl <span class="tk-v">$fullUrl</span> -Headers <span class="tk-v">$headers</span> -TimeoutSeconds <span class="tk-v">$TimeoutSeconds</span>
+
+<span class="tk-c"># Resultado final</span>
+Write-ColorOutput <span class="tk-s">&quot;`n╔══════════════════════════════════════════════════════════╗&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+<span class="tk-k">if</span> (<span class="tk-v">$success</span>) {
+    Write-ColorOutput <span class="tk-s">&quot;║  ✅ TEST EXITOSO                                         ║&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+} <span class="tk-k">else</span> {
+    Write-ColorOutput <span class="tk-s">&quot;║  ❌ TEST FALLIDO                                         ║&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+}
+Write-ColorOutput <span class="tk-s">&quot;╚══════════════════════════════════════════════════════════╝&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+
+<span class="tk-k">exit</span> (<span class="tk-v">$success</span> ? <span class="tk-n">0</span> : <span class="tk-n">1</span>)
+</code></pre><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html"><small>Anterior</small>scripts/Generate-ApiClient.ps1</a><a class="next" href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html"><small>Siguiente</small>templates/ApiClient.cs.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/scripts/Test-ApiConnection.ps1</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

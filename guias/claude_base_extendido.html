@@ -1,0 +1,224 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CLAUDE_BASE_EXTENDIDO.md · Ovillo</title><meta name="description" content="CLAUDE_BASE_EXTENDIDO.md"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="CLAUDE_BASE_EXTENDIDO.md · Ovillo"><meta property="og:description" content="CLAUDE_BASE_EXTENDIDO.md"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/claude_base_extendido.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/claude_base_extendido.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/claude_base_extendido.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Estándares (3)</h4><ul class="sibs"><li><a href="../guias/claude_base.html">CLAUDE_BASE.md</a></li><li><a href="../guias/claude_base_extendido.html" class="cur">CLAUDE_BASE_EXTENDIDO.md</a></li><li><a href="../guias/configuracion.html">Configuración en Ovillo: una sola superficie</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Estándares</span><span>CLAUDE_BASE_EXTENDIDO.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Estándares</span><span>español</span></div><h1>CLAUDE_BASE_EXTENDIDO.md</h1><div class="meta-grid"><div><b>3 min</b><span>lectura</span></div><div><b>681</b><span>palabras</span></div><div><b>9</b><span>secciones</span></div><div><b>2026-09-10</b><span>última edición</span></div><div><b>3</b><span>cambios</span></div></div><blockquote><p><strong>Proposito</strong>: ejemplos de codigo y detalle extendido de los estandares de la organizacion. <strong>Ninguno de los dos ficheros se carga solo</strong> (ADR-025): ni este ni <code>.claude/CLAUDE_BASE.md</code>, que lleva el <strong>que</strong> (§8.1 SQL, versiones .NET, nomenclatura) mientras este lleva el <strong>como</strong>. Quien los trae es la skill por ruta <code>estandares-base</code>; a mano, con <code>Read</code>. <strong>Numeracion compartida</strong> con la compacta: aqui estan las secciones 4, 5, 6, 10 y la mitad larga de 7, 8, 9, 11 y 12, asi que una referencia como §8.1 apunta al mismo sitio en los dos. Ademas, gran parte de estos patrones ya vive en las <strong>skills por ruta</strong> (<code>.claude/skills/{api,application,domain,infrastructure,tests}/SKILL.md</code>), que se activan solas por su campo <code>paths:</code> al tocar los archivos correspondientes.</p></blockquote>
+<hr>
+<section class="sec" id="sec-4-patrones-de-código">
+<h3 id="4-patrones-de-código">4. PATRONES DE CÓDIGO</h3>
+<h4 id="inyección-de-dependencias">Inyección de Dependencias</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ CORRECTO - Constructor injection</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipService : IScholarshipService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipRepository _repository;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;ScholarshipService&gt; _logger;
+
+    <span class="tk-k">public</span> ScholarshipService(IScholarshipRepository repository, ILogger&lt;ScholarshipService&gt; logger)
+    {
+        _repository = repository;
+        _logger = logger;
+    }
+}
+
+<span class="tk-c">// ❌ INCORRECTO - new directo</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ScholarshipRepository _repository = <span class="tk-k">new</span> ScholarshipRepository();
+}</code></pre>
+<h4 id="asyncawait">Async/Await</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ CORRECTO - Async completo con CancellationToken</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto?&gt; GetByIdAsync(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>)
+{
+    <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _repository.GetByIdAsync(id, ct);
+    <span class="tk-k">return</span> scholarship <span class="tk-k">is</span> <span class="tk-k">null</span> ? <span class="tk-k">null</span> : MapToDto(scholarship);
+}
+
+<span class="tk-c">// ❌ INCORRECTO - .Result bloquea el hilo</span>
+<span class="tk-k">public</span> ScholarshipDto? GetById(<span class="tk-k">int</span> id)
+{
+    <span class="tk-k">var</span> scholarship = _repository.GetByIdAsync(id).Result; <span class="tk-c">// ❌ Bloqueante</span>
+    <span class="tk-k">return</span> MapToDto(scholarship);
+}</code></pre>
+<h4 id="null-safety-c-13--net-10">Null Safety (C# 13 / .NET 10)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Nullable reference types</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto?&gt; GetByIdAsync(<span class="tk-k">int</span> id, CancellationToken ct)
+{
+    <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _repository.GetByIdAsync(id, ct);
+    <span class="tk-k">return</span> scholarship?.MapToDto();
+}
+
+<span class="tk-c">// ✅ Pattern matching</span>
+<span class="tk-k">if</span> (scholarship <span class="tk-k">is</span> not <span class="tk-k">null</span>) { <span class="tk-c">/* usar scholarship */</span> }
+
+<span class="tk-c">// ✅ Null coalescing</span>
+<span class="tk-k">var</span> name = scholarship?.Name ?? <span class="tk-s">&quot;Sin name&quot;</span>;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-logging-serilog">
+<h3 id="5-logging-serilog">5. LOGGING (Serilog)</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Configuración en Program.cs (.NET 10)</span>
+builder.Host.UseSerilog((context, config) =&gt;
+    config.ReadFrom.Configuration(context.Configuration));
+
+<span class="tk-c">// Uso estructurado</span>
+_logger.LogInformation(<span class="tk-s">&quot;Scholarship {ScholarshipId} creada por {User}&quot;</span>, scholarship.Id, user);
+_logger.LogWarning(<span class="tk-s">&quot;Intento de acceso denegado a scholarship {ScholarshipId}&quot;</span>, scholarshipId);
+_logger.LogError(ex, <span class="tk-s">&quot;Error al procesar scholarship {ScholarshipId}&quot;</span>, scholarshipId);</code></pre>
+<h4 id="niveles-de-log">Niveles de Log</h4>
+<div class="tbl"><table><thead><tr><th>Nivel</th><th>Uso</th></tr></thead><tbody><tr><td><strong>Debug</strong></td><td>Desarrollo, detalle técnico</td></tr><tr><td><strong>Information</strong></td><td>Operaciones normales importantes</td></tr><tr><td><strong>Warning</strong></td><td>Situaciones anómalas no críticas</td></tr><tr><td><strong>Error</strong></td><td>Errores que requieren atención</td></tr><tr><td><strong>Fatal</strong></td><td>Errores que impiden funcionamiento</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-6-manejo-de-errores">
+<h3 id="6-manejo-de-errores">6. MANEJO DE ERRORES</h3>
+<h4 id="excepciones-personalizadas">Excepciones Personalizadas</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Jerarquía de excepciones de la aplicación</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> AppException : Exception { ... }
+<span class="tk-k">public</span> <span class="tk-k">class</span> DomainException : AppException { ... }
+<span class="tk-k">public</span> <span class="tk-k">class</span> NotFoundException : AppException { ... }
+<span class="tk-k">public</span> <span class="tk-k">class</span> ValidationException : AppException { ... }
+<span class="tk-k">public</span> <span class="tk-k">class</span> BusinessRuleException : AppException { ... }</code></pre>
+<h4 id="problemdetails-apis-net-10--rfc-7807">ProblemDetails (APIs .NET 10) — RFC 7807</h4>
+<pre data-lang="json"><code>{
+    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;https://example.org/errors/not-found&quot;</span>,
+    <span class="tk-s">&quot;title&quot;</span>: <span class="tk-s">&quot;Recurso no encontrado&quot;</span>,
+    <span class="tk-s">&quot;status&quot;</span>: <span class="tk-n">404</span>,
+    <span class="tk-s">&quot;detail&quot;</span>: <span class="tk-s">&quot;No existe una scholarship con ID 123&quot;</span>,
+    <span class="tk-s">&quot;instance&quot;</span>: <span class="tk-s">&quot;/api/scholarships/123&quot;</span>
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-7-seguridad--detalle-de-la-política-de-secretos">
+<h3 id="7-seguridad--detalle-de-la-política-de-secretos">7. SEGURIDAD — detalle de la política de secretos</h3>
+<p><strong>Default: WARN-first.</strong> Muchas organizaciones brownfield tienen secrets hardcoded en <code>appsettings.json</code> commiteados — es <strong>deuda técnica conocida</strong> que se migra progresivamente al servicio de secretos configurado (<code>cloud.secrets</code> del <code>ecosystem.config</code>). La política se eleva con <code>hooks.policy: &quot;block&quot;</code> o por hook en <code>hooks.blockList</code> cuando la organización lo mandate.</p>
+<h4 id="patrón-warn-first-vs-block-cuándo-aplicarlo">Patrón WARN-first vs BLOCK (cuándo aplicarlo)</h4>
+<div class="tbl"><table><thead><tr><th>Caso</th><th>Política recomendada</th></tr></thead><tbody><tr><td>Defecto crítico, daño irreversible (force push, DROP TABLE)</td><td><strong>BLOCK</strong> (exit 2) — <code>bash-guard</code></td></tr><tr><td>Convención que aún tiene deuda legacy masiva</td><td><strong>WARN-first</strong> (exit 1) — <code>secret-scanner</code>, guard de nomenclatura SQL</td></tr><tr><td>Convención nueva sin deuda</td><td><strong>BLOCK</strong> (exit 2) directamente</td></tr></tbody></table></div>
+<p><strong>Regla</strong>: un hook nunca debe romper trabajo legítimo de mantenimiento si la &quot;violación&quot; ya existe en git history y no hay política organizacional que lo mandate. La defensa correcta es <strong>visibilidad</strong> (warning visible en cada Edit), no <strong>fricción</strong>.</p>
+<p><strong>Escalada de <code>secret-scanner</code> a BLOCK</strong>: solo cuando la organización anuncie política oficial &quot;servicio de secretos obligatorio en todos los proyectos de producción&quot; (vía <code>hooks.blockList</code>).</p>
+<h4 id="migración-progresiva-al-servicio-de-secretos">Migración progresiva al servicio de secretos</h4>
+<ol>
+<li>Los warnings NO bloquean trabajo — editar normal.</li>
+<li>Documentar en <code>_hilo/DEUDA_TECNICA.md</code> entradas <code>SEC-XXX: secretos en appsettings</code>.</li>
+<li>Migrar cuando se pueda: la skill de configuración cloud tiene templates por proveedor (<code>cloud.secrets</code>: keyvault / secrets-manager / gsm / dotenv).</li>
+<li>Sin deadline forzado — la organización anuncia cuándo entra enforcement.</li>
+</ol>
+<h4 id="buenas-prácticas">Buenas prácticas</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ Anti-patrón (genera AVISO, no bloquea)</span>
+<span class="tk-k">var</span> connectionString = <span class="tk-s">&quot;Server=prod;Password=123456&quot;</span>;
+
+<span class="tk-c">// ✅ Desarrollo - User Secrets</span>
+<span class="tk-c">// dotnet user-secrets set &quot;ConnectionStrings:Default&quot; &quot;Server=...&quot;</span>
+
+<span class="tk-c">// ✅ Producción - servicio de secretos configurado (ejemplo: Azure Key Vault)</span>
+builder.Configuration.AddAzureKeyVault(...);</code></pre>
+<h4 id="autenticación-y-autorización">Autenticación y Autorización</h4>
+<p>Según <code>identity.idp</code> del <code>ecosystem.config</code> (default <code>none</code> = no asumir auth). Ejemplo con <code>entra</code> (Azure AD / Microsoft Entra ID):</p>
+<pre data-lang="csharp"><code>builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection(<span class="tk-s">&quot;AzureAd&quot;</span>));</code></pre>
+<p>Para <code>keycloak</code> / <code>auth0</code> / <code>okta</code> / <code>oidc-generic</code>: <code>AddJwtBearer</code> con <code>Authority</code> = <code>identity.authority</code> y validación estándar OIDC de issuer/audience.</p>
+<pre data-lang="csharp"><code><span class="tk-c">// Roles estándar: identity.defaultRoles (default Admin / Manager / User)</span>
+[Authorize(Roles = <span class="tk-s">&quot;Admin&quot;</span>)]             <span class="tk-c">// Administradores</span>
+[Authorize(Roles = <span class="tk-s">&quot;Manager&quot;</span>)]           <span class="tk-c">// Gestores funcionales</span>
+[Authorize(Roles = <span class="tk-s">&quot;User&quot;</span>)]              <span class="tk-c">// Users normales</span>
+[Authorize(Policy = <span class="tk-s">&quot;RequireManager&quot;</span>)]   <span class="tk-c">// Políticas personalizadas</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-82-84-entity-framework">
+<h3 id="82-84-entity-framework">8.2-8.4 ENTITY FRAMEWORK</h3>
+<h4 id="ef-core-10-proyectos-nuevos">EF Core 10 (proyectos nuevos)</h4>
+<pre data-lang="csharp"><code>builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseSqlServer(connectionString, sqlOptions =&gt;
+    {
+        sqlOptions.EnableRetryOnFailure(<span class="tk-n">3</span>);
+        sqlOptions.CommandTimeout(<span class="tk-n">30</span>);
+        sqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+    }));
+<span class="tk-c">// Con other motor (database.engine): UseNpgsql / UseMySql / UseSqlite equivalentes.</span></code></pre>
+<h4 id="ef-6-legacy--mantener-patrones-existentes">EF 6 (legacy) — mantener patrones existentes</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> MiDbContext : DbContext
+{
+    <span class="tk-k">public</span> MiDbContext() : <span class="tk-k">base</span>(<span class="tk-s">&quot;name=DefaultConnection&quot;</span>) { }
+}</code></pre>
+<h4 id="consultas-optimizadas">Consultas optimizadas</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Proyección - solo lo necesario</span>
+<span class="tk-k">var</span> dtos = <span class="tk-k">await</span> _context.Scholarships
+    .Where(b =&gt; b.Status == ScholarshipStatus.Published)
+    .Select(b =&gt; <span class="tk-k">new</span> ScholarshipDto { Id = b.Id, Name = b.Name })
+    .ToListAsync(ct);
+
+<span class="tk-c">// ✅ AsNoTracking para lecturas</span>
+<span class="tk-k">var</span> scholarships = <span class="tk-k">await</span> _context.Scholarships.AsNoTracking().ToListAsync(ct);
+
+<span class="tk-c">// ✅ Paginación</span>
+<span class="tk-k">var</span> page = <span class="tk-k">await</span> _context.Scholarships
+    .Skip((pageNumber - <span class="tk-n">1</span>) * pageSize).Take(pageSize).ToListAsync(ct);</code></pre>
+<blockquote><p>Detalle completo (DbContext, repositorios, migraciones): <code>.claude/skills/infrastructure/SKILL.md</code> (se carga sola al tocar <code>**/Infrastructure/**</code>, <code>**/*Repository.cs</code>, etc.).</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-9-testing--detalle">
+<h3 id="9-testing--detalle">9. TESTING — detalle</h3>
+<h4 id="framework-estándar">Framework estándar</h4>
+<pre data-lang="xml"><code><span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;xunit&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;FluentAssertions&quot;</span> Version=<span class="tk-s">&quot;6.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Moq&quot;</span> Version=<span class="tk-s">&quot;4.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Testcontainers.MsSql&quot;</span> Version=<span class="tk-s">&quot;3.*&quot;</span> <span class="tk-t">/&gt;</span></code></pre>
+<blockquote><p>⚠️ FluentAssertions <strong>fijar 6.x</strong> — v8+ es licencia comercial (misma trampa que MediatR). Testcontainers: usar la imagen del motor configurado (<code>Testcontainers.MsSql</code> / <code>Testcontainers.PostgreSql</code> / <code>Testcontainers.MySql</code>).</p></blockquote>
+<h4 id="nomenclatura">Nomenclatura</h4>
+<pre><code>Method_Scenario_ExpectedResult
+
+GetById_ScholarshipExists_ReturnsScholarship
+GetById_ScholarshipDoesNotExist_ReturnsNull
+Create_EmptyName_ThrowsValidationException</code></pre>
+<h4 id="cobertura-mínima">Cobertura mínima</h4>
+<div class="tbl"><table><thead><tr><th>Capa</th><th>Mínimo</th></tr></thead><tbody><tr><td>Domain</td><td>90%</td></tr><tr><td>Application</td><td>80%</td></tr><tr><td>Infrastructure</td><td>60%</td></tr></tbody></table></div>
+<blockquote><p>Patrones AAA, mocking y tests de integración: <code>.claude/skills/tests/SKILL.md</code> (se carga sola al tocar <code>**/*Tests.cs</code>).</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-10-documentación">
+<h3 id="10-documentación">10. DOCUMENTACIÓN</h3>
+<h4 id="comentarios-xml-apis-públicas">Comentarios XML (APIs públicas)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">/// &lt;summary&gt;</span>
+<span class="tk-c">/// Obtiene una scholarship por su identificador.</span>
+<span class="tk-c">/// &lt;/summary&gt;</span>
+<span class="tk-c">/// &lt;param name=&quot;id&quot;&gt;Identificador único de la scholarship.&lt;/param&gt;</span>
+<span class="tk-c">/// &lt;param name=&quot;ct&quot;&gt;Token de cancelación.&lt;/param&gt;</span>
+<span class="tk-c">/// &lt;returns&gt;La scholarship si existe, null en caso contrario.&lt;/returns&gt;</span>
+<span class="tk-c">/// &lt;exception cref=&quot;ArgumentException&quot;&gt;Si el id es menor o igual a 0.&lt;/exception&gt;</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto?&gt; GetByIdAsync(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>)</code></pre>
+<h4 id="readme-de-proyecto">README de proyecto</h4>
+<p>Todo proyecto debe tener README.md con: descripción, requisitos previos, instalación, configuración necesaria y cómo ejecutar tests.</p>
+<hr>
+</section>
+<section class="sec" id="sec-11-git-y-commits--detalle">
+<h3 id="11-git-y-commits--detalle">11. GIT Y COMMITS — detalle</h3>
+<h4 id="conventional-commits">Conventional Commits</h4>
+<pre><code>tipo(ámbito): descripción corta
+
+Tipos: feat | fix | docs | style | refactor | test | chore
+
+feat(scholarships): añadir filter por estado
+fix(applications): corregir validación de fecha
+docs(readme): actualizar instrucciones de instalación</code></pre>
+<h4 id="ramas">Ramas</h4>
+<blockquote><p>La nomenclatura y rama base se leen de <code>configuracion.branching</code> en <code>_hilo/ESTADO_PROYECTO.json</code> (ver <code>_hilo/ESTADO_PROYECTO.schema.md#branching</code>); el default de organización es <code>vcs.*</code> del <code>ecosystem.config</code>.</p></blockquote>
+<p><strong>Nomenclatura semántica</strong> (default):</p>
+<pre><code>main              ← Producción
+develop           ← Desarrollo (solo GitFlow)
+feature/XXX-desc  ← Nuevas funcionalidades
+bugfix/XXX-desc   ← Correcciones
+hotfix/XXX-desc   ← Urgentes en producción</code></pre>
+<p><strong>Nomenclatura temporal</strong> (developer-branch y otros; tipos de <code>workflow.taskTypes</code>, default EV/DT):</p>
+<pre><code>dev.{usuario}               ← Rama personal remota
+yyyyMMdd-DT-nnn-desc        ← Deuda técnica (local)
+yyyyMMdd-EV-nnn-desc        ← Evolutivo (local)
+yyyyMMdd-BUG-nnn-desc       ← Corrección (local)</code></pre>
+<p><strong>Rama base configurable</strong>: <code>main</code>, <code>master</code>, <code>develop</code>, <code>dev.{usuario}</code> — según <code>configuracion.branching.ramaBase</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-12-consideraciones-especiales--detalle">
+<h3 id="12-consideraciones-especiales--detalle">12. CONSIDERACIONES ESPECIALES — detalle</h3>
+<h4 id="migración-a-net-10">Migración a .NET 10</h4>
+<ol>
+<li><strong>Analizar dependencias</strong> — verificar compatibilidad con .NET 10</li>
+<li><strong>Migrar por capas</strong> — Domain → Application → Infrastructure → Web</li>
+<li><strong>Tests de regresión</strong> — antes y después de cada capa</li>
+<li><strong>No cambiar comportamiento</strong> — solo migrar, no mejorar simultáneamente</li>
+</ol>
+<hr>
+<p><em>Complemento de CLAUDE_BASE.md — consultar bajo demanda, no se importa.</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/.claude/CLAUDE_BASE_EXTENDIDO.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/claude_base.html"><small>Anterior</small>CLAUDE_BASE.md</a><a class="next" href="../guias/configuracion.html"><small>Siguiente</small>Configuración en Ovillo: una sola superficie</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/CLAUDE_BASE_EXTENDIDO.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#4-patrones-de-código">4. PATRONES DE CÓDIGO</a></li><li class="l3"><a href="#inyección-de-dependencias">Inyección de Dependencias</a></li><li class="l3"><a href="#asyncawait">Async/Await</a></li><li class="l3"><a href="#null-safety-c-13--net-10">Null Safety (C# 13 / .NET 10)</a></li><li class="l2"><a href="#5-logging-serilog">5. LOGGING (Serilog)</a></li><li class="l3"><a href="#niveles-de-log">Niveles de Log</a></li><li class="l2"><a href="#6-manejo-de-errores">6. MANEJO DE ERRORES</a></li><li class="l3"><a href="#excepciones-personalizadas">Excepciones Personalizadas</a></li><li class="l3"><a href="#problemdetails-apis-net-10--rfc-7807">ProblemDetails (APIs .NET 10) — RFC 7807</a></li><li class="l2"><a href="#7-seguridad--detalle-de-la-política-de-secretos">7. SEGURIDAD — detalle de la política de secretos</a></li><li class="l3"><a href="#patrón-warn-first-vs-block-cuándo-aplicarlo">Patrón WARN-first vs BLOCK (cuándo aplicarlo)</a></li><li class="l3"><a href="#migración-progresiva-al-servicio-de-secretos">Migración progresiva al servicio de secretos</a></li><li class="l3"><a href="#buenas-prácticas">Buenas prácticas</a></li><li class="l3"><a href="#autenticación-y-autorización">Autenticación y Autorización</a></li><li class="l2"><a href="#82-84-entity-framework">8.2-8.4 ENTITY FRAMEWORK</a></li><li class="l3"><a href="#ef-core-10-proyectos-nuevos">EF Core 10 (proyectos nuevos)</a></li><li class="l3"><a href="#ef-6-legacy--mantener-patrones-existentes">EF 6 (legacy) — mantener patrones existentes</a></li><li class="l3"><a href="#consultas-optimizadas">Consultas optimizadas</a></li><li class="l2"><a href="#9-testing--detalle">9. TESTING — detalle</a></li><li class="l3"><a href="#framework-estándar">Framework estándar</a></li><li class="l3"><a href="#nomenclatura">Nomenclatura</a></li><li class="l3"><a href="#cobertura-mínima">Cobertura mínima</a></li><li class="l2"><a href="#10-documentación">10. DOCUMENTACIÓN</a></li><li class="l3"><a href="#comentarios-xml-apis-públicas">Comentarios XML (APIs públicas)</a></li><li class="l3"><a href="#readme-de-proyecto">README de proyecto</a></li><li class="l2"><a href="#11-git-y-commits--detalle">11. GIT Y COMMITS — detalle</a></li><li class="l3"><a href="#conventional-commits">Conventional Commits</a></li><li class="l3"><a href="#ramas">Ramas</a></li><li class="l2"><a href="#12-consideraciones-especiales--detalle">12. CONSIDERACIONES ESPECIALES — detalle</a></li><li class="l3"><a href="#migración-a-net-10">Migración a .NET 10</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

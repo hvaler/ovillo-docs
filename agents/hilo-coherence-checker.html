@@ -1,0 +1,201 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hilo-coherence-checker · Ovillo</title><meta name="description" content="Audita la coherencia del Hilo: evolutivos vs FUNCIONALIDADES, equipo vs autores de git, DEPENDENCIAS vs PackageReference, LECCIONES vs DECISIONES."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="hilo-coherence-checker · Ovillo"><meta property="og:description" content="Audita la coherencia del Hilo: evolutivos vs FUNCIONALIDADES, equipo vs autores de git, DEPENDENCIAS vs PackageReference, LECCIONES vs DECISIONES."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/agents/hilo-coherence-checker.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/agents/hilo-coherence-checker.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="agents/hilo-coherence-checker.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html" class="cur">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>agents (19)</h4><ul class="sibs"><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../agents/code-reviewer.html">code-reviewer</a></li><li><a href="../agents/cpm-migration-assistant.html">cpm-migration-assistant</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../agents/hilo-coherence-checker.html" class="cur">hilo-coherence-checker</a></li><li><a href="../agents/identity-auditor.html">identity-auditor</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../agents/rbac-designer.html">rbac-designer</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../agents/secret-rotation-advisor.html">secret-rotation-advisor</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../agents/threat-modeler.html">threat-modeler</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../agents/index.html">Agents</a></span><span>hilo-coherence-checker</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>agent</span><span>hv:hilo-coherence-checker</span><span>sonnet</span></div><h1>hilo-coherence-checker</h1><p class="lede">Audita la coherencia del Hilo: evolutivos vs FUNCIONALIDADES, equipo vs autores de git, DEPENDENCIAS vs PackageReference, LECCIONES vs DECISIONES. Devuelve las divergencias con su fix.</p><div class="meta-grid"><div><b>sonnet</b><span>modelo</span></div><div><b>todas</b><span>herramientas</span></div><div><b>1 skill</b><span>lo usan</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo invocarlo</h2><div class="two"><div><h3>Sí</h3><p class="muted">Sin casos declarados.</p></div><div><h3>No (usa otra cosa)</h3><p class="muted">Sin casos negativos declarados.</p></div></div></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha</h2><div class="tbl"><table class="fm"><tr><th>model</th><td><code>sonnet</code></td></tr></table></div></section><section class="sec" id="sec-informe"><h2 id="informe">Informe que produce</h2><h4 id="fase-4-reporte-final-2">FASE 4: Reporte final</h4></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><p class="lede">Agente especializado en auditar la coherencia interna de Hilo (sistema de memoria del proyecto).</p>
+<p><strong>Origen</strong>: item H2 bloque H (Pasada 2 Plantilla del workflow <code>claude-code-setup</code>).</p>
+<p><strong>Cuando invocarlo</strong>:</p>
+<ul>
+<li>Antes de un release (verificar que FUNCIONALIDADES y DEPENDENCIAS reflejan el estado real)</li>
+<li>Tras <code>/hv:finalizar-evolutivo</code> (recordatorio automatico: el evolutivo cerrado deberia tener cambios reflejados en FUNCIONALIDADES.md)</li>
+<li>Periodicamente cuando el proyecto lleva meses activo (drift acumulado)</li>
+<li>Cuando se detecta inconsistencia y se quiere mapear el alcance completo</li>
+</ul>
+<hr>
+<section class="sec" id="sec-reglas-de-coherencia-auditadas">
+<h3 id="reglas-de-coherencia-auditadas">Reglas de coherencia auditadas</h3>
+<h4 id="regla-1-evolutivos-en-progreso-vs-funcionalidadesmd---critica">Regla 1: Evolutivos en progreso vs FUNCIONALIDADES.md  🔴 CRITICA</h4>
+<p><strong>Fuente A</strong>: <code>_hilo/ESTADO_PROYECTO.json.evolutivos.enProgreso[]</code> <strong>Fuente B</strong>: <code>_hilo/FUNCIONALIDADES.md</code></p>
+<p><strong>Verificacion</strong>:</p>
+<ul>
+<li>Para cada evolutivo en progreso con <code>codigo</code> y <code>titulo</code>, buscar referencia (codigo o titulo) en FUNCIONALIDADES.md</li>
+<li>Si NO existe: divergencia (evolutivo activo sin entrada documental)</li>
+</ul>
+<p><strong>Por que critica</strong>: un evolutivo activo sin FUNCIONALIDADES tras semanas es señal de que el catalogo esta abandonado o el evolutivo nunca se concreto.</p>
+<h4 id="regla-2-equipomiembros-vs-autores-git---alta">Regla 2: equipo.miembros vs autores git  🟠 ALTA</h4>
+<p><strong>Fuente A</strong>: <code>_hilo/ESTADO_PROYECTO.json.equipo.miembros[]</code> (campos <code>nombre</code>, <code>usuario</code>, <code>git_author_name</code>) <strong>Fuente B</strong>: <code>git log --since=&quot;3 months ago&quot; --format='%an'</code> (autores con commits recientes)</p>
+<p><strong>Verificacion bi-direccional</strong>:</p>
+<ul>
+<li>Autores en git que NO esten en <code>miembros[]</code> -&gt; miembro fantasma (rotacion equipo no actualizada)</li>
+<li>Miembros listados sin commits en 3 meses -&gt; miembro inactivo (puede salir del proyecto)</li>
+</ul>
+<p><strong>Matching</strong>: respetar <code>git_author_name</code> cuando este definido (puede diferir de <code>nombre</code>).</p>
+<p><strong>Por que alta</strong>: equipo desactualizado causa errores en <code>/issue-tracker-sync</code> (asignaciones a personas no presentes en AD, o sin <code>githubLogin</code> en GitHub), en <code>/hv:commit</code> (autoria no reconocida), y en reportes.</p>
+<h4 id="regla-3-dependenciasmd-vs-packagereference-en-csproj---media">Regla 3: DEPENDENCIAS.md vs PackageReference en *.csproj  🟡 MEDIA</h4>
+<p><strong>Fuente A</strong>: <code>_hilo/DEPENDENCIAS.md</code> (paquetes documentados en la tabla &quot;Dependencias de Paquetes Criticos&quot;) <strong>Fuente B</strong>: <code>&lt;PackageReference Include=&quot;X&quot; Version=&quot;Y&quot;&gt;</code> en todos los <code>.csproj</code> del proyecto</p>
+<p><strong>Verificacion</strong>:</p>
+<ul>
+<li>Paquetes con multiples PackageReference (mismo Include en 2+ csproj) que NO esten en DEPENDENCIAS.md -&gt; dependencia critica no documentada</li>
+<li>Paquetes en DEPENDENCIAS.md que ya no aparecen en ningun csproj -&gt; entrada obsoleta</li>
+</ul>
+<p><strong>Anti-falso-positivo</strong>:</p>
+<ul>
+<li>Excluir transitivas (solo top-level PackageReference)</li>
+<li>Excluir paquetes Microsoft.* basicos (<code>Microsoft.Extensions.*</code>, <code>Microsoft.AspNetCore.*</code>) salvo que sean version-pinned diferente</li>
+<li>Si existe <code>Directory.Packages.props</code> (CPM habilitado): leer de ahi en vez de cada csproj</li>
+</ul>
+<p><strong>Por que media</strong>: documentacion desfasada causa decisiones tecnicas malas (planificar migracion a paquete que no usamos).</p>
+<h4 id="regla-4-leccionesmd-vs-decisionesmd---baja-bidireccional">Regla 4: LECCIONES.md vs DECISIONES.md  🟢 BAJA (bidireccional)</h4>
+<p><strong>Fuente A</strong>: <code>_hilo/LECCIONES.md</code> (patrones aprendidos, errores no triviales) <strong>Fuente B</strong>: <code>_hilo/DECISIONES.md</code> (ADRs del proyecto)</p>
+<p><strong>Verificacion</strong>:</p>
+<ul>
+<li>Decisiones con <code>Estado: Sustituida</code> o <code>Deprecada</code> que NO tengan leccion asociada en LECCIONES.md (por que se cambio) -&gt; falta retrospectiva</li>
+<li>Lecciones que contradigan una decision vigente sin nota de actualizacion -&gt; conflicto a resolver</li>
+</ul>
+<p><strong>Heuristica</strong>: matching por keywords (codigo del ADR, titulo de la decision, fechas cercanas).</p>
+<p><strong>Por que baja</strong>: relacion mas suelta — leccion sin ADR puede ser legitima (no toda leccion deriva de una decision formal).</p>
+<hr>
+</section>
+<section class="sec" id="sec-flujo-de-ejecucion">
+<h3 id="flujo-de-ejecucion">Flujo de ejecucion</h3>
+<h4 id="fase-1-cargar-fuentes">FASE 1: Cargar fuentes</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Verificar que estamos en proyecto Ovillo con Hilo</span>
+test -f _hilo/ESTADO_PROYECTO.json || { <span class="tk-k">echo</span> <span class="tk-s">&quot;No es proyecto Ovillo&quot;</span>; <span class="tk-k">exit</span> <span class="tk-n">1</span>; }
+
+<span class="tk-c"># Leer:</span>
+cat _hilo/ESTADO_PROYECTO.json | jq <span class="tk-s">'.evolutivos, .equipo'</span>
+cat _hilo/FUNCIONALIDADES.md
+cat _hilo/DEPENDENCIAS.md
+cat _hilo/LECCIONES.md
+cat _hilo/DECISIONES.md
+<span class="tk-c"># Buscar todos los .csproj</span>
+find src -name <span class="tk-s">&quot;*.csproj&quot;</span> -type f
+<span class="tk-c"># git log 3 meses</span>
+<span class="tk-k">git</span> log --since=<span class="tk-s">&quot;3 months ago&quot;</span> --format=<span class="tk-s">'%an'</span> | sort -u</code></pre>
+<h4 id="fase-2-4-checks-en-paralelo-via-task-tool-con-subagent_typeexplore">FASE 2: 4 checks en paralelo (via Task tool con subagent_type=Explore)</h4>
+<p>Lanzar 4 subagentes en paralelo. Cada uno devuelve SOLO divergencias detectadas (formato corto), NO datos crudos. Esto mantiene el contexto principal limpio.</p>
+<p>Prompts ejemplo para cada subagente:</p>
+<p><strong>Subagente Regla 1</strong>:</p>
+<pre><code>Lee _hilo/ESTADO_PROYECTO.json y extrae evolutivos.enProgreso[].codigo y .titulo.
+Lee _hilo/FUNCIONALIDADES.md.
+Para cada evolutivo, busca su codigo o titulo en FUNCIONALIDADES.md.
+Output tabla Markdown solo con AUSENTES:
+  | Code | Titulo | Fecha inicio | Accion sugerida |
+Si todos estan documentados, decir &quot;0 divergencias R1&quot;.</code></pre>
+<p><strong>Subagente Regla 2</strong>:</p>
+<pre><code>Lee _hilo/ESTADO_PROYECTO.json -&gt; equipo.miembros[] -&gt; extrae nombre, usuario, git_author_name.
+Ejecuta git log --since=&quot;3 months ago&quot; --format='%an' | sort -u | head -50 -&gt; lista de autores.
+Cruza:
+  - autores no en miembros (matching contra nombre OR git_author_name OR usuario)
+  - miembros sin commits en 3 meses
+Output: 2 tablas (fantasmas, inactivos).</code></pre>
+<p><strong>Subagente Regla 3</strong>:</p>
+<pre><code>Lee _hilo/DEPENDENCIAS.md y extrae nombres de paquetes en la tabla &quot;Dependencias de Paquetes Criticos&quot;.
+Si existe Directory.Packages.props (CPM), parsea su &lt;PackageVersion Include=&quot;X&quot; /&gt;.
+Si no, parsea todos los .csproj y junta PackageReference.
+Excluye Microsoft.Extensions.* y Microsoft.AspNetCore.* basicos.
+Cruza:
+  - paquetes critical (&gt;1 csproj) no documentados en DEPENDENCIAS.md
+  - paquetes documentados ya sin uso
+Output: 2 tablas.</code></pre>
+<p><strong>Subagente Regla 4</strong>:</p>
+<pre><code>Lee _hilo/DECISIONES.md y extrae ADRs con Estado: Sustituida o Deprecada.
+Lee _hilo/LECCIONES.md.
+Para cada ADR sustituido/deprecado, buscar leccion asociada (por codigo, titulo, fecha).
+Output tabla: ADRs sin leccion + lecciones sin ADR (matching keyword).</code></pre>
+<h4 id="fase-3-agregar-resultados">FASE 3: Agregar resultados</h4>
+<p>Construir tabla unica con columnas:</p>
+<pre data-lang="markdown"><code>| Severidad | Regla | Origen | Detalle | Fix sugerido |
+|---|---|---|---|---|
+| 🔴 | R1 | _hilo/ESTADO_PROYECTO.json | Evolutivo HV-19 sin entrada en FUNCIONALIDADES.md | Añadir entrada con flujo principal del evolutivo |
+| 🟠 | R2 | git log | &quot;Maria Lopez&quot; (5 commits) no esta en equipo.miembros | Añadir miembro o investigar si es alias erroneo |
+| 🟡 | R3 | *.csproj | Polly v8.2 en 3 csprojs no en DEPENDENCIAS.md | Documentar Polly como dependencia critica |
+| 🟢 | R4 | DECISIONES.md | ADR-007 Sustituida por ADR-014, sin leccion | Añadir leccion explicando el cambio |</code></pre>
+<p>Orden: 🔴 → 🟠 → 🟡 → 🟢</p>
+<h4 id="fase-4-reporte-final">FASE 4: Reporte final</h4>
+<pre data-lang="markdown"><code># Auditoria coherencia Hilo — YYYY-MM-DD
+
+## Resumen ejecutivo
+
+| Regla | Divergencias | Severidad |
+|---|---|---|
+| R1 Evolutivos vs FUNCIONALIDADES | N | 🔴 |
+| R2 equipo vs git autores | N | 🟠 |
+| R3 DEPENDENCIAS vs csproj | N | 🟡 |
+| R4 LECCIONES vs DECISIONES | N | 🟢 |
+| **TOTAL** | N | |
+
+## Divergencias priorizadas
+
+[Tabla de FASE 3]
+
+## Plan de fix sugerido
+
+Ordenado por severidad:
+1. **🔴 critico** (afecta operacion del proyecto): N items - fix antes del proximo release
+2. **🟠 alto** (afecta reportes/asignaciones): N items - fix en proxima semana
+3. **🟡 medio** (documentacion desfasada): N items - fix en proximo sprint
+4. **🟢 bajo** (retrospectiva): N items - fix cuando haya tiempo
+
+## Comandos para aplicar fixes
+</code></pre>
+<h2 id="r1-añadir-evolutivos-faltantes-a-funcionalidadesmd">R1: añadir evolutivos faltantes a FUNCIONALIDADES.md</h2>
+<h2 id="manual---revisar-cada-caso">manual - revisar cada caso</h2>
+<h2 id="r2-añadir-miembros-nuevos-a-equipo">R2: añadir miembros nuevos a equipo</h2>
+<h2 id="editar-_hiloestado_proyectojson---equipomiembros">editar _hilo/ESTADO_PROYECTO.json -&gt; equipo.miembros[]</h2>
+<h2 id="r3-añadirquitar-paquetes-de-dependenciasmd">R3: añadir/quitar paquetes de DEPENDENCIAS.md</h2>
+<h2 id="manual-o-invocar-nugets-management-skill">manual o invocar nugets-management skill</h2>
+<h2 id="r4-añadir-lecciones-asociadas-a-adrs-sustituidos">R4: añadir lecciones asociadas a ADRs sustituidos</h2>
+<h2 id="editar-_hiloleccionesmd">editar _hilo/LECCIONES.md</h2>
+<pre><code>
+## Recomendacion
+
+Tras aplicar fixes, re-invocar `hilo-coherence-checker` para verificar 0 divergencias.
+Antes de `/hv:finalizar-evolutivo`, recomendado pasar este check para evitar acumular drift.</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-casos-de-uso-comunes">
+<h3 id="casos-de-uso-comunes">Casos de uso comunes</h3>
+<h4 id="a-audit-antes-de-un-release">A. Audit antes de un release</h4>
+<p>Usuario: &quot;Voy a publicar v1.4.0, auditame Hilo&quot;</p>
+<ol>
+<li>Lanzar 4 checks paralelos</li>
+<li>Si hay 🔴 o 🟠: bloquear con recomendacion de fix primero</li>
+<li>Si solo 🟡 o 🟢: documentar deuda y permitir continuar</li>
+</ol>
+<h4 id="b-audit-tras-finalizar-evolutivo">B. Audit tras /finalizar-evolutivo</h4>
+<p><code>/hv:finalizar-evolutivo</code> puede sugerir invocar este agente al final. Foco: verificar que el evolutivo cerrado actualizo FUNCIONALIDADES.md (Regla 1).</p>
+<h4 id="c-spot-check-periodico">C. Spot-check periodico</h4>
+<p>Usuario: &quot;Hilo puede estar desfasada, audita&quot;</p>
+<ol>
+<li>Lanzar 4 checks</li>
+<li>Reportar todas las divergencias</li>
+<li>Sugerir plan de fix priorizado</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patrones">
+<h3 id="anti-patrones">Anti-patrones</h3>
+<ul>
+<li><strong>NO modificar Hilo automaticamente</strong> — devolver solo divergencias + propuestas. El usuario decide que aplicar.</li>
+<li><strong>NO invocar git con --since=year</strong> o similar — costoso en repos grandes. Limitar a 3 meses por defecto.</li>
+<li><strong>NO listar paquetes Microsoft.Extensions/AspNetCore basicos</strong> como divergencia — son ruido.</li>
+<li><strong>NO confundir leccion sin ADR con error</strong>: lecciones autonomas son legitimas.</li>
+<li><strong>Respetar <code>git_author_name</code></strong> en Regla 2 si esta definido (caso real: los nombres del directorio corporativo difieren de git config).</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-herramientas-y-delegacion">
+<h3 id="herramientas-y-delegacion">Herramientas y delegacion</h3>
+<h4 id="herramientas-utilizadas">Herramientas utilizadas</h4>
+<div class="tbl"><table><thead><tr><th>Herramienta</th><th>Uso</th><th>Por que</th></tr></thead><tbody><tr><td><code>Task</code> (subagent_type=Explore)</td><td>4 sub-agentes en paralelo (uno por regla)</td><td>FASE 2: cada regla puede tardar, paralelizar reduce coste</td></tr><tr><td><code>Read</code></td><td>Lectura de Hilo: ESTADO_PROYECTO.json, FUNCIONALIDADES.md, DEPENDENCIAS.md, LECCIONES.md, DECISIONES.md</td><td>Fuentes documentales del proyecto</td></tr><tr><td><code>Glob</code></td><td>Localizar <code>*.csproj</code>, <code>Directory.Packages.props</code></td><td>Cruzar con DEPENDENCIAS.md (Regla 3)</td></tr><tr><td><code>Bash</code> (<code>git log</code>)</td><td>Autores con commits 3 meses</td><td>Cruzar con equipo.miembros (Regla 2)</td></tr></tbody></table></div>
+<h4 id="MCPs">MCPs</h4>
+<p><strong>Ninguno.</strong> Este agente opera SOLO sobre archivos documentales en <code>_hilo/</code> y git log. No necesita Roslyn, Context7 ni otros MCPs — su dominio es texto + JSON, no codigo.</p>
+<h4 id="delegacion-explicita">Delegacion explicita</h4>
+<p>Cuando el audit detecta un sintoma fuera de su dominio, <strong>NO intenta diagnosticarlo</strong>. Delega:</p>
+<div class="tbl"><table><thead><tr><th>Sintoma detectado</th><th>Delegar a</th><th>Por que</th></tr></thead><tbody><tr><td>Nombre SP en DEPENDENCIAS.md no respeta nomenclatura</td><td><code>database-reviewer</code></td><td>Audit SQL es su dominio</td></tr><tr><td>Paquete NuGet con CVE</td><td><code>nuget-analyzer</code></td><td>Vulnerabilidades NuGet</td></tr><tr><td>Evolutivo cerrado sin tests</td><td><code>test-runner</code></td><td>Cobertura de tests</td></tr><tr><td>Decision arquitectonica que viola Clean Architecture</td><td><code>architecture-validator</code></td><td>Reglas de capas</td></tr><tr><td>Miembro fantasma con commits sensibles</td><td><code>code-reviewer</code> (no <code>identity-auditor</code>, que es Azure AD)</td><td>Review de codigo, no de identidad</td></tr></tbody></table></div>
+<h4 id="sinergia-con-hooks-y-otros-agents">Sinergia con hooks y otros agents</h4>
+<ul>
+<li>Complementa <code>hilo-freshness.js</code> (H1, UserPromptSubmit): freshness mira <strong>fechas</strong>, coherence-checker mira <strong>contenido</strong>.</li>
+<li>Complementa <code>hilo-checkpoint.js</code> (Stop hook): checkpoint <strong>registra</strong> estado al final, coherence-checker <strong>valida cruces</strong>.</li>
+<li>Complementa <code>database-reviewer</code>: aquel mira nomenclatura SQL, este Hilo documental.</li>
+</ul>
+<hr>
+<p><em>Agent plantilla Ovillo - item H2 bloque H</em></p>
+</section><section class="sec" id="sec-relaciones"><h2 id="relaciones">Quién lo usa</h2><ul><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li></ul></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>6 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(contexto): Lote E - presupuesto de contexto bajo el techo, descriptions bilingues y quinta puerta (ADR-025)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/code-reviewer.html">code-reviewer</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../agents/identity-auditor.html">identity-auditor</a></li><li><a href="../skills/issue-tracker-sync.html">issue-tracker-sync</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../skills/nugets-management.html">nugets-management</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/agents/hilo-coherence-checker.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo invocarlo</a></li><li class="l2"><a href="#ficha">Ficha</a></li><li class="l2"><a href="#informe">Informe que produce</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#reglas-de-coherencia-auditadas">Reglas de coherencia auditadas</a></li><li class="l3"><a href="#flujo-de-ejecucion">Flujo de ejecucion</a></li><li class="l3"><a href="#casos-de-uso-comunes">Casos de uso comunes</a></li><li class="l3"><a href="#anti-patrones">Anti-patrones</a></li><li class="l3"><a href="#herramientas-y-delegacion">Herramientas y delegacion</a></li><li class="l2"><a href="#relaciones">Quién lo usa</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,81 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ovillo · Smoke Tests del proyecto consumidor · Ovillo</title><meta name="description" content="Ovillo · Smoke Tests del proyecto consumidor"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Ovillo · Smoke Tests del proyecto consumidor · Ovillo"><meta property="og:description" content="Ovillo · Smoke Tests del proyecto consumidor"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/smoke-tests-readme.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/smoke-tests-readme.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/smoke-tests-readme.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Verificación (5)</h4><ul class="sibs"><li><a href="../guias/01-activation.html">Smoke 01 · Activacion de skills</a></li><li><a href="../guias/02-compilation.html">Smoke 02 · Compilacion</a></li><li><a href="../guias/03-conventions.html">Smoke 03 · Convenciones locales del proyecto</a></li><li><a href="../guias/eval-gap-template.html">Plantilla · Work Item «Eval gap»</a></li><li><a href="../guias/smoke-tests-readme.html" class="cur">Ovillo · Smoke Tests del proyecto consumidor</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Verificación</span><span>Ovillo · Smoke Tests del proyecto consumidor</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Verificación</span><span>español</span></div><h1>Ovillo · Smoke Tests del proyecto consumidor</h1><div class="meta-grid"><div><b>3 min</b><span>lectura</span></div><div><b>622</b><span>palabras</span></div><div><b>6</b><span>secciones</span></div><div><b>2026-09-07</b><span>última edición</span></div><div><b>2</b><span>cambios</span></div></div><blockquote><p>Tres pruebas ligeras para verificar que el <strong>ecosistema Ovillo</strong> funciona correctamente en <strong>este proyecto</strong> tras cada actualizacion (<code>claude plugin update hv@ovillo</code>).</p></blockquote>
+<hr>
+<section class="sec" id="sec-proposito">
+<h3 id="proposito">Proposito</h3>
+<p>Los <em>evals</em> del constructor (<code>{ProyectoConstructor}</code>) validan las skills <strong>en aislamiento</strong>. Los <em>smoke tests</em> de este directorio validan que funcionan <strong>en tu stack real</strong>:</p>
+<ul>
+<li>¿Claude Code invoca la skill correcta ante prompts tipicos de este proyecto?</li>
+<li>¿El codigo generado compila con tu version de .NET y tus dependencias?</li>
+<li>¿Se respetan las convenciones locales (schema SQL, pins NuGet, auth, etc.)?</li>
+</ul>
+<p>Si el constructor esta en verde pero aqui falla algun smoke, significa que la skill asume algo que no aplica a tu stack. En ese caso, <strong>abrir Work Item «Eval gap»</strong> en <code>{ProyectoConstructor}</code> (ver seccion «Feedback loop»).</p>
+<hr>
+</section>
+<section class="sec" id="sec-las-tres-suites">
+<h3 id="las-tres-suites">Las tres suites</h3>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Que valida</th><th>Cuando ejecutar</th><th>Coste</th></tr></thead><tbody><tr><td><code>01-activation.md</code></td><td>Claude invoca la skill correcta</td><td>Tras cada update del ecosistema</td><td>5 min</td></tr><tr><td><code>02-compilation.md</code></td><td>El codigo generado <strong>compila</strong> en tu stack</td><td>Tras cada update + en CI nightly</td><td>10-15 min</td></tr><tr><td><code>03-conventions.md</code></td><td>Convenciones locales respetadas (schema, pins, ORM)</td><td>Tras cada update</td><td>5 min</td></tr></tbody></table></div>
+<p><strong>Minimo viable si tienes prisa</strong>: ejecutar solo <code>02-compilation.md</code>. Ese test detecta ~80 % de los problemas reales (ej. skill que usa <code>using Microsoft.EntityFrameworkCore</code> en un proyecto .NET 4.8 con Dapper).</p>
+<hr>
+</section>
+<section class="sec" id="sec-como-usar">
+<h3 id="como-usar">Como usar</h3>
+<h4 id="1-personaliza-los-tests">1. Personaliza los tests</h4>
+<p>Los tres archivos traen prompts <strong>genericos</strong>. Reemplaza los <code>{placeholders}</code> por entidades y casos reales de este proyecto. Ejemplos por proyecto:</p>
+<div class="tbl"><table><thead><tr><th>Placeholder</th><th>LicenseManager</th><th>MyCompany.Exchange</th><th>Billing</th></tr></thead><tbody><tr><td><code>{ENTITY}</code></td><td><code>LicenseApplication</code></td><td><code>Nomination</code></td><td><code>EmpleadoHCM</code></td></tr><tr><td><code>{SCHEMA}</code></td><td><code>lic</code></td><td><code>ewp</code></td><td><code>dbo</code></td></tr><tr><td><code>{ORM}</code></td><td>Dapper</td><td>EF Core 10</td><td>Dapper</td></tr><tr><td><code>{NET}</code></td><td>net48</td><td>net10.0</td><td>net48</td></tr><tr><td><code>{AUTH}</code></td><td>Azure AD</td><td>Azure AD + Factsheet API</td><td>Integrated</td></tr></tbody></table></div>
+<h4 id="2-ejecuta-una-suite">2. Ejecuta una suite</h4>
+<p>Cada archivo <code>.md</code> tiene una seccion «Como ejecutarlo» con el comando concreto. Los dos mas utiles:</p>
+<pre data-lang="powershell"><code><span class="tk-c"># Smoke de compilacion (el mas valioso)</span>
+powershell -File .\.claude\smoke-tests\scripts\smoke-compile.ps1
+
+<span class="tk-c"># Smoke de activacion (valida que invoca la skill correcta)</span>
+claude --debug -p <span class="tk-s">&quot;Necesito un CRUD para {ENTITY}&quot;</span> <span class="tk-n">2</span>&gt;&amp;<span class="tk-n">1</span> | `
+  Select-String <span class="tk-s">&quot;loading skill: generador-crud&quot;</span></code></pre>
+<h4 id="3-integracion-automatica-opcional">3. Integracion automatica (opcional)</h4>
+<p>Anadir un step al pipeline de CI del proyecto consumidor:</p>
+<pre data-lang="yaml"><code><span class="tk-c"># azure-pipelines.yml del proyecto consumidor</span>
+- task: PowerShell@<span class="tk-n">2</span>
+  displayName: <span class="tk-s">'Ovillo smoke compile'</span>
+  inputs:
+    filePath: <span class="tk-s">'.claude/smoke-tests/scripts/smoke-compile.ps1'</span>
+    arguments: <span class="tk-s">'-Strict'</span>
+  condition: succeededOrFailed()</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-cuando-ejecutar-cada-suite">
+<h3 id="cuando-ejecutar-cada-suite">Cuando ejecutar cada suite</h3>
+<div class="tbl"><table><thead><tr><th>Momento</th><th>Ejecutar</th></tr></thead><tbody><tr><td>Tras <code>claude plugin update hv@ovillo</code></td><td>Las tres</td></tr><tr><td>Tras cambiar el modelo (Sonnet -&gt; Opus, etc.)</td><td>Solo <code>01-activation</code></td></tr><tr><td>Onboarding de un dev nuevo al proyecto</td><td>Solo <code>01-activation</code> (como smoke de familiarizacion)</td></tr><tr><td>CI nightly del proyecto</td><td>Solo <code>02-compilation</code></td></tr><tr><td>Antes de un release del proyecto</td><td>Las tres</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-feedback-loop-al-constructor-fase-4">
+<h3 id="feedback-loop-al-constructor-fase-4">Feedback loop al constructor (Fase 4)</h3>
+<p>Si un smoke test <strong>falla reproduciblemente</strong> en este proyecto pero los evals del constructor <code>{ProyectoConstructor}</code> estan en verde, significa una de dos cosas:</p>
+<ol>
+<li>La skill asume algo que no aplica aqui (ej. .NET 10 vs .NET 4.8).</li>
+<li>Hay una convencion local no documentada.</li>
+</ol>
+<p><strong>Accion</strong>: abrir un Work Item <strong>«Eval gap»</strong> en el proyecto <code>{ProyectoConstructor}</code> (devops.example.org). Hay tres formas:</p>
+<h4 id="opcion-a--comando-guiado-recomendado">Opcion A · Comando guiado (recomendado)</h4>
+<pre><code>/eval-gap --smoke 02 --skill generador-crud --from-log build.log</code></pre>
+<p>El comando recopila el contexto, busca duplicados con WIQL, muestra preview y solo crea el Work Item con tu confirmacion. Ver <code>.claude/commands/eval-gap.md</code> para todos los flags.</p>
+<h4 id="opcion-b--plantilla-manual">Opcion B · Plantilla manual</h4>
+<p>Copiar la descripcion de <code>eval-gap-template.md</code> en este mismo directorio y crear el Work Item desde la UI de devops.example.org. Incluye:</p>
+<ul>
+<li>Tag <code>eval-gap; smoke-{01|02|03}; {skill}</code></li>
+<li>Area Path <code>{ProyectoConstructor}/Calidad</code></li>
+<li>Prioridad 1 (bloquea release) o 2 (default)</li>
+</ul>
+<h4 id="opcion-c--curl-rest">Opcion C · curl REST</h4>
+<p>El template incluye el curl exacto contra <code>devops.example.org</code> con autenticacion NTLM y <code>api-version=6.0</code>. Util si trabajas desde terminal sin Claude Code.</p>
+<h4 id="sla-del-constructor">SLA del constructor</h4>
+<div class="tbl"><table><thead><tr><th>Prioridad</th><th>Criterio</th><th>SLA</th></tr></thead><tbody><tr><td><strong>P1</strong></td><td>Bloquea release de consumidor critico</td><td>2 dias laborables</td></tr><tr><td><strong>P2</strong></td><td>Default. Smoke falla reproduciblemente, sin bloqueo</td><td>1 sprint del constructor</td></tr><tr><td><strong>P3</strong></td><td>Flaky o cosmetico</td><td>Backlog sin SLA</td></tr></tbody></table></div>
+<p>El ciclo se cierra cuando el smoke vuelve a pasar tras <code>claude plugin update hv@ovillo</code> — <strong>no</strong> cuando el constructor mergea el fix. Esto evita falsos cierres.</p>
+<hr>
+</section>
+<section class="sec" id="sec-referencias">
+<h3 id="referencias">Referencias</h3>
+<ul>
+<li>Plantilla del Work Item: <code>eval-gap-template.md</code> (en este mismo directorio)</li>
+<li>Skill: <code>/hv:eval-gap</code> (<code>.claude/skills/eval-gap/SKILL.md</code>)</li>
+<li>Motor de evals del constructor: <code>scripts/run_eval.py</code> del repo de Ovillo</li>
+</ul>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/.claude/smoke-tests/README.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/eval-gap-template.html"><small>Anterior</small>Plantilla · Work Item «Eval gap»</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/smoke-tests/README.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#proposito">Proposito</a></li><li class="l2"><a href="#las-tres-suites">Las tres suites</a></li><li class="l2"><a href="#como-usar">Como usar</a></li><li class="l3"><a href="#1-personaliza-los-tests">1. Personaliza los tests</a></li><li class="l3"><a href="#2-ejecuta-una-suite">2. Ejecuta una suite</a></li><li class="l3"><a href="#3-integracion-automatica-opcional">3. Integracion automatica (opcional)</a></li><li class="l2"><a href="#cuando-ejecutar-cada-suite">Cuando ejecutar cada suite</a></li><li class="l2"><a href="#feedback-loop-al-constructor-fase-4">Feedback loop al constructor (Fase 4)</a></li><li class="l3"><a href="#opcion-a--comando-guiado-recomendado">Opcion A · Comando guiado (recomendado)</a></li><li class="l3"><a href="#opcion-b--plantilla-manual">Opcion B · Plantilla manual</a></li><li class="l3"><a href="#opcion-c--curl-rest">Opcion C · curl REST</a></li><li class="l3"><a href="#sla-del-constructor">SLA del constructor</a></li><li class="l2"><a href="#referencias">Referencias</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

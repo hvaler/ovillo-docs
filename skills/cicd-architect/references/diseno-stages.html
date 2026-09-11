@@ -1,0 +1,307 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · references/diseno-stages.md · Ovillo</title><meta name="description" content="Fichero references/diseno-stages.md de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · references/diseno-stages.md · Ovillo"><meta property="og:description" content="Fichero references/diseno-stages.md de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/references/diseno-stages.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/references/diseno-stages.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/references/diseno-stages.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../skills/cicd-architect/references/diseno-stages.html" class="cur">references/diseno-stages.md</a></li><li><a href="../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/cicd-architect.html">cicd-architect</a></span><span>references</span><span>diseno-stages.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>references/</span></div><h1>diseno-stages.md</h1><p class="lede">Referencia que <code>cicd-architect</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>11.416 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Estructura completa Build + DeployDev + DeployDemo + DeployProd validada en 2 pilotos (BiPublisher.Api + MyCompany.Claude.Guia).</p></blockquote>
+<section class="sec" id="sec-arquitectura-general">
+<h3 id="arquitectura-general">Arquitectura general</h3>
+<pre><code>┌──────────────────────────────────────────────────────────────────────────┐
+│ Pool configurado (`cicd.buildPool`) (collection-level, server-wide, ya autorizado)             │
+│                                                                          │
+│   BUILDAGENT01_AGENTE1, BUILDAGENT01_AGENTE2 (computer BUILDAGENT01)     │
+│      Agent.ComputerName = BUILDAGENT01       → builds                    │
+│                                                                          │
+│   &lt;SERVER&gt;_DEPLOY (uno por server destino)                               │
+│      DeployTarget = &lt;env&gt;               → deploys                        │
+└──────────────────────────────────────────────────────────────────────────┘
+
+Stages generados:
+  Build       (CI auto)  → demand Agent.ComputerName=BUILDAGENT01
+  DeployDev   (CD auto)  → demand DeployTarget=dev
+  DeployDemo  (CD manual: gate ManualValidation@0) → DeployTarget=pre-app
+  DeployProd  (CD manual: gate Environment+group)  → DeployTarget=produccion
+                                                     2 jobs serie (A, B)
+                                                     con backup + rollback condicional</code></pre>
+</section>
+<section class="sec" id="sec-stage-build--patron-canonico-net">
+<h3 id="stage-build--patron-canonico-net">Stage Build — patron canonico (.NET)</h3>
+<pre data-lang="yaml"><code>- stage: Build
+  displayName: <span class="tk-s">'Build &amp; Test'</span>
+  jobs:
+    - job: BuildAndTest
+      pool:
+        name: el pool configurado                                    <span class="tk-c"># R1</span>
+        demands:
+          - Agent.ComputerName -equals BUILDAGENT01            <span class="tk-c"># R1</span>
+      timeoutInMinutes: <span class="tk-n">30</span>
+      steps:
+        <span class="tk-c"># R16: fail-fast secretos si hay VG</span>
+        - task: PowerShell@<span class="tk-n">2</span>
+          displayName: <span class="tk-s">'Fail-fast: validar VG secretos'</span>
+          condition: succeeded()
+          inputs:
+            targetType: inline
+            script: |
+              <span class="tk-c"># [R2: bloque TLS 1.2+]</span>
+              $required = @(<span class="tk-s">'&lt;NombreSecreto1&gt;'</span>, <span class="tk-s">'&lt;NombreSecreto2&gt;'</span>)
+              <span class="tk-c"># ... validacion fail-fast</span>
+
+        <span class="tk-c"># R12 warning-only: linter anti-patterns</span>
+        - task: PowerShell@<span class="tk-n">2</span>
+          displayName: <span class="tk-s">'Linter anti-patterns (warning-only)'</span>
+          continueOnError: <span class="tk-k">true</span>
+          inputs: { ... }
+
+        <span class="tk-c"># R4: tasks canonicas</span>
+        - task: UseDotNet@<span class="tk-n">2</span>
+          displayName: <span class="tk-s">'Install .NET SDK'</span>
+          inputs:
+            packageType: <span class="tk-s">'sdk'</span>
+            version: <span class="tk-s">'10.0.x'</span>
+
+        - task: DotNetCoreCLI@<span class="tk-n">2</span>
+          displayName: <span class="tk-s">'dotnet restore'</span>
+          inputs:
+            command: <span class="tk-s">'restore'</span>
+            projects: <span class="tk-s">'&lt;SLN_PATH&gt;'</span>
+
+        - task: DotNetCoreCLI@<span class="tk-n">2</span>
+          displayName: <span class="tk-s">'dotnet build'</span>
+          inputs:
+            command: <span class="tk-s">'build'</span>
+            projects: <span class="tk-s">'&lt;SLN_PATH&gt;'</span>
+            arguments: <span class="tk-s">'--configuration Release --no-restore'</span>
+
+        - task: DotNetCoreCLI@<span class="tk-n">2</span>
+          displayName: <span class="tk-s">'dotnet test (coverage)'</span>
+          inputs:
+            command: <span class="tk-s">'test'</span>
+            projects: <span class="tk-s">'&lt;TESTS_CSPROJ&gt;'</span>
+            arguments: <span class="tk-s">'--configuration Release --no-build --collect:&quot;XPlat Code Coverage&quot; --settings coverlet.runsettings'</span>
+
+        <span class="tk-c"># R4: @1 (NO @2)</span>
+        - task: PublishCodeCoverageResults@<span class="tk-n">1</span>
+          displayName: <span class="tk-s">'Publish code coverage'</span>
+          inputs:
+            codeCoverageTool: <span class="tk-s">'Cobertura'</span>
+            summaryFileLocation: <span class="tk-s">'$(Agent.TempDirectory)/**/*cobertura.xml'</span>
+
+        <span class="tk-c"># G7 (R18): Coverage gate WARN-first con el script propio del repo (sin herramientas externas).</span>
+        - template: steps/coverage-gate.yml
+          parameters:
+            thresholdLine: <span class="tk-v">$(coverageLineThreshold)</span>
+            thresholdBranch: <span class="tk-v">$(coverageBranchThreshold)</span>
+            mode: warn
+
+        - task: DotNetCoreCLI@<span class="tk-n">2</span>
+          displayName: <span class="tk-s">'dotnet publish'</span>
+          inputs:
+            command: <span class="tk-s">'publish'</span>
+            projects: <span class="tk-s">'&lt;API_CSPROJ&gt;'</span>
+            arguments: <span class="tk-s">'--configuration Release --no-build --output $(Build.ArtifactStagingDirectory) /p:GenerateBuildInfoConfigFile=false'</span>
+
+        - task: PublishBuildArtifacts@<span class="tk-n">1</span>
+          displayName: <span class="tk-s">'Publish artifact drop'</span>
+          inputs:
+            PathtoPublish: <span class="tk-s">'$(Build.ArtifactStagingDirectory)'</span>
+            ArtifactName: <span class="tk-s">'drop'</span></code></pre>
+</section>
+<section class="sec" id="sec-stage-deploydev--auto-sin-gate">
+<h3 id="stage-deploydev--auto-sin-gate">Stage DeployDev — auto, sin gate</h3>
+<pre data-lang="yaml"><code>- stage: DeployDev
+  displayName: <span class="tk-s">'Deploy a DEV (auto)'</span>
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+    - job: DeployToDev
+      pool:
+        name: el pool configurado
+        demands:
+          - DeployTarget -equals dev                       <span class="tk-c"># R1</span>
+      timeoutInMinutes: <span class="tk-n">15</span>
+      steps:
+        - checkout: none                                   <span class="tk-c"># R8</span>
+        - task: PowerShell@<span class="tk-n">2</span>
+          displayName: <span class="tk-s">'Descargar artefacto (REST API)'</span>    <span class="tk-c"># R3</span>
+          env:
+            SYSTEM_ACCESSTOKEN: <span class="tk-v">$(System.AccessToken)</span>
+          inputs:
+            targetType: inline
+            script: |
+              <span class="tk-c"># [R2: bloque TLS 1.2+]</span>
+              $headers = @{ Authorization = <span class="tk-s">&quot;Bearer $env:SYSTEM_ACCESSTOKEN&quot;</span> }
+              $apiBase = <span class="tk-s">'$(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)'</span>
+              $artifactInfo = Invoke-RestMethod -Uri <span class="tk-s">&quot;$apiBase/artifacts?artifactName=drop&amp;api-version=5.0&quot;</span> -Headers $headers
+              $downloadUrl = $artifactInfo.resource.downloadUrl
+              $zipPath = <span class="tk-s">&quot;$env:AGENT_TEMPDIRECTORY\artifact.zip&quot;</span>
+              Invoke-WebRequest -Uri $downloadUrl -Headers $headers -OutFile $zipPath
+              Expand-Archive -Path $zipPath -DestinationPath <span class="tk-s">'$(Pipeline.Workspace)'</span> -Force
+              $package = Get-ChildItem <span class="tk-s">'$(Pipeline.Workspace)/drop'</span> -Filter <span class="tk-s">'*.zip'</span> | Select-Object -First <span class="tk-n">1</span>
+              Write-Host <span class="tk-s">&quot;##vso[task.setvariable variable=MsDeployPackage]$($package.FullName)&quot;</span>
+
+        - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>         <span class="tk-c"># R4</span>
+          inputs:
+            WebSiteName: <span class="tk-s">'Default Web Site'</span>
+            VirtualApplication: <span class="tk-s">'&lt;REPO_KEBAB&gt;'</span>
+            Package: <span class="tk-s">'$(MsDeployPackage)'</span>
+            RemoveAdditionalFilesFlag: <span class="tk-k">true</span>
+            TakeAppOfflineFlag: &lt;<span class="tk-k">true</span>|<span class="tk-k">false</span>&gt;                <span class="tk-c"># R10 segun stack</span></code></pre>
+</section>
+<section class="sec" id="sec-stage-deploydemo--manual-gate-manualvalidation0">
+<h3 id="stage-deploydemo--manual-gate-manualvalidation0">Stage DeployDemo — manual gate ManualValidation@0</h3>
+<pre data-lang="yaml"><code>- stage: DeployDemo
+  displayName: <span class="tk-s">'Deploy a DEMO (manual gate)'</span>
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+    - job: WaitForApproval
+      pool: server                                          <span class="tk-c"># server job, NO agent</span>
+      timeoutInMinutes: <span class="tk-n">1440</span>
+      steps:
+        - task: ManualValidation@<span class="tk-n">0</span>
+          inputs:
+            notifyUsers: <span class="tk-s">'&lt;APPROVER_EMAIL&gt;'</span>
+            instructions: <span class="tk-s">'Aprobar deploy a DEMO del build $(Build.BuildNumber).'</span>
+            onTimeout: <span class="tk-s">'reject'</span>
+
+    - job: DeployToDemo
+      dependsOn: WaitForApproval
+      condition: succeeded()
+      pool:
+        name: el pool configurado
+        demands:
+          - DeployTarget -equals pre-app
+      timeoutInMinutes: <span class="tk-n">30</span>
+      steps:
+        - checkout: none
+        <span class="tk-c"># [Descarga REST API igual que DEV]</span>
+        <span class="tk-c"># [Backup pre-deploy R15 capa 1]</span>
+        <span class="tk-c"># [IISWebAppDeploymentOnMachineGroup@0 con AdditionalArguments enableRule R15 capa 2]</span>
+        <span class="tk-c"># [Smoke best-effort SPA o estricto .NET]</span>
+        <span class="tk-c"># [Rollback condition: failed() R15 capa 3]</span></code></pre>
+</section>
+<section class="sec" id="sec-stage-deployprod--environment--group-approval--2-servers-rolling">
+<h3 id="stage-deployprod--environment--group-approval--2-servers-rolling">Stage DeployProd — Environment + group approval + 2 servers rolling</h3>
+<pre data-lang="yaml"><code>- stage: DeployProd
+  displayName: <span class="tk-s">'Deploy a PROD (manual, 2 servers rolling)'</span>
+  dependsOn: DeployDemo
+  condition: succeeded()
+  jobs:
+    - deployment: DeployToProd_A                            <span class="tk-c"># primer server, con gate</span>
+      environment: <span class="tk-s">'&lt;PROYECTO&gt;-Prod'</span>                        <span class="tk-c"># approval check del grupo</span>
+      pool:
+        name: el pool configurado
+        demands:
+          - Agent.Name -equals STRIFY01_DEPLOY
+      timeoutInMinutes: <span class="tk-n">30</span>
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - download: none                              <span class="tk-c"># equivalente checkout: none</span>
+              <span class="tk-c"># [Descarga REST API + Backup + MSDeploy + Smoke + Rollback condicional]</span>
+
+    - job: DeployToProd_B                                   <span class="tk-c"># segundo server, sin gate</span>
+      dependsOn: DeployToProd_A
+      condition: succeeded()
+      pool:
+        name: el pool configurado
+        demands:
+          - Agent.Name -equals STRIFY02_DEPLOY
+      timeoutInMinutes: <span class="tk-n">30</span>
+      steps:
+        - checkout: none
+        <span class="tk-c"># [Mismos steps que DeployToProd_A, sin gate]</span></code></pre>
+</section>
+<section class="sec" id="sec-stage-build--variante-vuevitets">
+<h3 id="stage-build--variante-vuevitets">Stage Build — variante Vue+Vite+TS</h3>
+<pre data-lang="yaml"><code>- stage: Build
+  jobs:
+    - job: BuildAndTest
+      pool:
+        name: el pool configurado
+        demands:
+          - Agent.ComputerName -equals BUILDAGENT01
+      steps:
+        - task: NodeTool@<span class="tk-n">0</span>
+          displayName: <span class="tk-s">'Install Node.js'</span>
+          inputs:
+            versionSpec: <span class="tk-s">'22.x'</span>                              <span class="tk-c"># Node 22 LTS default</span>
+
+        - script: npm ci
+          displayName: <span class="tk-s">'npm ci'</span>
+          workingDirectory: <span class="tk-s">'src'</span>
+
+        - script: npx vue-tsc --noEmit
+          displayName: <span class="tk-s">'Type check (vue-tsc)'</span>
+          workingDirectory: <span class="tk-s">'src'</span>
+
+        - script: npm run lint
+          displayName: <span class="tk-s">'Lint'</span>
+          workingDirectory: <span class="tk-s">'src'</span>
+          continueOnError: <span class="tk-k">true</span>                              <span class="tk-c"># informativo</span>
+
+        - script: npx vitest run --coverage
+          displayName: <span class="tk-s">'Tests + coverage'</span>
+          workingDirectory: <span class="tk-s">'src'</span>
+
+        <span class="tk-c"># R4: @1 con Cobertura desde Vitest</span>
+        - task: PublishCodeCoverageResults@<span class="tk-n">1</span>
+          inputs:
+            codeCoverageTool: <span class="tk-s">'Cobertura'</span>
+            summaryFileLocation: <span class="tk-s">'src/coverage/cobertura-coverage.xml'</span>
+
+        - script: npm run build
+          displayName: <span class="tk-s">'Vite build'</span>
+          workingDirectory: <span class="tk-s">'src'</span>
+
+        - task: ArchiveFiles@<span class="tk-n">2</span>
+          displayName: <span class="tk-s">'Zip dist/'</span>
+          inputs:
+            rootFolderOrFile: <span class="tk-s">'src/dist'</span>
+            includeRootFolder: <span class="tk-k">false</span>
+            archiveType: <span class="tk-s">'zip'</span>
+            archiveFile: <span class="tk-s">'$(Build.ArtifactStagingDirectory)/&lt;APP_NAME&gt;.zip'</span>
+
+        - task: PublishBuildArtifacts@<span class="tk-n">1</span>
+          inputs:
+            PathtoPublish: <span class="tk-s">'$(Build.ArtifactStagingDirectory)'</span>
+            ArtifactName: <span class="tk-s">'drop'</span></code></pre>
+</section>
+<section class="sec" id="sec-variables-comunes">
+<h3 id="variables-comunes">Variables comunes</h3>
+<pre data-lang="yaml"><code>variables:
+  - group: &lt;PIPELINE_NAME&gt;-secrets                          <span class="tk-c"># R16, si VG</span>
+  - name: BuildConfiguration
+    value: <span class="tk-s">'Release'</span>
+  <span class="tk-c"># Solo .NET:</span>
+  - name: solutionPath
+    value: <span class="tk-s">'&lt;SLN_PATH&gt;'</span>
+  - name: apiProject
+    value: <span class="tk-s">'&lt;API_CSPROJ&gt;'</span>
+  - name: testProject
+    value: <span class="tk-s">'&lt;TESTS_CSPROJ&gt;'</span>
+  - name: coverletSettings
+    value: <span class="tk-s">'ops/testing/coverlet.runsettings'</span>
+  - name: coverageLineThreshold
+    value: <span class="tk-s">'70'</span>
+  - name: coverageBranchThreshold
+    value: <span class="tk-s">'60'</span>
+  - name: coverageCrapThreshold
+    value: <span class="tk-s">'30'</span></code></pre>
+</section>
+<section class="sec" id="sec-trigger-canonico">
+<h3 id="trigger-canonico">Trigger canonico</h3>
+<pre data-lang="yaml"><code>trigger:
+  branches:
+    include:
+      - &lt;RAMA_BASE&gt;                                          <span class="tk-c"># main / master / dev.&lt;usuario&gt;</span>
+  paths:
+    <span class="tk-c"># R7: workaround Azure DevOps Server 2020 — emitir AMBOS patrones</span>
+    include:
+      - <span class="tk-s">'src/**'</span>
+      - <span class="tk-s">'src/**/*'</span>
+      - <span class="tk-s">'ops/testing/**'</span>
+      - <span class="tk-s">'ops/testing/**/*'</span>
+      - <span class="tk-s">'azure-pipelines.yml'</span>
+
+pr: none                                                     <span class="tk-c"># PR triggers gestionados por branch policy</span></code></pre>
+<hr>
+<p><em>Diseno de stages — Validado en 2 pilotos (DT-004 BiPublisher.Api + MyCompany.Claude.Guia)</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/cicd-architect/references/classic-migration.html"><small>Anterior</small>references/classic-migration.md</a><a class="next" href="../../../skills/cicd-architect/references/fases-adopcion.html"><small>Siguiente</small>references/fases-adopcion.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/references/diseno-stages.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#arquitectura-general">Arquitectura general</a></li><li class="l2"><a href="#stage-build--patron-canonico-net">Stage Build — patron canonico (.NET)</a></li><li class="l2"><a href="#stage-deploydev--auto-sin-gate">Stage DeployDev — auto, sin gate</a></li><li class="l2"><a href="#stage-deploydemo--manual-gate-manualvalidation0">Stage DeployDemo — manual gate ManualValidation@0</a></li><li class="l2"><a href="#stage-deployprod--environment--group-approval--2-servers-rolling">Stage DeployProd — Environment + group approval + 2 servers rolling</a></li><li class="l2"><a href="#stage-build--variante-vuevitets">Stage Build — variante Vue+Vite+TS</a></li><li class="l2"><a href="#variables-comunes">Variables comunes</a></li><li class="l2"><a href="#trigger-canonico">Trigger canonico</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

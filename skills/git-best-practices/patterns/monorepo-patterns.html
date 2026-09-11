@@ -1,0 +1,134 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · patterns/monorepo-patterns.md · Ovillo</title><meta name="description" content="Fichero patterns/monorepo-patterns.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · patterns/monorepo-patterns.md · Ovillo"><meta property="og:description" content="Fichero patterns/monorepo-patterns.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/patterns/monorepo-patterns.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/patterns/monorepo-patterns.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/patterns/monorepo-patterns.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html" class="cur">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>patterns</span><span>monorepo-patterns.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>patterns/</span></div><h1>monorepo-patterns.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>3486 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: git-best-practices</p></blockquote>
+<p class="lede">Estrategias para gestionar repositorios monoliticos con multiples proyectos.</p>
+<hr>
+<section class="sec" id="sec-cuando-usar-monorepo">
+<h3 id="cuando-usar-monorepo">Cuando Usar Monorepo</h3>
+<div class="tbl"><table><thead><tr><th>Criterio</th><th>Monorepo</th><th>Multi-repo</th></tr></thead><tbody><tr><td>Dependencias compartidas</td><td>Fuertes</td><td>Debiles/ninguna</td></tr><tr><td>Deploy sincronizado</td><td>Si</td><td>No</td></tr><tr><td>Equipos</td><td>1-3 equipos</td><td>Equipos independientes</td></tr><tr><td>CI/CD</td><td>Centralizado</td><td>Por proyecto</td></tr><tr><td>Ejemplo</td><td>API + Frontend + Shared</td><td>Microservicios independientes</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-estructura-recomendada">
+<h3 id="estructura-recomendada">Estructura Recomendada</h3>
+<pre><code>monorepo/
+├── .github/
+│   ├── workflows/
+│   │   ├── api.yml          # CI solo para API
+│   │   ├── frontend.yml     # CI solo para frontend
+│   │   └── shared.yml       # CI para librerias compartidas
+│   └── CODEOWNERS
+├── src/
+│   ├── api/                  # Proyecto API .NET 10
+│   │   ├── MyCompany.App.Api/
+│   │   └── MyCompany.App.Api.sln
+│   ├── frontend/             # Proyecto frontend
+│   │   ├── package.json
+│   │   └── src/
+│   └── shared/               # Librerias compartidas
+│       ├── MyCompany.App.Domain/
+│       └── MyCompany.App.Shared/
+├── docs/
+├── tools/
+│   └── scripts/
+├── .gitignore
+├── .gitattributes
+├── CODEOWNERS
+└── README.md</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-CODEOWNERS">
+<h3 id="CODEOWNERS">CODEOWNERS</h3>
+<p>Plantilla lista para el layout Ovillo en <code>templates/CODEOWNERS.template</code>; el ruleset la exige con <code>require_code_owner_review</code>. Ejemplo para monorepo:</p>
+<pre><code># .github/CODEOWNERS
+# Cada seccion es propiedad de un equipo
+
+# Global
+* @myorg/platform-leads
+
+# API
+/src/api/ @myorg/backend-team
+*.cs @myorg/backend-team
+
+# Frontend
+/src/frontend/ @myorg/frontend-team
+*.tsx @myorg/frontend-team
+*.ts @myorg/frontend-team
+
+# Shared libraries (require senior review)
+/src/shared/ @myorg/architects
+
+# Infrastructure
+/.github/ @myorg/devops
+/tools/ @myorg/devops
+
+# Documentation
+/docs/ @myorg/tech-writers</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-sparse-checkout-git-225">
+<h3 id="sparse-checkout-git-225">Sparse Checkout (Git 2.25+)</h3>
+<p>Para trabajar solo con una parte del monorepo:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Clonar con sparse checkout</span>
+<span class="tk-k">git</span> clone --sparse https://github.com/myorg/monorepo.<span class="tk-k">git</span>
+<span class="tk-k">cd</span> monorepo
+
+<span class="tk-c"># Añadir solo las carpetas necesarias</span>
+<span class="tk-k">git</span> sparse-checkout <span class="tk-k">set</span> src/api src/shared
+
+<span class="tk-c"># Ahora solo tienes src/api/ y src/shared/</span>
+<span class="tk-c"># Las demas carpetas no se descargan</span>
+
+<span class="tk-c"># Añadir mas carpetas</span>
+<span class="tk-k">git</span> sparse-checkout add docs
+
+<span class="tk-c"># Ver que esta incluido</span>
+<span class="tk-k">git</span> sparse-checkout list</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-path-filters-en-cicd">
+<h3 id="path-filters-en-cicd">Path Filters en CI/CD</h3>
+<h4 id="github-actions">GitHub Actions</h4>
+<pre data-lang="yaml"><code><span class="tk-c"># .github/workflows/api.yml</span>
+<span class="tk-k">on</span>:
+  push:
+    paths:
+      - <span class="tk-s">'src/api/**'</span>
+      - <span class="tk-s">'src/shared/**'</span>
+    branches: [main]
+  pull_request:
+    paths:
+      - <span class="tk-s">'src/api/**'</span>
+      - <span class="tk-s">'src/shared/**'</span></code></pre>
+<h4 id="azure-devops">Azure DevOps</h4>
+<pre data-lang="yaml"><code>trigger:
+  paths:
+    include:
+      - src/api/*
+      - src/shared/*
+    exclude:
+      - docs/*
+      - <span class="tk-s">'**/*.md'</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-partial-clone-git-222">
+<h3 id="partial-clone-git-222">Partial Clone (Git 2.22+)</h3>
+<p>Para repositorios muy grandes:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Clone sin blobs (se descargan bajo demanda)</span>
+<span class="tk-k">git</span> clone --filter=blob:none https://github.com/myorg/monorepo.<span class="tk-k">git</span>
+
+<span class="tk-c"># Clone sin arboles ni blobs</span>
+<span class="tk-k">git</span> clone --filter=tree:<span class="tk-n">0</span> https://github.com/myorg/monorepo.<span class="tk-k">git</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-mantenimiento">
+<h3 id="mantenimiento">Mantenimiento</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Git 2.52 - Geometric maintenance (optimo para monorepos)</span>
+<span class="tk-k">git</span> maintenance start
+
+<span class="tk-c"># Configurar mantenimiento automatico</span>
+<span class="tk-k">git</span> config maintenance.auto true
+<span class="tk-k">git</span> config maintenance.strategy incremental
+
+<span class="tk-c"># Repack con path-walk (Git 2.51+, packs mas pequenos)</span>
+<span class="tk-k">git</span> repack -d --path-walk</code></pre>
+<hr>
+<p><em>Pattern 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html"><small>Anterior</small>patterns/gitignore-patterns.md</a><a class="next" href="../../../skills/git-best-practices/patterns/ssh-signing.html"><small>Siguiente</small>patterns/ssh-signing.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/patterns/monorepo-patterns.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando-usar-monorepo">Cuando Usar Monorepo</a></li><li class="l2"><a href="#estructura-recomendada">Estructura Recomendada</a></li><li class="l2"><a href="#CODEOWNERS">CODEOWNERS</a></li><li class="l2"><a href="#sparse-checkout-git-225">Sparse Checkout (Git 2.25+)</a></li><li class="l2"><a href="#path-filters-en-cicd">Path Filters en CI/CD</a></li><li class="l3"><a href="#github-actions">GitHub Actions</a></li><li class="l3"><a href="#azure-devops">Azure DevOps</a></li><li class="l2"><a href="#partial-clone-git-222">Partial Clone (Git 2.22+)</a></li><li class="l2"><a href="#mantenimiento">Mantenimiento</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

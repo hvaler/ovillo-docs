@@ -1,0 +1,472 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · patterns/bunit-patterns.md · Ovillo</title><meta name="description" content="Fichero patterns/bunit-patterns.md de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · patterns/bunit-patterns.md · Ovillo"><meta property="og:description" content="Fichero patterns/bunit-patterns.md de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/bunit-patterns.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/bunit-patterns.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/patterns/bunit-patterns.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (16)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html" class="cur">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>patterns</span><span>bunit-patterns.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>patterns/</span></div><h1>bunit-patterns.md</h1><p class="lede">Referencia que <code>testing-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>15.041 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: testing-patterns</p></blockquote>
+<p class="lede">Patrones para testing de componentes Blazor usando bUnit. Cubre: render testing, event handling, forms, auth, JS interop, y componentes con servicios.</p>
+<hr>
+<section class="sec" id="sec-cuando-usar-bunit">
+<h3 id="cuando-usar-bunit">Cuando Usar bUnit</h3>
+<div class="tbl"><table><thead><tr><th>Usar bUnit</th><th>No Usar bUnit</th></tr></thead><tbody><tr><td>Verificar renderizado de componentes</td><td>Tests de logica de negocio (usar unit tests)</td></tr><tr><td>Probar event handlers (@onclick, @onchange)</td><td>Tests de API endpoints (usar contract tests)</td></tr><tr><td>Validar formularios EditForm</td><td>Tests de rendimiento (usar performance tests)</td></tr><tr><td>Verificar navegacion y parametros</td><td>Tests de base de datos (usar integration tests)</td></tr><tr><td>Probar AuthorizeView condicional</td><td>Tests de CSS/estilos (usar visual regression)</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-paquetes-nuget">
+<h3 id="paquetes-nuget">Paquetes NuGet</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;bunit&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;xunit&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;FluentAssertions&quot;</span> Version=<span class="tk-s">&quot;6.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Moq&quot;</span> Version=<span class="tk-s">&quot;4.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-1-render-testing-basico">
+<h3 id="patron-1-render-testing-basico">Patron 1: Render Testing Basico</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipListTests : TestContext
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Render_WithScholarships_ShowsTable()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> scholarships = <span class="tk-k">new</span> List&lt;ScholarshipDto&gt;
+        {
+            <span class="tk-k">new</span>() { Id = <span class="tk-n">1</span>, Name = <span class="tk-s">&quot;Scholarship Excelencia&quot;</span>, Amount = 5000m, Status = <span class="tk-s">&quot;Published&quot;</span> },
+            <span class="tk-k">new</span>() { Id = <span class="tk-n">2</span>, Name = <span class="tk-s">&quot;Scholarship Movilidad&quot;</span>, Amount = 3000m, Status = <span class="tk-s">&quot;Draft&quot;</span> }
+        };
+
+        <span class="tk-k">var</span> mockService = <span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;();
+        mockService.Setup(s =&gt; s.GetAllAsync()).ReturnsAsync(scholarships);
+        Services.AddSingleton(mockService.Object);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipList&gt;();
+
+        <span class="tk-c">// Assert</span>
+        cut.FindAll(<span class="tk-s">&quot;tr&quot;</span>).Count.Should().Be(<span class="tk-n">3</span>); <span class="tk-c">// header + 2 rows</span>
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;Scholarship Excelencia&quot;</span>);
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;5.000&quot;</span>);
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;Scholarship Movilidad&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Render_WithNoScholarships_ShowsEmptyMessage()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> mockService = <span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;();
+        mockService.Setup(s =&gt; s.GetAllAsync()).ReturnsAsync(<span class="tk-k">new</span> List&lt;ScholarshipDto&gt;());
+        Services.AddSingleton(mockService.Object);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipList&gt;();
+
+        <span class="tk-c">// Assert</span>
+        cut.Find(<span class="tk-s">&quot;.alert-info&quot;</span>).TextContent.Should().Contain(<span class="tk-s">&quot;No se encontraron&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Render_WhileLoading_ShowsSpinner()
+    {
+        <span class="tk-c">// Arrange - Servicio que nunca completa</span>
+        <span class="tk-k">var</span> tcs = <span class="tk-k">new</span> TaskCompletionSource&lt;List&lt;ScholarshipDto&gt;&gt;();
+        <span class="tk-k">var</span> mockService = <span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;();
+        mockService.Setup(s =&gt; s.GetAllAsync()).Returns(tcs.Task);
+        Services.AddSingleton(mockService.Object);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipList&gt;();
+
+        <span class="tk-c">// Assert</span>
+        cut.Find(<span class="tk-s">&quot;.spinner-border&quot;</span>).Should().NotBeNull();
+        cut.Markup.Should().NotContain(<span class="tk-s">&quot;table&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-2-event-handling">
+<h3 id="patron-2-event-handling">Patron 2: Event Handling</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipListEventTests : TestContext
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;IScholarshipService&gt; _mockService;
+
+    <span class="tk-k">public</span> ScholarshipListEventTests()
+    {
+        _mockService = <span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;();
+        _mockService.Setup(s =&gt; s.GetAllAsync()).ReturnsAsync(<span class="tk-k">new</span> List&lt;ScholarshipDto&gt;
+        {
+            <span class="tk-k">new</span>() { Id = <span class="tk-n">1</span>, Name = <span class="tk-s">&quot;Scholarship Test&quot;</span>, Amount = 5000m }
+        });
+        Services.AddSingleton(_mockService.Object);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> ClickDelete_CallsServiceDelete()
+    {
+        <span class="tk-c">// Arrange</span>
+        _mockService.Setup(s =&gt; s.DeleteAsync(<span class="tk-n">1</span>)).Returns(Task.CompletedTask);
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipList&gt;();
+
+        <span class="tk-c">// Act - Click en boton eliminar</span>
+        <span class="tk-k">var</span> deleteButton = cut.Find(<span class="tk-s">&quot;[data-testid='delete-1']&quot;</span>);
+        deleteButton.Click();
+
+        <span class="tk-c">// Confirmar dialogo</span>
+        <span class="tk-k">var</span> confirmButton = cut.Find(<span class="tk-s">&quot;.btn-danger&quot;</span>);
+        confirmButton.Click();
+
+        <span class="tk-c">// Assert</span>
+        _mockService.Verify(s =&gt; s.DeleteAsync(<span class="tk-n">1</span>), Times.Once);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> ClickCrear_NavigatesToCreatePage()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> navManager = Services.GetRequiredService&lt;FakeNavigationManager&gt;();
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipList&gt;();
+
+        <span class="tk-c">// Act</span>
+        cut.Find(<span class="tk-s">&quot;.btn-brand-primary&quot;</span>).Click();
+
+        <span class="tk-c">// Assert</span>
+        navManager.Uri.Should().EndWith(<span class="tk-s">&quot;/scholarships/create&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> SearchInput_FiltersScholarships()
+    {
+        <span class="tk-c">// Arrange</span>
+        _mockService.Setup(s =&gt; s.GetAllAsync()).ReturnsAsync(<span class="tk-k">new</span> List&lt;ScholarshipDto&gt;
+        {
+            <span class="tk-k">new</span>() { Id = <span class="tk-n">1</span>, Name = <span class="tk-s">&quot;Scholarship Excelencia&quot;</span>, Amount = 5000m },
+            <span class="tk-k">new</span>() { Id = <span class="tk-n">2</span>, Name = <span class="tk-s">&quot;Scholarship Movilidad&quot;</span>, Amount = 3000m }
+        });
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipList&gt;();
+
+        <span class="tk-c">// Act - Escribir en buscador</span>
+        <span class="tk-k">var</span> searchInput = cut.Find(<span class="tk-s">&quot;input[type='search']&quot;</span>);
+        searchInput.Input(<span class="tk-s">&quot;Excelencia&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        cut.FindAll(<span class="tk-s">&quot;tbody tr&quot;</span>).Count.Should().Be(<span class="tk-n">1</span>);
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;Excelencia&quot;</span>);
+        cut.Markup.Should().NotContain(<span class="tk-s">&quot;Movilidad&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-3-formularios-con-validacion">
+<h3 id="patron-3-formularios-con-validacion">Patron 3: Formularios con Validacion</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipFormTests : TestContext
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;IScholarshipService&gt; _mockService;
+
+    <span class="tk-k">public</span> ScholarshipFormTests()
+    {
+        _mockService = <span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;();
+        Services.AddSingleton(_mockService.Object);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Submit_ValidData_CallsCreateAndNavigates()
+    {
+        <span class="tk-c">// Arrange</span>
+        _mockService.Setup(s =&gt; s.CreateAsync(It.IsAny&lt;CreateScholarshipRequest&gt;()))
+            .ReturnsAsync(<span class="tk-k">new</span> ScholarshipDto { Id = <span class="tk-n">1</span> });
+
+        <span class="tk-k">var</span> navManager = Services.GetRequiredService&lt;FakeNavigationManager&gt;();
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipCreate&gt;();
+
+        <span class="tk-c">// Act - Rellenar formulario</span>
+        cut.Find(<span class="tk-s">&quot;#name&quot;</span>).Change(<span class="tk-s">&quot;Scholarship Test&quot;</span>);
+        cut.Find(<span class="tk-s">&quot;#amount&quot;</span>).Change(<span class="tk-s">&quot;5000&quot;</span>);
+        cut.Find(<span class="tk-s">&quot;#startDate&quot;</span>).Change(<span class="tk-s">&quot;2026-04-01&quot;</span>);
+        cut.Find(<span class="tk-s">&quot;#endDate&quot;</span>).Change(<span class="tk-s">&quot;2026-12-31&quot;</span>);
+
+        <span class="tk-c">// Submit</span>
+        cut.Find(<span class="tk-s">&quot;form&quot;</span>).Submit();
+
+        <span class="tk-c">// Assert</span>
+        _mockService.Verify(s =&gt; s.CreateAsync(
+            It.Is&lt;CreateScholarshipRequest&gt;(r =&gt;
+                r.Name == <span class="tk-s">&quot;Scholarship Test&quot;</span> &amp;&amp; r.Amount == 5000m)),
+            Times.Once);
+        navManager.Uri.Should().EndWith(<span class="tk-s">&quot;/scholarships&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Submit_EmptyNombre_ShowsValidationError()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipCreate&gt;();
+
+        <span class="tk-c">// Act - Submit sin datos</span>
+        cut.Find(<span class="tk-s">&quot;form&quot;</span>).Submit();
+
+        <span class="tk-c">// Assert - Mensajes de validacion visibles</span>
+        <span class="tk-k">var</span> validationMessages = cut.FindAll(<span class="tk-s">&quot;.validation-message&quot;</span>);
+        validationMessages.Should().NotBeEmpty();
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;obligatorio&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Submit_NegativeAmount_ShowsValidationError()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipCreate&gt;();
+
+        <span class="tk-c">// Act</span>
+        cut.Find(<span class="tk-s">&quot;#name&quot;</span>).Change(<span class="tk-s">&quot;Test&quot;</span>);
+        cut.Find(<span class="tk-s">&quot;#amount&quot;</span>).Change(<span class="tk-s">&quot;-100&quot;</span>);
+        cut.Find(<span class="tk-s">&quot;form&quot;</span>).Submit();
+
+        <span class="tk-c">// Assert</span>
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;debe ser positivo&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> EditMode_LoadsExistingData()
+    {
+        <span class="tk-c">// Arrange</span>
+        _mockService.Setup(s =&gt; s.GetByIdAsync(<span class="tk-n">1</span>)).ReturnsAsync(<span class="tk-k">new</span> ScholarshipDto
+        {
+            Id = <span class="tk-n">1</span>,
+            Name = <span class="tk-s">&quot;Scholarship Existing&quot;</span>,
+            Amount = 5000m,
+            Status = <span class="tk-s">&quot;Draft&quot;</span>
+        });
+
+        <span class="tk-c">// Act - Render en modo edicion</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipCreate&gt;(parameters =&gt;
+            parameters.Add(p =&gt; p.Id, <span class="tk-n">1</span>));
+
+        <span class="tk-c">// Assert</span>
+        cut.Find(<span class="tk-s">&quot;#name&quot;</span>).GetAttribute(<span class="tk-s">&quot;value&quot;</span>).Should().Be(<span class="tk-s">&quot;Scholarship Existing&quot;</span>);
+        cut.Find(<span class="tk-s">&quot;h1&quot;</span>).TextContent.Should().Contain(<span class="tk-s">&quot;Editar&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-4-autorizacion-authorizeview">
+<h3 id="patron-4-autorizacion-authorizeview">Patron 4: Autorizacion (AuthorizeView)</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> AdminPageTests : TestContext
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> AuthorizedUser_SeesContent()
+    {
+        <span class="tk-c">// Arrange - Simular user autenticado con rol Admin</span>
+        <span class="tk-k">var</span> authContext = <span class="tk-k">this</span>.AddTestAuthorization();
+        authContext.SetAuthorized(<span class="tk-s">&quot;admin@example.com&quot;</span>);
+        authContext.SetRoles(<span class="tk-s">&quot;Admin&quot;</span>);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;AdminScholarships&gt;();
+
+        <span class="tk-c">// Assert</span>
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;Administración de Scholarships&quot;</span>);
+        cut.Markup.Should().NotContain(<span class="tk-s">&quot;No tienes permisos&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> UnauthorizedUser_SeesAccessDenied()
+    {
+        <span class="tk-c">// Arrange - User sin rol Admin</span>
+        <span class="tk-k">var</span> authContext = <span class="tk-k">this</span>.AddTestAuthorization();
+        authContext.SetAuthorized(<span class="tk-s">&quot;user@example.com&quot;</span>);
+        authContext.SetRoles(<span class="tk-s">&quot;User&quot;</span>);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;AdminScholarships&gt;();
+
+        <span class="tk-c">// Assert</span>
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;No tienes permisos&quot;</span>);
+        cut.Markup.Should().NotContain(<span class="tk-s">&quot;Administración de Scholarships&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> UnauthenticatedUser_SeesLoginPrompt()
+    {
+        <span class="tk-c">// Arrange - Sin autenticacion</span>
+        <span class="tk-k">var</span> authContext = <span class="tk-k">this</span>.AddTestAuthorization();
+        authContext.SetNotAuthorized();
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;AdminScholarships&gt;();
+
+        <span class="tk-c">// Assert</span>
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;No tienes permisos&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> AdminRole_SeesAdminBadge_GestorDoesNot()
+    {
+        <span class="tk-c">// Arrange - Admin ve badge especial</span>
+        <span class="tk-k">var</span> authContext = <span class="tk-k">this</span>.AddTestAuthorization();
+        authContext.SetAuthorized(<span class="tk-s">&quot;admin@example.com&quot;</span>);
+        authContext.SetRoles(<span class="tk-s">&quot;Admin&quot;</span>, <span class="tk-s">&quot;Gestor&quot;</span>);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;AdminScholarships&gt;();
+
+        <span class="tk-c">// Assert</span>
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;permisos de administrador&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-5-componentes-con-parametros-y-cascading">
+<h3 id="patron-5-componentes-con-parametros-y-cascading">Patron 5: Componentes con Parametros y Cascading</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipCardTests : TestContext
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Render_WithParameters_ShowsCorrectData()
+    {
+        <span class="tk-c">// Arrange &amp; Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipCard&gt;(parameters =&gt; parameters
+            .Add(p =&gt; p.Scholarship, <span class="tk-k">new</span> ScholarshipDto
+            {
+                Id = <span class="tk-n">1</span>,
+                Name = <span class="tk-s">&quot;Scholarship Test&quot;</span>,
+                Amount = 5000m,
+                Status = <span class="tk-s">&quot;Published&quot;</span>
+            })
+            .Add(p =&gt; p.OnDelete, (<span class="tk-k">int</span> id) =&gt; { <span class="tk-c">/* callback */</span> }));
+
+        <span class="tk-c">// Assert</span>
+        cut.Find(<span class="tk-s">&quot;.card-title&quot;</span>).TextContent.Should().Contain(<span class="tk-s">&quot;Scholarship Test&quot;</span>);
+        cut.Find(<span class="tk-s">&quot;.badge&quot;</span>).TextContent.Should().Contain(<span class="tk-s">&quot;Published&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Render_WithCascadingValue_ReceivesTheme()
+    {
+        <span class="tk-c">// Arrange &amp; Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipCard&gt;(parameters =&gt; parameters
+            .Add(p =&gt; p.Scholarship, <span class="tk-k">new</span> ScholarshipDto { Id = <span class="tk-n">1</span>, Name = <span class="tk-s">&quot;Test&quot;</span> })
+            .AddCascadingValue(<span class="tk-s">&quot;Theme&quot;</span>, <span class="tk-s">&quot;dark&quot;</span>));
+
+        <span class="tk-c">// Assert</span>
+        cut.Find(<span class="tk-s">&quot;.card&quot;</span>).ClassList.Should().Contain(<span class="tk-s">&quot;dark-mode&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> DeleteCallback_IsInvoked_WithCorrectId()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> deletedId = <span class="tk-n">0</span>;
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipCard&gt;(parameters =&gt; parameters
+            .Add(p =&gt; p.Scholarship, <span class="tk-k">new</span> ScholarshipDto { Id = <span class="tk-n">42</span>, Name = <span class="tk-s">&quot;Test&quot;</span> })
+            .Add(p =&gt; p.OnDelete, (<span class="tk-k">int</span> id) =&gt; deletedId = id));
+
+        <span class="tk-c">// Act</span>
+        cut.Find(<span class="tk-s">&quot;.btn-danger&quot;</span>).Click();
+
+        <span class="tk-c">// Assert</span>
+        deletedId.Should().Be(<span class="tk-n">42</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-6-javascript-interop-mock">
+<h3 id="patron-6-javascript-interop-mock">Patron 6: JavaScript Interop Mock</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ChartComponentTests : TestContext
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Render_InitializesChart_ViaJsInterop()
+    {
+        <span class="tk-c">// Arrange - Mock JS interop</span>
+        <span class="tk-k">var</span> jsInterop = <span class="tk-k">this</span>.JSInterop;
+        jsInterop.SetupVoid(<span class="tk-s">&quot;initChart&quot;</span>, _ =&gt; <span class="tk-k">true</span>);  <span class="tk-c">// Match cualquier argumento</span>
+
+        Services.AddSingleton(<span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;().Object);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipDashboard&gt;();
+
+        <span class="tk-c">// Assert - Verificar que se llamo a JS</span>
+        jsInterop.VerifyInvoke(<span class="tk-s">&quot;initChart&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Export_CallsDownloadFile_ViaJsInterop()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> jsInterop = <span class="tk-k">this</span>.JSInterop;
+        jsInterop.SetupVoid(<span class="tk-s">&quot;downloadFile&quot;</span>, _ =&gt; <span class="tk-k">true</span>);
+
+        <span class="tk-k">var</span> mockService = <span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;();
+        mockService.Setup(s =&gt; s.ExportAsync()).ReturnsAsync(<span class="tk-k">new</span> byte[] { <span class="tk-n">1</span>, <span class="tk-n">2</span>, <span class="tk-n">3</span> });
+        Services.AddSingleton(mockService.Object);
+
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipExport&gt;();
+
+        <span class="tk-c">// Act</span>
+        cut.Find(<span class="tk-s">&quot;#exportBtn&quot;</span>).Click();
+
+        <span class="tk-c">// Assert</span>
+        jsInterop.VerifyInvoke(<span class="tk-s">&quot;downloadFile&quot;</span>, <span class="tk-n">1</span>); <span class="tk-c">// Llamado 1 vez</span>
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-base-class-para-tests-bunit">
+<h3 id="base-class-para-tests-bunit">Base Class para Tests bUnit</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// BlazorTestBase.cs - Reutilizar en todos los tests de componentes</span>
+<span class="tk-k">public</span> <span class="tk-k">abstract</span> <span class="tk-k">class</span> BlazorTestBase : TestContext
+{
+    <span class="tk-k">protected</span> Mock&lt;IScholarshipService&gt; MockScholarshipService { <span class="tk-k">get</span>; }
+    <span class="tk-k">protected</span> FakeNavigationManager NavManager =&gt; Services.GetRequiredService&lt;FakeNavigationManager&gt;();
+
+    <span class="tk-k">protected</span> BlazorTestBase()
+    {
+        MockScholarshipService = <span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;();
+        Services.AddSingleton(MockScholarshipService.Object);
+
+        <span class="tk-c">// Servicios comunes</span>
+        Services.AddSingleton(<span class="tk-k">new</span> Mock&lt;ILogger&lt;<span class="tk-k">object</span>&gt;&gt;().Object);
+
+        <span class="tk-c">// JS Interop setup global</span>
+        JSInterop.SetupVoid(<span class="tk-s">&quot;initChart&quot;</span>, _ =&gt; <span class="tk-k">true</span>);
+        JSInterop.SetupVoid(<span class="tk-s">&quot;downloadFile&quot;</span>, _ =&gt; <span class="tk-k">true</span>);
+    }
+
+    <span class="tk-c">/// &lt;summary&gt;Simular user autenticado con roles&lt;/summary&gt;</span>
+    <span class="tk-k">protected</span> TestAuthorizationContext SetupAuth(
+        <span class="tk-k">string</span> username = <span class="tk-s">&quot;test@example.com&quot;</span>,
+        <span class="tk-k">params</span> <span class="tk-k">string</span>[] roles)
+    {
+        <span class="tk-k">var</span> auth = <span class="tk-k">this</span>.AddTestAuthorization();
+        auth.SetAuthorized(username);
+        auth.SetRoles(roles);
+        <span class="tk-k">return</span> auth;
+    }
+
+    <span class="tk-c">/// &lt;summary&gt;Crear lista de scholarships de test&lt;/summary&gt;</span>
+    <span class="tk-k">protected</span> <span class="tk-k">static</span> List&lt;ScholarshipDto&gt; CreateTestScholarships(<span class="tk-k">int</span> count = <span class="tk-n">3</span>)
+    {
+        <span class="tk-k">return</span> Enumerable.Range(<span class="tk-n">1</span>, count).Select(i =&gt; <span class="tk-k">new</span> ScholarshipDto
+        {
+            Id = i,
+            Name = <span class="tk-s">$&quot;Scholarship Test {i}&quot;</span>,
+            Amount = 1000m * i,
+            Status = i % <span class="tk-n">2</span> == <span class="tk-n">0</span> ? <span class="tk-s">&quot;Published&quot;</span> : <span class="tk-s">&quot;Draft&quot;</span>
+        }).ToList();
+    }
+}
+
+<span class="tk-c">// Uso</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> MiComponenteTests : BlazorTestBase
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Test_ConBaseClass()
+    {
+        MockScholarshipService.Setup(s =&gt; s.GetAllAsync()).ReturnsAsync(CreateTestScholarships());
+        SetupAuth(<span class="tk-s">&quot;admin@example.com&quot;</span>, <span class="tk-s">&quot;Admin&quot;</span>);
+
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipList&gt;();
+        cut.FindAll(<span class="tk-s">&quot;tr&quot;</span>).Count.Should().Be(<span class="tk-n">4</span>); <span class="tk-c">// header + 3</span>
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-bunit">
+<h3 id="checklist-bunit">Checklist bUnit</h3>
+<div class="tbl"><table><thead><tr><th>Check</th><th>Descripcion</th></tr></thead><tbody><tr><td>Render states</td><td>Loading, empty, data, error</td></tr><tr><td>Events</td><td>Click, input, change, submit</td></tr><tr><td>Validation</td><td>Required fields, invalid data, error messages</td></tr><tr><td>Auth</td><td>Authorized, unauthorized, roles</td></tr><tr><td>Parameters</td><td>Required, optional, cascading</td></tr><tr><td>Navigation</td><td>Links, redirects, route params</td></tr><tr><td>JS Interop</td><td>Setup mocks, verify calls</td></tr><tr><td>Lifecycle</td><td>OnInitialized, OnParametersSet, Dispose</td></tr></tbody></table></div>
+<hr>
+<p><em>Pattern bunit-patterns</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/patterns/builders.html"><small>Anterior</small>patterns/builders.md</a><a class="next" href="../../../skills/testing-patterns/patterns/integration-fixtures.html"><small>Siguiente</small>patterns/integration-fixtures.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/patterns/bunit-patterns.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando-usar-bunit">Cuando Usar bUnit</a></li><li class="l2"><a href="#paquetes-nuget">Paquetes NuGet</a></li><li class="l2"><a href="#patron-1-render-testing-basico">Patron 1: Render Testing Basico</a></li><li class="l2"><a href="#patron-2-event-handling">Patron 2: Event Handling</a></li><li class="l2"><a href="#patron-3-formularios-con-validacion">Patron 3: Formularios con Validacion</a></li><li class="l2"><a href="#patron-4-autorizacion-authorizeview">Patron 4: Autorizacion (AuthorizeView)</a></li><li class="l2"><a href="#patron-5-componentes-con-parametros-y-cascading">Patron 5: Componentes con Parametros y Cascading</a></li><li class="l2"><a href="#patron-6-javascript-interop-mock">Patron 6: JavaScript Interop Mock</a></li><li class="l2"><a href="#base-class-para-tests-bunit">Base Class para Tests bUnit</a></li><li class="l2"><a href="#checklist-bunit">Checklist bUnit</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

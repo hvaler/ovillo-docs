@@ -1,0 +1,241 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pausar · Ovillo</title><meta name="description" content="Guarda estado de sesión en spec, FUNCIONALIDADES.md y JSON"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="pausar · Ovillo"><meta property="og:description" content="Guarda estado de sesión en spec, FUNCIONALIDADES.md y JSON"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/pausar.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/pausar.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/pausar.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html" class="cur">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>pausar</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:pausar</span><span>solo usuario</span></div><h1>pausar</h1><p class="lede">Guarda estado de sesión en spec, FUNCIONALIDADES.md y JSON</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:pausar</code></b><span>invocación</span></div><div><b>2</b><span>ficheros</span></div><div><b>329</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:pausar</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">1</span></h2><div class="tree"><ul><li><span class="dir">references/</span><ul><li><a href="../skills/pausar/references/workflow-sesion.html">workflow-sesion.md</a> <span class="muted">4983 B</span></li></ul></li></ul></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:pausar</code>.</p></blockquote>
+<hr>
+<blockquote><p>⚠️ <strong>CRITICAL</strong>: CRITICAL: Este comando DEBE actualizar TODOS los archivos relacionados:</p>
+<ul>
+<li><code>_hilo/specs/[CODIGO].md</code> → Nota de sesión añadida</li>
+<li><code>_hilo/FUNCIONALIDADES.md</code> → Última sesión actualizada + Próximo paso guardado</li>
+<li><code>_hilo/ESTADO_PROYECTO.json</code> → Estado completo guardado</li>
+</ul></blockquote>
+<section class="sec" id="sec-contexto-2">
+<h3 id="contexto-2">Contexto</h3>
+<p>Guardar el estado actual antes de cerrar Claude Code para poder retomar después con /continuar.</p>
+<hr>
+</section>
+<section class="sec" id="sec-flujo-de-ejecución">
+<h3 id="flujo-de-ejecución">FLUJO DE EJECUCIÓN</h3>
+<pre><code>1. Detectar evolutivo activo (desde JSON)
+2. Leer spec actual: _hilo/specs/[CODIGO].md
+3. Preguntar: próximo paso, notas, archivos en progreso
+4. ESPERAR respuesta del usuario
+5. ⚠️ ACTUALIZAR INMEDIATAMENTE:
+   • _hilo/specs/[CODIGO].md (Nota de sesión añadida)
+   • _hilo/FUNCIONALIDADES.md (Última sesión actualizada)
+   • _hilo/ESTADO_PROYECTO.json (Estado completo guardado)
+6. Mostrar confirmación + recordatorio de archivos sin commit</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-1-detectar-evolutivo-activo">
+<h3 id="paso-1-detectar-evolutivo-activo">PASO 1: Detectar Evolutivo Activo</h3>
+<pre><code>Leer: _hilo/ESTADO_PROYECTO.json
+   → Buscar campo &quot;evolutivoActivo&quot;
+   → Buscar &quot;evolutivos.enProgreso&quot;</code></pre>
+<h4 id="caso-a-hay-evolutivoactivo-definido">Caso A: Hay evolutivoActivo definido</h4>
+<pre><code>Si evolutivoActivo != null:
+   📋 Evolutivo activo: {0} - {1}
+   → Continuar con ese evolutivo</code></pre>
+<h4 id="caso-b-no-hay-evolutivoactivo-pero-hay-evolutivos-en-progreso">Caso B: No hay evolutivoActivo pero hay evolutivos en progreso</h4>
+<pre><code>Si evolutivoActivo == null Y evolutivos.enProgreso.length &gt; 0:
+
+   Si evolutivos.enProgreso.length == 1:
+      → Usar ese único evolutivo
+
+   Si evolutivos.enProgreso.length &gt; 1:
+      ╔═══════════════════════════════════════════════════════════╗
+      ║              📋 MÚLTIPLES EVOLUTIVOS EN PROGRESO                ║
+      ╚═══════════════════════════════════════════════════════════╝
+
+      ¿Cuál evolutivo quieres pausar?
+
+      → HV-01: Validación de DNI... (60%)
+        HV-02: Agregar campos fecha... (30%)
+
+      Indica el código o &quot;todos&quot; para pausar todos:
+
+      ESPERAR RESPUESTA DEL USUARIO</code></pre>
+<h4 id="caso-c-no-hay-evolutivos-en-progreso">Caso C: No hay evolutivos en progreso</h4>
+<pre><code>Si evolutivos.enProgreso.length == 0:
+   ℹ️ No hay evolutivo activo. Guardando estado general del proyecto.</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-2-leer-spec-del-evolutivo-si-existe">
+<h3 id="paso-2-leer-spec-del-evolutivo-si-existe">PASO 2: Leer Spec del Evolutivo (si existe)</h3>
+<pre><code>Leer: _hilo/specs/[CODIGO].md</code></pre>
+<p>Extraer:</p>
+<ul>
+<li>Checklist actual (tareas completadas/pendientes)</li>
+<li>Última nota de sesión</li>
+<li>Archivos afectados</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-paso-3-recopilar-estado-actual">
+<h3 id="paso-3-recopilar-estado-actual">PASO 3: Recopilar Estado Actual</h3>
+<p><strong>Preguntar al usuario:</strong></p>
+<pre><code>⏸️ PAUSANDO SESIÓN
+
+Para poder retomar correctamente, necesito saber:
+
+1. **¿Cuál es el próximo paso pendiente?**
+   (Lo primero que hay que hacer al retomar)
+
+2. **¿Qué se logró en esta sesión?**
+   (Breve resumen del avance)
+
+3. **¿Hay algo importante a recordar?**
+   (Contexto, decisiones, problemas encontrados)
+
+4. **¿En qué archivos estabas trabajando?**
+   (Si no los recuerdas, los detecto automáticamente)
+
+Puedes responder en formato libre.</code></pre>
+<p><strong>ESPERAR RESPUESTA DEL USUARIO</strong></p>
+<hr>
+</section>
+<section class="sec" id="sec-paso-4-detectar-archivos-modificados">
+<h3 id="paso-4-detectar-archivos-modificados">PASO 4: Detectar Archivos Modificados</h3>
+<pre data-lang="powershell"><code><span class="tk-c"># Detectar cambios no commiteados</span>
+git status --short
+
+<span class="tk-c"># Filtrar solo código</span>
+git status --short | Where-Object { <span class="tk-v">$_</span> -match <span class="tk-s">&quot;src/&quot;</span> }</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-5--actualizar-archivos-inmediatamente">
+<h3 id="paso-5--actualizar-archivos-inmediatamente">PASO 5: ⚠️ ACTUALIZAR ARCHIVOS INMEDIATAMENTE</h3>
+<blockquote><p><strong>CRITICAL</strong>: CRITICAL: Ejecutar TODOS estos pasos antes de mostrar confirmación.</p></blockquote>
+<h4 id="51-actualizar-_hilospecscodigomd">5.1 Actualizar _hilo/specs/[CODIGO].md</h4>
+<p>Añadir en la sección <code>## Historial de Sesiones</code>:</p>
+<pre data-lang="markdown"><code>## Historial de Sesiones
+- [FECHA_ANTERIOR]: [nota anterior]
+- [FECHA_ACTUAL]: [resumen de lo logrado] | Próximo: [próximo paso]</code></pre>
+<p>Si hay checklist, actualizar tareas completadas:</p>
+<pre data-lang="markdown"><code>## Criterios de Aceptación
+- [x] Criterio 1 (completado)
+- [x] Criterio 2 (completado esta sesión)
+- [ ] Criterio 3 (pendiente)</code></pre>
+<h4 id="52-actualizar-_hilofuncionalidadesmd">5.2 Actualizar _hilo/FUNCIONALIDADES.md</h4>
+<p>En la sección del evolutivo activo:</p>
+<pre data-lang="markdown"><code>#### [CÓDIGO] [Nombre]
+- **Estado**: 🟡 En progreso
+- **Última sesión**: [FECHA_ACTUAL]    ← ACTUALIZAR
+- **Spec**: `_hilo/specs/[CODIGO].md`
+
+**Checklist:**
+- [x] Tarea 1
+- [x] Tarea 2                          ← ACTUALIZAR si cambió
+- [ ] Tarea 3
+
+**Próximo paso:** [próximo paso]       ← ACTUALIZAR
+
+**Notas de sesión:**
+- [FECHA_ACTUAL]: [resumen] | Próximo: [paso]   ← AÑADIR</code></pre>
+<h4 id="53-actualizar-_hiloestado_proyectojson">5.3 Actualizar _hilo/ESTADO_PROYECTO.json</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;ultimaSesion&quot;</span>: {
+    <span class="tk-s">&quot;fecha&quot;</span>: <span class="tk-s">&quot;[FECHA_HORA_ACTUAL]&quot;</span>,
+    <span class="tk-s">&quot;evolutivoActivo&quot;</span>: <span class="tk-s">&quot;[CÓDIGO]&quot;</span>,
+    <span class="tk-s">&quot;proximoPaso&quot;</span>: <span class="tk-s">&quot;[lo que indicó el usuario]&quot;</span>,
+    <span class="tk-s">&quot;resumenSesion&quot;</span>: <span class="tk-s">&quot;[lo que se logró]&quot;</span>,
+    <span class="tk-s">&quot;archivosModificados&quot;</span>: [
+      <span class="tk-s">&quot;src/[Proyecto]/archivo1.cs&quot;</span>,
+      <span class="tk-s">&quot;src/[Proyecto]/archivo2.cs&quot;</span>
+    ],
+    <span class="tk-s">&quot;notas&quot;</span>: <span class="tk-s">&quot;[notas adicionales]&quot;</span>,
+    <span class="tk-s">&quot;archivosSinCommit&quot;</span>: true
+  },
+  <span class="tk-s">&quot;evolutivos&quot;</span>: {
+    <span class="tk-s">&quot;enProgreso&quot;</span>: [
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;[CÓDIGO]&quot;</span>,
+        <span class="tk-s">&quot;ultimaSesion&quot;</span>: <span class="tk-s">&quot;[FECHA_ACTUAL]&quot;</span>,
+        <span class="tk-s">&quot;progreso&quot;</span>: [X]
+      }
+    ]
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-6-sesión-pausada">
+<h3 id="paso-6-sesión-pausada">PASO 6: SESIÓN PAUSADA</h3>
+<pre><code>╔═══════════════════════════════════════════════════════════════╗
+║                    ⏸️ SESIÓN PAUSADA                             ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📅 Fecha: [FECHA_HORA_ACTUAL]
+📋 Evolutivo: [CÓDIGO] - [Nombre]
+📊 Progreso: ████████░░ [X]%
+
+┌──────────────────────────────────────────────────────────────────┐
+│ 📂 ESTADO GUARDADO EN:                                          │
+├──────────────────────────────────────────────────────────────────┤
+│ ✅ _hilo/specs/[CODIGO].md      ← Nota de sesión añadida    │
+│ ✅ _hilo/FUNCIONALIDADES.md     ← Última sesión actualizada │
+│ ✅ _hilo/ESTADO_PROYECTO.json   ← Estado completo guardado  │
+└──────────────────────────────────────────────────────────────────┘
+
+🎯 Próximo paso guardado:
+   &quot;[próximo paso]&quot;
+
+📂 Archivos de esta sesión:
+   • src/[ruta]/archivo1.cs
+   • src/[ruta]/archivo2.cs</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-7-verificar-cambios-sin-commit">
+<h3 id="paso-7-verificar-cambios-sin-commit">PASO 7: Verificar Cambios Sin Commit</h3>
+<pre><code>⚠️ ARCHIVOS MODIFICADOS SIN COMMIT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ M src/[Proyecto]/archivo1.cs
+ M src/[Proyecto]/archivo2.cs
+ A src/[Proyecto]/archivo3.cs
+
+💡 Recomendación: Hacer commit antes de cerrar
+   git add.
+   git commit -m &quot;[CÓDIGO]: [descripción del avance]&quot;</code></pre>
+<p><strong>Si no hay cambios sin commit:</strong></p>
+<pre><code>✅ Todos los cambios están commiteados</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-8-para-retomar">
+<h3 id="paso-8-para-retomar">PASO 8: PARA RETOMAR</h3>
+<pre><code>💡 PARA RETOMAR:
+━━━━━━━━━━━━━━
+
+1. Abre Claude Code en este proyecto
+2. Ejecuta: /continuar
+3. Claude cargará automáticamente::
+   • Evolutivo activo
+   • Próximo paso
+   • Contexto de la sesión
+
+¡Hasta la próxima sesión! 👋</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-critical-reminders">
+<h3 id="critical-reminders">⚠️ CRITICAL REMINDERS</h3>
+<h4 id="siempre-actualizar-estos-3-archivos">SIEMPRE actualizar estos 3 archivos:</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Acción</th></tr></thead><tbody><tr><td><code>_hilo/specs/[CODIGO].md</code></td><td>Nota de sesión añadida</td></tr><tr><td><code>_hilo/FUNCIONALIDADES.md</code></td><td>Última sesión actualizada + Próximo paso guardado</td></tr><tr><td><code>_hilo/ESTADO_PROYECTO.json</code></td><td>Estado completo guardado</td></tr></tbody></table></div>
+<h4 id="nunca">NUNCA:</h4>
+<ul>
+<li>❌ Pausar sin actualizar los archivos</li>
+<li>❌ Dejar el próximo paso solo en el chat</li>
+<li>❌ Mostrar confirmación sin haber escrito a archivos</li>
+</ul>
+<h4 id="sin-evolutivo-activo">SIN EVOLUTIVO ACTIVO:</h4>
+<p>Si no hay evolutivo en progreso, igual guardar en JSON:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;ultimaSesion&quot;</span>: {
+    <span class="tk-s">&quot;fecha&quot;</span>: <span class="tk-s">&quot;[FECHA]&quot;</span>,
+    <span class="tk-s">&quot;evolutivoActivo&quot;</span>: null,
+    <span class="tk-s">&quot;notas&quot;</span>: <span class="tk-s">&quot;[lo que se trabajó]&quot;</span>
+  }
+}</code></pre>
+<hr>
+<p><em>Skill pausar · kind: workflow</em></p>
+<hr>
+</section>
+<section class="sec" id="sec-modo---rapido-absorbe-el-antiguo-sesion">
+<h3 id="modo---rapido-absorbe-el-antiguo-sesion">Modo <code>--rapido</code> (absorbe el antiguo <code>/sesion</code>)</h3>
+<p>Version ligera del procedimiento, procedente de <code>/sesion</code>, retirado por duplicidad: ambos guardan estado de sesion; <code>sesion</code> era el subconjunto ligero de <code>pausar</code>. Detalle en <strong><code>references/workflow-sesion.md</code></strong>.</p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>58</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 329 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>4 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(fuentes): Lote A de la auditoria externa — prosa fosil, dato personal, frases rotas, /hv: canonico y correctivos del generador (ADR-022)</em> (<code>ff4b4fb</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/estado.html">estado</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/pausar/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#contexto-2">Contexto</a></li><li class="l3"><a href="#flujo-de-ejecución">FLUJO DE EJECUCIÓN</a></li><li class="l3"><a href="#paso-1-detectar-evolutivo-activo">PASO 1: Detectar Evolutivo Activo</a></li><li class="l3"><a href="#paso-2-leer-spec-del-evolutivo-si-existe">PASO 2: Leer Spec del Evolutivo (si existe)</a></li><li class="l3"><a href="#paso-3-recopilar-estado-actual">PASO 3: Recopilar Estado Actual</a></li><li class="l3"><a href="#paso-4-detectar-archivos-modificados">PASO 4: Detectar Archivos Modificados</a></li><li class="l3"><a href="#paso-5--actualizar-archivos-inmediatamente">PASO 5: ⚠️ ACTUALIZAR ARCHIVOS INMEDIATAMENTE</a></li><li class="l3"><a href="#paso-6-sesión-pausada">PASO 6: SESIÓN PAUSADA</a></li><li class="l3"><a href="#paso-7-verificar-cambios-sin-commit">PASO 7: Verificar Cambios Sin Commit</a></li><li class="l3"><a href="#paso-8-para-retomar">PASO 8: PARA RETOMAR</a></li><li class="l3"><a href="#critical-reminders">⚠️ CRITICAL REMINDERS</a></li><li class="l3"><a href="#modo---rapido-absorbe-el-antiguo-sesion">Modo --rapido (absorbe el antiguo /sesion)</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

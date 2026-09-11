@@ -1,0 +1,332 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>jira · references/procedimiento.md · Ovillo</title><meta name="description" content="Fichero references/procedimiento.md de la skill jira"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="jira · references/procedimiento.md · Ovillo"><meta property="og:description" content="Fichero references/procedimiento.md de la skill jira"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/jira/references/procedimiento.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/jira/references/procedimiento.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/jira/references/procedimiento.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de jira (1)</h4><ul class="sibs"><li><a href="../../../skills/jira/references/procedimiento.html" class="cur">references/procedimiento.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/jira.html">jira</a></span><span>references</span><span>procedimiento.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>jira</span><span>references/</span></div><h1>procedimiento.md</h1><p class="lede">Referencia que <code>jira</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/jira.html">jira</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>14.991 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Se lee bajo demanda al invocar la skill. Vive aparte para no pasar del techo de 400 lineas del <code>SKILL.md</code>.</p></blockquote>
+<hr>
+<blockquote><p><strong>REQUISITO</strong>: Este comando requiere que el MCP Server de Atlassian esté configurado. Ejecutar: <code>claude mcp add --transport sse atlassian https://mcp.atlassian.com/v1/sse --scope user</code></p></blockquote>
+<hr>
+<section class="sec" id="sec-configuración-previa">
+<h3 id="configuración-previa">Configuración Previa</h3>
+<h4 id="verificar-mcp-server">Verificar MCP Server</h4>
+<pre data-lang="bash"><code><span class="tk-c"># En Claude Code</span>
+/mcp
+
+<span class="tk-c"># Debe aparecer &quot;atlassian&quot; en la lista de servidores conectados</span></code></pre>
+<h4 id="configuración-del-proyecto">Configuración del Proyecto</h4>
+<p>El comando lee la configuración de <code>_hilo/ESTADO_PROYECTO.json</code>:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;jira&quot;</span>: {
+    <span class="tk-s">&quot;habilitado&quot;</span>: true,
+    <span class="tk-s">&quot;proyectoKey&quot;</span>: <span class="tk-s">&quot;PROJ&quot;</span>,
+    <span class="tk-s">&quot;url&quot;</span>: <span class="tk-s">&quot;https://myorg.atlassian.net&quot;</span>
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parámetros">
+<h3 id="parámetros">Parámetros</h3>
+<div class="tbl"><table><thead><tr><th>Parámetro</th><th>Descripción</th></tr></thead><tbody><tr><td>(sin parámetro)</td><td>Muestra mis tareas asignadas</td></tr><tr><td><code>--mis-tareas</code></td><td>Alias de sin parámetro</td></tr><tr><td><code>--buscar &lt;texto&gt;</code></td><td>Busca issues por texto o JQL</td></tr><tr><td><code>--ver &lt;TICKET-ID&gt;</code></td><td>Muestra detalles de un ticket</td></tr><tr><td><code>--crear &lt;título&gt;</code></td><td>Crea nuevo issue</td></tr><tr><td><code>--iniciar &lt;TICKET-ID&gt;</code></td><td>Inicia trabajo en ticket (crea evolutivo vinculado)</td></tr><tr><td><code>--estado &lt;TICKET-ID&gt; &lt;estado&gt;</code></td><td>Cambia estado del ticket</td></tr><tr><td><code>--comentar &lt;TICKET-ID&gt; &lt;texto&gt;</code></td><td>Añade comentario al ticket</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-uso-por-parámetro">
+<h3 id="uso-por-parámetro">Uso por Parámetro</h3>
+<h4 id="sin-parámetro----mis-tareas">Sin parámetro / <code>--mis-tareas</code></h4>
+<p>Muestra issues asignados al usuario actual:</p>
+<pre><code>▶ MIS TAREAS EN JIRA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 TAREAS ASIGNADAS (5)
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 🔵 PROJ-456: Implementar filter de fechas en búsqueda          │
+│ ─────────────────────────────────────────────────────────────── │
+│ Estado: In Progress │ Prioridad: Media │ Sprint: 12             │
+│ Creado: 2026-01-25 │ Actualizado: hace 2 días                   │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 🟡 PROJ-478: Corregir validación de email                      │
+│ ─────────────────────────────────────────────────────────────── │
+│ Estado: To Do │ Prioridad: Alta │ Sprint: 12                    │
+│ Creado: 2026-01-27                                              │
+└─────────────────────────────────────────────────────────────────┘
+
+📊 RESUMEN
+┌─────────────────────────────────────────────────┐
+│  To Do:        2                                │
+│  In Progress:  2                                │
+│  In Review:    1                                │
+└─────────────────────────────────────────────────┘
+
+💡 Comandos:
+   /jira --ver PROJ-456      → Ver detalles
+   /jira --iniciar PROJ-478  → Iniciar trabajo (crea evolutivo)</code></pre>
+<hr>
+<h4 id="--buscar"><code>--buscar &lt;texto&gt;</code></h4>
+<p>Busca issues por texto libre o JQL:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Búsqueda simple</span>
+/jira --buscar <span class="tk-s">&quot;filter fechas&quot;</span>
+
+<span class="tk-c"># JQL avanzado</span>
+/jira --buscar <span class="tk-s">&quot;project = PROJ AND status = 'To Do' AND priority = High&quot;</span></code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>▶ RESULTADOS DE BÚSQUEDA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Query: filter fechas
+Resultados: 3 issues encontrados
+
+| Ticket    | Título                              | Estado      | Asignado   |
+|-----------|-------------------------------------|-------------|------------|
+| PROJ-456  | Implementar filter de fechas        | In Progress | @hvaler    |
+| PROJ-234  | Filtro de fechas en exportación     | Done        | @jgarcia   |
+| PROJ-123  | Bug: filter no guarda fechas        | Closed      | @mlopez    |
+
+💡 /jira --ver PROJ-456 para más detalles</code></pre>
+<hr>
+<h4 id="--ver"><code>--ver &lt;TICKET-ID&gt;</code></h4>
+<p>Muestra detalles completos de un ticket:</p>
+<pre><code>▶ DETALLE DE TICKET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+╔══════════════════════════════════════════════════════════════╗
+║  PROJ-456: Implementar filter de fechas en búsqueda          ║
+╠══════════════════════════════════════════════════════════════╣
+║  Tipo: Task          │ Prioridad: Media                      ║
+║  Estado: In Progress │ Resolución: -                         ║
+║  Sprint: Sprint 12   │ Story Points: 5                       ║
+╚══════════════════════════════════════════════════════════════╝
+
+📝 DESCRIPCIÓN
+───────────────────────────────────────────────────────────────
+Añadir filter por rango de fechas en la pantalla de búsqueda
+de applications. El usuario debe poder:
+- Seleccionar fecha desde
+- Seleccionar fecha hasta
+- Limpiar filter
+───────────────────────────────────────────────────────────────
+
+👤 PERSONAS
+┌─────────────────────────────────────────────────┐
+│ Creador:   Juan García (jgarcia@example.com)   │
+│ Asignado:  A. Perez (aperez@example.com)      │
+│ Reporter:  María López                          │
+└─────────────────────────────────────────────────┘
+
+📅 FECHAS
+┌─────────────────────────────────────────────────┐
+│ Creado:      2026-01-25 10:30                   │
+│ Actualizado: 2026-01-28 15:45                   │
+│ Due Date:    2026-02-01                         │
+└─────────────────────────────────────────────────┘
+
+💬 ÚLTIMOS COMENTARIOS (2)
+───────────────────────────────────────────────────────────────
+[2026-01-28] HV: Iniciada implementación del componente DatePicker
+[2026-01-26] JG: Añadido mockup de diseño en Figma
+───────────────────────────────────────────────────────────────
+
+🔗 ENLACES
+├── Evolutivo local: HV-25 (vinculado)
+├── PR: #123 (abierto)
+└── Figma: [mockup-filter-fechas]
+
+💡 Acciones:
+   /jira --estado PROJ-456 &quot;In Review&quot;  → Cambiar estado
+   /jira --comentar PROJ-456 &quot;texto&quot;    → Añadir comentario</code></pre>
+<hr>
+<h4 id="--crear"><code>--crear &lt;título&gt;</code></h4>
+<p>Crea un nuevo issue en Jira:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Crear tarea simple</span>
+/jira --crear <span class="tk-s">&quot;Añadir validación de DNI en formulario&quot;</span>
+
+<span class="tk-c"># Con opciones</span>
+/jira --crear --tipo Bug --prioridad Alta <span class="tk-s">&quot;Error en exportación PDF&quot;</span></code></pre>
+<p><strong>Flujo interactivo:</strong></p>
+<pre><code>▶ CREAR NUEVO ISSUE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Título: Añadir validación de DNI en formulario
+
+¿Tipo de issue?
+  1. Task (por defecto)
+  2. Bug
+  3. Story
+  4. Epic
+
+&gt; 1
+
+¿Prioridad?
+  1. Low
+  2. Medium (por defecto)
+  3. High
+  4. Critical
+
+&gt; 2
+
+¿Añadir descripción? (Enter para omitir)
+&gt; Validar formato DNI español (8 dígitos + letra)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ ISSUE CREADO
+
+PROJ-512: Añadir validación de DNI en formulario
+URL: https://myorg.atlassian.net/browse/PROJ-512
+
+¿Iniciar trabajo ahora? [s/N]
+&gt; s
+
+✅ Evolutivo PROJ-512 creado y vinculado
+   Rama: feature/PROJ-512</code></pre>
+<hr>
+<h4 id="--iniciar"><code>--iniciar &lt;TICKET-ID&gt;</code></h4>
+<p>Inicia trabajo en un ticket de Jira (crea evolutivo vinculado):</p>
+<pre><code>▶ INICIAR TRABAJO EN TICKET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ticket: PROJ-456 - Implementar filter de fechas en búsqueda
+
+Acciones a realizar:
+1. ✅ Cambiar estado en Jira: To Do → In Progress
+2. ✅ Crear evolutivo local vinculado
+3. ✅ Crear rama: feature/PROJ-456
+4. ✅ Actualizar ESTADO_PROYECTO.json
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ TRABAJO INICIADO
+
+Evolutivo: PROJ-456
+Rama: feature/PROJ-456
+Estado Jira: In Progress
+
+📝 Spec creado: _hilo/specs/PROJ-456.md
+
+💡 Comandos útiles:
+   /estado                           → Ver progreso
+   /commit &quot;mensaje&quot;                 → Commit (incluye [PROJ-456])
+   /jira --comentar PROJ-456 &quot;...&quot;   → Actualizar Jira
+   /finalizar-evolutivo              → Cierra ticket automáticamente</code></pre>
+<hr>
+<h4 id="--estado"><code>--estado &lt;TICKET-ID&gt; &lt;nuevo-estado&gt;</code></h4>
+<p>Cambia el estado de un ticket:</p>
+<pre data-lang="bash"><code>/jira --estado PROJ-456 <span class="tk-s">&quot;In Review&quot;</span></code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>▶ CAMBIAR ESTADO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ticket: PROJ-456
+Estado actual: In Progress
+Nuevo estado: In Review
+
+✅ Estado actualizado correctamente
+
+Transición: In Progress → In Review</code></pre>
+<hr>
+<h4 id="--comentar"><code>--comentar &lt;TICKET-ID&gt; &lt;texto&gt;</code></h4>
+<p>Añade un comentario al ticket:</p>
+<pre data-lang="bash"><code>/jira --comentar PROJ-456 <span class="tk-s">&quot;Implementación completada, pendiente de tests&quot;</span></code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>▶ AÑADIR COMENTARIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ticket: PROJ-456
+
+Comentario añadido:
+&quot;Implementación completada, pendiente de tests&quot;
+
+✅ Comentario publicado correctamente</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-integración-con-evolutivos">
+<h3 id="integración-con-evolutivos">Integración con Evolutivos</h3>
+<h4 id="cuando-existe-un-ticket-jira-vinculado">Cuando existe un ticket Jira vinculado</h4>
+<p>Si el evolutivo actual está vinculado a un ticket Jira, los comandos se comportan así:</p>
+<div class="tbl"><table><thead><tr><th>Comando</th><th>Comportamiento con Jira</th></tr></thead><tbody><tr><td><code>/hv:commit &quot;mensaje&quot;</code></td><td>Incluye <code>[PROJ-XXX]</code> en el mensaje</td></tr><tr><td><code>/hv:finalizar-evolutivo</code></td><td>Cambia estado en Jira a &quot;Done&quot; + comentario</td></tr><tr><td><code>/hv:pausar</code></td><td>Añade comentario en Jira indicando pausa</td></tr><tr><td><code>/hv:continuar</code></td><td>Cambia estado a &quot;In Progress&quot; si estaba pausado</td></tr></tbody></table></div>
+<h4 id="ejemplo-de-hvfinalizar-evolutivo-con-jira">Ejemplo de <code>/hv:finalizar-evolutivo</code> con Jira</h4>
+<pre><code>▶ FINALIZAR EVOLUTIVO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Evolutivo: PROJ-456
+Vinculado a: Jira PROJ-456
+
+Acciones a realizar:
+1. ✅ Merge rama feature/PROJ-456 → main
+2. ✅ Actualizar estado Jira: In Progress → Done
+3. ✅ Añadir comentario en Jira con resumen de cambios
+4. ✅ Marcar evolutivo como completado
+
+Resumen de cambios:
+- 8 archivos modificados
+- 3 commits: feat(filtros): implementar DatePicker...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ EVOLUTIVO FINALIZADO
+
+Jira PROJ-456 actualizado:
+- Estado: Done
+- Comentario: &quot;Implementación completada. 8 archivos, 3 commits.&quot;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-mapeo-de-estados">
+<h3 id="mapeo-de-estados">Mapeo de Estados</h3>
+<div class="tbl"><table><thead><tr><th>Estado Evolutivo</th><th>Estado Jira</th><th>Transición</th></tr></thead><tbody><tr><td><code>pendiente</code></td><td>To Do</td><td>Al crear</td></tr><tr><td><code>en_progreso</code></td><td>In Progress</td><td>Al <code>/hv:jira --iniciar</code> o <code>/hv:continuar</code></td></tr><tr><td><code>pausado</code></td><td>In Progress</td><td>Mantiene (añade comentario)</td></tr><tr><td><code>en_revision</code></td><td>In Review</td><td>Al crear PR</td></tr><tr><td><code>completado</code></td><td>Done</td><td>Al <code>/hv:finalizar-evolutivo</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-configuración-avanzada">
+<h3 id="configuración-avanzada">Configuración Avanzada</h3>
+<h4 id="en-_hiloestado_proyectojson">En <code>_hilo/ESTADO_PROYECTO.json</code></h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;jira&quot;</span>: {
+    <span class="tk-s">&quot;habilitado&quot;</span>: true,
+    <span class="tk-s">&quot;proyectoKey&quot;</span>: <span class="tk-s">&quot;PROJ&quot;</span>,
+    <span class="tk-s">&quot;url&quot;</span>: <span class="tk-s">&quot;https://myorg.atlassian.net&quot;</span>,
+    <span class="tk-s">&quot;tipoIssueDefault&quot;</span>: <span class="tk-s">&quot;Task&quot;</span>,
+    <span class="tk-s">&quot;autoSyncEstado&quot;</span>: true,
+    <span class="tk-s">&quot;autoComentario&quot;</span>: true,
+    <span class="tk-s">&quot;prefijoBranch&quot;</span>: <span class="tk-s">&quot;feature/&quot;</span>
+  }
+}</code></pre>
+<h4 id="opciones-de-comportamiento">Opciones de comportamiento</h4>
+<div class="tbl"><table><thead><tr><th>Opción</th><th>Descripción</th><th>Default</th></tr></thead><tbody><tr><td><code>autoSyncEstado</code></td><td>Sincroniza estados automáticamente</td><td><code>true</code></td></tr><tr><td><code>autoComentario</code></td><td>Añade comentarios automáticos en commits</td><td><code>true</code></td></tr><tr><td><code>prefijoBranch</code></td><td>Prefijo para ramas vinculadas</td><td><code>feature/</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-sin-mcp-server-configurado">
+<h3 id="sin-mcp-server-configurado">Sin MCP Server configurado</h3>
+<p>Si el MCP Server de Atlassian no está configurado, el comando mostrará:</p>
+<pre><code>⚠️ MCP SERVER DE ATLASSIAN NO CONFIGURADO
+
+Para usar /jira, necesitas configurar el MCP Server:
+
+1. Ejecutar en terminal:
+   claude mcp add --transport sse atlassian https://mcp.atlassian.com/v1/sse --scope user
+
+2. Autenticarte en el navegador con tu cuenta de Atlassian
+
+3. Verificar conexión:
+   /mcp
+
+📚 Más información: Documentacion/03_Desarrolladores/INTEGRACION_JIRA.md</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-resolución-de-problemas">
+<h3 id="resolución-de-problemas">Resolución de Problemas</h3>
+<h4 id="error-de-autenticación">Error de autenticación</h4>
+<pre><code>❌ Error de autenticación con Atlassian
+
+Posibles causas:
+1. Token expirado - Re-autenticar con:
+   claude mcp remove atlassian
+   claude mcp add --transport sse atlassian https://mcp.atlassian.com/v1/sse --scope user
+
+2. Permisos insuficientes - Verificar acceso al proyecto PROJ
+
+3. Sin conexión - Verificar conectividad a myorg.atlassian.net</code></pre>
+<h4 id="ticket-no-encontrado">Ticket no encontrado</h4>
+<pre><code>❌ Ticket PROJ-999 no encontrado
+
+Verifica:
+- El ID del ticket es correcto
+- Tienes acceso al proyecto PROJ
+- El ticket no ha sido eliminado</code></pre>
+<hr>
+<p><em>Integración con Jira Software</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/jira.html#ficheros">← Volver a la ficha de jira</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/jira.html"><small>Anterior</small>Ficha de jira</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/jira/references/procedimiento.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#configuración-previa">Configuración Previa</a></li><li class="l3"><a href="#verificar-mcp-server">Verificar MCP Server</a></li><li class="l3"><a href="#configuración-del-proyecto">Configuración del Proyecto</a></li><li class="l2"><a href="#parámetros">Parámetros</a></li><li class="l2"><a href="#uso-por-parámetro">Uso por Parámetro</a></li><li class="l3"><a href="#sin-parámetro----mis-tareas">Sin parámetro / --mis-tareas</a></li><li class="l3"><a href="#--buscar">--buscar &lt;texto&gt;</a></li><li class="l3"><a href="#--ver">--ver &lt;TICKET-ID&gt;</a></li><li class="l3"><a href="#--crear">--crear &lt;título&gt;</a></li><li class="l3"><a href="#--iniciar">--iniciar &lt;TICKET-ID&gt;</a></li><li class="l3"><a href="#--estado">--estado &lt;TICKET-ID&gt; &lt;nuevo-estado&gt;</a></li><li class="l3"><a href="#--comentar">--comentar &lt;TICKET-ID&gt; &lt;texto&gt;</a></li><li class="l2"><a href="#integración-con-evolutivos">Integración con Evolutivos</a></li><li class="l3"><a href="#cuando-existe-un-ticket-jira-vinculado">Cuando existe un ticket Jira vinculado</a></li><li class="l3"><a href="#ejemplo-de-hvfinalizar-evolutivo-con-jira">Ejemplo de /hv:finalizar-evolutivo con Jira</a></li><li class="l2"><a href="#mapeo-de-estados">Mapeo de Estados</a></li><li class="l2"><a href="#configuración-avanzada">Configuración Avanzada</a></li><li class="l3"><a href="#en-_hiloestado_proyectojson">En _hilo/ESTADO_PROYECTO.json</a></li><li class="l3"><a href="#opciones-de-comportamiento">Opciones de comportamiento</a></li><li class="l2"><a href="#sin-mcp-server-configurado">Sin MCP Server configurado</a></li><li class="l2"><a href="#resolución-de-problemas">Resolución de Problemas</a></li><li class="l3"><a href="#error-de-autenticación">Error de autenticación</a></li><li class="l3"><a href="#ticket-no-encontrado">Ticket no encontrado</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

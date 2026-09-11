@@ -1,0 +1,235 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · templates/azure-pipelines.fase2.console.yml.template · Ovillo</title><meta name="description" content="Fichero templates/azure-pipelines.fase2.console.yml.template de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · templates/azure-pipelines.fase2.console.yml.template · Ovillo"><meta property="og:description" content="Fichero templates/azure-pipelines.fase2.console.yml.template de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html" class="cur">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/cicd-architect.html">cicd-architect</a></span><span>templates</span><span>azure-pipelines.fase2.console.yml.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>templates/</span><span>12.947 B</span></div><h1>azure-pipelines.fase2.console.yml.template</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>12.947 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code><span class="tk-c"># =============================================================================</span>
+<span class="tk-c"># {{PROYECTO_NOMBRE}} — Pipeline CI + CD (Fase 2, stack .NET Console/Worker)</span>
+<span class="tk-c"># Ovillo cicd-architect console @ {{TEMPLATE_STAMP}}   (sello de plantilla; /cicd-status detecta drift)</span>
+<span class="tk-c"># Reglas: .claude/skills/cicd-runtime/SKILL.md (G1-G19; CD de Console/Worker = R25 ampliada)</span>
+<span class="tk-c"># Limitaciones Azure DevOps Server 2020: .claude/skills/cicd-architect/references/azure-devops-server-2020-quick-ref.md</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># QUE ES: pipeline para un entrypoint Console/Worker (sync periodico, batch, BackgroundService).</span>
+<span class="tk-c"># CD via TAREA PROGRAMADA (mecanismo por defecto): proceso fresco por ejecucion -&gt; deploy =</span>
+<span class="tk-c"># file-sync (sin locks entre runs). Para workers always-on (IHostedService corriendo siempre) el</span>
+<span class="tk-c"># deploy seria un Windows Service (variante 'sc stop/start', PENDIENTE: steps/deploy-windows-service.yml</span>
+<span class="tk-c"># se anadira cuando un proyecto lo pida; de momento solo Tarea Programada).</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># RAMAS CONDICIONALES que /cicd-init aplica (igual que fase2.dotnet):</span>
+<span class="tk-c">#   (a) SIN proyecto de test -&gt; ELIMINAR 'dotnet test' + coverage + gate R18.</span>
+<span class="tk-c">#   (b) Config por entorno (.NET SDK-style sin Key Vault): {{CONFIG_INJECT_STEP}} en el step de deploy</span>
+<span class="tk-c">#       (steps/deploy-scheduled-task.yml) inyecta los secretos del VG en appsettings.json (R23).</span>
+<span class="tk-c"># =============================================================================</span>
+
+name: <span class="tk-v">$(date:yyyyMMdd)</span><span class="tk-v">$(rev:.r)</span>
+
+trigger:
+  <span class="tk-c"># R21: ramas segun configuracion.branching.estrategia (igual que fase2.dotnet)</span>
+  branches:
+    include:
+      - <span class="tk-v">{{RAMA_BASE}}</span>
+      <span class="tk-c"># {{TRIGGER_BRANCHES_EXTRA}}  &lt;- /cicd-init R21</span>
+  paths:
+    <span class="tk-c"># R7: doble patron Azure DevOps Server 2020 + acotado al subarbol del entrypoint Console (R25)</span>
+    include:
+      - <span class="tk-s">'{{ENTRYPOINT_PATH}}/**'</span>
+      - <span class="tk-s">'{{ENTRYPOINT_PATH}}/**/*'</span>
+      - <span class="tk-s">'ops/testing/**'</span>
+      - <span class="tk-s">'ops/testing/**/*'</span>
+      - <span class="tk-s">'azure-pipelines.{{SLUG}}.yml'</span>
+
+pr: none
+
+variables:
+  - group: <span class="tk-v">{{PIPELINE_NAME}}</span>-secrets                 <span class="tk-c"># R16</span>
+  - name: BuildConfiguration
+    value: <span class="tk-s">'Release'</span>
+  - name: solutionPath
+    value: <span class="tk-s">'{{SLN_PATH}}'</span>
+  - name: consoleProject
+    value: <span class="tk-s">'{{CONSOLE_CSPROJ}}'</span>                       <span class="tk-c"># el .csproj del entrypoint Console/Worker</span>
+  - name: testProject
+    value: <span class="tk-s">'{{TESTS_CSPROJ}}'</span>
+  - name: coverageLineThreshold
+    value: <span class="tk-s">'70'</span>
+  - name: coverageBranchThreshold
+    value: <span class="tk-s">'60'</span>
+  <span class="tk-c"># ── CD Console (R25): task programada ──────────────────────────────</span>
+  - name: taskName
+    value: <span class="tk-s">'{{TASK_NAME}}'</span>                            <span class="tk-c"># ej. MyCompany.Billing.Sync</span>
+  - name: deployFolder
+    value: <span class="tk-s">'{{DEPLOY_FOLDER}}'</span>                        <span class="tk-c"># ej. D:\Apps\Billing (carpeta destino en el servidor)</span>
+  - name: consoleExe
+    value: <span class="tk-s">'{{CONSOLE_EXE}}'</span>                          <span class="tk-c"># ej. MyCompany.Billing.Console.exe</span>
+  - name: taskScheduleArgs
+    value: <span class="tk-s">'{{TASK_SCHEDULE_ARGS}}'</span>                   <span class="tk-c"># ej. '/SC HOURLY'  o  '/SC DAILY /ST 02:00'</span>
+  - name: taskRunAccount
+    value: <span class="tk-s">'{{TASK_RUN_ACCOUNT}}'</span>                     <span class="tk-c"># R6: 'NT AUTHORITY\SYSTEM' por defecto</span>
+  - name: backupRoot
+    value: <span class="tk-s">'C:\Backups'</span>                               <span class="tk-c"># R15</span>
+  <span class="tk-c"># {{QUALITY_SYNC_VARS}}  &lt;- /cicd-init FASE 2.7 (igual que fase2.dotnet)</span>
+
+stages:
+  <span class="tk-c"># ───────────────────────────────────────────────────────────────────────</span>
+  <span class="tk-c"># STAGE 1: BUILD (auto) — identico criterio que fase2.dotnet</span>
+  <span class="tk-c"># ───────────────────────────────────────────────────────────────────────</span>
+  - stage: Build
+    displayName: <span class="tk-s">'Build &amp; Test'</span>
+    jobs:
+      - job: BuildAndTest
+        pool:
+          name: <span class="tk-v">{{BUILD_POOL}}</span>                              <span class="tk-c"># R1</span>
+          demands:
+            - Agent.ComputerName -equals <span class="tk-v">{{BUILD_AGENT}}</span>      <span class="tk-c"># R1</span>
+        timeoutInMinutes: <span class="tk-n">30</span>
+        steps:
+          - task: PowerShell@<span class="tk-n">2</span>
+            displayName: <span class="tk-s">'Fail-fast: validar VG secretos'</span>   <span class="tk-c"># R16</span>
+            inputs:
+              targetType: inline
+              script: |
+                try { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13 } catch { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 }
+                $required = @(<span class="tk-v">{{LISTA_SECRETOS_VG}}</span>)
+                $missing = $required | Where-Object { [string]::IsNullOrWhiteSpace((Get-Item <span class="tk-s">&quot;env:$_&quot;</span> -EA SilentlyContinue).Value) }
+                if ($missing.Count -gt <span class="tk-n">0</span>) { Write-Error <span class="tk-s">&quot;Secretos vacios: $($missing -join ', '). Rellenar en VG '{{PIPELINE_NAME}}-secrets'.&quot;</span>; exit <span class="tk-n">1</span> }
+
+          - task: UseDotNet@<span class="tk-n">2</span>                          <span class="tk-c"># R4</span>
+            displayName: <span class="tk-s">'Install .NET SDK {{NET_VERSION}}'</span>
+            inputs:
+              packageType: <span class="tk-s">'sdk'</span>
+              version: <span class="tk-s">'{{NET_VERSION}}.x'</span>
+
+          - task: DotNetCoreCLI@<span class="tk-n">2</span>
+            displayName: <span class="tk-s">'dotnet restore'</span>
+            inputs:
+              command: <span class="tk-s">'restore'</span>
+              projects: <span class="tk-s">'$(solutionPath)'</span>
+              feedsToUse: <span class="tk-s">'config'</span>
+              nugetConfigPath: <span class="tk-s">'{{NUGET_CONFIG_PATH}}'</span>
+
+          - task: DotNetCoreCLI@<span class="tk-n">2</span>
+            displayName: <span class="tk-s">'dotnet build (Release)'</span>
+            inputs:
+              command: <span class="tk-s">'build'</span>
+              projects: <span class="tk-s">'$(solutionPath)'</span>
+              arguments: <span class="tk-s">'--configuration $(BuildConfiguration) --no-restore'</span>
+
+          <span class="tk-c"># HALLAZGO H: limpiar cobertura/opencover obsoletos del temp del agente</span>
+          - task: PowerShell@<span class="tk-n">2</span>
+            displayName: <span class="tk-s">'Limpiar cobertura/opencover obsoletos (HALLAZGO H)'</span>
+            inputs:
+              targetType: inline
+              script: |
+                Get-ChildItem $env:AGENT_TEMPDIRECTORY -Recurse -File -ErrorAction SilentlyContinue |
+                  Where-Object { $_.Name -like <span class="tk-s">'*cobertura.xml'</span> -or $_.Name -like <span class="tk-s">'*opencover.xml'</span> } |
+                  Remove-Item -Force -ErrorAction SilentlyContinue
+
+          <span class="tk-c"># BLOQUE OMITIBLE (sin tests -&gt; /cicd-init elimina test+coverage+R18)</span>
+          - task: DotNetCoreCLI@<span class="tk-n">2</span>
+            displayName: <span class="tk-s">'dotnet test (solucion completa, with coverage)'</span>
+            inputs:
+              command: <span class="tk-s">'test'</span>
+              projects: <span class="tk-s">'$(solutionPath)'</span>
+              arguments: <span class="tk-s">'--configuration $(BuildConfiguration) --no-build{{TEST_FILTER}} --collect:&quot;XPlat Code Coverage&quot; -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura,opencover'</span>
+
+          - task: PublishCodeCoverageResults@<span class="tk-n">1</span>         <span class="tk-c"># R4 NO @2</span>
+            displayName: <span class="tk-s">'Publish coverage'</span>
+            inputs:
+              codeCoverageTool: <span class="tk-s">'Cobertura'</span>
+              summaryFileLocation: <span class="tk-s">'$(Agent.TempDirectory)/**/*cobertura.xml'</span>
+
+          <span class="tk-c"># G7 (R18): gate de cobertura WARN-first (steps/coverage-gate.yml -&gt; ops/cicd/scripts/coverage-gate.ps1). Identico a fase2.dotnet.</span>
+          <span class="tk-c"># {{R18_COVERAGE_GATE}}  &lt;- /cicd-init materializa aqui el step 'Coverage gate ... (R18, WARN)' de fase2.dotnet</span>
+          <span class="tk-c">#   (`- template: steps/coverage-gate.yml` con los thresholds del pipeline). Si no hay tests, se elimina.</span>
+
+          <span class="tk-c"># R22: gate de ciberseguridad (verdict-file). El code del Console puede tener CVEs/secretos.</span>
+          - template: steps/security-scan-build.yml
+            parameters:
+              stack: dotnet
+
+          - task: DotNetCoreCLI@<span class="tk-n">2</span>
+            displayName: <span class="tk-s">'dotnet publish (Console/Worker)'</span>
+            inputs:
+              command: <span class="tk-s">'publish'</span>
+              projects: <span class="tk-s">'$(consoleProject)'</span>
+              publishWebProjects: <span class="tk-k">false</span>                <span class="tk-c"># NO es web</span>
+              arguments: <span class="tk-s">'--configuration $(BuildConfiguration) --no-build --output $(Build.ArtifactStagingDirectory)'</span>
+              zipAfterPublish: <span class="tk-k">false</span>                   <span class="tk-c"># el deploy hace file-sync de la carpeta, no de un zip</span>
+
+          - task: PublishBuildArtifacts@<span class="tk-n">1</span>
+            displayName: <span class="tk-s">'Publish artifact drop'</span>
+            inputs:
+              PathtoPublish: <span class="tk-s">'$(Build.ArtifactStagingDirectory)'</span>
+              ArtifactName: <span class="tk-s">'drop'</span>
+
+  <span class="tk-c"># ───────────────────────────────────────────────────────────────────────</span>
+  <span class="tk-c"># STAGE 2: DEPLOY DEV (on-demand) — Tarea Programada</span>
+  <span class="tk-c"># ───────────────────────────────────────────────────────────────────────</span>
+  - stage: DeployDev
+    displayName: <span class="tk-s">'Deploy a DEV (on-demand, task programada)'</span>
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables[<span class="tk-s">'DeployEnv'</span>], <span class="tk-s">'dev'</span>))    <span class="tk-c"># R20</span>
+    jobs:
+      - job: DeployToDev
+        pool:
+          name: <span class="tk-v">{{BUILD_POOL}}</span>
+          demands:
+            - DeployTarget -equals <span class="tk-v">{{CONSOLE_DEPLOY_DEMAND_DEV}}</span>   <span class="tk-c"># R1/R25/FB-002: demand REAL del pool (derivado por /cicd-init)</span>
+        timeoutInMinutes: <span class="tk-n">20</span>
+        steps:
+          - template: steps/deploy-scheduled-task.yml
+            parameters:
+              mode: warn                                          <span class="tk-c"># R22 DEV = WARN</span>
+
+  <span class="tk-c"># ───────────────────────────────────────────────────────────────────────</span>
+  <span class="tk-c"># STAGE 3: DEPLOY DEMO/Pre (on-demand) — Tarea Programada</span>
+  <span class="tk-c"># ───────────────────────────────────────────────────────────────────────</span>
+  - stage: DeployDemo
+    displayName: <span class="tk-s">'Deploy a DEMO/Pre (on-demand, task programada)'</span>
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables[<span class="tk-s">'DeployEnv'</span>], <span class="tk-s">'pre'</span>))    <span class="tk-c"># R20 (sin ManualValidation; el gate es DeployEnv + /cicd-deploy)</span>
+    jobs:
+      - job: DeployToDemo
+        pool:
+          name: <span class="tk-v">{{BUILD_POOL}}</span>
+          demands:
+            - DeployTarget -equals <span class="tk-v">{{CONSOLE_DEPLOY_DEMAND_PRE}}</span>
+        timeoutInMinutes: <span class="tk-n">30</span>
+        steps:
+          - template: steps/deploy-scheduled-task.yml
+            parameters:
+              mode: block                                         <span class="tk-c"># R22 DEMO/Pre = BLOCK</span>
+
+  <span class="tk-c"># ───────────────────────────────────────────────────────────────────────</span>
+  <span class="tk-c"># STAGE 4: DEPLOY PROD (on-demand) — Tarea Programada [PLACEHOLDER]</span>
+  <span class="tk-c"># ───────────────────────────────────────────────────────────────────────</span>
+  <span class="tk-c"># TEC-006: PROD como `job` normal (demands solo en runtime), NO `deployment`+environment mientras</span>
+  <span class="tk-c"># sea placeholder. Al aprovisionar PROD: crear Environment SIN PUNTOS ('{{PROYECTO_SLUG}}Prod') +</span>
+  <span class="tk-c"># grupo aprobador &gt;=2 + convertir a `deployment`. Console/Worker normalmente es 1 nodo (no rolling).</span>
+  - stage: DeployProd
+    displayName: <span class="tk-s">'Deploy a PROD (on-demand, task programada) [PLACEHOLDER]'</span>
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables[<span class="tk-s">'DeployEnv'</span>], <span class="tk-s">'pro'</span>))    <span class="tk-c"># R20</span>
+    jobs:
+      - job: DeployToProd
+        pool:
+          name: <span class="tk-v">{{BUILD_POOL}}</span>
+          demands:
+            - Agent.Name -equals <span class="tk-v">{{PROD_NODE_A}}</span>                  <span class="tk-c"># R1/R25 (host de batch/svc real; /cicd-init lo deriva del pool)</span>
+        timeoutInMinutes: <span class="tk-n">30</span>
+        steps:
+          - template: steps/deploy-scheduled-task.yml
+            parameters:
+              mode: block                                         <span class="tk-c"># R22 PROD = BLOCK</span>
+
+<span class="tk-c"># =============================================================================</span>
+<span class="tk-c"># Placeholders a sustituir por /cicd-init:</span>
+<span class="tk-c">#   {{PROYECTO_NOMBRE}}, {{PROYECTO_SLUG}}, {{SLUG}}, {{RAMA_BASE}}, {{PIPELINE_NAME}}, {{NET_VERSION}},</span>
+<span class="tk-c">#   {{SLN_PATH}}, {{CONSOLE_CSPROJ}}, {{TESTS_CSPROJ}}, {{ENTRYPOINT_PATH}}, {{NUGET_CONFIG_PATH}},</span>
+<span class="tk-c">#   {{LISTA_SECRETOS_VG}}, {{TEMPLATE_STAMP}}, {{TEST_FILTER}}, {{R18_COVERAGE_GATE}},</span>
+<span class="tk-c">#   {{CONFIG_INJECT_STEP}} (R23, en steps/deploy-scheduled-task.yml),</span>
+<span class="tk-c">#   {{QUALITY_SYNC_VARS}}, (CD Console:) {{TASK_NAME}}, {{DEPLOY_FOLDER}}, {{CONSOLE_EXE}},</span>
+<span class="tk-c">#   {{TASK_SCHEDULE_ARGS}}, {{TASK_RUN_ACCOUNT}},</span>
+<span class="tk-c">#   {{CONSOLE_DEPLOY_DEMAND_DEV/PRE}}, {{PROD_NODE_A}}  (demands REALES del pool, FB-002).</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># Mecanismo: por defecto TAREA PROGRAMADA (steps/deploy-scheduled-task.yml). Para worker</span>
+<span class="tk-c"># always-on, /cicd-init puede usar steps/deploy-windows-service.yml (sc stop/start). Ver R25 +</span>
+<span class="tk-c"># P-console de /cicd-init. El destino (DeployTarget) se DERIVA del pool real (parametrizable, FB-002):</span>
+<span class="tk-c"># Console/Worker no tiene un tipo de servidor fijo -&gt; /cicd-init mapea al valor que reporte el agente.</span>
+<span class="tk-c"># =============================================================================</span>
+</code></pre><p style="margin-top:32px"><a href="../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html"><small>Anterior</small>templates/azure-pipelines.fase1.netfx.yml.template</a><a class="next" href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html"><small>Siguiente</small>templates/azure-pipelines.fase2.dotnet.yml.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

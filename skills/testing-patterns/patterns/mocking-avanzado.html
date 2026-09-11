@@ -1,0 +1,259 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · patterns/mocking-avanzado.md · Ovillo</title><meta name="description" content="Fichero patterns/mocking-avanzado.md de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · patterns/mocking-avanzado.md · Ovillo"><meta property="og:description" content="Fichero patterns/mocking-avanzado.md de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/mocking-avanzado.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/mocking-avanzado.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/patterns/mocking-avanzado.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (16)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html" class="cur">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>patterns</span><span>mocking-avanzado.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>patterns/</span></div><h1>mocking-avanzado.md</h1><p class="lede">Referencia que <code>testing-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>7957 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: testing-patterns</p></blockquote>
+<hr>
+<section class="sec" id="sec-descripción">
+<h3 id="descripción">Descripción</h3>
+<p>Patrones avanzados de mocking para tests unitarios utilizando Moq, incluyendo setup condicional, callbacks, secuencias y verificaciones complejas.</p>
+<hr>
+</section>
+<section class="sec" id="sec-setup-condicional">
+<h3 id="setup-condicional">Setup Condicional</h3>
+<h4 id="por-parámetros">Por Parámetros</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Setup diferente según el valor del parámetro</span>
+_repositoryMock
+    .Setup(r =&gt; r.GetByIdAsync(<span class="tk-n">1</span>, It.IsAny&lt;CancellationToken&gt;()))
+    .ReturnsAsync(<span class="tk-k">new</span> Scholarship { Id = <span class="tk-n">1</span>, Name = <span class="tk-s">&quot;Scholarship 1&quot;</span> });
+
+_repositoryMock
+    .Setup(r =&gt; r.GetByIdAsync(<span class="tk-n">2</span>, It.IsAny&lt;CancellationToken&gt;()))
+    .ReturnsAsync(<span class="tk-k">new</span> Scholarship { Id = <span class="tk-n">2</span>, Name = <span class="tk-s">&quot;Scholarship 2&quot;</span> });
+
+_repositoryMock
+    .Setup(r =&gt; r.GetByIdAsync(It.Is&lt;<span class="tk-k">int</span>&gt;(id =&gt; id &gt; <span class="tk-n">100</span>), It.IsAny&lt;CancellationToken&gt;()))
+    .ReturnsAsync((Scholarship?)<span class="tk-k">null</span>);</code></pre>
+<h4 id="con-predicados">Con Predicados</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Setup con condición compleja</span>
+_repositoryMock
+    .Setup(r =&gt; r.GetByCodeAsync(
+        It.Is&lt;<span class="tk-k">string</span>&gt;(c =&gt; c.StartsWith(<span class="tk-s">&quot;BECA-&quot;</span>)),
+        It.IsAny&lt;CancellationToken&gt;()))
+    .ReturnsAsync(<span class="tk-k">new</span> Scholarship { Code = <span class="tk-s">&quot;BECA-001&quot;</span> });
+
+<span class="tk-c">// Coincidencia por regex</span>
+_repositoryMock
+    .Setup(r =&gt; r.SearchAsync(
+        It.IsRegex(<span class="tk-s">@&quot;^[A-Z]{4}-\d{3}$&quot;</span>),
+        It.IsAny&lt;CancellationToken&gt;()))
+    .ReturnsAsync(<span class="tk-k">new</span> List&lt;Scholarship&gt;());</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-callbacks">
+<h3 id="callbacks">Callbacks</h3>
+<h4 id="capturar-argumentos">Capturar Argumentos</h4>
+<pre data-lang="csharp"><code>Scholarship? savedScholarship = <span class="tk-k">null</span>;
+
+_repositoryMock
+    .Setup(r =&gt; r.AddAsync(It.IsAny&lt;Scholarship&gt;(), It.IsAny&lt;CancellationToken&gt;()))
+    .Callback&lt;Scholarship, CancellationToken&gt;((scholarship, _) =&gt;
+    {
+        savedScholarship = scholarship;
+        scholarship.Id = <span class="tk-n">1</span>; <span class="tk-c">// Simular asignación de ID</span>
+    })
+    .ReturnsAsync((Scholarship b, CancellationToken _) =&gt; b);
+
+<span class="tk-c">// Después del test</span>
+<span class="tk-k">await</span> _sut.CreateAsync(request);
+savedScholarship.Should().NotBeNull();
+savedScholarship!.Name.Should().Be(<span class="tk-s">&quot;New Scholarship&quot;</span>);</code></pre>
+<h4 id="ejecutar-lógica">Ejecutar Lógica</h4>
+<pre data-lang="csharp"><code><span class="tk-k">var</span> contador = <span class="tk-n">0</span>;
+
+_serviceMock
+    .Setup(s =&gt; s.ProcessAsync(It.IsAny&lt;<span class="tk-k">int</span>&gt;(), It.IsAny&lt;CancellationToken&gt;()))
+    .Callback(() =&gt; contador++)
+    .Returns(Task.CompletedTask);
+
+<span class="tk-c">// Verificar número de llamadas</span>
+<span class="tk-k">await</span> _sut.ProcessAllAsync();
+contador.Should().Be(<span class="tk-n">5</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-secuencias">
+<h3 id="secuencias">Secuencias</h3>
+<h4 id="retornos-diferentes-por-llamada">Retornos Diferentes por Llamada</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Primera llamada retorna null, segunda retorna la entidad</span>
+_repositoryMock
+    .SetupSequence(r =&gt; r.GetByIdAsync(<span class="tk-n">1</span>, It.IsAny&lt;CancellationToken&gt;()))
+    .ReturnsAsync((Scholarship?)<span class="tk-k">null</span>)      <span class="tk-c">// Primera llamada</span>
+    .ReturnsAsync(<span class="tk-k">new</span> Scholarship { Id = <span class="tk-n">1</span> }); <span class="tk-c">// Segunda llamada</span></code></pre>
+<h4 id="simulando-reintentos">Simulando Reintentos</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Simular fallo y luego éxito</span>
+_externalServiceMock
+    .SetupSequence(s =&gt; s.CallApiAsync())
+    .ThrowsAsync(<span class="tk-k">new</span> HttpRequestException(<span class="tk-s">&quot;Timeout&quot;</span>))  <span class="tk-c">// 1er intento falla</span>
+    .ThrowsAsync(<span class="tk-k">new</span> HttpRequestException(<span class="tk-s">&quot;Timeout&quot;</span>))  <span class="tk-c">// 2do intento falla</span>
+    .ReturnsAsync(<span class="tk-k">new</span> ApiResponse { Success = <span class="tk-k">true</span> }); <span class="tk-c">// 3er intento OK</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-métodos-async">
+<h3 id="métodos-async">Métodos Async</h3>
+<h4 id="task-completado">Task Completado</h4>
+<pre data-lang="csharp"><code>_serviceMock
+    .Setup(s =&gt; s.ProcessAsync(It.IsAny&lt;<span class="tk-k">int</span>&gt;()))
+    .Returns(Task.CompletedTask);</code></pre>
+<h4 id="con-delay-para-tests-de-timeout">Con Delay (para tests de timeout)</h4>
+<pre data-lang="csharp"><code>_serviceMock
+    .Setup(s =&gt; s.SlowOperationAsync())
+    .Returns(<span class="tk-k">async</span> () =&gt;
+    {
+        <span class="tk-k">await</span> Task.Delay(<span class="tk-n">5000</span>); <span class="tk-c">// Simula operación lenta</span>
+        <span class="tk-k">return</span> <span class="tk-k">new</span> Result();
+    });</code></pre>
+<h4 id="cancelación">Cancelación</h4>
+<pre data-lang="csharp"><code>_serviceMock
+    .Setup(s =&gt; s.LongRunningAsync(It.IsAny&lt;CancellationToken&gt;()))
+    .Returns&lt;CancellationToken&gt;(<span class="tk-k">async</span> ct =&gt;
+    {
+        <span class="tk-k">await</span> Task.Delay(<span class="tk-n">1000</span>, ct); <span class="tk-c">// Respeta cancelación</span>
+        <span class="tk-k">return</span> <span class="tk-k">new</span> Result();
+    });</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-verificaciones-avanzadas">
+<h3 id="verificaciones-avanzadas">Verificaciones Avanzadas</h3>
+<h4 id="verificar-orden-de-llamadas">Verificar Orden de Llamadas</h4>
+<pre data-lang="csharp"><code><span class="tk-k">var</span> sequence = <span class="tk-k">new</span> MockSequence();
+
+_repositoryMock.InSequence(sequence)
+    .Setup(r =&gt; r.GetByIdAsync(<span class="tk-n">1</span>, It.IsAny&lt;CancellationToken&gt;()));
+
+_repositoryMock.InSequence(sequence)
+    .Setup(r =&gt; r.UpdateAsync(It.IsAny&lt;Scholarship&gt;(), It.IsAny&lt;CancellationToken&gt;()));
+
+<span class="tk-c">// Si se llaman en orden diferente, el test falla</span></code></pre>
+<h4 id="verificar-argumentos-complejos">Verificar Argumentos Complejos</h4>
+<pre data-lang="csharp"><code>_repositoryMock.Verify(
+    r =&gt; r.AddAsync(
+        It.Is&lt;Scholarship&gt;(b =&gt;
+            b.Name == <span class="tk-s">&quot;Test&quot;</span> &amp;&amp;
+            b.Amount &gt; <span class="tk-n">0</span> &amp;&amp;
+            b.Status == ScholarshipStatus.Draft),
+        It.IsAny&lt;CancellationToken&gt;()),
+    Times.Once);</code></pre>
+<h4 id="verificar-nunca-llamado">Verificar Nunca Llamado</h4>
+<pre data-lang="csharp"><code>_emailServiceMock.Verify(
+    s =&gt; s.SendAsync(It.IsAny&lt;Email&gt;(), It.IsAny&lt;CancellationToken&gt;()),
+    Times.Never,
+    <span class="tk-s">&quot;No debería enviar email cuando la scholarship está en borrador&quot;</span>);</code></pre>
+<h4 id="capturar-y-verificar-después">Capturar y Verificar Después</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Capturar todas las llamadas</span>
+<span class="tk-k">var</span> invocaciones = <span class="tk-k">new</span> List&lt;Scholarship&gt;();
+
+_repositoryMock
+    .Setup(r =&gt; r.UpdateAsync(It.IsAny&lt;Scholarship&gt;(), It.IsAny&lt;CancellationToken&gt;()))
+    .Callback&lt;Scholarship, CancellationToken&gt;((b, _) =&gt; invocaciones.Add(b))
+    .Returns(Task.CompletedTask);
+
+<span class="tk-c">// Ejecutar</span>
+<span class="tk-k">await</span> _sut.UpdateVariasAsync(ids);
+
+<span class="tk-c">// Verificar</span>
+invocaciones.Should().HaveCount(<span class="tk-n">3</span>);
+invocaciones.Should().OnlyContain(b =&gt; b.Status == ScholarshipStatus.Actualizada);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-mock-de-propiedades">
+<h3 id="mock-de-propiedades">Mock de Propiedades</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Propiedad get/set</span>
+_configMock
+    .SetupProperty(c =&gt; c.Setting, <span class="tk-s">&quot;valor-inicial&quot;</span>);
+
+<span class="tk-c">// Verificar que se modificó</span>
+_configMock.Object.Setting = <span class="tk-s">&quot;nuevo-valor&quot;</span>;
+_configMock.VerifySet(c =&gt; c.Setting = <span class="tk-s">&quot;nuevo-valor&quot;</span>);
+
+<span class="tk-c">// Propiedad solo lectura</span>
+_serviceMock
+    .SetupGet(s =&gt; s.IsConnected)
+    .Returns(<span class="tk-k">true</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-mock-de-eventos">
+<h3 id="mock-de-eventos">Mock de Eventos</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Configurar evento</span>
+<span class="tk-k">var</span> eventRaised = <span class="tk-k">false</span>;
+
+_serviceMock
+    .Setup(s =&gt; s.ProcessAsync())
+    .Callback(() =&gt;
+    {
+        _serviceMock.Raise(s =&gt; s.Completed += <span class="tk-k">null</span>, EventArgs.Empty);
+    });
+
+<span class="tk-c">// Suscribirse</span>
+_serviceMock.Object.Completed += (_, _) =&gt; eventRaised = <span class="tk-k">true</span>;
+
+<span class="tk-c">// Act</span>
+<span class="tk-k">await</span> _sut.ExecuteAsync();
+
+<span class="tk-c">// Assert</span>
+eventRaised.Should().BeTrue();</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-mock-strict-vs-loose">
+<h3 id="mock-strict-vs-loose">Mock Strict vs Loose</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Strict - Falla si se llama algo no configurado</span>
+<span class="tk-k">var</span> strictMock = <span class="tk-k">new</span> Mock&lt;IRepository&gt;(MockBehavior.Strict);
+strictMock.Setup(r =&gt; r.GetByIdAsync(<span class="tk-n">1</span>, It.IsAny&lt;CancellationToken&gt;()))
+    .ReturnsAsync(<span class="tk-k">new</span> Scholarship());
+
+<span class="tk-c">// Loose (default) - Retorna default para no configurados</span>
+<span class="tk-k">var</span> looseMock = <span class="tk-k">new</span> Mock&lt;IRepository&gt;(MockBehavior.Loose);
+<span class="tk-c">// GetByIdAsync(999) retornará null sin configurar</span>
+
+<span class="tk-c">// Recomendación: Usar Strict para tests críticos</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-mock-de-clases-concretas">
+<h3 id="mock-de-clases-concretas">Mock de Clases Concretas</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Requiere métodos virtual</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> EmailService
+{
+    <span class="tk-k">public</span> <span class="tk-k">virtual</span> Task SendAsync(<span class="tk-k">string</span> to, <span class="tk-k">string</span> subject) { ... }
+}
+
+<span class="tk-k">var</span> mock = <span class="tk-k">new</span> Mock&lt;EmailService&gt;();
+mock.Setup(s =&gt; s.SendAsync(It.IsAny&lt;<span class="tk-k">string</span>&gt;(), It.IsAny&lt;<span class="tk-k">string</span>&gt;()))
+    .Returns(Task.CompletedTask);
+
+<span class="tk-c">// Llamar método real para algunos casos</span>
+mock.Setup(s =&gt; s.ValidateEmail(It.IsAny&lt;<span class="tk-k">string</span>&gt;()))
+    .CallBase(); <span class="tk-c">// Usa implementación real</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-helpers-de-mocking">
+<h3 id="helpers-de-mocking">Helpers de Mocking</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> MockExtensions
+{
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">void</span> SetupGetById&lt;T&gt;(
+        <span class="tk-k">this</span> Mock&lt;IRepository&lt;T&gt;&gt; mock,
+        <span class="tk-k">int</span> id,
+        T? entity) where T : Entity
+    {
+        mock.Setup(r =&gt; r.GetByIdAsync(id, It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync(entity);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">void</span> SetupAddReturnsWithId&lt;T&gt;(
+        <span class="tk-k">this</span> Mock&lt;IRepository&lt;T&gt;&gt; mock,
+        <span class="tk-k">int</span> newId) where T : Entity
+    {
+        mock.Setup(r =&gt; r.AddAsync(It.IsAny&lt;T&gt;(), It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync((T entity, CancellationToken _) =&gt;
+            {
+                <span class="tk-k">typeof</span>(T).GetProperty(<span class="tk-s">&quot;Id&quot;</span>)!.SetValue(entity, newId);
+                <span class="tk-k">return</span> entity;
+            });
+    }
+}
+
+<span class="tk-c">// Uso</span>
+_repositoryMock.SetupGetById(<span class="tk-n">1</span>, <span class="tk-k">new</span> Scholarship { Id = <span class="tk-n">1</span> });
+_repositoryMock.SetupAddReturnsWithId(<span class="tk-n">99</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patterns-a-evitar">
+<h3 id="anti-patterns-a-evitar">Anti-Patterns a Evitar</h3>
+<div class="tbl"><table><thead><tr><th>Anti-Pattern</th><th>Problema</th><th>Solución</th></tr></thead><tbody><tr><td>Over-mocking</td><td>Tests frágiles</td><td>Mock solo dependencias directas</td></tr><tr><td>Mock de DTOs</td><td>Innecesario</td><td>Usar instancias reales</td></tr><tr><td>Setup genérico It.IsAny</td><td>Tests poco específicos</td><td>Ser específico cuando importa</td></tr><tr><td>Verificar implementación</td><td>Tests acoplados</td><td>Verificar comportamiento</td></tr></tbody></table></div>
+<hr>
+<p><em>Pattern v1.0 - testing-patterns skill</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html"><small>Anterior</small>patterns/integration-fixtures.md</a><a class="next" href="../../../skills/testing-patterns/patterns/performance-testing.html"><small>Siguiente</small>patterns/performance-testing.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/patterns/mocking-avanzado.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#descripción">Descripción</a></li><li class="l2"><a href="#setup-condicional">Setup Condicional</a></li><li class="l3"><a href="#por-parámetros">Por Parámetros</a></li><li class="l3"><a href="#con-predicados">Con Predicados</a></li><li class="l2"><a href="#callbacks">Callbacks</a></li><li class="l3"><a href="#capturar-argumentos">Capturar Argumentos</a></li><li class="l3"><a href="#ejecutar-lógica">Ejecutar Lógica</a></li><li class="l2"><a href="#secuencias">Secuencias</a></li><li class="l3"><a href="#retornos-diferentes-por-llamada">Retornos Diferentes por Llamada</a></li><li class="l3"><a href="#simulando-reintentos">Simulando Reintentos</a></li><li class="l2"><a href="#métodos-async">Métodos Async</a></li><li class="l3"><a href="#task-completado">Task Completado</a></li><li class="l3"><a href="#con-delay-para-tests-de-timeout">Con Delay (para tests de timeout)</a></li><li class="l3"><a href="#cancelación">Cancelación</a></li><li class="l2"><a href="#verificaciones-avanzadas">Verificaciones Avanzadas</a></li><li class="l3"><a href="#verificar-orden-de-llamadas">Verificar Orden de Llamadas</a></li><li class="l3"><a href="#verificar-argumentos-complejos">Verificar Argumentos Complejos</a></li><li class="l3"><a href="#verificar-nunca-llamado">Verificar Nunca Llamado</a></li><li class="l3"><a href="#capturar-y-verificar-después">Capturar y Verificar Después</a></li><li class="l2"><a href="#mock-de-propiedades">Mock de Propiedades</a></li><li class="l2"><a href="#mock-de-eventos">Mock de Eventos</a></li><li class="l2"><a href="#mock-strict-vs-loose">Mock Strict vs Loose</a></li><li class="l2"><a href="#mock-de-clases-concretas">Mock de Clases Concretas</a></li><li class="l2"><a href="#helpers-de-mocking">Helpers de Mocking</a></li><li class="l2"><a href="#anti-patterns-a-evitar">Anti-Patterns a Evitar</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

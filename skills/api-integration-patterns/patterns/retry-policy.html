@@ -1,0 +1,282 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · patterns/retry-policy.md · Ovillo</title><meta name="description" content="Fichero patterns/retry-policy.md de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · patterns/retry-policy.md · Ovillo"><meta property="og:description" content="Fichero patterns/retry-policy.md de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/patterns/retry-policy.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/patterns/retry-policy.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/patterns/retry-policy.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html" class="cur">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>patterns</span><span>retry-policy.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>patterns/</span></div><h1>retry-policy.md</h1><p class="lede">Referencia que <code>api-integration-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>10.542 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Pattern</strong>: Retry con backoff exponencial <strong>Problema</strong>: Errores transitorios en APIs externas <strong>Solución</strong>: Polly v8+ con resilience pipelines</p></blockquote>
+<hr>
+<section class="sec" id="sec-problema">
+<h3 id="problema">🎯 Problema</h3>
+<p>Las APIs externas pueden fallar temporalmente:</p>
+<ul>
+<li><strong>429 Rate Limit Exceeded</strong> - Demasiadas peticiones</li>
+<li><strong>503 Service Unavailable</strong> - Servicio temporalmente caído</li>
+<li><strong>TimeoutException</strong> - Red lenta o servicio ocupado</li>
+<li><strong>Network errors</strong> - Pérdida temporal de conectividad</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ SIN retry - falla al primer error</span>
+<span class="tk-k">var</span> response = <span class="tk-k">await</span> _httpClient.GetAsync(<span class="tk-s">&quot;https://api.example.org/data&quot;</span>);
+response.EnsureSuccessStatusCode(); <span class="tk-c">// Lanza excepción si hay error</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-solución-polly-retry-policy">
+<h3 id="solución-polly-retry-policy">✅ Solución: Polly Retry Policy</h3>
+<h4 id="importante-polly-v8">⚠️ IMPORTANTE: Polly v8+</h4>
+<pre data-lang="xml"><code><span class="tk-c">&lt;!-- Polly v8+ - Resilience Pipelines (nueva API) --&gt;</span>
+<span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.Extensions.Http.Polly&quot;</span> Version=<span class="tk-s">&quot;8.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Polly.Extensions.Http&quot;</span> Version=<span class="tk-s">&quot;3.*&quot;</span> <span class="tk-t">/&gt;</span></code></pre>
+<blockquote><p><strong>Migración</strong>: Polly v8 introduce <code>ResiliencePipeline</code> en lugar de <code>Policy&lt;T&gt;</code>. La API legacy sigue funcionando pero es recomendable migrar.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-estrategias-de-retry">
+<h3 id="estrategias-de-retry">Estrategias de Retry</h3>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>Uso</th><th>Espera entre reintentos</th></tr></thead><tbody><tr><td><strong>Retry Simple</strong></td><td>Errores poco frecuentes</td><td>Fija (ej: 1s, 1s, 1s)</td></tr><tr><td><strong>Exponential Backoff</strong></td><td>Rate limits, congestión</td><td>Creciente (1s, 2s, 4s, 8s)</td></tr><tr><td><strong>Wait and Retry</strong></td><td>Errores transitorios</td><td>Configurable</td></tr><tr><td><strong>Jitter</strong></td><td>Evitar thundering herd</td><td>Backoff + aleatorio</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-1-retry-simple-3-intentos-espera-fija">
+<h3 id="1-retry-simple-3-intentos-espera-fija">1. Retry Simple (3 intentos, espera fija)</h3>
+<h4 id="configuración-en-programcs">Configuración en Program.cs</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly;
+<span class="tk-k">using</span> Polly.Extensions.Http;
+
+builder.Services.AddHttpClient&lt;IExternalApiClient, ExternalApiClient&gt;()
+    .AddPolicyHandler(GetRetryPolicy());
+
+<span class="tk-c">// Método helper</span>
+<span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetRetryPolicy()
+{
+    <span class="tk-k">return</span> HttpPolicyExtensions
+        .HandleTransientHttpError() <span class="tk-c">// 5xx, 408, 429</span>
+        .Or&lt;TimeoutException&gt;()
+        .WaitAndRetryAsync(
+            retryCount: <span class="tk-n">3</span>,
+            sleepDurationProvider: retryAttempt =&gt; TimeSpan.FromSeconds(Math.Pow(<span class="tk-n">2</span>, retryAttempt)),
+            onRetry: (outcome, timespan, retryCount, context) =&gt;
+            {
+                <span class="tk-k">var</span> logger = context.GetLogger();
+                logger?.LogWarning(
+                    <span class="tk-s">&quot;Reintento {RetryCount} tras {Delay}ms. Motivo: {Reason}&quot;</span>,
+                    retryCount,
+                    timespan.TotalMilliseconds,
+                    outcome.Exception?.Message ?? outcome.Result.StatusCode.ToString());
+            });
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-exponential-backoff-con-jitter">
+<h3 id="2-exponential-backoff-con-jitter">2. Exponential Backoff con Jitter</h3>
+<h4 id="configuración-avanzada">Configuración Avanzada</h4>
+<pre data-lang="csharp"><code><span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetAdvancedRetryPolicy()
+{
+    <span class="tk-k">var</span> jitterer = <span class="tk-k">new</span> Random();
+
+    <span class="tk-k">return</span> HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .Or&lt;TimeoutException&gt;()
+        .WaitAndRetryAsync(
+            retryCount: <span class="tk-n">5</span>,
+            sleepDurationProvider: (retryAttempt, context) =&gt;
+            {
+                <span class="tk-c">// Backoff exponencial: 1s, 2s, 4s, 8s, 16s</span>
+                <span class="tk-k">var</span> exponentialDelay = TimeSpan.FromSeconds(Math.Pow(<span class="tk-n">2</span>, retryAttempt));
+
+                <span class="tk-c">// Jitter: ±20% aleatorio para evitar thundering herd</span>
+                <span class="tk-k">var</span> jitter = TimeSpan.FromMilliseconds(
+                    jitterer.Next(<span class="tk-n">0</span>, (<span class="tk-k">int</span>)(exponentialDelay.TotalMilliseconds * <span class="tk-n">0.2</span>)));
+
+                <span class="tk-k">return</span> exponentialDelay + jitter;
+            },
+            onRetryAsync: <span class="tk-k">async</span> (outcome, timespan, retryCount, context) =&gt;
+            {
+                <span class="tk-k">var</span> logger = context.GetLogger();
+
+                logger?.LogWarning(
+                    <span class="tk-s">&quot;Reintento {RetryCount}/{MaxRetries} tras {Delay}ms. &quot;</span> +
+                    <span class="tk-s">&quot;StatusCode: {StatusCode}, Exception: {Exception}&quot;</span>,
+                    retryCount,
+                    <span class="tk-n">5</span>,
+                    timespan.TotalMilliseconds,
+                    outcome.Result?.StatusCode,
+                    outcome.Exception?.Message);
+
+                <span class="tk-c">// Opcional: métricas</span>
+                <span class="tk-k">var</span> telemetry = context.GetTelemetryClient();
+                telemetry?.TrackEvent(<span class="tk-s">&quot;HttpRetry&quot;</span>, <span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">string</span>&gt;
+                {
+                    [<span class="tk-s">&quot;RetryCount&quot;</span>] = retryCount.ToString(),
+                    [<span class="tk-s">&quot;StatusCode&quot;</span>] = outcome.Result?.StatusCode.ToString() ?? <span class="tk-s">&quot;N/A&quot;</span>
+                });
+
+                <span class="tk-k">await</span> Task.CompletedTask;
+            });
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-3-retry-solo-para-códigos-específicos">
+<h3 id="3-retry-solo-para-códigos-específicos">3. Retry Solo para Códigos Específicos</h3>
+<pre data-lang="csharp"><code><span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetSelectiveRetryPolicy()
+{
+    <span class="tk-k">return</span> Policy
+        .HandleResult&lt;HttpResponseMessage&gt;(r =&gt;
+            r.StatusCode == System.Net.HttpStatusCode.TooManyRequests || <span class="tk-c">// 429</span>
+            r.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable || <span class="tk-c">// 503</span>
+            r.StatusCode == System.Net.HttpStatusCode.GatewayTimeout) <span class="tk-c">// 504</span>
+        .WaitAndRetryAsync(
+            retryCount: <span class="tk-n">3</span>,
+            sleepDurationProvider: retryAttempt =&gt; TimeSpan.FromSeconds(Math.Pow(<span class="tk-n">2</span>, retryAttempt)),
+            onRetry: (outcome, timespan, retryCount, context) =&gt;
+            {
+                Console.WriteLine(<span class="tk-s">$&quot;Reintento {retryCount} tras {timespan.TotalSeconds}s debido a {outcome.Result.StatusCode}&quot;</span>);
+            });
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-retry-con-condiciones-personalizadas">
+<h3 id="4-retry-con-condiciones-personalizadas">4. Retry con Condiciones Personalizadas</h3>
+<pre data-lang="csharp"><code><span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetCustomRetryPolicy()
+{
+    <span class="tk-k">return</span> HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .OrResult(response =&gt;
+        {
+            <span class="tk-c">// Reintentar si el response body indica error temporal</span>
+            <span class="tk-k">var</span> content = response.Content.ReadAsStringAsync().Result;
+            <span class="tk-k">return</span> content.Contains(<span class="tk-s">&quot;TemporaryError&quot;</span>) || content.Contains(<span class="tk-s">&quot;TryAgain&quot;</span>);
+        })
+        .WaitAndRetryAsync(
+            retryCount: <span class="tk-n">3</span>,
+            sleepDurationProvider: retryAttempt =&gt; TimeSpan.FromSeconds(<span class="tk-n">2</span> * retryAttempt),
+            onRetry: (outcome, timespan, retryCount, context) =&gt;
+            {
+                Console.WriteLine(<span class="tk-s">$&quot;Retry {retryCount} - Custom condition met&quot;</span>);
+            });
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-polly-v8---resilience-pipelines-nueva-api">
+<h3 id="5-polly-v8---resilience-pipelines-nueva-api">5. Polly v8 - Resilience Pipelines (Nueva API)</h3>
+<h4 id="configuración-polly-v8">Configuración Polly v8+</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly;
+<span class="tk-k">using</span> Polly.Retry;
+
+builder.Services.AddResiliencePipeline(<span class="tk-s">&quot;external-api&quot;</span>, pipelineBuilder =&gt;
+{
+    pipelineBuilder.AddRetry(<span class="tk-k">new</span> RetryStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        MaxRetryAttempts = <span class="tk-n">3</span>,
+        BackoffType = DelayBackoffType.Exponential,
+        Delay = TimeSpan.FromSeconds(<span class="tk-n">1</span>),
+        UseJitter = <span class="tk-k">true</span>,
+        ShouldHandle = <span class="tk-k">new</span> PredicateBuilder&lt;HttpResponseMessage&gt;()
+            .Handle&lt;HttpRequestException&gt;()
+            .Handle&lt;TimeoutException&gt;()
+            .HandleResult(r =&gt; r.StatusCode == System.Net.HttpStatusCode.TooManyRequests),
+        OnRetry = args =&gt;
+        {
+            Console.WriteLine(<span class="tk-s">$&quot;Retry {args.AttemptNumber} tras {args.RetryDelay}&quot;</span>);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        }
+    });
+});
+
+<span class="tk-c">// Uso en HttpClient</span>
+builder.Services.AddHttpClient&lt;IExternalApiClient, ExternalApiClient&gt;()
+    .AddResilienceHandler(<span class="tk-s">&quot;external-api&quot;</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-comparativa-estrategias">
+<h3 id="comparativa-estrategias">📊 Comparativa Estrategias</h3>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>1er retry</th><th>2do retry</th><th>3er retry</th><th>4to retry</th><th>Total</th></tr></thead><tbody><tr><td><strong>Fijo (1s)</strong></td><td>1s</td><td>1s</td><td>1s</td><td>1s</td><td>~4s</td></tr><tr><td><strong>Exponencial</strong></td><td>1s</td><td>2s</td><td>4s</td><td>8s</td><td>~15s</td></tr><tr><td><strong>Exponencial + Jitter</strong></td><td>1.2s</td><td>2.3s</td><td>3.8s</td><td>9.1s</td><td>~16.4s</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-casos-de-uso">
+<h3 id="casos-de-uso">🎯 Casos de Uso</h3>
+<h4 id="sistemaa-api-rate-limit-429">SistemaA API (Rate Limit 429)</h4>
+<pre data-lang="csharp"><code>builder.Services.AddHttpClient&lt;IExternalApiClient, ExternalApiClient&gt;()
+    .AddPolicyHandler(Policy
+        .HandleResult&lt;HttpResponseMessage&gt;(r =&gt; r.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
+        .WaitAndRetryAsync(
+            retryCount: <span class="tk-n">5</span>,
+            sleepDurationProvider: retryAttempt =&gt;
+            {
+                <span class="tk-c">// Leer Retry-After header si existe</span>
+                <span class="tk-k">if</span> (outcome.Result.Headers.RetryAfter?.Delta.HasValue == <span class="tk-k">true</span>)
+                    <span class="tk-k">return</span> outcome.Result.Headers.RetryAfter.Delta.Value;
+
+                <span class="tk-c">// Backoff exponencial por defecto</span>
+                <span class="tk-k">return</span> TimeSpan.FromSeconds(Math.Pow(<span class="tk-n">2</span>, retryAttempt));
+            }));</code></pre>
+<h4 id="el-saas-de-rrhh-del-catalogo-timeouts">el SaaS de RRHH del catalogo (Timeouts)</h4>
+<pre data-lang="csharp"><code>builder.Services.AddHttpClient&lt;ISistemaBClient, SistemaBClient&gt;()
+    .AddPolicyHandler(HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .Or&lt;TimeoutException&gt;()
+        .WaitAndRetryAsync(<span class="tk-n">3</span>, retryAttempt =&gt; TimeSpan.FromSeconds(<span class="tk-n">5</span> * retryAttempt)));</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-errores-no-recuperables-no-reintentar">
+<h3 id="errores-no-recuperables-no-reintentar">⚠️ Errores NO Recuperables (NO reintentar)</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ NO reintentar estos códigos:</span>
+<span class="tk-c">// 400 Bad Request - Request inválida</span>
+<span class="tk-c">// 401 Unauthorized - Credenciales incorrectas</span>
+<span class="tk-c">// 403 Forbidden - Sin permisos</span>
+<span class="tk-c">// 404 Not Found - Recurso no existe</span>
+<span class="tk-c">// 422 Unprocessable Entity - Validación fallida</span>
+
+<span class="tk-k">static</span> <span class="tk-k">bool</span> ShouldNotRetry(HttpResponseMessage response)
+{
+    <span class="tk-k">var</span> nonRetryableStatusCodes = <span class="tk-k">new</span>[]
+    {
+        System.Net.HttpStatusCode.BadRequest,
+        System.Net.HttpStatusCode.Unauthorized,
+        System.Net.HttpStatusCode.Forbidden,
+        System.Net.HttpStatusCode.NotFound,
+        (System.Net.HttpStatusCode)<span class="tk-n">422</span> <span class="tk-c">// Unprocessable Entity</span>
+    };
+
+    <span class="tk-k">return</span> nonRetryableStatusCodes.Contains(response.StatusCode);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-testing">
+<h3 id="testing">🧪 Testing</h3>
+<pre data-lang="csharp"><code>[Fact]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task HttpClient_With_Retry_Succeeds_On_Third_Attempt()
+{
+    <span class="tk-c">// Arrange</span>
+    <span class="tk-k">var</span> callCount = <span class="tk-n">0</span>;
+    <span class="tk-k">var</span> mockHandler = <span class="tk-k">new</span> Mock&lt;HttpMessageHandler&gt;();
+    mockHandler
+        .Protected()
+        .Setup&lt;Task&lt;HttpResponseMessage&gt;&gt;(
+            <span class="tk-s">&quot;SendAsync&quot;</span>,
+            ItExpr.IsAny&lt;HttpRequestMessage&gt;(),
+            ItExpr.IsAny&lt;CancellationToken&gt;())
+        .ReturnsAsync(() =&gt;
+        {
+            callCount++;
+            <span class="tk-k">if</span> (callCount &lt; <span class="tk-n">3</span>)
+                <span class="tk-k">return</span> <span class="tk-k">new</span> HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
+            <span class="tk-k">return</span> <span class="tk-k">new</span> HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = <span class="tk-k">new</span> StringContent(<span class="tk-s">&quot;Success&quot;</span>)
+            };
+        });
+
+    <span class="tk-k">var</span> httpClient = <span class="tk-k">new</span> HttpClient(mockHandler.Object);
+    <span class="tk-k">var</span> retryPolicy = GetRetryPolicy();
+
+    <span class="tk-c">// Act</span>
+    <span class="tk-k">var</span> response = <span class="tk-k">await</span> retryPolicy.ExecuteAsync(() =&gt; httpClient.GetAsync(<span class="tk-s">&quot;https://test.com&quot;</span>));
+
+    <span class="tk-c">// Assert</span>
+    response.StatusCode.Should().Be(HttpStatusCode.OK);
+    callCount.Should().Be(<span class="tk-n">3</span>);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-referencias">
+<h3 id="referencias">📚 Referencias</h3>
+<ul>
+<li><a href="https://www.pollydocs.org/" rel="noopener">Polly v8 docs</a></li>
+<li><a href="https://www.pollydocs.org/strategies/retry.html" rel="noopener">Resilience Pipelines</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly" rel="noopener">HttpClientFactory + Polly</a></li>
+</ul>
+<hr>
+<p><em>Pattern: retry-policy - Ovillo</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/patterns/response-caching.html"><small>Anterior</small>patterns/response-caching.md</a><a class="next" href="../../../skills/api-integration-patterns/references/integration-examples.html"><small>Siguiente</small>references/integration-examples.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/patterns/retry-policy.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#problema">🎯 Problema</a></li><li class="l2"><a href="#solución-polly-retry-policy">✅ Solución: Polly Retry Policy</a></li><li class="l3"><a href="#importante-polly-v8">⚠️ IMPORTANTE: Polly v8+</a></li><li class="l2"><a href="#estrategias-de-retry">Estrategias de Retry</a></li><li class="l2"><a href="#1-retry-simple-3-intentos-espera-fija">1. Retry Simple (3 intentos, espera fija)</a></li><li class="l3"><a href="#configuración-en-programcs">Configuración en Program.cs</a></li><li class="l2"><a href="#2-exponential-backoff-con-jitter">2. Exponential Backoff con Jitter</a></li><li class="l3"><a href="#configuración-avanzada">Configuración Avanzada</a></li><li class="l2"><a href="#3-retry-solo-para-códigos-específicos">3. Retry Solo para Códigos Específicos</a></li><li class="l2"><a href="#4-retry-con-condiciones-personalizadas">4. Retry con Condiciones Personalizadas</a></li><li class="l2"><a href="#5-polly-v8---resilience-pipelines-nueva-api">5. Polly v8 - Resilience Pipelines (Nueva API)</a></li><li class="l3"><a href="#configuración-polly-v8">Configuración Polly v8+</a></li><li class="l2"><a href="#comparativa-estrategias">📊 Comparativa Estrategias</a></li><li class="l2"><a href="#casos-de-uso">🎯 Casos de Uso</a></li><li class="l3"><a href="#sistemaa-api-rate-limit-429">SistemaA API (Rate Limit 429)</a></li><li class="l3"><a href="#el-saas-de-rrhh-del-catalogo-timeouts">el SaaS de RRHH del catalogo (Timeouts)</a></li><li class="l2"><a href="#errores-no-recuperables-no-reintentar">⚠️ Errores NO Recuperables (NO reintentar)</a></li><li class="l2"><a href="#testing">🧪 Testing</a></li><li class="l2"><a href="#referencias">📚 Referencias</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

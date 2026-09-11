@@ -1,0 +1,145 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plantilla · Work Item «Eval gap» · Ovillo</title><meta name="description" content="Plantilla · Work Item «Eval gap»"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Plantilla · Work Item «Eval gap» · Ovillo"><meta property="og:description" content="Plantilla · Work Item «Eval gap»"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/eval-gap-template.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/eval-gap-template.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/eval-gap-template.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Verificación (5)</h4><ul class="sibs"><li><a href="../guias/01-activation.html">Smoke 01 · Activacion de skills</a></li><li><a href="../guias/02-compilation.html">Smoke 02 · Compilacion</a></li><li><a href="../guias/03-conventions.html">Smoke 03 · Convenciones locales del proyecto</a></li><li><a href="../guias/eval-gap-template.html" class="cur">Plantilla · Work Item «Eval gap»</a></li><li><a href="../guias/smoke-tests-readme.html">Ovillo · Smoke Tests del proyecto consumidor</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Verificación</span><span>Plantilla · Work Item «Eval gap»</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Verificación</span><span>español</span></div><h1>Plantilla · Work Item «Eval gap»</h1><div class="meta-grid"><div><b>2 min</b><span>lectura</span></div><div><b>406</b><span>palabras</span></div><div><b>8</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>5</b><span>cambios</span></div></div><blockquote><p><strong>Cuando usarla</strong>: cuando un smoke test del consumidor falla reproduciblemente y los evals del constructor (<code>{ProyectoConstructor}</code>) estan en verde. El gap es una evidencia de que el constructor no captura una particularidad de este stack.</p></blockquote>
+<hr>
+<section class="sec" id="sec-convencion-no-requiere-customizar-azure-devops">
+<h3 id="convencion-no-requiere-customizar-azure-devops">Convencion (no requiere customizar Azure DevOps)</h3>
+<p>No creamos un WIT nuevo en el process template. <strong>Reusamos el tipo nativo del proyecto</strong> (<code>Issue</code> en Basic, <code>Product Backlog Item</code> en Scrum) con:</p>
+<div class="tbl"><table><thead><tr><th>Campo</th><th>Valor</th></tr></thead><tbody><tr><td><strong>Title</strong></td><td><code>[Eval gap] {skill}: {sintoma corto}</code></td></tr><tr><td><strong>Tags</strong></td><td>`eval-gap; smoke-{01</td><td>02</td><td>03}; {skill}`</td></tr><tr><td><strong>Area Path</strong></td><td><code>{ProyectoConstructor}/Calidad</code></td></tr><tr><td><strong>Iteration</strong></td><td>Sprint actual del constructor</td></tr><tr><td><strong>Priority</strong></td><td><code>2</code> (default) — <code>1</code> si bloquea release</td></tr><tr><td><strong>Parent</strong></td><td>Epic «Calidad del ecosistema» (si existe en el proyecto del constructor)</td></tr><tr><td><strong>Assigned To</strong></td><td>Mantenedor del skill afectado (HV por defecto)</td></tr><tr><td><strong>State</strong></td><td><code>To Do</code> (Basic) / <code>New</code> (Scrum) — <strong>NUNCA</strong> <code>In Progress</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-plantilla-de-descripcion-copiar-tal-cual-y-rellenar">
+<h3 id="plantilla-de-descripcion-copiar-tal-cual-y-rellenar">Plantilla de descripcion (copiar tal cual y rellenar)</h3>
+<pre data-lang="markdown"><code>## Resumen
+{Una frase que explique el gap. Ejemplo: &quot;El skill generador-crud introduce
+'using Microsoft.EntityFrameworkCore' en proyectos .NET 4.8 + Dapper&quot;.}
+
+## Smoke test que fallo
+
+| Campo | Valor |
+|---|---|
+| Repo consumidor | {repo + branch + commit SHA} |
+| Smoke ejecutado | `01-activation.md` / `02-compilation.md` / `03-conventions.md` |
+| Skill esperada / activada | {esperada} / {obtenida} |
+| Resultado | FAIL ({pass}/{total} tests) |
+
+## Reproduccion (pasos minimos)
+
+1. `git clone &lt;repo&gt; &amp;&amp; git checkout &lt;branch&gt;`
+2. `claude plugin update hv@ovillo`
+3. `claude -p &quot;{prompt exacto del test}&quot;`
+4. `dotnet build` (o el comando del proyecto)
+5. **Esperado**: build OK · **Obtenido**: {error}
+
+## Stack relevante
+
+- TargetFramework: {netX.Y o net48}
+- ORM: {EF Core 10 / Dapper / EF 6}
+- Schema SQL: {lic / ewp / dbo / ...}
+- Auth: {Azure AD / Integrated / mTLS}
+- Pins NuGet criticos: {Azure.Core 1.50.0, Microsoft.Extensions.* 10.0.1, ...}
+- Sistema operativo / agente CI: {Windows 11 / el pool configurado pool}
+- Version del ecosistema Ovillo: {leer de Publicacion/VERSION.json}
+
+## Output del fallo
+</code></pre>
+<p>{pegar aqui los primeros 30-50 lineas del log de error: dotnet build,  claude --debug, o el output del smoke script}</p>
+<pre><code>
+## Causa hipotetica (opcional)
+
+{Si tienes una hipotesis sobre por que el constructor no captura este caso.
+ Ejemplo: &quot;El eval-set.json de generador-crud no tiene ningun query negativo
+ que mencione .NET 4.8 ni Dapper, asi que el motor no aprende a evitarlo&quot;.}
+
+## Cierre del ciclo (lo aplica el mantenedor del constructor)
+
+- [ ] Anadido eval negativo / rama condicional al skill `{skill}` que cubra este caso
+- [ ] `eval-set.json` actualizado y trigger eval re-ejecutado
+- [ ] `test-cases.json` con assertion del caso especifico (si aplica)
+- [ ] Skill description ajustada con USE FOR / DO NOT USE FOR si la fix es de description
+- [ ] Pipeline `validate-skills.yml` en verde tras el cambio
+- [ ] Commit referencia este Work Item: `fix(skill): {desc} #{wi-id}`
+- [ ] Smoke test del consumidor re-ejecutado y en verde
+- [ ] Work Item movido a `Done`</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-wiql-para-listar-todos-los-gaps-abiertos">
+<h3 id="wiql-para-listar-todos-los-gaps-abiertos">WIQL para listar todos los gaps abiertos</h3>
+<p>Guardar como saved query en <code>{ProyectoConstructor}/_apis/wit/queries/Calidad</code>:</p>
+<pre data-lang="sql"><code><span class="tk-k">SELECT</span>
+  [System.Id],
+  [System.Title],
+  [System.Tags],
+  [System.AssignedTo],
+  [System.State],
+  [Microsoft.VSTS.Common.Priority]
+<span class="tk-k">FROM</span> WorkItems
+<span class="tk-k">WHERE</span>
+  [System.TeamProject] = <span class="tk-s">'{ProyectoConstructor}'</span>
+  <span class="tk-k">AND</span> [System.Tags] CONTAINS <span class="tk-s">'eval-gap'</span>
+  <span class="tk-k">AND</span> [System.State] <span class="tk-k">IN</span> (<span class="tk-s">'To Do'</span>, <span class="tk-s">'Doing'</span>, <span class="tk-s">'New'</span>, <span class="tk-s">'Approved'</span>, <span class="tk-s">'Committed'</span>)
+<span class="tk-k">ORDER</span> <span class="tk-k">BY</span> [Microsoft.VSTS.Common.Priority] ASC, [System.ChangedDate] DESC</code></pre>
+</section>
+<section class="sec" id="sec-wiql-para-metricas-de-feedback-loop-mensual">
+<h3 id="wiql-para-metricas-de-feedback-loop-mensual">WIQL para metricas de feedback loop (mensual)</h3>
+<pre data-lang="sql"><code><span class="tk-k">SELECT</span>
+  [System.Id], [System.Title], [System.Tags],
+  [System.CreatedDate], [System.ClosedDate],
+  [Microsoft.VSTS.Common.Priority]
+<span class="tk-k">FROM</span> WorkItems
+<span class="tk-k">WHERE</span>
+  [System.TeamProject] = <span class="tk-s">'{ProyectoConstructor}'</span>
+  <span class="tk-k">AND</span> [System.Tags] CONTAINS <span class="tk-s">'eval-gap'</span>
+  <span class="tk-k">AND</span> [System.ClosedDate] &gt;= <span class="tk-v">@StartOfMonth</span>(<span class="tk-s">'-1'</span>)
+  <span class="tk-k">AND</span> [System.State] = <span class="tk-s">'Done'</span>
+<span class="tk-k">ORDER</span> <span class="tk-k">BY</span> [System.ClosedDate] DESC</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-crear-el-work-item-via-rest-opcional">
+<h3 id="crear-el-work-item-via-rest-opcional">Crear el Work Item via REST (opcional)</h3>
+<p>Si prefieres no usar la UI, este curl crea el item desde linea de comandos contra <code>devops.example.org</code> (autenticacion NTLM Negotiate):</p>
+<pre data-lang="bash"><code>URL=<span class="tk-s">&quot;https://devops.example.org/DefaultCollection/{ProyectoConstructor}&quot;</span>
+
+<span class="tk-c"># Reemplaza WORK_ITEM_TYPE segun el proceso del proyecto:</span>
+<span class="tk-c">#   - Basic:    &quot;Issue&quot;</span>
+<span class="tk-c">#   - Scrum:    &quot;Product%20Backlog%20Item&quot;</span>
+<span class="tk-c">#   - Agile:    &quot;User%20Story&quot;</span>
+
+<span class="tk-k">curl</span> -s --negotiate -u : \
+  <span class="tk-s">&quot;${URL}/_apis/wit/workitems/\$Issue?api-version=6.0&quot;</span> \
+  -X POST \
+  -H <span class="tk-s">&quot;Content-Type: application/json-patch+json&quot;</span> \
+  -d <span class="tk-s">'[
+    { &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/fields/System.Title&quot;,
+      &quot;value&quot;: &quot;[Eval gap] generador-crud: introduce EF Core en proyecto net48&quot; },
+    { &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/fields/System.Tags&quot;,
+      &quot;value&quot;: &quot;eval-gap; smoke-02; generador-crud&quot; },
+    { &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/fields/System.AreaPath&quot;,
+      &quot;value&quot;: &quot;{ProyectoConstructor}/Calidad&quot; },
+    { &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/fields/Microsoft.VSTS.Common.Priority&quot;, &quot;value&quot;: 2 },
+    { &quot;op&quot;: &quot;add&quot;, &quot;path&quot;: &quot;/fields/System.Description&quot;,
+      &quot;value&quot;: &quot;&lt;aqui va el markdown de la plantilla, escapado&gt;&quot; }
+  ]'</span></code></pre>
+<blockquote class="callout note"><p><strong>Nota Azure DevOps Server</strong>: usar <code>api-version=6.0</code> (no 7.0). El campo <code>System.State</code> se omite a proposito — Azure DevOps asigna el estado inicial del proceso (<code>To Do</code> en Basic, <code>New</code> en Scrum) automaticamente.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-sla-y-prioridad-politica-del-constructor">
+<h3 id="sla-y-prioridad-politica-del-constructor">SLA y prioridad (politica del constructor)</h3>
+<div class="tbl"><table><thead><tr><th>Prioridad</th><th>Criterio</th><th>Tiempo de respuesta</th></tr></thead><tbody><tr><td>1</td><td>Bloquea release de un consumidor critico (LicenseManager, Exchange, Campus)</td><td><strong>2 dias laborables</strong> para diagnostico + fix</td></tr><tr><td>2</td><td>Default. Smoke falla reproduciblemente, sin bloqueo inmediato</td><td>1 sprint del constructor</td></tr><tr><td>3</td><td>Smoke falla esporadicamente (flaky) o es cosmetico</td><td>Backlog, sin SLA</td></tr></tbody></table></div>
+<p>El contador empieza en la fecha de <strong>creacion del Work Item</strong>, no en la fecha del fallo del smoke.</p>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patrones">
+<h3 id="anti-patrones">Anti-patrones</h3>
+<ul>
+<li><strong>NO abrir</strong> un eval-gap si el smoke nunca paso en este proyecto (es bug del consumidor, no del constructor).</li>
+<li><strong>NO cerrar</strong> un eval-gap solo porque el smoke pasa ahora — debe quedar evidencia (eval negativo, test-case, doc) de que el caso esta cubierto.</li>
+<li><strong>NO duplicar</strong>: antes de abrir, ejecutar la WIQL de arriba y comprobar si ya existe uno con el mismo skill + smoke + sintoma.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-referencia-rapida">
+<h3 id="referencia-rapida">Referencia rapida</h3>
+<ul>
+<li>Smoke tests: <code>.claude/smoke-tests/{01,02,03}-*.md</code></li>
+<li>Comando drafter (si esta disponible): <code>/hv:eval-gap</code></li>
+</ul>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/.claude/smoke-tests/eval-gap-template.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/application.html">application</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/03-conventions.html"><small>Anterior</small>Smoke 03 · Convenciones locales del proyecto</a><a class="next" href="../guias/smoke-tests-readme.html"><small>Siguiente</small>Ovillo · Smoke Tests del proyecto consumidor</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/smoke-tests/eval-gap-template.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#convencion-no-requiere-customizar-azure-devops">Convencion (no requiere customizar Azure DevOps)</a></li><li class="l2"><a href="#plantilla-de-descripcion-copiar-tal-cual-y-rellenar">Plantilla de descripcion (copiar tal cual y rellenar)</a></li><li class="l2"><a href="#wiql-para-listar-todos-los-gaps-abiertos">WIQL para listar todos los gaps abiertos</a></li><li class="l2"><a href="#wiql-para-metricas-de-feedback-loop-mensual">WIQL para metricas de feedback loop (mensual)</a></li><li class="l2"><a href="#crear-el-work-item-via-rest-opcional">Crear el Work Item via REST (opcional)</a></li><li class="l2"><a href="#sla-y-prioridad-politica-del-constructor">SLA y prioridad (politica del constructor)</a></li><li class="l2"><a href="#anti-patrones">Anti-patrones</a></li><li class="l2"><a href="#referencia-rapida">Referencia rapida</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

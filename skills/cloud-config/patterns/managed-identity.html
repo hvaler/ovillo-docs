@@ -1,0 +1,266 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cloud-config · patterns/managed-identity.md · Ovillo</title><meta name="description" content="Fichero patterns/managed-identity.md de la skill cloud-config"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cloud-config · patterns/managed-identity.md · Ovillo"><meta property="og:description" content="Fichero patterns/managed-identity.md de la skill cloud-config"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cloud-config/patterns/managed-identity.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cloud-config/patterns/managed-identity.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/cloud-config/patterns/managed-identity.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de cloud-config (11)</h4><ul class="sibs"><li><a href="../../../skills/cloud-config/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/cloud-config/patterns/azure-ad-auth.html">patterns/azure-ad-auth.md</a></li><li><a href="../../../skills/cloud-config/patterns/azure-functions.html">patterns/azure-functions.md</a></li><li><a href="../../../skills/cloud-config/patterns/cosmosdb.html">patterns/cosmosdb.md</a></li><li><a href="../../../skills/cloud-config/patterns/health-checks-azure.html">patterns/health-checks-azure.md</a></li><li><a href="../../../skills/cloud-config/patterns/managed-identity.html" class="cur">patterns/managed-identity.md</a></li><li><a href="../../../skills/cloud-config/patterns/service-bus.html">patterns/service-bus.md</a></li><li><a href="../../../skills/cloud-config/templates/AzureHealthChecksConfig.cs.html">templates/AzureHealthChecksConfig.cs.template</a></li><li><a href="../../../skills/cloud-config/templates/BlobStorageService.cs.html">templates/BlobStorageService.cs.template</a></li><li><a href="../../../skills/cloud-config/templates/KeyVaultConfig.cs.html">templates/KeyVaultConfig.cs.template</a></li><li><a href="../../../skills/cloud-config/templates/ServiceBusPublisher.cs.html">templates/ServiceBusPublisher.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/cloud-config.html">cloud-config</a></span><span>patterns</span><span>managed-identity.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cloud-config</span><span>patterns/</span></div><h1>managed-identity.md</h1><p class="lede">Referencia que <code>cloud-config</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/cloud-config.html">cloud-config</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>10.189 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: cloud-config</p></blockquote>
+<hr>
+<section class="sec" id="sec-descripción">
+<h3 id="descripción">Descripción</h3>
+<p>Configuración de Managed Identity para acceso seguro a servicios Azure sin credenciales hardcodeadas. Reemplaza connection strings y secrets.</p>
+<hr>
+</section>
+<section class="sec" id="sec-tipos-de-managed-identity">
+<h3 id="tipos-de-managed-identity">Tipos de Managed Identity</h3>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Descripción</th><th>Uso</th></tr></thead><tbody><tr><td><strong>System-assigned</strong></td><td>Creada automáticamente con el recurso</td><td>App Services, VMs</td></tr><tr><td><strong>User-assigned</strong></td><td>Creada independientemente, reutilizable</td><td>Múltiples recursos</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-configuración-en-programcs-net-10">
+<h3 id="configuración-en-programcs-net-10">Configuración en Program.cs (.NET 10)</h3>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Azure.Identity;
+
+<span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// AZURE KEY VAULT CON MANAGED IDENTITY</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">var</span> keyVaultUrl = builder.Configuration[<span class="tk-s">&quot;KeyVault:Url&quot;</span>];
+
+<span class="tk-k">if</span> (!<span class="tk-k">string</span>.IsNullOrEmpty(keyVaultUrl))
+{
+    builder.Configuration.AddAzureKeyVault(
+        <span class="tk-k">new</span> Uri(keyVaultUrl),
+        <span class="tk-k">new</span> DefaultAzureCredential(<span class="tk-k">new</span> DefaultAzureCredentialOptions
+        {
+            <span class="tk-c">// Excluir credenciales no necesarias para mejorar rendimiento</span>
+            ExcludeEnvironmentCredential = <span class="tk-k">false</span>,  <span class="tk-c">// CI/CD</span>
+            ExcludeManagedIdentityCredential = <span class="tk-k">false</span>, <span class="tk-c">// Azure</span>
+            ExcludeVisualStudioCredential = <span class="tk-k">false</span>,  <span class="tk-c">// Local</span>
+            ExcludeAzureCliCredential = <span class="tk-k">false</span>,      <span class="tk-c">// Local</span>
+            ExcludeAzurePowerShellCredential = <span class="tk-k">true</span>,
+            ExcludeInteractiveBrowserCredential = <span class="tk-k">true</span>
+        }));
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// SQL SERVER CON MANAGED IDENTITY</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════════════════</span>
+
+builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+{
+    <span class="tk-k">var</span> connectionString = builder.Configuration.GetConnectionString(<span class="tk-s">&quot;DefaultConnection&quot;</span>);
+
+    options.UseSqlServer(connectionString, sqlOptions =&gt;
+    {
+        <span class="tk-c">// La conexión usa Managed Identity si el connection string incluye:</span>
+        <span class="tk-c">// Authentication=Active Directory Managed Identity</span>
+        sqlOptions.EnableRetryOnFailure(<span class="tk-n">3</span>);
+    });
+});
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// AZURE BLOB STORAGE CON MANAGED IDENTITY</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════════════════</span>
+
+builder.Services.AddSingleton(sp =&gt;
+{
+    <span class="tk-k">var</span> blobUrl = builder.Configuration[<span class="tk-s">&quot;Azure:BlobStorage:Url&quot;</span>];
+    <span class="tk-k">return</span> <span class="tk-k">new</span> BlobServiceClient(
+        <span class="tk-k">new</span> Uri(blobUrl!),
+        <span class="tk-k">new</span> DefaultAzureCredential());
+});
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// AZURE SERVICE BUS CON MANAGED IDENTITY</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════════════════</span>
+
+builder.Services.AddSingleton(sp =&gt;
+{
+    <span class="tk-k">var</span> serviceBusNamespace = builder.Configuration[<span class="tk-s">&quot;Azure:ServiceBus:Namespace&quot;</span>];
+    <span class="tk-k">return</span> <span class="tk-k">new</span> ServiceBusClient(
+        <span class="tk-s">$&quot;{serviceBusNamespace}.servicebus.windows.net&quot;</span>,
+        <span class="tk-k">new</span> DefaultAzureCredential());
+});</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-connection-strings-con-managed-identity">
+<h3 id="connection-strings-con-managed-identity">Connection Strings con Managed Identity</h3>
+<h4 id="sql-server--azure-sql">SQL Server / Azure SQL</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;ConnectionStrings&quot;</span>: {
+    <span class="tk-s">&quot;DefaultConnection&quot;</span>: <span class="tk-s">&quot;Server=tcp:miservidor.database.windows.net,1433;Database=MiDb;Authentication=Active Directory Managed Identity;Encrypt=True;TrustServerCertificate=False;&quot;</span>
+  }
+}</code></pre>
+<h4 id="azure-blob-storage">Azure Blob Storage</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;Azure&quot;</span>: {
+    <span class="tk-s">&quot;BlobStorage&quot;</span>: {
+      <span class="tk-s">&quot;Url&quot;</span>: <span class="tk-s">&quot;https://micuenta.blob.core.windows.net&quot;</span>
+    }
+  }
+}</code></pre>
+<h4 id="azure-key-vault">Azure Key Vault</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;KeyVault&quot;</span>: {
+    <span class="tk-s">&quot;Url&quot;</span>: <span class="tk-s">&quot;https://mi-keyvault.vault.azure.net/&quot;</span>
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-servicio-de-blob-con-managed-identity">
+<h3 id="servicio-de-blob-con-managed-identity">Servicio de Blob con Managed Identity</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> AzureBlobStorageService : IBlobStorageService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> BlobServiceClient _blobServiceClient;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;AzureBlobStorageService&gt; _logger;
+    <span class="tk-k">private</span> <span class="tk-k">const</span> <span class="tk-k">string</span> ContainerName = <span class="tk-s">&quot;documentos&quot;</span>;
+
+    <span class="tk-k">public</span> AzureBlobStorageService(
+        BlobServiceClient blobServiceClient,
+        ILogger&lt;AzureBlobStorageService&gt; logger)
+    {
+        _blobServiceClient = blobServiceClient;
+        _logger = logger;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;<span class="tk-k">string</span>&gt; UploadAsync(
+        Stream content,
+        <span class="tk-k">string</span> fileName,
+        <span class="tk-k">string</span> contentType,
+        CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> containerClient = _blobServiceClient.GetBlobContainerClient(ContainerName);
+        <span class="tk-k">await</span> containerClient.CreateIfNotExistsAsync(cancellationToken: ct);
+
+        <span class="tk-k">var</span> blobName = <span class="tk-s">$&quot;{Guid.NewGuid()}/{fileName}&quot;</span>;
+        <span class="tk-k">var</span> blobClient = containerClient.GetBlobClient(blobName);
+
+        <span class="tk-k">await</span> blobClient.UploadAsync(
+            content,
+            <span class="tk-k">new</span> BlobHttpHeaders { ContentType = contentType },
+            cancellationToken: ct);
+
+        _logger.LogInformation(<span class="tk-s">&quot;Archivo {FileName} subido a blob {BlobName}&quot;</span>, fileName, blobName);
+
+        <span class="tk-k">return</span> blobClient.Uri.ToString();
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;Stream?&gt; DownloadAsync(<span class="tk-k">string</span> blobUrl, CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> blobClient = <span class="tk-k">new</span> BlobClient(<span class="tk-k">new</span> Uri(blobUrl), <span class="tk-k">new</span> DefaultAzureCredential());
+
+        <span class="tk-k">if</span> (!<span class="tk-k">await</span> blobClient.ExistsAsync(ct))
+            <span class="tk-k">return</span> <span class="tk-k">null</span>;
+
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> blobClient.DownloadStreamingAsync(cancellationToken: ct);
+        <span class="tk-k">return</span> response.Value.Content;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task DeleteAsync(<span class="tk-k">string</span> blobUrl, CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> blobClient = <span class="tk-k">new</span> BlobClient(<span class="tk-k">new</span> Uri(blobUrl), <span class="tk-k">new</span> DefaultAzureCredential());
+        <span class="tk-k">await</span> blobClient.DeleteIfExistsAsync(cancellationToken: ct);
+
+        _logger.LogInformation(<span class="tk-s">&quot;Blob eliminado: {BlobUrl}&quot;</span>, blobUrl);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;<span class="tk-k">string</span>&gt; GetSasUrlAsync(
+        <span class="tk-k">string</span> blobUrl,
+        TimeSpan expiresIn,
+        CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> blobClient = <span class="tk-k">new</span> BlobClient(<span class="tk-k">new</span> Uri(blobUrl), <span class="tk-k">new</span> DefaultAzureCredential());
+
+        <span class="tk-c">// Usar User Delegation Key (más seguro que account key)</span>
+        <span class="tk-k">var</span> userDelegationKey = <span class="tk-k">await</span> _blobServiceClient.GetUserDelegationKeyAsync(
+            DateTimeOffset.UtcNow,
+            DateTimeOffset.UtcNow.Add(expiresIn),
+            ct);
+
+        <span class="tk-k">var</span> sasBuilder = <span class="tk-k">new</span> BlobSasBuilder
+        {
+            BlobContainerName = blobClient.BlobContainerName,
+            BlobName = blobClient.Name,
+            Resource = <span class="tk-s">&quot;b&quot;</span>,
+            ExpiresOn = DateTimeOffset.UtcNow.Add(expiresIn)
+        };
+        sasBuilder.SetPermissions(BlobSasPermissions.Read);
+
+        <span class="tk-k">var</span> sasToken = sasBuilder.ToSasQueryParameters(
+            userDelegationKey.Value,
+            _blobServiceClient.AccountName);
+
+        <span class="tk-k">return</span> <span class="tk-s">$&quot;{blobClient.Uri}?{sasToken}&quot;</span>;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-configuración-de-roles-en-azure">
+<h3 id="configuración-de-roles-en-azure">Configuración de Roles en Azure</h3>
+<h4 id="azure-sql-database">Azure SQL Database</h4>
+<pre data-lang="bash"><code><span class="tk-c"># En Azure Portal o CLI, asignar rol al Managed Identity</span>
+az sql server ad-admin create \
+  --resource-group mi-rg \
+  --server mi-servidor \
+  --display-name <span class="tk-s">&quot;MI Admin&quot;</span> \
+  --object-id &lt;managed-identity-object-id&gt;
+
+<span class="tk-c"># En SQL Server, crear usuario para la identidad</span>
+CREATE USER [nombre-app-service] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [nombre-app-service];
+ALTER ROLE db_datawriter ADD MEMBER [nombre-app-service];</code></pre>
+<h4 id="azure-blob-storage-2">Azure Blob Storage</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Asignar rol &quot;Storage Blob Data Contributor&quot;</span>
+az role assignment create \
+  --assignee &lt;managed-identity-object-id&gt; \
+  --role <span class="tk-s">&quot;Storage Blob Data Contributor&quot;</span> \
+  --scope /subscriptions/&lt;sub&gt;/resourceGroups/&lt;rg&gt;/providers/Microsoft.Storage/storageAccounts/&lt;account&gt;</code></pre>
+<h4 id="azure-key-vault-2">Azure Key Vault</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Asignar rol &quot;Key Vault Secrets User&quot;</span>
+az role assignment create \
+  --assignee &lt;managed-identity-object-id&gt; \
+  --role <span class="tk-s">&quot;Key Vault Secrets User&quot;</span> \
+  --scope /subscriptions/&lt;sub&gt;/resourceGroups/&lt;rg&gt;/providers/Microsoft.KeyVault/vaults/&lt;vault&gt;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-desarrollo-local">
+<h3 id="desarrollo-local">Desarrollo Local</h3>
+<h4 id="usando-azure-cli">Usando Azure CLI</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Login con tu cuenta de Azure</span>
+az login
+
+<span class="tk-c"># La DefaultAzureCredential usará tu sesión de Azure CLI</span></code></pre>
+<h4 id="usando-visual-studio">Usando Visual Studio</h4>
+<ol>
+<li>Tools → Options → Azure Service Authentication</li>
+<li>Seleccionar cuenta de Azure</li>
+<li>DefaultAzureCredential detectará automáticamente</li>
+</ol>
+<h4 id="variables-de-entorno-cicd">Variables de Entorno (CI/CD)</h4>
+<pre data-lang="yaml"><code><span class="tk-c"># Azure DevOps / GitHub Actions</span>
+env:
+  AZURE_CLIENT_ID: <span class="tk-v">${{ secrets.AZURE_CLIENT_ID }}</span>
+  AZURE_TENANT_ID: <span class="tk-v">${{ secrets.AZURE_TENANT_ID }}</span>
+  AZURE_CLIENT_SECRET: <span class="tk-v">${{ secrets.AZURE_CLIENT_SECRET }}</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist">
+<h3 id="checklist">Checklist</h3>
+<ul>
+<li><input type="checkbox" disabled> Managed Identity habilitada en App Service/VM</li>
+<li><input type="checkbox" disabled> Roles RBAC asignados para cada servicio</li>
+<li><input type="checkbox" disabled> Connection strings sin credenciales</li>
+<li><input type="checkbox" disabled> DefaultAzureCredential configurado</li>
+<li><input type="checkbox" disabled> Desarrollo local funciona con Azure CLI</li>
+<li><input type="checkbox" disabled> CI/CD usa Service Principal o federated credentials</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-packages-nuget">
+<h3 id="packages-nuget">Packages NuGet</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Azure.Identity&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Azure.Storage.Blobs&quot;</span> Version=<span class="tk-s">&quot;12.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Azure.Security.KeyVault.Secrets&quot;</span> Version=<span class="tk-s">&quot;4.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Azure.Extensions.AspNetCore.Configuration.Secrets&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.Data.SqlClient&quot;</span> Version=<span class="tk-s">&quot;5.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+<p><em>Pattern v1.0 - cloud-config skill</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/cloud-config.html#ficheros">← Volver a la ficha de cloud-config</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/cloud-config/patterns/health-checks-azure.html"><small>Anterior</small>patterns/health-checks-azure.md</a><a class="next" href="../../../skills/cloud-config/patterns/service-bus.html"><small>Siguiente</small>patterns/service-bus.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cloud-config/patterns/managed-identity.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#descripción">Descripción</a></li><li class="l2"><a href="#tipos-de-managed-identity">Tipos de Managed Identity</a></li><li class="l2"><a href="#configuración-en-programcs-net-10">Configuración en Program.cs (.NET 10)</a></li><li class="l2"><a href="#connection-strings-con-managed-identity">Connection Strings con Managed Identity</a></li><li class="l3"><a href="#sql-server--azure-sql">SQL Server / Azure SQL</a></li><li class="l3"><a href="#azure-blob-storage">Azure Blob Storage</a></li><li class="l3"><a href="#azure-key-vault">Azure Key Vault</a></li><li class="l2"><a href="#servicio-de-blob-con-managed-identity">Servicio de Blob con Managed Identity</a></li><li class="l2"><a href="#configuración-de-roles-en-azure">Configuración de Roles en Azure</a></li><li class="l3"><a href="#azure-sql-database">Azure SQL Database</a></li><li class="l3"><a href="#azure-blob-storage-2">Azure Blob Storage</a></li><li class="l3"><a href="#azure-key-vault-2">Azure Key Vault</a></li><li class="l2"><a href="#desarrollo-local">Desarrollo Local</a></li><li class="l3"><a href="#usando-azure-cli">Usando Azure CLI</a></li><li class="l3"><a href="#usando-visual-studio">Usando Visual Studio</a></li><li class="l3"><a href="#variables-de-entorno-cicd">Variables de Entorno (CI/CD)</a></li><li class="l2"><a href="#checklist">Checklist</a></li><li class="l2"><a href="#packages-nuget">Packages NuGet</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

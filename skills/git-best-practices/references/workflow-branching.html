@@ -1,0 +1,167 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · references/workflow-branching.md · Ovillo</title><meta name="description" content="Fichero references/workflow-branching.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · references/workflow-branching.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-branching.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/references/workflow-branching.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/references/workflow-branching.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/references/workflow-branching.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html" class="cur">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>references</span><span>workflow-branching.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>references/</span></div><h1>workflow-branching.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>10.868 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>git-best-practices</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para.</p></blockquote>
+<hr>
+<p class="lede">Comando idempotente para revisar o modificar la <strong>estrategia de branching y merge</strong> del proyecto en <code>_hilo/ESTADO_PROYECTO.json</code> sin tocar el resto de la configuracion.</p>
+<p>Pensado para reconfigurar tras <code>/hv:onboarding</code> cuando:</p>
+<ul>
+<li>Cambia el tamano del equipo (1 dev → varios, o al reves)</li>
+<li>Aparece o desaparece CI/CD</li>
+<li>El equipo decide cambiar de modelo (ej. de <code>trunk-based</code> a <code>github-flow</code>)</li>
+<li>Tras <code>claude plugin update hv@ovillo</code> aparecen estrategias nuevas que antes no existian</li>
+</ul>
+<hr>
+<section class="sec" id="sec-sintaxis">
+<h3 id="sintaxis">Sintaxis</h3>
+<pre><code>/branching                          # Modo interactivo: muestra config y pregunta cambios
+/branching --show                   # Solo lectura (no escribe nada)
+/branching --estrategia &lt;nombre&gt;    # Cambio directo a una estrategia concreta (+ defaults coherentes)
+/branching --merge &lt;nombre&gt;         # Cambio SOLO de mergeStrategy (sin tocar estrategia ni resto)
+/branching --reset                  # Restablece a defaults segun /onboarding rules</code></pre>
+<p><strong>Estrategias validas</strong> (9): <code>github-flow</code>, <code>github-flow-simplificado</code>, <code>release-flow</code>, <code>trunk-based</code>, <code>oneflow</code>, <code>gitflow</code>, <code>developer-flow</code>, <code>developer-branch</code>, <code>gitlab-flow</code>.</p>
+<p><strong>mergeStrategy validos</strong> (4): <code>squash</code>, <code>no-ff</code>, <code>rebase</code>, <code>merge</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-instrucciones-para-claude">
+<h3 id="instrucciones-para-claude">Instrucciones para Claude</h3>
+<h4 id="1-validar-precondiciones">1. Validar precondiciones</h4>
+<pre data-lang="bash"><code>test -f _hilo/ESTADO_PROYECTO.json || { <span class="tk-k">echo</span> <span class="tk-s">&quot;ERROR: ESTADO_PROYECTO.json no existe. Ejecuta /onboarding primero.&quot;</span>; <span class="tk-k">exit</span> <span class="tk-n">1</span>; }
+jq -e <span class="tk-s">'.configuracion.branching'</span> _hilo/ESTADO_PROYECTO.json &gt; /dev/null || { <span class="tk-k">echo</span> <span class="tk-s">&quot;ERROR: seccion branching no existe. Ejecuta /onboarding.&quot;</span>; <span class="tk-k">exit</span> <span class="tk-n">1</span>; }</code></pre>
+<h4 id="2-modo---show-solo-lectura">2. Modo <code>--show</code> (solo lectura)</h4>
+<p>Mostrar la config actual con formato tabla:</p>
+<pre><code>ESTRATEGIA DE BRANCHING ACTUAL
+
+  Estrategia:           github-flow
+  Rama base:            main
+  Merge strategy:       squash
+  Convencion ramas:     feature/{codigo}-{descripcion}
+  Push features:        true
+  Tipos tarea:          (no aplica con nomenclatura semantica)
+
+  Branch policies:
+    Reviewers minimo:   1
+    Build validation:   true
+    Linked work items:  false
+    Comment resolution: true
+
+  Flujo despliegue:     main → demo (auto) → prod (manual)
+  Estrategias disponibles en este proyecto: 13</code></pre>
+<p>Salir sin escribir nada.</p>
+<h4 id="3-modo---estrategia">3. Modo <code>--estrategia &lt;nombre&gt;</code></h4>
+<p>a) Validar que <code>&lt;nombre&gt;</code> esta en <code>_estrategias_disponibles</code> (copia del enum <code>vcs.branchingStrategy</code> del schema). Si no, listar las 13 validas y salir.</p>
+<p>b) Mostrar la config actual (snapshot pre-cambio) y la propuesta (snapshot post-cambio) en formato diff lado a lado.</p>
+<p>c) Calcular <strong>defaults coherentes</strong> segun la estrategia elegida usando esta tabla:</p>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>mergeStrategy</th><th>ramaBase</th><th>convencionRamas</th><th>pushFeatures</th><th>reviewersMinimo</th><th>buildValidation</th></tr></thead><tbody><tr><td><code>github-flow</code></td><td><code>squash</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>true</code></td><td><code>1</code></td><td><code>true</code></td></tr><tr><td><code>github-flow-simplificado</code></td><td><code>no-ff</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>false</code></td><td><code>0</code></td><td><code>true</code></td></tr><tr><td><code>release-flow</code></td><td><code>squash</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>1</code></td><td><code>true</code></td><td><code>true</code></td></tr><tr><td><code>trunk-based</code></td><td><code>squash</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code> (corta-vida &lt;1d)</td><td><code>true</code></td><td><code>1</code></td><td><code>true</code></td></tr><tr><td><code>oneflow</code></td><td><code>no-ff</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>true</code></td><td><code>1</code></td><td><code>true</code></td></tr><tr><td><code>gitflow</code></td><td><code>no-ff</code></td><td><code>develop</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>true</code></td><td><code>1</code></td><td><code>true</code></td></tr><tr><td><code>developer-flow</code></td><td><code>squash</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>true</code></td><td><code>1</code></td><td><code>true</code></td></tr><tr><td><code>developer-branch</code></td><td><code>merge</code></td><td><code>dev.{usuario}</code></td><td><code>yyyyMMdd-{tipo}-{codigo}-{descripcion}</code></td><td><code>false</code></td><td><code>0</code></td><td><code>false</code></td></tr><tr><td><code>gitlab-flow</code></td><td><code>no-ff</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>true</code></td><td><code>1</code></td><td><code>true</code></td></tr><tr><td><code>ship-show-ask</code></td><td><code>squash</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>true</code></td><td><code>0</code></td><td><code>true</code></td></tr><tr><td><code>stacked-prs</code></td><td><code>rebase</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>true</code></td><td><code>1</code></td><td><code>true</code></td></tr><tr><td><code>forking</code></td><td><code>squash</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>true</code></td><td><code>1</code></td><td><code>true</code></td></tr><tr><td><code>environment-branching</code></td><td><code>no-ff</code></td><td><code>main</code></td><td><code>feature/{codigo}-{descripcion}</code></td><td><code>true</code></td><td><code>1</code></td><td><code>true</code></td></tr></tbody></table></div>
+<p><strong>Reglas adicionales</strong>:</p>
+<ul>
+<li>Si la estrategia es <code>gitflow</code>: pedir confirmar/elegir nombre de <code>ramaDevelop</code> (default <code>develop</code>) y poner <code>releasesBranches: true</code>.</li>
+<li>Si la estrategia es <code>developer-branch</code>: preguntar el usuario para construir <code>dev.{usuario}</code> (lee de <code>git config user.name</code> o de <code>equipo.miembros[0].usuario</code>).</li>
+<li>Si la estrategia usa nomenclatura temporal (<code>developer-branch</code>): poner <code>tiposTarea</code> por defecto si esta <code>null</code>: <code>{&quot;DT&quot;:&quot;Deuda tecnica&quot;,&quot;HV&quot;:&quot;Evolutivo&quot;,&quot;BUG&quot;:&quot;Correccion&quot;,&quot;REF&quot;:&quot;Refactoring&quot;}</code>.</li>
+</ul>
+<p>d) Mostrar al usuario la <strong>propuesta completa</strong> y pedir confirmacion <code>[s/N]</code>. Si confirma, escribir con <code>jq</code> preservando el resto del JSON.</p>
+<pre data-lang="bash"><code>jq --arg estrategia <span class="tk-s">&quot;$NUEVA&quot;</span> \
+   --arg mergeStrategy <span class="tk-s">&quot;$MERGE&quot;</span> \
+   --arg ramaBase <span class="tk-s">&quot;$RAMA&quot;</span> \
+   --arg convencionRamas <span class="tk-s">&quot;$CONV&quot;</span> \
+   --argjson pushFeatures <span class="tk-v">$PUSH</span> \
+   --argjson reviewersMinimo <span class="tk-v">$REV</span> \
+   <span class="tk-s">'.configuracion.branching.estrategia = $estrategia
+    | .configuracion.branching.mergeStrategy = $mergeStrategy
+    | .configuracion.branching.ramaBase = $ramaBase
+    | .configuracion.branching.convencionRamas = $convencionRamas
+    | .configuracion.branching.pushFeatures = $pushFeatures
+    | .configuracion.branching.branchPolicies.reviewersMinimo = $reviewersMinimo'</span> \
+   _hilo/ESTADO_PROYECTO.json &gt; _hilo/ESTADO_PROYECTO.json.tmp \
+   &amp;&amp; mv _hilo/ESTADO_PROYECTO.json.tmp _hilo/ESTADO_PROYECTO.json</code></pre>
+<p><strong>IMPORTANTE</strong>: Preservar UTF-8 sin BOM (el hook <code>json-bom-guard.ps1</code> del constructor bloqueara si se anade BOM).</p>
+<p>e) Anadir entrada al historial de cambios:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Anadir nota en _hilo/LECCIONES.md o _hilo/HISTORIAL_CAMBIOS.md</span>
+<span class="tk-k">echo</span> <span class="tk-s">&quot;$(date +%Y-%m-%d): /branching - estrategia $ANTIGUA -&gt; $NUEVA&quot;</span> &gt;&gt; _hilo/HISTORIAL_CAMBIOS.md</code></pre>
+<p>f) Mostrar resumen:</p>
+<pre><code>[OK] Estrategia cambiada: github-flow → developer-branch
+[OK] mergeStrategy: squash → merge
+[OK] ramaBase: main → dev.claudio
+[OK] convencionRamas: feature/{codigo}-{descripcion} → yyyyMMdd-{tipo}-{codigo}-{descripcion}
+[OK] pushFeatures: true → false
+[OK] tiposTarea: null → {DT, HV, BUG, REF}
+
+Cambios escritos en _hilo/ESTADO_PROYECTO.json.
+Proximo /commit, /git-sync y /liberar usaran la nueva estrategia.</code></pre>
+<h4 id="3bis-modo---merge--cambio-aislado-de-mergestrategy">3.bis. Modo <code>--merge &lt;nombre&gt;</code> (cambio aislado de mergeStrategy)</h4>
+<p>Cambia <strong>solo</strong> el campo <code>configuracion.branching.mergeStrategy</code> sin tocar <code>estrategia</code> ni el resto de campos. Util cuando la estrategia es correcta pero el equipo quiere ajustar el tipo de merge (ej. de <code>squash</code> a <code>no-ff</code> manteniendo <code>github-flow</code>).</p>
+<p>a) Validar que <code>&lt;nombre&gt;</code> esta en <code>[&quot;squash&quot;, &quot;no-ff&quot;, &quot;rebase&quot;, &quot;merge&quot;]</code>. Si no, salir con error.</p>
+<p>b) Comprobar coherencia con la <code>estrategia</code> actual y avisar (no bloquear):</p>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>mergeStrategy esperada</th><th>Si difiere</th></tr></thead><tbody><tr><td><code>github-flow</code></td><td><code>squash</code></td><td>Warning: &quot;github-flow normalmente usa squash. ¿Confirmas?&quot;</td></tr><tr><td><code>github-flow-simplificado</code></td><td><code>no-ff</code></td><td>Warning: &quot;github-flow-simplificado usa no-ff para preservar trazabilidad local. ¿Confirmas?&quot;</td></tr><tr><td><code>developer-branch</code></td><td><code>merge</code> (plain)</td><td>Warning: &quot;developer-branch usa plain merge. ¿Confirmas?&quot;</td></tr><tr><td><code>gitflow</code> / <code>oneflow</code> / <code>gitlab-flow</code></td><td><code>no-ff</code></td><td>Warning: &quot;Esta estrategia normalmente usa no-ff. ¿Confirmas?&quot;</td></tr></tbody></table></div>
+<p>El warning <strong>NO bloquea</strong> — solo informa. El usuario puede confirmar con <code>[s/N]</code> y aplicar de todas formas (caso valido: equipo que prefiere rebase universal en cualquier estrategia).</p>
+<p>c) Mostrar diff antes/despues y pedir confirmacion <code>[s/N]</code>.</p>
+<p>d) Escribir con <code>jq</code> preservando el resto del JSON:</p>
+<pre data-lang="bash"><code>jq --arg merge <span class="tk-s">&quot;$NUEVA_MERGE&quot;</span> \
+   <span class="tk-s">'.configuracion.branching.mergeStrategy = $merge'</span> \
+   _hilo/ESTADO_PROYECTO.json &gt; _hilo/ESTADO_PROYECTO.json.tmp \
+   &amp;&amp; mv _hilo/ESTADO_PROYECTO.json.tmp _hilo/ESTADO_PROYECTO.json</code></pre>
+<p>e) Anadir entrada al historial:</p>
+<pre data-lang="bash"><code><span class="tk-k">echo</span> <span class="tk-s">&quot;$(date +%Y-%m-%d): /branching --merge - mergeStrategy $ANTIGUA -&gt; $NUEVA&quot;</span> &gt;&gt; _hilo/HISTORIAL_CAMBIOS.md</code></pre>
+<p>f) Resumen:</p>
+<pre><code>[OK] mergeStrategy cambiada: squash → no-ff
+[INFO] estrategia sigue siendo: github-flow (sin cambios)
+Cambios escritos en _hilo/ESTADO_PROYECTO.json.</code></pre>
+<h4 id="4-modo-interactivo-default-sin-args">4. Modo interactivo (default, sin args)</h4>
+<p>a) Mostrar la config actual (como <code>--show</code>). b) Mostrar el menu:</p>
+<pre><code>¿Que quieres hacer?
+  1. Cambiar estrategia (lista de 9)
+  2. Cambiar SOLO mergeStrategy (squash/no-ff/rebase/merge)
+  3. Cambiar SOLO convencionRamas (semantica/temporal/combinada/custom)
+  4. Cambiar SOLO ramaBase
+  5. Cambiar branchPolicies (reviewersMinimo, buildValidation, ...)
+  6. Restablecer a defaults coherentes con la estrategia actual
+  Q. Salir sin cambios</code></pre>
+<p>c) Procesar opcion elegida con el mismo flujo del paso 3.</p>
+<h4 id="5-modo---reset">5. Modo <code>--reset</code></h4>
+<p>Lee la <code>estrategia</code> actual y aplica todos los defaults coherentes de la tabla del paso 3.c. Util cuando los campos derivados (mergeStrategy, convencionRamas...) se han desalineado.</p>
+<hr>
+</section>
+<section class="sec" id="sec-coherencia-con-otros-comandos">
+<h3 id="coherencia-con-otros-comandos">Coherencia con otros comandos</h3>
+<p>Tras cambiar la estrategia, los siguientes comandos usaran la nueva config automaticamente (leen <code>configuracion.branching</code> en cada invocacion):</p>
+<ul>
+<li><code>/hv:commit</code> - aplica <code>mergeStrategy</code> y prefijo de rama</li>
+<li><code>/hv:git-sync</code> - sincroniza segun la nueva estrategia</li>
+<li><code>/hv:liberar</code> - cierra ramas siguiendo la nomenclatura</li>
+<li><code>/hv:nuevo-evolutivo</code> - crea ramas con la nueva convencion</li>
+<li>Regla condicional <code>.claude/rules/developer-branch.md</code> se activa/desactiva automaticamente</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-cuando-no-usar-branching">
+<h3 id="cuando-no-usar-branching">Cuando NO usar /branching</h3>
+<ul>
+<li><strong>Primera configuracion del proyecto</strong>: usar <code>/hv:onboarding</code> (cubre branching + 7 secciones mas).</li>
+<li><strong>Auditar coherencia sin cambiar nada</strong>: usar <code>/hv:analizar</code> o <code>/branching --show</code>.</li>
+<li><strong>Resolver merge conflicts concretos</strong>: usar <code>/hv:commit</code> o herramientas Git directas.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-ejemplos">
+<h3 id="ejemplos">Ejemplos</h3>
+<pre><code>/branching --show
+# Solo muestra la config actual, sin tocar nada.
+
+/branching --estrategia gitlab-flow
+# Cambio directo. Pide confirmacion antes de escribir.
+
+/branching
+# Modo interactivo con menu.
+
+/branching --reset
+# Reaplica defaults coherentes a la estrategia actual (limpia drift).</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patrones-a-evitar">
+<h3 id="anti-patrones-a-evitar">Anti-patrones a evitar</h3>
+<ul>
+<li><strong>NO mezclar varios cambios sin diff explicito</strong>: si cambias <code>estrategia</code>, mostrar TODOS los campos derivados que tambien cambian (no solo <code>estrategia</code>).</li>
+<li><strong>NO escribir sin confirmacion</strong> salvo <code>--reset</code> cuando el usuario lo pidio explicitamente.</li>
+<li><strong>NO duplicar la logica de <code>/hv:onboarding</code></strong>: solo gestiona la seccion <code>branching</code>, no toca <code>equipo</code>, <code>infraestructura</code>, <code>jira</code>, etc.</li>
+<li><strong>NO romper el JSON</strong>: validar con <code>jq -e .</code> despues de escribir.</li>
+</ul>
+<hr>
+<p><em>Comando Ovillo+. Origen: bloque de mejora reconfigurar-estrategia post-onboarding (2026-05-13).</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/patterns/ssh-signing.html"><small>Anterior</small>patterns/ssh-signing.md</a><a class="next" href="../../../skills/git-best-practices/strategies/branching-models.html"><small>Siguiente</small>strategies/branching-models.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/references/workflow-branching.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#sintaxis">Sintaxis</a></li><li class="l2"><a href="#instrucciones-para-claude">Instrucciones para Claude</a></li><li class="l3"><a href="#1-validar-precondiciones">1. Validar precondiciones</a></li><li class="l3"><a href="#2-modo---show-solo-lectura">2. Modo --show (solo lectura)</a></li><li class="l3"><a href="#3-modo---estrategia">3. Modo --estrategia &lt;nombre&gt;</a></li><li class="l3"><a href="#3bis-modo---merge--cambio-aislado-de-mergestrategy">3.bis. Modo --merge &lt;nombre&gt; (cambio aislado de mergeStrategy)</a></li><li class="l3"><a href="#4-modo-interactivo-default-sin-args">4. Modo interactivo (default, sin args)</a></li><li class="l3"><a href="#5-modo---reset">5. Modo --reset</a></li><li class="l2"><a href="#coherencia-con-otros-comandos">Coherencia con otros comandos</a></li><li class="l2"><a href="#cuando-no-usar-branching">Cuando NO usar /branching</a></li><li class="l2"><a href="#ejemplos">Ejemplos</a></li><li class="l2"><a href="#anti-patrones-a-evitar">Anti-patrones a evitar</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

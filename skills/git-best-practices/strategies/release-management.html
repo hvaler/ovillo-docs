@@ -1,0 +1,142 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · strategies/release-management.md · Ovillo</title><meta name="description" content="Fichero strategies/release-management.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · strategies/release-management.md · Ovillo"><meta property="og:description" content="Fichero strategies/release-management.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/strategies/release-management.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/strategies/release-management.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/strategies/release-management.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html" class="cur">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>strategies</span><span>release-management.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>strategies/</span></div><h1>release-management.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>strategies</b><span>carpeta</span></div><div><b>3752 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: git-best-practices</p></blockquote>
+<p class="lede">Versionado semantico, tags, changelogs y gestion de releases.</p>
+<hr>
+<section class="sec" id="sec-versionado-semantico-semver-20">
+<h3 id="versionado-semantico-semver-20">Versionado Semantico (SemVer 2.0)</h3>
+<pre><code>MAJOR.MINOR.PATCH[-prerelease][+build]
+
+Ejemplos:
+  1.0.0          # Release inicial
+  1.1.0          # Nueva funcionalidad retrocompatible
+  1.1.1          # Fix de bug
+  2.0.0          # Breaking change
+  1.2.0-beta.1   # Pre-release beta
+  1.2.0-rc.1     # Release candidate</code></pre>
+<h4 id="reglas">Reglas</h4>
+<div class="tbl"><table><thead><tr><th>Incremento</th><th>Cuando</th><th>Ejemplo</th></tr></thead><tbody><tr><td><strong>MAJOR</strong></td><td>Breaking changes en API o comportamiento</td><td>Cambiar firma de metodo publico</td></tr><tr><td><strong>MINOR</strong></td><td>Nueva funcionalidad retrocompatible</td><td>Nuevo endpoint, nuevo parametro opcional</td></tr><tr><td><strong>PATCH</strong></td><td>Bug fix retrocompatible</td><td>Corregir error de calculo</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-tags-en-git">
+<h3 id="tags-en-git">Tags en Git</h3>
+<h4 id="crear-tag-de-release">Crear tag de release</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Tag anotado (recomendado) con firma SSH</span>
+<span class="tk-k">git</span> tag -a v1.<span class="tk-n">2.0</span> -m <span class="tk-s">&quot;Release 1.2.0: filter de scholarships por estado&quot;</span> --sign
+
+<span class="tk-c"># Tag anotado sin firma</span>
+<span class="tk-k">git</span> tag -a v1.<span class="tk-n">2.0</span> -m <span class="tk-s">&quot;Release 1.2.0: filter de scholarships por estado&quot;</span>
+
+<span class="tk-c"># Push del tag</span>
+<span class="tk-k">git</span> push origin v1.<span class="tk-n">2.0</span>
+
+<span class="tk-c"># Push de todos los tags pendientes</span>
+<span class="tk-k">git</span> push origin --tags</code></pre>
+<h4 id="convencion-de-tags-del-ecosistema">Convencion de tags del ecosistema</h4>
+<pre><code>v{MAJOR}.{MINOR}.{PATCH}
+
+Ejemplos:
+  v1.0.0    # Release inicial
+  v1.1.0    # Nueva funcionalidad
+  v1.1.1    # Hotfix
+  v2.0.0    # Breaking change</code></pre>
+<h4 id="listar-tags">Listar tags</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Todos los tags</span>
+<span class="tk-k">git</span> tag -l
+
+<span class="tk-c"># Tags con patron</span>
+<span class="tk-k">git</span> tag -l <span class="tk-s">&quot;v1.*&quot;</span>
+
+<span class="tk-c"># Tags con detalle</span>
+<span class="tk-k">git</span> tag -l --format=<span class="tk-s">'%(tag) %(taggerdate:short) %(subject)'</span> -n</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-changelog-automatico">
+<h3 id="changelog-automatico">Changelog Automatico</h3>
+<h4 id="desde-conventional-commits">Desde Conventional Commits</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Los commits Conventional Commits permiten generar changelog automatico</span>
+<span class="tk-c"># Tipos que aparecen en changelog:</span>
+<span class="tk-c">#   feat: → &quot;Features&quot; (nuevas funcionalidades)</span>
+<span class="tk-c">#   fix:  → &quot;Bug Fixes&quot; (correcciones)</span>
+<span class="tk-c">#   perf: → &quot;Performance&quot; (mejoras de rendimiento)</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># Tipos que NO aparecen:</span>
+<span class="tk-c">#   docs:, style:, refactor:, test:, chore:, ci:</span>
+
+<span class="tk-c"># Ejemplo de changelog generado:</span>
+<span class="tk-c"># ## [1.2.0] - 2026-03-06</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># ### Features</span>
+<span class="tk-c"># - **scholarships**: añadir filter por estado (HV-18) (#42)</span>
+<span class="tk-c"># - **applications**: validacion de fecha limite (#45)</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># ### Bug Fixes</span>
+<span class="tk-c"># - **auth**: corregir expiracion de token (HV-23) (#48)</span></code></pre>
+<h4 id="formato-de-changelog-changelogmd">Formato de Changelog (CHANGELOG.md)</h4>
+<pre data-lang="markdown"><code># Changelog
+
+Todos los cambios notables se documentan en este archivo.
+Formato basado en [Keep a Changelog](https://keepachangelog.com/).
+
+## [1.2.0] - 2026-03-06
+
+### Agregado
+- Filtro de scholarships por estado y fecha (#42)
+- Exportacion a Excel de applications (#45)
+
+### Corregido
+- Error en expiracion de token Azure AD (#48)
+- Paginacion incorrecta en listado de scholarships (#50)
+
+### Cambiado
+- Actualizado Entity Framework Core a 10.0.1
+
+## [1.1.0] - 2026-02-15
+...</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-flujo-de-release">
+<h3 id="flujo-de-release">Flujo de Release</h3>
+<h4 id="release-desde-main-github-flow">Release desde main (GitHub Flow)</h4>
+<pre data-lang="bash"><code><span class="tk-c"># 1. Verificar que main esta limpio</span>
+<span class="tk-k">git</span> checkout main
+<span class="tk-k">git</span> pull origin main
+
+<span class="tk-c"># 2. Ejecutar tests</span>
+<span class="tk-k">dotnet</span> test
+
+<span class="tk-c"># 3. Crear tag</span>
+<span class="tk-k">git</span> tag -a v1.<span class="tk-n">2.0</span> -m <span class="tk-s">&quot;Release 1.2.0&quot;</span> --sign
+<span class="tk-k">git</span> push origin v1.<span class="tk-n">2.0</span>
+
+<span class="tk-c"># 4. GitHub Action automatica crea release (ver templates/)</span></code></pre>
+<h4 id="release-con-release-branch-release-flow">Release con release branch (Release Flow)</h4>
+<pre data-lang="bash"><code><span class="tk-c"># 1. Crear release branch</span>
+<span class="tk-k">git</span> checkout -b release/v1.<span class="tk-n">2.0</span> main
+
+<span class="tk-c"># 2. Solo fixes en release branch</span>
+<span class="tk-k">git</span> cherry-pick &lt;commit-fix&gt;
+
+<span class="tk-c"># 3. Cuando esta listo</span>
+<span class="tk-k">git</span> tag -a v1.<span class="tk-n">2.0</span> -m <span class="tk-s">&quot;Release 1.2.0&quot;</span> --sign
+<span class="tk-k">git</span> push origin release/v1.<span class="tk-n">2.0</span> --tags
+
+<span class="tk-c"># 4. Merge de vuelta a main</span>
+<span class="tk-k">git</span> checkout main
+<span class="tk-k">git</span> merge release/v1.<span class="tk-n">2.0</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-reversion-de-release">
+<h3 id="reversion-de-release">Reversion de Release</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Opcion 1: Revert del merge commit</span>
+<span class="tk-k">git</span> revert -m <span class="tk-n">1</span> &lt;merge-commit-hash&gt;
+
+<span class="tk-c"># Opcion 2: Deploy de version anterior</span>
+<span class="tk-k">git</span> checkout v1.<span class="tk-n">1.0</span>
+<span class="tk-c"># deploy...</span>
+
+<span class="tk-c"># Opcion 3: Hotfix</span>
+<span class="tk-k">git</span> checkout -b hotfix/HV-XX-descripcion main
+<span class="tk-c"># ... fix ...</span>
+<span class="tk-k">git</span> tag -a v1.<span class="tk-n">2.1</span> -m <span class="tk-s">&quot;Hotfix&quot;</span></code></pre>
+<hr>
+<p><em>Pattern 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/strategies/merge-strategies.html"><small>Anterior</small>strategies/merge-strategies.md</a><a class="next" href="../../../skills/git-best-practices/templates/branch-ruleset.json.html"><small>Siguiente</small>templates/branch-ruleset.json.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/strategies/release-management.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#versionado-semantico-semver-20">Versionado Semantico (SemVer 2.0)</a></li><li class="l3"><a href="#reglas">Reglas</a></li><li class="l2"><a href="#tags-en-git">Tags en Git</a></li><li class="l3"><a href="#crear-tag-de-release">Crear tag de release</a></li><li class="l3"><a href="#convencion-de-tags-del-ecosistema">Convencion de tags del ecosistema</a></li><li class="l3"><a href="#listar-tags">Listar tags</a></li><li class="l2"><a href="#changelog-automatico">Changelog Automatico</a></li><li class="l3"><a href="#desde-conventional-commits">Desde Conventional Commits</a></li><li class="l3"><a href="#formato-de-changelog-changelogmd">Formato de Changelog (CHANGELOG.md)</a></li><li class="l2"><a href="#flujo-de-release">Flujo de Release</a></li><li class="l3"><a href="#release-desde-main-github-flow">Release desde main (GitHub Flow)</a></li><li class="l3"><a href="#release-con-release-branch-release-flow">Release con release branch (Release Flow)</a></li><li class="l2"><a href="#reversion-de-release">Reversion de Release</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

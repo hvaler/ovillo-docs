@@ -1,0 +1,193 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>resilience-patterns · references/workflow-add-resilience.md · Ovillo</title><meta name="description" content="Fichero references/workflow-add-resilience.md de la skill resilience-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="resilience-patterns · references/workflow-add-resilience.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-add-resilience.md de la skill resilience-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/resilience-patterns/references/workflow-add-resilience.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/resilience-patterns/references/workflow-add-resilience.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/resilience-patterns/references/workflow-add-resilience.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de resilience-patterns (8)</h4><ul class="sibs"><li><a href="../../../skills/resilience-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/resilience-patterns/patterns/graceful-shutdown.html">patterns/graceful-shutdown.md</a></li><li><a href="../../../skills/resilience-patterns/patterns/health-checks.html">patterns/health-checks.md</a></li><li><a href="../../../skills/resilience-patterns/patterns/polly-policies.html">patterns/polly-policies.md</a></li><li><a href="../../../skills/resilience-patterns/references/workflow-add-resilience.html" class="cur">references/workflow-add-resilience.md</a></li><li><a href="../../../skills/resilience-patterns/references/workflow-health-check.html">references/workflow-health-check.md</a></li><li><a href="../../../skills/resilience-patterns/templates/HealthChecksConfig.cs.html">templates/HealthChecksConfig.cs.template</a></li><li><a href="../../../skills/resilience-patterns/templates/ResiliencePolicies.cs.html">templates/ResiliencePolicies.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/resilience-patterns.html">resilience-patterns</a></span><span>references</span><span>workflow-add-resilience.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>resilience-patterns</span><span>references/</span></div><h1>workflow-add-resilience.md</h1><p class="lede">Referencia que <code>resilience-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/resilience-patterns.html">resilience-patterns</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>7290 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>resilience-patterns</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para.</p></blockquote>
+<hr>
+<p class="lede">Wizard para configurar políticas de resiliencia (retry, circuit breaker, timeout) en HttpClients del proyecto siguiendo los estándares de la organización.</p>
+<hr>
+<section class="sec" id="sec-paso-1-detectar-proyecto">
+<h3 id="paso-1-detectar-proyecto">PASO 1: Detectar proyecto</h3>
+<ol>
+<li><strong>Buscar proyecto principal en <code>src/</code>:</strong></li>
+<ul>
+<li>Localizar archivos <code>.csproj</code> (buscar el proyecto Web/API principal y proyecto de Infrastructure)</li>
+<li>Escanear registros de <code>AddHttpClient</code> en Program.cs y archivos de configuración</li>
+<li>Escanear configuración Polly existente (<code>AddResilienceHandler</code>, <code>AddPolicyHandler</code>)</li>
+<li>Listar HttpClients descubiertos</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Mostrar HttpClients encontrados:</strong>:</li>
+</ol>
+<pre><code>HttpClients detectados:
+  1. BannerApiClient     - Program.cs:45
+  2. OracleHcmClient     - Program.cs:52
+  3. SigmaClient         - Program.cs:58
+  [ninguno encontrado]
+
+Polly existente: {0}</code></pre>
+<ol>
+<li><strong>Si no hay HttpClients: preguntar si desea crear uno nuevo primero</strong></li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-paso-2-wizard-interactivo">
+<h3 id="paso-2-wizard-interactivo">PASO 2: Wizard interactivo</h3>
+<p>Para cada HttpClient (o el especificado por el usuario):</p>
+<pre><code>Configurar resiliencia para: {0}
+
+Selecciona las políticas a aplicar:
+
+RECOMENDADAS:
+  [x] Retry                - 3 intentos, backoff exponencial con jitter
+  [x] Circuit Breaker      - 5 fallos -&gt; 30s circuito abierto
+  [x] Timeout              - 30s timeout por petición
+
+OPCIONALES:
+  [ ] Bulkhead             - Limitar peticiones concurrentes
+  [ ] Standard resilience  - Handler estándar (incluye retry+cb+timeout)
+
+¿Deseas usar el Standard Resilience Handler? (recomendado para la mayoría de casos) [S/n]</code></pre>
+<p><strong>Si el usuario elige Standard Resilience Handler: aplicar la configuración por defecto de Microsoft.Extensions.Http.Resilience que incluye retry, circuit breaker y timeout con valores sensatos.</strong></p>
+<p><strong>Si el usuario prefiere configuración manual: permitir ajustar valores para cada política.</strong></p>
+<p>Repetir para cada HttpClient seleccionado.</p>
+<hr>
+</section>
+<section class="sec" id="sec-paso-3-añadir-nugets">
+<h3 id="paso-3-añadir-nugets">PASO 3: Añadir NuGets</h3>
+<p>Listar e instalar los paquetes necesarios:</p>
+<pre data-lang="powershell"><code>dotnet add package Microsoft.Extensions.Http.Resilience
+dotnet add package Microsoft.Extensions.Resilience
+dotnet add package Polly</code></pre>
+<p>Ejecutar <code>dotnet add package</code> para cada paquete en el directorio del <code>.csproj</code> principal.</p>
+<hr>
+</section>
+<section class="sec" id="sec-paso-4-generar-código">
+<h3 id="paso-4-generar-código">PASO 4: Generar código</h3>
+<ol>
+<li><strong>Leer plantilla desde <code>.claude/skills/resilience-patterns/templates/ResiliencePolicies.cs.template</code></strong></li>
+<ul>
+<li>Si la plantilla no existe, generar el código directamente</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Reemplazar variables:</strong>:</li>
+<ul>
+<li><code>{{NombreProyecto}}</code> con el nombre del proyecto detectado</li>
+<li><code>{{Namespace}}</code> con el namespace correspondiente</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Crear archivo de políticas:</strong>:</li>
+<ul>
+<li>Ruta: <code>src/src/MyCompany.{0}.Infrastructure/Resilience/ResiliencePolicies.cs</code></li>
+<li>Contenido: clase estática con métodos de extensión para cada política configurada</li>
+<li>Retry: backoff exponencial con jitter (Polly.Contrib.WaitAndRetry decorrelado)</li>
+<li>Circuit Breaker: configurar umbral de fallos, duración de apertura, sampling duration</li>
+<li>Timeout: timeout por petición individual</li>
+<li>Bulkhead: limitar concurrencia si seleccionado</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Modificar Program.cs:</strong>:</li>
+<ul>
+<li>Añadir <code>using</code> del namespace de Resilience</li>
+<li>Para cada HttpClient, añadir las políticas configuradas:</li>
+</ul>
+</ol>
+<pre data-lang="csharp"><code>     <span class="tk-c">// Si usa Standard Resilience Handler (recomendado):</span>
+     builder.Services.AddHttpClient&lt;IBannerApiClient, BannerApiClient&gt;(client =&gt;
+     {
+         client.BaseAddress = <span class="tk-k">new</span> Uri(configuration[<span class="tk-s">&quot;ExternalServices:Banner:BaseUrl&quot;</span>]!);
+     })
+     .AddStandardResilienceHandler();
+
+     <span class="tk-c">// Si usa configuración personalizada:</span>
+     builder.Services.AddHttpClient&lt;IBannerApiClient, BannerApiClient&gt;(client =&gt;
+     {
+         client.BaseAddress = <span class="tk-k">new</span> Uri(configuration[<span class="tk-s">&quot;ExternalServices:Banner:BaseUrl&quot;</span>]!);
+     })
+     .AddResilienceHandler(<span class="tk-s">&quot;banner&quot;</span>, builder =&gt;
+     {
+         builder.AddRetry(<span class="tk-k">new</span> HttpRetryStrategyOptions
+         {
+             MaxRetryAttempts = <span class="tk-n">3</span>,
+             BackoffType = DelayBackoffType.Exponential,
+             UseJitter = <span class="tk-k">true</span>,
+             Delay = TimeSpan.FromSeconds(<span class="tk-n">1</span>)
+         });
+         builder.AddCircuitBreaker(<span class="tk-k">new</span> HttpCircuitBreakerStrategyOptions
+         {
+             SamplingDuration = TimeSpan.FromSeconds(<span class="tk-n">60</span>),
+             FailureRatio = <span class="tk-n">0.5</span>,
+             MinimumThroughput = <span class="tk-n">5</span>,
+             BreakDuration = TimeSpan.FromSeconds(<span class="tk-n">30</span>)
+         });
+         builder.AddTimeout(TimeSpan.FromSeconds(<span class="tk-n">30</span>));
+     });</code></pre>
+<ol>
+<li><strong>Añadir configuración a appsettings.json:</strong>:</li>
+<ul>
+<li>Sección <code>Resilience</code> con valores configurables por servicio:</li>
+</ul>
+</ol>
+<pre data-lang="json"><code>     {
+       <span class="tk-s">&quot;Resilience&quot;</span>: {
+         <span class="tk-s">&quot;BannerApi&quot;</span>: {
+           <span class="tk-s">&quot;RetryCount&quot;</span>: <span class="tk-n">3</span>,
+           <span class="tk-s">&quot;RetryBaseDelay&quot;</span>: <span class="tk-s">&quot;00:00:01&quot;</span>,
+           <span class="tk-s">&quot;CircuitBreakerFailureRatio&quot;</span>: <span class="tk-n">0.5</span>,
+           <span class="tk-s">&quot;CircuitBreakerBreakDuration&quot;</span>: <span class="tk-s">&quot;00:00:30&quot;</span>,
+           <span class="tk-s">&quot;TimeoutSeconds&quot;</span>: <span class="tk-n">30</span>
+         }
+       }
+     }</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-5-verificar-y-resumen">
+<h3 id="paso-5-verificar-y-resumen">PASO 5: Verificar y resumen</h3>
+<ol>
+<li><strong>Compilar el proyecto:</strong>:</li>
+</ol>
+<pre data-lang="powershell"><code>dotnet build src/src/MyCompany.[Nombre].Web/</code></pre>
+<ol>
+<li><strong>Verificar que compila sin errores</strong></li>
+</ol>
+<ol>
+<li><strong>Mostrar resumen:</strong>:</li>
+</ol>
+<pre><code>+---------------------------------------------------------+
+|  RESILIENCIA CONFIGURADA                                |
++---------------------------------------------------------+
+|                                                         |
+|  Servicios configurados:                                |
+|    BannerApiClient:                                     |
+|      [x] Retry: 3 intentos, exponential+jitter          |
+|      [x] Circuit Breaker: 5 fallos -&gt; 30s abierto       |
+|      [x] Timeout: 30s                                   |
+|    OracleHcmClient:                                     |
+|      [x] Standard Resilience Handler                    |
+|                                                         |
+|  Archivos creados/modificados:                          |
+|    + Infrastructure/Resilience/ResiliencePolicies.cs    |
+|    ~ Program.cs                                         |
+|    ~ appsettings.json                                   |
+|                                                         |
+|  Comportamiento del Circuit Breaker:                    |
+|    CERRADO -&gt; normal, peticiones pasan                  |
+|    ABIERTO -&gt; falla rápido, no llama al servicio        |
+|    SEMI-ABIERTO -&gt; prueba con 1 petición                |
+|                                                         |
++---------------------------------------------------------+</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-recordatorios-críticos">
+<h3 id="recordatorios-críticos">RECORDATORIOS CRÍTICOS</h3>
+<ul>
+<li><strong>Siempre usar jitter</strong> con backoff exponencial para evitar thundering herd</li>
+<li><strong>No reintentar errores 4xx</strong> (errores del cliente) - solo reintentar 5xx y timeouts</li>
+<li><strong>Circuit breaker protege servicios downstream</strong> - no quitar aunque parezca innecesario</li>
+<li><strong>Timeout por petición</strong> debe ser menor que el timeout total del retry</li>
+<li>Los valores de configuración deben ser <strong>ajustables via appsettings</strong> sin recompilar</li>
+<li>En producción, monitorizar los eventos del circuit breaker con logs/métricas</li>
+<li><strong>Skill de referencia</strong>: <code>.claude/skills/resilience-patterns/</code></li>
+<li><strong>Guía de referencia</strong>: <code>_patron/07_Resiliencia/GUIA_RESILIENCIA.md</code></li>
+</ul>
+</section><p style="margin-top:32px"><a href="../../../skills/resilience-patterns.html#ficheros">← Volver a la ficha de resilience-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/resilience-patterns/patterns/polly-policies.html"><small>Anterior</small>patterns/polly-policies.md</a><a class="next" href="../../../skills/resilience-patterns/references/workflow-health-check.html"><small>Siguiente</small>references/workflow-health-check.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/resilience-patterns/references/workflow-add-resilience.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#paso-1-detectar-proyecto">PASO 1: Detectar proyecto</a></li><li class="l2"><a href="#paso-2-wizard-interactivo">PASO 2: Wizard interactivo</a></li><li class="l2"><a href="#paso-3-añadir-nugets">PASO 3: Añadir NuGets</a></li><li class="l2"><a href="#paso-4-generar-código">PASO 4: Generar código</a></li><li class="l2"><a href="#paso-5-verificar-y-resumen">PASO 5: Verificar y resumen</a></li><li class="l2"><a href="#recordatorios-críticos">RECORDATORIOS CRÍTICOS</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

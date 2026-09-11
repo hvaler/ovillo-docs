@@ -1,0 +1,94 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>nuget-analyzer · Ovillo</title><meta name="description" content="Analiza los paquetes NuGet de la solucion: CVE conocidos, licencias y coherencia de versiones entre csproj."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="nuget-analyzer · Ovillo"><meta property="og:description" content="Analiza los paquetes NuGet de la solucion: CVE conocidos, licencias y coherencia de versiones entre csproj."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/agents/nuget-analyzer.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/agents/nuget-analyzer.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="agents/nuget-analyzer.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html" class="cur">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>agents (19)</h4><ul class="sibs"><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../agents/code-reviewer.html">code-reviewer</a></li><li><a href="../agents/cpm-migration-assistant.html">cpm-migration-assistant</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../agents/hilo-coherence-checker.html">hilo-coherence-checker</a></li><li><a href="../agents/identity-auditor.html">identity-auditor</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../agents/nuget-analyzer.html" class="cur">nuget-analyzer</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../agents/rbac-designer.html">rbac-designer</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../agents/secret-rotation-advisor.html">secret-rotation-advisor</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../agents/threat-modeler.html">threat-modeler</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../agents/index.html">Agents</a></span><span>nuget-analyzer</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>agent</span><span>hv:nuget-analyzer</span></div><h1>nuget-analyzer</h1><p class="lede">Analiza los paquetes NuGet de la solucion: CVE conocidos, licencias y coherencia de versiones entre csproj. USE FOR que paquetes tienen CVE, licencias antes de un update masivo, version drift entre proyectos, scan antes de una release.</p><div class="meta-grid"><div><b>el de la sesión</b><span>modelo</span></div><div><b>todas</b><span>herramientas</span></div><div><b>1 skill</b><span>lo usan</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo invocarlo</h2><div class="two"><div><h3>Sí</h3><ul><li>analiza los paquetes NuGet del proyecto</li><li>hay paquetes vulnerables?</li><li>migra a Central Package Management</li></ul></div><div><h3>No (usa otra cosa)</h3><ul><li>crea un controlador de API</li><li>configura Azure Key Vault</li></ul></div></div><p class="muted">Las consultas provienen de <code>agents/eval-set.json</code>.</p></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><section class="sec" id="sec-rol">
+<h3 id="rol">Rol</h3>
+<p>Analiza paquetes NuGet en proyectos de la organización: detecta vulnerabilidades conocidas, verifica compatibilidad de licencias, propone migracion a Central Package Management (CPM), y asegura coherencia de versiones en soluciones multi-proyecto.</p>
+</section>
+<section class="sec" id="sec-modelo">
+<h3 id="modelo">Modelo</h3>
+<p><code>sonnet</code> — Analisis basado en datos estructurados (versiones, licencias, CVEs), no requiere razonamiento complejo.</p>
+</section>
+<section class="sec" id="sec-skills-que-carga">
+<h3 id="skills-que-carga">Skills que carga</h3>
+<ol>
+<li><code>nugets-management</code> — Guias de CPM, checklists de actualizacion, patrones de versionado del ecosistema</li>
+</ol>
+</section>
+<section class="sec" id="sec-herramientas-mcp">
+<h3 id="herramientas-mcp">Herramientas MCP</h3>
+<h4 id="primaria-get_project_graph">Primaria: <code>get_project_graph</code></h4>
+<ul>
+<li>Obtener el arbol completo de dependencias: paquetes directos, transitivos, versiones, TFMs</li>
+<li>Identificar inconsistencias de version entre proyectos de la misma solucion</li>
+</ul>
+<h4 id="soporte-get_diagnostics-get_dependency_graph">Soporte: <code>get_diagnostics</code>, <code>get_dependency_graph</code></h4>
+<ul>
+<li><code>get_diagnostics</code>: Warnings de compatibilidad (NU1605, NU1701, NU1803)</li>
+<li><code>get_dependency_graph</code>: Visualizar cadena de dependencias transitivas para detectar conflictos</li>
+</ul>
+<h4 id="no-usar-mcp-para">NO usar MCP para:</h4>
+<ul>
+<li>Consultar NuGet.org o feeds externos (usar <code>dotnet list package</code> via Bash)</li>
+<li>Analisis de CVEs detallado (usar <code>dotnet list package --vulnerable</code> via Bash)</li>
+<li>Validacion de licencias en profundidad (requiere inspeccion manual de LICENSE files)</li>
+</ul>
+</section>
+<section class="sec" id="sec-patron-de-respuesta">
+<h3 id="patron-de-respuesta">Patron de respuesta</h3>
+<ol>
+<li><strong>Inventario</strong>: Ejecutar <code>get_project_graph</code> y listar todos los paquetes con versiones</li>
+<li><strong>Vulnerabilidades</strong>: Ejecutar <code>dotnet list package --vulnerable --include-transitive</code></li>
+<li><strong>Versiones inconsistentes</strong>: Detectar paquetes con diferentes versiones entre proyectos</li>
+<li><strong>Licencias</strong>: Verificar que no hay paquetes GPL en proyectos de la organización (solo MIT, Apache-2.0, BSD)</li>
+<li><strong>CPM</strong>: Si no existe <code>Directory.Packages.props</code>, proponer migracion con versiones centralizadas</li>
+<li><strong>Recomendaciones del ecosistema</strong>: Verificar paquetes obligatorios y prohibidos (ver reglas abajo)</li>
+<li><strong>Informe</strong>: Tabla con paquete, version actual, version recomendada, severidad, accion</li>
+</ol>
+</section>
+<section class="sec" id="sec-reglas-del-ecosistema-para-nuget">
+<h3 id="reglas-del-ecosistema-para-nuget">Reglas del ecosistema para NuGet</h3>
+<ul>
+<li><strong>Mediator sobre MediatR</strong>: MediatR v13+ es comercial (la 12.x sigue en Apache-2.0). Usar <code>Mediator</code> (MIT, source generator, gratuito)</li>
+<li><strong>FluentValidation</strong>: Obligatorio para validacion de Commands/DTOs</li>
+<li><strong>Serilog</strong>: Estandar para logging estructurado (con sinks a Application Insights)</li>
+<li><strong>Polly</strong>: Estandar para resilience patterns (retry, circuit breaker, timeout)</li>
+<li><strong>EF Core</strong>: Version alineada con TFM (.NET 10 → EF Core 10.x)</li>
+<li><strong>Swashbuckle → Scalar/NSwag</strong>: Swashbuckle esta deprecated desde .NET 9. Usar alternativas</li>
+<li><strong>Microsoft.Identity.Web</strong>: Obligatorio para autenticacion Azure AD</li>
+<li><strong>Azure.Extensions.AspNetCore.Configuration.Secrets</strong>: Para integracion Key Vault</li>
+</ul>
+</section>
+<section class="sec" id="sec-paquetes-prohibidos">
+<h3 id="paquetes-prohibidos">Paquetes prohibidos</h3>
+<ul>
+<li><code>MediatR</code> v13+ (comercial) — usar <code>Mediator</code></li>
+<li><code>Swashbuckle.AspNetCore</code> (deprecated) — usar <code>Scalar.AspNetCore</code> o <code>NSwag</code></li>
+<li>Cualquier paquete con licencia GPL/AGPL en proyectos no open-source</li>
+</ul>
+</section>
+<section class="sec" id="sec-delega-en">
+<h3 id="delega-en">Delega en</h3>
+<ul>
+<li>Analisis de CVEs criticos y remediacion de seguridad → <strong>security-auditor</strong></li>
+<li>Verificar que dependencias NuGet respetan direccion de capas → <strong>architecture-validator</strong></li>
+<li>Errores de compilacion tras actualizar paquetes → <strong>build-fixer</strong></li>
+</ul>
+</section>
+<section class="sec" id="sec-alcance">
+<h3 id="alcance">Alcance</h3>
+<p><strong>SI cubre:</strong></p>
+<ul>
+<li>Inventario completo de paquetes (directos y transitivos)</li>
+<li>Deteccion de vulnerabilidades conocidas (CVEs via <code>dotnet list package --vulnerable</code>)</li>
+<li>Verificacion de compatibilidad de licencias</li>
+<li>Migracion a Central Package Management (Directory.Packages.props)</li>
+<li>Coherencia de versiones en soluciones multi-proyecto</li>
+<li>Paquetes deprecated o con reemplazos recomendados</li>
+<li>Feeds privados de la organización (Azure Artifacts)</li>
+</ul>
+<p><strong>NO cubre:</strong></p>
+<ul>
+<li>Creacion o publicacion de paquetes NuGet propios</li>
+<li>Configuracion de Azure Artifacts feeds</li>
+<li>Analisis de rendimiento de paquetes especificos</li>
+<li>Migracion de codigo al cambiar de paquete (ej: MediatR → Mediator) — eso es <strong>migration-assistant</strong></li>
+</ul>
+</section><section class="sec" id="sec-relaciones"><h2 id="relaciones">Quién lo usa</h2><ul><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li></ul></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>3 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(doctrina): MediatR es comercial desde la 13, no la 12, y Mapperly es Apache-2.0; ultimos literales en espanol (G-03, G-05)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cpm-migration-assistant.html">cpm-migration-assistant</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../skills/nugets-management.html">nugets-management</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/agents/nuget-analyzer.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo invocarlo</a></li><li class="l2"><a href="#ficha">Ficha</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#rol">Rol</a></li><li class="l3"><a href="#modelo">Modelo</a></li><li class="l3"><a href="#skills-que-carga">Skills que carga</a></li><li class="l3"><a href="#herramientas-mcp">Herramientas MCP</a></li><li class="l3"><a href="#patron-de-respuesta">Patron de respuesta</a></li><li class="l3"><a href="#reglas-del-ecosistema-para-nuget">Reglas del ecosistema para NuGet</a></li><li class="l3"><a href="#paquetes-prohibidos">Paquetes prohibidos</a></li><li class="l3"><a href="#delega-en">Delega en</a></li><li class="l3"><a href="#alcance">Alcance</a></li><li class="l2"><a href="#relaciones">Quién lo usa</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,411 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api · Ovillo</title><meta name="description" content="Convenciones de la capa de API: controladores REST, Minimal APIs, versionado, validacion y formato de respuesta."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api · Ovillo"><meta property="og:description" content="Convenciones de la capa de API: controladores REST, Minimal APIs, versionado, validacion y formato de respuesta."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/api.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>regla por ruta (13)</h4><ul class="sibs"><li><a href="../skills/api.html" class="cur">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/blazor.html">blazor</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/domain-api-docs.html">domain-api-docs</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/mcp-config.html">mcp-config</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/webapp.html">webapp</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>api</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>/hv:api</span></div><h1>api</h1><p class="lede">Convenciones de la capa de API: controladores REST, Minimal APIs, versionado, validacion y formato de respuesta.</p><div class="meta-grid"><div><b>regla por ruta</b><span>clase</span></div><div><b><code>/hv:api</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>279</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>user-invocable</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Se carga sola al tocar ficheros que casan con sus rutas (<code>paths:</code>). No entra en el listado de skills.</p><pre data-lang="yaml"><code>paths:
+  - &quot;src/**/Api/**/*.cs&quot;
+  - &quot;**/Controllers/**/*.cs&quot;
+  - &quot;**/*Controller.cs&quot;
+  - &quot;**/Endpoints/**/*.cs&quot;
+  - &quot;**/*Endpoint.cs&quot;
+  - &quot;**/MinimalApi/**/*.cs&quot;</code></pre></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Se carga por ruta, no por invocacion</strong>: el campo <code>paths:</code> la activa cuando Claude trabaja con ficheros que casan con esos patrones. No aparece en el menu (<code>user-invocable: false</code>) y <strong>no ocupa contexto</strong> mientras no case ningun fichero.</p>
+<p>Procede de <code>.claude/skills/api/SKILL.md</code>. Se convirtio en skill porque un plugin no distribuye <code>rules/</code>.</p></blockquote>
+<hr>
+<h2 id="reglas-para-apis-rest">Reglas para APIs REST</h2>
+<blockquote><p>Este archivo aplica cuando Claude trabaja con controladores y endpoints API. <strong>Detecta automáticamente</strong> la versión de .NET del proyecto.</p></blockquote>
+<hr>
+<section class="sec" id="sec-detección-de-versión">
+<h3 id="detección-de-versión">DETECCIÓN DE VERSIÓN</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net10.<span class="tk-n">0</span><span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>  <span class="tk-c">&lt;!-- .NET 10 - OpenAPI nativo --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net8.<span class="tk-n">0</span><span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>   <span class="tk-c">&lt;!-- .NET 8 - Swashbuckle --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net48<span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>    <span class="tk-c">&lt;!-- .NET 4.x - Web API 2 --&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-1-controladores-por-versión">
+<h3 id="parte-1-controladores-por-versión">PARTE 1: CONTROLADORES POR VERSIÓN</h3>
+<h4 id="net-10-recomendado---controller-con-openapi-nativo">.NET 10 (Recomendado) - Controller con OpenAPI nativo</h4>
+<pre data-lang="csharp"><code><span class="tk-c">/// &lt;summary&gt;</span>
+<span class="tk-c">/// Gestión de scholarships</span>
+<span class="tk-c">/// &lt;/summary&gt;</span>
+[ApiController]
+[ApiVersion(<span class="tk-s">&quot;1.0&quot;</span>)]
+[Route(<span class="tk-s">&quot;api/v{version:apiVersion}/[controller]&quot;</span>)]
+[Produces(<span class="tk-s">&quot;application/json&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsController : ControllerBase
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipService _scholarshipService;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;ScholarshipsController&gt; _logger;
+
+    <span class="tk-k">public</span> ScholarshipsController(IScholarshipService scholarshipService, ILogger&lt;ScholarshipsController&gt; logger)
+    {
+        _scholarshipService = scholarshipService;
+        _logger = logger;
+    }
+
+    <span class="tk-c">/// &lt;summary&gt;</span>
+    <span class="tk-c">/// Obtiene todas las scholarships con paginación</span>
+    <span class="tk-c">/// &lt;/summary&gt;</span>
+    <span class="tk-c">/// &lt;param name=&quot;page&quot;&gt;Número de página (1-based)&lt;/param&gt;</span>
+    <span class="tk-c">/// &lt;param name=&quot;size&quot;&gt;Elementos por página&lt;/param&gt;</span>
+    <span class="tk-c">/// &lt;returns&gt;Lista paginada de scholarships&lt;/returns&gt;</span>
+    [HttpGet]
+    [ProducesResponseType&lt;PaginatedResult&lt;ScholarshipDto&gt;&gt;(StatusCodes.Status200OK)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&lt;PaginatedResult&lt;ScholarshipDto&gt;&gt;&gt; GetAll(
+        [FromQuery] <span class="tk-k">int</span> page = <span class="tk-n">1</span>,
+        [FromQuery] <span class="tk-k">int</span> size = <span class="tk-n">10</span>,
+        CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _scholarshipService.GetPaginatedAsync(page, size, ct);
+        <span class="tk-k">return</span> Ok(result);
+    }
+
+    <span class="tk-c">/// &lt;summary&gt;</span>
+    <span class="tk-c">/// Obtiene una scholarship por su ID</span>
+    <span class="tk-c">/// &lt;/summary&gt;</span>
+    [HttpGet(<span class="tk-s">&quot;{id:int}&quot;</span>)]
+    [ProducesResponseType&lt;ScholarshipDto&gt;(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&lt;ScholarshipDto&gt;&gt; GetById(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _scholarshipService.GetByIdAsync(id, ct);
+        
+        <span class="tk-k">if</span> (scholarship <span class="tk-k">is</span> <span class="tk-k">null</span>)
+        {
+            <span class="tk-k">return</span> NotFound(<span class="tk-k">new</span> ProblemDetails
+            {
+                Title = <span class="tk-s">&quot;Scholarship not found&quot;</span>,
+                Detail = <span class="tk-s">$&quot;No scholarship exists with ID {id}&quot;</span>,
+                Status = StatusCodes.Status404NotFound
+            });
+        }
+        
+        <span class="tk-k">return</span> Ok(scholarship);
+    }
+
+    <span class="tk-c">/// &lt;summary&gt;</span>
+    <span class="tk-c">/// Crea una nueva scholarship</span>
+    <span class="tk-c">/// &lt;/summary&gt;</span>
+    [HttpPost]
+    [Authorize(Roles = <span class="tk-s">&quot;Admin,Gestor&quot;</span>)]
+    [ProducesResponseType&lt;ScholarshipDto&gt;(StatusCodes.Status201Created)]
+    [ProducesResponseType&lt;ValidationProblemDetails&gt;(StatusCodes.Status400BadRequest)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&lt;ScholarshipDto&gt;&gt; Create(
+        [FromBody] CreateScholarshipRequest request,
+        CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _scholarshipService.CreateAsync(request, ct);
+        
+        _logger.LogInformation(<span class="tk-s">&quot;Scholarship {ScholarshipId} creada por {User}&quot;</span>, 
+            scholarship.Id, User.Identity?.Name);
+        
+        <span class="tk-k">return</span> CreatedAtAction(nameof(GetById), <span class="tk-k">new</span> { id = scholarship.Id }, scholarship);
+    }
+
+    <span class="tk-c">/// &lt;summary&gt;</span>
+    <span class="tk-c">/// Actualiza una scholarship existente</span>
+    <span class="tk-c">/// &lt;/summary&gt;</span>
+    [HttpPut(<span class="tk-s">&quot;{id:int}&quot;</span>)]
+    [Authorize(Roles = <span class="tk-s">&quot;Admin,Gestor&quot;</span>)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IActionResult&gt; Update(
+        <span class="tk-k">int</span> id,
+        [FromBody] UpdateScholarshipRequest request,
+        CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> exists = <span class="tk-k">await</span> _scholarshipService.ExistsAsync(id, ct);
+        <span class="tk-k">if</span> (!exists)
+        {
+            <span class="tk-k">return</span> NotFound();
+        }
+
+        <span class="tk-k">await</span> _scholarshipService.UpdateAsync(id, request, ct);
+        <span class="tk-k">return</span> NoContent();
+    }
+
+    <span class="tk-c">/// &lt;summary&gt;</span>
+    <span class="tk-c">/// Elimina una scholarship</span>
+    <span class="tk-c">/// &lt;/summary&gt;</span>
+    [HttpDelete(<span class="tk-s">&quot;{id:int}&quot;</span>)]
+    [Authorize(Roles = <span class="tk-s">&quot;Admin&quot;</span>)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IActionResult&gt; Delete(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> deleted = <span class="tk-k">await</span> _scholarshipService.DeleteAsync(id, ct);
+        
+        <span class="tk-k">if</span> (!deleted)
+        {
+            <span class="tk-k">return</span> NotFound();
+        }
+
+        _logger.LogInformation(<span class="tk-s">&quot;Scholarship {ScholarshipId} eliminada por {User}&quot;</span>, 
+            id, User.Identity?.Name);
+        
+        <span class="tk-k">return</span> NoContent();
+    }
+}</code></pre>
+<h4 id="net-10---minimal-apis-alternativa">.NET 10 - Minimal APIs (Alternativa)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - Minimal APIs .NET 10</span>
+app.MapGroup(<span class="tk-s">&quot;/api/scholarships&quot;</span>)
+    .WithTags(<span class="tk-s">&quot;Scholarships&quot;</span>)
+    .WithOpenApi()
+    .MapScholarshipsEndpoints();
+
+<span class="tk-c">// ScholarshipsEndpoints.cs</span>
+<span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> ScholarshipsEndpoints
+{
+    <span class="tk-k">public</span> <span class="tk-k">static</span> RouteGroupBuilder MapScholarshipsEndpoints(<span class="tk-k">this</span> RouteGroupBuilder group)
+    {
+        group.MapGet(<span class="tk-s">&quot;/&quot;</span>, GetAll)
+            .WithName(<span class="tk-s">&quot;GetAllScholarships&quot;</span>)
+            .WithSummary(<span class="tk-s">&quot;Obtiene todas las scholarships&quot;</span>)
+            .Produces&lt;PaginatedResult&lt;ScholarshipDto&gt;&gt;();
+
+        group.MapGet(<span class="tk-s">&quot;/{id:int}&quot;</span>, GetById)
+            .WithName(<span class="tk-s">&quot;GetScholarshipById&quot;</span>)
+            .Produces&lt;ScholarshipDto&gt;()
+            .ProducesProblem(StatusCodes.Status404NotFound);
+
+        group.MapPost(<span class="tk-s">&quot;/&quot;</span>, Create)
+            .WithName(<span class="tk-s">&quot;CreateScholarship&quot;</span>)
+            .RequireAuthorization(<span class="tk-s">&quot;GestorPolicy&quot;</span>)
+            .Produces&lt;ScholarshipDto&gt;(StatusCodes.Status201Created)
+            .ProducesValidationProblem();
+
+        <span class="tk-k">return</span> group;
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">async</span> Task&lt;IResult&gt; GetAll(
+        IScholarshipService service,
+        [AsParameters] PaginationRequest pagination,
+        CancellationToken ct)
+    {
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> service.GetPaginatedAsync(pagination.Page, pagination.Size, ct);
+        <span class="tk-k">return</span> Results.Ok(result);
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">async</span> Task&lt;IResult&gt; GetById(
+        <span class="tk-k">int</span> id,
+        IScholarshipService service,
+        CancellationToken ct)
+    {
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> service.GetByIdAsync(id, ct);
+        <span class="tk-k">return</span> scholarship <span class="tk-k">is</span> <span class="tk-k">null</span> 
+            ? Results.NotFound() 
+            : Results.Ok(scholarship);
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">async</span> Task&lt;IResult&gt; Create(
+        CreateScholarshipRequest request,
+        IScholarshipService service,
+        CancellationToken ct)
+    {
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> service.CreateAsync(request, ct);
+        <span class="tk-k">return</span> Results.CreatedAtRoute(<span class="tk-s">&quot;GetScholarshipById&quot;</span>, <span class="tk-k">new</span> { id = scholarship.Id }, scholarship);
+    }
+}</code></pre>
+<h4 id="net-89-migrar">.NET 8/9 (Migrar)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Similar a .NET 10 pero con Swashbuckle</span>
+<span class="tk-c">// Diferencias para migración:</span>
+<span class="tk-c">// - [SwaggerOperation] → Documentación XML nativa</span>
+<span class="tk-c">// - app.UseSwagger() → app.MapOpenApi()</span></code></pre>
+<h4 id="net-4x-web-api-2-legacy">.NET 4.x Web API 2 (Legacy)</h4>
+<pre data-lang="csharp"><code>[RoutePrefix(<span class="tk-s">&quot;api/scholarships&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsController : ApiController
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipService _scholarshipService;
+
+    <span class="tk-k">public</span> ScholarshipsController(IScholarshipService scholarshipService)
+    {
+        _scholarshipService = scholarshipService;
+    }
+
+    [HttpGet]
+    [Route(<span class="tk-s">&quot;&quot;</span>)]
+    <span class="tk-k">public</span> IHttpActionResult GetAll()
+    {
+        <span class="tk-k">var</span> scholarships = _scholarshipService.GetAll();
+        <span class="tk-k">return</span> Ok(scholarships);
+    }
+
+    [HttpGet]
+    [Route(<span class="tk-s">&quot;{id:int}&quot;</span>)]
+    <span class="tk-k">public</span> IHttpActionResult GetById(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">var</span> scholarship = _scholarshipService.GetById(id);
+        <span class="tk-k">if</span> (scholarship == <span class="tk-k">null</span>)
+            <span class="tk-k">return</span> NotFound();
+        <span class="tk-k">return</span> Ok(scholarship);
+    }
+
+    [HttpPost]
+    [Route(<span class="tk-s">&quot;&quot;</span>)]
+    [Authorize(Roles = <span class="tk-s">&quot;Admin&quot;</span>)]
+    <span class="tk-k">public</span> IHttpActionResult Create(CreateScholarshipRequest request)
+    {
+        <span class="tk-k">if</span> (!ModelState.IsValid)
+            <span class="tk-k">return</span> BadRequest(ModelState);
+
+        <span class="tk-k">var</span> scholarship = _scholarshipService.Create(request);
+        <span class="tk-k">return</span> CreatedAtRoute(<span class="tk-s">&quot;GetScholarshipById&quot;</span>, <span class="tk-k">new</span> { id = scholarship.Id }, scholarship);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-2-openapi--swagger">
+<h3 id="parte-2-openapi--swagger">PARTE 2: OPENAPI / SWAGGER</h3>
+<h4 id="net-10---openapi-nativo">.NET 10 - OpenAPI Nativo</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddOpenApi(options =&gt;
+{
+    options.AddDocumentTransformer((document, context, ct) =&gt;
+    {
+        document.Info = <span class="tk-k">new</span> OpenApiInfo
+        {
+            Title = <span class="tk-s">&quot;API - Scholarship Management&quot;</span>,
+            Version = <span class="tk-s">&quot;v1&quot;</span>,
+            Description = <span class="tk-s">&quot;API para la gestión de scholarships universitarias&quot;</span>,
+            Contact = <span class="tk-k">new</span> OpenApiContact
+            {
+                Name = <span class="tk-s">&quot;Soporte&quot;</span>,
+                Email = <span class="tk-s">&quot;soporte@example.com&quot;</span> <span class="tk-c">// organization.supportEmail (ecosystem.config)</span>
+            }
+        };
+        <span class="tk-k">return</span> Task.CompletedTask;
+    });
+    
+    <span class="tk-c">// Seguridad</span>
+    options.AddDocumentTransformer((document, context, ct) =&gt;
+    {
+        document.Components ??= <span class="tk-k">new</span> OpenApiComponents();
+        document.Components.SecuritySchemes[<span class="tk-s">&quot;Bearer&quot;</span>] = <span class="tk-k">new</span> OpenApiSecurityScheme
+        {
+            Type = SecuritySchemeType.Http,
+            Scheme = <span class="tk-s">&quot;bearer&quot;</span>,
+            BearerFormat = <span class="tk-s">&quot;JWT&quot;</span>
+        };
+        <span class="tk-k">return</span> Task.CompletedTask;
+    });
+});
+
+<span class="tk-c">// Mapear endpoints</span>
+app.MapOpenApi();                    <span class="tk-c">// /openapi/v1.json</span>
+app.MapScalarApiReference();         <span class="tk-c">// UI alternativa a Swagger UI</span></code></pre>
+<h4 id="net-89---swashbuckle-migrar-a-openapi">.NET 8/9 - Swashbuckle (Migrar a OpenAPI)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - A reemplazar</span>
+builder.Services.AddSwaggerGen(c =&gt;
+{
+    c.SwaggerDoc(<span class="tk-s">&quot;v1&quot;</span>, <span class="tk-k">new</span> OpenApiInfo { Title = <span class="tk-s">&quot;Mi API&quot;</span>, Version = <span class="tk-s">&quot;v1&quot;</span> });
+});
+
+app.UseSwagger();
+app.UseSwaggerUI();</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-3-validación">
+<h3 id="parte-3-validación">PARTE 3: VALIDACIÓN</h3>
+<h4 id="fluentvalidation-todas-las-versiones-modernas">FluentValidation (Todas las versiones modernas)</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> CreateScholarshipRequestValidator : AbstractValidator&lt;CreateScholarshipRequest&gt;
+{
+    <span class="tk-k">public</span> CreateScholarshipRequestValidator()
+    {
+        RuleFor(x =&gt; x.Name)
+            .NotEmpty().WithMessage(<span class="tk-s">&quot;Name is required&quot;</span>)
+            .MaximumLength(<span class="tk-n">200</span>).WithMessage(<span class="tk-s">&quot;Maximum 200 characters&quot;</span>);
+
+        RuleFor(x =&gt; x.Amount)
+            .GreaterThan(<span class="tk-n">0</span>).WithMessage(<span class="tk-s">&quot;Amount must be positive&quot;</span>)
+            .LessThanOrEqualTo(<span class="tk-n">50000</span>).WithMessage(<span class="tk-s">&quot;Maximum amount is 50,000&quot;</span>);
+
+        RuleFor(x =&gt; x.StartDate)
+            .GreaterThanOrEqualTo(DateTime.Today)
+            .WithMessage(<span class="tk-s">&quot;Start date must be in the future&quot;</span>);
+
+        RuleFor(x =&gt; x.EndDate)
+            .GreaterThan(x =&gt; x.StartDate)
+            .WithMessage(<span class="tk-s">&quot;End date must be after start date&quot;</span>);
+    }
+}
+
+<span class="tk-c">// Registro en Program.cs (.NET 10)</span>
+builder.Services.AddValidatorsFromAssemblyContaining&lt;CreateScholarshipRequestValidator&gt;();
+builder.Services.AddFluentValidationAutoValidation();</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-4-manejo-de-errores">
+<h3 id="parte-4-manejo-de-errores">PARTE 4: MANEJO DE ERRORES</h3>
+<h4 id="global-exception-handler-net-10">Global Exception Handler (.NET 10)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+app.UseExceptionHandler(errorApp =&gt;
+{
+    errorApp.Run(<span class="tk-k">async</span> context =&gt;
+    {
+        <span class="tk-k">var</span> exception = context.Features.Get&lt;IExceptionHandlerFeature&gt;()?.Error;
+        <span class="tk-k">var</span> logger = context.RequestServices.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+        
+        logger.LogError(exception, <span class="tk-s">&quot;Error no controlado&quot;</span>);
+
+        <span class="tk-k">var</span> problemDetails = exception <span class="tk-k">switch</span>
+        {
+            ValidationException ve =&gt; <span class="tk-k">new</span> ValidationProblemDetails(
+                ve.Errors.GroupBy(e =&gt; e.PropertyName)
+                    .ToDictionary(g =&gt; g.Key, g =&gt; g.Select(e =&gt; e.ErrorMessage).ToArray()))
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Title = <span class="tk-s">&quot;Validation error&quot;</span>
+            },
+            
+            NotFoundException nf =&gt; <span class="tk-k">new</span> ProblemDetails
+            {
+                Status = StatusCodes.Status404NotFound,
+                Title = <span class="tk-s">&quot;Resource not found&quot;</span>,
+                Detail = nf.Message
+            },
+            
+            UnauthorizedAccessException =&gt; <span class="tk-k">new</span> ProblemDetails
+            {
+                Status = StatusCodes.Status403Forbidden,
+                Title = <span class="tk-s">&quot;Access denied&quot;</span>
+            },
+            
+            _ =&gt; <span class="tk-k">new</span> ProblemDetails
+            {
+                Status = StatusCodes.Status500InternalServerError,
+                Title = <span class="tk-s">&quot;Error interno del servidor&quot;</span>,
+                Detail = context.RequestServices
+                    .GetRequiredService&lt;IHostEnvironment&gt;().IsDevelopment() 
+                        ? exception?.Message 
+                        : <span class="tk-k">null</span>
+            }
+        };
+
+        context.Response.StatusCode = problemDetails.Status ?? <span class="tk-n">500</span>;
+        context.Response.ContentType = <span class="tk-s">&quot;application/problem+json&quot;</span>;
+        <span class="tk-k">await</span> context.Response.WriteAsJsonAsync(problemDetails);
+    });
+});</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-5-verbos-http">
+<h3 id="parte-5-verbos-http">PARTE 5: VERBOS HTTP</h3>
+<div class="tbl"><table><thead><tr><th>Verbo</th><th>Uso</th><th>Respuesta exitosa</th></tr></thead><tbody><tr><td><strong>GET</strong></td><td>Obtener recursos</td><td>200 OK</td></tr><tr><td><strong>POST</strong></td><td>Crear recurso</td><td>201 Created + Location</td></tr><tr><td><strong>PUT</strong></td><td>Reemplazar recurso</td><td>204 No Content</td></tr><tr><td><strong>PATCH</strong></td><td>Actualización parcial</td><td>200 OK o 204</td></tr><tr><td><strong>DELETE</strong></td><td>Eliminar recurso</td><td>204 No Content</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-CHECKLIST">
+<h3 id="CHECKLIST">CHECKLIST</h3>
+<h4 id="antes-de-cada-endpoint">Antes de cada endpoint</h4>
+<ul>
+<li><input type="checkbox" disabled> Atributo de verbo HTTP correcto</li>
+<li><input type="checkbox" disabled> Ruta con restricciones de tipo (<code>{id:int}</code>)</li>
+<li><input type="checkbox" disabled> [Authorize] si requiere autenticación</li>
+<li><input type="checkbox" disabled> [ProducesResponseType] para documentación</li>
+<li><input type="checkbox" disabled> Validación de entrada</li>
+<li><input type="checkbox" disabled> CancellationToken en métodos async</li>
+<li><input type="checkbox" disabled> Logging de operaciones importantes</li>
+</ul>
+<h4 id="net-10-específico">.NET 10 específico</h4>
+<ul>
+<li><input type="checkbox" disabled> OpenAPI nativo (no Swashbuckle)</li>
+<li><input type="checkbox" disabled> ProblemDetails para errores</li>
+<li><input type="checkbox" disabled> Minimal APIs donde sea apropiado</li>
+</ul>
+<hr>
+<p><em>Regla incondicional — Multi-versión .NET</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>112</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 279 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>6 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(generador): Lote G - el codigo que el ecosistema escribe en el proyecto del cliente (ADR-027)</em> (<code>1566abc</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/application.html">application</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#detección-de-versión">DETECCIÓN DE VERSIÓN</a></li><li class="l3"><a href="#parte-1-controladores-por-versión">PARTE 1: CONTROLADORES POR VERSIÓN</a></li><li class="l3"><a href="#parte-2-openapi--swagger">PARTE 2: OPENAPI / SWAGGER</a></li><li class="l3"><a href="#parte-3-validación">PARTE 3: VALIDACIÓN</a></li><li class="l3"><a href="#parte-4-manejo-de-errores">PARTE 4: MANEJO DE ERRORES</a></li><li class="l3"><a href="#parte-5-verbos-http">PARTE 5: VERBOS HTTP</a></li><li class="l3"><a href="#CHECKLIST">CHECKLIST</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

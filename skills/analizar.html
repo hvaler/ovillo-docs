@@ -1,0 +1,198 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>analizar · Ovillo</title><meta name="description" content="Analisis completo del proyecto: arquitectura, seguridad, codigo, observabilidad, resiliencia, infra y diagramas."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="analizar · Ovillo"><meta property="og:description" content="Analisis completo del proyecto: arquitectura, seguridad, codigo, observabilidad, resiliencia, infra y diagramas."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/analizar.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/analizar.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/analizar.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html" class="cur">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>analizar</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:analizar</span><span>solo usuario</span><span>subagente general-purpose</span></div><h1>analizar</h1><p class="lede">Analisis completo del proyecto: arquitectura, seguridad, codigo, observabilidad, resiliencia, infra y diagramas.</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:analizar</code></b><span>invocación</span></div><div><b>4</b><span>ficheros</span></div><div><b>396</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr><tr><th>argument-hint</th><td><code>&quot;[--quick | --full | --security | --backend | --frontend | --infra]&quot;</code></td></tr><tr><th>allowed-tools</th><td><code>Read, Grep, Glob, Bash(dotnet *), Bash(git *)</code></td></tr><tr><th>context</th><td><code>fork</code></td></tr><tr><th>agent</th><td><code>general-purpose</code></td></tr><tr><th>background</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:analizar</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">3</span></h2><div class="tree"><ul><li><span class="dir">references/</span><ul><li>fases-analisis.md <span class="muted">42.457 B</span></li><li><a href="../skills/analizar/references/formato-salida.html">formato-salida.md</a> <span class="muted">30.595 B</span></li><li><a href="../skills/analizar/references/recordatorios-y-ejemplo.html">recordatorios-y-ejemplo.md</a> <span class="muted">19.047 B</span></li></ul></li></ul></div><p class="muted">Los ficheros sin enlace son binarios o superan los 32 KB: solo se listan.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo cuando la invocas con <code>/hv:analizar</code>.</p></blockquote>
+<blockquote><p>Corre en <strong>subagente aislado</strong> (<code>context: fork</code>): son 13 fases de analisis que leen medio repositorio, y su ruido no debe inundar el contexto de la sesion principal.</p></blockquote>
+<hr>
+<blockquote><p><strong>USE FOR</strong>: análisis de trabajo del proyecto (13 fases, semáforo, TOP-5 acciones, diagramas) con salida en chat + <code>_hilo/</code>. <strong>DO NOT USE FOR</strong>: auditoría arquitectónica <strong>formal con entregables versionados</strong> (MD+HTML en <code>docs/</code>) o contexto de agente (<code>--agente</code>) → usar <strong><code>/analisis-arquitectura</code></strong>.</p></blockquote>
+<blockquote><p>⚠️ <strong>CRITICAL</strong>: El output DEBE incluir:</p>
+<ol>
+<li>Emojis de colores: 🔴 (crítico) 🟠 (importante) 🟡 (menor)</li>
+<li>Cajas visuales con <code>┌───┐</code> <code>│</code> <code>└───┘</code></li>
+<li><strong>SEMÁFORO DE SALUD</strong> del proyecto (verde/amarillo/rojo)</li>
+<li><strong>TOP 5 ACCIONES PRIORITARIAS</strong> con formato 🎯</li>
+<li>Progreso de fases: <code>▶ FASE X/13:</code></li>
+<li>Si el equipo usa Visual Studio (<code>organization.ide</code> = <code>visual-studio</code>), ejecutar <code>./.claude/scripts/integracion-vs.ps1</code> al final; con otro IDE el script sale sin hacer nada</li>
+</ol>
+<p><strong>VER SECCIÓN &quot;CRITICAL REMINDERS&quot; AL FINAL ANTES DE GENERAR OUTPUT</strong></p></blockquote>
+<section class="sec" id="sec-parámetros-opcionales">
+<h3 id="parámetros-opcionales">Parámetros Opcionales</h3>
+<div class="tbl"><table><thead><tr><th>Parámetro</th><th>Descripción</th></tr></thead><tbody><tr><td><code>--quick</code></td><td>⚡ <strong>Análisis rápido</strong> (reemplaza <code>/re-analizar</code>): Solo estructura, dependencias y cambios recientes. NO regenera diagramas. Ideal para post-cambios menores.</td></tr><tr><td><code>--full</code></td><td>Análisis completo con los 8+ diagramas (default)</td></tr><tr><td><code>--compare</code></td><td>Incluye tabla comparativa ANTES vs DESPUÉS</td></tr><tr><td><code>--security</code></td><td>Solo análisis de seguridad (secrets, CVEs, vulnerabilidades)</td></tr><tr><td><code>--backend</code></td><td>Solo análisis backend (.NET, APIs, BD)</td></tr><tr><td><code>--frontend</code></td><td>Solo análisis frontend (JS, CSS, componentes)</td></tr><tr><td><code>--infra</code></td><td>Solo análisis de infraestructura (despliegue, CI/CD, Docker, health checks)</td></tr><tr><td><code>--report</code></td><td>Genera informe exportable en formato Markdown estructurado en <code>docs/architecture/INFORME_ANALISIS.md</code> con fecha, métricas, semáforos y acciones</td></tr></tbody></table></div>
+<blockquote><p>💡 <strong>NOTA</strong>: El comando <code>/re-analizar</code> está <strong>deprecado</strong>. Usar <code>/hv:analizar --quick</code> en su lugar.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-importante-ubicación-del-código">
+<h3 id="importante-ubicación-del-código">IMPORTANTE: Ubicación del Código</h3>
+<p>⚠️ <strong>BUSCAR CÓDIGO EN <code>src/</code></strong></p>
+<pre><code>MiProyecto/
+├── CLAUDE.md
+├── .claude/commands/
+├── _hilo/
+├── docs/management/
+├── docs/architecture/    ← DIAGRAMAS AQUÍ
+├── src/             ← ⭐ CÓDIGO FUENTE AQUÍ ⭐
+│   └── MiSolucion.sln
+└── docs/</code></pre>
+<p>Si el código NO está en <code>src/</code>:</p>
+<ol>
+<li>Buscar <code>.sln</code> o <code>.slnx</code> en raíz</li>
+<li>Informar al usuario</li>
+<li>Analizar donde esté el código</li>
+</ol>
+<blockquote class="callout note"><p><strong>Nota</strong>: Claude debe buscar tanto archivos <code>.sln</code> como <code>.slnx</code> (nuevo formato XML disponible en .NET 8+)</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-configuración-de-exclusiones">
+<h3 id="configuración-de-exclusiones">Configuración de Exclusiones</h3>
+<h4 id="librerías-y-archivos-a-ignorar">Librerías y Archivos a IGNORAR</h4>
+<pre data-lang="yaml"><code>exclusiones:
+  <span class="tk-c"># ═══════════════════════════════════════════════════════════════</span>
+  <span class="tk-c"># JAVASCRIPT - Librerías de terceros</span>
+  <span class="tk-c"># ═══════════════════════════════════════════════════════════════</span>
+  javascript:
+    <span class="tk-c"># jQuery y plugins</span>
+    - jquery*.js
+    - jquery*.min.js
+    - jquery-ui*.js
+    - jquery.validate*.js
+    - jquery.unobtrusive*.js
+    
+    <span class="tk-c"># Frameworks</span>
+    - angular*.js
+    - react*.js
+    - react-dom*.js
+    - vue*.js
+    - ember*.js
+    - backbone*.js
+    
+    <span class="tk-c"># Bootstrap</span>
+    - bootstrap*.js
+    - bootstrap.bundle*.js
+    - popper*.js
+    
+    <span class="tk-c"># Utilidades</span>
+    - lodash*.js
+    - underscore*.js
+    - moment*.js
+    - dayjs*.js
+    - axios*.js
+    - fetch*.js
+    
+    <span class="tk-c"># Visualización</span>
+    - chart*.js
+    - d3*.js
+    - highcharts*.js
+    - plotly*.js
+    
+    <span class="tk-c"># Data binding</span>
+    - knockout*.js
+    - ko.*.js
+    
+    <span class="tk-c"># Templates</span>
+    - handlebars*.js
+    - mustache*.js
+    - ejs*.js
+    
+    <span class="tk-c"># Otros</span>
+    - modernizr*.js
+    - polyfill*.js
+    - respond*.js
+    - html5shiv*.js
+    - signalr*.js
+    - toastr*.js
+    - sweetalert*.js
+    - select2*.js
+    - datatables*.js
+    - tinymce*.js
+    - ckeditor*.js
+    
+  <span class="tk-c"># ═══════════════════════════════════════════════════════════════</span>
+  <span class="tk-c"># CSS - Estilos de terceros</span>
+  <span class="tk-c"># ═══════════════════════════════════════════════════════════════</span>
+  css:
+    <span class="tk-c"># Frameworks</span>
+    - bootstrap*.css
+    - bootstrap*.min.css
+    - bulma*.css
+    - tailwind*.css
+    - foundation*.css
+    - materialize*.css
+    
+    <span class="tk-c"># Reset/Normalize</span>
+    - normalize*.css
+    - reset*.css
+    - sanitize*.css
+    
+    <span class="tk-c"># Iconos</span>
+    - font-awesome*.css
+    - fontawesome*.css
+    - glyphicons*.css
+    - material-icons*.css
+    - feather*.css
+    
+    <span class="tk-c"># Animaciones</span>
+    - animate*.css
+    - hover*.css
+    
+    <span class="tk-c"># Componentes</span>
+    - select2*.css
+    - datatables*.css
+    - toastr*.css
+    - sweetalert*.css
+    
+  <span class="tk-c"># ═══════════════════════════════════════════════════════════════</span>
+  <span class="tk-c"># CARPETAS - Directorios completos a ignorar</span>
+  <span class="tk-c"># ═══════════════════════════════════════════════════════════════</span>
+  carpetas:
+    - node_modules/
+    - bower_components/
+    - packages/
+    - vendor/
+    - vendors/
+    - lib/
+    - libs/
+    - third-party/
+    - third_party/
+    - external/
+    - wwwroot/lib/
+    - wwwroot/vendor/
+    - Scripts/lib/
+    - Scripts/vendor/
+    - Content/lib/
+    - Content/vendor/
+    - assets/vendor/
+    - assets/lib/
+    - dist/
+    - build/
+    - bin/
+    - obj/
+    - .vs/
+    - .git/
+    - TestResults/
+    
+  <span class="tk-c"># ═══════════════════════════════════════════════════════════════</span>
+  <span class="tk-c"># ARCHIVOS GENERADOS - Minificados, bundles, etc.</span>
+  <span class="tk-c"># ═══════════════════════════════════════════════════════════════</span>
+  generados:
+    - <span class="tk-s">&quot;*.min.js&quot;</span>
+    - <span class="tk-s">&quot;*.min.css&quot;</span>
+    - <span class="tk-s">&quot;*.bundle.js&quot;</span>
+    - <span class="tk-s">&quot;*.bundle.css&quot;</span>
+    - <span class="tk-s">&quot;*.compiled.js&quot;</span>
+    - <span class="tk-s">&quot;*.map&quot;</span>
+    - <span class="tk-s">&quot;*.Designer.cs&quot;</span>
+    - <span class="tk-s">&quot;*.generated.cs&quot;</span>
+    - <span class="tk-s">&quot;*.g.cs&quot;</span>
+    - <span class="tk-s">&quot;*.g.i.cs&quot;</span>
+    - <span class="tk-s">&quot;AssemblyInfo.cs&quot;</span>
+    - <span class="tk-s">&quot;GlobalSuppressions.cs&quot;</span>
+    - <span class="tk-s">&quot;*.designer.vb&quot;</span>
+    - <span class="tk-s">&quot;Reference.cs&quot;</span>
+    - <span class="tk-s">&quot;Service References/&quot;</span></code></pre>
+<hr>
+<hr>
+</section>
+<section class="sec" id="sec-indice-del-workflow">
+<h3 id="indice-del-workflow">Indice del workflow</h3>
+<p>El procedimiento completo vive en <code>references/</code> y se lee por partes, segun la fase en la que estes:</p>
+<div class="tbl"><table><thead><tr><th>Referencia</th><th>Contenido</th></tr></thead><tbody><tr><td><code>references/fases-analisis.md</code></td><td>Las 13 fases del analisis, en orden</td></tr><tr><td><code>references/formato-salida.md</code></td><td>Formato obligatorio de salida, informe exportable y semaforo</td></tr><tr><td><code>references/recordatorios-y-ejemplo.md</code></td><td>Recordatorios criticos y un ejemplo completo de salida correcta</td></tr></tbody></table></div>
+<hr>
+<p><em>Skill analizar · kind: workflow</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>112</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 396 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>9 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(medida): Lote H - los instrumentos miden de verdad y la cobertura se declara (ADR-028)</em> (<code>fa757ef</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/equipo.html">equipo</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/analizar/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#parámetros-opcionales">Parámetros Opcionales</a></li><li class="l3"><a href="#importante-ubicación-del-código">IMPORTANTE: Ubicación del Código</a></li><li class="l3"><a href="#configuración-de-exclusiones">Configuración de Exclusiones</a></li><li class="l3"><a href="#indice-del-workflow">Indice del workflow</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

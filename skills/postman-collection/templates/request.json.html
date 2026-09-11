@@ -1,0 +1,256 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>postman-collection · templates/request.json.template · Ovillo</title><meta name="description" content="Fichero templates/request.json.template de la skill postman-collection"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="postman-collection · templates/request.json.template · Ovillo"><meta property="og:description" content="Fichero templates/request.json.template de la skill postman-collection"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/postman-collection/templates/request.json.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/postman-collection/templates/request.json.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/postman-collection/templates/request.json.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de postman-collection (16)</h4><ul class="sibs"><li><a href="../../../skills/postman-collection/checklists/auth-configuration-checklist.html">checklists/auth-configuration-checklist.md</a></li><li><a href="../../../skills/postman-collection/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/postman-collection/patterns/auth-detection.html">patterns/auth-detection.md</a></li><li><a href="../../../skills/postman-collection/patterns/azure-ad-auth.html">patterns/azure-ad-auth.md</a></li><li><a href="../../../skills/postman-collection/patterns/http-signature-mtls.html">patterns/http-signature-mtls.md</a></li><li><a href="../../../skills/postman-collection/patterns/oauth2-token-lifecycle.html">patterns/oauth2-token-lifecycle.md</a></li><li><a href="../../../skills/postman-collection/references/auth-examples.html">references/auth-examples.md</a></li><li><a href="../../../skills/postman-collection/references/test-assertions.html">references/test-assertions.md</a></li><li><a href="../../../skills/postman-collection/references/workflow-postman.html">references/workflow-postman.md</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-apikey.js.html">templates/auth-prerequest-apikey.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-azuread.js.html">templates/auth-prerequest-azuread.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-basic.js.html">templates/auth-prerequest-basic.js.template</a></li><li><a href="../../../skills/postman-collection/templates/collection.json.html">templates/collection.json.template</a></li><li><a href="../../../skills/postman-collection/templates/environment.json.html">templates/environment.json.template</a></li><li><a href="../../../skills/postman-collection/templates/request.json.html" class="cur">templates/request.json.template</a></li><li><a href="../../../skills/postman-collection/templates/tests.js.html">templates/tests.js.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/postman-collection.html">postman-collection</a></span><span>templates</span><span>request.json.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>postman-collection</span><span>templates/</span><span>9188 B</span></div><h1>request.json.template</h1><p class="lede">Fichero que <code>/hv:postman-collection</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/postman-collection.html">postman-collection</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>9188 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>{
+    <span class="tk-s">&quot;_comment&quot;</span>: <span class="tk-s">&quot;Plantilla de request individual para referencia&quot;</span>,
+
+    <span class="tk-s">&quot;request_get_list&quot;</span>: {
+        <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Obtener todas las {{ENTITY_PLURAL}}&quot;</span>,
+        <span class="tk-s">&quot;request&quot;</span>: {
+            <span class="tk-s">&quot;method&quot;</span>: <span class="tk-s">&quot;GET&quot;</span>,
+            <span class="tk-s">&quot;header&quot;</span>: [],
+            <span class="tk-s">&quot;url&quot;</span>: {
+                <span class="tk-s">&quot;raw&quot;</span>: <span class="tk-s">&quot;{{baseUrl}}/api/{{CONTROLLER_ROUTE}}?page=1&amp;pageSize=10&quot;</span>,
+                <span class="tk-s">&quot;host&quot;</span>: [<span class="tk-s">&quot;{{baseUrl}}&quot;</span>],
+                <span class="tk-s">&quot;path&quot;</span>: [<span class="tk-s">&quot;api&quot;</span>, <span class="tk-s">&quot;{{CONTROLLER_ROUTE}}&quot;</span>],
+                <span class="tk-s">&quot;query&quot;</span>: [
+                    { <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;page&quot;</span>, <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;1&quot;</span>, <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Número de página&quot;</span> },
+                    { <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;pageSize&quot;</span>, <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;10&quot;</span>, <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Elementos por página&quot;</span> }
+                ]
+            },
+            <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Obtiene un listado paginado de {{ENTITY_PLURAL}}.&quot;</span>
+        },
+        <span class="tk-s">&quot;response&quot;</span>: [],
+        <span class="tk-s">&quot;event&quot;</span>: [
+            {
+                <span class="tk-s">&quot;listen&quot;</span>: <span class="tk-s">&quot;test&quot;</span>,
+                <span class="tk-s">&quot;script&quot;</span>: {
+                    <span class="tk-s">&quot;exec&quot;</span>: [
+                        <span class="tk-s">&quot;pm.test('Status code is 200', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    pm.response.to.have.status(200);&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>,
+                        <span class="tk-s">&quot;&quot;</span>,
+                        <span class="tk-s">&quot;pm.test('Response is array or paginated', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    const jsonData = pm.response.json();&quot;</span>,
+                        <span class="tk-s">&quot;    pm.expect(jsonData).to.satisfy((data) =&gt; {&quot;</span>,
+                        <span class="tk-s">&quot;        return Array.isArray(data) || data.items !== undefined;&quot;</span>,
+                        <span class="tk-s">&quot;    });&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>,
+                        <span class="tk-s">&quot;&quot;</span>,
+                        <span class="tk-s">&quot;pm.test('Response time &lt; 500ms', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    pm.expect(pm.response.responseTime).to.be.below(500);&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>
+                    ],
+                    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;text/javascript&quot;</span>
+                }
+            }
+        ]
+    },
+
+    <span class="tk-s">&quot;request_get_by_id&quot;</span>: {
+        <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Obtener {{ENTITY}} por ID&quot;</span>,
+        <span class="tk-s">&quot;request&quot;</span>: {
+            <span class="tk-s">&quot;method&quot;</span>: <span class="tk-s">&quot;GET&quot;</span>,
+            <span class="tk-s">&quot;header&quot;</span>: [],
+            <span class="tk-s">&quot;url&quot;</span>: {
+                <span class="tk-s">&quot;raw&quot;</span>: <span class="tk-s">&quot;{{baseUrl}}/api/{{CONTROLLER_ROUTE}}/{{id}}&quot;</span>,
+                <span class="tk-s">&quot;host&quot;</span>: [<span class="tk-s">&quot;{{baseUrl}}&quot;</span>],
+                <span class="tk-s">&quot;path&quot;</span>: [<span class="tk-s">&quot;api&quot;</span>, <span class="tk-s">&quot;{{CONTROLLER_ROUTE}}&quot;</span>, <span class="tk-s">&quot;{{id}}&quot;</span>],
+                <span class="tk-s">&quot;variable&quot;</span>: [
+                    { <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;id&quot;</span>, <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;1&quot;</span>, <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;ID de la {{ENTITY}}&quot;</span> }
+                ]
+            },
+            <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Obtiene una {{ENTITY}} por su identificador.&quot;</span>
+        },
+        <span class="tk-s">&quot;response&quot;</span>: [],
+        <span class="tk-s">&quot;event&quot;</span>: [
+            {
+                <span class="tk-s">&quot;listen&quot;</span>: <span class="tk-s">&quot;test&quot;</span>,
+                <span class="tk-s">&quot;script&quot;</span>: {
+                    <span class="tk-s">&quot;exec&quot;</span>: [
+                        <span class="tk-s">&quot;pm.test('Status code is 200 or 404', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    pm.expect(pm.response.code).to.be.oneOf([200, 404]);&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>,
+                        <span class="tk-s">&quot;&quot;</span>,
+                        <span class="tk-s">&quot;if (pm.response.code === 200) {&quot;</span>,
+                        <span class="tk-s">&quot;    pm.test('Response has id', function () {&quot;</span>,
+                        <span class="tk-s">&quot;        pm.expect(pm.response.json()).to.have.property('id');&quot;</span>,
+                        <span class="tk-s">&quot;    });&quot;</span>,
+                        <span class="tk-s">&quot;}&quot;</span>
+                    ],
+                    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;text/javascript&quot;</span>
+                }
+            }
+        ]
+    },
+
+    <span class="tk-s">&quot;request_post_create&quot;</span>: {
+        <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Crear {{ENTITY}}&quot;</span>,
+        <span class="tk-s">&quot;request&quot;</span>: {
+            <span class="tk-s">&quot;method&quot;</span>: <span class="tk-s">&quot;POST&quot;</span>,
+            <span class="tk-s">&quot;header&quot;</span>: [
+                { <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;Content-Type&quot;</span>, <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;application/json&quot;</span> }
+            ],
+            <span class="tk-s">&quot;body&quot;</span>: {
+                <span class="tk-s">&quot;mode&quot;</span>: <span class="tk-s">&quot;raw&quot;</span>,
+                <span class="tk-s">&quot;raw&quot;</span>: <span class="tk-s">&quot;{{REQUEST_BODY_EXAMPLE}}&quot;</span>,
+                <span class="tk-s">&quot;options&quot;</span>: {
+                    <span class="tk-s">&quot;raw&quot;</span>: { <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;json&quot;</span> }
+                }
+            },
+            <span class="tk-s">&quot;url&quot;</span>: {
+                <span class="tk-s">&quot;raw&quot;</span>: <span class="tk-s">&quot;{{baseUrl}}/api/{{CONTROLLER_ROUTE}}&quot;</span>,
+                <span class="tk-s">&quot;host&quot;</span>: [<span class="tk-s">&quot;{{baseUrl}}&quot;</span>],
+                <span class="tk-s">&quot;path&quot;</span>: [<span class="tk-s">&quot;api&quot;</span>, <span class="tk-s">&quot;{{CONTROLLER_ROUTE}}&quot;</span>]
+            },
+            <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Crea una nueva {{ENTITY}}.&quot;</span>
+        },
+        <span class="tk-s">&quot;response&quot;</span>: [],
+        <span class="tk-s">&quot;event&quot;</span>: [
+            {
+                <span class="tk-s">&quot;listen&quot;</span>: <span class="tk-s">&quot;test&quot;</span>,
+                <span class="tk-s">&quot;script&quot;</span>: {
+                    <span class="tk-s">&quot;exec&quot;</span>: [
+                        <span class="tk-s">&quot;pm.test('Status code is 201', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    pm.response.to.have.status(201);&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>,
+                        <span class="tk-s">&quot;&quot;</span>,
+                        <span class="tk-s">&quot;pm.test('Has Location header', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    pm.response.to.have.header('Location');&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>,
+                        <span class="tk-s">&quot;&quot;</span>,
+                        <span class="tk-s">&quot;pm.test('Response has id', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    const jsonData = pm.response.json();&quot;</span>,
+                        <span class="tk-s">&quot;    pm.expect(jsonData).to.have.property('id');&quot;</span>,
+                        <span class="tk-s">&quot;    pm.environment.set('lastCreatedId', jsonData.id);&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>
+                    ],
+                    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;text/javascript&quot;</span>
+                }
+            }
+        ]
+    },
+
+    <span class="tk-s">&quot;request_put_update&quot;</span>: {
+        <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Actualizar {{ENTITY}}&quot;</span>,
+        <span class="tk-s">&quot;request&quot;</span>: {
+            <span class="tk-s">&quot;method&quot;</span>: <span class="tk-s">&quot;PUT&quot;</span>,
+            <span class="tk-s">&quot;header&quot;</span>: [
+                { <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;Content-Type&quot;</span>, <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;application/json&quot;</span> }
+            ],
+            <span class="tk-s">&quot;body&quot;</span>: {
+                <span class="tk-s">&quot;mode&quot;</span>: <span class="tk-s">&quot;raw&quot;</span>,
+                <span class="tk-s">&quot;raw&quot;</span>: <span class="tk-s">&quot;{{REQUEST_BODY_EXAMPLE}}&quot;</span>,
+                <span class="tk-s">&quot;options&quot;</span>: {
+                    <span class="tk-s">&quot;raw&quot;</span>: { <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;json&quot;</span> }
+                }
+            },
+            <span class="tk-s">&quot;url&quot;</span>: {
+                <span class="tk-s">&quot;raw&quot;</span>: <span class="tk-s">&quot;{{baseUrl}}/api/{{CONTROLLER_ROUTE}}/{{id}}&quot;</span>,
+                <span class="tk-s">&quot;host&quot;</span>: [<span class="tk-s">&quot;{{baseUrl}}&quot;</span>],
+                <span class="tk-s">&quot;path&quot;</span>: [<span class="tk-s">&quot;api&quot;</span>, <span class="tk-s">&quot;{{CONTROLLER_ROUTE}}&quot;</span>, <span class="tk-s">&quot;{{id}}&quot;</span>],
+                <span class="tk-s">&quot;variable&quot;</span>: [
+                    { <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;id&quot;</span>, <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;{{lastCreatedId}}&quot;</span>, <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;ID de la {{ENTITY}}&quot;</span> }
+                ]
+            },
+            <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Actualiza una {{ENTITY}} existente.&quot;</span>
+        },
+        <span class="tk-s">&quot;response&quot;</span>: [],
+        <span class="tk-s">&quot;event&quot;</span>: [
+            {
+                <span class="tk-s">&quot;listen&quot;</span>: <span class="tk-s">&quot;test&quot;</span>,
+                <span class="tk-s">&quot;script&quot;</span>: {
+                    <span class="tk-s">&quot;exec&quot;</span>: [
+                        <span class="tk-s">&quot;pm.test('Status code is 200 or 204', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    pm.expect(pm.response.code).to.be.oneOf([200, 204]);&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>
+                    ],
+                    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;text/javascript&quot;</span>
+                }
+            }
+        ]
+    },
+
+    <span class="tk-s">&quot;request_delete&quot;</span>: {
+        <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Eliminar {{ENTITY}}&quot;</span>,
+        <span class="tk-s">&quot;request&quot;</span>: {
+            <span class="tk-s">&quot;method&quot;</span>: <span class="tk-s">&quot;DELETE&quot;</span>,
+            <span class="tk-s">&quot;header&quot;</span>: [],
+            <span class="tk-s">&quot;url&quot;</span>: {
+                <span class="tk-s">&quot;raw&quot;</span>: <span class="tk-s">&quot;{{baseUrl}}/api/{{CONTROLLER_ROUTE}}/{{id}}&quot;</span>,
+                <span class="tk-s">&quot;host&quot;</span>: [<span class="tk-s">&quot;{{baseUrl}}&quot;</span>],
+                <span class="tk-s">&quot;path&quot;</span>: [<span class="tk-s">&quot;api&quot;</span>, <span class="tk-s">&quot;{{CONTROLLER_ROUTE}}&quot;</span>, <span class="tk-s">&quot;{{id}}&quot;</span>],
+                <span class="tk-s">&quot;variable&quot;</span>: [
+                    { <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;id&quot;</span>, <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;{{lastCreatedId}}&quot;</span>, <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;ID de la {{ENTITY}}&quot;</span> }
+                ]
+            },
+            <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Elimina una {{ENTITY}}.&quot;</span>
+        },
+        <span class="tk-s">&quot;response&quot;</span>: [],
+        <span class="tk-s">&quot;event&quot;</span>: [
+            {
+                <span class="tk-s">&quot;listen&quot;</span>: <span class="tk-s">&quot;test&quot;</span>,
+                <span class="tk-s">&quot;script&quot;</span>: {
+                    <span class="tk-s">&quot;exec&quot;</span>: [
+                        <span class="tk-s">&quot;pm.test('Status code is 204', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    pm.response.to.have.status(204);&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>,
+                        <span class="tk-s">&quot;&quot;</span>,
+                        <span class="tk-s">&quot;pm.environment.unset('lastCreatedId');&quot;</span>
+                    ],
+                    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;text/javascript&quot;</span>
+                }
+            }
+        ]
+    },
+
+    <span class="tk-s">&quot;request_auth_login&quot;</span>: {
+        <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Login&quot;</span>,
+        <span class="tk-s">&quot;request&quot;</span>: {
+            <span class="tk-s">&quot;auth&quot;</span>: { <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;noauth&quot;</span> },
+            <span class="tk-s">&quot;method&quot;</span>: <span class="tk-s">&quot;POST&quot;</span>,
+            <span class="tk-s">&quot;header&quot;</span>: [
+                { <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;Content-Type&quot;</span>, <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;application/json&quot;</span> }
+            ],
+            <span class="tk-s">&quot;body&quot;</span>: {
+                <span class="tk-s">&quot;mode&quot;</span>: <span class="tk-s">&quot;raw&quot;</span>,
+                <span class="tk-s">&quot;raw&quot;</span>: <span class="tk-s">&quot;{\n    \&quot;email\&quot;: \&quot;{{testEmail}}\&quot;,\n    \&quot;password\&quot;: \&quot;{{testPassword}}\&quot;\n}&quot;</span>,
+                <span class="tk-s">&quot;options&quot;</span>: {
+                    <span class="tk-s">&quot;raw&quot;</span>: { <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;json&quot;</span> }
+                }
+            },
+            <span class="tk-s">&quot;url&quot;</span>: {
+                <span class="tk-s">&quot;raw&quot;</span>: <span class="tk-s">&quot;{{baseUrl}}/api/auth/login&quot;</span>,
+                <span class="tk-s">&quot;host&quot;</span>: [<span class="tk-s">&quot;{{baseUrl}}&quot;</span>],
+                <span class="tk-s">&quot;path&quot;</span>: [<span class="tk-s">&quot;api&quot;</span>, <span class="tk-s">&quot;auth&quot;</span>, <span class="tk-s">&quot;login&quot;</span>]
+            },
+            <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Autenticación de user. Guarda el token en el environment.&quot;</span>
+        },
+        <span class="tk-s">&quot;response&quot;</span>: [],
+        <span class="tk-s">&quot;event&quot;</span>: [
+            {
+                <span class="tk-s">&quot;listen&quot;</span>: <span class="tk-s">&quot;test&quot;</span>,
+                <span class="tk-s">&quot;script&quot;</span>: {
+                    <span class="tk-s">&quot;exec&quot;</span>: [
+                        <span class="tk-s">&quot;pm.test('Status code is 200', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    pm.response.to.have.status(200);&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>,
+                        <span class="tk-s">&quot;&quot;</span>,
+                        <span class="tk-s">&quot;pm.test('Response has token', function () {&quot;</span>,
+                        <span class="tk-s">&quot;    const jsonData = pm.response.json();&quot;</span>,
+                        <span class="tk-s">&quot;    const token = jsonData.token || jsonData.accessToken;&quot;</span>,
+                        <span class="tk-s">&quot;    pm.expect(token).to.not.be.empty;&quot;</span>,
+                        <span class="tk-s">&quot;    pm.environment.set('token', token);&quot;</span>,
+                        <span class="tk-s">&quot;    console.log('🔑 Token guardado');&quot;</span>,
+                        <span class="tk-s">&quot;});&quot;</span>
+                    ],
+                    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;text/javascript&quot;</span>
+                }
+            }
+        ]
+    },
+
+    <span class="tk-s">&quot;folder_template&quot;</span>: {
+        <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;{{CONTROLLER_NAME}}&quot;</span>,
+        <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Endpoints de {{CONTROLLER_NAME}}&quot;</span>,
+        <span class="tk-s">&quot;item&quot;</span>: []
+    }
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/postman-collection.html#ficheros">← Volver a la ficha de postman-collection</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/postman-collection/templates/environment.json.html"><small>Anterior</small>templates/environment.json.template</a><a class="next" href="../../../skills/postman-collection/templates/tests.js.html"><small>Siguiente</small>templates/tests.js.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/postman-collection/templates/request.json.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,320 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · examples/external-api-example.md · Ovillo</title><meta name="description" content="Fichero examples/external-api-example.md de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · examples/external-api-example.md · Ovillo"><meta property="og:description" content="Fichero examples/external-api-example.md de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/examples/external-api-example.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/examples/external-api-example.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/examples/external-api-example.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html" class="cur">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>examples</span><span>external-api-example.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>examples/</span></div><h1>external-api-example.md</h1><p class="lede">Referencia que <code>api-integration-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>examples</b><span>carpeta</span></div><div><b>10.622 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Caso de uso</strong>: Matricular estudiante en un curso desde aplicación de la organización <strong>API</strong>: ExternalApi (Ellucian) <strong>Autenticación</strong>: OAuth2 Client Credentials <strong>Resiliencia</strong>: Retry + Circuit Breaker</p></blockquote>
+<hr>
+<section class="sec" id="sec-requisitos">
+<h3 id="requisitos">📋 Requisitos</h3>
+<ul>
+<li>ExternalApi API endpoint: <code>https://external-api.example.org/api</code></li>
+<li>OAuth2 Token URL: <code>https://auth.example.org/oauth/token</code></li>
+<li>Client ID / Client Secret (solicitar al equipo de integraciones)</li>
+<li>Scopes: <code>students:read</code>, <code>courses:read</code>, <code>enrollments:write</code></li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-1-configuración-appsettingsjson">
+<h3 id="1-configuración-appsettingsjson">1. Configuración (appsettings.json)</h3>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;ExternalApiApi&quot;</span>: {
+    <span class="tk-s">&quot;BaseUrl&quot;</span>: <span class="tk-s">&quot;https://external-api.example.org/api&quot;</span>,
+    <span class="tk-s">&quot;TimeoutSeconds&quot;</span>: <span class="tk-n">30</span>,
+    <span class="tk-s">&quot;MaxRetries&quot;</span>: <span class="tk-n">3</span>,
+    <span class="tk-s">&quot;ClientId&quot;</span>: <span class="tk-s">&quot;myorg-app&quot;</span>,
+    <span class="tk-s">&quot;ClientSecret&quot;</span>: <span class="tk-s">&quot;{{KeyVault}}&quot;</span>,
+    <span class="tk-s">&quot;TokenUrl&quot;</span>: <span class="tk-s">&quot;https://auth.example.org/oauth/token&quot;</span>,
+    <span class="tk-s">&quot;Scope&quot;</span>: <span class="tk-s">&quot;students:read courses:read enrollments:write&quot;</span>
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-registro-en-programcs">
+<h3 id="2-registro-en-programcs">2. Registro en Program.cs</h3>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly;
+<span class="tk-k">using</span> Polly.Extensions.Http;
+
+<span class="tk-c">// Opciones con validación</span>
+builder.Services.AddExternalApiApiOptions(builder.Configuration);
+
+<span class="tk-c">// Token Service</span>
+builder.Services.AddHttpClient&lt;ITokenService, TokenService&gt;();
+builder.Services.AddMemoryCache();
+
+<span class="tk-c">// Handlers</span>
+builder.Services.AddTransient&lt;BearerTokenHandler&gt;();
+builder.Services.AddTransient&lt;CorrelationIdHandler&gt;();
+builder.Services.AddTransient&lt;LoggingHandler&gt;();
+
+<span class="tk-c">// ExternalApi Client con handlers y políticas</span>
+builder.Services.AddHttpClient&lt;IExternalApiClient, ExternalApiClient&gt;((sp, client) =&gt;
+{
+    <span class="tk-k">var</span> options = sp.GetRequiredService&lt;IOptions&lt;ExternalApiApiOptions&gt;&gt;().Value;
+    client.BaseAddress = <span class="tk-k">new</span> Uri(options.BaseUrl);
+    client.Timeout = TimeSpan.FromSeconds(options.TimeoutSeconds);
+})
+.AddHttpMessageHandler&lt;CorrelationIdHandler&gt;()
+.AddHttpMessageHandler&lt;BearerTokenHandler&gt;()
+.AddHttpMessageHandler&lt;LoggingHandler&gt;()
+.AddPolicyHandler(GetRetryPolicy())
+.AddPolicyHandler(GetCircuitBreakerPolicy());
+
+<span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetRetryPolicy()
+{
+    <span class="tk-k">return</span> HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .Or&lt;TimeoutException&gt;()
+        .WaitAndRetryAsync(
+            retryCount: <span class="tk-n">3</span>,
+            sleepDurationProvider: retryAttempt =&gt; TimeSpan.FromSeconds(Math.Pow(<span class="tk-n">2</span>, retryAttempt)),
+            onRetry: (outcome, timespan, retryCount, context) =&gt;
+            {
+                Console.WriteLine(<span class="tk-s">$&quot;Reintento {retryCount} tras {timespan.TotalSeconds}s&quot;</span>);
+            });
+}
+
+<span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetCircuitBreakerPolicy()
+{
+    <span class="tk-k">return</span> HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .CircuitBreakerAsync(
+            handledEventsAllowedBeforeBreaking: <span class="tk-n">5</span>,
+            durationOfBreak: TimeSpan.FromSeconds(<span class="tk-n">30</span>));
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-3-implementación-del-cliente">
+<h3 id="3-implementación-del-cliente">3. Implementación del Cliente</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Ver ExternalApiClient.cs.template</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-service-de-application">
+<h3 id="4-service-de-application">4. Service de Application</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">interface</span> IEnrollmentService
+{
+    Task&lt;EnrollmentResult&gt; EnrollStudentAsync(<span class="tk-k">string</span> studentId, <span class="tk-k">string</span> courseId, <span class="tk-k">string</span> term);
+}
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> EnrollmentService : IEnrollmentService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IExternalApiClient _externalApiClient;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;EnrollmentService&gt; _logger;
+
+    <span class="tk-k">public</span> EnrollmentService(IExternalApiClient externalApiClient, ILogger&lt;EnrollmentService&gt; logger)
+    {
+        _externalApiClient = externalApiClient;
+        _logger = logger;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;EnrollmentResult&gt; EnrollStudentAsync(
+        <span class="tk-k">string</span> studentId,
+        <span class="tk-k">string</span> courseId,
+        <span class="tk-k">string</span> term)
+    {
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-c">// 1. Verificar que el student existe</span>
+            <span class="tk-k">var</span> student = <span class="tk-k">await</span> _externalApiClient.GetStudentAsync(studentId);
+            <span class="tk-k">if</span> (student <span class="tk-k">is</span> <span class="tk-k">null</span>)
+            {
+                <span class="tk-k">return</span> EnrollmentResult.Failure(<span class="tk-s">$&quot;Student {studentId} no encontrado&quot;</span>);
+            }
+
+            <span class="tk-c">// 2. Verificar que el curso existe</span>
+            <span class="tk-k">var</span> courses = <span class="tk-k">await</span> _externalApiClient.GetCoursesAsync(term);
+            <span class="tk-k">var</span> course = courses.FirstOrDefault(c =&gt; c.Id == courseId);
+            <span class="tk-k">if</span> (course <span class="tk-k">is</span> <span class="tk-k">null</span>)
+            {
+                <span class="tk-k">return</span> EnrollmentResult.Failure(<span class="tk-s">$&quot;Curso {courseId} no encontrado para el término {term}&quot;</span>);
+            }
+
+            <span class="tk-c">// 3. Matricular</span>
+            <span class="tk-k">var</span> enrollmentRequest = <span class="tk-k">new</span> EnrollmentRequestDto(studentId, courseId, term);
+            <span class="tk-k">var</span> enrollmentResponse = <span class="tk-k">await</span> _externalApiClient.EnrollStudentAsync(enrollmentRequest);
+
+            _logger.LogInformation(
+                <span class="tk-s">&quot;Student {StudentId} matriculado en {CourseId}. Enrollment ID: {EnrollmentId}&quot;</span>,
+                studentId,
+                courseId,
+                enrollmentResponse.EnrollmentId);
+
+            <span class="tk-k">return</span> EnrollmentResult.Success(enrollmentResponse.EnrollmentId);
+        }
+        <span class="tk-k">catch</span> (HttpRequestException ex)
+        {
+            _logger.LogError(ex, <span class="tk-s">&quot;Error HTTP al matricular student {StudentId}&quot;</span>, studentId);
+            <span class="tk-k">return</span> EnrollmentResult.Failure(<span class="tk-s">&quot;Error de comunicación con ExternalApi&quot;</span>);
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            _logger.LogError(ex, <span class="tk-s">&quot;Error inesperado al matricular student {StudentId}&quot;</span>, studentId);
+            <span class="tk-k">return</span> EnrollmentResult.Failure(<span class="tk-s">&quot;Error inesperado&quot;</span>);
+        }
+    }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> EnrollmentResult(<span class="tk-k">bool</span> Success, <span class="tk-k">string</span>? EnrollmentId, <span class="tk-k">string</span>? ErrorMessage)
+{
+    <span class="tk-k">public</span> <span class="tk-k">static</span> EnrollmentResult Success(<span class="tk-k">string</span> enrollmentId)
+        =&gt; <span class="tk-k">new</span>(<span class="tk-k">true</span>, enrollmentId, <span class="tk-k">null</span>);
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> EnrollmentResult Failure(<span class="tk-k">string</span> errorMessage)
+        =&gt; <span class="tk-k">new</span>(<span class="tk-k">false</span>, <span class="tk-k">null</span>, errorMessage);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-controller">
+<h3 id="5-controller">5. Controller</h3>
+<pre data-lang="csharp"><code>[ApiController]
+[Route(<span class="tk-s">&quot;api/[controller]&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> EnrollmentsController : ControllerBase
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IEnrollmentService _enrollmentService;
+
+    <span class="tk-k">public</span> EnrollmentsController(IEnrollmentService enrollmentService)
+    {
+        _enrollmentService = enrollmentService;
+    }
+
+    [HttpPost]
+    [ProducesResponseType&lt;EnrollmentResponseDto&gt;(StatusCodes.Status201Created)]
+    [ProducesResponseType&lt;ProblemDetails&gt;(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType&lt;ProblemDetails&gt;(StatusCodes.Status500InternalServerError)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&gt; EnrollStudent([FromBody] EnrollStudentRequest request)
+    {
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _enrollmentService.EnrollStudentAsync(
+            request.StudentId,
+            request.CourseId,
+            request.Term);
+
+        <span class="tk-k">if</span> (!result.Success)
+        {
+            <span class="tk-k">return</span> BadRequest(<span class="tk-k">new</span> ProblemDetails
+            {
+                Title = <span class="tk-s">&quot;Error al matricular&quot;</span>,
+                Detail = result.ErrorMessage,
+                Status = StatusCodes.Status400BadRequest
+            });
+        }
+
+        <span class="tk-k">return</span> CreatedAtAction(
+            nameof(GetEnrollment),
+            <span class="tk-k">new</span> { id = result.EnrollmentId },
+            <span class="tk-k">new</span> { EnrollmentId = result.EnrollmentId });
+    }
+
+    [HttpGet(<span class="tk-s">&quot;{id}&quot;</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&lt;EnrollmentResponseDto&gt;&gt; GetEnrollment(<span class="tk-k">string</span> id)
+    {
+        <span class="tk-c">// Implementar</span>
+        <span class="tk-k">return</span> NotFound();
+    }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> EnrollStudentRequest(<span class="tk-k">string</span> StudentId, <span class="tk-k">string</span> CourseId, <span class="tk-k">string</span> Term);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-6-tests-unitarios">
+<h3 id="6-tests-unitarios">6. Tests Unitarios</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> EnrollmentServiceTests
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;IExternalApiClient&gt; _externalApiClientMock;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;ILogger&lt;EnrollmentService&gt;&gt; _loggerMock;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> EnrollmentService _sut;
+
+    <span class="tk-k">public</span> EnrollmentServiceTests()
+    {
+        _externalApiClientMock = <span class="tk-k">new</span> Mock&lt;IExternalApiClient&gt;();
+        _loggerMock = <span class="tk-k">new</span> Mock&lt;ILogger&lt;EnrollmentService&gt;&gt;();
+        _sut = <span class="tk-k">new</span> EnrollmentService(_externalApiClientMock.Object, _loggerMock.Object);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task EnrollStudent_ValidData_ReturnsSuccess()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> studentId = <span class="tk-s">&quot;12345&quot;</span>;
+        <span class="tk-k">var</span> courseId = <span class="tk-s">&quot;CS101&quot;</span>;
+        <span class="tk-k">var</span> term = <span class="tk-s">&quot;202501&quot;</span>;
+
+        _externalApiClientMock
+            .Setup(c =&gt; c.GetStudentAsync(studentId, It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync(<span class="tk-k">new</span> StudentDto(studentId, <span class="tk-s">&quot;John&quot;</span>, <span class="tk-s">&quot;Doe&quot;</span>, <span class="tk-s">&quot;john@test.com&quot;</span>, <span class="tk-s">&quot;Active&quot;</span>));
+
+        _externalApiClientMock
+            .Setup(c =&gt; c.GetCoursesAsync(term, It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync(<span class="tk-k">new</span> List&lt;CourseDto&gt;
+            {
+                <span class="tk-k">new</span>(courseId, <span class="tk-s">&quot;CS-101&quot;</span>, <span class="tk-s">&quot;Intro to CS&quot;</span>, <span class="tk-n">6</span>, term)
+            });
+
+        _externalApiClientMock
+            .Setup(c =&gt; c.EnrollStudentAsync(
+                It.Is&lt;EnrollmentRequestDto&gt;(r =&gt;
+                    r.StudentId == studentId &amp;&amp; r.CourseId == courseId),
+                It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync(<span class="tk-k">new</span> EnrollmentResponseDto(
+                <span class="tk-s">&quot;ENR-001&quot;</span>,
+                studentId,
+                courseId,
+                DateTime.UtcNow,
+                <span class="tk-s">&quot;Enrolled&quot;</span>));
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.EnrollStudentAsync(studentId, courseId, term);
+
+        <span class="tk-c">// Assert</span>
+        result.Success.Should().BeTrue();
+        result.EnrollmentId.Should().Be(<span class="tk-s">&quot;ENR-001&quot;</span>);
+        result.ErrorMessage.Should().BeNull();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task EnrollStudent_StudentNotFound_ReturnsFailure()
+    {
+        <span class="tk-c">// Arrange</span>
+        _externalApiClientMock
+            .Setup(c =&gt; c.GetStudentAsync(It.IsAny&lt;<span class="tk-k">string</span>&gt;(), It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync((StudentDto?)<span class="tk-k">null</span>);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.EnrollStudentAsync(<span class="tk-s">&quot;99999&quot;</span>, <span class="tk-s">&quot;CS101&quot;</span>, <span class="tk-s">&quot;202501&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        result.Success.Should().BeFalse();
+        result.ErrorMessage.Should().Contain(<span class="tk-s">&quot;no encontrado&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-7-ejecución-y-logs">
+<h3 id="7-ejecución-y-logs">7. Ejecución y Logs</h3>
+<h4 id="request-http">Request HTTP</h4>
+<pre data-lang="http"><code>POST https://external-api.example.org/api/enrollments
+Authorization: Bearer eyJhbGc...
+X-Correlation-ID: 550e8400-e29b-41d4-a716-446655440000
+Content-Type: application/json
+
+{
+  &quot;studentId&quot;: &quot;12345&quot;,
+  &quot;courseId&quot;: &quot;CS101&quot;,
+  &quot;term&quot;: &quot;202501&quot;
+}</code></pre>
+<h4 id="logs-generados">Logs Generados</h4>
+<pre><code>[2026-02-16 10:30:00] INFO - Matriculando student 12345 en curso CS101
+[2026-02-16 10:30:00] DEBUG - Correlation ID: 550e8400-e29b-41d4-a716-446655440000
+[2026-02-16 10:30:00] INFO - HTTP GET https://external-api.example.org/api/students/12345
+[2026-02-16 10:30:00] DEBUG - Bearer token inyectado en request
+[2026-02-16 10:30:00] INFO - HTTP GET responded 200 in 245ms
+[2026-02-16 10:30:01] INFO - HTTP POST https://external-api.example.org/api/enrollments
+[2026-02-16 10:30:01] INFO - HTTP POST responded 201 in 512ms
+[2026-02-16 10:30:01] INFO - Student 12345 matriculado en CS101. Enrollment ID: ENR-001</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-referencias">
+<h3 id="referencias">📚 Referencias</h3>
+<ul>
+<li><a href="https://external-api.example.org/api/docs" rel="noopener">ExternalApi API Documentation</a></li>
+<li>Pattern: oauth2-client-credentials.md</li>
+<li>Pattern: retry-policy.md</li>
+<li>Pattern: circuit-breaker.md</li>
+</ul>
+<hr>
+<p><em>Example: external-api-example - Ovillo</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/eval-set.html"><small>Anterior</small>eval-set.json</a><a class="next" href="../../../skills/api-integration-patterns/examples/polly-advanced.html"><small>Siguiente</small>examples/polly-advanced.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/examples/external-api-example.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#requisitos">📋 Requisitos</a></li><li class="l2"><a href="#1-configuración-appsettingsjson">1. Configuración (appsettings.json)</a></li><li class="l2"><a href="#2-registro-en-programcs">2. Registro en Program.cs</a></li><li class="l2"><a href="#3-implementación-del-cliente">3. Implementación del Cliente</a></li><li class="l2"><a href="#4-service-de-application">4. Service de Application</a></li><li class="l2"><a href="#5-controller">5. Controller</a></li><li class="l2"><a href="#6-tests-unitarios">6. Tests Unitarios</a></li><li class="l2"><a href="#7-ejecución-y-logs">7. Ejecución y Logs</a></li><li class="l3"><a href="#request-http">Request HTTP</a></li><li class="l3"><a href="#logs-generados">Logs Generados</a></li><li class="l2"><a href="#referencias">📚 Referencias</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

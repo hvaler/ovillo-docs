@@ -1,0 +1,198 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>resilience-patterns · references/workflow-health-check.md · Ovillo</title><meta name="description" content="Fichero references/workflow-health-check.md de la skill resilience-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="resilience-patterns · references/workflow-health-check.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-health-check.md de la skill resilience-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/resilience-patterns/references/workflow-health-check.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/resilience-patterns/references/workflow-health-check.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/resilience-patterns/references/workflow-health-check.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de resilience-patterns (8)</h4><ul class="sibs"><li><a href="../../../skills/resilience-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/resilience-patterns/patterns/graceful-shutdown.html">patterns/graceful-shutdown.md</a></li><li><a href="../../../skills/resilience-patterns/patterns/health-checks.html">patterns/health-checks.md</a></li><li><a href="../../../skills/resilience-patterns/patterns/polly-policies.html">patterns/polly-policies.md</a></li><li><a href="../../../skills/resilience-patterns/references/workflow-add-resilience.html">references/workflow-add-resilience.md</a></li><li><a href="../../../skills/resilience-patterns/references/workflow-health-check.html" class="cur">references/workflow-health-check.md</a></li><li><a href="../../../skills/resilience-patterns/templates/HealthChecksConfig.cs.html">templates/HealthChecksConfig.cs.template</a></li><li><a href="../../../skills/resilience-patterns/templates/ResiliencePolicies.cs.html">templates/ResiliencePolicies.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/resilience-patterns.html">resilience-patterns</a></span><span>references</span><span>workflow-health-check.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>resilience-patterns</span><span>references/</span></div><h1>workflow-health-check.md</h1><p class="lede">Referencia que <code>resilience-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/resilience-patterns.html">resilience-patterns</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>7163 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>resilience-patterns</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para.</p></blockquote>
+<hr>
+<p class="lede">Wizard para configurar health checks en el proyecto siguiendo los estándares de la organización.</p>
+<hr>
+<section class="sec" id="sec-paso-1-detectar-proyecto">
+<h3 id="paso-1-detectar-proyecto">PASO 1: Detectar proyecto</h3>
+<ol>
+<li><strong>Buscar proyecto principal en <code>src/</code>:</strong></li>
+<ul>
+<li>Localizar archivos <code>.csproj</code> (buscar el proyecto Web/API principal)</li>
+<li>Detectar <code>TargetFramework</code> (net10.0, net9.0, etc.)</li>
+<li>Localizar <code>Program.cs</code></li>
+<li>Buscar configuración de health checks existente (<code>AddHealthChecks</code>, <code>MapHealthChecks</code>)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Si ya existen health checks:</strong>:</li>
+<ul>
+<li>Informar al usuario que ya hay configuración previa</li>
+<li>Preguntar si desea ampliarla o reconfigurar desde cero</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Mostrar resumen de detección:</strong>:</li>
+</ol>
+<pre><code>Proyecto detectado: MyCompany.{0}.Web
+Framework: {0}
+Program.cs: {0}
+Health checks existentes: {0}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-2-wizard-interactivo">
+<h3 id="paso-2-wizard-interactivo">PASO 2: Wizard interactivo</h3>
+<p>Preguntar al usuario qué checks desea configurar:</p>
+<pre><code>Selecciona los health checks a configurar:
+
+OBLIGATORIOS (siempre incluidos):
+  [x] SQL Server       - Verifica conexión a base de datos
+  [x] Self check       - Verifica que la aplicación responde
+
+OPCIONALES:
+  [ ] Redis            - Verifica conexión a cache Redis
+  [ ] Azure Blob       - Verifica acceso a Azure Blob Storage
+  [ ] Custom business  - Check personalizado de lógica de negocio
+  [ ] Health UI        - Dashboard visual (solo desarrollo)
+
+Cuales deseas añadir? (separados por coma, ej: redis,blob)</code></pre>
+<p><strong>Nota</strong>: SQL Server y Self check son <strong>obligatorios</strong> y se incluyen siempre, no se pueden desmarcar.</p>
+<hr>
+</section>
+<section class="sec" id="sec-paso-3-añadir-nugets">
+<h3 id="paso-3-añadir-nugets">PASO 3: Añadir NuGets</h3>
+<p>Según la selección del PASO 2, listar e instalar los paquetes necesarios:</p>
+<p><strong>Siempre incluidos:</strong></p>
+<pre data-lang="powershell"><code>dotnet add package AspNetCore.HealthChecks.SqlServer
+dotnet add package AspNetCore.HealthChecks.UI.Client</code></pre>
+<p><strong>Condicionales:</strong></p>
+<pre data-lang="powershell"><code><span class="tk-c"># Si Redis seleccionado:</span>
+dotnet add package AspNetCore.HealthChecks.Redis
+
+<span class="tk-c"># Si Azure Blob seleccionado:</span>
+dotnet add package AspNetCore.HealthChecks.AzureBlobStorage
+
+<span class="tk-c"># Si Health UI seleccionado:</span>
+dotnet add package AspNetCore.HealthChecks.UI
+dotnet add package AspNetCore.HealthChecks.UI.InMemory.Storage</code></pre>
+<p>Ejecutar <code>dotnet add package</code> para cada paquete seleccionado en el directorio del <code>.csproj</code> principal.</p>
+<hr>
+</section>
+<section class="sec" id="sec-paso-4-generar-código">
+<h3 id="paso-4-generar-código">PASO 4: Generar código</h3>
+<ol>
+<li><strong>Leer plantilla desde <code>.claude/skills/resilience-patterns/templates/HealthChecksConfig.cs.template</code></strong></li>
+<ul>
+<li>Si la plantilla no existe, generar el código directamente</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Reemplazar variables:</strong>:</li>
+<ul>
+<li><code>{{NombreProyecto}}</code> con el nombre del proyecto detectado (ej: <code>MyCompany.MyApp</code>)</li>
+<li><code>{{Namespace}}</code> con el namespace correspondiente</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Crear archivo de configuración:</strong>:</li>
+<ul>
+<li>Ruta: <code>src/src/MyCompany.{0}.Infrastructure/HealthChecks/HealthChecksConfig.cs</code></li>
+<li>Contenido: clase estática con método de extensión <code>AddCustomHealthChecks()</code></li>
+<li>Incluir checks seleccionados en PASO 2::</li>
+<ul>
+<li>SQL Server: verificar conexión con query <code>SELECT 1</code></li>
+<li>Self: endpoint básico que retorna Healthy</li>
+<li>Redis: verificar conexión con ping</li>
+<li>Azure Blob: verificar acceso al container</li>
+<li>Custom: plantilla para check de negocio personalizado</li>
+</ul>
+</ul>
+</ol>
+<ol>
+<li><strong>Modificar Program.cs:</strong>:</li>
+<ul>
+<li>Añadir <code>using</code> del namespace de HealthChecks</li>
+<li>Añadir <code>builder.Services.AddCustomHealthChecks(builder.Configuration);</code> en la sección de servicios</li>
+<li>Añadir mappings de endpoints::</li>
+</ul>
+</ol>
+<pre data-lang="csharp"><code>     app.MapHealthChecks(<span class="tk-s">&quot;/health&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+     {
+         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+     });
+     app.MapHealthChecks(<span class="tk-s">&quot;/health/ready&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+     {
+         Predicate = check =&gt; check.Tags.Contains(<span class="tk-s">&quot;ready&quot;</span>)
+     });
+     app.MapHealthChecks(<span class="tk-s">&quot;/health/live&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+     {
+         Predicate = check =&gt; check.Tags.Contains(<span class="tk-s">&quot;live&quot;</span>)
+     });</code></pre>
+<ul>
+<li>Si Health UI seleccionado, añadir <code>app.MapHealthChecksUI();</code></li>
+</ul>
+<ol>
+<li><strong>Añadir configuración a appsettings.json:</strong>:</li>
+<ul>
+<li>Sección <code>HealthChecks</code> con timeouts y configuraciones específicas</li>
+<li>Connection strings referenciadas desde la sección existente</li>
+</ul>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-paso-5-verificar">
+<h3 id="paso-5-verificar">PASO 5: Verificar</h3>
+<ol>
+<li><strong>Compilar el proyecto:</strong>:</li>
+</ol>
+<pre data-lang="powershell"><code>dotnet build src/src/MyCompany.[Nombre].Web/</code></pre>
+<ol>
+<li><strong>Verificar que compila sin errores</strong></li>
+</ol>
+<ol>
+<li><strong>Si hay errores: mostrarlos al usuario y sugerir correcciones</strong></li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-paso-6-resumen">
+<h3 id="paso-6-resumen">PASO 6: Resumen</h3>
+<p>Mostrar resumen final:</p>
+<pre><code>+---------------------------------------------------------+
+|  HEALTH CHECKS CONFIGURADOS                             |
++---------------------------------------------------------+
+|                                                         |
+|  Endpoints:                                             |
+|    GET /health       -&gt; Todos los checks                |
+|    GET /health/ready -&gt; Checks de disponibilidad        |
+|    GET /health/live  -&gt; Checks de vida (básico)         |
+|                                                         |
+|  Checks activos:                                        |
+|    [x] SQL Server (obligatorio)                         |
+|    [x] Self check (obligatorio)                         |
+|    [x/--] Redis                                         |
+|    [x/--] Azure Blob Storage                            |
+|    [x/--] Custom business                               |
+|    [x/--] Health UI                                     |
+|                                                         |
+|  Archivos modificados:                                  |
+|    + Infrastructure/HealthChecks/HealthChecksConfig.cs   |
+|    ~ Program.cs                                         |
+|    ~ appsettings.json                                   |
+|                                                         |
+|  Probar con:                                            |
+|    curl https://localhost:5001/health                    |
+|    curl https://localhost:5001/health/ready              |
+|    curl https://localhost:5001/health/live               |
+|                                                         |
++---------------------------------------------------------+</code></pre>
+<p><strong>Checklist post-configuración:</strong></p>
+<ul>
+<li><input type="checkbox" disabled> Verificar connection string de SQL Server en appsettings</li>
+<li><input type="checkbox" disabled> Si Redis: verificar connection string de Redis</li>
+<li><input type="checkbox" disabled> Si Azure Blob: verificar connection string de Storage</li>
+<li><input type="checkbox" disabled> Configurar monitoring en Azure para alertar si /health falla</li>
+<li><input type="checkbox" disabled> No exponer información sensible en respuestas de health en producción</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-recordatorios-críticos">
+<h3 id="recordatorios-críticos">RECORDATORIOS CRÍTICOS</h3>
+<ul>
+<li><strong>SQL Server</strong> y <strong>Self check</strong> son SIEMPRE obligatorios, nunca omitirlos</li>
+<li><strong>Nunca exponer información sensible</strong> en las respuestas de health check en producción</li>
+<li>Los health checks deben ser <strong>ligeros y rápidos</strong> (&lt; 5 segundos)</li>
+<li>Usar <strong>tags</strong> para diferenciar entre checks de readiness y liveness</li>
+<li>En producción, considerar <strong>restringir acceso</strong> a los endpoints de health</li>
+<li><strong>Skill de referencia</strong>: <code>.claude/skills/resilience-patterns/</code></li>
+<li><strong>Guía de referencia</strong>: <code>_patron/07_Resiliencia/GUIA_RESILIENCIA.md</code></li>
+</ul>
+</section><p style="margin-top:32px"><a href="../../../skills/resilience-patterns.html#ficheros">← Volver a la ficha de resilience-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/resilience-patterns/references/workflow-add-resilience.html"><small>Anterior</small>references/workflow-add-resilience.md</a><a class="next" href="../../../skills/resilience-patterns/templates/HealthChecksConfig.cs.html"><small>Siguiente</small>templates/HealthChecksConfig.cs.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/resilience-patterns/references/workflow-health-check.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#paso-1-detectar-proyecto">PASO 1: Detectar proyecto</a></li><li class="l2"><a href="#paso-2-wizard-interactivo">PASO 2: Wizard interactivo</a></li><li class="l2"><a href="#paso-3-añadir-nugets">PASO 3: Añadir NuGets</a></li><li class="l2"><a href="#paso-4-generar-código">PASO 4: Generar código</a></li><li class="l2"><a href="#paso-5-verificar">PASO 5: Verificar</a></li><li class="l2"><a href="#paso-6-resumen">PASO 6: Resumen</a></li><li class="l2"><a href="#recordatorios-críticos">RECORDATORIOS CRÍTICOS</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

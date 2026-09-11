@@ -1,0 +1,351 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>webapp-layout · patterns/accesibilidad.md · Ovillo</title><meta name="description" content="Fichero patterns/accesibilidad.md de la skill webapp-layout"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="webapp-layout · patterns/accesibilidad.md · Ovillo"><meta property="og:description" content="Fichero patterns/accesibilidad.md de la skill webapp-layout"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/webapp-layout/patterns/accesibilidad.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/webapp-layout/patterns/accesibilidad.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/webapp-layout/patterns/accesibilidad.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de webapp-layout (15)</h4><ul class="sibs"><li><a href="../../../skills/webapp-layout/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/webapp-layout/patterns/accesibilidad.html" class="cur">patterns/accesibilidad.md</a></li><li><a href="../../../skills/webapp-layout/patterns/colores-corporativos.html">patterns/colores-corporativos.md</a></li><li><a href="../../../skills/webapp-layout/patterns/dark-mode.html">patterns/dark-mode.md</a></li><li><a href="../../../skills/webapp-layout/patterns/layout-estandar.html">patterns/layout-estandar.md</a></li><li><a href="../../../skills/webapp-layout/patterns/print-styles.html">patterns/print-styles.md</a></li><li><a href="../../../skills/webapp-layout/patterns/responsive.html">patterns/responsive.md</a></li><li><a href="../../../skills/webapp-layout/templates/_ErrorPage.html">templates/_ErrorPage.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Footer.html">templates/_Footer.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Header.html">templates/_Header.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Layout.html">templates/_Layout.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Loading.html">templates/_Loading.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Sidebar.html">templates/_Sidebar.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/forms.html">templates/forms.css</a></li><li><a href="../../../skills/webapp-layout/templates/site.html">templates/site.css</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/webapp-layout.html">webapp-layout</a></span><span>patterns</span><span>accesibilidad.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>webapp-layout</span><span>patterns/</span></div><h1>accesibilidad.md</h1><p class="lede">Referencia que <code>webapp-layout</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/webapp-layout.html">webapp-layout</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>8884 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Guía de accesibilidad para aplicaciones web de la organización. Cumplimiento mínimo: WCAG 2.1 Nivel AA.</p></blockquote>
+<hr>
+<section class="sec" id="sec-principios-pour">
+<h3 id="principios-pour">Principios POUR</h3>
+<div class="tbl"><table><thead><tr><th>Principio</th><th>Significado</th><th>Ejemplos</th></tr></thead><tbody><tr><td><strong>Perceptible</strong></td><td>La información debe ser presentable</td><td>Alt en imágenes, contraste de colores</td></tr><tr><td><strong>Operable</strong></td><td>La interfaz debe ser navegable</td><td>Teclado, tiempo suficiente</td></tr><tr><td><strong>Comprensible</strong></td><td>El contenido debe ser entendible</td><td>Lenguaje claro, errores explicados</td></tr><tr><td><strong>Robusto</strong></td><td>Compatible con tecnologías asistivas</td><td>HTML válido, ARIA</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-1-contraste-de-colores">
+<h3 id="1-contraste-de-colores">1. Contraste de Colores</h3>
+<h4 id="requisitos-wcag-aa">Requisitos WCAG AA</h4>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Ratio mínimo</th></tr></thead><tbody><tr><td>Texto normal (&lt;18px)</td><td>4.5:1</td></tr><tr><td>Texto grande (&gt;=18px bold o &gt;=24px)</td><td>3:1</td></tr><tr><td>Componentes UI y gráficos</td><td>3:1</td></tr></tbody></table></div>
+<h4 id="combinaciones-aprobadas">Combinaciones Aprobadas</h4>
+<pre data-lang="css"><code>/* Texto sobre fondo blanco */
+.text-primary { color: #33475B; }  /* 12.6:1 OK */
+.text-dark { color: #333333; }     /* 12.6:1 OK */
+.text-muted { color: #666666; }    /* 5.7:1 OK */
+
+/* Texto sobre fondo color primario */
+.text-on-blue { color: #FFFFFF; }  /* 12.6:1 OK */
+
+/* Evitar */
+.text-light-blue { color: #0066CC; } /* 4.1:1 NO para texto pequeño */</code></pre>
+<h4 id="herramientas-de-verificación">Herramientas de Verificación</h4>
+<ul>
+<li><a href="https://webaim.org/resources/contrastchecker/" rel="noopener">WebAIM Contrast Checker</a></li>
+<li><a href="https://www.tpgi.com/color-contrast-checker/" rel="noopener">Colour Contrast Analyser</a></li>
+<li>DevTools &gt; Lighthouse &gt; Accessibility</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-2-navegación-por-teclado">
+<h3 id="2-navegación-por-teclado">2. Navegación por Teclado</h3>
+<h4 id="orden-de-tabulación">Orden de Tabulación</h4>
+<pre data-lang="html"><code><span class="tk-c">&lt;!-- Orden lógico de lectura --&gt;</span>
+<span class="tk-t">&lt;header</span><span class="tk-t">&gt;</span>...<span class="tk-t">&lt;/header</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;nav</span><span class="tk-t">&gt;</span>...<span class="tk-t">&lt;/nav</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;main</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;h1</span><span class="tk-t">&gt;</span>Título<span class="tk-t">&lt;/h1</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;form</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;input</span> tabindex=<span class="tk-s">&quot;0&quot;</span><span class="tk-t">&gt;</span> <span class="tk-c">&lt;!-- Orden natural --&gt;</span>
+        <span class="tk-t">&lt;input</span> tabindex=<span class="tk-s">&quot;0&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;button</span> tabindex=<span class="tk-s">&quot;0&quot;</span><span class="tk-t">&gt;</span>Enviar<span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/form</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/main</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;footer</span><span class="tk-t">&gt;</span>...<span class="tk-t">&lt;/footer</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- NUNCA usar tabindex &gt; 0 --&gt;</span>
+<span class="tk-t">&lt;input</span> tabindex=<span class="tk-s">&quot;5&quot;</span><span class="tk-t">&gt;</span> <span class="tk-c">&lt;!-- MAL --&gt;</span></code></pre>
+<h4 id="skip-link-obligatorio">Skip Link (Obligatorio)</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;body</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;a</span> href=<span class="tk-s">&quot;#main-content&quot;</span> class=<span class="tk-s">&quot;skip-link&quot;</span><span class="tk-t">&gt;</span>
+        Saltar al contenido principal
+    <span class="tk-t">&lt;/a</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;header</span><span class="tk-t">&gt;</span>...<span class="tk-t">&lt;/header</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;nav</span><span class="tk-t">&gt;</span>...<span class="tk-t">&lt;/nav</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;main</span> id=<span class="tk-s">&quot;main-content&quot;</span> tabindex=<span class="tk-s">&quot;-1&quot;</span><span class="tk-t">&gt;</span>
+        ...
+    <span class="tk-t">&lt;/main</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/body</span><span class="tk-t">&gt;</span></code></pre>
+<pre data-lang="css"><code>.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--brand-primary);
+    color: white;
+    padding: 8px 16px;
+    z-index: 9999;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}</code></pre>
+<h4 id="estados-de-focus">Estados de Focus</h4>
+<pre data-lang="css"><code>/* Focus visible obligatorio */
+:focus {
+    outline: 2px solid var(--brand-primary-light);
+    outline-offset: 2px;
+}
+
+/* No eliminar outline sin alternativa */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--brand-primary-light);
+    outline-offset: 2px;
+}
+
+/* Botones */
+.btn:focus {
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.4);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-3-aria-landmarks">
+<h3 id="3-aria-landmarks">3. ARIA Landmarks</h3>
+<h4 id="roles-principales">Roles Principales</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;header</span> role=<span class="tk-s">&quot;banner&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-c">&lt;!-- Logo, título, menú user --&gt;</span>
+<span class="tk-t">&lt;/header</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;nav</span> role=<span class="tk-s">&quot;navigation&quot;</span> aria-label=<span class="tk-s">&quot;Menú principal&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-c">&lt;!-- Navegación principal --&gt;</span>
+<span class="tk-t">&lt;/nav</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;main</span> role=<span class="tk-s">&quot;main&quot;</span> id=<span class="tk-s">&quot;main-content&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-c">&lt;!-- Contenido principal --&gt;</span>
+<span class="tk-t">&lt;/main</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;aside</span> role=<span class="tk-s">&quot;complementary&quot;</span> aria-label=<span class="tk-s">&quot;Información adicional&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-c">&lt;!-- Contenido secundario --&gt;</span>
+<span class="tk-t">&lt;/aside</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;footer</span> role=<span class="tk-s">&quot;contentinfo&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-c">&lt;!-- Información de pie de página --&gt;</span>
+<span class="tk-t">&lt;/footer</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="múltiples-navegaciones">Múltiples Navegaciones</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;nav</span> aria-label=<span class="tk-s">&quot;Navegación principal&quot;</span><span class="tk-t">&gt;</span>...<span class="tk-t">&lt;/nav</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;nav</span> aria-label=<span class="tk-s">&quot;Breadcrumbs&quot;</span><span class="tk-t">&gt;</span>...<span class="tk-t">&lt;/nav</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;nav</span> aria-label=<span class="tk-s">&quot;Paginación&quot;</span><span class="tk-t">&gt;</span>...<span class="tk-t">&lt;/nav</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-formularios-accesibles">
+<h3 id="4-formularios-accesibles">4. Formularios Accesibles</h3>
+<h4 id="labels">Labels</h4>
+<pre data-lang="html"><code><span class="tk-c">&lt;!-- Siempre asociar label con input --&gt;</span>
+<span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;email&quot;</span><span class="tk-t">&gt;</span>Correo electrónico<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;input</span> type=<span class="tk-s">&quot;email&quot;</span> id=<span class="tk-s">&quot;email&quot;</span> name=<span class="tk-s">&quot;email&quot;</span> required<span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- O label envolvente --&gt;</span>
+<span class="tk-t">&lt;label</span><span class="tk-t">&gt;</span>
+    Correo electrónico
+    <span class="tk-t">&lt;input</span> type=<span class="tk-s">&quot;email&quot;</span> name=<span class="tk-s">&quot;email&quot;</span> required<span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="campos-requeridos">Campos Requeridos</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;name&quot;</span><span class="tk-t">&gt;</span>
+    Name <span class="tk-t">&lt;span</span> aria-hidden=<span class="tk-s">&quot;true&quot;</span><span class="tk-t">&gt;</span>*<span class="tk-t">&lt;/span</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;span</span> class=<span class="tk-s">&quot;sr-only&quot;</span><span class="tk-t">&gt;</span>(requerido)<span class="tk-t">&lt;/span</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;input</span> type=<span class="tk-s">&quot;text&quot;</span> id=<span class="tk-s">&quot;name&quot;</span> name=<span class="tk-s">&quot;name&quot;</span> required
+       aria-required=<span class="tk-s">&quot;true&quot;</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="mensajes-de-error">Mensajes de Error</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;form-group&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;email&quot;</span><span class="tk-t">&gt;</span>Email<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;input</span> type=<span class="tk-s">&quot;email&quot;</span> id=<span class="tk-s">&quot;email&quot;</span>
+           aria-describedby=<span class="tk-s">&quot;email-error&quot;</span>
+           aria-invalid=<span class="tk-s">&quot;true&quot;</span>
+           class=<span class="tk-s">&quot;is-invalid&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;div</span> id=<span class="tk-s">&quot;email-error&quot;</span> class=<span class="tk-s">&quot;error-message&quot;</span> role=<span class="tk-s">&quot;alert&quot;</span><span class="tk-t">&gt;</span>
+        Por favor, introduce un email válido.
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="grupos-de-campos">Grupos de Campos</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;fieldset</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;legend</span><span class="tk-t">&gt;</span>Información de contacto<span class="tk-t">&lt;/legend</span><span class="tk-t">&gt;</span>
+
+    <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;telefono&quot;</span><span class="tk-t">&gt;</span>Teléfono<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;input</span> type=<span class="tk-s">&quot;tel&quot;</span> id=<span class="tk-s">&quot;telefono&quot;</span><span class="tk-t">&gt;</span>
+
+    <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;direccion&quot;</span><span class="tk-t">&gt;</span>Dirección<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;input</span> type=<span class="tk-s">&quot;text&quot;</span> id=<span class="tk-s">&quot;direccion&quot;</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/fieldset</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-imágenes-y-multimedia">
+<h3 id="5-imágenes-y-multimedia">5. Imágenes y Multimedia</h3>
+<h4 id="imágenes-informativas">Imágenes Informativas</h4>
+<pre data-lang="html"><code><span class="tk-c">&lt;!-- Con información relevante --&gt;</span>
+<span class="tk-t">&lt;img</span> src=<span class="tk-s">&quot;grafico-sales.png&quot;</span>
+     alt=<span class="tk-s">&quot;Gráfico de ventas: Q1 1M€, Q2 1.5M€, Q3 2M€, Q4 2.2M€&quot;</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- Decorativas --&gt;</span>
+<span class="tk-t">&lt;img</span> src=<span class="tk-s">&quot;decoracion.png&quot;</span> alt=<span class="tk-s">&quot;&quot;</span> role=<span class="tk-s">&quot;presentation&quot;</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- Logos --&gt;</span>
+<span class="tk-t">&lt;img</span> src=<span class="tk-s">&quot;logo.svg&quot;</span> alt=<span class="tk-s">&quot;la organización&quot;</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="iconos">Iconos</h4>
+<pre data-lang="html"><code><span class="tk-c">&lt;!-- Icono con texto visible --&gt;</span>
+<span class="tk-t">&lt;button</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;span</span> class=<span class="tk-s">&quot;icon&quot;</span> aria-hidden=<span class="tk-s">&quot;true&quot;</span><span class="tk-t">&gt;</span>🔍<span class="tk-t">&lt;/span</span><span class="tk-t">&gt;</span>
+    Buscar
+<span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- Solo icono --&gt;</span>
+<span class="tk-t">&lt;button</span> aria-label=<span class="tk-s">&quot;Buscar&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;span</span> class=<span class="tk-s">&quot;icon&quot;</span> aria-hidden=<span class="tk-s">&quot;true&quot;</span><span class="tk-t">&gt;</span>🔍<span class="tk-t">&lt;/span</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-6-tablas-de-datos">
+<h3 id="6-tablas-de-datos">6. Tablas de Datos</h3>
+<pre data-lang="html"><code><span class="tk-t">&lt;table</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;caption</span><span class="tk-t">&gt;</span>Listado de students matriculados<span class="tk-t">&lt;/caption</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;thead</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;tr</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;th</span> scope=<span class="tk-s">&quot;col&quot;</span><span class="tk-t">&gt;</span>Name<span class="tk-t">&lt;/th</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;th</span> scope=<span class="tk-s">&quot;col&quot;</span><span class="tk-t">&gt;</span>Email<span class="tk-t">&lt;/th</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;th</span> scope=<span class="tk-s">&quot;col&quot;</span><span class="tk-t">&gt;</span>Curso<span class="tk-t">&lt;/th</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;th</span> scope=<span class="tk-s">&quot;col&quot;</span><span class="tk-t">&gt;</span>Actions<span class="tk-t">&lt;/th</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/tr</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/thead</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;tbody</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;tr</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;td</span><span class="tk-t">&gt;</span>Juan García<span class="tk-t">&lt;/td</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;td</span><span class="tk-t">&gt;</span>jgarcia@example.com<span class="tk-t">&lt;/td</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;td</span><span class="tk-t">&gt;</span><span class="tk-n">3</span>º ADE<span class="tk-t">&lt;/td</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;td</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;button</span> aria-label=<span class="tk-s">&quot;Editar Juan García&quot;</span><span class="tk-t">&gt;</span>Edit<span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/td</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/tr</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/tbody</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/table</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-7-componentes-interactivos">
+<h3 id="7-componentes-interactivos">7. Componentes Interactivos</h3>
+<h4 id="menús-desplegables">Menús Desplegables</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;dropdown&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;button</span> id=<span class="tk-s">&quot;menu-btn&quot;</span>
+            aria-haspopup=<span class="tk-s">&quot;true&quot;</span>
+            aria-expanded=<span class="tk-s">&quot;false&quot;</span>
+            aria-controls=<span class="tk-s">&quot;menu-options&quot;</span><span class="tk-t">&gt;</span>
+        Opciones
+    <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;ul</span> id=<span class="tk-s">&quot;menu-options&quot;</span>
+        role=<span class="tk-s">&quot;menu&quot;</span>
+        aria-labelledby=<span class="tk-s">&quot;menu-btn&quot;</span>
+        hidden<span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;li</span> role=<span class="tk-s">&quot;menuitem&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;a</span> href=<span class="tk-s">&quot;#&quot;</span><span class="tk-t">&gt;</span>Opción <span class="tk-n">1</span><span class="tk-t">&lt;/a</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/li</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;li</span> role=<span class="tk-s">&quot;menuitem&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;a</span> href=<span class="tk-s">&quot;#&quot;</span><span class="tk-t">&gt;</span>Opción <span class="tk-n">2</span><span class="tk-t">&lt;/a</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/li</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/ul</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="acordeones">Acordeones</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;accordion&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;h3</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;button</span> id=<span class="tk-s">&quot;acc1-btn&quot;</span>
+                aria-expanded=<span class="tk-s">&quot;false&quot;</span>
+                aria-controls=<span class="tk-s">&quot;acc1-panel&quot;</span><span class="tk-t">&gt;</span>
+            Sección <span class="tk-n">1</span>
+        <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/h3</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;div</span> id=<span class="tk-s">&quot;acc1-panel&quot;</span>
+         role=<span class="tk-s">&quot;region&quot;</span>
+         aria-labelledby=<span class="tk-s">&quot;acc1-btn&quot;</span>
+         hidden<span class="tk-t">&gt;</span>
+        Contenido de la sección <span class="tk-n">1</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="modales">Modales</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;modal&quot;</span>
+     role=<span class="tk-s">&quot;dialog&quot;</span>
+     aria-modal=<span class="tk-s">&quot;true&quot;</span>
+     aria-labelledby=<span class="tk-s">&quot;modal-title&quot;</span>
+     aria-describedby=<span class="tk-s">&quot;modal-desc&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;h2</span> id=<span class="tk-s">&quot;modal-title&quot;</span><span class="tk-t">&gt;</span>Confirmar acción<span class="tk-t">&lt;/h2</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;p</span> id=<span class="tk-s">&quot;modal-desc&quot;</span><span class="tk-t">&gt;</span>¿Estás seguro de continuar?<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;button</span><span class="tk-t">&gt;</span>Confirmar<span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;button</span><span class="tk-t">&gt;</span>Cancel<span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-8-css-utilidades">
+<h3 id="8-css-utilidades">8. CSS Utilidades</h3>
+<pre data-lang="css"><code>/* Ocultar visualmente pero accesible */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Mostrar solo en focus */
+.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+/* Reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-de-verificación">
+<h3 id="checklist-de-verificación">Checklist de Verificación</h3>
+<h4 id="estructura">Estructura</h4>
+<ul>
+<li><input type="checkbox" disabled> HTML semántico (header, nav, main, footer)</li>
+<li><input type="checkbox" disabled> Roles ARIA en landmarks</li>
+<li><input type="checkbox" disabled> Skip link al contenido principal</li>
+<li><input type="checkbox" disabled> Heading hierarchy (h1 &gt; h2 &gt; h3)</li>
+</ul>
+<h4 id="visual">Visual</h4>
+<ul>
+<li><input type="checkbox" disabled> Contraste 4.5:1 para texto</li>
+<li><input type="checkbox" disabled> Contraste 3:1 para UI</li>
+<li><input type="checkbox" disabled> No depender solo del color</li>
+<li><input type="checkbox" disabled> Focus visible en todos los elementos</li>
+</ul>
+<h4 id="formularios">Formularios</h4>
+<ul>
+<li><input type="checkbox" disabled> Labels asociados a inputs</li>
+<li><input type="checkbox" disabled> Campos requeridos identificados</li>
+<li><input type="checkbox" disabled> Errores anunciados (role=&quot;alert&quot;)</li>
+<li><input type="checkbox" disabled> Instrucciones claras</li>
+</ul>
+<h4 id="interacción">Interacción</h4>
+<ul>
+<li><input type="checkbox" disabled> Todo operable por teclado</li>
+<li><input type="checkbox" disabled> Orden de tabulación lógico</li>
+<li><input type="checkbox" disabled> aria-expanded en menús</li>
+<li><input type="checkbox" disabled> Modales con focus trap</li>
+</ul>
+<h4 id="multimedia">Multimedia</h4>
+<ul>
+<li><input type="checkbox" disabled> Alt text en imágenes</li>
+<li><input type="checkbox" disabled> Iconos decorativos ocultos</li>
+<li><input type="checkbox" disabled> Videos con subtítulos</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-herramientas-de-testing">
+<h3 id="herramientas-de-testing">Herramientas de Testing</h3>
+<ol>
+<li><strong>axe DevTools</strong> - Extensión navegador</li>
+<li><strong>WAVE</strong> - Evaluador web</li>
+<li><strong>Lighthouse</strong> - Auditoría Chrome</li>
+<li><strong>NVDA/VoiceOver</strong> - Screen readers</li>
+<li><strong>Navegación solo teclado</strong> - Tab, Enter, Espacio, Flechas</li>
+</ol>
+<hr>
+<p><em>Cumplimiento: WCAG 2.1 Nivel AA</em> <em>Última actualización: Enero 2026</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/webapp-layout.html#ficheros">← Volver a la ficha de webapp-layout</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/webapp-layout/eval-set.html"><small>Anterior</small>eval-set.json</a><a class="next" href="../../../skills/webapp-layout/patterns/colores-corporativos.html"><small>Siguiente</small>patterns/colores-corporativos.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/webapp-layout/patterns/accesibilidad.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#principios-pour">Principios POUR</a></li><li class="l2"><a href="#1-contraste-de-colores">1. Contraste de Colores</a></li><li class="l3"><a href="#requisitos-wcag-aa">Requisitos WCAG AA</a></li><li class="l3"><a href="#combinaciones-aprobadas">Combinaciones Aprobadas</a></li><li class="l3"><a href="#herramientas-de-verificación">Herramientas de Verificación</a></li><li class="l2"><a href="#2-navegación-por-teclado">2. Navegación por Teclado</a></li><li class="l3"><a href="#orden-de-tabulación">Orden de Tabulación</a></li><li class="l3"><a href="#skip-link-obligatorio">Skip Link (Obligatorio)</a></li><li class="l3"><a href="#estados-de-focus">Estados de Focus</a></li><li class="l2"><a href="#3-aria-landmarks">3. ARIA Landmarks</a></li><li class="l3"><a href="#roles-principales">Roles Principales</a></li><li class="l3"><a href="#múltiples-navegaciones">Múltiples Navegaciones</a></li><li class="l2"><a href="#4-formularios-accesibles">4. Formularios Accesibles</a></li><li class="l3"><a href="#labels">Labels</a></li><li class="l3"><a href="#campos-requeridos">Campos Requeridos</a></li><li class="l3"><a href="#mensajes-de-error">Mensajes de Error</a></li><li class="l3"><a href="#grupos-de-campos">Grupos de Campos</a></li><li class="l2"><a href="#5-imágenes-y-multimedia">5. Imágenes y Multimedia</a></li><li class="l3"><a href="#imágenes-informativas">Imágenes Informativas</a></li><li class="l3"><a href="#iconos">Iconos</a></li><li class="l2"><a href="#6-tablas-de-datos">6. Tablas de Datos</a></li><li class="l2"><a href="#7-componentes-interactivos">7. Componentes Interactivos</a></li><li class="l3"><a href="#menús-desplegables">Menús Desplegables</a></li><li class="l3"><a href="#acordeones">Acordeones</a></li><li class="l3"><a href="#modales">Modales</a></li><li class="l2"><a href="#8-css-utilidades">8. CSS Utilidades</a></li><li class="l2"><a href="#checklist-de-verificación">Checklist de Verificación</a></li><li class="l3"><a href="#estructura">Estructura</a></li><li class="l3"><a href="#visual">Visual</a></li><li class="l3"><a href="#formularios">Formularios</a></li><li class="l3"><a href="#interacción">Interacción</a></li><li class="l3"><a href="#multimedia">Multimedia</a></li><li class="l2"><a href="#herramientas-de-testing">Herramientas de Testing</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

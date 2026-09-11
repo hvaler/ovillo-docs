@@ -1,0 +1,424 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>webapp · Ovillo</title><meta name="description" content="Convenciones de vistas y front web: Razor, layout, TagHelpers y estaticos."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="webapp · Ovillo"><meta property="og:description" content="Convenciones de vistas y front web: Razor, layout, TagHelpers y estaticos."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/webapp.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/webapp.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/webapp.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>regla por ruta (13)</h4><ul class="sibs"><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/blazor.html">blazor</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/domain-api-docs.html">domain-api-docs</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/mcp-config.html">mcp-config</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/webapp.html" class="cur">webapp</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>webapp</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>/hv:webapp</span></div><h1>webapp</h1><p class="lede">Convenciones de vistas y front web: Razor, layout, TagHelpers y estaticos.</p><div class="meta-grid"><div><b>regla por ruta</b><span>clase</span></div><div><b><code>/hv:webapp</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>355</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>user-invocable</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Se carga sola al tocar ficheros que casan con sus rutas (<code>paths:</code>). No entra en el listado de skills.</p><pre data-lang="yaml"><code>paths:
+  - &quot;**/Program.cs&quot;
+  - &quot;**/Startup.cs&quot;
+  - &quot;**/appsettings*.json&quot;
+  - &quot;**/Views/**/*.cshtml&quot;
+  - &quot;**/Pages/**/*.cshtml&quot;
+  - &quot;**/Areas/**/*.cshtml&quot;
+  - &quot;**/*.razor&quot;
+  - &quot;**/Components/**/*.razor&quot;
+  - &quot;**/wwwroot/**/*&quot;
+  - &quot;**/*.css&quot;
+  - &quot;**/*.scss&quot;
+  - &quot;**/*.js&quot;
+  - &quot;**/*.ts&quot;</code></pre></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Se carga por ruta, no por invocacion</strong>: el campo <code>paths:</code> la activa cuando Claude trabaja con ficheros que casan con esos patrones. No aparece en el menu (<code>user-invocable: false</code>) y <strong>no ocupa contexto</strong> mientras no case ningun fichero.</p>
+<p>Procede de <code>.claude/skills/webapp/SKILL.md</code>. Se convirtio en skill porque un plugin no distribuye <code>rules/</code>.</p></blockquote>
+<hr>
+<h2 id="reglas-para-aplicaciones-web-aspnet">Reglas para Aplicaciones Web ASP.NET</h2>
+<blockquote><p>Este archivo aplica cuando Claude trabaja con aplicaciones web. <strong>Detecta automáticamente</strong> la versión de .NET del proyecto.</p></blockquote>
+<hr>
+<section class="sec" id="sec-detección-de-versión">
+<h3 id="detección-de-versión">DETECCIÓN DE VERSIÓN</h3>
+<p>Antes de aplicar reglas, Claude debe identificar la versión:</p>
+<pre data-lang="xml"><code><span class="tk-c">&lt;!-- En .csproj --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net10.<span class="tk-n">0</span><span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>  <span class="tk-c">&lt;!-- .NET 10 --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net9.<span class="tk-n">0</span><span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>   <span class="tk-c">&lt;!-- .NET 9 --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net8.<span class="tk-n">0</span><span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>   <span class="tk-c">&lt;!-- .NET 8 --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net48<span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>    <span class="tk-c">&lt;!-- .NET Framework 4.8 --&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-1-configuración-por-versión">
+<h3 id="parte-1-configuración-por-versión">PARTE 1: CONFIGURACIÓN POR VERSIÓN</h3>
+<h4 id="net-10-lts---recomendado">.NET 10 (LTS - Recomendado) ✅</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - .NET 10 con mejoras</span>
+<span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// SERVICIOS - .NET 10</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-c">// Configuración tipada con validación integrada (nuevo en .NET 10)</span>
+builder.Services.AddOptionsWithValidateOnStart&lt;AppSettings&gt;()
+    .Bind(builder.Configuration.GetSection(<span class="tk-s">&quot;AppSettings&quot;</span>))
+    .ValidateDataAnnotations();
+
+<span class="tk-c">// OpenAPI nativo (reemplaza Swashbuckle) - .NET 10</span>
+builder.Services.AddOpenApi(options =&gt;
+{
+    options.AddDocumentTransformer((document, context, ct) =&gt;
+    {
+        document.Info.Title = <span class="tk-s">&quot;Mi API&quot;</span>;
+        document.Info.Version = <span class="tk-s">&quot;v1&quot;</span>;
+        <span class="tk-k">return</span> Task.CompletedTask;
+    });
+});
+
+<span class="tk-c">// Base de datos con mejoras EF Core 10</span>
+builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseSqlServer(builder.Configuration.GetConnectionString(<span class="tk-s">&quot;DefaultConnection&quot;</span>),
+        sqlOptions =&gt; sqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
+
+<span class="tk-c">// Autenticación mejorada</span>
+builder.Services.AddAuthentication()
+    .AddCookie(options =&gt;
+    {
+        options.LoginPath = <span class="tk-s">&quot;/Account/Login&quot;</span>;
+        options.ExpireTimeSpan = TimeSpan.FromDays(<span class="tk-n">30</span>);
+        options.SlidingExpiration = <span class="tk-k">true</span>;
+    });
+
+<span class="tk-c">// Health checks con tags</span>
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck&lt;ApplicationDbContext&gt;(<span class="tk-s">&quot;database&quot;</span>, tags: [<span class="tk-s">&quot;ready&quot;</span>])
+    .AddCheck(<span class="tk-s">&quot;self&quot;</span>, () =&gt; HealthCheckResult.Healthy(), tags: [<span class="tk-s">&quot;live&quot;</span>]);
+
+<span class="tk-k">var</span> app = builder.Build();
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// PIPELINE HTTP - .NET 10</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">if</span> (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler(<span class="tk-s">&quot;/Error&quot;</span>);
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+<span class="tk-c">// OpenAPI endpoints nativos (.NET 10)</span>
+app.MapOpenApi();
+
+<span class="tk-c">// Health checks con filtros</span>
+app.MapHealthChecks(<span class="tk-s">&quot;/health/ready&quot;</span>, <span class="tk-k">new</span>() { Predicate = check =&gt; check.Tags.Contains(<span class="tk-s">&quot;ready&quot;</span>) });
+app.MapHealthChecks(<span class="tk-s">&quot;/health/live&quot;</span>, <span class="tk-k">new</span>() { Predicate = check =&gt; check.Tags.Contains(<span class="tk-s">&quot;live&quot;</span>) });
+
+app.MapControllerRoute(
+    name: <span class="tk-s">&quot;default&quot;</span>,
+    pattern: <span class="tk-s">&quot;{controller=Home}/{action=Index}/{id?}&quot;</span>);
+
+app.Run();</code></pre>
+<h4 id="net-89-migrar-a-net-10">.NET 8/9 (Migrar a .NET 10)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - .NET 8/9</span>
+<span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+
+<span class="tk-c">// Configuración</span>
+builder.Services.Configure&lt;AppSettings&gt;(
+    builder.Configuration.GetSection(<span class="tk-s">&quot;AppSettings&quot;</span>));
+
+<span class="tk-c">// Swagger (reemplazar por OpenAPI nativo en .NET 10)</span>
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+<span class="tk-c">// Base de datos</span>
+builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseSqlServer(builder.Configuration.GetConnectionString(<span class="tk-s">&quot;DefaultConnection&quot;</span>)));
+
+builder.Services.AddControllersWithViews();
+
+<span class="tk-k">var</span> app = builder.Build();
+
+<span class="tk-k">if</span> (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: <span class="tk-s">&quot;default&quot;</span>,
+    pattern: <span class="tk-s">&quot;{controller=Home}/{action=Index}/{id?}&quot;</span>);
+
+app.Run();</code></pre>
+<h4 id="net-framework-4x-legacy">.NET Framework 4.x (Legacy)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Global.asax.cs</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> MvcApplication : System.Web.HttpApplication
+{
+    <span class="tk-k">protected</span> <span class="tk-k">void</span> Application_Start()
+    {
+        AreaRegistration.RegisterAllAreas();
+        FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+    }
+}
+
+<span class="tk-c">// Web.config para connection strings</span>
+&lt;connectionStrings&gt;
+    &lt;add name=<span class="tk-s">&quot;DefaultConnection&quot;</span> 
+         connectionString=<span class="tk-s">&quot;Server=...;Database=...;&quot;</span> 
+         providerName=<span class="tk-s">&quot;System.Data.SqlClient&quot;</span> /&gt;
+&lt;/connectionStrings&gt;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-2-comparativa-de-características">
+<h3 id="parte-2-comparativa-de-características">PARTE 2: COMPARATIVA DE CARACTERÍSTICAS</h3>
+<div class="tbl"><table><thead><tr><th>Característica</th><th>.NET 4.x</th><th>.NET 8</th><th>.NET 9</th><th>.NET 10</th></tr></thead><tbody><tr><td><strong>Configuración</strong></td><td>Web.config</td><td>appsettings.json</td><td>appsettings.json</td><td>appsettings.json + validación</td></tr><tr><td><strong>DI</strong></td><td>Manual/Ninject</td><td>Built-in</td><td>Built-in</td><td>Built-in mejorado</td></tr><tr><td><strong>OpenAPI</strong></td><td>N/A</td><td>Swashbuckle</td><td>Swashbuckle</td><td><strong>Nativo</strong></td></tr><tr><td><strong>EF</strong></td><td>EF 6</td><td>EF Core 8</td><td>EF Core 9</td><td>EF Core 10</td></tr><tr><td><strong>Hosting</strong></td><td>IIS</td><td>Kestrel</td><td>Kestrel</td><td>Kestrel optimizado</td></tr><tr><td><strong>C#</strong></td><td>7.3</td><td>12</td><td>13</td><td>13+</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-parte-3-vistas-razor">
+<h3 id="parte-3-vistas-razor">PARTE 3: VISTAS RAZOR</h3>
+<h4 id="blazor-net-10">Blazor (.NET 10)</h4>
+<pre data-lang="razor"><code>@* Componente Blazor .NET <span class="tk-n">10</span> con streaming rendering *@
+@page <span class="tk-s">&quot;/scholarships&quot;</span>
+@attribute [StreamRendering]
+@inject IScholarshipService ScholarshipService
+
+<span class="tk-t">&lt;PageTitle</span><span class="tk-t">&gt;</span>Listado de Scholarships<span class="tk-t">&lt;/PageTitle</span><span class="tk-t">&gt;</span>
+
+@if (scholarships is null)
+{
+    <span class="tk-t">&lt;p</span><span class="tk-t">&gt;</span>Loading...<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+}
+else
+{
+    <span class="tk-t">&lt;QuickGrid</span> Items=<span class="tk-s">&quot;@scholarships.AsQueryable()&quot;</span> Pagination=<span class="tk-s">&quot;@pagination&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;PropertyColumn</span> Property=<span class="tk-s">&quot;@(b =&gt; b.Name)&quot;</span> Sortable=<span class="tk-s">&quot;true&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;PropertyColumn</span> Property=<span class="tk-s">&quot;@(b =&gt; b.Amount)&quot;</span> Format=<span class="tk-s">&quot;C&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;TemplateColumn</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;a</span> href=<span class="tk-s">&quot;@($&quot;</span>/scholarships/{context.Id}<span class="tk-s">&quot;)&quot;</span><span class="tk-t">&gt;</span>View<span class="tk-t">&lt;/a</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/TemplateColumn</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/QuickGrid</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;Paginator</span> State=<span class="tk-s">&quot;@pagination&quot;</span> <span class="tk-t">/&gt;</span>
+}
+
+@code {
+    private List<span class="tk-t">&lt;Scholarship</span><span class="tk-t">&gt;</span>? scholarships;
+    private PaginationState pagination = new() { ItemsPerPage = <span class="tk-n">10</span> };
+
+    protected override async Task OnInitializedAsync()
+    {
+        scholarships = await ScholarshipService.GetAllAsync();
+    }
+}</code></pre>
+<h4 id="razor-views-mvc-todas-las-versiones">Razor Views MVC (Todas las versiones)</h4>
+<pre data-lang="html"><code>@model ScholarshipViewModel
+
+@{
+    ViewData[<span class="tk-s">&quot;Title&quot;</span>] = <span class="tk-s">&quot;Detalle de Scholarship&quot;</span>;
+}
+
+<span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;container&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;h1</span><span class="tk-t">&gt;</span>@Model.Name<span class="tk-t">&lt;/h1</span><span class="tk-t">&gt;</span>
+    
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card-body&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;dl</span> class=<span class="tk-s">&quot;row&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;dt</span> class=<span class="tk-s">&quot;col-sm-3&quot;</span><span class="tk-t">&gt;</span>Amount<span class="tk-t">&lt;/dt</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;dd</span> class=<span class="tk-s">&quot;col-sm-9&quot;</span><span class="tk-t">&gt;</span>@Model.Amount.ToString(<span class="tk-s">&quot;C&quot;</span>)<span class="tk-t">&lt;/dd</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/dl</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    
+    @if (Model.CanEdit)
+    {
+        <span class="tk-t">&lt;a</span> asp-action=<span class="tk-s">&quot;Edit&quot;</span> asp-route-id=<span class="tk-s">&quot;@Model.Id&quot;</span> class=<span class="tk-s">&quot;btn btn-brand-primary&quot;</span><span class="tk-t">&gt;</span>
+            Editar
+        <span class="tk-t">&lt;/a</span><span class="tk-t">&gt;</span>
+    }
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-4-estilos-css---tokens-de-tema">
+<h3 id="parte-4-estilos-css---tokens-de-tema">PARTE 4: ESTILOS CSS - TOKENS DE TEMA</h3>
+<blockquote><p>Los valores salen de <code>ecosystem.config.theme</code> (<code>primaryColor</code>, <code>secondaryColor</code>); los de abajo son los defaults neutrales.</p></blockquote>
+<pre data-lang="css"><code>:root {
+    /* Marca (theme.primaryColor / theme.secondaryColor del ecosystem.config) */
+    --brand-primary: #33475B;
+    --brand-primary-light: #4A6FA5;
+    --brand-primary-hover: #24333F;
+    
+    /* Secundarios */
+    --brand-neutral: #666666;
+    --brand-neutral-light: #f5f5f5;
+    --brand-white: #ffffff;
+    
+    /* Estados */
+    --color-exito: #28a745;
+    --color-error: #dc3545;
+    --color-aviso: #ffc107;
+    --color-info: #17a2b8;
+    
+    /* Tipografía */
+    --font-family-base: 'Segoe UI', system-ui, sans-serif;
+    --font-size-base: 1rem;
+}
+
+/* Botones de marca */
+.btn-brand-primary {
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-brand-primary:hover {
+    background-color: var(--brand-primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-brand-primary:focus {
+    outline: 3px solid var(--brand-primary-light);
+    outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container { padding: 1rem; }
+}
+
+@media (min-width: 1024px) {
+    .container { max-width: 1200px; margin: 0 auto; }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-5-javascript-moderno">
+<h3 id="parte-5-javascript-moderno">PARTE 5: JAVASCRIPT MODERNO</h3>
+<pre data-lang="javascript"><code><span class="tk-c">// Namespace de la aplicacion - Compatible ES2022+</span>
+<span class="tk-k">const</span> App = globalThis.App ?? {};
+
+App.Scholarships = (() =&gt; {
+    <span class="tk-s">'use strict'</span>;
+    
+    <span class="tk-k">const</span> init = () =&gt; {
+        bindEvents();
+    };
+    
+    <span class="tk-k">const</span> bindEvents = () =&gt; {
+        document.querySelectorAll(<span class="tk-s">'[data-action=&quot;delete&quot;]'</span>)
+            .forEach(btn =&gt; btn.addEventListener(<span class="tk-s">'click'</span>, handleDelete));
+    };
+    
+    <span class="tk-k">const</span> handleDelete = <span class="tk-k">async</span> (event) =&gt; {
+        event.preventDefault();
+        
+        <span class="tk-k">if</span> (!confirm(<span class="tk-s">'Are you sure you want to delete?'</span>)) <span class="tk-k">return</span>;
+        
+        <span class="tk-k">const</span> id = event.target.dataset.id;
+        
+        <span class="tk-k">try</span> {
+            <span class="tk-k">const</span> response = <span class="tk-k">await</span> fetch(<span class="tk-s">`/api/scholarships/${id}`</span>, {
+                method: <span class="tk-s">'DELETE'</span>,
+                headers: {
+                    <span class="tk-s">'RequestVerificationToken'</span>: getAntiForgeryToken()
+                }
+            });
+            
+            <span class="tk-k">if</span> (response.ok) {
+                event.target.closest(<span class="tk-s">'tr'</span>)?.remove();
+                showNotification(<span class="tk-s">'Deleted successfully'</span>, <span class="tk-s">'success'</span>);
+            } <span class="tk-k">else</span> {
+                <span class="tk-k">throw</span> <span class="tk-k">new</span> Error(<span class="tk-s">`HTTP ${response.status}`</span>);
+            }
+        } <span class="tk-k">catch</span> (error) {
+            console.error(<span class="tk-s">'Error:'</span>, error);
+            showNotification(<span class="tk-s">'Delete failed'</span>, <span class="tk-s">'error'</span>);
+        }
+    };
+    
+    <span class="tk-k">const</span> getAntiForgeryToken = () =&gt; 
+        document.querySelector(<span class="tk-s">'input[name=&quot;__RequestVerificationToken&quot;]'</span>)?.value;
+    
+    <span class="tk-k">const</span> showNotification = (message, type) =&gt; {
+        <span class="tk-c">// Implementar notificación toast</span>
+    };
+    
+    <span class="tk-k">return</span> { init };
+})();
+
+document.addEventListener(<span class="tk-s">'DOMContentLoaded'</span>, App.Scholarships.init);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-6-accesibilidad-wcag-21-aa">
+<h3 id="parte-6-accesibilidad-wcag-21-aa">PARTE 6: ACCESIBILIDAD (WCAG 2.1 AA)</h3>
+<h4 id="contraste-de-colores">Contraste de Colores</h4>
+<div class="tbl"><table><thead><tr><th>Elemento</th><th>Color</th><th>Fondo</th><th>Ratio</th><th>Estado</th></tr></thead><tbody><tr><td>Texto normal</td><td>#33475B</td><td>#ffffff</td><td>9.7:1</td><td>✅</td></tr><tr><td>Texto sobre primario</td><td>#ffffff</td><td>#33475B</td><td>9.7:1</td><td>✅</td></tr><tr><td>Links</td><td>#4A6FA5</td><td>#ffffff</td><td>5.0:1</td><td>✅</td></tr></tbody></table></div>
+<h4 id="formularios-accesibles">Formularios Accesibles</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;form</span> id=<span class="tk-s">&quot;scholarshipForm&quot;</span> novalidate<span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;form-group&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;name&quot;</span> class=<span class="tk-s">&quot;form-label&quot;</span><span class="tk-t">&gt;</span>
+            Scholarship name <span class="tk-t">&lt;span</span> aria-label=<span class="tk-s">&quot;required&quot;</span><span class="tk-t">&gt;</span>*<span class="tk-t">&lt;/span</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;input</span> type=<span class="tk-s">&quot;text&quot;</span> 
+               id=<span class="tk-s">&quot;name&quot;</span> 
+               name=<span class="tk-s">&quot;name&quot;</span>
+               class=<span class="tk-s">&quot;form-control&quot;</span>
+               required 
+               minlength=<span class="tk-s">&quot;3&quot;</span> 
+               maxlength=<span class="tk-s">&quot;200&quot;</span>
+               aria-describedby=<span class="tk-s">&quot;name-help name-error&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;small</span> id=<span class="tk-s">&quot;name-help&quot;</span> class=<span class="tk-s">&quot;form-text&quot;</span><span class="tk-t">&gt;</span>
+            Between <span class="tk-n">3</span> and <span class="tk-n">200</span> characters
+        <span class="tk-t">&lt;/small</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> id=<span class="tk-s">&quot;name-error&quot;</span> class=<span class="tk-s">&quot;invalid-feedback&quot;</span> role=<span class="tk-s">&quot;alert&quot;</span><span class="tk-t">&gt;</span>
+            Name is required
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    
+    <span class="tk-t">&lt;button</span> type=<span class="tk-s">&quot;submit&quot;</span> class=<span class="tk-s">&quot;btn-brand-primary&quot;</span><span class="tk-t">&gt;</span>
+        Guardar
+    <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/form</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-7-seguridad">
+<h3 id="parte-7-seguridad">PARTE 7: SEGURIDAD</h3>
+<h4 id="secretos---nunca-en-código">Secretos - NUNCA en código</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ NUNCA</span>
+<span class="tk-s">&quot;ConnectionStrings&quot;</span>: {
+    <span class="tk-s">&quot;Default&quot;</span>: <span class="tk-s">&quot;Server=prod;Password=123456&quot;</span>
+}
+
+<span class="tk-c">// ✅ Desarrollo - User Secrets</span>
+dotnet user-secrets <span class="tk-k">set</span> <span class="tk-s">&quot;ConnectionStrings:Default&quot;</span> <span class="tk-s">&quot;Server=...&quot;</span>
+
+<span class="tk-c">// ✅ Producción - Azure Key Vault (.NET 10)</span>
+builder.Configuration.AddAzureKeyVault(
+    <span class="tk-k">new</span> Uri(builder.Configuration[<span class="tk-s">&quot;KeyVault:Url&quot;</span>]!),
+    <span class="tk-k">new</span> DefaultAzureCredential());</code></pre>
+<h4 id="validación-anti-forgery">Validación Anti-Forgery</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// .NET 10 - Automático en formularios</span>
+builder.Services.AddAntiforgery(options =&gt;
+{
+    options.HeaderName = <span class="tk-s">&quot;X-XSRF-TOKEN&quot;</span>;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+});</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-por-versión">
+<h3 id="checklist-por-versión">CHECKLIST POR VERSIÓN</h3>
+<h4 id="net-10">.NET 10 ✅</h4>
+<ul>
+<li><input type="checkbox" disabled> OpenAPI nativo (no Swashbuckle)</li>
+<li><input type="checkbox" disabled> AddOptionsWithValidateOnStart</li>
+<li><input type="checkbox" disabled> EF Core 10 features</li>
+<li><input type="checkbox" disabled> Health checks con tags</li>
+<li><input type="checkbox" disabled> Blazor streaming rendering</li>
+</ul>
+<h4 id="net-89-preparar-migración">.NET 8/9 (Preparar migración)</h4>
+<ul>
+<li><input type="checkbox" disabled> Identificar Swashbuckle → OpenAPI</li>
+<li><input type="checkbox" disabled> Revisar breaking changes</li>
+<li><input type="checkbox" disabled> Actualizar NuGets</li>
+</ul>
+<h4 id="net-4x-mantener">.NET 4.x (Mantener)</h4>
+<ul>
+<li><input type="checkbox" disabled> No introducir dependencias modernas</li>
+<li><input type="checkbox" disabled> Respetar Web.config</li>
+<li><input type="checkbox" disabled> Entity Framework 6</li>
+</ul>
+<hr>
+<p><em>Regla incondicional — Multi-versión .NET</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>74</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 355 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>5 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(puertas): Lote B — metadata.kind declarativo y verificado, hook skill-guard, puertas semanticas del portal (ADR-022, ADR-003 enmendado)</em> (<code>55ad636</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/init.html">init</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/webapp/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#detección-de-versión">DETECCIÓN DE VERSIÓN</a></li><li class="l3"><a href="#parte-1-configuración-por-versión">PARTE 1: CONFIGURACIÓN POR VERSIÓN</a></li><li class="l3"><a href="#parte-2-comparativa-de-características">PARTE 2: COMPARATIVA DE CARACTERÍSTICAS</a></li><li class="l3"><a href="#parte-3-vistas-razor">PARTE 3: VISTAS RAZOR</a></li><li class="l3"><a href="#parte-4-estilos-css---tokens-de-tema">PARTE 4: ESTILOS CSS - TOKENS DE TEMA</a></li><li class="l3"><a href="#parte-5-javascript-moderno">PARTE 5: JAVASCRIPT MODERNO</a></li><li class="l3"><a href="#parte-6-accesibilidad-wcag-21-aa">PARTE 6: ACCESIBILIDAD (WCAG 2.1 AA)</a></li><li class="l3"><a href="#parte-7-seguridad">PARTE 7: SEGURIDAD</a></li><li class="l3"><a href="#checklist-por-versión">CHECKLIST POR VERSIÓN</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

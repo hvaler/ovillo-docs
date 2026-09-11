@@ -1,0 +1,139 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · templates/github-workflow.yml.template · Ovillo</title><meta name="description" content="Fichero templates/github-workflow.yml.template de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · templates/github-workflow.yml.template · Ovillo"><meta property="og:description" content="Fichero templates/github-workflow.yml.template de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/templates/github-workflow.yml.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/templates/github-workflow.yml.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/templates/github-workflow.yml.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html" class="cur">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>templates</span><span>github-workflow.yml.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>templates/</span><span>5002 B</span></div><h1>github-workflow.yml.template</h1><p class="lede">Fichero que <code>/hv:git-best-practices</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>5002 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code><span class="tk-c"># TEMPLATE: GitHub Actions CI/CD para .NET 10</span>
+<span class="tk-c"># Skill: git-best-practices</span>
+<span class="tk-c"># Uso: copiar a .github/workflows/ci.yml y sustituir {{SOLUTION_NAME}}.</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># Decisiones que trae puestas:</span>
+<span class="tk-c">#   - permissions minimos: el GITHUB_TOKEN solo lee; cada job eleva lo que necesita.</span>
+<span class="tk-c">#   - acciones pinneadas por SHA con la version en comentario (Dependabot actualiza ambos;</span>
+<span class="tk-c">#     templates/dependabot.yml.template). Un tag como @v4 puede moverse; un SHA no.</span>
+<span class="tk-c">#   - merge_group: necesario para que la merge queue del ruleset ejecute estos checks.</span>
+<span class="tk-c">#   - Los name: de los jobs (Build, Security) son los contextos de required_status_checks del ruleset.</span>
+<span class="tk-c">#   - concurrency: un push nuevo cancela el run anterior de la misma rama.</span>
+
+name: CI
+
+<span class="tk-k">on</span>:
+  push:
+    branches: [main]
+    paths-ignore:
+      - <span class="tk-s">'**/*.md'</span>
+      - <span class="tk-s">'docs/**'</span>
+  pull_request:
+    branches: [main]
+  merge_group:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: <span class="tk-v">${{ github.workflow }}</span>-<span class="tk-v">${{ github.ref }}</span>
+  cancel-in-progress: <span class="tk-k">true</span>
+
+env:
+  DOTNET_VERSION: <span class="tk-s">'10.0.x'</span>
+  SOLUTION_PATH: <span class="tk-s">'src/{{SOLUTION_NAME}}.sln'</span>
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: <span class="tk-n">15</span>
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 <span class="tk-c"># v6.0.0</span>
+        with:
+          dotnet-version: <span class="tk-v">${{ env.DOTNET_VERSION }}</span>
+
+      - name: Cache NuGet packages
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 <span class="tk-c"># v6.1.0</span>
+        with:
+          path: ~/.nuget/packages
+          key: nuget-<span class="tk-v">${{ runner.os }}</span>-<span class="tk-v">${{ hashFiles('**/*.csproj', '**/Directory.Packages.props') }}</span>
+          restore-keys: nuget-<span class="tk-v">${{ runner.os }}</span>-
+
+      - name: Restore
+        run: dotnet restore <span class="tk-v">${{ env.SOLUTION_PATH }}</span>
+
+      - name: Build
+        run: dotnet build <span class="tk-v">${{ env.SOLUTION_PATH }}</span> --no-restore --configuration Release
+
+      - name: Test
+        <span class="tk-c"># ops/testing/coverlet.runsettings lo escribe /hv:init; sin el, quitar --settings y usar --collect:&quot;XPlat Code Coverage&quot;</span>
+        run: dotnet test <span class="tk-v">${{ env.SOLUTION_PATH }}</span> --no-build --configuration Release --settings ops/testing/coverlet.runsettings
+
+      - name: Upload coverage
+        if: github.event_name == <span class="tk-s">'pull_request'</span>
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a <span class="tk-c"># v7.0.1</span>
+        with:
+          name: coverage-report
+          path: <span class="tk-s">'**/coverage.cobertura.xml'</span>
+          retention-days: <span class="tk-n">14</span>
+
+  security:
+    name: Security
+    runs-on: ubuntu-latest
+    timeout-minutes: <span class="tk-n">10</span>
+    needs: build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 <span class="tk-c"># v6.0.0</span>
+        with:
+          dotnet-version: <span class="tk-v">${{ env.DOTNET_VERSION }}</span>
+
+      - name: NuGet audit
+        <span class="tk-c"># Falla el job si hay vulnerabilidades: el ruleset exige este check, asi que un paquete vulnerable no llega a main.</span>
+        run: |
+          dotnet restore <span class="tk-v">${{ env.SOLUTION_PATH }}</span>
+          dotnet list <span class="tk-v">${{ env.SOLUTION_PATH }}</span> package --vulnerable --include-transitive | tee audit.txt
+          if grep -qE <span class="tk-s">&quot;Critical|High&quot;</span> audit.txt; then echo <span class="tk-s">&quot;::error::Vulnerabilidades Critical/High en dependencias&quot;</span>; exit <span class="tk-n">1</span>; fi
+
+  deploy-staging:
+    name: Deploy staging
+    runs-on: ubuntu-latest
+    timeout-minutes: <span class="tk-n">15</span>
+    needs: [build, security]
+    if: github.event_name == <span class="tk-s">'push'</span> &amp;&amp; github.ref == <span class="tk-s">'refs/heads/main'</span>
+    <span class="tk-c"># El environment concentra secretos, reviewers y reglas de proteccion: configurarlo en</span>
+    <span class="tk-c"># Settings &gt; Environments. Para produccion, duplicar este job con environment: production y required reviewers.</span>
+    environment:
+      name: staging
+      url: <span class="tk-s">'{{URL_STAGING}}'</span>
+    permissions:
+      contents: read
+      id-token: write   <span class="tk-c"># OIDC hacia la nube (azure/login, aws-actions/configure-aws-credentials) sin secretos de larga vida</span>
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 <span class="tk-c"># v6.0.0</span>
+        with:
+          dotnet-version: <span class="tk-v">${{ env.DOTNET_VERSION }}</span>
+
+      - name: Publish
+        run: dotnet publish <span class="tk-v">${{ env.SOLUTION_PATH }}</span> --configuration Release --output ./publish
+
+      - name: Upload publish artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a <span class="tk-c"># v7.0.1</span>
+        with:
+          name: publish-<span class="tk-v">${{ github.sha }}</span>
+          path: ./publish
+          retention-days: <span class="tk-n">30</span>
+
+      - name: Deploy
+        <span class="tk-c"># Sustituir por el paso real de la organizacion: azure/webapps-deploy, aws-actions/*, rsync/ssh a IIS...</span>
+        <span class="tk-c"># Se deja explicito para que el job falle si nadie lo configura.</span>
+        run: |
+          echo <span class="tk-s">&quot;::error::Paso de despliegue sin configurar: sustituir este step (ver ecosystem.config.json -&gt; cloud.provider)&quot;</span>
+          exit <span class="tk-n">1</span>
+</code></pre><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/templates/dependabot.yml.html"><small>Anterior</small>templates/dependabot.yml.template</a><a class="next" href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html"><small>Siguiente</small>templates/ISSUE_TEMPLATE/bug_report.yml.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/templates/github-workflow.yml.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

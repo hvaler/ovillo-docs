@@ -1,0 +1,187 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cert-expiry-reminder · Ovillo</title><meta name="description" content="Aviso sobre certificados x.509 caducados o proximos a caducar"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cert-expiry-reminder · Ovillo"><meta property="og:description" content="Aviso sobre certificados x.509 caducados o proximos a caducar"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/cert-expiry-reminder.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/cert-expiry-reminder.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/cert-expiry-reminder.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html" class="cur">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>cert-expiry-reminder</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>PreToolUse[Write|Edit]</span><span class="kind kind-workflow">configurable</span></div><h1>cert-expiry-reminder</h1><p class="lede">Aviso sobre certificados x.509 caducados o proximos a caducar</p><div class="meta-grid"><div><b><code>PreToolUse</code></b><span>evento</span></div><div><b><code>Write|Edit</code></b><span>matcher</span></div><div><b><span class="kind kind-workflow">configurable</span></b><span>política</span></div><div><b>1.0.0</b><span>versión</span></div><div><b>5 s</b><span>timeout</span></div><div><b>2026-09-07</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p>WARN-first: al detectar un cert CADUCADO, resolvePolicy(cfg, '<a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a>') decide exit 1 (warn, default) o exit 2 (block) segun ecosystem.config -&gt; hooks.policy / hooks.blockList. certBlockOnExpired (ESTADO_PROYECTO.json) sigue siendo el opt-in strict del proyecto (mismo mensaje que el .ps1). Detecta edicion de archivos: <em>.pfx, </em>.cer, <em>.crt, </em>.p12 Para cada uno, lee la fecha de caducidad del cert: - crypto.X509Certificate de Node (equivalente al X509Certificate2 de .NET que usa el .ps1) para PEM/DER (.cer/.crt). - Para .pfx/.p12 (PKCS#12), fallback a <code>openssl pkcs12</code> sin password via spawnSync; si openssl no esta disponible o el cert tiene password, degrada con gracia al mismo aviso &quot;no se pudo leer&quot; del .ps1 (exit 0). Comportamiento: - Cert caducado (NotAfter &lt; hoy): AVISO por defecto (exit segun politica). - Caduca en &lt;30 dias: warning critico (no bloquea, exit 0) - Caduca en &lt;90 dias: warning (no bloquea, exit 0) - Caduca en &gt;=90 dias: silencioso (exit 0 sin output)</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>0</code></td><td>permitir (con aviso si caduca &lt;90d)</td></tr><tr><td><code>1</code></td><td>AVISO (politica warn) ·</td></tr><tr><td><code>2</code></td><td>BLOCK (politica block)</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>WARN-first: avisa (exit 1) por defecto y bloquea (exit 2) solo si la organización lo pone en <code>hooks.blockList</code> o sube <code>hooks.policy</code> a <code>block</code>.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>cert-expiry-reminder.js · 187 líneas</summary><pre data-lang="javascript"><code>#!/usr/bin/env node
+<span class="tk-c">// cert-expiry-reminder.js - Aviso sobre certificados x.509 caducados o proximos a caducar</span>
+<span class="tk-c">// Evento: PreToolUse[Write|Edit]</span>
+<span class="tk-c">// Exit 0 = permitir (con aviso si caduca &lt;90d) · Exit 1 = AVISO (politica warn) ·</span>
+<span class="tk-c">// Exit 2 = BLOCK (politica block)</span>
+<span class="tk-c">// Version: 1.0.0</span>
+<span class="tk-c">//   WARN-first: al detectar un cert CADUCADO, resolvePolicy(cfg, 'cert-expiry-reminder')</span>
+<span class="tk-c">//   decide exit 1 (warn, default) o exit 2 (block) segun ecosystem.config -&gt;</span>
+<span class="tk-c">//   hooks.policy / hooks.blockList. certBlockOnExpired (ESTADO_PROYECTO.json) sigue</span>
+<span class="tk-c">//   siendo el opt-in strict del proyecto (mismo mensaje que el .ps1).</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Detecta edicion de archivos: *.pfx, *.cer, *.crt, *.p12</span>
+<span class="tk-c">// Para cada uno, lee la fecha de caducidad del cert:</span>
+<span class="tk-c">//   - crypto.X509Certificate de Node (equivalente al X509Certificate2 de .NET que usa</span>
+<span class="tk-c">//     el .ps1) para PEM/DER (.cer/.crt).</span>
+<span class="tk-c">//   - Para .pfx/.p12 (PKCS#12), fallback a `openssl pkcs12` sin password via spawnSync;</span>
+<span class="tk-c">//     si openssl no esta disponible o el cert tiene password, degrada con gracia al</span>
+<span class="tk-c">//     mismo aviso &quot;no se pudo leer&quot; del .ps1 (exit 0).</span>
+<span class="tk-c">// Comportamiento:</span>
+<span class="tk-c">//   - Cert caducado (NotAfter &lt; hoy): AVISO por defecto (exit segun politica).</span>
+<span class="tk-c">//   - Caduca en &lt;30 dias: warning critico (no bloquea, exit 0)</span>
+<span class="tk-c">//   - Caduca en &lt;90 dias: warning (no bloquea, exit 0)</span>
+<span class="tk-c">//   - Caduca en &gt;=90 dias: silencioso (exit 0 sin output)</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> fs = <span class="tk-k">require</span>(<span class="tk-s">'fs'</span>);
+<span class="tk-k">const</span> path = <span class="tk-k">require</span>(<span class="tk-s">'path'</span>);
+<span class="tk-k">const</span> crypto = <span class="tk-k">require</span>(<span class="tk-s">'crypto'</span>);
+<span class="tk-k">const</span> { spawnSync } = <span class="tk-k">require</span>(<span class="tk-s">'child_process'</span>);
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(<span class="tk-s">'./lib/helpers'</span>);
+<span class="tk-k">const</span> cfgLib = <span class="tk-k">require</span>(<span class="tk-s">'./lib/config'</span>);
+
+<span class="tk-c">// Emitir aviso por stderr</span>
+<span class="tk-k">function</span> aviso(msg) {
+  console.error(msg);
+}
+
+<span class="tk-k">function</span> fmtDate(d) {
+  <span class="tk-k">const</span> y = d.getFullYear();
+  <span class="tk-k">const</span> mo = String(d.getMonth() + <span class="tk-n">1</span>).padStart(<span class="tk-n">2</span>, <span class="tk-s">'0'</span>);
+  <span class="tk-k">const</span> da = String(d.getDate()).padStart(<span class="tk-n">2</span>, <span class="tk-s">'0'</span>);
+  <span class="tk-k">return</span> <span class="tk-s">`${y}-${mo}-${da}`</span>;
+}
+
+<span class="tk-c">// Node separa los RDN del subject/issuer con '\n'; .NET los une con ', '</span>
+<span class="tk-k">function</span> flattenDn(dn) {
+  <span class="tk-k">return</span> String(dn).split(<span class="tk-s">'\n'</span>).join(<span class="tk-s">', '</span>);
+}
+
+<span class="tk-k">function</span> loadCertificate(filePath, ext) {
+  <span class="tk-k">const</span> buf = fs.readFileSync(filePath);
+  <span class="tk-k">try</span> {
+    <span class="tk-k">return</span> <span class="tk-k">new</span> crypto.X509Certificate(buf); <span class="tk-c">// PEM o DER (.cer/.crt)</span>
+  } <span class="tk-k">catch</span> (ePrimary) {
+    <span class="tk-c">// PKCS#12: X509Certificate no lo parsea; intentar openssl sin password</span>
+    <span class="tk-k">if</span> (ext === <span class="tk-s">'.pfx'</span> || ext === <span class="tk-s">'.p12'</span>) {
+      <span class="tk-k">try</span> {
+        <span class="tk-k">const</span> r = spawnSync(<span class="tk-s">'openssl'</span>,
+          [<span class="tk-s">'pkcs12'</span>, <span class="tk-s">'-in'</span>, filePath, <span class="tk-s">'-nokeys'</span>, <span class="tk-s">'-clcerts'</span>, <span class="tk-s">'-passin'</span>, <span class="tk-s">'pass:'</span>],
+          { encoding: <span class="tk-s">'utf8'</span> });
+        <span class="tk-k">if</span> (r.status === <span class="tk-n">0</span> &amp;&amp; r.stdout &amp;&amp; r.stdout.includes(<span class="tk-s">'-----BEGIN CERTIFICATE-----'</span>)) {
+          <span class="tk-k">return</span> <span class="tk-k">new</span> crypto.X509Certificate(r.stdout.slice(r.stdout.indexOf(<span class="tk-s">'-----BEGIN CERTIFICATE-----'</span>)));
+        }
+      } <span class="tk-k">catch</span> { <span class="tk-c">/* openssl no disponible - degradar con gracia */</span> }
+    }
+    <span class="tk-k">throw</span> ePrimary;
+  }
+}
+
+<span class="tk-k">function</span> main() {
+  <span class="tk-k">const</span> hookData = h.readHookInput();
+  <span class="tk-k">const</span> filePath = h.getFilePath(hookData);
+  <span class="tk-k">if</span> (!filePath) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Solo procesar extensiones de cert</span>
+  <span class="tk-k">const</span> ext = path.extname(filePath).toLowerCase();
+  <span class="tk-k">const</span> certExtensions = [<span class="tk-s">'.pfx'</span>, <span class="tk-s">'.cer'</span>, <span class="tk-s">'.crt'</span>, <span class="tk-s">'.p12'</span>];
+  <span class="tk-k">if</span> (!certExtensions.includes(ext)) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Si el archivo NO existe aun en disco (Write nuevo), no podemos leer cert -&gt; avisar generico</span>
+  <span class="tk-k">if</span> (!fs.existsSync(filePath)) {
+    aviso(<span class="tk-s">`AVISO cert-expiry-reminder: vas a crear un cert nuevo (${filePath}). Verifica:`</span>);
+    aviso(<span class="tk-s">'  1. Su fecha de caducidad (NotAfter) cubre el periodo de uso planeado'</span>);
+    aviso(<span class="tk-s">'  2. Esta protegido por .gitignore (no commitear .pfx con clave privada)'</span>);
+    aviso(<span class="tk-s">'  3. Su clave privada esta en Azure Key Vault si es para produccion'</span>);
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-c">// Leer config (umbrales custom + bloqueo configurable)</span>
+  <span class="tk-k">const</span> repoRoot = process.env.CLAUDE_PROJECT_DIR || process.cwd();
+  <span class="tk-k">const</span> estadoFile = path.join(repoRoot, <span class="tk-s">'_hilo'</span>, <span class="tk-s">'ESTADO_PROYECTO.json'</span>);
+  <span class="tk-k">let</span> umbralWarning = <span class="tk-n">90</span>;
+  <span class="tk-k">let</span> umbralCritico = <span class="tk-n">30</span>;
+  <span class="tk-k">let</span> bloqueaCaducado = <span class="tk-k">false</span>; <span class="tk-c">// default: SOLO AVISO (WARN-first). Opt-in para strict.</span>
+
+  <span class="tk-k">const</span> estado = h.readJsonSafe(estadoFile); <span class="tk-c">// JSON corrupto/ausente -&gt; defaults</span>
+  <span class="tk-k">if</span> (estado &amp;&amp; estado.configuracion) {
+    <span class="tk-k">if</span> (estado.configuracion.certWarningDias !== <span class="tk-k">null</span> &amp;&amp; estado.configuracion.certWarningDias !== <span class="tk-k">undefined</span>) {
+      umbralWarning = parseInt(estado.configuracion.certWarningDias, <span class="tk-n">10</span>);
+    }
+    <span class="tk-k">if</span> (estado.configuracion.certCriticalDias !== <span class="tk-k">null</span> &amp;&amp; estado.configuracion.certCriticalDias !== <span class="tk-k">undefined</span>) {
+      umbralCritico = parseInt(estado.configuracion.certCriticalDias, <span class="tk-n">10</span>);
+    }
+    <span class="tk-k">if</span> (estado.configuracion.certBlockOnExpired !== <span class="tk-k">null</span> &amp;&amp; estado.configuracion.certBlockOnExpired !== <span class="tk-k">undefined</span>) {
+      bloqueaCaducado = Boolean(estado.configuracion.certBlockOnExpired);
+    }
+  }
+
+  <span class="tk-c">// Leer el cert</span>
+  <span class="tk-k">let</span> notAfter, subject, issuer;
+  <span class="tk-k">try</span> {
+    <span class="tk-k">const</span> cert = loadCertificate(filePath, ext);
+    notAfter = <span class="tk-k">new</span> Date(cert.validTo);
+    subject = flattenDn(cert.subject);
+    issuer = flattenDn(cert.issuer);
+  } <span class="tk-k">catch</span> (e) {
+    <span class="tk-c">// Si el cert tiene password (.pfx) o esta corrupto, no podemos leer NotAfter</span>
+    <span class="tk-c">// No bloquear - solo avisar</span>
+    aviso(<span class="tk-s">`AVISO cert-expiry-reminder: no se pudo leer fecha de caducidad de ${filePath}`</span>);
+    aviso(<span class="tk-s">`  Razon: ${e.message}`</span>);
+    aviso(<span class="tk-s">'  (puede ser .pfx con password o cert corrupto). Verifica manualmente.'</span>);
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-k">const</span> ahora = <span class="tk-k">new</span> Date();
+  <span class="tk-k">const</span> diasRestantes = Math.round((notAfter.getTime() - ahora.getTime()) / <span class="tk-n">86400000</span>);
+
+  <span class="tk-c">// Truncar nombres largos para legibilidad</span>
+  <span class="tk-k">const</span> subjectShort = subject.length &gt; <span class="tk-n">80</span> ? subject.substring(<span class="tk-n">0</span>, <span class="tk-n">77</span>) + <span class="tk-s">'...'</span> : subject;
+  <span class="tk-k">const</span> fileName = path.basename(filePath);
+
+  <span class="tk-c">// Cert caducado</span>
+  <span class="tk-k">if</span> (diasRestantes &lt; <span class="tk-n">0</span>) {
+    <span class="tk-k">const</span> policy = cfgLib.resolvePolicy(cfgLib.load(), <span class="tk-s">'cert-expiry-reminder'</span>);
+    <span class="tk-k">const</span> exitCode = policy === <span class="tk-s">'block'</span> ? <span class="tk-n">2</span> : <span class="tk-n">1</span>;
+    <span class="tk-k">const</span> diasCaducado = Math.abs(diasRestantes);
+    aviso(<span class="tk-s">''</span>);
+    aviso(<span class="tk-s">`AVISO cert-expiry-reminder: ${fileName} esta CADUCADO hace ${diasCaducado} dias.`</span>);
+    aviso(<span class="tk-s">`  Subject: ${subjectShort}`</span>);
+    aviso(<span class="tk-s">`  Issuer: ${issuer}`</span>);
+    aviso(<span class="tk-s">`  NotAfter: ${fmtDate(notAfter)}`</span>);
+    aviso(<span class="tk-s">''</span>);
+    aviso(<span class="tk-s">'  Editar un cert caducado en lugar de renovar suele ser error.'</span>);
+    aviso(<span class="tk-s">'  Fix recomendado: renovar el cert con CA, NO modificar el archivo caducado.'</span>);
+    <span class="tk-k">if</span> (bloqueaCaducado) {
+      aviso(<span class="tk-s">'  Modo strict (certBlockOnExpired=true): bloqueando edit.'</span>);
+      <span class="tk-k">return</span> exitCode;
+    }
+    <span class="tk-k">if</span> (policy === <span class="tk-s">'block'</span>) {
+      aviso(<span class="tk-s">'  Politica: block (ecosystem.config hooks.policy): bloqueando edit.'</span>);
+    } <span class="tk-k">else</span> {
+      aviso(<span class="tk-s">`  Modo default (politica: ${policy}, ecosystem.config hooks.policy): edit permitido, decide tu si renovar o continuar.`</span>);
+      aviso(<span class="tk-s">'  Para bloquear: setear configuracion.certBlockOnExpired=true en _hilo/ESTADO_PROYECTO.json'</span>);
+    }
+    <span class="tk-k">return</span> exitCode;
+  }
+
+  <span class="tk-c">// Cert critico (&lt;30 dias)</span>
+  <span class="tk-k">if</span> (diasRestantes &lt; umbralCritico) {
+    aviso(<span class="tk-s">`AVISO cert-expiry-reminder: ${fileName} caduca en ${diasRestantes} dias (umbral critico: ${umbralCritico}).`</span>);
+    aviso(<span class="tk-s">`  Subject: ${subjectShort}`</span>);
+    aviso(<span class="tk-s">`  NotAfter: ${fmtDate(notAfter)}`</span>);
+    aviso(<span class="tk-s">'  ACCION INMEDIATA: solicitar renovacion del cert AHORA.'</span>);
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-c">// Cert proximo (&lt;90 dias)</span>
+  <span class="tk-k">if</span> (diasRestantes &lt; umbralWarning) {
+    aviso(<span class="tk-s">`AVISO cert-expiry-reminder: ${fileName} caduca en ${diasRestantes} dias (umbral warning: ${umbralWarning}).`</span>);
+    aviso(<span class="tk-s">`  Subject: ${subjectShort}`</span>);
+    aviso(<span class="tk-s">`  NotAfter: ${fmtDate(notAfter)}`</span>);
+    aviso(<span class="tk-s">'  Planifica renovacion en las proximas semanas.'</span>);
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-c">// Cert OK (&gt;=90 dias) - silencioso</span>
+  <span class="tk-k">return</span> <span class="tk-n">0</span>;
+}
+
+<span class="tk-k">try</span> {
+  process.exit(main());
+} <span class="tk-k">catch</span> (e) {
+  console.error(<span class="tk-s">`cert-expiry-reminder: error inesperado (${e.message}) - no se bloquea el flujo`</span>);
+  process.exit(<span class="tk-n">0</span>);
+}
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>2 cambios · 2026-09-07 → 2026-09-07. Último cambio: <em>feat!: Ovillo 1.0.0 — primera publicacion, sin genealogia; ADR-001..010; GitHub y modelos al dia</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/console.html">console</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/estado.html">estado</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/cert-expiry-reminder.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

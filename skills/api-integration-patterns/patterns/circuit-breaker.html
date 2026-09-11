@@ -1,0 +1,318 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · patterns/circuit-breaker.md · Ovillo</title><meta name="description" content="Fichero patterns/circuit-breaker.md de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · patterns/circuit-breaker.md · Ovillo"><meta property="og:description" content="Fichero patterns/circuit-breaker.md de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/patterns/circuit-breaker.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/patterns/circuit-breaker.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/patterns/circuit-breaker.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html" class="cur">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>patterns</span><span>circuit-breaker.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>patterns/</span></div><h1>circuit-breaker.md</h1><p class="lede">Referencia que <code>api-integration-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>12.303 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Pattern</strong>: Circuit Breaker <strong>Problema</strong>: Llamadas repetidas a servicio caído <strong>Solución</strong>: Polly Circuit Breaker con estados Open/Half-Open/Closed</p></blockquote>
+<hr>
+<section class="sec" id="sec-problema">
+<h3 id="problema">🎯 Problema</h3>
+<p>Sin circuit breaker, las llamadas a un servicio caído:</p>
+<ul>
+<li><strong>Agotan recursos</strong> (threads, connections)</li>
+<li><strong>Aumentan latencia</strong> (esperar timeout cada vez)</li>
+<li><strong>Cascada de fallos</strong> (servicios dependientes también fallan)</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ Sin circuit breaker - cada llamada espera timeout (30s)</span>
+<span class="tk-k">for</span> (<span class="tk-k">int</span> i = <span class="tk-n">0</span>; i &lt; <span class="tk-n">100</span>; i++)
+{
+    <span class="tk-k">try</span>
+    {
+        <span class="tk-k">await</span> _httpClient.GetAsync(<span class="tk-s">&quot;https://servicio-caido.com&quot;</span>);
+        <span class="tk-c">// Espera 30s timeout cada vez = 50 minutos total!</span>
+    }
+    <span class="tk-k">catch</span> (HttpRequestException)
+    {
+        <span class="tk-c">// Log error, pero sigue intentando...</span>
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-solución-circuit-breaker-pattern">
+<h3 id="solución-circuit-breaker-pattern">✅ Solución: Circuit Breaker Pattern</h3>
+<h4 id="estados-del-circuit-breaker">Estados del Circuit Breaker</h4>
+<pre><code>┌──────────────────────────────────────────────────────────────┐
+│                    CLOSED (Normal)                            │
+│  Llamadas pasan normalmente                                   │
+│  Se cuenta nº de fallos consecutivos                          │
+└────────────────────┬─────────────────────────────────────────┘
+                     │
+                     │ N fallos consecutivos
+                     ▼
+┌──────────────────────────────────────────────────────────────┐
+│                    OPEN (Circuito abierto)                    │
+│  ⚠️ NO se hacen llamadas al servicio                          │
+│  Retorna error inmediato (fail-fast)                          │
+│  Espera T segundos antes de probar                            │
+└────────────────────┬─────────────────────────────────────────┘
+                     │
+                     │ Tras T segundos
+                     ▼
+┌──────────────────────────────────────────────────────────────┐
+│                  HALF-OPEN (Probando)                         │
+│  Permite 1 llamada de prueba                                  │
+│  Si OK → CLOSED                                               │
+│  Si FALLO → OPEN (vuelve a esperar T segundos)                │
+└──────────────────────────────────────────────────────────────┘</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-1-circuit-breaker-básico">
+<h3 id="1-circuit-breaker-básico">1. Circuit Breaker Básico</h3>
+<h4 id="configuración-en-programcs">Configuración en Program.cs</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly;
+<span class="tk-k">using</span> Polly.Extensions.Http;
+
+builder.Services.AddHttpClient&lt;IExternalApiClient, ExternalApiClient&gt;()
+    .AddPolicyHandler(GetCircuitBreakerPolicy());
+
+<span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetCircuitBreakerPolicy()
+{
+    <span class="tk-k">return</span> HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .CircuitBreakerAsync(
+            handledEventsAllowedBeforeBreaking: <span class="tk-n">5</span>, <span class="tk-c">// Abre tras 5 fallos</span>
+            durationOfBreak: TimeSpan.FromSeconds(<span class="tk-n">30</span>), <span class="tk-c">// Espera 30s antes de HALF-OPEN</span>
+            onBreak: (outcome, duration) =&gt;
+            {
+                Console.WriteLine(<span class="tk-s">$&quot;⚠️ Circuit ABIERTO por {duration.TotalSeconds}s tras {outcome.Exception?.Message}&quot;</span>);
+            },
+            onReset: () =&gt;
+            {
+                Console.WriteLine(<span class="tk-s">&quot;✅ Circuit CERRADO - Servicio recuperado&quot;</span>);
+            },
+            onHalfOpen: () =&gt;
+            {
+                Console.WriteLine(<span class="tk-s">&quot;🔄 Circuit HALF-OPEN - Probando servicio...&quot;</span>);
+            });
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-advanced-circuit-breaker">
+<h3 id="2-advanced-circuit-breaker">2. Advanced Circuit Breaker</h3>
+<h4 id="configuración-con-métricas">Configuración con Métricas</h4>
+<pre data-lang="csharp"><code><span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetAdvancedCircuitBreakerPolicy(
+    ILogger logger,
+    TelemetryClient? telemetry = <span class="tk-k">null</span>)
+{
+    <span class="tk-k">return</span> HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .Or&lt;TimeoutException&gt;()
+        .AdvancedCircuitBreakerAsync(
+            failureThreshold: <span class="tk-n">0.5</span>, <span class="tk-c">// Abre si 50% de llamadas fallan</span>
+            samplingDuration: TimeSpan.FromSeconds(<span class="tk-n">10</span>), <span class="tk-c">// En ventana de 10s</span>
+            minimumThroughput: <span class="tk-n">10</span>, <span class="tk-c">// Mínimo 10 llamadas en ventana</span>
+            durationOfBreak: TimeSpan.FromMinutes(<span class="tk-n">1</span>), <span class="tk-c">// Espera 1min</span>
+            onBreak: (outcome, duration, context) =&gt;
+            {
+                logger.LogError(
+                    <span class="tk-s">&quot;⚠️ Circuit BREAKER ABIERTO por {Duration}s. Razón: {Reason}&quot;</span>,
+                    duration.TotalSeconds,
+                    outcome.Exception?.Message ?? outcome.Result?.StatusCode.ToString());
+
+                telemetry?.TrackEvent(<span class="tk-s">&quot;CircuitBreakerOpen&quot;</span>, <span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">string</span>&gt;
+                {
+                    [<span class="tk-s">&quot;Service&quot;</span>] = context.PolicyKey ?? <span class="tk-s">&quot;Unknown&quot;</span>,
+                    [<span class="tk-s">&quot;Duration&quot;</span>] = duration.TotalSeconds.ToString(),
+                    [<span class="tk-s">&quot;Reason&quot;</span>] = outcome.Exception?.Message ?? <span class="tk-s">&quot;HTTP Error&quot;</span>
+                });
+            },
+            onReset: context =&gt;
+            {
+                logger.LogInformation(<span class="tk-s">&quot;✅ Circuit BREAKER CERRADO - Servicio recuperado&quot;</span>);
+
+                telemetry?.TrackEvent(<span class="tk-s">&quot;CircuitBreakerClosed&quot;</span>, <span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">string</span>&gt;
+                {
+                    [<span class="tk-s">&quot;Service&quot;</span>] = context.PolicyKey ?? <span class="tk-s">&quot;Unknown&quot;</span>
+                });
+            },
+            onHalfOpen: () =&gt;
+            {
+                logger.LogWarning(<span class="tk-s">&quot;🔄 Circuit BREAKER HALF-OPEN - Probando servicio...&quot;</span>);
+            });
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-3-combinar-retry--circuit-breaker">
+<h3 id="3-combinar-retry--circuit-breaker">3. Combinar Retry + Circuit Breaker</h3>
+<h4 id="pipeline-completo">Pipeline Completo</h4>
+<pre data-lang="csharp"><code>builder.Services.AddHttpClient&lt;IExternalApiClient, ExternalApiClient&gt;()
+    .AddPolicyHandler(GetRetryPolicy())
+    .AddPolicyHandler(GetCircuitBreakerPolicy());
+
+<span class="tk-c">// ⚠️ ORDEN IMPORTA:</span>
+<span class="tk-c">// 1. Retry (interno) - Reintenta errores transitorios</span>
+<span class="tk-c">// 2. Circuit Breaker (externo) - Protege si servicio cae completamente</span>
+
+<span class="tk-c">// FLUJO:</span>
+<span class="tk-c">// Request → Circuit Breaker → Retry → HttpClient</span>
+<span class="tk-c">// Si Circuit OPEN → falla inmediatamente (no entra a Retry)</span>
+<span class="tk-c">// Si Circuit CLOSED → Retry maneja errores transitorios</span></code></pre>
+<h4 id="retry--circuit-breaker--timeout">Retry + Circuit Breaker + Timeout</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly.Timeout;
+
+builder.Services.AddHttpClient&lt;IExternalApiClient, ExternalApiClient&gt;()
+    .AddPolicyHandler(GetTimeoutPolicy())       <span class="tk-c">// 1. Timeout (más interno)</span>
+    .AddPolicyHandler(GetRetryPolicy())         <span class="tk-c">// 2. Retry</span>
+    .AddPolicyHandler(GetCircuitBreakerPolicy()); <span class="tk-c">// 3. Circuit Breaker (más externo)</span>
+
+<span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetTimeoutPolicy()
+{
+    <span class="tk-k">return</span> Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(TimeSpan.FromSeconds(<span class="tk-n">10</span>));
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-fallback-strategy">
+<h3 id="4-fallback-strategy">4. Fallback Strategy</h3>
+<h4 id="respuesta-por-defecto-cuando-circuit-abierto">Respuesta por Defecto cuando Circuit Abierto</h4>
+<pre data-lang="csharp"><code>builder.Services.AddHttpClient&lt;IExternalApiClient, ExternalApiClient&gt;()
+    .AddPolicyHandler(GetFallbackPolicy())
+    .AddPolicyHandler(GetCircuitBreakerPolicy());
+
+<span class="tk-k">static</span> IAsyncPolicy&lt;HttpResponseMessage&gt; GetFallbackPolicy()
+{
+    <span class="tk-k">return</span> Policy&lt;HttpResponseMessage&gt;
+        .Handle&lt;BrokenCircuitException&gt;() <span class="tk-c">// Cuando el circuito está abierto</span>
+        .Or&lt;HttpRequestException&gt;()
+        .FallbackAsync(
+            fallbackValue: <span class="tk-k">new</span> HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = <span class="tk-k">new</span> StringContent(JsonSerializer.Serialize(<span class="tk-k">new</span>
+                {
+                    message = <span class="tk-s">&quot;Servicio temporalmente no disponible&quot;</span>,
+                    usandoCache = <span class="tk-k">true</span>,
+                    timestamp = DateTime.UtcNow
+                }))
+            },
+            onFallbackAsync: <span class="tk-k">async</span> (outcome, context) =&gt;
+            {
+                Console.WriteLine(<span class="tk-s">$&quot;💾 Usando fallback por: {outcome.Exception?.Message}&quot;</span>);
+                <span class="tk-k">await</span> Task.CompletedTask;
+            });
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-polly-v8---circuit-breaker-nueva-api">
+<h3 id="5-polly-v8---circuit-breaker-nueva-api">5. Polly v8 - Circuit Breaker (Nueva API)</h3>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly;
+<span class="tk-k">using</span> Polly.CircuitBreaker;
+
+builder.Services.AddResiliencePipeline(<span class="tk-s">&quot;external-api&quot;</span>, pipelineBuilder =&gt;
+{
+    pipelineBuilder.AddCircuitBreaker(<span class="tk-k">new</span> CircuitBreakerStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        FailureRatio = <span class="tk-n">0.5</span>, <span class="tk-c">// Abre si 50% de llamadas fallan</span>
+        SamplingDuration = TimeSpan.FromSeconds(<span class="tk-n">10</span>),
+        MinimumThroughput = <span class="tk-n">10</span>,
+        BreakDuration = TimeSpan.FromMinutes(<span class="tk-n">1</span>),
+        ShouldHandle = <span class="tk-k">new</span> PredicateBuilder&lt;HttpResponseMessage&gt;()
+            .Handle&lt;HttpRequestException&gt;()
+            .HandleResult(r =&gt; r.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable),
+        OnOpened = args =&gt;
+        {
+            Console.WriteLine(<span class="tk-s">$&quot;⚠️ Circuit ABIERTO&quot;</span>);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        },
+        OnClosed = args =&gt;
+        {
+            Console.WriteLine(<span class="tk-s">$&quot;✅ Circuit CERRADO&quot;</span>);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        },
+        OnHalfOpened = args =&gt;
+        {
+            Console.WriteLine(<span class="tk-s">$&quot;🔄 Circuit HALF-OPEN&quot;</span>);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        }
+    });
+});
+
+builder.Services.AddHttpClient&lt;IExternalApiClient, ExternalApiClient&gt;()
+    .AddResilienceHandler(<span class="tk-s">&quot;external-api&quot;</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-escenarios-de-configuración">
+<h3 id="escenarios-de-configuración">📊 Escenarios de Configuración</h3>
+<div class="tbl"><table><thead><tr><th>Escenario</th><th>Failure Threshold</th><th>Sampling Duration</th><th>Break Duration</th></tr></thead><tbody><tr><td><strong>Alta criticidad</strong></td><td>30% (0.3)</td><td>5s</td><td>30s</td></tr><tr><td><strong>Uso normal</strong></td><td>50% (0.5)</td><td>10s</td><td>1min</td></tr><tr><td><strong>Tolerante</strong></td><td>70% (0.7)</td><td>30s</td><td>5min</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-casos-de-uso">
+<h3 id="casos-de-uso">🎯 Casos de Uso</h3>
+<h4 id="sistemaa-api-crítico">SistemaA API (Crítico)</h4>
+<pre data-lang="csharp"><code>.AdvancedCircuitBreakerAsync(
+    failureThreshold: <span class="tk-n">0.3</span>, <span class="tk-c">// Abre si 30% falla</span>
+    samplingDuration: TimeSpan.FromSeconds(<span class="tk-n">5</span>),
+    minimumThroughput: <span class="tk-n">5</span>,
+    durationOfBreak: TimeSpan.FromSeconds(<span class="tk-n">30</span>));</code></pre>
+<h4 id="el-saas-de-rrhh-del-catalogo-tolerante">el SaaS de RRHH del catalogo (Tolerante)</h4>
+<pre data-lang="csharp"><code>.CircuitBreakerAsync(
+    handledEventsAllowedBeforeBreaking: <span class="tk-n">10</span>, <span class="tk-c">// Abre tras 10 fallos</span>
+    durationOfBreak: TimeSpan.FromMinutes(<span class="tk-n">5</span>));</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-monitoreo-y-alertas">
+<h3 id="monitoreo-y-alertas">⚠️ Monitoreo y Alertas</h3>
+<h4 id="métricas-importantes">Métricas Importantes</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> CircuitBreakerMonitor
+{
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">int</span> _circuitOpenCount = <span class="tk-n">0</span>;
+    <span class="tk-k">private</span> <span class="tk-k">static</span> DateTime? _lastOpenTime = <span class="tk-k">null</span>;
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">void</span> OnBreak(DelegateResult&lt;HttpResponseMessage&gt; outcome, TimeSpan duration)
+    {
+        _circuitOpenCount++;
+        _lastOpenTime = DateTime.UtcNow;
+
+        <span class="tk-c">// Alertar si el circuito se abre más de 3 veces en 1 hora</span>
+        <span class="tk-k">if</span> (_circuitOpenCount &gt; <span class="tk-n">3</span>)
+        {
+            <span class="tk-c">// Enviar alerta a Slack/Teams/Email</span>
+            AlertingService.SendAlert(
+                <span class="tk-s">&quot;⚠️ Circuit Breaker abierto 3+ veces en 1 hora&quot;</span>,
+                <span class="tk-s">$&quot;Servicio: SistemaA API\nÚltima apertura: {_lastOpenTime}&quot;</span>);
+        }
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-testing">
+<h3 id="testing">🧪 Testing</h3>
+<pre data-lang="csharp"><code>[Fact]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task CircuitBreaker_Opens_After_Consecutive_Failures()
+{
+    <span class="tk-c">// Arrange</span>
+    <span class="tk-k">var</span> callCount = <span class="tk-n">0</span>;
+    <span class="tk-k">var</span> mockHandler = <span class="tk-k">new</span> Mock&lt;HttpMessageHandler&gt;();
+    mockHandler
+        .Protected()
+        .Setup&lt;Task&lt;HttpResponseMessage&gt;&gt;(
+            <span class="tk-s">&quot;SendAsync&quot;</span>,
+            ItExpr.IsAny&lt;HttpRequestMessage&gt;(),
+            ItExpr.IsAny&lt;CancellationToken&gt;())
+        .ReturnsAsync(() =&gt; <span class="tk-k">new</span> HttpResponseMessage(HttpStatusCode.ServiceUnavailable));
+
+    <span class="tk-k">var</span> httpClient = <span class="tk-k">new</span> HttpClient(mockHandler.Object);
+    <span class="tk-k">var</span> circuitBreakerPolicy = HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .CircuitBreakerAsync(handledEventsAllowedBeforeBreaking: <span class="tk-n">3</span>, durationOfBreak: TimeSpan.FromSeconds(<span class="tk-n">10</span>));
+
+    <span class="tk-c">// Act - primeros 3 fallos</span>
+    <span class="tk-k">for</span> (<span class="tk-k">int</span> i = <span class="tk-n">0</span>; i &lt; <span class="tk-n">3</span>; i++)
+    {
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-k">await</span> circuitBreakerPolicy.ExecuteAsync(() =&gt; httpClient.GetAsync(<span class="tk-s">&quot;https://test.com&quot;</span>));
+        }
+        <span class="tk-k">catch</span> { }
+    }
+
+    <span class="tk-c">// Act - 4ta llamada debe fallar inmediatamente con BrokenCircuitException</span>
+    <span class="tk-k">var</span> act = () =&gt; circuitBreakerPolicy.ExecuteAsync(() =&gt; httpClient.GetAsync(<span class="tk-s">&quot;https://test.com&quot;</span>));
+
+    <span class="tk-c">// Assert</span>
+    <span class="tk-k">await</span> act.Should().ThrowAsync&lt;BrokenCircuitException&gt;();
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-referencias">
+<h3 id="referencias">📚 Referencias</h3>
+<ul>
+<li><a href="https://www.pollydocs.org/strategies/circuit-breaker.html" rel="noopener">Polly Circuit Breaker</a></li>
+<li><a href="https://martinfowler.com/bliki/CircuitBreaker.html" rel="noopener">Martin Fowler: Circuit Breaker</a></li>
+</ul>
+<hr>
+<p><em>Pattern: circuit-breaker - Ovillo</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html"><small>Anterior</small>patterns/api-versioning.md</a><a class="next" href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html"><small>Siguiente</small>patterns/httpclient-factory.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/patterns/circuit-breaker.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#problema">🎯 Problema</a></li><li class="l2"><a href="#solución-circuit-breaker-pattern">✅ Solución: Circuit Breaker Pattern</a></li><li class="l3"><a href="#estados-del-circuit-breaker">Estados del Circuit Breaker</a></li><li class="l2"><a href="#1-circuit-breaker-básico">1. Circuit Breaker Básico</a></li><li class="l3"><a href="#configuración-en-programcs">Configuración en Program.cs</a></li><li class="l2"><a href="#2-advanced-circuit-breaker">2. Advanced Circuit Breaker</a></li><li class="l3"><a href="#configuración-con-métricas">Configuración con Métricas</a></li><li class="l2"><a href="#3-combinar-retry--circuit-breaker">3. Combinar Retry + Circuit Breaker</a></li><li class="l3"><a href="#pipeline-completo">Pipeline Completo</a></li><li class="l3"><a href="#retry--circuit-breaker--timeout">Retry + Circuit Breaker + Timeout</a></li><li class="l2"><a href="#4-fallback-strategy">4. Fallback Strategy</a></li><li class="l3"><a href="#respuesta-por-defecto-cuando-circuit-abierto">Respuesta por Defecto cuando Circuit Abierto</a></li><li class="l2"><a href="#5-polly-v8---circuit-breaker-nueva-api">5. Polly v8 - Circuit Breaker (Nueva API)</a></li><li class="l2"><a href="#escenarios-de-configuración">📊 Escenarios de Configuración</a></li><li class="l2"><a href="#casos-de-uso">🎯 Casos de Uso</a></li><li class="l3"><a href="#sistemaa-api-crítico">SistemaA API (Crítico)</a></li><li class="l3"><a href="#el-saas-de-rrhh-del-catalogo-tolerante">el SaaS de RRHH del catalogo (Tolerante)</a></li><li class="l2"><a href="#monitoreo-y-alertas">⚠️ Monitoreo y Alertas</a></li><li class="l3"><a href="#métricas-importantes">Métricas Importantes</a></li><li class="l2"><a href="#testing">🧪 Testing</a></li><li class="l2"><a href="#referencias">📚 Referencias</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

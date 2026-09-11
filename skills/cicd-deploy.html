@@ -1,0 +1,180 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-deploy · Ovillo</title><meta name="description" content="Despliega el proyecto a Dev, Pre o Pro bajo demanda (encola el pipeline de Azure DevOps con DeployEnv o despacha el workflow de GitHub Actions con environment,…"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-deploy · Ovillo"><meta property="og:description" content="Despliega el proyecto a Dev, Pre o Pro bajo demanda (encola el pipeline de Azure DevOps con DeployEnv o despacha el workflow de GitHub Actions con environment,…"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-deploy.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-deploy.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/cicd-deploy.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html" class="cur">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>cicd-deploy</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:cicd-deploy</span><span>solo usuario</span></div><h1>cicd-deploy</h1><p class="lede">Despliega el proyecto a Dev, Pre o Pro bajo demanda (encola el pipeline de Azure DevOps con DeployEnv o despacha el workflow de GitHub Actions con environment, segun cicd.platform). Nunca despliega en cada push.</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:cicd-deploy</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>1869</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:cicd-deploy</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:cicd-deploy</code>.</p></blockquote>
+<hr>
+<blockquote><p>Despliega un proyecto a Dev / Pre / Pro <strong>bajo demanda</strong>. NO despliega en cada push: el deploy lo decides tú con este comando.</p>
+<ul>
+<li><strong>Azure DevOps</strong> (Server o Services): encola el pipeline vía REST con la variable <code>DeployEnv=&lt;env&gt;</code>.</li>
+<li><strong>GitHub Actions</strong>: despacha el workflow con <code>gh workflow run cd-&lt;slug&gt;.yml -f environment=&lt;env&gt;</code>.</li>
+</ul>
+<p>Audiencia: desarrolladores con un pipeline en <strong>Fase 2</strong> (CD) ya generado por <code>/hv:cicd-init</code>. Plataforma: <code>resolve('cicd.platform')</code> (Hilo <code>infraestructura.cicd.plataforma</code> › <code>ecosystem.config.json → cicd.platform</code>; <code>.claude/CONFIGURACION.md §Resolución</code>): <code>azure-pipelines</code> | <code>github-actions</code>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-extended-thinking-mode">
+<h3 id="extended-thinking-mode">Extended Thinking Mode</h3>
+<p><strong>think hard</strong></p>
+<p>El deploy lo ejecuta el <strong>agente o runner de deploy</strong> (MSDeploy al IIS destino, <code>azure/webapps-deploy</code>, contenedor…), NO la máquina del desarrollador. Este comando solo <strong>pide</strong> el deploy: en Azure encola el pipeline con <code>DeployEnv=&lt;env&gt;</code> y el stage corre en el agente con capability <code>DeployTarget=&lt;env&gt;</code>; en GitHub despacha el workflow con <code>inputs.environment=&lt;env&gt;</code> y solo corre el job <code>deploy-&lt;env&gt;</code> (los demás tienen <code>if:</code> que no matchea). NUNCA hagas MSDeploy ni copia de archivos directa desde el cliente.</p>
+<hr>
+</section>
+<section class="sec" id="sec-sintaxis">
+<h3 id="sintaxis">Sintaxis</h3>
+<pre><code>/cicd-deploy --env &lt;dev|pre|pro&gt; [--entrypoint &lt;slug&gt;] [--tag vX.Y.Z | --commit &lt;sha&gt;] [--watch] [--dry-run] [--yes]</code></pre>
+<div class="tbl"><table><thead><tr><th>Flag</th><th>Descripción</th></tr></thead><tbody><tr><td><code>--env</code></td><td><strong>Obligatorio</strong>. Entorno destino: <code>dev</code>, <code>pre</code> o <code>pro</code>.</td></tr><tr><td><code>--entrypoint</code></td><td>Opcional. Slug del entrypoint a desplegar (R25). Si la solución tiene &gt;1 pipeline y se omite → listar y preguntar. Con 1 solo, se infiere. Cada entrypoint = su propia definición (<code>&lt;PROYECTO&gt;-&lt;slug&gt;</code>) o su propio workflow (<code>cd-&lt;slug&gt;.yml</code>); su destino (`DeployTarget=&lt;env&gt;-&lt;app\</td><td>svc&gt;<code> · </code>environment: &lt;env&gt;`) ya va horneado en su YAML.</td></tr><tr><td><code>--tag</code></td><td>Opcional. Despliega la versión de ese tag. Por defecto, HEAD de la rama base.</td></tr><tr><td><code>--commit</code></td><td>Opcional. Despliega ese commit SHA. Mutuamente excluyente con <code>--tag</code>. <strong>Solo Azure DevOps</strong> (<code>sourceVersion</code>): GitHub solo despacha sobre una rama o un tag → crear un tag sobre ese commit y usar <code>--tag</code>.</td></tr><tr><td><code>--watch</code></td><td>Opcional. Sigue el estado de la run hasta que termine (polling 30s · <code>gh run watch</code>).</td></tr><tr><td><code>--dry-run</code></td><td>Opcional. Muestra qué encolaría/despacharía (URL, body o comando, entorno) sin ejecutarlo.</td></tr><tr><td><code>--yes</code></td><td>Opcional. Salta la confirmación (deploy directo) en el entorno pedido, aunque su <code>deployConfirm</code> esté activo. No salta los reviewers de un environment de GitHub: esos aprueban en la plataforma.</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-cuándo-usar">
+<h3 id="cuándo-usar">CUÁNDO USAR</h3>
+<ul>
+<li>Tras un <code>/hv:cicd-release</code> (o un push que generó un Build verde) cuando quieras <strong>promover ese artefacto</strong> a un entorno.</li>
+<li>Para re-desplegar una versión anterior (<code>--tag vX.Y.Z</code>): es la capa 2 del rollback (G9).</li>
+</ul>
+<p><strong>NO usar para</strong>:</p>
+<ul>
+<li>Generar o promocionar el pipeline → <code>/hv:cicd-init</code>.</li>
+<li>Versionar/disparar el build → <code>/hv:cicd-release</code>.</li>
+<li>Ver el estado de builds → <code>/hv:cicd-status</code>.</li>
+<li>Proyectos en <strong>Fase 0 o Fase 1</strong> (no tienen stages/jobs de CD): este comando ABORTA con mensaje accionable.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-fase-0--validaciones-previas">
+<h3 id="fase-0--validaciones-previas">FASE 0 — Validaciones previas</h3>
+<h4 id="01-leer-estado-cicd-del-proyecto">0.1 Leer estado CI/CD del proyecto</h4>
+<p>Leer <code>_hilo/ESTADO_PROYECTO.json.infraestructura.cicd</code> (objeto <code>{ plataforma, pipelines[] }</code>; R25: <strong>N entradas, una por entrypoint</strong>). Seleccionar la del entrypoint a desplegar:</p>
+<ul>
+<li>Si <code>--entrypoint &lt;slug&gt;</code> → esa entrada. Si se omite y hay <strong>1</strong> entrypoint → esa. Si hay <strong>&gt;1</strong> → listar (<code>entrypoint</code>, <code>tipo</code>, <code>serverType</code>) y <strong>preguntar</strong> cuál.</li>
+<li>De la entrada elegida: <code>pipelineId</code> (id de definición · fichero del workflow), <code>yamlFile</code>, <code>fase</code>, <code>nombre</code>, <code>url</code>, <code>stages</code>, <code>stack</code>, <code>tipo</code>, <code>serverType</code>, <code>publico</code>, <code>deployConfirm</code>, <code>modeloDeploy</code>.</li>
+<li>Plataforma: <code>resolve('cicd.platform')</code> (equivale a <code>cicd.plataforma</code> del Hilo y, si falta, <code>ecosystem.config.json → cicd.platform</code>).</li>
+<li>Azure DevOps: datos de conexión (<code>infraestructura.azureDevOps.url</code>, <code>cicd.serverUrl</code> del <code>ecosystem.config</code>, o derivar de la <code>url</code> del pipeline).</li>
+<li>GitHub: <code>repo=$(gh repo view --json nameWithOwner --jq .nameWithOwner)</code> y <code>wf=&lt;pipelineId&gt;</code> (ej. <code>cd-web.yml</code>).</li>
+<li>El destino (<code>serverType</code> app/svc en Azure · <code>environment:</code> en GitHub) ya está horneado en el YAML de ese entrypoint: <code>/hv:cicd-deploy</code> NO lo decide, solo pide el deploy con <code>&lt;env&gt;</code>.</li>
+</ul>
+<h4 id="02-gate-de-fase-bloqueante">0.2 Gate de fase (BLOQUEANTE)</h4>
+<pre><code>SI fase &lt; 2:
+  ❌ &quot;El pipeline '&lt;nombre&gt;' está en Fase &lt;fase&gt; (sin stages/jobs de CD).
+      /cicd-deploy requiere Fase 2 (pipeline completo).
+      Promociona con: /cicd-init  → opción 'promocionar a Fase 2'.&quot;
+  exit 0</code></pre>
+<h4 id="03-validar-entorno-solicitado">0.3 Validar entorno solicitado</h4>
+<ul>
+<li><code>--env</code> ∈ {dev, pre, pro}. Si no, error.</li>
+<li><strong>Azure</strong>: verificar que el stage de deploy de ese entorno existe en <code>stages</code> (<code>DeployDev</code>, <code>DeployPre</code>/<code>DeployDemo</code>, <code>DeployProd</code>).</li>
+<li><strong>GitHub</strong>: verificar que el job <code>deploy-&lt;env&gt;</code> existe en <code>stages</code> (o en el YAML: <code>^\s*deploy-&lt;env&gt;:</code>) y que <code>workflow_dispatch.inputs.environment.options</code> incluye <code>&lt;env&gt;</code>.</li>
+<li>Si el entorno no tiene stage/job generado, sugerir <code>/hv:cicd-init</code> → &quot;añadir stage&quot;.</li>
+</ul>
+<h4 id="04-pre-flight-de-conectividad">0.4 Pre-flight de conectividad</h4>
+<p><strong>Azure DevOps</strong> — R2, forzar TLS 1.2+ antes de cualquier HTTPS:</p>
+<pre data-lang="powershell"><code><span class="tk-k">try</span> {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13
+} <span class="tk-k">catch</span> { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 }</code></pre>
+<p>Verificar <code>GET {col}/_apis/connectionData?api-version=6.0</code> → 200. Si 401/403, avisar que faltan credenciales o permiso de cola sobre el pipeline.</p>
+<p><strong>GitHub Actions</strong> — sesión de <code>gh</code> y workflow despachable:</p>
+<pre data-lang="bash"><code><span class="tk-k">gh</span> auth status                                                  <span class="tk-c"># sin sesión: gh auth login (el pre-flight de /cicd-init ya avisa)</span>
+<span class="tk-k">gh</span> api <span class="tk-s">&quot;repos/$repo/actions/workflows/$wf&quot;</span> --jq <span class="tk-s">'.state'</span>        <span class="tk-c"># active · disabled_manually · 404 = el fichero NO está en la rama por defecto</span>
+<span class="tk-k">gh</span> api <span class="tk-s">&quot;repos/$repo/environments/&lt;env&gt;&quot;</span> --jq <span class="tk-s">'[.protection_rules[]?.type] | join(&quot;,&quot;)'</span>   <span class="tk-c"># required_reviewers =&gt; la run esperará aprobación</span></code></pre>
+<blockquote><p><code>workflow_dispatch</code> <strong>solo ve los workflows que existen en la rama por defecto</strong>. Un <code>cd-&lt;slug&gt;.yml</code> recién creado en una rama feature no se puede despachar hasta que llega a <code>main</code> (<code>--ref</code> elige después qué versión del fichero se ejecuta).</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-fase-1--confirmación-por-entorno-configurable">
+<h3 id="fase-1--confirmación-por-entorno-configurable">FASE 1 — Confirmación por entorno (configurable)</h3>
+<p>Política por defecto: <strong>Dev y Pre = deploy directo</strong>; <strong>Prod = confirmación</strong>. Configurable por proyecto en <code>_hilo/ESTADO_PROYECTO.json.infraestructura.cicd.pipelines[].deployConfirm: { dev:false, pre:false, pro:true }</code> (override por entrypoint). <code>--yes</code> fuerza directo en cualquier entorno; si <code>deployConfirm[env]=true</code>, pedir confirmación.</p>
+<div class="tbl"><table><thead><tr><th>Entorno</th><th>Confirmación (default)</th></tr></thead><tbody><tr><td><code>dev</code></td><td><strong>Directo</strong> (no pregunta): mostrar destino/versión informativo</td></tr><tr><td><code>pre</code></td><td><strong>Directo</strong> por defecto (configurable a confirmar): mostrar entorno, URL destino, versión/commit</td></tr><tr><td><code>pro</code></td><td><strong>Confirmación</strong> por defecto + doble check: mostrar aprobadores, balanceo, estrategia rolling</td></tr></tbody></table></div>
+<p>Ejemplo de confirmación para <code>pre</code>:</p>
+<pre><code>⚠️  DEPLOY A PRE — confirmar
+    Proyecto:   MyCompany.Griddo
+    Pipeline:   MyCompany.Griddo-CI (id=10)          | Workflow: cd-web.yml
+    Entorno:    pre  (servidor: &lt;server&gt;, URL: &lt;url&gt;)
+    Versión:    vX.Y.Z (o HEAD &lt;sha7&gt;)
+    Gate:       el stage DeployPre / job deploy-pre aplicará security-gate + smoke test + rollback (G8/G14/G9)
+    GitHub:     el environment `pre` tiene reviewers → la run quedará en espera hasta que aprueben en GitHub
+
+    ¿Continuar? (escribe 'pre' para confirmar)</code></pre>
+<p>NUNCA desplegar a un entorno con <code>deployConfirm[env]=true</code> (por defecto <strong>Prod</strong>) sin confirmación explícita del usuario. En GitHub, la confirmación de este comando es el <strong>primer</strong> gate y los <em>required reviewers</em> del environment el <strong>segundo</strong>: este comando nunca aprueba un environment por API.</p>
+<hr>
+</section>
+<section class="sec" id="sec-fase-2--pedir-el-deploy">
+<h3 id="fase-2--pedir-el-deploy">FASE 2 — Pedir el deploy</h3>
+<p><strong>Derivación de <code>&lt;ref&gt;</code></strong> (depende del modelo de deploy elegido en P2-bis de <code>/hv:cicd-init</code>; igual en ambas plataformas):</p>
+<div class="tbl"><table><thead><tr><th>Modelo</th><th><code>sourceBranch</code> (Azure) · <code>--ref</code> (GitHub)</th></tr></thead><tbody><tr><td><code>on-demand</code> / <code>auto</code></td><td><code>refs/heads/&lt;ramaBase&gt;</code> · <code>&lt;ramaBase&gt;</code> (de <code>configuracion.branching.ramaBase</code>); con <code>--tag</code>, el tag</td></tr><tr><td><code>branch-gated</code> (R24)</td><td><strong>derivar del entorno pedido</strong>: <code>dev</code>/<code>pre</code> → <code>&lt;ramaDevelop&gt;</code>, <code>pro</code> → <code>&lt;ramaBase&gt;</code> (mapeo R24, leer <code>configuracion.branching</code>)</td></tr></tbody></table></div>
+<p>En branch-gated, pedir <code>--env pro</code> sobre la rama de develop produce una run cuyo stage <code>DeployProd</code> / job <code>deploy-pro</code> <strong>no matchea</strong> su <code>condition</code> / <code>if:</code> por rama → el deploy se salta (a propósito). Si el usuario lo intenta, avisar ANTES de encolar.</p>
+<h4 id="2-ado--azure-devops-encolar-vía-rest">2-ado — Azure DevOps: encolar vía REST</h4>
+<p>R3: usar PowerShell + REST (no tasks Node). Encolar el build con <code>DeployEnv=&lt;env&gt;</code>:</p>
+<pre data-lang="powershell"><code><span class="tk-c"># [bloque TLS 1.2+ R2 ya aplicado en FASE 0.4]</span>
+<span class="tk-v">$headers</span> = @{ Authorization = <span class="tk-s">&quot;Bearer $env:SYSTEM_ACCESSTOKEN&quot;</span> }   <span class="tk-c"># o -UseDefaultCredentials con credenciales Windows</span>
+<span class="tk-v">$col</span>  = <span class="tk-s">'&lt;System.CollectionUri&gt;'</span>
+<span class="tk-v">$proj</span> = <span class="tk-s">'&lt;TeamProject&gt;'</span>
+<span class="tk-v">$body</span> = @{
+    definition  = @{ id = &lt;pipelineId&gt; }
+    sourceBranch = <span class="tk-s">'refs/heads/&lt;rama&gt;'</span>          <span class="tk-c"># ver derivacion arriba; o refs/tags/&lt;tag&gt; si --tag</span>
+    <span class="tk-c"># sourceVersion = '&lt;sha&gt;'                    # si --commit</span>
+    parameters  = (@{ DeployEnv = <span class="tk-s">'&lt;env&gt;'</span> } | ConvertTo-Json -Compress)
+} | ConvertTo-Json -Depth <span class="tk-n">6</span>
+
+<span class="tk-c"># --dry-run: imprimir $body y la URL, NO ejecutar</span>
+Invoke-RestMethod -Uri <span class="tk-s">&quot;$col$proj/_apis/build/builds?api-version=6.0&quot;</span> -Method POST -Headers <span class="tk-v">$headers</span> -Body <span class="tk-v">$body</span> -ContentType <span class="tk-s">'application/json'</span></code></pre>
+<blockquote><p><code>DeployEnv</code> debe estar declarada como <strong>variable settable at queue time</strong> en la definición (lo configura <code>/hv:cicd-init</code> en Fase 2). El stage <code>Deploy&lt;Env&gt;</code> lleva <code>condition: eq(variables['DeployEnv'], '&lt;env&gt;')</code>, así que SOLO corre cuando se encola con ese valor. Un push normal (sin <code>DeployEnv</code>) construye pero NO despliega.</p></blockquote>
+<p><strong>Manejo de respuestas (Azure)</strong></p>
+<ul>
+<li><strong>HTTP 200</strong>: ✅ build encolado. Mostrar <code>buildNumber</code> + URL de la run.</li>
+<li><strong>HTTP 400 <code>DeployEnv is not a valid ... queue time variable</code></strong>: la definición no tiene <code>DeployEnv</code> como queue-time. Causa: pipeline generado antes del modelo on-demand. Fix: <code>/hv:cicd-init</code> → &quot;actualizar YAML&quot; para regenerar con el modelo <code>DeployEnv</code>.</li>
+<li><strong>HTTP 403</strong>: falta permiso de cola sobre el pipeline. Escalar al equipo de infraestructura (rol Queue builds).</li>
+</ul>
+<h4 id="2-gh--github-actions-despachar-el-workflow">2-gh — GitHub Actions: despachar el workflow</h4>
+<pre data-lang="bash"><code><span class="tk-c"># --dry-run: imprimir el comando y salir</span>
+<span class="tk-k">gh</span> workflow run <span class="tk-s">&quot;$wf&quot;</span> --ref <span class="tk-s">&quot;&lt;ref&gt;&quot;</span> -f environment=&lt;env&gt;
+
+<span class="tk-c"># El dispatch es asíncrono y NO devuelve el id de la run: localizarla (hasta 5 intentos, 3 s).</span>
+<span class="tk-c"># Aceptar solo una run creada DESPUÉS del dispatch (comparar createdAt con la hora del comando).</span>
+<span class="tk-k">for</span> i <span class="tk-k">in</span> <span class="tk-n">1</span> <span class="tk-n">2</span> <span class="tk-n">3</span> <span class="tk-n">4</span> <span class="tk-n">5</span>; <span class="tk-k">do</span>
+  run=$(<span class="tk-k">gh</span> run list --workflow <span class="tk-s">&quot;$wf&quot;</span> --event workflow_dispatch --branch <span class="tk-s">&quot;&lt;ref&gt;&quot;</span> --limit <span class="tk-n">1</span> \
+        --json databaseId,url,status,createdAt,headSha --jq <span class="tk-s">'.[0]'</span>)
+  [ -n <span class="tk-s">&quot;$run&quot;</span> ] &amp;&amp; break
+  sleep <span class="tk-n">3</span>
+<span class="tk-k">done</span></code></pre>
+<blockquote><p>El <code>push</code> a la rama base ejecuta solo <code>build</code> (G1); los jobs <code>deploy-*</code> llevan <code>if: github.event_name == 'workflow_dispatch' &amp;&amp; inputs.environment == '&lt;env&gt;'</code>. Con <code>--ref vX.Y.Z</code>, <code>gh run list --branch</code> filtra por el nombre del tag (GitHub lo expone como <code>headBranch</code>).</p></blockquote>
+<p><strong>Manejo de respuestas (GitHub)</strong></p>
+<ul>
+<li><strong>exit 0</strong>: ✅ workflow despachado. Mostrar <code>databaseId</code> + URL de la run (y el <code>headSha</code> que se despliega).</li>
+<li><strong>HTTP 422 <code>Workflow does not have 'workflow_dispatch' trigger</code></strong>: el fichero de la rama por defecto no tiene el trigger (modelo <code>auto</code> antiguo o YAML editado). Fix: <code>/hv:cicd-init</code> → Opción 4 (re-render) y merge a la rama por defecto.</li>
+<li><strong>HTTP 422 <code>Required input 'environment' not provided</code></strong> / <code>Unexpected inputs provided</code>: el workflow no espera <code>environment</code> (o espera otro nombre). Mismo fix: re-render con el modelo on-demand.</li>
+<li><strong>HTTP 404 <code>Not Found</code></strong>: <code>$wf</code> mal escrito, o el workflow <strong>no está en la rama por defecto</strong> (ver 0.4). Hacer merge primero.</li>
+<li><strong>HTTP 403 <code>Resource not accessible by integration</code></strong> / <code>Must have admin rights</code>: el token de <code>gh</code> no tiene el scope <code>workflow</code> → <code>gh auth refresh -h github.com -s workflow</code>; o Actions deshabilitadas en Settings → Actions.</li>
+<li><strong><code>This workflow is disabled</code></strong>: <code>gh workflow enable &quot;$wf&quot;</code> y reintentar.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-fase-3--seguimiento---watch-y-registro">
+<h3 id="fase-3--seguimiento---watch-y-registro">FASE 3 — Seguimiento (--watch) y registro</h3>
+<p><strong>Azure</strong>: con <code>--watch</code>, poll <code>GET {col}{proj}/_apis/build/builds/{buildId}?api-version=6.0</code> cada 30s hasta <code>status=completed</code>. Mostrar <code>result</code> (succeeded / failed / canceled).</p>
+<p><strong>GitHub</strong>: con <code>--watch</code>:</p>
+<pre data-lang="bash"><code><span class="tk-k">gh</span> run watch &lt;databaseId&gt; --interval <span class="tk-n">30</span> --exit-status     <span class="tk-c"># exit != 0 si la run falla</span>
+<span class="tk-k">gh</span> run view  &lt;databaseId&gt; --json conclusion,jobs --jq <span class="tk-s">'{conclusion, jobs: [.jobs[] | {name, conclusion}]}'</span></code></pre>
+<p>Si la run queda en <code>status=waiting</code>, el environment tiene <em>required reviewers</em>: mostrar quién debe aprobar y la URL, y <strong>no aprobar desde aquí</strong>.</p>
+<pre data-lang="bash"><code><span class="tk-k">gh</span> api <span class="tk-s">&quot;repos/$repo/actions/runs/&lt;databaseId&gt;/pending_deployments&quot;</span> \
+  --jq <span class="tk-s">'.[] | &quot;environment=\(.environment.name) reviewers=\([.reviewers[].reviewer.login] | join(&quot;,&quot;))&quot;'</span></code></pre>
+<p>Tras una run con resultado <code>succeeded</code> / <code>success</code>:</p>
+<ol>
+<li>Actualizar <code>_hilo/ESTADO_PROYECTO.json</code>: <code>metricas.ultimo_deploy</code> + <code>infraestructura.cicd.pipelines[].ultimoBuildStatus</code>.</li>
+<li>Registrar en el Hub (si <code>.mcp.json</code> referencia <code>ovillo-hub</code>): <code>/hv:mcp-sync</code> envía <code>cicd-batch</code> con el último build y el historial de deploys por entorno (los recoge de la plataforma: REST de Azure DevOps o <code>gh</code>). Best-effort: no fallar el comando si el Hub no responde.</li>
+</ol>
+<p>Si el deploy falla en pre/pro, el rollback tiene tres capas (G9): backup previo del step Deploy (Azure: <code>steps/rollback-*</code>; GitHub: el step Deploy del template), <strong>re-desplegar la versión anterior</strong> con este mismo comando (<code>--tag &lt;anterior&gt;</code> · <code>gh workflow run &quot;$wf&quot; --ref &lt;sha_o_tag_anterior&gt; -f environment=&lt;env&gt;</code>), y el manual de <code>ops/cicd/RUNBOOK.md</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-reglas-críticas">
+<h3 id="reglas-críticas">REGLAS CRÍTICAS</h3>
+<ul>
+<li><strong>NUNCA</strong> desplegar a un entorno con <code>deployConfirm=true</code> (default <strong>Prod</strong>) sin confirmación explícita.</li>
+<li><strong>NUNCA</strong> hacer MSDeploy/copia directa desde el cliente: el agente o runner de deploy lo hace.</li>
+<li><strong>NUNCA</strong> encolar/despachar si <code>fase &lt; 2</code>.</li>
+<li><strong>NUNCA</strong> aprobar un environment de GitHub por API desde este comando: los reviewers aprueban en la plataforma.</li>
+<li><strong>Azure</strong>: SIEMPRE TLS 1.2+ (R2) antes de tocar Azure DevOps Server; SIEMPRE encolar vía REST + PowerShell (R3), no tasks Node.</li>
+<li><strong>GitHub</strong>: SIEMPRE <code>gh workflow run</code> (o <code>POST /repos/{o}/{r}/actions/workflows/{wf}/dispatches</code>); el <code>environment</code> va como input, nunca hardcodeado en el YAML.</li>
+<li>El push NO despliega; el deploy es on-demand vía este comando (Azure: modelo <code>DeployEnv</code>, R20 · GitHub: <code>workflow_dispatch</code> + <code>environment:</code>, G1).</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-TROUBLESHOOTING">
+<h3 id="TROUBLESHOOTING">TROUBLESHOOTING</h3>
+<div class="tbl"><table><thead><tr><th>Síntoma</th><th>Plataforma</th><th>Causa</th><th>Fix</th></tr></thead><tbody><tr><td><code>requires Fase 2</code></td><td>ambas</td><td>Pipeline en Fase 0/1</td><td><code>/hv:cicd-init</code> → promocionar a Fase 2</td></tr><tr><td><code>DeployEnv not valid at queue time</code></td><td>Azure</td><td>YAML sin modelo on-demand</td><td><code>/hv:cicd-init</code> → actualizar YAML</td></tr><tr><td>Build encola pero el stage Deploy se salta</td><td>Azure</td><td><code>condition</code> no matchea <code>DeployEnv</code></td><td>Verificar que el valor (<code>dev</code>/<code>pre</code>/<code>pro</code>) coincide con el <code>condition</code> del stage</td></tr><tr><td>HTTP 403 al encolar</td><td>Azure</td><td>Falta permiso Queue builds</td><td>el equipo de infraestructura concede rol al grupo del proyecto</td></tr><tr><td><code>Workflow does not have 'workflow_dispatch' trigger</code></td><td>GitHub</td><td>El fichero de la rama por defecto no tiene el trigger</td><td><code>/hv:cicd-init</code> Opción 4 + merge a la rama por defecto</td></tr><tr><td>HTTP 404 al despachar</td><td>GitHub</td><td><code>cd-&lt;slug&gt;.yml</code> no está en la rama por defecto o nombre mal escrito</td><td>Merge del workflow a <code>main</code>; comprobar <code>gh workflow list</code></td></tr><tr><td>Run despachada pero ningún job <code>deploy-*</code> corre</td><td>GitHub</td><td><code>inputs.environment</code> no coincide con los <code>if:</code> de los jobs; o branch-gated con <code>--ref</code> de otra rama</td><td>Comprobar <code>options: [dev, pre, pro]</code> y el <code>if:</code>; en branch-gated usar la rama del entorno</td></tr><tr><td>Run en <code>waiting</code> sin avanzar</td><td>GitHub</td><td>Environment con <em>required reviewers</em> (pre/pro)</td><td>Un reviewer aprueba en Actions → Review deployments; ver <code>pending_deployments</code></td></tr><tr><td><code>Resource not accessible by integration</code></td><td>GitHub</td><td>Token de <code>gh</code> sin scope <code>workflow</code></td><td><code>gh auth refresh -h github.com -s workflow</code></td></tr><tr><td>Deploy corre pero falla smoke</td><td>ambas</td><td>App no arranca / secreto mal</td><td>Ver RUNBOOK ops/cicd § &quot;App caída tras deploy verde&quot;; rollback (G9): re-desplegar <code>--tag</code> anterior</td></tr></tbody></table></div>
+<hr>
+<p><em>Skill cicd-deploy · kind: workflow — deploy on-demand. Azure: modelo <code>DeployEnv</code> (R20) · GitHub: <code>workflow_dispatch</code> + <code>environment:</code> (G1). El push construye, el deploy es on-demand.</em></p>
+<hr>
+<p><em>Skill cicd-deploy · kind: workflow</em></p>
+</section><section class="sec" id="sec-reglas"><h2 id="reglas">Reglas</h2><div class="two"><div><h3>Siempre</h3></div><div><h3>Nunca</h3><ul><li>desplegar a un entorno con deployConfirm[env]=true (por defecto Prod) sin confirmación explícita del usuario.</li><li>desplegar a un entorno con deployConfirm=true (default Prod) sin confirmación explícita.</li><li>hacer MSDeploy/copia directa desde el cliente: el agente o runner de deploy lo hace.</li><li>encolar/despachar si fase &lt; 2.</li><li>aprobar un environment de GitHub por API desde este comando: los reviewers aprueban en la plataforma.</li></ul></div></div></section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>211</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 1869 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>9 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(medida): Lote H - los instrumentos miden de verdad y la cobertura se declara (ADR-028)</em> (<code>fa757ef</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-deploy/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#extended-thinking-mode">Extended Thinking Mode</a></li><li class="l3"><a href="#sintaxis">Sintaxis</a></li><li class="l3"><a href="#cuándo-usar">CUÁNDO USAR</a></li><li class="l3"><a href="#fase-0--validaciones-previas">FASE 0 — Validaciones previas</a></li><li class="l3"><a href="#fase-1--confirmación-por-entorno-configurable">FASE 1 — Confirmación por entorno (configurable)</a></li><li class="l3"><a href="#fase-2--pedir-el-deploy">FASE 2 — Pedir el deploy</a></li><li class="l3"><a href="#fase-3--seguimiento---watch-y-registro">FASE 3 — Seguimiento (--watch) y registro</a></li><li class="l3"><a href="#reglas-críticas">REGLAS CRÍTICAS</a></li><li class="l3"><a href="#TROUBLESHOOTING">TROUBLESHOOTING</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

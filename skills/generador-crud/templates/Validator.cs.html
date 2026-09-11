@@ -1,0 +1,159 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>generador-crud · templates/Validator.cs.template · Ovillo</title><meta name="description" content="Fichero templates/Validator.cs.template de la skill generador-crud"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="generador-crud · templates/Validator.cs.template · Ovillo"><meta property="og:description" content="Fichero templates/Validator.cs.template de la skill generador-crud"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/generador-crud/templates/Validator.cs.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/generador-crud/templates/Validator.cs.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/generador-crud/templates/Validator.cs.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de generador-crud (24)</h4><ul class="sibs"><li><a href="../../../skills/generador-crud/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/generador-crud/templates/ApplicationDbContext.cs.html">templates/ApplicationDbContext.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/AuditableEntity.cs.html">templates/AuditableEntity.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Command.cs.html">templates/Command.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/CommandHandler.cs.html">templates/CommandHandler.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Configuration.cs.html">templates/Configuration.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Controller.cs.html">templates/Controller.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/DomainException.cs.html">templates/DomainException.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Dto.cs.html">templates/Dto.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/EndpointFilters.cs.html">templates/EndpointFilters.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Entity.cs.html">templates/Entity.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Exceptions.cs.html">templates/Exceptions.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Interceptors.cs.html">templates/Interceptors.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Interfaces.cs.html">templates/Interfaces.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/IRepository.cs.html">templates/IRepository.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/LookupEntity.cs.html">templates/LookupEntity.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/LookupRepository.cs.html">templates/LookupRepository.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/MinimalApiEndpoints.cs.html">templates/MinimalApiEndpoints.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/PaginatedResult.cs.html">templates/PaginatedResult.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Query.cs.html">templates/Query.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/QueryHandler.cs.html">templates/QueryHandler.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Repository.cs.html">templates/Repository.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/SoftDeleteEntity.cs.html">templates/SoftDeleteEntity.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Validator.cs.html" class="cur">templates/Validator.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/generador-crud.html">generador-crud</a></span><span>templates</span><span>Validator.cs.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>generador-crud</span><span>templates/</span><span>7114 B</span></div><h1>Validator.cs.template</h1><p class="lede">Fichero que <code>/hv:generador-crud</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/generador-crud.html">generador-crud</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>7114 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>// ============================================================================
+// TEMPLATE: Validator.cs - Validadores con FluentValidation (por entidad)
+// Skill: generador-crud (ADR-031)
+// ============================================================================
+// USO: Reemplazar {{Entity}}, {{Entities}}, {{Namespace}} y los fragmentos {{ReglasValidacionCrear}},
+//      {{MetodosValidacionAsync}}, {{ReglasValidacionActualizar}}, {{MetodosValidacionAsyncActualizar}}
+// Destino: src/Application/Features/{{Entities}}/Validators/{{Entity}}Validators.cs
+// Validan los Commands. Se ejecutan por pipeline de Mediator (behavior de validacion) o, en Minimal API,
+// con el filtro WithValidation&lt;T&gt;() de EndpointFilters.cs. Los mensajes van en ingles (ADR-001, ADR-027).
+// ============================================================================
+
+using FluentValidation;
+using {{Namespace}}.Application.Common.Interfaces;
+using {{Namespace}}.Application.Features.{{Entities}}.Commands;
+
+namespace {{Namespace}}.Application.Features.{{Entities}}.Validators;
+
+// ═══════════════════════════════════════════════════════════════════════════
+// VALIDATOR PARA CREAR
+// ═══════════════════════════════════════════════════════════════════════════
+
+public class Create{{Entity}}CommandValidator : AbstractValidator&lt;Create{{Entity}}Command&gt;
+{
+    private readonly I{{Entity}}Repository _repository;
+
+    public Create{{Entity}}CommandValidator(I{{Entity}}Repository repository)
+    {
+        _repository = repository;
+
+        {{ReglasValidacionCrear}}
+    }
+
+    // Validaciones asíncronas (unicidad contra el repositorio, etc.)
+    {{MetodosValidacionAsync}}
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// VALIDATOR PARA ACTUALIZAR
+// ═══════════════════════════════════════════════════════════════════════════
+
+public class Update{{Entity}}CommandValidator : AbstractValidator&lt;Update{{Entity}}Command&gt;
+{
+    private readonly I{{Entity}}Repository _repository;
+
+    public Update{{Entity}}CommandValidator(I{{Entity}}Repository repository)
+    {
+        _repository = repository;
+
+        RuleFor(x =&gt; x.Id)
+            .GreaterThan(<span class="tk-n">0</span>).WithMessage(<span class="tk-s">&quot;Id is required&quot;</span>)
+            .MustAsync(ExistAsync).WithMessage(<span class="tk-s">&quot;{{Entity}} not found&quot;</span>);
+
+        {{ReglasValidacionActualizar}}
+    }
+
+    private async Task&lt;bool&gt; ExistAsync(int id, CancellationToken ct)
+    {
+        return await _repository.ExistsAsync(id, ct);
+    }
+
+    {{MetodosValidacionAsyncActualizar}}
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PATRONES DE VALIDACIÓN COMUNES
+// ═══════════════════════════════════════════════════════════════════════════
+/*
+// STRINGS - obligatorios
+RuleFor(x =&gt; x.Name)
+    .NotEmpty().WithMessage(<span class="tk-s">&quot;Name is required&quot;</span>)
+    .MaximumLength(<span class="tk-n">200</span>).WithMessage(<span class="tk-s">&quot;Name must not exceed {MaxLength} characters&quot;</span>)
+    .MinimumLength(<span class="tk-n">3</span>).WithMessage(<span class="tk-s">&quot;Name must be at least {MinLength} characters long&quot;</span>);
+
+// STRINGS - opcionales con formato
+RuleFor(x =&gt; x.Email)
+    .EmailAddress().WithMessage(<span class="tk-s">&quot;Email format is invalid&quot;</span>)
+    .When(x =&gt; !string.IsNullOrEmpty(x.Email));
+
+// STRINGS - regex
+RuleFor(x =&gt; x.Code)
+    .NotEmpty().WithMessage(<span class="tk-s">&quot;Code is required&quot;</span>)
+    .Matches(@<span class="tk-s">&quot;^[A-Z]{3}-\d{4}$&quot;</span>).WithMessage(<span class="tk-s">&quot;Code must match the format XXX-0000&quot;</span>);
+
+// NÚMEROS - rango
+RuleFor(x =&gt; x.Amount)
+    .GreaterThan(<span class="tk-n">0</span>).WithMessage(<span class="tk-s">&quot;Amount must be positive&quot;</span>)
+    .LessThanOrEqualTo(<span class="tk-n">100000</span>).WithMessage(<span class="tk-s">&quot;Amount must not exceed {ComparisonValue}&quot;</span>);
+
+// NÚMEROS - precisión decimal
+RuleFor(x =&gt; x.Percentage)
+    .InclusiveBetween(<span class="tk-n">0</span>, <span class="tk-n">100</span>).WithMessage(<span class="tk-s">&quot;Percentage must be between 0 and 100&quot;</span>)
+    .PrecisionScale(<span class="tk-n">5</span>, <span class="tk-n">2</span>, <span class="tk-k">false</span>).WithMessage(<span class="tk-s">&quot;At most 2 decimals&quot;</span>);
+
+// FECHAS - futuro / comparación
+RuleFor(x =&gt; x.StartDate)
+    .GreaterThanOrEqualTo(DateOnly.FromDateTime(DateTime.Today)).WithMessage(<span class="tk-s">&quot;Start date must be today or later&quot;</span>);
+RuleFor(x =&gt; x.EndDate)
+    .GreaterThan(x =&gt; x.StartDate).WithMessage(<span class="tk-s">&quot;End date must be after start date&quot;</span>);
+
+// ENUMS
+RuleFor(x =&gt; x.Status)
+    .IsInEnum().WithMessage(<span class="tk-s">&quot;Status is not valid&quot;</span>);
+
+// COLECCIONES
+RuleFor(x =&gt; x.Items)
+    .NotEmpty().WithMessage(<span class="tk-s">&quot;At least one item is required&quot;</span>)
+    .Must(x =&gt; x.Count &lt;= <span class="tk-n">100</span>).WithMessage(<span class="tk-s">&quot;At most 100 items&quot;</span>);
+
+// VALIDACIÓN CONDICIONAL
+RuleFor(x =&gt; x.DocumentNumber)
+    .NotEmpty().WithMessage(<span class="tk-s">&quot;Document number is required&quot;</span>)
+    .When(x =&gt; x.DocumentType == DocumentType.Passport);
+
+// VALIDACIÓN ASYNC - unicidad
+RuleFor(x =&gt; x.Code)
+    .MustAsync(async (code, ct) =&gt; !await _repository.ExistsCodeAsync(code, ct))
+    .WithMessage(<span class="tk-s">&quot;Code is already in use&quot;</span>);
+
+// VALIDADOR ANIDADO / CADA ELEMENTO
+RuleFor(x =&gt; x.Address).SetValidator(new AddressValidator());
+RuleForEach(x =&gt; x.Items).SetValidator(new ItemValidator());
+*/
+
+// ============================================================================
+// EJEMPLO GENERADO - ScholarshipValidators
+// ============================================================================
+/*
+public class CreateScholarshipCommandValidator : AbstractValidator&lt;CreateScholarshipCommand&gt;
+{
+    private readonly IScholarshipRepository _repository;
+
+    public CreateScholarshipCommandValidator(IScholarshipRepository repository)
+    {
+        _repository = repository;
+
+        RuleFor(x =&gt; x.Code)
+            .NotEmpty().WithMessage(<span class="tk-s">&quot;Code is required&quot;</span>)
+            .MaximumLength(<span class="tk-n">20</span>).WithMessage(<span class="tk-s">&quot;Code must not exceed {MaxLength} characters&quot;</span>)
+            .Matches(@<span class="tk-s">&quot;^[A-Z0-9-]+$&quot;</span>).WithMessage(<span class="tk-s">&quot;Code may only contain uppercase letters, digits and hyphens&quot;</span>)
+            .MustAsync(CodeIsFreeAsync).WithMessage(<span class="tk-s">&quot;A scholarship with this code already exists&quot;</span>);
+
+        RuleFor(x =&gt; x.Name)
+            .NotEmpty().WithMessage(<span class="tk-s">&quot;Name is required&quot;</span>)
+            .MaximumLength(<span class="tk-n">200</span>).WithMessage(<span class="tk-s">&quot;Name must not exceed {MaxLength} characters&quot;</span>);
+
+        RuleFor(x =&gt; x.Amount)
+            .GreaterThan(<span class="tk-n">0</span>).WithMessage(<span class="tk-s">&quot;Amount must be greater than 0&quot;</span>);
+
+        RuleFor(x =&gt; x.EndDate)
+            .GreaterThan(x =&gt; x.StartDate).WithMessage(<span class="tk-s">&quot;End date must be after the start date&quot;</span>);
+    }
+
+    private async Task&lt;bool&gt; CodeIsFreeAsync(string code, CancellationToken ct)
+    {
+        return !await _repository.ExistsCodeAsync(code, ct);
+    }
+}
+*/
+</code></pre><p style="margin-top:32px"><a href="../../../skills/generador-crud.html#ficheros">← Volver a la ficha de generador-crud</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/generador-crud/templates/SoftDeleteEntity.cs.html"><small>Anterior</small>templates/SoftDeleteEntity.cs.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/generador-crud/templates/Validator.cs.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

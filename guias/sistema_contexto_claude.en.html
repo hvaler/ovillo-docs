@@ -1,0 +1,329 @@
+<!doctype html><html lang="en" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Intelligent Context System for Claude Code · Ovillo</title><meta name="description" content="Intelligent Context System for Claude Code"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Intelligent Context System for Claude Code · Ovillo"><meta property="og:description" content="Intelligent Context System for Claude Code"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/sistema_contexto_claude.en.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/sistema_contexto_claude.en.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/sistema_contexto_claude.en.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · _patron (2)</h4><ul class="sibs"><li><a href="../guias/sistema_contexto_claude.en.html" class="cur">Intelligent Context System for Claude Code</a></li><li><a href="../guias/tareas_comite_tecnico.en.html">Pending Tasks - Technical Committee</a></li></ul></aside><main id="principal" lang="en"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · _patron</span><span>Intelligent Context System for Claude Code</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · _patron</span><span>english</span><span><a href="../guias/sistema_contexto_claude.html">versión en español</a></span></div><h1>Intelligent Context System for Claude Code</h1><div class="meta-grid"><div><b>4 min</b><span>lectura</span></div><div><b>975</b><span>palabras</span></div><div><b>10</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>3</b><span>cambios</span></div></div><blockquote><p>This document explains how the project scaffolding's context system works and how Claude navigates through it according to each project situation.</p></blockquote>
+<hr>
+<section class="sec" id="sec-system-overview">
+<h3 id="system-overview">System Overview</h3>
+<p>The project scaffolding includes an <strong>intelligent context system</strong> that allows Claude Code to:</p>
+<ol>
+<li><strong>Remember</strong> project state between sessions</li>
+<li><strong>Understand</strong> existing functionalities, dependencies, and decisions</li>
+<li><strong>Ask proactively</strong> to avoid errors</li>
+<li><strong>Execute standardized commands</strong> for common tasks</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-system-architecture">
+<h3 id="system-architecture">System Architecture</h3>
+<pre><code>CLAUDE.md                    ← Entry point (automatically read)
+    │
+    ├── _hilo/           ← Dynamic project memory
+    │   ├── ESTADO_PROYECTO.json   ← Current state, phase, mode
+    │   ├── FUNCIONALIDADES.md     ← What the application does
+    │   ├── DEPENDENCIAS.md        ← What can break
+    │   ├── DECISIONES.md          ← Why it was done this way
+    │   ├── HISTORIAL_CAMBIOS.md   ← Changelog
+    │   └── reuniones/             ← Meeting agreements
+    │
+    ├── .claude/commands/    ← Custom commands
+    │   ├── onboarding.md    ← /onboarding
+    │   ├── commit.md        ← /commit
+    │   ├── prepara-entrega.md ← /prepara-entrega
+    │   ├── revision.md      ← /revision
+    │   ├── estado.md        ← /estado
+    │   └── sync.md          ← /sync
+    │
+    └── _patron/     ← Static organization rules
+        ├── 01_Estructura_Tecnica/
+        ├── 02_Diseno_Usabilidad/
+        ├── 03_Consideraciones_Comunes/
+        └── 04_Plantillas_Documentacion/</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-operation-modes">
+<h3 id="operation-modes">Operation Modes</h3>
+<p>The system has 4 main modes defined in <code>ESTADO_PROYECTO.json</code>:</p>
+<h4 id="1-mode-puesta_a_punto-setup">1. Mode: <code>puesta_a_punto</code> (Setup)</h4>
+<p><strong>When</strong>: Existing project newly incorporated into the template</p>
+<p><strong>Claude's behavior</strong>:</p>
+<pre><code>1. Detects &quot;puesta_a_punto&quot; mode in ESTADO_PROYECTO.json
+2. Does NOT make code changes
+3. Invites to execute /onboarding
+4. Asks battery of questions to contextualize
+5. Documents in _hilo/
+6. Upon completion, switches to &quot;desarrollo&quot; mode</code></pre>
+<p><strong>Flow</strong>:</p>
+<pre><code>┌─────────────────┐     ┌──────────────┐     ┌─────────────────┐
+│ New project     │ ──► │ /onboarding  │ ──► │ Development     │
+│ (puesta_a_punto)│     │ (questions)  │     │ mode (ready to  │
+│                 │     │              │     │  work)          │
+└─────────────────┘     └──────────────┘     └─────────────────┘</code></pre>
+<h4 id="2-mode-desarrollo-development">2. Mode: <code>desarrollo</code> (Development)</h4>
+<p><strong>When</strong>: Active project development</p>
+<p><strong>Claude's behavior</strong>:</p>
+<pre><code>1. Reads complete context at startup
+2. Asks proactive questions according to task type
+3. Verifies dependencies before modifying
+4. Updates _hilo/ with important changes
+5. Uses commands for standard operations</code></pre>
+<p><strong>Proactive questions</strong>:</p>
+<div class="tbl"><table><thead><tr><th>Situation</th><th>Claude asks</th></tr></thead><tbody><tr><td>New functionality</td><td>&quot;Which module does it go in? Does it follow existing pattern?&quot;</td></tr><tr><td>Modification</td><td>&quot;I've detected dependencies with [X]. Should I review impact?&quot;</td></tr><tr><td>Bug fix</td><td>&quot;Steps to reproduce? Severity?&quot;</td></tr><tr><td>Before coding</td><td>&quot;Do I understand the requirement correctly?&quot;</td></tr></tbody></table></div>
+<h4 id="3-mode-mantenimiento-maintenance">3. Mode: <code>mantenimiento</code> (Maintenance)</h4>
+<p><strong>When</strong>: Stable project, only minor corrections</p>
+<p><strong>Claude's behavior</strong>:</p>
+<pre><code>1. Conservative mode: minimal changes
+2. Emphasis on not breaking existing functionality
+3. Always verifies tests before changes
+4. Documents all changes in HISTORIAL_CAMBIOS.md</code></pre>
+<h4 id="4-mode-soporte_uap-uap-support">4. Mode: <code>soporte_uap</code> (UAP Support)</h4>
+<p><strong>When</strong>: Project in production supported by UAP</p>
+<p><strong>Claude's behavior</strong>:</p>
+<pre><code>1. Consults runbooks before acting
+2. Prioritizes quick resolution
+3. Documents incident according to template
+4. Notifies about SLA impact</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-claudes-navigation-flow">
+<h3 id="claudes-navigation-flow">Claude's Navigation Flow</h3>
+<h4 id="session-initialization">Session Initialization</h4>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│ Claude Code starts                                          │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│ Reads CLAUDE.md automatically                               │
+│ → Loads general instructions                               │
+│ → Knows available commands                                 │
+│ → Knows which files to read                                │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│ Reads _hilo/ESTADO_PROYECTO.json                          │
+│ → Identifies current mode                                  │
+│ → Knows phase, version, alerts                             │
+│ → Knows which modules are in development                   │
+└─────────────────────────────────────────────────────────────┘
+                              │
+              ┌───────────────┼───────────────┐
+              ▼               ▼               ▼
+        [puesta_a_punto] [desarrollo]   [mantenimiento]
+              │               │               │
+              ▼               ▼               ▼
+        Invites to       Reads complete  Conservative
+        /onboarding      context         mode</code></pre>
+<h4 id="before-each-development-task">Before Each Development Task</h4>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│ Developer describes task                                    │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│ Claude identifies task type                                 │
+│ → New functionality?                                        │
+│ → Modification?                                             │
+│ → Bug fix?                                                  │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│ Claude consults relevant context                            │
+│                                                             │
+│ IF it's a modification:                                     │
+│   → Reads FUNCIONALIDADES.md (affected functionality)       │
+│   → Reads DEPENDENCIAS.md (what can break)                  │
+│   → Searches recent meetings                               │
+│                                                             │
+│ IF it affects architecture:                                 │
+│   → Reads DECISIONES.md (relevant ADRs)                     │
+│   → Verifies with _patron/                          │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│ Claude asks proactive questions                             │
+│                                                             │
+│ &quot;I've detected that [X] has dependencies with [Y,Z].&quot;       │
+│ &quot;Do you want me to analyze the impact before starting?&quot;     │
+│                                                             │
+│ &quot;I see there was a recent meeting on [date].&quot;               │
+│ &quot;Should I review the agreements?&quot;                           │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│ Claude implements following:                                │
+│ → Rules from _patron/                               │
+│ → Existing patterns in the code                            │
+│ → Previous decisions (ADRs)                                │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-available-commands">
+<h3 id="available-commands">Available Commands</h3>
+<h4 id="onboarding">/onboarding</h4>
+<p><strong>Purpose</strong>: Contextualize existing project <strong>When to use</strong>: When incorporating project into template <strong>What it does</strong>:</p>
+<ul>
+<li>Asks battery of questions about the project</li>
+<li>Documents in _hilo/</li>
+<li>Switches mode to &quot;desarrollo&quot; upon completion</li>
+</ul>
+<h4 id="commit">/commit</h4>
+<p><strong>Purpose</strong>: Commit with verifications <strong>When to use</strong>: Before each commit <strong>What it does</strong>:</p>
+<ul>
+<li>Verifies test coverage &gt;= 70%</li>
+<li>Verifies code format</li>
+<li>Verifies no secrets present</li>
+<li>Generates message according to commit policy</li>
+<li>Updates HISTORIAL_CAMBIOS.md</li>
+</ul>
+<h4 id="prepara-entrega">/prepara-entrega</h4>
+<p><strong>Purpose</strong>: Prepare version for delivery <strong>When to use</strong>: Before delivering to client/production <strong>What it does</strong>:</p>
+<ul>
+<li>Verifies all tests pass</li>
+<li>Generates/updates documentation</li>
+<li>Updates FUNCIONALIDADES.md</li>
+<li>Increments version</li>
+<li>Generates delivery summary</li>
+</ul>
+<h4 id="revision">/revision</h4>
+<p><strong>Purpose</strong>: Analyze change impact <strong>When to use</strong>: Before modifying critical code <strong>What it does</strong>:</p>
+<ul>
+<li>Analyzes modified files</li>
+<li>Cross-references with dependency map</li>
+<li>Identifies affected modules</li>
+<li>Suggests tests to execute</li>
+</ul>
+<h4 id="estado">/estado</h4>
+<p><strong>Purpose</strong>: View current project state <strong>When to use</strong>: To know current situation <strong>What it does</strong>:</p>
+<ul>
+<li>Shows mode, phase, version</li>
+<li>Lists modules in development</li>
+<li>Shows active alerts</li>
+<li>Summarizes metrics</li>
+</ul>
+<h4 id="sync">/sync</h4>
+<p><strong>Purpose</strong>: Update project context <strong>When to use</strong>: After important changes <strong>What it does</strong>:</p>
+<ul>
+<li>Analyzes current code</li>
+<li>Updates FUNCIONALIDADES.md</li>
+<li>Updates DEPENDENCIAS.md</li>
+<li>Synchronizes ESTADO_PROYECTO.json</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-questions-by-situation">
+<h3 id="questions-by-situation">Questions by Situation</h3>
+<h4 id="new-functionality">New Functionality</h4>
+<div class="tbl"><table><thead><tr><th>Phase</th><th>Questions</th></tr></thead><tbody><tr><td>Understanding</td><td>&quot;What's the business objective?&quot;</td></tr><tr><td></td><td>&quot;Who is the end user?&quot;</td></tr><tr><td></td><td>&quot;Is it part of a larger development?&quot;</td></tr><tr><td>Location</td><td>&quot;Which module?&quot;</td></tr><tr><td></td><td>&quot;Does it follow existing pattern?&quot;</td></tr><tr><td>Data</td><td>&quot;Does it require new tables?&quot;</td></tr><tr><td></td><td>&quot;Does it handle sensitive data?&quot;</td></tr><tr><td>Security</td><td>&quot;Which roles have access?&quot;</td></tr></tbody></table></div>
+<h4 id="modifying-existing">Modifying Existing</h4>
+<div class="tbl"><table><thead><tr><th>Phase</th><th>Questions</th></tr></thead><tbody><tr><td>Context</td><td>&quot;Are there previous decisions to respect?&quot;</td></tr><tr><td></td><td>&quot;Were there previous problems here?&quot;</td></tr><tr><td>Impact</td><td>&quot;Do you want me to analyze dependencies?&quot;</td></tr><tr><td></td><td>&quot;Are there existing tests?&quot;</td></tr><tr><td>Integrations</td><td>&quot;Does it affect external systems?&quot;</td></tr><tr><td></td><td>&quot;Are there dependent batch processes?&quot;</td></tr></tbody></table></div>
+<h4 id="bug-fix">Bug Fix</h4>
+<div class="tbl"><table><thead><tr><th>Phase</th><th>Questions</th></tr></thead><tbody><tr><td>Reproduction</td><td>&quot;Steps to reproduce?&quot;</td></tr><tr><td></td><td>&quot;In which environment does it occur?&quot;</td></tr><tr><td>Urgency</td><td>&quot;Severity?&quot;</td></tr><tr><td></td><td>&quot;Is there a workaround?&quot;</td></tr><tr><td>Origin</td><td>&quot;When did it start failing?&quot;</td></tr><tr><td></td><td>&quot;Were there recent changes?&quot;</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-key-files-and-their-purpose">
+<h3 id="key-files-and-their-purpose">Key Files and Their Purpose</h3>
+<div class="tbl"><table><thead><tr><th>File</th><th>Claude reads it</th><th>For</th></tr></thead><tbody><tr><td><code>CLAUDE.md</code></td><td>Always (automatic)</td><td>General instructions</td></tr><tr><td><code>ESTADO_PROYECTO.json</code></td><td>Always</td><td>Know mode, phase, version</td></tr><tr><td><code>FUNCIONALIDADES.md</code></td><td>Modifications</td><td>Understand what exists</td></tr><tr><td><code>DEPENDENCIAS.md</code></td><td>Modifications</td><td>Avoid breaking things</td></tr><tr><td><code>DECISIONES.md</code></td><td>Architecture</td><td>Respect decisions</td></tr><tr><td><code>HISTORIAL_CAMBIOS.md</code></td><td>Deliveries</td><td>Document changes</td></tr><tr><td><code>reuniones/</code></td><td>According to context</td><td>Recent agreements</td></tr><tr><td><code>_patron/</code></td><td>Development</td><td>Technical rules</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-context-updates">
+<h3 id="context-updates">Context Updates</h3>
+<div class="tbl"><table><thead><tr><th>Event</th><th>Updated files</th><th>Command</th></tr></thead><tbody><tr><td>Commit</td><td>HISTORIAL_CAMBIOS.md</td><td>/commit</td></tr><tr><td>Delivery</td><td>ESTADO_PROYECTO.json, FUNCIONALIDADES.md</td><td>/prepara-entrega</td></tr><tr><td>Important change</td><td>FUNCIONALIDADES.md, DEPENDENCIAS.md</td><td>/sync</td></tr><tr><td>Technical decision</td><td>DECISIONES.md</td><td>Manual</td></tr><tr><td>Meeting</td><td>reuniones/YYYY-MM-DD.md</td><td>Manual</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-complete-flow-diagram">
+<h3 id="complete-flow-diagram">Complete Flow Diagram</h3>
+<pre><code>                    ┌──────────────────────┐
+                    │   SESSION START      │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │  Read CLAUDE.md      │
+                    │  Read ESTADO_PROYECTO│
+                    └──────────┬───────────┘
+                               │
+           ┌───────────────────┼───────────────────┐
+           │                   │                   │
+           ▼                   ▼                   ▼
+   ┌───────────────┐   ┌───────────────┐   ┌───────────────┐
+   │ puesta_a_punto│   │  desarrollo   │   │ mantenimiento │
+   └───────┬───────┘   └───────┬───────┘   └───────┬───────┘
+           │                   │                   │
+           ▼                   │                   │
+   ┌───────────────┐           │                   │
+   │ /onboarding   │           │                   │
+   │ (questions)   │           │                   │
+   └───────┬───────┘           │                   │
+           │                   │                   │
+           └─────────┬─────────┘                   │
+                     │                             │
+                     ▼                             │
+           ┌───────────────────┐                   │
+           │ REQUESTED TASK    │◄──────────────────┘
+           └─────────┬─────────┘
+                     │
+                     ▼
+           ┌───────────────────┐
+           │ Identify task     │
+           │ type              │
+           └─────────┬─────────┘
+                     │
+     ┌───────────────┼───────────────┐
+     │               │               │
+     ▼               ▼               ▼
+┌─────────┐    ┌─────────┐    ┌─────────┐
+│ New     │    │ Modif.  │    │ Bug fix │
+│ func.   │    │         │    │         │
+└────┬────┘    └────┬────┘    └────┬────┘
+     │              │              │
+     │              ▼              │
+     │    ┌─────────────────┐      │
+     │    │ Read FUNCIONAL. │      │
+     │    │ Read DEPENDENC. │      │
+     │    │ Read meetings   │      │
+     │    └────────┬────────┘      │
+     │             │               │
+     └──────┬──────┴───────────────┘
+            │
+            ▼
+   ┌───────────────────┐
+   │ PROACTIVE         │
+   │ QUESTIONS         │
+   └─────────┬─────────┘
+             │
+             ▼
+   ┌───────────────────┐
+   │ IMPLEMENTATION    │
+   │ (following rules) │
+   └─────────┬─────────┘
+             │
+             ▼
+   ┌───────────────────┐
+   │ /commit           │
+   │ (verifications)   │
+   └─────────┬─────────┘
+             │
+             ▼
+   ┌───────────────────┐
+   │ Update            │
+   │ HISTORIAL_CAMBIOS │
+   └───────────────────┘</code></pre>
+</section>
+<section class="sec" id="sec-context-budget-windows-thresholds-and-anti-patterns">
+<h3 id="context-budget-windows-thresholds-and-anti-patterns">Context budget: windows, thresholds and anti-patterns</h3>
+<p>The unconditional rule <code>.claude/rules/context-optimization.md</code> states <strong>what</strong> to do. This section holds the <strong>why</strong> and the figures, which go stale sooner than the rules.</p>
+<h4 id="window-per-model-family">Window per model family</h4>
+<div class="tbl"><table><thead><tr><th>Family</th><th>Models</th><th>Window</th><th>Max output</th><th>Thinking</th></tr></thead><tbody><tr><td><strong>Claude 5</strong></td><td>Fable 5.1 (<code>claude-fable-5-1</code>) - Opus 5 (<code>claude-opus-5</code>) - Sonnet 5 (<code>claude-sonnet-5</code>)</td><td><strong>1M tokens</strong></td><td>128K</td><td>adaptive</td></tr><tr><td><strong>Claude 4.5</strong></td><td>Haiku 4.5 (<code>claude-haiku-4-5</code>)</td><td><strong>200K tokens</strong></td><td>64K</td><td>extended</td></tr></tbody></table></div>
+<blockquote><p>Source: <code>platform.claude.com/docs/en/models/overview</code>. Models 4.6 to 4.8 and Fable 5 are legacy and share the 1M window. Review this table whenever the Claude Code default model changes; the rule itself speaks of <strong>window classes</strong> (1M / 200K) rather than models, so it does not go stale.</p></blockquote>
+<p>1M is a lot, yet an intense session burns 200-400K over 50-100 tool calls, and with adaptive thinking the model's own reasoning also takes window on long tasks. Optimising context is not thrift for its own sake: it buys longer sessions and better answers.</p>
+<h4 id="thresholds-for-suggesting-compact">Thresholds for suggesting <code>/compact</code></h4>
+<div class="tbl"><table><thead><tr><th>Metric</th><th>1M window</th><th>200K window</th></tr></thead><tbody><tr><td>Tool calls in the session</td><td>&gt; 80</td><td>&gt; 30</td></tr><tr><td>Whole files read</td><td>&gt; 25</td><td>&gt; 10</td></tr><tr><td>Unrelated tasks completed</td><td>&gt; 4</td><td>&gt; 2</td></tr><tr><td>Consecutive build errors</td><td>&gt; 3 (stop and replan)</td><td>&gt; 3 (stop and replan)</td></tr></tbody></table></div>
+<h4 id="consumption-anti-patterns">Consumption anti-patterns</h4>
+<div class="tbl"><table><thead><tr><th>Anti-pattern</th><th>Instead</th></tr></thead><tbody><tr><td>Reading a whole file to find one line</td><td><code>Grep</code> with the pattern</td></tr><tr><td>Unbounded <code>git diff</code></td><td><code>git diff --stat</code>, then the specific file</td></tr><tr><td>Unbounded <code>git log</code></td><td><code>git log --oneline -10</code></td></tr><tr><td><code>dotnet build</code> with full output</td><td><code>dotnet build -v quiet</code></td></tr><tr><td>Reading every file in a directory</td><td><code>Glob</code> + <code>Grep</code> to filter first</td></tr><tr><td>Several <code>Grep</code> calls in a row</td><td>one with the combined regex</td></tr><tr><td>Re-reading <code>CLAUDE.md</code> every turn</td><td>it is already in context</td></tr></tbody></table></div>
+<h4 id="what-is-always-loaded-and-what-is-not">What is always loaded and what is not</h4>
+<p>Always: <code>CLAUDE.md</code> with its two <code>@imports</code> (project state and current session), the unconditional rules in <code>.claude/rules/</code>, the skill listing published to the model and the agents' <code>description</code>. <strong>On demand</strong>: the organization standards (<code>.claude/CLAUDE_BASE.md</code>, which the <code>estandares-base</code> rule brings up when touching <code>src/</code>), the layer rules (activated by file path), the guides in this knowledge base and the Hilo files that are not state (<code>DEPENDENCIAS.md</code>, <code>FUNCIONALIDADES.md</code>, <code>specs/</code>). That separation is what keeps the start-up context inside its budget.</p>
+<hr>
+<p><strong>Owner</strong>: Technical Committee</p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/SISTEMA_CONTEXTO_CLAUDE_EN.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/application.html">application</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a><a class="next" href="../guias/tareas_comite_tecnico.en.html"><small>Siguiente</small>Pending Tasks - Technical Committee</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/SISTEMA_CONTEXTO_CLAUDE_EN.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#system-overview">System Overview</a></li><li class="l2"><a href="#system-architecture">System Architecture</a></li><li class="l2"><a href="#operation-modes">Operation Modes</a></li><li class="l3"><a href="#1-mode-puesta_a_punto-setup">1. Mode: puesta_a_punto (Setup)</a></li><li class="l3"><a href="#2-mode-desarrollo-development">2. Mode: desarrollo (Development)</a></li><li class="l3"><a href="#3-mode-mantenimiento-maintenance">3. Mode: mantenimiento (Maintenance)</a></li><li class="l3"><a href="#4-mode-soporte_uap-uap-support">4. Mode: soporte_uap (UAP Support)</a></li><li class="l2"><a href="#claudes-navigation-flow">Claude's Navigation Flow</a></li><li class="l3"><a href="#session-initialization">Session Initialization</a></li><li class="l3"><a href="#before-each-development-task">Before Each Development Task</a></li><li class="l2"><a href="#available-commands">Available Commands</a></li><li class="l3"><a href="#onboarding">/onboarding</a></li><li class="l3"><a href="#commit">/commit</a></li><li class="l3"><a href="#prepara-entrega">/prepara-entrega</a></li><li class="l3"><a href="#revision">/revision</a></li><li class="l3"><a href="#estado">/estado</a></li><li class="l3"><a href="#sync">/sync</a></li><li class="l2"><a href="#questions-by-situation">Questions by Situation</a></li><li class="l3"><a href="#new-functionality">New Functionality</a></li><li class="l3"><a href="#modifying-existing">Modifying Existing</a></li><li class="l3"><a href="#bug-fix">Bug Fix</a></li><li class="l2"><a href="#key-files-and-their-purpose">Key Files and Their Purpose</a></li><li class="l2"><a href="#context-updates">Context Updates</a></li><li class="l2"><a href="#complete-flow-diagram">Complete Flow Diagram</a></li><li class="l2"><a href="#context-budget-windows-thresholds-and-anti-patterns">Context budget: windows, thresholds and anti-patterns</a></li><li class="l3"><a href="#window-per-model-family">Window per model family</a></li><li class="l3"><a href="#thresholds-for-suggesting-compact">Thresholds for suggesting /compact</a></li><li class="l3"><a href="#consumption-anti-patterns">Consumption anti-patterns</a></li><li class="l3"><a href="#what-is-always-loaded-and-what-is-not">What is always loaded and what is not</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

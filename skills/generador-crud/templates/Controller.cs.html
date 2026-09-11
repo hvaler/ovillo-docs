@@ -1,0 +1,190 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>generador-crud · templates/Controller.cs.template · Ovillo</title><meta name="description" content="Fichero templates/Controller.cs.template de la skill generador-crud"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="generador-crud · templates/Controller.cs.template · Ovillo"><meta property="og:description" content="Fichero templates/Controller.cs.template de la skill generador-crud"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/generador-crud/templates/Controller.cs.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/generador-crud/templates/Controller.cs.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/generador-crud/templates/Controller.cs.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de generador-crud (24)</h4><ul class="sibs"><li><a href="../../../skills/generador-crud/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/generador-crud/templates/ApplicationDbContext.cs.html">templates/ApplicationDbContext.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/AuditableEntity.cs.html">templates/AuditableEntity.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Command.cs.html">templates/Command.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/CommandHandler.cs.html">templates/CommandHandler.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Configuration.cs.html">templates/Configuration.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Controller.cs.html" class="cur">templates/Controller.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/DomainException.cs.html">templates/DomainException.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Dto.cs.html">templates/Dto.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/EndpointFilters.cs.html">templates/EndpointFilters.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Entity.cs.html">templates/Entity.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Exceptions.cs.html">templates/Exceptions.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Interceptors.cs.html">templates/Interceptors.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Interfaces.cs.html">templates/Interfaces.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/IRepository.cs.html">templates/IRepository.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/LookupEntity.cs.html">templates/LookupEntity.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/LookupRepository.cs.html">templates/LookupRepository.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/MinimalApiEndpoints.cs.html">templates/MinimalApiEndpoints.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/PaginatedResult.cs.html">templates/PaginatedResult.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Query.cs.html">templates/Query.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/QueryHandler.cs.html">templates/QueryHandler.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Repository.cs.html">templates/Repository.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/SoftDeleteEntity.cs.html">templates/SoftDeleteEntity.cs.template</a></li><li><a href="../../../skills/generador-crud/templates/Validator.cs.html">templates/Validator.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/generador-crud.html">generador-crud</a></span><span>templates</span><span>Controller.cs.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>generador-crud</span><span>templates/</span><span>8328 B</span></div><h1>Controller.cs.template</h1><p class="lede">Fichero que <code>/hv:generador-crud</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/generador-crud.html">generador-crud</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>8328 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>// ============================================================================
+// TEMPLATE: Controller.cs - Controlador API REST (por entidad; alternativa: MinimalApiEndpoints.cs)
+// Skill: generador-crud (ADR-031)
+// ============================================================================
+// USO: Reemplazar {{Entity}}, {{Entities}}, {{Namespace}}
+// Destino: src/Api/Controllers/{{Entities}}Controller.cs
+// ============================================================================
+
+using Asp.Versioning;
+using Mediator;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using {{Namespace}}.Application.Common.Models;
+using {{Namespace}}.Application.Features.{{Entities}}.Commands;
+using {{Namespace}}.Application.Features.{{Entities}}.Dtos;
+using {{Namespace}}.Application.Features.{{Entities}}.Queries;
+
+namespace {{Namespace}}.Api.Controllers;
+
+/// &lt;summary&gt;
+/// API REST para gestión de {{Entities}}
+/// &lt;/summary&gt;
+[ApiController]
+[ApiVersion(<span class="tk-s">&quot;1.0&quot;</span>)]
+[Route(<span class="tk-s">&quot;api/v{version:apiVersion}/[controller]&quot;</span>)]
+[Produces(<span class="tk-s">&quot;application/json&quot;</span>)]
+public class {{Entities}}Controller : ControllerBase
+{
+    private readonly IMediator _mediator;
+    private readonly ILogger&lt;{{Entities}}Controller&gt; _logger;
+
+    public {{Entities}}Controller(
+        IMediator mediator,
+        ILogger&lt;{{Entities}}Controller&gt; logger)
+    {
+        _mediator = mediator;
+        _logger = logger;
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // GET - Consultas
+    // ═══════════════════════════════════════════════════════════════════════
+
+    /// &lt;summary&gt;
+    /// Obtiene listado paginado de {{Entities}}
+    /// &lt;/summary&gt;
+    /// &lt;param name=<span class="tk-s">&quot;page&quot;</span>&gt;Número de página (<span class="tk-n">1</span>-based)&lt;/param&gt;
+    /// &lt;param name=<span class="tk-s">&quot;size&quot;</span>&gt;Elementos por página&lt;/param&gt;
+    /// &lt;param name=<span class="tk-s">&quot;ct&quot;</span>&gt;Token de cancelación&lt;/param&gt;
+    [HttpGet]
+    [ProducesResponseType&lt;PaginatedResult&lt;{{Entity}}Dto&gt;&gt;(StatusCodes.Status200OK)]
+    public async Task&lt;ActionResult&lt;PaginatedResult&lt;{{Entity}}Dto&gt;&gt;&gt; GetAll(
+        [FromQuery] int page = <span class="tk-n">1</span>,
+        [FromQuery] int size = <span class="tk-n">10</span>,
+        CancellationToken ct = default)
+    {
+        var result = await _mediator.Send(new Get{{Entities}}Query(page, size), ct);
+        return Ok(result);
+    }
+
+    /// &lt;summary&gt;
+    /// Obtiene un/a {{Entity}} por su ID
+    /// &lt;/summary&gt;
+    [HttpGet(<span class="tk-s">&quot;{id:int}&quot;</span>)]
+    [ProducesResponseType&lt;{{Entity}}Dto&gt;(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task&lt;ActionResult&lt;{{Entity}}Dto&gt;&gt; GetById(
+        int id,
+        CancellationToken ct = default)
+    {
+        var result = await _mediator.Send(new Get{{Entity}}ByIdQuery(id), ct);
+
+        if (result is <span class="tk-k">null</span>)
+        {
+            return NotFound(new ProblemDetails
+            {
+                Title = <span class="tk-s">&quot;{{Entity}} not found&quot;</span>,
+                Detail = $<span class="tk-s">&quot;No {{Entity}} with id {id}&quot;</span>,
+                Status = StatusCodes.Status404NotFound
+            });
+        }
+
+        return Ok(result);
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // POST - Crear
+    // ═══════════════════════════════════════════════════════════════════════
+
+    /// &lt;summary&gt;
+    /// Crea un/a nuevo/a {{Entity}}
+    /// &lt;/summary&gt;
+    [HttpPost]
+    [Authorize(Roles = <span class="tk-s">&quot;Admin,Manager&quot;</span>)]
+    [ProducesResponseType&lt;{{Entity}}Dto&gt;(StatusCodes.Status201Created)]
+    [ProducesResponseType&lt;ValidationProblemDetails&gt;(StatusCodes.Status400BadRequest)]
+    public async Task&lt;ActionResult&lt;{{Entity}}Dto&gt;&gt; Create(
+        [FromBody] Create{{Entity}}Command request,
+        CancellationToken ct = default)
+    {
+        var result = await _mediator.Send(request, ct);
+
+        _logger.LogInformation(<span class="tk-s">&quot;{{Entity}} {Id} created by {User}&quot;</span>, result.Id, User.Identity?.Name);
+
+        return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // PUT - Actualizar
+    // ═══════════════════════════════════════════════════════════════════════
+
+    /// &lt;summary&gt;
+    /// Actualiza un/a {{Entity}} existente
+    /// &lt;/summary&gt;
+    [HttpPut(<span class="tk-s">&quot;{id:int}&quot;</span>)]
+    [Authorize(Roles = <span class="tk-s">&quot;Admin,Manager&quot;</span>)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType&lt;ValidationProblemDetails&gt;(StatusCodes.Status400BadRequest)]
+    public async Task&lt;IActionResult&gt; Update(
+        int id,
+        [FromBody] Update{{Entity}}Command request,
+        CancellationToken ct = default)
+    {
+        if (id != request.Id)
+        {
+            return BadRequest(new ProblemDetails
+            {
+                Title = <span class="tk-s">&quot;Id mismatch&quot;</span>,
+                Detail = <span class="tk-s">&quot;The id in the route does not match the id in the body&quot;</span>,
+                Status = StatusCodes.Status400BadRequest
+            });
+        }
+
+        await _mediator.Send(request, ct);
+
+        _logger.LogInformation(<span class="tk-s">&quot;{{Entity}} {Id} updated by {User}&quot;</span>, id, User.Identity?.Name);
+
+        return NoContent();
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // DELETE - Eliminar (borrado logico)
+    // ═══════════════════════════════════════════════════════════════════════
+
+    /// &lt;summary&gt;
+    /// Elimina un/a {{Entity}} (soft delete)
+    /// &lt;/summary&gt;
+    [HttpDelete(<span class="tk-s">&quot;{id:int}&quot;</span>)]
+    [Authorize(Roles = <span class="tk-s">&quot;Admin&quot;</span>)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task&lt;IActionResult&gt; Delete(
+        int id,
+        CancellationToken ct = default)
+    {
+        await _mediator.Send(new Delete{{Entity}}Command(id), ct);
+
+        _logger.LogInformation(<span class="tk-s">&quot;{{Entity}} {Id} deleted by {User}&quot;</span>, id, User.Identity?.Name);
+
+        return NoContent();
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// REGISTRO DEL VERSIONADO (en Program.cs, una vez por aplicacion)
+// ═══════════════════════════════════════════════════════════════════════════
+
+// El generador emite rutas versionadas porque la regla `api` y el agent api-contract-validator las
+// exigen: sin esto, cada CRUD nacia incumpliendo la convencion que el propio auditor del ecosistema
+// le iba a senalar (ADR-027). NotFoundException y DomainException se traducen a ProblemDetails en el
+// manejador global de excepciones (skill `api`).
+/*
+// dotnet add package Asp.Versioning.Mvc.ApiExplorer
+
+builder.Services
+    .AddApiVersioning(o =&gt;
+    {
+        o.DefaultApiVersion = new ApiVersion(<span class="tk-n">1</span>, <span class="tk-n">0</span>);
+        o.AssumeDefaultVersionWhenUnspecified = <span class="tk-k">true</span>;
+        o.ReportApiVersions = <span class="tk-k">true</span>;                  // cabeceras api-supported-versions
+    })
+    .AddMvc()
+    .AddApiExplorer(o =&gt;
+    {
+        o.GroupNameFormat = <span class="tk-s">&quot;'v'VVV&quot;</span>;
+        o.SubstituteApiVersionInUrl = <span class="tk-k">true</span>;          // /api/v1/... en OpenAPI
+    });
+*/
+</code></pre><p style="margin-top:32px"><a href="../../../skills/generador-crud.html#ficheros">← Volver a la ficha de generador-crud</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/generador-crud/templates/Configuration.cs.html"><small>Anterior</small>templates/Configuration.cs.template</a><a class="next" href="../../../skills/generador-crud/templates/DomainException.cs.html"><small>Siguiente</small>templates/DomainException.cs.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/generador-crud/templates/Controller.cs.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

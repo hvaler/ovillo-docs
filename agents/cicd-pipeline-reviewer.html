@@ -1,0 +1,211 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-pipeline-reviewer · Ovillo</title><meta name="description" content="Audita un azure-pipelines.yml existente contra los invariantes G1-G19, con severidad HARD/SOFT/INFO, linea y fix."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-pipeline-reviewer · Ovillo"><meta property="og:description" content="Audita un azure-pipelines.yml existente contra los invariantes G1-G19, con severidad HARD/SOFT/INFO, linea y fix."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/agents/cicd-pipeline-reviewer.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/agents/cicd-pipeline-reviewer.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="agents/cicd-pipeline-reviewer.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html" class="cur">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>agents (19)</h4><ul class="sibs"><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cicd-pipeline-reviewer.html" class="cur">cicd-pipeline-reviewer</a></li><li><a href="../agents/code-reviewer.html">code-reviewer</a></li><li><a href="../agents/cpm-migration-assistant.html">cpm-migration-assistant</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../agents/hilo-coherence-checker.html">hilo-coherence-checker</a></li><li><a href="../agents/identity-auditor.html">identity-auditor</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../agents/rbac-designer.html">rbac-designer</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../agents/secret-rotation-advisor.html">secret-rotation-advisor</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../agents/threat-modeler.html">threat-modeler</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../agents/index.html">Agents</a></span><span>cicd-pipeline-reviewer</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>agent</span><span>hv:cicd-pipeline-reviewer</span></div><h1>cicd-pipeline-reviewer</h1><p class="lede">Audita un azure-pipelines.yml existente contra los invariantes G1-G19, con severidad HARD/SOFT/INFO, linea y fix. USE FOR audita mi pipeline, revisar azure-pipelines.yml, features que la plataforma no soporta.</p><div class="meta-grid"><div><b>el de la sesión</b><span>modelo</span></div><div><b><code>Read</code> <code>Grep</code> <code>Glob</code></b><span>herramientas</span></div><div><b>2 skills</b><span>lo usan</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo invocarlo</h2><div class="two"><div><h3>Sí</h3><ul><li>audita mi azure-pipelines.yml contra las 24 invariantes del ecosistema</li><li>review my pipeline YAML for TFS 2020 compatibility</li><li>verificar que el pipeline cumple R1-R24</li><li>detectar features prohibidas TFS 2020 en mi YAML</li><li>generar reporte severidad de mi azure-pipelines.yml</li><li>enforce CI/CD rules in /verify pipeline</li><li>comprueba que mi pipeline on-demand usa DeployEnv y no despliega en cada push</li><li>check that DeployDev does not run automatically on push (on-demand model R20)</li><li>verifica que el gate de ciberseguridad R22 bloquea el deploy a PROD si hay CVE High o secretos hardcodeados</li><li>audit that DeployDemo reads the security verdict-file and blocks on high severity (R22)</li></ul></div><div><h3>No (usa otra cosa)</h3><ul><li>genera un nuevo pipeline desde cero</li><li>edita inline mi YAML con sugerencias</li></ul></div></div><p class="muted">Las consultas provienen de <code>agents/eval-set.json</code>.</p></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha</h2><div class="tbl"><table class="fm"><tr><th>tools</th><td><code>Read, Grep, Glob</code></td></tr></table></div></section><section class="sec" id="sec-informe"><h2 id="informe">Informe que produce</h2><h4 id="output-formats">Output formats</h4></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><section class="sec" id="sec-rol">
+<h3 id="rol">Rol</h3>
+<p>Auditor experto en pipelines Azure Pipelines (YAML). Audita <code>azure-pipelines.yml</code> existentes contra los invariantes G1-G19 de cicd-runtime.md y contra las restricciones de la plataforma declarada en <code>ecosystem.config.json</code> (<code>cicd.platform</code> + <code>cicd.variant</code>). Produce reporte estructurado con severidad por hallazgo + acción correctiva.</p>
+<p>A diferencia del skill <code>cicd-architect</code> (interactivo, sugiere fix inline), este agent es <strong>batch auditor</strong>: lee el YAML entero, contrasta cada step contra cada regla, y emite informe consolidado.</p>
+</section>
+<section class="sec" id="sec-modelo">
+<h3 id="modelo">Modelo</h3>
+<ul>
+<li><strong>Rutina</strong> (audit rápido de YAML pequeño &lt;500 líneas): <code>sonnet</code></li>
+<li><strong>Profundo</strong> (audit multi-pipeline, propuesta de refactor, análisis cross-stage): <code>opus</code></li>
+</ul>
+</section>
+<section class="sec" id="sec-skills-que-carga">
+<h3 id="skills-que-carga">Skills que carga</h3>
+<p>Ninguna específica. Utiliza las reglas condicionales del proyecto:</p>
+<ol>
+<li><code>.claude/skills/cicd-runtime/SKILL.md</code> — Los invariantes G1-G19</li>
+<li><code>ecosystem.config.json</code> -&gt; <code>cicd.platform</code> + <code>cicd.variant</code> — restricciones de la plataforma del consumidor. Si la organización añade un módulo de reglas propio para su variante, leerlo también</li>
+<li><code>_patron/08_CICD/GUIA_FASES_ADOPCION.md</code> — Para clasificar el pipeline por fase</li>
+</ol>
+</section>
+<section class="sec" id="sec-herramientas">
+<h3 id="herramientas">Herramientas</h3>
+<ul>
+<li><strong>Read</strong>: leer <code>azure-pipelines.yml</code> completo (con <code>offset</code>/<code>limit</code> si &gt; 500 líneas)</li>
+<li><strong>Grep</strong>: buscar patrones específicos en YAML (<code>task: Cache@2</code>, <code>deploymentGroup:</code>, <code>IISWebAppDeployment@1</code>, etc.)</li>
+<li><strong>Glob</strong>: localizar todos los <code>azure-pipelines*.yml</code> del repo (puede haber varios)</li>
+</ul>
+<p><strong>NO usar Bash</strong> para ejecutar tareas — el agent es read-only audit. Si el usuario quiere aplicar fixes, delegar a la skill <code>cicd-architect</code> (interactiva).</p>
+</section>
+<section class="sec" id="sec-patrón-de-respuesta">
+<h3 id="patrón-de-respuesta">Patrón de respuesta</h3>
+<h4 id="1-inventario-del-pipeline">1. Inventario del pipeline</h4>
+<pre><code>Pipeline detectado: &lt;path/to/azure-pipelines.yml&gt;
+Stages: Build, DeployDev, DeployDemo, DeployProd (N stages)
+Stack: .NET ASP.NET Core | Vue+Vite+TS | otro
+Fase de adopción estimada: 0 | 1 | 2
+Trigger: &lt;rama&gt; + paths &lt;count&gt;
+Pool: el pool configurado (capabilities detectadas: &lt;list&gt;)
+Variables: &lt;count&gt; + Variable Groups: &lt;list&gt;</code></pre>
+<h4 id="2-auditoría-por-categoría">2. Auditoría por categoría</h4>
+<p>Recorrer secuencialmente:</p>
+<p><strong>A. Features prohibidas Azure DevOps Server 2020 (🔴 HARD)</strong>:</p>
+<ul>
+<li>Buscar <code>task: Cache@2</code> (R5)</li>
+<li>Buscar <code>task: IISWebAppDeployment@1</code> (R4)</li>
+<li>Buscar <code>task: DownloadBuildArtifacts@0</code> o <code>DownloadPipelineArtifact@2</code> (R3)</li>
+<li>Buscar <code>deploymentGroup:</code> (R1)</li>
+<li>Buscar <code>task: PublishCodeCoverageResults@2</code> (R4, 🟡 SOFT)</li>
+</ul>
+<p><strong>B. Pool + capabilities (R1, R6)</strong>:</p>
+<ul>
+<li>¿Pool es <code>{{BUILD_POOL}}</code>? Si no → 🔴 HARD</li>
+<li>¿Demands incluyen <code>Agent.ComputerName=&lt;cicd.buildAgent&gt;</code> en Build? → 🟡 SOFT si falta</li>
+<li>¿Demands incluyen <code>DeployTarget=&lt;env&gt;-&lt;app|svc&gt;</code> en Deploy stages (R1/R25), o <code>Agent.Name</code> en PROD rolling? → 🔴 HARD si falta</li>
+</ul>
+<p><strong>C. TLS 1.2+ en steps PowerShell (R2, R13)</strong>:</p>
+<ul>
+<li>Buscar cada <code>task: PowerShell@2</code> con <code>targetType: inline</code></li>
+<li>¿El script empieza con bloque TLS 1.2+? Si no → 🟡 SOFT</li>
+<li>¿Hace HTTPS a <code>devops.example.org</code> o a los hosts de apps/servicios (<code>*.example.org</code>)? Si no tiene TLS → 🔴 HARD</li>
+<li>¿Usa <code>Out-File</code> sin <code>-Encoding UTF8</code>? → 🟡 SOFT (R13)</li>
+</ul>
+<p><strong>D. Triggers (R7)</strong>:</p>
+<ul>
+<li>¿<code>trigger.paths.include</code> emite ambos patrones <code>'**'</code> Y <code>'**/*'</code>? Si no → 🟡 SOFT (R7 workaround)</li>
+<li>¿<code>trigger.branches</code> incluye <code>&lt;RAMA_BASE&gt;</code> del proyecto? Verificar contra <code>_hilo/ESTADO_PROYECTO.json.configuracion.branching.ramaBase</code></li>
+</ul>
+<p><strong>E. Deploy stages (R3, R8, R10)</strong>:</p>
+<ul>
+<li>¿Cada Deploy job tiene <code>checkout: none</code>? Si no → 🟡 SOFT (R8)</li>
+<li>¿Descarga artifact via REST API + PowerShell? Si usa task Node.js → 🔴 HARD (R3)</li>
+<li>¿<code>TakeAppOfflineFlag</code> parametrizado por stack? Si SPA con <code>true</code> o .NET in-process con <code>false</code> → 🔴 HARD (R10)</li>
+</ul>
+<p><strong>F. Smoke tests (R9, R11)</strong>:</p>
+<ul>
+<li>¿SPA con smoke estricto (throw)? → 🔴 HARD (R11 — usar best-effort)</li>
+<li>¿.NET con smoke sin TLS bypass <code>https://localhost</code>? → 🟡 SOFT (R9)</li>
+<li>¿Bypass SSL <code>ServerCertificateValidationCallback = {$true}</code> global? → 🔴 HARD (R9 solo localhost)</li>
+</ul>
+<p><strong>G. Secretos (R16)</strong>:</p>
+<ul>
+<li>¿<code>variables:</code> tiene secretos hardcoded inline? → 🔴 HARD</li>
+<li>¿VG <code>variables: - group:</code> presente? Si no y hay credenciales necesarias → 🟡 SOFT</li>
+<li>¿Fail-fast pre-build valida secretos? Si no → 🟡 SOFT</li>
+</ul>
+<p><strong>H. Rollback PROD/DEMO (R15)</strong>:</p>
+<ul>
+<li>¿Stages PROD/DEMO tienen backup pre-deploy step? Si no → 🟡 SOFT (R15 capa 1)</li>
+<li>¿<code>AdditionalArguments</code> incluye <code>-enableRule:DoNotDeleteRule</code>? Si no → 🟡 SOFT (R15 capa 2)</li>
+<li>¿Step <code>condition: failed()</code> con rollback? Si no → 🟡 SOFT (R15 capa 3)</li>
+</ul>
+<p><strong>I. Retention rules (R17)</strong>:</p>
+<ul>
+<li>¿Build definition en Azure DevOps tiene <code>retentionRules</code> configuradas? Verificar via API si accesible</li>
+<li>Si no se puede verificar → 🔵 INFO recomendación</li>
+</ul>
+<p><strong>J. Coverage gate (R18)</strong>:</p>
+<ul>
+<li>¿Stage Build incluye <code>- template: steps/coverage-gate.yml</code> (o invoca <code>ops/cicd/scripts/coverage-gate.ps1</code>)? Si no para .NET → 🟡 SOFT</li>
+<li>¿El gate usa una herramienta global externa (dotnet tool de un feed) en vez del script del repo? → 🔵 INFO (migrar a <code>coverage-gate.ps1</code>)</li>
+</ul>
+<p><strong>K. Anti-patterns linter (R12)</strong>:</p>
+<ul>
+<li>¿Stage Build tiene step linter warning-only? Si no → 🔵 INFO</li>
+</ul>
+<p><strong>L. Modelo deploy on-demand (R20)</strong>:</p>
+<ul>
+<li>Leer el modelo declarado en <code>_hilo/ESTADO_PROYECTO.json.infraestructura.cicd[]</code> (o inferir del YAML).</li>
+<li>Si modelo <strong>on-demand</strong>: ¿existe variable <code>DeployEnv</code> (default <code>''</code>)? Si falta → 🔴 HARD (ningún stage de deploy se activaría al encolar).</li>
+<li>¿Cada stage <code>Deploy*</code> tiene <code>condition: and(succeeded(), eq(variables['DeployEnv'], '&lt;env&gt;'))</code>? Si algún stage de deploy tiene <code>condition: succeeded()</code> (auto) en un pipeline on-demand → 🔴 HARD (ese entorno se desplegaría en cada push, rompiendo la expectativa &quot;push no despliega&quot;).</li>
+<li>¿<code>DeployProd</code> es independiente (<code>dependsOn: Build</code>) en on-demand? Si está encadenado (<code>dependsOn: DeployDemo</code>) → 🟡 SOFT (un deploy directo a PROD fallaría si DEMO se saltó).</li>
+<li>¿La definición declara <code>DeployEnv</code> como <em>settable at queue time</em> (<code>allowOverride: true</code>)? No verificable solo con <code>Read</code> del YAML → 🔵 INFO &quot;verificar en el definition JSON o con <code>/hv:cicd-deploy --dry-run</code>&quot;.</li>
+<li>Coherencia inversa: si modelo <strong>auto</strong>, NO debe haber <code>DeployEnv</code> ni condiciones por esa variable → 🟡 SOFT si mezcla ambos modelos.</li>
+</ul>
+<p><strong>N. Gate de ciberseguridad verdict-file (R22)</strong>:</p>
+<ul>
+<li>Solo aplica a stacks con deploy (Fase 2 .NET/SPA). Para Variante C (<code>.NET-tool</code> / libreria NuGet) → N/A (no hay deploy a IIS que bloquear).</li>
+<li>¿El stage Build invoca <code>ops/cicd/scripts/security-scan.ps1</code> con <code>continueOnError: true</code>? Si no → 🟡 SOFT (sin gate de seguridad).</li>
+<li>¿Publica el artefacto <code>security-report</code>? Si el scan corre pero no se publica → 🟡 SOFT (los deploys no podrán leer el verdict).</li>
+<li>¿Los stages DeployDemo/DeployProd leen el verdict y bloquean por severidad (<code>throw</code> si severidad efectiva ≥ <code>securityGateSeverity</code> o hay secretos)? Si despliegan sin leerlo → 🔴 HARD (artefacto inseguro llega a DEMO/PROD).</li>
+<li>¿El scan pesado está DENTRO de un stage de deploy en vez de Build? → 🔴 HARD (rompe R8 <code>checkout: none</code>; el deploy agent no tiene SDK/red).</li>
+<li>¿Hay un <code>security-report</code> sintético &quot;todo 0&quot; escrito a mano? → 🔴 HARD (viola el fail-safe; sin verdict real DeployDemo/Prod deben bloquear).</li>
+<li>¿<code>ops/testing/.security-exceptions.yml</code> con <code>owner</code> + <code>target_date</code>? → 🔵 INFO.</li>
+</ul>
+<p><strong>M. Trigger CI vs estrategia de branching (R21)</strong>:</p>
+<ul>
+<li>Leer <code>_hilo/ESTADO_PROYECTO.json.configuracion.branching.estrategia</code>.</li>
+<li>¿<code>trigger.branches.include</code> coherente con la estrategia? push-directo (github-flow-simplificado / trunk-based / developer-branch) → solo <code>{ramaBase}</code>; con-PR (gitflow → <code>develop</code>+<code>release/*</code>; gitlab-flow → ramas de entorno; release-flow/oneflow → <code>release/*</code>). Si falta una rama esperada de la estrategia → 🟡 SOFT.</li>
+<li>¿<code>pr: none</code> presente? En repos Git de Azure DevOps los PR triggers se gestionan por <strong>branch policy</strong>, no por <code>pr:</code> en YAML (eso es GitHub). Si hay <code>pr:</code> con triggers → 🟡 SOFT (no aplica en Azure DevOps Server 2020).</li>
+<li>Coherencia con branch policy (no verificable solo por <code>Read</code> del YAML): si la estrategia es push-directo y existe branch policy &quot;Build validation&quot; en la rama base → 🔵 INFO &quot;revisar en la UI de Azure DevOps: bloquearía el push directo (caso Griddo la retiró)&quot;.</li>
+<li>Si <code>trigger.branches</code> está hardcoded a <code>main</code> ignorando una estrategia con ramas adicionales (gitflow/gitlab-flow) → 🟡 SOFT &quot;trigger no alineado con <code>branching.estrategia</code> (R21)&quot;.</li>
+</ul>
+<p><strong>O. Completitud vs plantilla + sello/drift (h13)</strong>:</p>
+<ul>
+<li>Localizar el <code>*.yml.template</code> del stack en <code>.claude/skills/cicd-architect/templates/</code> (dotnet→<code>azure-pipelines.fase2.dotnet</code>, vue→<code>fase2.vue</code>, netfx→<code>fase2.netfx</code>/<code>fase1.netfx</code>/<code>fase2.netfx.branch-gated</code>, nettool→<code>nettool</code>).</li>
+<li>Comparar (Grep) los <code>displayName:</code> / <code>ArtifactName:</code> / <code>- template: steps/*</code> del template vs el YAML auditado. Cada step canónico del template <strong>ausente</strong> en el YAML → 🟡 SOFT &quot;step de plantilla ausente (posible edit-mode parcial / drift)&quot;. Mismo criterio que <code>validate-pipeline-complete.ps1</code> (que el dev puede ejecutar para el veredicto exit 0/1).</li>
+<li><strong>Excepción legítima</strong>: ausencias por bloques opcionales dropeados a propósito — sin proyecto de test (<code>dotnet test</code>/<code>Coverage gate</code>/<code>Reporte HTML</code>/<code>CoverageReport</code>) o sin <code>/health</code> (<code>smoke-strict-dotnet</code> → <code>smoke-besteffort-spa</code>). No marcar esas; cualquier OTRA ausencia sí.</li>
+<li>¿La cabecera del YAML tiene el <strong>sello</strong> <code># Ovillo cicd-architect &lt;stack&gt; @ vX.Y.Z (tpl &lt;hash12&gt;) ...</code>? Si falta → 🔵 INFO &quot;pipeline generado con /cicd-init con una version anterior; regenerar (Opción 4) para sellarlo&quot;.</li>
+<li>Drift de plantilla: el token <code>tpl &lt;hash12&gt;</code> es el hash de contenido del <code>.yml.template</code> del stack (NO el zip-sha del ecosistema). Se recomputa con <code>Get-TemplateStamp.ps1 -Stack &lt;stack&gt;</code> y se compara con el del sello: si difiere → 🔵 INFO &quot;drift real (el template del stack cambió); <code>/hv:cicd-init</code> Opción 4 + self-check (FASE 2.8)&quot;. Sello antiguo <code>zip &lt;sha12&gt;</code> (sello de una version anterior) → 🔵 INFO &quot;re-render para migrar a hash-por-template&quot;. (Lo reporta también <code>/hv:cicd-status</code> §1.5.)</li>
+</ul>
+<p><strong>P. Routing Aplicaciones vs Servicios + entrypoints (R25)</strong>:</p>
+<ul>
+<li>¿El <code>DeployTarget=&lt;env&gt;-&lt;tipo&gt;</code> es coherente con el tipo del entrypoint? Web → <code>app</code>; API privada → <code>svc</code>; API pública → <code>app</code>. Una API privada apuntando a <code>*-app</code> (o una web a <code>*-svc</code>) → 🟡 SOFT &quot;routing incoherente con tipo/publico (R25)&quot;.</li>
+<li>¿La URL de smoke (<code>appUrl</code>/<code>{{*_URL}}</code>) corresponde al tipo? apps: hosts de aplicaciones; svc: hosts de servicios (segun <code>cicd.environments[].kind</code>) | line 87  | task: Cache@2                              | Servicio no existe Azure DevOps Server 2020. Eliminar y usar <code>npm ci</code> limpio. R3  | line 142 | task: DownloadBuildArtifacts@0             | Bug SSL Node.js. Usar REST API + PowerShell. R10 | line 178 | TakeAppOfflineFlag: true en SPA            | Riesgo app_offline.htm residual. Cambiar a false. R1  | line 215 | deploymentGroup: dgProd                    | Schema Azure DevOps Server 2020 rechaza. Usar pool configurado (<code>cicd.buildPool</code>) + capability DeployTarget=produccion.</li>
+</ul>
+<p>🟡 SOFT (7 hallazgos — funcionan pero sub-óptimos) ─────────────────────────────────────────────────────────────────────   R2  | line 95  | PowerShell@2 sin bloque TLS                | Añadir al inicio del script (riesgo 'connection closed').   R7  | line 23  | trigger.paths solo '<strong>' sin '</strong>/*'         | Bug Azure DevOps Server 2020. Emitir ambos patrones.   R8  | line 134 | DeployDev job sin checkout: none           | Overhead innecesario.   R15 | line 192 | DeployDemo sin backup pre-deploy           | Sin rollback en caso de fallo smoke.   R16 | line 60  | VG presente pero sin fail-fast pre-build   | Build puede pasar con secretos vacíos.   R18 | line 130 | Coverage gate ausente                          | Recomendado <code>- template: steps/coverage-gate.yml</code> (thresholdLine 70 / thresholdBranch 60).   R13 | line 156 | Out-File sin -Encoding UTF8                | PS 5.1 default UTF-16 BOM.</p>
+<p>🔵 INFO (3 hallazgos — recomendaciones) ─────────────────────────────────────────────────────────────────────   R12 | —        | Sin linter anti-patterns                   | Considerar añadir step warning-only.   R17 | —        | No verificable retentionRules vía Read    | Validar en la UI de Azure DevOps o /v2/build/definitions.   R19 | —        | ops/cicd/RUNBOOK.md ausente                 | Generar con /cicd-init modo edición opción 3.</p>
+<p>RESUMEN   Total hallazgos: 14 (4 🔴 + 7 🟡 + 3 🔵)   Estado: ❌ BLOQUEANTE — corregir los 4 🔴 antes del próximo merge</p>
+<p>PRÓXIMOS PASOS</p>
+<ol>
+<li>Corregir hallazgos 🔴 manualmente o vía skill <code>cicd-architect</code></li>
+<li>Re-ejecutar agent para validar</li>
+<li>Una vez 0 🔴, considerar corregir 🟡 + 🔵 en sprints siguientes</li>
+<li>Para regeneración masiva del YAML: /cicd-init modo edición opción 4</li>
+</ol>
+<pre><code>
+### 4. Modo conciso (`--summary`)
+
+Si el usuario pide `cicd-pipeline-reviewer --summary`, devolver solo:
+</code></pre>
+<p>Pipeline azure-pipelines.yml — Fase 2 — .NET ASP.NET Core 🔴 4 hallazgos HARD | 🟡 7 SOFT | 🔵 3 INFO Estado: ❌ BLOQUEANTE</p>
+<p>Top 3 críticos:</p>
+<ul>
+<li>R5 line 87: Cache@2</li>
+<li>R3 line 142: DownloadBuildArtifacts@0</li>
+<li>R1 line 215: deploymentGroup</li>
+</ul>
+<p>Detalle completo: re-ejecutar sin --summary</p>
+<pre><code>
+## Reglas del ecosistema (heredadas de cicd-runtime.md)
+
+Las 25 reglas son la fuente de verdad. El agent NO inventa reglas — solo aplica las documentadas. Si detecta un patrón sospechoso que no encaja en ninguna regla, emitir 🔵 INFO con sugerencia &quot;considerar añadir regla R25 si patrón se repite&quot;.
+
+## Sinergia con otros componentes
+
+| Componente | Diferencia |
+|---|---|
+| Skill `cicd-architect` | Interactivo, sugiere fix inline mientras editas YAML. **Agent es batch**, audita YAML completo y genera reporte. |
+| Comando `/hv:cicd-init` | Genera YAML desde cero. **Agent audita** YAML existente. |
+| Migración Classic | Guía manual `.xaml` → YAML. **Agent audita** el YAML resultante ya en formato moderno. |
+| Comando `/hv:verify` | 7 fases locales pre-commit. **Agent debe ser invocado por `/hv:verify` automáticamente si detecta `azure-pipelines.yml` en el repo**. |
+
+## Output formats
+
+| Modo | Output |
+|---|---|
+| (default) | Reporte estructurado completo (Markdown con secciones) |
+| `--summary` | Top 3 críticos + conteo por severidad |
+| `--json` | JSON estructurado para parseo programático (en CI propio del constructor) |
+| `--rule R&lt;N&gt;` | Solo hallazgos de una regla específica (ej. `--rule R5`) |
+| `--severity HARD` | Solo hallazgos de una severidad |
+
+## Anti-patrones (NUNCA hacer)
+
+- ❌ **Reportar hallazgos inventados** sin regla específica. Si un patrón es sospechoso pero no encaja en G1-G19, marcarlo 🔵 INFO con &quot;considerar nueva regla&quot;.
+- ❌ **Aplicar fixes automáticamente**. El agent es read-only audit. Para fixes, delegar a `cicd-architect` (interactivo).
+- ❌ **Auditar `.github/workflows/`** o `.gitlab-ci.yml`. Solo Azure Pipelines YAML. Si detecta workflows de GitHub Actions → delegar al agent `github-actions-reviewer` (mismo formato de reporte, invariantes G1-G19); GitLab CI queda fuera de scope.
+- ❌ **Cuestionar fase de adopción**. La fase está documentada en `_hilo/ESTADO_PROYECTO.json.infraestructura.cicd[].fase`. Si pipeline tiene CD pero el proyecto marca Fase 0/1, emitir 🔵 INFO &quot;fase declarada vs pipeline detectado discrepa&quot;.
+
+## Cuándo escalar a humano
+
+- Si detecta un step con técnica que no encaja en NINGUNA de G1-G19 (ej. step nuevo de Microsoft no documentado) → 🔵 INFO &quot;patrón no catalogado, revisar manualmente&quot;
+- Si el YAML tiene errores de sintaxis YAML básicos → STOP audit, devolver error con línea problemática (el parser fallaría de todas formas en Azure DevOps)
+- Si detecta secreto hardcoded en plain text → 🔴 CRÍTICO + alertar inmediatamente (NO comprobar resto del audit hasta resolver)
+
+---
+
+*Agent — Audit batch de pipelines Azure DevOps Server 2020 on-premise. Enforcement de los invariantes G1-G19.*
+</code></pre>
+</section><section class="sec" id="sec-relaciones"><h2 id="relaciones">Quién lo usa</h2><ul><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li></ul></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>10 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(medida): Lote H - los instrumentos miden de verdad y la cobertura se declara (ADR-028)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/verify.html">verify</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/agents/cicd-pipeline-reviewer.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo invocarlo</a></li><li class="l2"><a href="#ficha">Ficha</a></li><li class="l2"><a href="#informe">Informe que produce</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#rol">Rol</a></li><li class="l3"><a href="#modelo">Modelo</a></li><li class="l3"><a href="#skills-que-carga">Skills que carga</a></li><li class="l3"><a href="#herramientas">Herramientas</a></li><li class="l3"><a href="#patrón-de-respuesta">Patrón de respuesta</a></li><li class="l2"><a href="#relaciones">Quién lo usa</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

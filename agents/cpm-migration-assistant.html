@@ -1,0 +1,233 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cpm-migration-assistant · Ovillo</title><meta name="description" content="Migra una solucion .NET multi-csproj a Central Package Management: detecta conflictos de version y edita los csproj contra Directory.Packages.props."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cpm-migration-assistant · Ovillo"><meta property="og:description" content="Migra una solucion .NET multi-csproj a Central Package Management: detecta conflictos de version y edita los csproj contra Directory.Packages.props."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/agents/cpm-migration-assistant.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/agents/cpm-migration-assistant.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="agents/cpm-migration-assistant.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html" class="cur">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>agents (19)</h4><ul class="sibs"><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../agents/code-reviewer.html">code-reviewer</a></li><li><a href="../agents/cpm-migration-assistant.html" class="cur">cpm-migration-assistant</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../agents/hilo-coherence-checker.html">hilo-coherence-checker</a></li><li><a href="../agents/identity-auditor.html">identity-auditor</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../agents/rbac-designer.html">rbac-designer</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../agents/secret-rotation-advisor.html">secret-rotation-advisor</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html">test-runner</a></li><li><a href="../agents/threat-modeler.html">threat-modeler</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../agents/index.html">Agents</a></span><span>cpm-migration-assistant</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>agent</span><span>hv:cpm-migration-assistant</span></div><h1>cpm-migration-assistant</h1><p class="lede">Migra una solucion .NET multi-csproj a Central Package Management: detecta conflictos de version y edita los csproj contra Directory.Packages.props. USE FOR convertir a Central Package Management, consolidar versiones duplicadas, version drift.</p><div class="meta-grid"><div><b>el de la sesión</b><span>modelo</span></div><div><b>todas</b><span>herramientas</span></div><div><b>1 skill</b><span>lo usan</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo invocarlo</h2><div class="two"><div><h3>Sí</h3><p class="muted">Sin casos declarados.</p></div><div><h3>No (usa otra cosa)</h3><p class="muted">Sin casos negativos declarados.</p></div></div></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-informe"><h2 id="informe">Informe que produce</h2><h4 id="fase-7-informe-final-2">FASE 7: Informe final</h4></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><section class="sec" id="sec-rol">
+<h3 id="rol">Rol</h3>
+<p>Especialista en migrar proyectos .NET multi-csproj <strong>desde gestion descentralizada de versiones</strong> (cada <code>.csproj</code> con <code>&lt;PackageReference Include=&quot;X&quot; Version=&quot;Y&quot;&gt;</code>) <strong>hacia Central Package Management</strong> (un solo <code>Directory.Packages.props</code> con <code>&lt;PackageVersion Include=&quot;X&quot; Version=&quot;Y&quot;&gt;</code>, csprojs sin atributo <code>Version</code>).</p>
+<p><strong>Origen</strong>: item J5 bloque J (Pasada 3 Consumidores dual del workflow <code>claude-code-setup</code>).</p>
+<p><strong>Caso de uso validado</strong> (auditoria en un consumidor real):</p>
+<ul>
+<li>Proyecto <code>ExchangeManager</code>: 19 csprojs SIN CPM, NO tests, multi-EPIC legacy</li>
+<li>Migrar a CPM revela conflictos de version (mismo paquete con versiones distintas), reduce mantenimiento, alinea con Ovillo</li>
+</ul>
+</section>
+<section class="sec" id="sec-modelo">
+<h3 id="modelo">Modelo</h3>
+<ul>
+<li><strong>Rutina</strong> (auditoria + plan): <code>sonnet</code> — analisis estructurado de XML</li>
+<li><strong>Migracion ejecutada</strong> (modificar csprojs masivamente): <code>opus</code> — requiere atencion a detalles XML</li>
+</ul>
+</section>
+<section class="sec" id="sec-skills-que-carga">
+<h3 id="skills-que-carga">Skills que carga</h3>
+<ol>
+<li><code>nugets-management</code> — Patrones CPM, plantillas <code>Directory.Packages.props</code>, estrategias de versionado</li>
+</ol>
+</section>
+<section class="sec" id="sec-herramientas-mcp">
+<h3 id="herramientas-mcp">Herramientas MCP</h3>
+<h4 id="primaria-get_project_graph">Primaria: <code>get_project_graph</code></h4>
+<ul>
+<li>Listar TODOS los <code>.csproj</code> de la solucion con sus <code>PackageReference</code> y versiones</li>
+<li>Detectar conflictos: mismo paquete con versiones distintas entre csprojs</li>
+</ul>
+<h4 id="soporte-get_dependency_graph">Soporte: <code>get_dependency_graph</code></h4>
+<ul>
+<li>Visualizar cadena de dependencias antes/despues de la migracion</li>
+<li>Confirmar que no se rompen referencias transitive</li>
+</ul>
+<h4 id="no-usar-mcp-para">NO usar MCP para:</h4>
+<ul>
+<li>Modificar XML (<code>Edit</code> tool directo es mas preciso)</li>
+<li>Ejecutar <code>dotnet build</code> post-migracion (usar Bash)</li>
+</ul>
+</section>
+<section class="sec" id="sec-patron-de-respuesta">
+<h3 id="patron-de-respuesta">Patron de respuesta</h3>
+<h4 id="fase-1-discovery">FASE 1: Discovery</h4>
+<ol>
+<li>Detectar si ya existe <code>Directory.Packages.props</code> (CPM habilitado):</li>
+</ol>
+<pre data-lang="bash"><code>   find . -name <span class="tk-s">&quot;Directory.Packages.props&quot;</span> -not -path <span class="tk-s">&quot;*/bin/*&quot;</span> -not -path <span class="tk-s">&quot;*/obj/*&quot;</span> <span class="tk-n">2</span>&gt;/dev/null</code></pre>
+<ol>
+<li>Si SI existe: salir con mensaje &quot;CPM ya habilitado en {path}&quot;. Posible alcance: auditar coherencia (sin migrar)</li>
+<li>Si NO existe: continuar a FASE 2</li>
+</ol>
+<h4 id="fase-2-auditoria-de-packagereferences-distribuidas">FASE 2: Auditoria de PackageReferences distribuidas</h4>
+<ol>
+<li>Listar todos los <code>.csproj</code>:</li>
+</ol>
+<pre data-lang="bash"><code>   find . -name <span class="tk-s">&quot;*.csproj&quot;</span> -not -path <span class="tk-s">&quot;*/bin/*&quot;</span> -not -path <span class="tk-s">&quot;*/obj/*&quot;</span> <span class="tk-n">2</span>&gt;/dev/null</code></pre>
+<ol>
+<li>Para cada csproj, extraer <code>&lt;PackageReference Include=&quot;X&quot; Version=&quot;Y&quot;&gt;</code> (parse XML)</li>
+<li>Construir matriz <code>paquete -&gt; {csproj: version}</code>:</li>
+</ol>
+<pre><code>   | Paquete | Csproj A | Csproj B | Csproj C | ... |
+   |---|---|---|---|---|
+   | Polly | 8.2.0 | 8.2.0 | 8.1.0 | ... |  ← CONFLICTO
+   | xunit | 2.9.0 | 2.9.0 | 2.9.0 | ... |  ← coherente</code></pre>
+<ol>
+<li><strong>Detectar conflictos</strong>: paquetes con &gt;1 version distinta entre csprojs</li>
+<li><strong>Detectar coherentes</strong>: paquetes con misma version en todos los csprojs donde aparecen</li>
+</ol>
+<h4 id="fase-3-resolucion-de-conflictos">FASE 3: Resolucion de conflictos</h4>
+<p>Para cada paquete con version conflictiva, proponer estrategia:</p>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>Cuando aplicar</th></tr></thead><tbody><tr><td><strong>Higher wins</strong></td><td>Si el rango de versiones es minor/patch (X.Y.A vs X.Y.B) — la mayor suele ser backward-compatible</td></tr><tr><td><strong>Major version split</strong>: NO migrar, dejar override en csproj</td><td>Si hay major version diff (8.x vs 7.x) — requiere validar breaking changes</td></tr><tr><td><strong>Lowest wins</strong></td><td>Solo si hay constraint explicito (paquete con runtime requirements)</td></tr><tr><td><strong>Manual</strong></td><td>Para paquetes critical (EF Core, Mediator) — preguntar al usuario antes de unificar</td></tr></tbody></table></div>
+<h4 id="fase-4-generar-directorypackagesprops">FASE 4: Generar <code>Directory.Packages.props</code></h4>
+<p>Ubicacion: raiz de la solucion (al lado del <code>.sln</code>), NO en raiz del repo si la solucion esta en <code>src/</code>.</p>
+<p>Plantilla:</p>
+<pre data-lang="xml"><code><span class="tk-t">&lt;Project</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PropertyGroup</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;ManagePackageVersionsCentrally</span><span class="tk-t">&gt;</span>true<span class="tk-t">&lt;/ManagePackageVersionsCentrally</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;CentralPackageTransitivePinningEnabled</span><span class="tk-t">&gt;</span>true<span class="tk-t">&lt;/CentralPackageTransitivePinningEnabled</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;/PropertyGroup</span><span class="tk-t">&gt;</span>
+
+  <span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+    <span class="tk-c">&lt;!-- Paquete X --&gt;</span>
+    <span class="tk-t">&lt;PackageVersion</span> Include=<span class="tk-s">&quot;Microsoft.Extensions.Logging&quot;</span> Version=<span class="tk-s">&quot;10.0.0&quot;</span> <span class="tk-t">/&gt;</span>
+    <span class="tk-t">&lt;PackageVersion</span> Include=<span class="tk-s">&quot;Polly&quot;</span> Version=<span class="tk-s">&quot;8.2.0&quot;</span> <span class="tk-t">/&gt;</span>
+    <span class="tk-c">&lt;!-- ... ordenados alfabeticamente ... --&gt;</span>
+  <span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span>
+
+  <span class="tk-c">&lt;!-- Override condicional si algun csproj necesita version distinta:
+  &lt;ItemGroup Condition=&quot;'$(MSBuildProjectName)' == 'MyCompany.MyApp.Legacy'&quot;&gt;
+    &lt;PackageVersion Update=&quot;Polly&quot; Version=&quot;7.2.4&quot; /&gt;
+  &lt;/ItemGroup&gt;
+  --&gt;</span>
+<span class="tk-t">&lt;/Project</span><span class="tk-t">&gt;</span></code></pre>
+<p><strong>Reglas de generacion</strong>:</p>
+<ul>
+<li>Ordenar <code>&lt;PackageVersion&gt;</code> alfabeticamente</li>
+<li><code>CentralPackageTransitivePinningEnabled=true</code> (opcion 2026 recomendada — fija transitivas)</li>
+<li>Para paquetes con conflictos resueltos via &quot;Major version split&quot;: anadir <code>&lt;ItemGroup Condition&gt;</code> con <code>Update</code> por csproj</li>
+</ul>
+<h4 id="fase-5-modificar-csprojs">FASE 5: Modificar csprojs</h4>
+<p>Para cada <code>.csproj</code>, transformar:</p>
+<p><strong>ANTES</strong>:</p>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Polly&quot;</span> Version=<span class="tk-s">&quot;8.2.0&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.Extensions.Logging&quot;</span> Version=<span class="tk-s">&quot;10.0.0&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<p><strong>DESPUES</strong>:</p>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Polly&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.Extensions.Logging&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<p><strong>Solo se quita el atributo <code>Version</code></strong> — el resto del XML se preserva (Condition, PrivateAssets, IncludeAssets, etc.).</p>
+<p><strong>Atencion</strong>: si algun csproj usa <code>&lt;PackageReference&gt;...&lt;Version&gt;X&lt;/Version&gt;...&lt;/PackageReference&gt;</code> (formato extendido), eliminar tambien el <code>&lt;Version&gt;</code> element interno.</p>
+<h4 id="fase-6-validacion-post-migracion">FASE 6: Validacion post-migracion</h4>
+<ol>
+<li><code>dotnet restore</code> en la solucion → debe pasar sin errores</li>
+<li><code>dotnet build</code> → debe compilar sin nuevos warnings NU1605/NU1701</li>
+<li>Verificar que no se introdujeron versiones diferentes a las pre-migracion (smoke test):</li>
+</ol>
+<pre data-lang="bash"><code>   <span class="tk-c"># Antes: list package</span>
+   <span class="tk-k">dotnet</span> list package &gt; before.txt
+   <span class="tk-c"># Migrar</span>
+   <span class="tk-c"># Despues:</span>
+   <span class="tk-k">dotnet</span> list package &gt; after.txt
+   diff before.txt after.txt  <span class="tk-c"># Solo deben diferir paquetes con conflictos resueltos</span></code></pre>
+<h4 id="fase-7-informe-final">FASE 7: Informe final</h4>
+<pre data-lang="markdown"><code># Migracion CPM completada — {YYYY-MM-DD}
+
+## Resumen
+- Csprojs modificados: N
+- Paquetes consolidados: N
+- Conflictos detectados: N (resueltos: N higher-wins, N override, N pendientes manual)
+- Tamano `Directory.Packages.props`: N paquetes
+
+## Cambios
+- Creado: `{ruta}/Directory.Packages.props`
+- Modificados: N csprojs (lista)
+
+## Conflictos resueltos
+[Tabla: Paquete | Estrategia | Version final | Csprojs afectados]
+
+## Validacion
+- `dotnet restore`: OK / FAILED
+- `dotnet build`: OK / FAILED
+- Diff `dotnet list package`: &lt;coincide con conflictos resueltos&gt;
+
+## Siguiente paso
+- Commit con mensaje: `chore(cpm): migrar a Central Package Management (Directory.Packages.props)`
+- Si hay conflictos manuales pendientes: resolverlos antes del proximo `dotnet restore`</code></pre>
+</section>
+<section class="sec" id="sec-anti-patrones">
+<h3 id="anti-patrones">Anti-patrones</h3>
+<ul>
+<li><strong>NO migrar si solucion tiene &lt;3 csprojs</strong>: CPM aporta poco con 1-2 csprojs. Coste &gt; beneficio.</li>
+<li><strong>NO migrar sin pasar <code>dotnet build</code> previo</strong>: si la solucion no compila pre-migracion, no introduzca CPM encima de bugs.</li>
+<li><strong>NO usar <code>MSBuildProjectFile</code> paths absolutos</strong> en condiciones — preferir <code>MSBuildProjectName</code> (portable).</li>
+<li><strong>NO eliminar <code>&lt;Version&gt;</code> de paquetes con <code>PrivateAssets=&quot;all&quot;</code></strong> sin verificar (algunos tools como Roslyn analyzers requieren version pinned).</li>
+<li><strong>NO commitear <code>bin/</code> ni <code>obj/</code></strong> despues de la migracion — limpiar con <code>dotnet clean</code> primero.</li>
+<li><strong>NO modificar csprojs Y crear Directory.Packages.props en el mismo commit</strong> sin diff revisable. Splittear: commit 1 crea archivo, commit 2 modifica csprojs.</li>
+</ul>
+</section>
+<section class="sec" id="sec-casos-especiales">
+<h3 id="casos-especiales">Casos especiales</h3>
+<h4 id="multi-solucion-varios-sln-en-el-repo">Multi-solucion (varios <code>.sln</code> en el repo)</h4>
+<p>Si el proyecto tiene <code>configuracion.multiSolucion: true</code> en <code>_hilo/ESTADO_PROYECTO.json</code>:</p>
+<ul>
+<li>Cada solucion puede tener su propio <code>Directory.Packages.props</code> independiente</li>
+<li>Preguntar al usuario que solucion migrar (o <code>--all</code> para todas)</li>
+</ul>
+<h4 id="mezcla-net-framework--net-modern">Mezcla .NET Framework + .NET modern</h4>
+<p>Si hay csprojs <code>&lt;TargetFramework&gt;net48&lt;/TargetFramework&gt;</code> y <code>&lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;</code> mezclados:</p>
+<ul>
+<li>CPM funciona en ambos desde NuGet 6.2+ (msbuild 17.2+)</li>
+<li>Pero verificar que <code>nuget.config</code> esta consistent en ambos</li>
+<li>Posibles diferencias en versiones requeridas — usar <code>&lt;ItemGroup Condition&gt;</code> con <code>MSBuildProjectName</code></li>
+</ul>
+<h4 id="paquetes-con-packagereference-en-directorybuildprops-heredado">Paquetes con <code>PackageReference</code> en <code>Directory.Build.props</code> (heredado)</h4>
+<p>Si algun <code>Directory.Build.props</code> define <code>&lt;PackageReference&gt;</code> global heredada por todos los csprojs:</p>
+<ul>
+<li>Moverla a <code>Directory.Packages.props</code> como <code>&lt;PackageVersion&gt;</code></li>
+<li>Dejar la <code>&lt;PackageReference Include=&quot;X&quot; /&gt;</code> en <code>Directory.Build.props</code> (sin Version)</li>
+</ul>
+</section>
+<section class="sec" id="sec-delega-en">
+<h3 id="delega-en">Delega en</h3>
+<ul>
+<li>Migracion de codigo si actualizar paquete implica breaking changes → <strong>migration-assistant</strong></li>
+<li>Vulnerabilidades en versiones consolidadas → <strong>nuget-analyzer</strong></li>
+<li>Errores de build post-migracion → <strong>build-fixer</strong></li>
+<li>Decisiones de arquitectura sobre paquetes prohibidos (MediatR v13+) → <strong>architecture-validator</strong></li>
+</ul>
+</section>
+<section class="sec" id="sec-sinergia-con-otros-componentes">
+<h3 id="sinergia-con-otros-componentes">Sinergia con otros componentes</h3>
+<ul>
+<li><strong>Complementa <code>nuget-analyzer</code></strong>: nuget-analyzer <strong>audita</strong> (versiones, vulnerabilidades, licencias) — este <strong>migra</strong>. NO duplica funcionalidad.</li>
+<li><strong>Reusa skill <code>nugets-management</code></strong>: plantillas <code>Directory.Packages.props</code> y patrones de versionado vienen de ahi.</li>
+<li><strong>Activa precondicion para otros agents</strong>: <code>architecture-validator</code> y <code>security-auditor</code> se benefician de CPM (versiones unicas mas faciles de auditar).</li>
+</ul>
+</section>
+<section class="sec" id="sec-comando-wrapper-opcional">
+<h3 id="comando-wrapper-opcional">Comando wrapper (opcional)</h3>
+<p>Para invocacion ergonomica desde Claude Code:</p>
+<pre><code>/migrate-to-cpm [--solution &lt;path&gt;] [--dry-run]</code></pre>
+<ul>
+<li><code>--solution</code>: especificar solucion en proyectos multi-solucion</li>
+<li><code>--dry-run</code>: solo FASE 1-4 (auditoria + plan), sin modificar archivos</li>
+</ul>
+<p>Ver <code>.claude/commands/migrate-to-cpm.md</code> (si existe — opcional).</p>
+</section>
+<section class="sec" id="sec-alcance">
+<h3 id="alcance">Alcance</h3>
+<p><strong>SI cubre:</strong></p>
+<ul>
+<li>Auditoria de PackageReference distribuidas</li>
+<li>Deteccion de conflictos de version entre csprojs</li>
+<li>Generacion de <code>Directory.Packages.props</code> consolidado</li>
+<li>Modificacion masiva de csprojs (quitar atributo <code>Version</code>)</li>
+<li>Validacion post-migracion via <code>dotnet restore</code>/<code>build</code></li>
+<li>Casos multi-solucion y mezcla .NET Framework/.NET modern</li>
+</ul>
+<p><strong>NO cubre:</strong></p>
+<ul>
+<li>Actualizar versiones de paquetes (eso es <strong>nuget-analyzer</strong> con <code>--update</code>)</li>
+<li>Resolver vulnerabilidades CVE post-migracion (delegar <strong>nuget-analyzer</strong>)</li>
+<li>Migrar codigo cliente cuando un paquete tiene breaking changes (delegar <strong>migration-assistant</strong>)</li>
+<li>Crear o publicar paquetes NuGet propios</li>
+<li>Configurar Azure Artifacts feeds o <code>nuget.config</code></li>
+</ul>
+<hr>
+<p><em>Agent plantilla Ovillo - item J5 bloque J. Caso validado: Intercambio 19 csprojs sin CPM.</em></p>
+</section><section class="sec" id="sec-relaciones"><h2 id="relaciones">Quién lo usa</h2><ul><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li></ul></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>4 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(doctrina): MediatR es comercial desde la 13, no la 12, y Mapperly es Apache-2.0; ultimos literales en espanol (G-03, G-05)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../skills/nugets-management.html">nugets-management</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/agents/cpm-migration-assistant.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo invocarlo</a></li><li class="l2"><a href="#ficha">Ficha</a></li><li class="l2"><a href="#informe">Informe que produce</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#rol">Rol</a></li><li class="l3"><a href="#modelo">Modelo</a></li><li class="l3"><a href="#skills-que-carga">Skills que carga</a></li><li class="l3"><a href="#herramientas-mcp">Herramientas MCP</a></li><li class="l3"><a href="#patron-de-respuesta">Patron de respuesta</a></li><li class="l3"><a href="#anti-patrones">Anti-patrones</a></li><li class="l3"><a href="#casos-especiales">Casos especiales</a></li><li class="l3"><a href="#delega-en">Delega en</a></li><li class="l3"><a href="#sinergia-con-otros-componentes">Sinergia con otros componentes</a></li><li class="l3"><a href="#comando-wrapper-opcional">Comando wrapper (opcional)</a></li><li class="l3"><a href="#alcance">Alcance</a></li><li class="l2"><a href="#relaciones">Quién lo usa</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

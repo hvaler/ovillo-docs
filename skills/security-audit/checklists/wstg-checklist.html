@@ -1,0 +1,119 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>security-audit · checklists/wstg-checklist.md · Ovillo</title><meta name="description" content="Fichero checklists/wstg-checklist.md de la skill security-audit"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="security-audit · checklists/wstg-checklist.md · Ovillo"><meta property="og:description" content="Fichero checklists/wstg-checklist.md de la skill security-audit"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/security-audit/checklists/wstg-checklist.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/security-audit/checklists/wstg-checklist.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/security-audit/checklists/wstg-checklist.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de security-audit (33)</h4><ul class="sibs"><li><a href="../../../skills/security-audit/ai-security/llm-security.html">ai-security/llm-security.md</a></li><li><a href="../../../skills/security-audit/attacks/clickjacking.html">attacks/clickjacking.md</a></li><li><a href="../../../skills/security-audit/attacks/csrf-attacks.html">attacks/csrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/jwt-security.html">attacks/jwt-security.md</a></li><li><a href="../../../skills/security-audit/attacks/mass-assignment.html">attacks/mass-assignment.md</a></li><li><a href="../../../skills/security-audit/attacks/path-traversal.html">attacks/path-traversal.md</a></li><li><a href="../../../skills/security-audit/attacks/ssrf-attacks.html">attacks/ssrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/xss-in-depth.html">attacks/xss-in-depth.md</a></li><li><a href="../../../skills/security-audit/attacks/xxe-attacks.html">attacks/xxe-attacks.md</a></li><li><a href="../../../skills/security-audit/checklists/api-security.html">checklists/api-security.md</a></li><li><a href="../../../skills/security-audit/checklists/code-review-security.html">checklists/code-review-security.md</a></li><li><a href="../../../skills/security-audit/checklists/http-methods-security.html">checklists/http-methods-security.md</a></li><li><a href="../../../skills/security-audit/checklists/post-remediation.html">checklists/post-remediation.md</a></li><li><a href="../../../skills/security-audit/checklists/pre-deployment.html">checklists/pre-deployment.md</a></li><li><a href="../../../skills/security-audit/checklists/wstg-checklist.html" class="cur">checklists/wstg-checklist.md</a></li><li><a href="../../../skills/security-audit/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/security-audit/mobile/owasp-mastg.html">mobile/owasp-mastg.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-dotnet.html">owasp/owasp-dotnet.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-frameworks.html">owasp/owasp-frameworks.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-top10-2025.html">owasp/owasp-top10-2025.md</a></li><li><a href="../../../skills/security-audit/patterns/attack-surface-mapping.html">patterns/attack-surface-mapping.md</a></li><li><a href="../../../skills/security-audit/patterns/authentication-patterns.html">patterns/authentication-patterns.md</a></li><li><a href="../../../skills/security-audit/patterns/secret-detection.html">patterns/secret-detection.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-coding-checklist.html">patterns/secure-coding-checklist.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-headers.html">patterns/secure-headers.md</a></li><li><a href="../../../skills/security-audit/reports/cwe-references.html">reports/cwe-references.md</a></li><li><a href="../../../skills/security-audit/reports/mitigation-plan.html">reports/mitigation-plan.md</a></li><li><a href="../../../skills/security-audit/reports/report-format.html">reports/report-format.md</a></li><li><a href="../../../skills/security-audit/templates/AttackSimulation.html">templates/AttackSimulation.md</a></li><li><a href="../../../skills/security-audit/templates/SecureStartup.cs.html">templates/SecureStartup.cs.template</a></li><li><a href="../../../skills/security-audit/templates/SecurityHeaders.cs.html">templates/SecurityHeaders.cs.template</a></li><li><a href="../../../skills/security-audit/tools/context7-security.html">tools/context7-security.md</a></li><li><a href="../../../skills/security-audit/tools/sast-integration.html">tools/sast-integration.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/security-audit.html">security-audit</a></span><span>checklists</span><span>wstg-checklist.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>security-audit</span><span>checklists/</span></div><h1>wstg-checklist.md</h1><p class="lede">Referencia que <code>security-audit</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/security-audit.html">security-audit</a></b><span>skill</span></div><div><b>checklists</b><span>carpeta</span></div><div><b>3933 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: security-audit</p></blockquote>
+<p class="lede">Checklist basado en OWASP Web Security Testing Guide (WSTG) v4.2, organizado en 9 categorias.</p>
+<blockquote><p>Ver tambien: <code>owasp/owasp-top10-2025.md</code>, <code>checklists/api-security.md</code></p></blockquote>
+<hr>
+<section class="sec" id="sec-1-recopilacion-de-informacion">
+<h3 id="1-recopilacion-de-informacion">1. Recopilacion de Informacion</h3>
+<ul>
+<li><input type="checkbox" disabled> WSTG-INFO-01: Descubrimiento y reconocimiento en motores de busqueda</li>
+<li><input type="checkbox" disabled> WSTG-INFO-02: Fingerprinting del servidor web</li>
+<li><input type="checkbox" disabled> WSTG-INFO-03: Revision de metaarchivos del servidor web (robots.txt, sitemap.xml)</li>
+<li><input type="checkbox" disabled> WSTG-INFO-04: Enumeracion de aplicaciones en el servidor web</li>
+<li><input type="checkbox" disabled> WSTG-INFO-05: Revision de contenido web para fuga de informacion</li>
+<li><input type="checkbox" disabled> WSTG-INFO-06: Identificacion de puntos de entrada de la aplicacion</li>
+<li><input type="checkbox" disabled> WSTG-INFO-07: Mapeo de rutas de ejecucion</li>
+<li><input type="checkbox" disabled> WSTG-INFO-08: Fingerprinting del framework de la aplicacion web</li>
+<li><input type="checkbox" disabled> WSTG-INFO-10: Mapeo de la arquitectura de la aplicacion</li>
+</ul>
+</section>
+<section class="sec" id="sec-2-pruebas-de-configuracion">
+<h3 id="2-pruebas-de-configuracion">2. Pruebas de Configuracion</h3>
+<ul>
+<li><input type="checkbox" disabled> WSTG-CONF-01: Configuracion de la infraestructura de red</li>
+<li><input type="checkbox" disabled> WSTG-CONF-02: Configuracion de la plataforma de la aplicacion</li>
+<li><input type="checkbox" disabled> WSTG-CONF-05: Enumeracion de interfaces de administracion</li>
+<li><input type="checkbox" disabled> WSTG-CONF-06: Pruebas de metodos HTTP</li>
+<li><input type="checkbox" disabled> WSTG-CONF-07: Pruebas de HSTS</li>
+<li><input type="checkbox" disabled> WSTG-CONF-10: Pruebas de toma de control de subdominios</li>
+<li><input type="checkbox" disabled> WSTG-CONF-11: Pruebas de almacenamiento en la nube</li>
+<li><input type="checkbox" disabled> WSTG-CONF-12: Pruebas de CSP</li>
+</ul>
+</section>
+<section class="sec" id="sec-3-pruebas-de-autenticacion">
+<h3 id="3-pruebas-de-autenticacion">3. Pruebas de Autenticacion</h3>
+<ul>
+<li><input type="checkbox" disabled> WSTG-ATHN-01: Credenciales sobre canal cifrado</li>
+<li><input type="checkbox" disabled> WSTG-ATHN-02: Credenciales por defecto</li>
+<li><input type="checkbox" disabled> WSTG-ATHN-03: Mecanismo de bloqueo debil</li>
+<li><input type="checkbox" disabled> WSTG-ATHN-04: Evasion del esquema de autenticacion</li>
+<li><input type="checkbox" disabled> WSTG-ATHN-07: Politica de contrasenas debil</li>
+<li><input type="checkbox" disabled> WSTG-ATHN-09: Cambio/restablecimiento de contrasena debil</li>
+<li><input type="checkbox" disabled> WSTG-ATHN-10: Autenticacion mas debil en canal alternativo</li>
+</ul>
+</section>
+<section class="sec" id="sec-4-pruebas-de-autorizacion">
+<h3 id="4-pruebas-de-autorizacion">4. Pruebas de Autorizacion</h3>
+<ul>
+<li><input type="checkbox" disabled> WSTG-ATHZ-01: Recorrido de directorios/inclusion de archivos</li>
+<li><input type="checkbox" disabled> WSTG-ATHZ-02: Evasion del esquema de autorizacion</li>
+<li><input type="checkbox" disabled> WSTG-ATHZ-03: Escalada de privilegios</li>
+<li><input type="checkbox" disabled> WSTG-ATHZ-04: Referencias directas a objetos inseguras (IDOR)</li>
+</ul>
+</section>
+<section class="sec" id="sec-5-gestion-de-sesiones">
+<h3 id="5-gestion-de-sesiones">5. Gestion de Sesiones</h3>
+<ul>
+<li><input type="checkbox" disabled> WSTG-SESS-01: Esquema de gestion de sesiones</li>
+<li><input type="checkbox" disabled> WSTG-SESS-02: Atributos de cookies (Secure, HttpOnly, SameSite)</li>
+<li><input type="checkbox" disabled> WSTG-SESS-03: Fijacion de sesion</li>
+<li><input type="checkbox" disabled> WSTG-SESS-05: CSRF</li>
+<li><input type="checkbox" disabled> WSTG-SESS-06: Funcionalidad de cierre de sesion</li>
+<li><input type="checkbox" disabled> WSTG-SESS-07: Tiempo de expiracion de sesion</li>
+<li><input type="checkbox" disabled> WSTG-SESS-09: Secuestro de sesion</li>
+<li><input type="checkbox" disabled> WSTG-SESS-10: Pruebas de JWT</li>
+</ul>
+</section>
+<section class="sec" id="sec-6-pruebas-de-validacion-de-entrada">
+<h3 id="6-pruebas-de-validacion-de-entrada">6. Pruebas de Validacion de Entrada</h3>
+<ul>
+<li><input type="checkbox" disabled> WSTG-INPV-01: XSS reflejado</li>
+<li><input type="checkbox" disabled> WSTG-INPV-02: XSS almacenado</li>
+<li><input type="checkbox" disabled> WSTG-INPV-03: Manipulacion de verbos HTTP</li>
+<li><input type="checkbox" disabled> WSTG-INPV-04: Contaminacion de parametros HTTP</li>
+<li><input type="checkbox" disabled> WSTG-INPV-05: Inyeccion SQL</li>
+<li><input type="checkbox" disabled> WSTG-INPV-06: Inyeccion LDAP</li>
+<li><input type="checkbox" disabled> WSTG-INPV-07: Inyeccion XML / XXE</li>
+<li><input type="checkbox" disabled> WSTG-INPV-09: Inyeccion XPath</li>
+<li><input type="checkbox" disabled> WSTG-INPV-11: Inyeccion de codigo</li>
+<li><input type="checkbox" disabled> WSTG-INPV-12: Inyeccion de comandos</li>
+<li><input type="checkbox" disabled> WSTG-INPV-15: Division/contrabando HTTP</li>
+<li><input type="checkbox" disabled> WSTG-INPV-17: Inyeccion de cabecera Host</li>
+<li><input type="checkbox" disabled> WSTG-INPV-18: Inyeccion de plantillas del lado del servidor (SSTI)</li>
+<li><input type="checkbox" disabled> WSTG-INPV-19: Falsificacion de solicitudes del lado del servidor (SSRF)</li>
+</ul>
+</section>
+<section class="sec" id="sec-7-criptografia">
+<h3 id="7-criptografia">7. Criptografia</h3>
+<ul>
+<li><input type="checkbox" disabled> WSTG-CRYP-01: Seguridad debil de la capa de transporte (TLS)</li>
+<li><input type="checkbox" disabled> WSTG-CRYP-02: Oraculo de relleno (padding oracle)</li>
+<li><input type="checkbox" disabled> WSTG-CRYP-03: Informacion sensible via canales no cifrados</li>
+<li><input type="checkbox" disabled> WSTG-CRYP-04: Cifrado debil (MD5, SHA1, DES, RC4)</li>
+</ul>
+</section>
+<section class="sec" id="sec-8-logica-de-negocio">
+<h3 id="8-logica-de-negocio">8. Logica de Negocio</h3>
+<ul>
+<li><input type="checkbox" disabled> Validacion de limites de negocio (importes maximos, cantidades)</li>
+<li><input type="checkbox" disabled> Pruebas de flujo de trabajo (saltar pasos, repetir acciones)</li>
+<li><input type="checkbox" disabled> Pruebas de tasa de solicitudes (rate limiting)</li>
+</ul>
+</section>
+<section class="sec" id="sec-9-lado-del-cliente">
+<h3 id="9-lado-del-cliente">9. Lado del Cliente</h3>
+<ul>
+<li><input type="checkbox" disabled> XSS basado en DOM</li>
+<li><input type="checkbox" disabled> Manipulacion de recursos del lado del cliente</li>
+<li><input type="checkbox" disabled> Almacenamiento inseguro en cliente (localStorage con datos sensibles)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-uso">
+<h3 id="uso">Uso</h3>
+<p>Copiar este checklist al inicio de cada auditoria WSTG y marcar cada punto como:</p>
+<ul>
+<li><strong>OK</strong> / <strong>FALTA</strong> / <strong>PARCIAL</strong> / <strong>N/A</strong></li>
+</ul>
+<hr>
+<p><em>Checklist 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/security-audit.html#ficheros">← Volver a la ficha de security-audit</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/security-audit/checklists/pre-deployment.html"><small>Anterior</small>checklists/pre-deployment.md</a><a class="next" href="../../../skills/security-audit/eval-set.html"><small>Siguiente</small>eval-set.json</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/security-audit/checklists/wstg-checklist.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-recopilacion-de-informacion">1. Recopilacion de Informacion</a></li><li class="l2"><a href="#2-pruebas-de-configuracion">2. Pruebas de Configuracion</a></li><li class="l2"><a href="#3-pruebas-de-autenticacion">3. Pruebas de Autenticacion</a></li><li class="l2"><a href="#4-pruebas-de-autorizacion">4. Pruebas de Autorizacion</a></li><li class="l2"><a href="#5-gestion-de-sesiones">5. Gestion de Sesiones</a></li><li class="l2"><a href="#6-pruebas-de-validacion-de-entrada">6. Pruebas de Validacion de Entrada</a></li><li class="l2"><a href="#7-criptografia">7. Criptografia</a></li><li class="l2"><a href="#8-logica-de-negocio">8. Logica de Negocio</a></li><li class="l2"><a href="#9-lado-del-cliente">9. Lado del Cliente</a></li><li class="l2"><a href="#uso">Uso</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

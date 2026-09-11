@@ -1,0 +1,153 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>sync · Ovillo</title><meta name="description" content="Sincroniza la documentacion de contexto del Hilo con el codigo actual (specs, funcionalidades, inventario de paquetes)."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="sync · Ovillo"><meta property="og:description" content="Sincroniza la documentacion de contexto del Hilo con el codigo actual (specs, funcionalidades, inventario de paquetes)."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/sync.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/sync.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/sync.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html" class="cur">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>sync</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:sync</span><span>solo usuario</span></div><h1>sync</h1><p class="lede">Sincroniza la documentacion de contexto del Hilo con el codigo actual (specs, funcionalidades, inventario de paquetes). NO toca el repositorio remoto: para pull/push es git-sync.</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:sync</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>170</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:sync</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:sync</code>.</p></blockquote>
+<hr>
+<blockquote><p><strong>USE FOR</strong>: actualizar la <strong>DOCUMENTACIÓN</strong> de <code>_hilo/</code> (DEPENDENCIAS, FUNCIONALIDADES, estado) para reflejar el código real. <strong>NO toca git.</strong> <strong>DO NOT USE FOR</strong>: sincronizar con el <strong>REMOTO git</strong> (pull + push) → usar <strong><code>/hv:git-sync</code></strong>. Sincronizar con el Hub → <strong><code>/hub-client</code></strong>.</p></blockquote>
+<section class="sec" id="sec-contexto-2">
+<h3 id="contexto-2">Contexto</h3>
+<p>Actualizar la documentación en <code>_hilo/</code> para reflejar el estado real del código en <code>src/</code></p>
+</section>
+<section class="sec" id="sec-importante-estructura-de-carpetas">
+<h3 id="importante-estructura-de-carpetas">IMPORTANTE: Estructura de Carpetas</h3>
+<pre><code>MiProyecto/
+├── _hilo/                  ← DOCUMENTACIÓN (se actualiza)
+│   ├── DEPENDENCIAS.md
+│   ├── FUNCIONALIDADES.md
+│   └── HISTORIAL_CAMBIOS.md
+├── src/              ← CÓDIGO FUENTE (se lee)
+│   ├── MiSolucion.sln|.slnx    ← .slnx solo .NET 8+
+│   └── ...
+└── ...</code></pre>
+</section>
+<section class="sec" id="sec-tareas-a-ejecutar">
+<h3 id="tareas-a-ejecutar">Tareas a Ejecutar</h3>
+<h4 id="1-analizar-código-actual-en-src">1. Analizar Código Actual en src/</h4>
+<p>Escanear rápidamente:</p>
+<pre data-lang="powershell"><code><span class="tk-c"># Estructura de proyectos</span>
+<span class="tk-v">$projects</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.csproj&quot;</span> -Recurse
+
+<span class="tk-c"># Dependencias (NuGet packages)</span>
+<span class="tk-v">$packages</span> = @()
+<span class="tk-k">foreach</span> (<span class="tk-v">$csproj</span> <span class="tk-k">in</span> <span class="tk-v">$projects</span>) {
+    <span class="tk-v">$content</span> = Get-Content <span class="tk-v">$csproj</span>.FullName -Raw
+    <span class="tk-v">$matches</span> = [regex]::Matches(<span class="tk-v">$content</span>, <span class="tk-s">'&lt;PackageReference Include=&quot;([^&quot;]+)&quot; Version=&quot;([^&quot;]+)&quot;'</span>)
+    <span class="tk-k">foreach</span> (<span class="tk-v">$match</span> <span class="tk-k">in</span> <span class="tk-v">$matches</span>) {
+        <span class="tk-v">$packages</span> += @{
+            Name = <span class="tk-v">$match</span>.Groups[<span class="tk-n">1</span>].Value
+            Version = <span class="tk-v">$match</span>.Groups[<span class="tk-n">2</span>].Value
+            Project = <span class="tk-v">$csproj</span>.Name
+        }
+    }
+}
+
+<span class="tk-c"># Clases y servicios principales</span>
+<span class="tk-v">$services</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*Service.cs&quot;</span> -Recurse
+<span class="tk-v">$controllers</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*Controller.cs&quot;</span> -Recurse
+<span class="tk-v">$repositories</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*Repository.cs&quot;</span> -Recurse</code></pre>
+<h4 id="2-comparar-con-documentación">2. Comparar con Documentación</h4>
+<p>Leer <code>_hilo/DEPENDENCIAS.md</code> y comparar:</p>
+<pre><code>🔄 SINCRONIZACIÓN DE CONTEXTO
+═══════════════════════
+
+🔍 Código analizado: src/
+
+📦 DEPENDENCIAS
+   Documentadas: [N]
+   En código: [M]
+
+   ➕ Nuevas (no documentadas):
+      • Package.Nuevo v1.0.0
+
+   ➖ Eliminadas (documentadas pero no en código):
+      • Package.Viejo
+
+   🔄 Actualizadas:
+      • Package.X: 1.0.0 → 2.0.0</code></pre>
+<h4 id="3-comparar-funcionalidades">3. Comparar Funcionalidades</h4>
+<p>Leer <code>_hilo/FUNCIONALIDADES.md</code> y detectar:</p>
+<ul>
+<li>Módulos nuevos no documentados</li>
+<li>Módulos documentados que ya no existen</li>
+</ul>
+<pre><code>📋 FUNCIONALIDADES
+
+   🆕 Detectadas en código (no documentadas):
+      • src/MiProyecto.API/Controllers/NuevoController.cs
+      • src/MiProyecto.Domain/Services/NuevoService.cs
+
+   ❓ Documentadas (no encontradas en código):
+      • ModuloAntiguo</code></pre>
+<h4 id="4-comparar-estructura-de-proyectos">4. Comparar Estructura de Proyectos</h4>
+<pre><code>📂 ESTRUCTURA (en src/)
+
+   Proyectos documentados: [N]
+   Proyectos en código: [M]
+
+   🆕 Proyectos nuevos:
+      • src/MiProyecto.NewModule/
+
+   ❓ Proyectos eliminados:
+      • MiProyecto.OldModule (documentado pero no existe)</code></pre>
+<h4 id="5-proponer-actualizaciones">5. Proponer Actualizaciones</h4>
+<pre><code>¿Actualizar documentación automáticamente?
+
+1. Sí, actualizar todo
+2. Revisar cambio por cambio
+3. No, solo mostrar diferencias</code></pre>
+<h4 id="6-aplicar-cambios">6. Aplicar Cambios</h4>
+<p>Si el usuario acepta:</p>
+<p><strong>Actualizar <code>_hilo/DEPENDENCIAS.md</code>:</strong></p>
+<pre data-lang="markdown"><code># Dependencias del Proyecto
+
+## Paquetes NuGet (src/)
+
+| Paquete | Versión | Proyecto |
+|---------|---------|----------|
+| Microsoft.AspNetCore.Mvc | 8.0.0 | MiProyecto.API |
+| Dapper | 2.1.0 | MiProyecto.Infrastructure |
+
+_Última sincronización: [FECHA]_</code></pre>
+<p><strong>Actualizar <code>_hilo/FUNCIONALIDADES.md</code>:</strong></p>
+<ul>
+<li>Añadir módulos detectados</li>
+<li>Marcar como ❓ los no encontrados</li>
+</ul>
+<p><strong>Registrar en <code>_hilo/HISTORIAL_CAMBIOS.md</code>:</strong></p>
+<pre data-lang="markdown"><code>### [FECHA] - Sincronización de contexto
+
+- **Tipo: 🔄 Sincronización**
+- **Dependencias: +[N] añadidas, -[M] eliminadas, ~[O] actualizadas**
+- **Funcionalidades: +[N] detectadas**
+- **Código analizado: src/**</code></pre>
+<h4 id="7-confirmación">7. Confirmación</h4>
+<pre><code>✅ SINCRONIZACIÓN COMPLETADA
+═══════════════════════
+
+🔍 Código analizado: src/
+
+📦 Dependencias: [N] actualizadas
+📋 Funcionalidades: [M] actualizadas
+📝 Historial: Entrada añadida
+
+📁 Archivos modificados:
+   • _hilo/DEPENDENCIAS.md
+   • _hilo/FUNCIONALIDADES.md
+   • _hilo/HISTORIAL_CAMBIOS.md
+
+💡 Próximos pasos:
+   • /commit -m &quot;docs: Sincronizar contexto con código&quot;
+   • /estado - Ver dashboard actualizado</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-detección-automática-de-cambios">
+<h3 id="detección-automática-de-cambios">Detección Automática de Cambios</h3>
+<pre data-lang="powershell"><code><span class="tk-c"># Comparar fecha de última sincronización con última modificación de código</span>
+<span class="tk-v">$ultimaSync</span> = (Get-Content <span class="tk-s">&quot;_hilo/ESTADO_PROYECTO.json&quot;</span> | ConvertFrom-Json).ultimaSync
+<span class="tk-v">$ultimaModCode</span> = (Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.cs&quot;</span> -Recurse |
+    Sort-Object LastWriteTime -Descending | Select-Object -First <span class="tk-n">1</span>).LastWriteTime
+
+<span class="tk-k">if</span> (<span class="tk-v">$ultimaModCode</span> -gt <span class="tk-v">$ultimaSync</span>) {
+    Write-Host <span class="tk-s">&quot;⚠️ Código modificado desde última sincronización&quot;</span> -ForegroundColor Yellow
+    Write-Host <span class="tk-s">&quot;   Ejecuta /sync para actualizar documentación&quot;</span> -ForegroundColor Cyan
+}</code></pre>
+<hr>
+<p><em>Skill sync · kind: workflow</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>178</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 170 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>5 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(fuentes): Lote A de la auditoria externa — prosa fosil, dato personal, frases rotas, /hv: canonico y correctivos del generador (ADR-022)</em> (<code>ff4b4fb</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/hub-client.html">hub-client</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/sync/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#contexto-2">Contexto</a></li><li class="l3"><a href="#importante-estructura-de-carpetas">IMPORTANTE: Estructura de Carpetas</a></li><li class="l3"><a href="#tareas-a-ejecutar">Tareas a Ejecutar</a></li><li class="l3"><a href="#detección-automática-de-cambios">Detección Automática de Cambios</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

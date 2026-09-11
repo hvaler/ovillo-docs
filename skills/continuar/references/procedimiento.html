@@ -1,0 +1,382 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>continuar · references/procedimiento.md · Ovillo</title><meta name="description" content="Fichero references/procedimiento.md de la skill continuar"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="continuar · references/procedimiento.md · Ovillo"><meta property="og:description" content="Fichero references/procedimiento.md de la skill continuar"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/continuar/references/procedimiento.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/continuar/references/procedimiento.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/continuar/references/procedimiento.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de continuar (1)</h4><ul class="sibs"><li><a href="../../../skills/continuar/references/procedimiento.html" class="cur">references/procedimiento.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/continuar.html">continuar</a></span><span>references</span><span>procedimiento.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>continuar</span><span>references/</span></div><h1>procedimiento.md</h1><p class="lede">Referencia que <code>continuar</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/continuar.html">continuar</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>13.496 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Se lee bajo demanda al invocar la skill. Vive aparte para no pasar del techo de 400 lineas del <code>SKILL.md</code>.</p></blockquote>
+<hr>
+<blockquote><p>Este comando carga TODO el contexto necesario para retomar donde lo dejaste:</p>
+<ul>
+<li>Spec completo del evolutivo activo (o el especificado)</li>
+<li>Estado de la última sesión</li>
+<li>Checklist y progreso</li>
+<li>Próximo paso guardado</li>
+</ul></blockquote>
+<section class="sec" id="sec-sintaxis">
+<h3 id="sintaxis">Sintaxis</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Si hay un solo evolutivo en progreso → lo retoma automáticamente</span>
+/continuar
+
+<span class="tk-c"># Si hay múltiples evolutivos → especificar cuál retomar</span>
+/continuar HV-01
+
+<span class="tk-c"># También sirve para CAMBIAR de evolutivo activo</span>
+/continuar HV-02    <span class="tk-c"># Cambia de HV-01 a HV-02 sin pausar formalmente</span></code></pre>
+</section>
+<section class="sec" id="sec-parámetro-recibido">
+<h3 id="parámetro-recibido">Parámetro Recibido</h3>
+<ul>
+<li><strong>Argumentos: $ARGUMENTS (opcional - código del evolutivo)</strong></li>
+</ul>
+</section>
+<section class="sec" id="sec-contexto">
+<h3 id="contexto">Contexto</h3>
+<p>Nueva sesión de Claude Code. Cargar contexto completo desde <code>_hilo/</code> y preparar para continuar.</p>
+<hr>
+</section>
+<section class="sec" id="sec-flujo-de-ejecución">
+<h3 id="flujo-de-ejecución">FLUJO DE EJECUCIÓN</h3>
+<pre><code>1. Parsear argumentos → ¿se especificó código?
+2. Leer ESTADO_PROYECTO.json → evolutivos en progreso
+3. DETERMINAR evolutivo a retomar:
+   a. Si se especificó código → usar ese
+   b. Si hay un solo evolutivo → usar ese
+   c. Si hay múltiples → PREGUNTAR cuál
+4. ACTUALIZAR evolutivoActivo en JSON
+5. Leer specs/[CODIGO].md → especificaciones COMPLETAS
+6. Leer FUNCIONALIDADES.md → estado general
+7. Verificar cambios externos (git status)
+8. Mostrar resumen completo
+9. Preguntar: &quot;¿Continuamos con [próximo paso]?&quot;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-1-parsear-argumentos">
+<h3 id="paso-1-parsear-argumentos">PASO 1: Parsear Argumentos</h3>
+<pre><code>Si $ARGUMENTS contiene código (ej: &quot;HV-01&quot;):
+   → codigoEspecificado = &quot;HV-01&quot;
+Si no:
+   → codigoEspecificado = null</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-2-cargar-estado-del-proyecto">
+<h3 id="paso-2-cargar-estado-del-proyecto">PASO 2: Cargar Estado del Proyecto</h3>
+<pre><code>Leer: _hilo/ESTADO_PROYECTO.json</code></pre>
+<p>Extraer:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;evolutivoActivo&quot;</span>: <span class="tk-s">&quot;HV-02&quot;</span>,
+  <span class="tk-s">&quot;ultimaSesion&quot;</span>: {
+    <span class="tk-s">&quot;fecha&quot;</span>: <span class="tk-s">&quot;...&quot;</span>,
+    <span class="tk-s">&quot;evolutivoActivo&quot;</span>: <span class="tk-s">&quot;[CÓDIGO]&quot;</span>,
+    <span class="tk-s">&quot;proximoPaso&quot;</span>: <span class="tk-s">&quot;...&quot;</span>,
+    <span class="tk-s">&quot;resumenSesion&quot;</span>: <span class="tk-s">&quot;...&quot;</span>,
+    <span class="tk-s">&quot;archivosModificados&quot;</span>: [...],
+    <span class="tk-s">&quot;notas&quot;</span>: <span class="tk-s">&quot;...&quot;</span>
+  },
+  <span class="tk-s">&quot;evolutivos&quot;</span>: {
+    <span class="tk-s">&quot;enProgreso&quot;</span>: [
+      { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;HV-01&quot;</span>, ... },
+      { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;HV-02&quot;</span>, ... }
+    ]
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-3--determinar-evolutivo-a-retomar">
+<h3 id="paso-3--determinar-evolutivo-a-retomar">PASO 3: ⭐ DETERMINAR EVOLUTIVO A RETOMAR</h3>
+<h4 id="caso-a-se-especificó-código">Caso A: Se especificó código</h4>
+<pre><code>Si codigoEspecificado != null:
+   Verificar que existe en evolutivos.enProgreso
+   Si existe → evolutivoARetomar = codigoEspecificado
+   Si no existe → ERROR: &quot;Evolutivo [CÓDIGO] no encontrado en progreso&quot;</code></pre>
+<h4 id="caso-b-un-solo-evolutivo-en-progreso">Caso B: Un solo evolutivo en progreso</h4>
+<pre><code>Si evolutivos.enProgreso.length == 1:
+   evolutivoARetomar = evolutivos.enProgreso[0].id
+   Retomando único evolutivo en progreso: {0}</code></pre>
+<h4 id="caso-c-múltiples-evolutivos-en-progreso">Caso C: Múltiples evolutivos en progreso</h4>
+<pre><code>Si evolutivos.enProgreso.length &gt; 1 Y codigoEspecificado == null:
+   PREGUNTAR al usuario:
+
+   ╔═══════════════════════════════════════════════════════════╗
+   ║              📋 MÚLTIPLES EVOLUTIVOS EN PROGRESO                ║
+   ╚═══════════════════════════════════════════════════════════╝
+
+   Hay {0} evolutivos en progreso. ¿Cuál quieres retomar?
+
+   → HV-01: Validación de DNI en formulario
+     Última sesión: {0} | Progreso: {1}% | Próximo paso: {0}
+
+     HV-02: Agregar campos fecha/usuario a CourseDTO
+     Última sesión: {0} | Progreso: {1}% | Próximo paso: {0}
+
+   Indica el código (ej: HV-01) o escribe el número:
+
+   ESPERAR RESPUESTA DEL USUARIO</code></pre>
+<h4 id="caso-d-sin-evolutivos-en-progreso">Caso D: Sin evolutivos en progreso</h4>
+<pre><code>Si evolutivos.enProgreso.length == 0:
+   → Ir a sección &quot;Sin Evolutivo Activo&quot;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-4--actualizar-evolutivoactivo">
+<h3 id="paso-4--actualizar-evolutivoactivo">PASO 4: ⚠️ ACTUALIZAR evolutivoActivo</h3>
+<blockquote><p><strong>CRITICAL</strong>: CRITICAL: Antes de continuar, actualizar el JSON para reflejar cuál es el evolutivo activo.</p></blockquote>
+<pre data-lang="json"><code>// Actualizar _hilo/ESTADO_PROYECTO.json
+{
+  <span class="tk-s">&quot;evolutivoActivo&quot;</span>: <span class="tk-s">&quot;[CÓDIGO_SELECCIONADO]&quot;</span>,    ← ACTUALIZAR
+  ...
+}</code></pre>
+<p>Esto permite que <code>/hv:estado</code> y <code>/hv:pausar</code> sepan cuál es el evolutivo activo actual.</p>
+<hr>
+</section>
+<section class="sec" id="sec-paso-45--verificar-rama-git">
+<h3 id="paso-45--verificar-rama-git">PASO 4.5: 🌿 VERIFICAR RAMA GIT</h3>
+<blockquote><p>Detectar si el usuario está en la rama correcta para el evolutivo.</p></blockquote>
+<h4 id="detectar-rama-actual">Detectar Rama Actual</h4>
+<pre data-lang="bash"><code><span class="tk-k">git</span> branch --show-current</code></pre>
+<h4 id="obtener-rama-del-evolutivo">Obtener Rama del Evolutivo</h4>
+<pre data-lang="javascript"><code><span class="tk-k">const</span> evolutivo = estado.evolutivos.enProgreso.find(e =&gt; e.codigo === codigoSeleccionado);
+<span class="tk-k">const</span> ramaEvolutivo = evolutivo?.rama;  <span class="tk-c">// Ej: &quot;feature/HV-05&quot;</span>
+<span class="tk-k">const</span> ramaActual = ejecutar(<span class="tk-s">&quot;git branch --show-current&quot;</span>).trim();  <span class="tk-c">// Ej: &quot;main&quot;</span></code></pre>
+<h4 id="si-las-ramas-no-coinciden">Si las Ramas No Coinciden</h4>
+<pre data-lang="javascript"><code><span class="tk-k">const</span> nivel = estado.configuracion?.nivelIntegracionGit || <span class="tk-s">&quot;medio&quot;</span>;</code></pre>
+<h5 id="nivel-básico">Nivel BÁSICO:</h5>
+<pre><code>🌿 NOTA SOBRE RAMA GIT
+
+Evolutivo: {0}
+Rama del evolutivo: {0}
+Tu rama actual: {0}
+
+💡 SUGERENCIA:
+┌──────────────────────────────────────────────────────────┐
+│ Para cambiar a la rama del evolutivo:          │
+│                                                          │
+│   git checkout feature/HV-05                             │
+│                                                          │
+└──────────────────────────────────────────────────────────┘</code></pre>
+<h5 id="nivel-medio-recomendado">Nivel MEDIO (Recomendado):</h5>
+<pre><code>🌿 RAMA DIFERENTE DETECTADA
+
+Evolutivo: {0}
+Rama del evolutivo: {0}
+Tu rama actual: {0}
+
+¿Cambiar a {0}? (s/n)</code></pre>
+<p>Si responde &quot;s&quot;:</p>
+<pre><code>✅ Ejecutando: git checkout {0}
+✅ Cambiado a rama {0}</code></pre>
+<p>Si responde &quot;n&quot;:</p>
+<pre><code>⚠️ Continuando en rama {0}
+
+Nota: Los cambios que hagas estarán en {0}, no en {1}</code></pre>
+<h5 id="nivel-alto">Nivel ALTO:</h5>
+<pre><code>🤖 CAMBIO AUTOMÁTICO DE RAMA
+
+✅ Detectado: estabas en {0}
+✅ Ejecutando: git checkout {0}
+✅ Cambiado a rama {0}</code></pre>
+<h4 id="si-no-existe-la-rama">Si No Existe la Rama</h4>
+<p>Si el evolutivo tiene rama asignada pero no existe localmente:</p>
+<pre><code>🌿 RAMA NO EXISTE LOCALMENTE
+
+Evolutivo: {0}
+Rama esperada: {0}
+
+Opciones:
+1. Crear rama local: git checkout -b {0}
+2. Buscar en remoto: git fetch &amp;&amp; git checkout {0}
+3. Continuar sin cambiar de rama
+
+¿Qué deseas hacer? (1/2/3)</code></pre>
+<h4 id="si-el-evolutivo-no-tiene-rama-asignada">Si el Evolutivo No Tiene Rama Asignada</h4>
+<p>Si el evolutivo fue creado antes de la integración Git:</p>
+<pre><code>ℹ️ SIN RAMA ASIGNADA
+
+El evolutivo {0} no tiene rama Git asignada.
+
+¿Quieres asignar una rama ahora?
+1. Crear feature/{0} (recomendado)
+2. Usar rama actual ({0})
+3. Continuar sin rama
+
+Opción (1/2/3):</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-5--cargar-spec-completo-del-evolutivo">
+<h3 id="paso-5--cargar-spec-completo-del-evolutivo">PASO 5: ⚠️ CARGAR SPEC COMPLETO DEL EVOLUTIVO</h3>
+<blockquote><p><strong>CRITICAL</strong>: CRITICAL: Leer el spec completo para tener todo el contexto.</p></blockquote>
+<pre><code>Leer: _hilo/specs/[CÓDIGO].md</code></pre>
+<p>Extraer:</p>
+<ul>
+<li><strong>Descripción completa del evolutivo</strong></li>
+<li><strong>Objetivo que se busca lograr</strong></li>
+<li><strong>Especificaciones técnicas: endpoints, SPs, validaciones</strong></li>
+<li><strong>Criterios de aceptación: checklist con estado</strong></li>
+<li><strong>Archivos afectados: estimación inicial</strong></li>
+<li><strong>Historial de sesiones: todo lo trabajado anteriormente</strong></li>
+<li><strong>Notas de implementación: decisiones tomadas</strong></li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-paso-6-verificar-cambios-externos">
+<h3 id="paso-6-verificar-cambios-externos">PASO 6: Verificar Cambios Externos</h3>
+<pre data-lang="powershell"><code><span class="tk-c"># Ver si hay cambios desde la última sesión</span>
+git status --short
+
+<span class="tk-c"># Ver commits recientes (por si alguien más trabajó)</span>
+git log --oneline -5</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-7-mostrar-resumen-completo">
+<h3 id="paso-7-mostrar-resumen-completo">PASO 7: Mostrar Resumen Completo</h3>
+<pre><code>╔═══════════════════════════════════════════════════════════════╗
+║                    🔄 RETOMANDO SESIÓN                            ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📅 Última sesión: {0}
+📁 Código en: src/
+
+┌──────────────────────────────────────────────────────────────────┐
+│ 📋 EVOLUTIVO ACTIVO                                             │
+├──────────────────────────────────────────────────────────────────┤
+│ [CÓDIGO]: [Nombre del evolutivo]                                │
+│                                                                  │
+│ 📊 Progreso: {0}% ({1}/{2} criterios)               │
+│ 🎯 Prioridad: {0}                                        │
+│ 📄 Spec: _hilo/specs/{0}.md                           │
+└──────────────────────────────────────────────────────────────────┘
+
+📝 DESCRIPCIÓN:
+   [Descripción del evolutivo desde el spec]
+
+🎯 OBJETIVO:
+   [Objetivo que se busca lograr]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 CRITERIOS DE ACEPTACIÓN:
+━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Completados::
+   • [Criterio 1]
+   • [Criterio 2]
+
+⏳ Pending::
+   • [Criterio 3]
+   • [Criterio 4]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📂 ARCHIVOS DE LA ÚLTIMA SESIÓN:
+   • src/[Proyecto]/archivo1.cs
+   • src/[Proyecto]/archivo2.cs
+
+📝 RESUMEN ÚLTIMA SESIÓN:
+   &quot;[Lo que se logró en la sesión anterior]&quot;
+
+🎯 PRÓXIMO PASO GUARDADO:
+   &quot;[El próximo paso que se guardó con /pausar]&quot;
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📜 HISTORIAL DE SESIONES:
+   • [fecha1]: [nota1]
+   • [fecha2]: [nota2]
+   • [fecha3]: [nota3]</code></pre>
+<p><strong>Si hay otros evolutivos en progreso (mostrar al final):</strong></p>
+<pre><code>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 OTROS EVOLUTIVOS EN PROGRESO ({0}):
+   • HV-01: Validación de DNI... (60%)
+   • HV-03: Mejora de rendimiento... (20%)
+
+💡 Para cambiar: /continuar {0}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-8-verificar-cambios-externos">
+<h3 id="paso-8-verificar-cambios-externos">PASO 8: Verificar Cambios Externos</h3>
+<p><strong>Si hay cambios no commiteados:</strong></p>
+<pre><code>⚠️ CAMBIOS DETECTADOS DESDE LA ÚLTIMA SESIÓN:
+
+ M src/[Proyecto]/archivo1.cs
+ M src/[Proyecto]/archivo2.cs
+
+💡 Estos archivos tienen cambios pendientes de commit.</code></pre>
+<p><strong>Si hubo commits de otros:</strong></p>
+<pre><code>ℹ️ COMMITS RECIENTES (por si alguien más trabajó):
+
+abc1234 - feat: añadido endpoint X (Juan, hace 2 días)
+def5678 - fix: corregido bug Y (María, hace 3 días)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-9-cómo-continuamos">
+<h3 id="paso-9-cómo-continuamos">PASO 9: ¿CÓMO CONTINUAMOS?</h3>
+<pre><code>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 ¿CÓMO CONTINUAMOS?
+
+El próximo paso guardado es:
+   &quot;[próximo paso]&quot;
+
+Opciones:
+1. Continuar con ese paso
+2. Indicar otro punto de partida
+3. Ver especificaciones técnicas completas del spec
+4. Ver estado general del proyecto (/estado)
+
+¿Qué prefieres?</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-casos-especiales">
+<h3 id="casos-especiales">CASOS ESPECIALES</h3>
+<h4 id="no-hay-evolutivo-activo">NO HAY EVOLUTIVO ACTIVO</h4>
+<pre><code>ℹ️ NO HAY EVOLUTIVO ACTIVO
+
+Última sesión: {0}
+Notas guardadas: &quot;{0}&quot;
+
+💡 Opciones:
+   • /nuevo-evolutivo &quot;CÓDIGO: Descripción&quot; → Iniciar nuevo evolutivo
+   • /estado → Ver estado general del proyecto
+   • /analizar → Analizar el proyecto</code></pre>
+<h4 id="evolutivo-sin-spec">EVOLUTIVO SIN SPEC</h4>
+<pre><code>⚠️ EVOLUTIVO SIN SPEC
+
+El evolutivo {0} está en progreso pero no tiene archivo spec.
+
+Creando spec desde la información disponible...
+[Crear _hilo/specs/[CODIGO].md con la info de FUNCIONALIDADES.md]
+
+✅ Spec creado: _hilo/specs/{0}.md</code></pre>
+<h4 id="bienvenido-al-proyecto">¡BIENVENIDO AL PROYECTO!</h4>
+<pre><code>👋 ¡BIENVENIDO AL PROYECTO!
+
+No hay sesiones anteriores registradas.
+
+💡 Comandos sugeridos:
+   • /analizar → Analizar estructura del proyecto
+   • /nuevo-evolutivo &quot;CÓDIGO: Descripción&quot; → Iniciar evolutivo
+   • /estado → Ver configuración del proyecto</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-critical-reminders">
+<h3 id="critical-reminders">⚠️ CRITICAL REMINDERS</h3>
+<h4 id="siempre-leer-estos-archivos">SIEMPRE leer estos archivos:</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Información</th></tr></thead><tbody><tr><td><code>ESTADO_PROYECTO.json</code></td><td>Última sesión, evolutivo activo</td></tr><tr><td><code>FUNCIONALIDADES.md</code></td><td>Estado de evolutivos</td></tr><tr><td><code>specs/[CODIGO].md</code></td><td><strong>SPEC COMPLETO con toda la info</strong></td></tr></tbody></table></div>
+<h4 id="mostrar-del-spec">MOSTRAR del spec:</h4>
+<ul>
+<li>✅ Descripción y objetivo</li>
+<li>✅ Criterios de aceptación (checklist)</li>
+<li>✅ Especificaciones técnicas (si las hay)</li>
+<li>✅ Historial de sesiones</li>
+<li>✅ Próximo paso guardado</li>
+</ul>
+<h4 id="nunca">NUNCA:</h4>
+<ul>
+<li>❌ Mostrar solo el nombre del evolutivo sin contexto</li>
+<li>❌ Ignorar el archivo spec</li>
+<li>❌ Empezar a trabajar sin mostrar el estado completo</li>
+<li>❌ Asumir cuál evolutivo retomar si hay múltiples</li>
+</ul>
+<h4 id="múltiples-evolutivos">MÚLTIPLES EVOLUTIVOS:</h4>
+<ul>
+<li>✅ Si se especifica código → usar ese directamente</li>
+<li>✅ Si hay un solo evolutivo → usarlo automáticamente</li>
+<li>✅ Si hay múltiples sin código → PREGUNTAR cuál</li>
+<li>✅ SIEMPRE actualizar <code>evolutivoActivo</code> en JSON al seleccionar</li>
+<li>✅ Mostrar otros evolutivos en progreso al final del resumen</li>
+</ul>
+</section><p style="margin-top:32px"><a href="../../../skills/continuar.html#ficheros">← Volver a la ficha de continuar</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/continuar.html"><small>Anterior</small>Ficha de continuar</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/continuar/references/procedimiento.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#sintaxis">Sintaxis</a></li><li class="l2"><a href="#parámetro-recibido">Parámetro Recibido</a></li><li class="l2"><a href="#contexto">Contexto</a></li><li class="l2"><a href="#flujo-de-ejecución">FLUJO DE EJECUCIÓN</a></li><li class="l2"><a href="#paso-1-parsear-argumentos">PASO 1: Parsear Argumentos</a></li><li class="l2"><a href="#paso-2-cargar-estado-del-proyecto">PASO 2: Cargar Estado del Proyecto</a></li><li class="l2"><a href="#paso-3--determinar-evolutivo-a-retomar">PASO 3: ⭐ DETERMINAR EVOLUTIVO A RETOMAR</a></li><li class="l3"><a href="#caso-a-se-especificó-código">Caso A: Se especificó código</a></li><li class="l3"><a href="#caso-b-un-solo-evolutivo-en-progreso">Caso B: Un solo evolutivo en progreso</a></li><li class="l3"><a href="#caso-c-múltiples-evolutivos-en-progreso">Caso C: Múltiples evolutivos en progreso</a></li><li class="l3"><a href="#caso-d-sin-evolutivos-en-progreso">Caso D: Sin evolutivos en progreso</a></li><li class="l2"><a href="#paso-4--actualizar-evolutivoactivo">PASO 4: ⚠️ ACTUALIZAR evolutivoActivo</a></li><li class="l2"><a href="#paso-45--verificar-rama-git">PASO 4.5: 🌿 VERIFICAR RAMA GIT</a></li><li class="l3"><a href="#detectar-rama-actual">Detectar Rama Actual</a></li><li class="l3"><a href="#obtener-rama-del-evolutivo">Obtener Rama del Evolutivo</a></li><li class="l3"><a href="#si-las-ramas-no-coinciden">Si las Ramas No Coinciden</a></li><li class="l3"><a href="#si-no-existe-la-rama">Si No Existe la Rama</a></li><li class="l3"><a href="#si-el-evolutivo-no-tiene-rama-asignada">Si el Evolutivo No Tiene Rama Asignada</a></li><li class="l2"><a href="#paso-5--cargar-spec-completo-del-evolutivo">PASO 5: ⚠️ CARGAR SPEC COMPLETO DEL EVOLUTIVO</a></li><li class="l2"><a href="#paso-6-verificar-cambios-externos">PASO 6: Verificar Cambios Externos</a></li><li class="l2"><a href="#paso-7-mostrar-resumen-completo">PASO 7: Mostrar Resumen Completo</a></li><li class="l2"><a href="#paso-8-verificar-cambios-externos">PASO 8: Verificar Cambios Externos</a></li><li class="l2"><a href="#paso-9-cómo-continuamos">PASO 9: ¿CÓMO CONTINUAMOS?</a></li><li class="l2"><a href="#casos-especiales">CASOS ESPECIALES</a></li><li class="l3"><a href="#no-hay-evolutivo-activo">NO HAY EVOLUTIVO ACTIVO</a></li><li class="l3"><a href="#evolutivo-sin-spec">EVOLUTIVO SIN SPEC</a></li><li class="l3"><a href="#bienvenido-al-proyecto">¡BIENVENIDO AL PROYECTO!</a></li><li class="l2"><a href="#critical-reminders">⚠️ CRITICAL REMINDERS</a></li><li class="l3"><a href="#siempre-leer-estos-archivos">SIEMPRE leer estos archivos:</a></li><li class="l3"><a href="#mostrar-del-spec">MOSTRAR del spec:</a></li><li class="l3"><a href="#nunca">NUNCA:</a></li><li class="l3"><a href="#múltiples-evolutivos">MÚLTIPLES EVOLUTIVOS:</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

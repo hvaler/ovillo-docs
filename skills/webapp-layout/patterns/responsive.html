@@ -1,0 +1,324 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>webapp-layout · patterns/responsive.md · Ovillo</title><meta name="description" content="Fichero patterns/responsive.md de la skill webapp-layout"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="webapp-layout · patterns/responsive.md · Ovillo"><meta property="og:description" content="Fichero patterns/responsive.md de la skill webapp-layout"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/webapp-layout/patterns/responsive.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/webapp-layout/patterns/responsive.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/webapp-layout/patterns/responsive.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de webapp-layout (15)</h4><ul class="sibs"><li><a href="../../../skills/webapp-layout/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/webapp-layout/patterns/accesibilidad.html">patterns/accesibilidad.md</a></li><li><a href="../../../skills/webapp-layout/patterns/colores-corporativos.html">patterns/colores-corporativos.md</a></li><li><a href="../../../skills/webapp-layout/patterns/dark-mode.html">patterns/dark-mode.md</a></li><li><a href="../../../skills/webapp-layout/patterns/layout-estandar.html">patterns/layout-estandar.md</a></li><li><a href="../../../skills/webapp-layout/patterns/print-styles.html">patterns/print-styles.md</a></li><li><a href="../../../skills/webapp-layout/patterns/responsive.html" class="cur">patterns/responsive.md</a></li><li><a href="../../../skills/webapp-layout/templates/_ErrorPage.html">templates/_ErrorPage.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Footer.html">templates/_Footer.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Header.html">templates/_Header.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Layout.html">templates/_Layout.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Loading.html">templates/_Loading.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Sidebar.html">templates/_Sidebar.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/forms.html">templates/forms.css</a></li><li><a href="../../../skills/webapp-layout/templates/site.html">templates/site.css</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/webapp-layout.html">webapp-layout</a></span><span>patterns</span><span>responsive.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>webapp-layout</span><span>patterns/</span></div><h1>responsive.md</h1><p class="lede">Referencia que <code>webapp-layout</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/webapp-layout.html">webapp-layout</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>6771 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Guía de diseño responsive para aplicaciones web de la organización.</p></blockquote>
+<hr>
+<section class="sec" id="sec-breakpoints">
+<h3 id="breakpoints">Breakpoints</h3>
+<pre data-lang="css"><code>:root {
+    --breakpoint-mobile: 768px;
+    --breakpoint-tablet: 1200px;
+}
+
+/* Mobile: &lt; 768px */
+@media (max-width: 767px) { }
+
+/* Tablet: 768px - 1199px */
+@media (min-width: 768px) and (max-width: 1199px) { }
+
+/* Desktop: &gt;= 1200px */
+@media (min-width: 1200px) { }</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-comportamiento-por-dispositivo">
+<h3 id="comportamiento-por-dispositivo">Comportamiento por Dispositivo</h3>
+<h4 id="desktop--1200px">Desktop (&gt;= 1200px)</h4>
+<div class="tbl"><table><thead><tr><th>Elemento</th><th>Comportamiento</th></tr></thead><tbody><tr><td><strong>Header</strong></td><td>Fijo, 60px altura</td></tr><tr><td><strong>Sidebar</strong></td><td>Visible expandido (250px)</td></tr><tr><td><strong>Contenido</strong></td><td>margin-left: 250px</td></tr><tr><td><strong>Footer</strong></td><td>Fijo en bottom</td></tr><tr><td><strong>Grids</strong></td><td>12 columnas disponibles</td></tr><tr><td><strong>Tablas</strong></td><td>Completas, scroll horizontal si excede</td></tr></tbody></table></div>
+<h4 id="tablet-768px---1199px">Tablet (768px - 1199px)</h4>
+<div class="tbl"><table><thead><tr><th>Elemento</th><th>Comportamiento</th></tr></thead><tbody><tr><td><strong>Header</strong></td><td>Fijo, 60px altura</td></tr><tr><td><strong>Sidebar</strong></td><td>Colapsado (60px), expandible al hover/click</td></tr><tr><td><strong>Contenido</strong></td><td>margin-left: 60px</td></tr><tr><td><strong>Footer</strong></td><td>Fijo en bottom</td></tr><tr><td><strong>Grids</strong></td><td>6-8 columnas típico</td></tr><tr><td><strong>Tablas</strong></td><td>Scroll horizontal habilitado</td></tr></tbody></table></div>
+<h4 id="mobile--768px">Mobile (&lt; 768px)</h4>
+<div class="tbl"><table><thead><tr><th>Elemento</th><th>Comportamiento</th></tr></thead><tbody><tr><td><strong>Header</strong></td><td>Sticky, hamburger menu visible</td></tr><tr><td><strong>Sidebar</strong></td><td>Oculto, overlay al abrir hamburger</td></tr><tr><td><strong>Contenido</strong></td><td>100% ancho, padding reducido (16px)</td></tr><tr><td><strong>Footer</strong></td><td>Estático, no fijo</td></tr><tr><td><strong>Grids</strong></td><td>1-2 columnas máximo</td></tr><tr><td><strong>Tablas</strong></td><td>Cards o scroll horizontal</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-css-media-queries">
+<h3 id="css-media-queries">CSS Media Queries</h3>
+<h4 id="mobile-first-recomendado">Mobile First (Recomendado)</h4>
+<pre data-lang="css"><code>/* Base: Mobile */
+.container {
+    padding: 16px;
+    width: 100%;
+}
+
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    z-index: 900;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .sidebar {
+        display: block;
+        width: 60px;
+        transform: translateX(0);
+    }
+
+    .sidebar:hover,
+    .sidebar.expanded {
+        width: 250px;
+    }
+
+    .content-wrapper {
+        margin-left: 60px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+    .container {
+        padding: 24px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .sidebar {
+        width: 250px;
+    }
+
+    .content-wrapper {
+        margin-left: 250px;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-grid-system">
+<h3 id="grid-system">Grid System</h3>
+<h4 id="css-grid-responsive">CSS Grid Responsive</h4>
+<pre data-lang="css"><code>.grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        gap: 24px;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}</code></pre>
+<h4 id="columnas-flexibles">Columnas Flexibles</h4>
+<pre data-lang="css"><code>.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;
+}
+
+.col {
+    padding: 8px;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-md-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+    .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-lg-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+    .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+    .col-lg-2 { flex: 0 0 16.666%; max-width: 16.666%; }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-tablas-responsive">
+<h3 id="tablas-responsive">Tablas Responsive</h3>
+<h4 id="opción-1-scroll-horizontal">Opción 1: Scroll Horizontal</h4>
+<pre data-lang="css"><code>.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+    min-width: 600px;
+}</code></pre>
+<h4 id="opción-2-convertir-a-cards-mobile">Opción 2: Convertir a Cards (Mobile)</h4>
+<pre data-lang="css"><code>@media (max-width: 767px) {
+    .table-cards thead {
+        display: none;
+    }
+
+    .table-cards tr {
+        display: block;
+        margin-bottom: 16px;
+        border: 1px solid var(--brand-borde);
+        border-radius: 8px;
+        padding: 12px;
+    }
+
+    .table-cards td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--brand-borde);
+    }
+
+    .table-cards td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--brand-neutral-dark);
+    }
+
+    .table-cards td:last-child {
+        border-bottom: none;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-navegación-móvil">
+<h3 id="navegación-móvil">Navegación Móvil</h3>
+<h4 id="hamburger-menu">Hamburger Menu</h4>
+<pre data-lang="css"><code>.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: white;
+    margin: 5px 0;
+    transition: transform 0.3s;
+}
+
+@media (max-width: 767px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.open .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.open .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}</code></pre>
+<h4 id="overlay">Overlay</h4>
+<pre data-lang="css"><code>.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 850;
+}
+
+@media (max-width: 767px) {
+    .sidebar.open ~ .sidebar-overlay {
+        display: block;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-imágenes-responsive">
+<h3 id="imágenes-responsive">Imágenes Responsive</h3>
+<pre data-lang="css"><code>img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Imágenes con aspect ratio */
+.img-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    overflow: hidden;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-tipografía-responsive">
+<h3 id="tipografía-responsive">Tipografía Responsive</h3>
+<pre data-lang="css"><code>:root {
+    --font-size-base: 16px;
+    --font-size-h1: 1.75rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --font-size-h1: 2rem;
+        --font-size-h2: 1.75rem;
+        --font-size-h3: 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --font-size-h1: 2.5rem;
+        --font-size-h2: 2rem;
+        --font-size-h3: 1.75rem;
+    }
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-testing-responsive">
+<h3 id="testing-responsive">Testing Responsive</h3>
+<h4 id="viewport-meta-tag-obligatorio">Viewport Meta Tag (Obligatorio)</h4>
+<pre data-lang="html"><code><span class="tk-t">&lt;meta</span> name=<span class="tk-s">&quot;viewport&quot;</span> content=<span class="tk-s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="checklist-de-pruebas">Checklist de Pruebas</h4>
+<ul>
+<li><input type="checkbox" disabled> iPhone SE (375px)</li>
+<li><input type="checkbox" disabled> iPhone 12/13 (390px)</li>
+<li><input type="checkbox" disabled> iPad (768px)</li>
+<li><input type="checkbox" disabled> iPad Pro (1024px)</li>
+<li><input type="checkbox" disabled> Desktop HD (1366px)</li>
+<li><input type="checkbox" disabled> Desktop Full HD (1920px)</li>
+</ul>
+<hr>
+<p><em>Última actualización: Enero 2026</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/webapp-layout.html#ficheros">← Volver a la ficha de webapp-layout</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/webapp-layout/patterns/print-styles.html"><small>Anterior</small>patterns/print-styles.md</a><a class="next" href="../../../skills/webapp-layout/templates/_ErrorPage.html"><small>Siguiente</small>templates/_ErrorPage.cshtml</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/webapp-layout/patterns/responsive.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#breakpoints">Breakpoints</a></li><li class="l2"><a href="#comportamiento-por-dispositivo">Comportamiento por Dispositivo</a></li><li class="l3"><a href="#desktop--1200px">Desktop (&gt;= 1200px)</a></li><li class="l3"><a href="#tablet-768px---1199px">Tablet (768px - 1199px)</a></li><li class="l3"><a href="#mobile--768px">Mobile (&lt; 768px)</a></li><li class="l2"><a href="#css-media-queries">CSS Media Queries</a></li><li class="l3"><a href="#mobile-first-recomendado">Mobile First (Recomendado)</a></li><li class="l2"><a href="#grid-system">Grid System</a></li><li class="l3"><a href="#css-grid-responsive">CSS Grid Responsive</a></li><li class="l3"><a href="#columnas-flexibles">Columnas Flexibles</a></li><li class="l2"><a href="#tablas-responsive">Tablas Responsive</a></li><li class="l3"><a href="#opción-1-scroll-horizontal">Opción 1: Scroll Horizontal</a></li><li class="l3"><a href="#opción-2-convertir-a-cards-mobile">Opción 2: Convertir a Cards (Mobile)</a></li><li class="l2"><a href="#navegación-móvil">Navegación Móvil</a></li><li class="l3"><a href="#hamburger-menu">Hamburger Menu</a></li><li class="l3"><a href="#overlay">Overlay</a></li><li class="l2"><a href="#imágenes-responsive">Imágenes Responsive</a></li><li class="l2"><a href="#tipografía-responsive">Tipografía Responsive</a></li><li class="l2"><a href="#testing-responsive">Testing Responsive</a></li><li class="l3"><a href="#viewport-meta-tag-obligatorio">Viewport Meta Tag (Obligatorio)</a></li><li class="l3"><a href="#checklist-de-pruebas">Checklist de Pruebas</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

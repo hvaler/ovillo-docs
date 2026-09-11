@@ -1,0 +1,414 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>calidad-codigo-sync · scripts/Sync-QualityRecord.ps1 · Ovillo</title><meta name="description" content="Fichero scripts/Sync-QualityRecord.ps1 de la skill calidad-codigo-sync"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="calidad-codigo-sync · scripts/Sync-QualityRecord.ps1 · Ovillo"><meta property="og:description" content="Fichero scripts/Sync-QualityRecord.ps1 de la skill calidad-codigo-sync"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/calidad-codigo-sync/scripts/Sync-QualityRecord.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/calidad-codigo-sync/scripts/Sync-QualityRecord.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/calidad-codigo-sync/scripts/Sync-QualityRecord.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de calidad-codigo-sync (6)</h4><ul class="sibs"><li><a href="../../../skills/calidad-codigo-sync/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/calidad-codigo-sync/references/ci-wiring.html">references/ci-wiring.md</a></li><li><a href="../../../skills/calidad-codigo-sync/references/workflow-calidad-sync.html">references/workflow-calidad-sync.md</a></li><li><a href="../../../skills/calidad-codigo-sync/references/workflow-metrics.html">references/workflow-metrics.md</a></li><li><a href="../../../skills/calidad-codigo-sync/scripts/coverage.html">scripts/coverage.runsettings</a></li><li><a href="../../../skills/calidad-codigo-sync/scripts/Sync-QualityRecord.html" class="cur">scripts/Sync-QualityRecord.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></span><span>scripts</span><span>Sync-QualityRecord.ps1</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>calidad-codigo-sync</span><span>scripts/</span><span>23.183 B</span></div><h1>Sync-QualityRecord.ps1</h1><p class="lede">Fichero que <code>/hv:calidad-codigo-sync</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></b><span>skill</span></div><div><b>scripts</b><span>carpeta</span></div><div><b>23.183 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="powershell"><code><span class="tk-c">#Requires -Version 5.1</span>
+<span class="tk-c">&lt;#
+.SYNOPSIS
+    Productor de Registros de Calidad (QR) del ecosistema Ovillo.
+    Calcula metricas de calidad desde el coverage OpenCover y las publica en el Hub
+    (POST /v2/sync/quality-batch) para que el dashboard de calidad las muestre.
+
+.DESCRIPTION
+    SOLO-LECTURA del codigo: lee el coverage.opencover.xml que produce
+    'dotnet test --collect &quot;XPlat Code Coverage&quot;' con el runsettings de la skill
+    (Format=cobertura,opencover). De OpenCover saca, por metodo, complejidad
+    ciclomatica + NPath + cobertura -&gt; computa CRAP = comp^2 * (1 - cov)^3 + comp
+    (igual que ReportGenerator), agrega el QR (CRAP max, metodos CRAPpy, ciclomatica
+    media, NPath max, cobertura linea/rama, top-N hotspots, cobertura por clase/namespace),
+    evalua el quality gate y hace el POST al Hub.
+
+    NO reemplaza el gate de cobertura (coverage-gate.ps1, G7/R18) ni el analisis interactivo
+    crap-analysis: produce los QR que consume el dashboard (hub v1.3.0+).
+
+.NOTES
+    ASCII puro (PS 5.1 lee .ps1 sin BOM como CP1252 -&gt; no usar acentos ni em-dash).
+    Auth: service-key per-proyecto en X-Hub-Api-Key, NUNCA hardcodeada
+    ni pasada a mano por linea de comandos fuera de CI (queda en PSReadLine y en
+    transcripts de agentes IA - eval-gap Billing 2026-06-11). Resolucion:
+    -ApiKey (CI, VG R16) &gt; DPAPI file por-proyecto &gt; DPAPI file generico &gt;
+    env HUB_SERVICE_KEY. Alta interactiva segura: -StoreKey (prompt oculto).
+#&gt;</span>
+
+[CmdletBinding()]
+<span class="tk-k">param</span>(
+    [string] <span class="tk-v">$ProjectId</span>,                                      <span class="tk-c"># GUID del proyecto en el hub (obligatorio salvo -StoreKey)</span>
+    [string] <span class="tk-v">$ApiKey</span>,                                         <span class="tk-c"># service-key. OPCIONAL: ver cadena de resolucion abajo</span>
+    [<span class="tk-k">switch</span>] <span class="tk-v">$StoreKey</span>,                                       <span class="tk-c"># alta segura de la key en esta maquina (prompt oculto, DPAPI per-user) y salir</span>
+    [string] <span class="tk-v">$ServerUrl</span>       = <span class="tk-s">'https://hub.example.org'</span>,
+    [string] <span class="tk-v">$ResultsDir</span>      = <span class="tk-s">'./TestResults'</span>,              <span class="tk-c"># donde dotnet test dejo el coverage</span>
+    [string] <span class="tk-v">$CodeSearchBase</span>  = <span class="tk-v">$null</span>,                        <span class="tk-c"># base ADO Code Search del repo (el dashboard concatena el fichero)</span>
+    [string] <span class="tk-v">$BuildId</span>         = <span class="tk-v">$null</span>,
+    [int]    <span class="tk-v">$CrapThreshold</span>   = <span class="tk-n">30</span>,
+    [int]    <span class="tk-v">$CoverageLineMin</span> = <span class="tk-n">75</span>,
+    [int]    <span class="tk-v">$CoverageBranchMin</span> = <span class="tk-n">60</span>,
+    [int]    <span class="tk-v">$TopHotspots</span>     = <span class="tk-n">20</span>,
+    [int]    <span class="tk-v">$TopClases</span>       = <span class="tk-n">400</span>,                          <span class="tk-c"># tope de clases en el desglose (top por crapMax)</span>
+    [string[]] <span class="tk-v">$AdrRelacionados</span> = @(),
+    [bool]   <span class="tk-v">$CoberturaIntegracionMedida</span> = <span class="tk-v">$true</span>,   <span class="tk-c"># D2/FB-008: false si la integracion (WebApplicationFactory) NO se midio</span>
+    [<span class="tk-k">switch</span>] <span class="tk-v">$DryRun</span>
+)
+
+<span class="tk-v">$ErrorActionPreference</span> = <span class="tk-s">'Stop'</span>
+
+<span class="tk-c"># --- R2: TLS 1.2+ (PS 5.1 negocia TLS 1.0 por defecto; el Hub exige 1.2+) ---</span>
+<span class="tk-k">try</span> {
+    [Net.ServicePointManager]::SecurityProtocol =
+        [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13
+} <span class="tk-k">catch</span> {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+}
+
+<span class="tk-k">function</span> Write-Info(<span class="tk-v">$m</span>) { Write-Host <span class="tk-s">&quot;[calidad-sync] $m&quot;</span> }
+<span class="tk-k">function</span> Write-Warn(<span class="tk-v">$m</span>) { Write-Warning <span class="tk-s">&quot;[calidad-sync] $m&quot;</span> }
+
+<span class="tk-c"># =============================================================================</span>
+<span class="tk-c"># Service-key: cadena de resolucion + alta segura (-StoreKey)</span>
+<span class="tk-c"># Motivo (la key acababa en el historial / transcript</span>
+<span class="tk-c"># al ser -ApiKey mandatory). Almacen local: fichero DPAPI per-user (cifrado ligado</span>
+<span class="tk-c"># a usuario+maquina, ConvertFrom-SecureString sin -Key) en %APPDATA%\Ovillo\.</span>
+<span class="tk-c"># NUNCA pasar la key como argumento fuera de CI (queda en PSReadLine/transcripts).</span>
+<span class="tk-c"># =============================================================================</span>
+<span class="tk-v">$keyStoreDir</span> = Join-Path <span class="tk-v">$env:APPDATA</span> <span class="tk-s">'Ovillo'</span>
+<span class="tk-k">function</span> Get-KeyFilePath([string]<span class="tk-v">$pid_</span>) {
+    <span class="tk-k">if</span> (<span class="tk-v">$pid_</span>) { <span class="tk-k">return</span> (Join-Path <span class="tk-v">$keyStoreDir</span> <span class="tk-s">&quot;hub-service-key-$pid_.dat&quot;</span>) }
+    <span class="tk-k">return</span> (Join-Path <span class="tk-v">$keyStoreDir</span> <span class="tk-s">'hub-service-key.dat'</span>)
+}
+<span class="tk-k">function</span> Read-StoredKey([string]<span class="tk-v">$path</span>) {
+    <span class="tk-k">if</span> (-not (Test-Path <span class="tk-v">$path</span>)) { <span class="tk-k">return</span> <span class="tk-v">$null</span> }
+    <span class="tk-k">try</span> {
+        <span class="tk-v">$blob</span> = (Get-Content -Path <span class="tk-v">$path</span> -Raw).Trim()                  <span class="tk-c"># Trim: Set-Content anade newline final</span>
+        <span class="tk-v">$sec</span> = <span class="tk-v">$blob</span> | ConvertTo-SecureString                          <span class="tk-c"># DPAPI per-user</span>
+        <span class="tk-v">$bstr</span> = [Runtime.InteropServices.Marshal]::SecureStringToBSTR(<span class="tk-v">$sec</span>)
+        <span class="tk-k">try</span> { <span class="tk-k">return</span> [Runtime.InteropServices.Marshal]::PtrToStringBSTR(<span class="tk-v">$bstr</span>) }
+        <span class="tk-k">finally</span> { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR(<span class="tk-v">$bstr</span>) }
+    } <span class="tk-k">catch</span> {
+        Write-Warn <span class="tk-s">&quot;No se pudo descifrar '$path' (otro usuario/maquina? corrupto?). Re-ejecuta -StoreKey.&quot;</span>
+        <span class="tk-k">return</span> <span class="tk-v">$null</span>
+    }
+}
+
+<span class="tk-k">if</span> (<span class="tk-v">$StoreKey</span>) {
+    <span class="tk-c"># Alta UNA vez por maquina. La key se teclea/pega en prompt oculto: no toca</span>
+    <span class="tk-c"># historial ni linea de comandos. Con -ProjectId guarda la variante por proyecto</span>
+    <span class="tk-c"># (gana sobre la generica); sin el, la generica.</span>
+    <span class="tk-v">$target</span> = Get-KeyFilePath <span class="tk-v">$ProjectId</span>
+    <span class="tk-v">$sec</span> = Read-Host -Prompt <span class="tk-s">'Introduce la service-key del hub (sk_svc_...)'</span> -AsSecureString
+    <span class="tk-k">if</span> (<span class="tk-v">$sec</span>.Length -eq <span class="tk-n">0</span>) { Write-Warn <span class="tk-s">'Key vacia, no se guarda nada.'</span>; <span class="tk-k">exit</span> <span class="tk-n">1</span> }
+    <span class="tk-k">if</span> (-not (Test-Path <span class="tk-v">$keyStoreDir</span>)) { New-Item -ItemType Directory -Path <span class="tk-v">$keyStoreDir</span> -Force | Out-Null }
+    <span class="tk-v">$sec</span> | ConvertFrom-SecureString | Set-Content -Path <span class="tk-v">$target</span> -Encoding ASCII
+    Write-Info <span class="tk-s">&quot;[OK] Guardada (DPAPI per-user) en: $target&quot;</span>
+    Write-Info <span class="tk-s">&quot;Las proximas ejecuciones la resolveran solas (no vuelvas a pasar -ApiKey a mano).&quot;</span>
+    <span class="tk-k">exit</span> <span class="tk-n">0</span>
+}
+
+<span class="tk-k">if</span> (-not <span class="tk-v">$ProjectId</span>) {
+    Write-Warn <span class="tk-s">'-ProjectId es obligatorio (GUID del proyecto en el hub; ver _hilo/.mcp-project.json).'</span>
+    <span class="tk-k">exit</span> <span class="tk-n">1</span>
+}
+
+<span class="tk-c"># Cadena de resolucion (primera fuente que resuelva, gana):</span>
+<span class="tk-c">#   1. -ApiKey explicito        -&gt; CI (Variable Group secreta R16) u override puntual</span>
+<span class="tk-c">#   2. DPAPI file por proyecto  -&gt; %APPDATA%\Ovillo\hub-service-key-&lt;ProjectId&gt;.dat</span>
+<span class="tk-c">#   3. DPAPI file generico      -&gt; %APPDATA%\Ovillo\hub-service-key.dat</span>
+<span class="tk-c">#   4. apiKey per-dev del repo  -&gt; _hilo/.mcp-credentials.json (la crea irm|iex; el hub</span>
+<span class="tk-c">#      la acepta en quality-batch y atribuye el QR al devAlias del dev en vez de 'ci').</span>
+<span class="tk-c">#      Es el camino CERO-CONFIG para cualquier miembro del equipo ya registrado.</span>
+<span class="tk-c">#   5. Env var                  -&gt; HUB_SERVICE_KEY (entornos sin DPAPI store)</span>
+<span class="tk-k">function</span> Read-DevCredentialKey([string]<span class="tk-v">$projectId_</span>) {
+    <span class="tk-v">$credFile</span> = Join-Path (Get-Location) <span class="tk-s">'_hilo/.mcp-credentials.json'</span>
+    <span class="tk-k">if</span> (-not (Test-Path <span class="tk-v">$credFile</span>)) { <span class="tk-k">return</span> <span class="tk-v">$null</span> }
+    <span class="tk-k">try</span> {
+        <span class="tk-v">$cred</span> = Get-Content -Path <span class="tk-v">$credFile</span> -Raw | ConvertFrom-Json
+        <span class="tk-c"># Solo si el repo actual ES el proyecto target (no publicar con la identidad de otro repo)</span>
+        <span class="tk-k">if</span> (<span class="tk-v">$cred</span>.projectId -and ([string]<span class="tk-v">$cred</span>.projectId).ToLower() -ne <span class="tk-v">$projectId_</span>.ToLower()) { <span class="tk-k">return</span> <span class="tk-v">$null</span> }
+        <span class="tk-k">if</span> (<span class="tk-v">$cred</span>.apiKey) {
+            Write-Info <span class="tk-s">'Usando la apiKey per-dev de _hilo/.mcp-credentials.json (QR atribuido a tu devAlias).'</span>
+            <span class="tk-k">return</span> [string]<span class="tk-v">$cred</span>.apiKey
+        }
+    } <span class="tk-k">catch</span> { }
+    <span class="tk-k">return</span> <span class="tk-v">$null</span>
+}
+<span class="tk-k">if</span> (-not <span class="tk-v">$ApiKey</span>) { <span class="tk-v">$ApiKey</span> = Read-StoredKey (Get-KeyFilePath <span class="tk-v">$ProjectId</span>) }
+<span class="tk-k">if</span> (-not <span class="tk-v">$ApiKey</span>) { <span class="tk-v">$ApiKey</span> = Read-StoredKey (Get-KeyFilePath <span class="tk-v">$null</span>) }
+<span class="tk-k">if</span> (-not <span class="tk-v">$ApiKey</span>) { <span class="tk-v">$ApiKey</span> = Read-DevCredentialKey <span class="tk-v">$ProjectId</span> }
+<span class="tk-k">if</span> (-not <span class="tk-v">$ApiKey</span> -and <span class="tk-v">$env:HUB_SERVICE_KEY</span>) { <span class="tk-v">$ApiKey</span> = <span class="tk-v">$env:HUB_SERVICE_KEY</span> }
+<span class="tk-k">if</span> (-not <span class="tk-v">$ApiKey</span>) {
+    Write-Warn <span class="tk-s">'No se encontro credencial para el hub. Configura UNA de estas vias:'</span>
+    Write-Warn <span class="tk-s">'  a) Cero-config (miembros del equipo): ejecuta irm|iex (install.ps1) en este repo -&gt; crea _hilo/.mcp-credentials.json con tu apiKey per-dev'</span>
+    Write-Warn <span class="tk-s">'  b) Service-key interactiva (una vez por maquina): .\Sync-QualityRecord.ps1 -StoreKey'</span>
+    Write-Warn <span class="tk-s">'  c) CI: parametro -ApiKey leyendo la Variable Group secreta (R16), ej. -ApiKey $env:HUB_SERVICE_KEY'</span>
+    Write-Warn <span class="tk-s">'  d) Fallback: variable de entorno HUB_SERVICE_KEY'</span>
+    Write-Warn <span class="tk-s">'Si recibes 401: key rotada/revocada -&gt; pide la nueva al admin del hub y re-ejecuta -StoreKey (o re-irm|iex para la per-dev).'</span>
+    <span class="tk-k">exit</span> <span class="tk-n">1</span>
+}
+
+<span class="tk-c"># --- 1. Localizar TODOS los coverage.opencover.xml (solucion multi test-project -&gt; varios) ---</span>
+<span class="tk-v">$ocFiles</span> = @(Get-ChildItem -Path <span class="tk-v">$ResultsDir</span> -Recurse -Filter <span class="tk-s">'coverage.opencover.xml'</span> -ErrorAction SilentlyContinue)
+<span class="tk-k">if</span> (<span class="tk-v">$ocFiles</span>.Count -eq <span class="tk-n">0</span>) {
+    Write-Warn <span class="tk-s">&quot;No se encontro coverage.opencover.xml bajo '$ResultsDir'. Asegura 'dotnet test' con la opcion collect XPlat Code Coverage + settings coverage.runsettings (Format=cobertura,opencover).&quot;</span>
+    <span class="tk-k">exit</span> <span class="tk-n">1</span>
+}
+Write-Info <span class="tk-s">&quot;OpenCover: $($ocFiles.Count) fichero(s) de cobertura&quot;</span>
+
+<span class="tk-c"># --- D2/FB-008: cobertura adicional formato Cobertura (dotnet-coverage) para metodos de integracion ---</span>
+<span class="tk-c"># dotnet-coverage (profiler out-of-process) mide los tests WebApplicationFactory que Coverlet cuelga;</span>
+<span class="tk-c"># emite formato Cobertura (line-rate por metodo/clase), NO opencover. Se pliega su cobertura en el</span>
+<span class="tk-c"># merge (raise-only): cc/NPath siguen del opencover; la cobertura del metodo/clase SUBE si Cobertura</span>
+<span class="tk-c"># la trae mayor. Recoge tambien el coverage.cobertura.xml de Coverlet (idempotente: mismos valores).</span>
+<span class="tk-v">$cobMethodCov</span> = @{}   <span class="tk-c"># &quot;ClassFull::MetodoCorto&quot; -&gt; max line-rate (0..100)</span>
+<span class="tk-v">$cobClassCov</span>  = @{}   <span class="tk-c"># &quot;ClassFull&quot; -&gt; @{ line; branch } (0..100, max)</span>
+<span class="tk-v">$cobFiles</span> = @(Get-ChildItem -Path <span class="tk-v">$ResultsDir</span> -Recurse -Filter <span class="tk-s">'*.cobertura.xml'</span> -ErrorAction SilentlyContinue)
+<span class="tk-k">foreach</span> (<span class="tk-v">$cf</span> <span class="tk-k">in</span> <span class="tk-v">$cobFiles</span>) {
+    <span class="tk-k">try</span> { [xml]<span class="tk-v">$cdoc</span> = Get-Content -Path <span class="tk-v">$cf</span>.FullName -Raw } <span class="tk-k">catch</span> { <span class="tk-k">continue</span> }
+    <span class="tk-k">foreach</span> (<span class="tk-v">$pkg</span> <span class="tk-k">in</span> @(<span class="tk-v">$cdoc</span>.coverage.packages.package)) {
+        <span class="tk-k">foreach</span> (<span class="tk-v">$ccls</span> <span class="tk-k">in</span> @(<span class="tk-v">$pkg</span>.classes.class)) {
+            <span class="tk-v">$cn</span> = [string]<span class="tk-v">$ccls</span>.name
+            <span class="tk-k">if</span> (-not <span class="tk-v">$cn</span>) { <span class="tk-k">continue</span> }
+            <span class="tk-v">$clLine</span> = <span class="tk-k">if</span> (<span class="tk-v">$ccls</span>.<span class="tk-s">'line-rate'</span>)   { [math]::Round([double]<span class="tk-v">$ccls</span>.<span class="tk-s">'line-rate'</span>   * <span class="tk-n">100</span>, <span class="tk-n">1</span>) } <span class="tk-k">else</span> { <span class="tk-n">0</span> }
+            <span class="tk-v">$clBr</span>   = <span class="tk-k">if</span> (<span class="tk-v">$ccls</span>.<span class="tk-s">'branch-rate'</span>) { [math]::Round([double]<span class="tk-v">$ccls</span>.<span class="tk-s">'branch-rate'</span> * <span class="tk-n">100</span>, <span class="tk-n">1</span>) } <span class="tk-k">else</span> { <span class="tk-n">0</span> }
+            <span class="tk-k">if</span> (-not <span class="tk-v">$cobClassCov</span>.ContainsKey(<span class="tk-v">$cn</span>)) {
+                <span class="tk-v">$cobClassCov</span>[<span class="tk-v">$cn</span>] = [pscustomobject]@{ line = <span class="tk-v">$clLine</span>; branch = <span class="tk-v">$clBr</span> }
+            } <span class="tk-k">else</span> {
+                <span class="tk-v">$cc</span> = <span class="tk-v">$cobClassCov</span>[<span class="tk-v">$cn</span>]
+                <span class="tk-k">if</span> (<span class="tk-v">$clLine</span> -gt <span class="tk-v">$cc</span>.line)   { <span class="tk-v">$cc</span>.line   = <span class="tk-v">$clLine</span> }
+                <span class="tk-k">if</span> (<span class="tk-v">$clBr</span>   -gt <span class="tk-v">$cc</span>.branch) { <span class="tk-v">$cc</span>.branch = <span class="tk-v">$clBr</span> }
+            }
+            <span class="tk-k">foreach</span> (<span class="tk-v">$cm</span> <span class="tk-k">in</span> @(<span class="tk-v">$ccls</span>.methods.method)) {
+                <span class="tk-v">$mn</span> = [string]<span class="tk-v">$cm</span>.name
+                <span class="tk-k">if</span> (-not <span class="tk-v">$mn</span>) { <span class="tk-k">continue</span> }
+                <span class="tk-v">$mLine</span> = <span class="tk-k">if</span> (<span class="tk-v">$cm</span>.<span class="tk-s">'line-rate'</span>) { [math]::Round([double]<span class="tk-v">$cm</span>.<span class="tk-s">'line-rate'</span> * <span class="tk-n">100</span>, <span class="tk-n">1</span>) } <span class="tk-k">else</span> { <span class="tk-n">0</span> }
+                <span class="tk-v">$mk</span> = <span class="tk-s">&quot;$cn::$mn&quot;</span>
+                <span class="tk-k">if</span> ((-not <span class="tk-v">$cobMethodCov</span>.ContainsKey(<span class="tk-v">$mk</span>)) -or <span class="tk-v">$mLine</span> -gt <span class="tk-v">$cobMethodCov</span>[<span class="tk-v">$mk</span>]) { <span class="tk-v">$cobMethodCov</span>[<span class="tk-v">$mk</span>] = <span class="tk-v">$mLine</span> }
+            }
+        }
+    }
+}
+<span class="tk-k">if</span> (<span class="tk-v">$cobFiles</span>.Count -gt <span class="tk-n">0</span>) { Write-Info <span class="tk-s">&quot;Cobertura (Cobertura/dotnet-coverage): $($cobFiles.Count) fichero(s) cobertura.xml -&gt; pliegue raise-only&quot;</span> }
+
+<span class="tk-c"># --- 2-4. Parsear cada fichero: FUSIONAR cobertura por metodo + acumular cobertura global ---</span>
+<span class="tk-c"># D1/FB-009 (Portal 2026-06-15): en una solucion multi-proyecto, un assembly compartido (p.ej.</span>
+<span class="tk-c"># Entities) lo cargan VARIOS proyectos de test; en los que NO lo ejercitan sus metodos figuran a</span>
+<span class="tk-c"># 0%. Antes el script tomaba el valor por-fichero (el peor 0%) -&gt; crapMax/crappy/hotspots/clases</span>
+<span class="tk-c"># falsos. Ahora se fusiona por (clase::firma) tomando el MAXIMO sequenceCoverage entre todos los</span>
+<span class="tk-c"># *.opencover.xml (cc/NPath son estaticos). El CRAP se calcula DESPUES, sobre el conjunto fusionado.</span>
+<span class="tk-v">$methodsByKey</span> = @{}          <span class="tk-c"># &quot;ClassFull::IL-Name&quot; -&gt; metodo fusionado (covMax)</span>
+<span class="tk-v">$clasesAgg</span>    = @{}          <span class="tk-c"># &quot;ClassFull&quot; -&gt; @{ covLineMax; covBranchMax } (Fase C, max entre ficheros)</span>
+<span class="tk-v">$seqNum</span> = <span class="tk-n">0</span>; <span class="tk-v">$seqVis</span> = <span class="tk-n">0</span>; <span class="tk-v">$brNum</span> = <span class="tk-n">0</span>; <span class="tk-v">$brVis</span> = <span class="tk-n">0</span>    <span class="tk-c"># puntos secuencia/rama: visitados / totales</span>
+
+<span class="tk-k">foreach</span> (<span class="tk-v">$oc</span> <span class="tk-k">in</span> <span class="tk-v">$ocFiles</span>) {
+    [xml]<span class="tk-v">$doc</span> = Get-Content -Path <span class="tk-v">$oc</span>.FullName -Raw
+    <span class="tk-v">$session</span> = <span class="tk-v">$doc</span>.CoverageSession
+    <span class="tk-k">if</span> (-not <span class="tk-v">$session</span>) { <span class="tk-k">continue</span> }
+
+    <span class="tk-c"># Cobertura global: sumar puntos de cada fichero (recomputar % al final). NO afectada por D1.</span>
+    <span class="tk-v">$gsum</span> = <span class="tk-v">$session</span>.Summary
+    <span class="tk-k">if</span> (<span class="tk-v">$gsum</span>) {
+        <span class="tk-v">$seqNum</span> += [int]<span class="tk-v">$gsum</span>.numSequencePoints; <span class="tk-v">$seqVis</span> += [int]<span class="tk-v">$gsum</span>.visitedSequencePoints
+        <span class="tk-v">$brNum</span>  += [int]<span class="tk-v">$gsum</span>.numBranchPoints;   <span class="tk-v">$brVis</span>  += [int]<span class="tk-v">$gsum</span>.visitedBranchPoints
+    }
+
+    <span class="tk-c"># Mapa de ficheros LOCAL a este opencover (los uid son por-fichero, no globales)</span>
+    <span class="tk-v">$fileMap</span> = @{}
+    <span class="tk-k">foreach</span> (<span class="tk-v">$mod</span> <span class="tk-k">in</span> @(<span class="tk-v">$session</span>.Modules.Module)) {
+        <span class="tk-k">foreach</span> (<span class="tk-v">$f</span> <span class="tk-k">in</span> @(<span class="tk-v">$mod</span>.Files.File)) {
+            <span class="tk-k">if</span> (<span class="tk-v">$f</span> -and <span class="tk-v">$f</span>.uid) { <span class="tk-v">$fileMap</span>[[string]<span class="tk-v">$f</span>.uid] = [string]<span class="tk-v">$f</span>.fullPath }
+        }
+    }
+
+    <span class="tk-k">foreach</span> (<span class="tk-v">$mod</span> <span class="tk-k">in</span> @(<span class="tk-v">$session</span>.Modules.Module)) {
+        <span class="tk-k">foreach</span> (<span class="tk-v">$cls</span> <span class="tk-k">in</span> @(<span class="tk-v">$mod</span>.Classes.Class)) {
+            <span class="tk-v">$clsFull</span> = [string]<span class="tk-v">$cls</span>.FullName
+            <span class="tk-v">$clsTieneMetodos</span> = <span class="tk-v">$false</span>
+            <span class="tk-k">foreach</span> (<span class="tk-v">$m</span> <span class="tk-k">in</span> @(<span class="tk-v">$cls</span>.Methods.Method)) {
+                <span class="tk-k">if</span> (-not <span class="tk-v">$m</span>.cyclomaticComplexity) { <span class="tk-k">continue</span> }
+                <span class="tk-v">$cyclo</span> = [int]<span class="tk-v">$m</span>.cyclomaticComplexity
+                <span class="tk-v">$npath</span> = <span class="tk-k">if</span> (<span class="tk-v">$m</span>.nPathComplexity) { [long]<span class="tk-v">$m</span>.nPathComplexity } <span class="tk-k">else</span> { <span class="tk-n">0</span> }
+                <span class="tk-v">$cov</span>   = <span class="tk-k">if</span> (<span class="tk-v">$m</span>.sequenceCoverage) { [double]<span class="tk-v">$m</span>.sequenceCoverage } <span class="tk-k">else</span> { <span class="tk-n">0</span> }
+
+                <span class="tk-c"># Nombre legible: el IL signature trae 'Ret Namespace.Class::Metodo(args)'</span>
+                <span class="tk-v">$rawName</span> = [string]<span class="tk-v">$m</span>.Name
+                <span class="tk-v">$metodo</span> = <span class="tk-v">$rawName</span>
+                <span class="tk-v">$metodoCorto</span> = <span class="tk-v">$null</span>
+                <span class="tk-k">if</span> (<span class="tk-v">$rawName</span> -match <span class="tk-s">'([\w.&lt;&gt;`]+)::([\w&lt;&gt;`]+)'</span>) {
+                    <span class="tk-v">$cl</span> = (<span class="tk-v">$matches</span>[<span class="tk-n">1</span>] -split <span class="tk-s">'\.'</span>)[-1]
+                    <span class="tk-v">$metodo</span> = <span class="tk-s">&quot;$cl.$($matches[2])&quot;</span>
+                    <span class="tk-v">$metodoCorto</span> = <span class="tk-v">$matches</span>[<span class="tk-n">2</span>]
+                }
+                <span class="tk-c"># Fichero + linea de inicio</span>
+                <span class="tk-v">$fileUid</span> = <span class="tk-k">if</span> (<span class="tk-v">$m</span>.FileRef) { [string]<span class="tk-v">$m</span>.FileRef.uid } <span class="tk-k">else</span> { <span class="tk-v">$null</span> }
+                <span class="tk-v">$fichero</span> = <span class="tk-k">if</span> (<span class="tk-v">$fileUid</span> -and <span class="tk-v">$fileMap</span>.ContainsKey(<span class="tk-v">$fileUid</span>)) { <span class="tk-v">$fileMap</span>[<span class="tk-v">$fileUid</span>] } <span class="tk-k">else</span> { <span class="tk-v">$null</span> }
+                <span class="tk-v">$linea</span> = <span class="tk-v">$null</span>
+                <span class="tk-v">$sp</span> = @(<span class="tk-v">$m</span>.SequencePoints.SequencePoint) | Where-Object { <span class="tk-v">$_</span> -and <span class="tk-v">$_</span>.sl } | Select-Object -First <span class="tk-n">1</span>
+                <span class="tk-k">if</span> (<span class="tk-v">$sp</span>) { <span class="tk-v">$linea</span> = [int]<span class="tk-v">$sp</span>.sl }
+
+                <span class="tk-c"># FUSION: clave (clase::firma IL); cc/NPath estaticos; cobertura = MAXIMO entre ficheros</span>
+                <span class="tk-v">$key</span> = <span class="tk-s">&quot;$clsFull::$rawName&quot;</span>
+                <span class="tk-k">if</span> (-not <span class="tk-v">$methodsByKey</span>.ContainsKey(<span class="tk-v">$key</span>)) {
+                    <span class="tk-v">$methodsByKey</span>[<span class="tk-v">$key</span>] = [pscustomobject]@{
+                        clsFull = <span class="tk-v">$clsFull</span>; metodo = <span class="tk-v">$metodo</span>; metodoCorto = <span class="tk-v">$metodoCorto</span>;
+                        ciclomatica = <span class="tk-v">$cyclo</span>; npath = <span class="tk-v">$npath</span>;
+                        covMax = <span class="tk-v">$cov</span>; fichero = <span class="tk-v">$fichero</span>; linea = <span class="tk-v">$linea</span>
+                    }
+                } <span class="tk-k">else</span> {
+                    <span class="tk-v">$e</span> = <span class="tk-v">$methodsByKey</span>[<span class="tk-v">$key</span>]
+                    <span class="tk-k">if</span> (<span class="tk-v">$cov</span> -gt <span class="tk-v">$e</span>.covMax) { <span class="tk-v">$e</span>.covMax = <span class="tk-v">$cov</span> }
+                    <span class="tk-k">if</span> ((-not <span class="tk-v">$e</span>.fichero) -and <span class="tk-v">$fichero</span>) { <span class="tk-v">$e</span>.fichero = <span class="tk-v">$fichero</span> }
+                    <span class="tk-k">if</span> ((-not <span class="tk-v">$e</span>.linea) -and <span class="tk-v">$linea</span>) { <span class="tk-v">$e</span>.linea = <span class="tk-v">$linea</span> }
+                }
+                <span class="tk-v">$clsTieneMetodos</span> = <span class="tk-v">$true</span>
+            }
+            <span class="tk-c"># Cobertura por clase (Fase C): MAXIMO del Summary entre ficheros (mismo problema cross-load).</span>
+            <span class="tk-c"># Omitir clases generadas por el compilador: &lt;...&gt;, /, __</span>
+            <span class="tk-k">if</span> (<span class="tk-v">$clsTieneMetodos</span> -and <span class="tk-v">$clsFull</span> -and (<span class="tk-v">$clsFull</span> -notmatch <span class="tk-s">'[&lt;&gt;/]'</span>) -and (<span class="tk-v">$clsFull</span> -notmatch <span class="tk-s">'__'</span>)) {
+                <span class="tk-v">$cSum</span> = <span class="tk-v">$cls</span>.Summary
+                <span class="tk-v">$cCovL</span> = <span class="tk-k">if</span> (<span class="tk-v">$cSum</span> -and <span class="tk-v">$cSum</span>.sequenceCoverage) { [double]<span class="tk-v">$cSum</span>.sequenceCoverage } <span class="tk-k">else</span> { <span class="tk-n">0</span> }
+                <span class="tk-v">$cCovB</span> = <span class="tk-k">if</span> (<span class="tk-v">$cSum</span> -and <span class="tk-v">$cSum</span>.branchCoverage) { [double]<span class="tk-v">$cSum</span>.branchCoverage } <span class="tk-k">else</span> { <span class="tk-n">0</span> }
+                <span class="tk-k">if</span> (-not <span class="tk-v">$clasesAgg</span>.ContainsKey(<span class="tk-v">$clsFull</span>)) {
+                    <span class="tk-v">$clasesAgg</span>[<span class="tk-v">$clsFull</span>] = [pscustomobject]@{ covLineMax = <span class="tk-v">$cCovL</span>; covBranchMax = <span class="tk-v">$cCovB</span> }
+                } <span class="tk-k">else</span> {
+                    <span class="tk-v">$a</span> = <span class="tk-v">$clasesAgg</span>[<span class="tk-v">$clsFull</span>]
+                    <span class="tk-k">if</span> (<span class="tk-v">$cCovL</span> -gt <span class="tk-v">$a</span>.covLineMax) { <span class="tk-v">$a</span>.covLineMax = <span class="tk-v">$cCovL</span> }
+                    <span class="tk-k">if</span> (<span class="tk-v">$cCovB</span> -gt <span class="tk-v">$a</span>.covBranchMax) { <span class="tk-v">$a</span>.covBranchMax = <span class="tk-v">$cCovB</span> }
+                }
+            }
+        }
+    }
+}
+
+<span class="tk-c"># --- D1: materializar metodos fusionados + calcular CRAP sobre la cobertura MAXIMA ---</span>
+<span class="tk-v">$methods</span> = New-Object System.Collections.Generic.List[object]
+<span class="tk-k">foreach</span> (<span class="tk-v">$e</span> <span class="tk-k">in</span> <span class="tk-v">$methodsByKey</span>.Values) {
+    <span class="tk-c"># D2: pliegue raise-only de la cobertura de cobertura.xml (dotnet-coverage) por (clase::metodo corto).</span>
+    <span class="tk-c"># Nunca BAJA la cobertura (un mismatch no inventa deuda); a lo sumo sube un overload (aprox. del max).</span>
+    <span class="tk-v">$covEff</span> = <span class="tk-v">$e</span>.covMax
+    <span class="tk-k">if</span> (<span class="tk-v">$e</span>.metodoCorto) {
+        <span class="tk-v">$ck</span> = <span class="tk-s">&quot;$($e.clsFull)::$($e.metodoCorto)&quot;</span>
+        <span class="tk-k">if</span> (<span class="tk-v">$cobMethodCov</span>.ContainsKey(<span class="tk-v">$ck</span>) -and <span class="tk-v">$cobMethodCov</span>[<span class="tk-v">$ck</span>] -gt <span class="tk-v">$covEff</span>) { <span class="tk-v">$covEff</span> = <span class="tk-v">$cobMethodCov</span>[<span class="tk-v">$ck</span>] }
+    }
+    <span class="tk-v">$uncov</span> = <span class="tk-n">1</span> - (<span class="tk-v">$covEff</span> / <span class="tk-n">100.0</span>)
+    <span class="tk-c"># CRAP estandar (igual que ReportGenerator): comp^2 * (1-cov)^3 + comp</span>
+    <span class="tk-v">$crap</span>  = [math]::Round([math]::Pow(<span class="tk-v">$e</span>.ciclomatica, <span class="tk-n">2</span>) * [math]::Pow(<span class="tk-v">$uncov</span>, <span class="tk-n">3</span>) + <span class="tk-v">$e</span>.ciclomatica, <span class="tk-n">2</span>)
+    <span class="tk-v">$methods</span>.Add([pscustomobject]@{
+        metodo = <span class="tk-v">$e</span>.metodo; fichero = <span class="tk-v">$e</span>.fichero; crap = <span class="tk-v">$crap</span>;
+        ciclomatica = <span class="tk-v">$e</span>.ciclomatica; npath = <span class="tk-v">$e</span>.npath; coberturaPct = [math]::Round(<span class="tk-v">$covEff</span>, <span class="tk-n">1</span>);
+        linea = <span class="tk-v">$e</span>.linea; clsFull = <span class="tk-v">$e</span>.clsFull
+    })
+}
+
+<span class="tk-c"># --- clases[] (Fase C): agrupar los metodos FUSIONADOS por clase ---</span>
+<span class="tk-v">$clases</span> = New-Object System.Collections.Generic.List[object]
+<span class="tk-k">foreach</span> (<span class="tk-v">$grp</span> <span class="tk-k">in</span> (<span class="tk-v">$methods</span> | Group-Object clsFull)) {
+    <span class="tk-v">$clsFull</span> = <span class="tk-v">$grp</span>.Name
+    <span class="tk-k">if</span> (-not <span class="tk-v">$clsFull</span> -or (<span class="tk-v">$clsFull</span> -match <span class="tk-s">'[&lt;&gt;/]'</span>) -or (<span class="tk-v">$clsFull</span> -match <span class="tk-s">'__'</span>)) { <span class="tk-k">continue</span> }
+    <span class="tk-v">$cCrapMax</span>  = [math]::Round([double]((<span class="tk-v">$grp</span>.Group | Measure-Object -Property crap -Maximum).Maximum), <span class="tk-n">2</span>)
+    <span class="tk-v">$cCycloMax</span> = [int]((<span class="tk-v">$grp</span>.Group | Measure-Object -Property ciclomatica -Maximum).Maximum)
+    <span class="tk-v">$cMet</span>      = @(<span class="tk-v">$grp</span>.Group).Count
+    <span class="tk-v">$cCovL</span> = <span class="tk-n">0</span>; <span class="tk-v">$cCovB</span> = <span class="tk-n">0</span>
+    <span class="tk-k">if</span> (<span class="tk-v">$clasesAgg</span>.ContainsKey(<span class="tk-v">$clsFull</span>)) { <span class="tk-v">$cCovL</span> = <span class="tk-v">$clasesAgg</span>[<span class="tk-v">$clsFull</span>].covLineMax; <span class="tk-v">$cCovB</span> = <span class="tk-v">$clasesAgg</span>[<span class="tk-v">$clsFull</span>].covBranchMax }
+    <span class="tk-c"># D2: pliegue raise-only de la cobertura de clase de cobertura.xml (dotnet-coverage)</span>
+    <span class="tk-k">if</span> (<span class="tk-v">$cobClassCov</span>.ContainsKey(<span class="tk-v">$clsFull</span>)) {
+        <span class="tk-k">if</span> (<span class="tk-v">$cobClassCov</span>[<span class="tk-v">$clsFull</span>].line   -gt <span class="tk-v">$cCovL</span>) { <span class="tk-v">$cCovL</span> = <span class="tk-v">$cobClassCov</span>[<span class="tk-v">$clsFull</span>].line }
+        <span class="tk-k">if</span> (<span class="tk-v">$cobClassCov</span>[<span class="tk-v">$clsFull</span>].branch -gt <span class="tk-v">$cCovB</span>) { <span class="tk-v">$cCovB</span> = <span class="tk-v">$cobClassCov</span>[<span class="tk-v">$clsFull</span>].branch }
+    }
+    <span class="tk-v">$ns</span> = <span class="tk-k">if</span> (<span class="tk-v">$clsFull</span> -match <span class="tk-s">'^(.*)\.[^.]+$'</span>) { <span class="tk-v">$matches</span>[<span class="tk-n">1</span>] } <span class="tk-k">else</span> { <span class="tk-s">'(global)'</span> }
+    <span class="tk-v">$clName</span> = (<span class="tk-v">$clsFull</span> -split <span class="tk-s">'\.'</span>)[-1]
+    <span class="tk-v">$clases</span>.Add([pscustomobject]@{
+        ns = <span class="tk-v">$ns</span>; clase = <span class="tk-v">$clName</span>; coberturaLinea = [math]::Round(<span class="tk-v">$cCovL</span>, <span class="tk-n">1</span>); coberturaRama = [math]::Round(<span class="tk-v">$cCovB</span>, <span class="tk-n">1</span>);
+        crapMax = <span class="tk-v">$cCrapMax</span>; ciclomaticaMax = <span class="tk-v">$cCycloMax</span>; metodos = <span class="tk-v">$cMet</span>
+    })
+}
+
+<span class="tk-k">if</span> (<span class="tk-v">$methods</span>.Count -eq <span class="tk-n">0</span>) { Write-Warn <span class="tk-s">&quot;OpenCover sin metodos (cobertura vacia?).&quot;</span>; <span class="tk-k">exit</span> <span class="tk-n">1</span> }
+
+<span class="tk-c"># Cobertura global agregada (% = visitados / totales, sobre todos los ficheros)</span>
+<span class="tk-v">$coberturaLinea</span> = <span class="tk-k">if</span> (<span class="tk-v">$seqNum</span> -gt <span class="tk-n">0</span>) { [math]::Round(<span class="tk-n">100.0</span> * <span class="tk-v">$seqVis</span> / <span class="tk-v">$seqNum</span>, <span class="tk-n">2</span>) } <span class="tk-k">else</span> { <span class="tk-n">0.0</span> }
+<span class="tk-v">$coberturaRama</span>  = <span class="tk-k">if</span> (<span class="tk-v">$brNum</span>  -gt <span class="tk-n">0</span>) { [math]::Round(<span class="tk-n">100.0</span> * <span class="tk-v">$brVis</span>  / <span class="tk-v">$brNum</span>,  <span class="tk-n">2</span>) } <span class="tk-k">else</span> { <span class="tk-n">0.0</span> }
+
+<span class="tk-c"># --- 5. Agregados del QR ---</span>
+<span class="tk-c"># Measure-Object devuelve Double; castear a los tipos del contrato (nPathMax es long en el hub</span>
+<span class="tk-c"># -&gt; System.Text.Json rechaza 42.0 sobre long?; metodosCrappy es int).</span>
+<span class="tk-v">$crapMax</span>        = [math]::Round([double]((<span class="tk-v">$methods</span> | Measure-Object -Property crap -Maximum).Maximum), <span class="tk-n">2</span>)
+<span class="tk-v">$metodosCrappy</span>  = [int]@(<span class="tk-v">$methods</span> | Where-Object { <span class="tk-v">$_</span>.crap -gt <span class="tk-v">$CrapThreshold</span> }).Count
+<span class="tk-v">$ciclomaticaMed</span> = [math]::Round([double]((<span class="tk-v">$methods</span> | Measure-Object -Property ciclomatica -Average).Average), <span class="tk-n">2</span>)
+<span class="tk-v">$npathMax</span>       = [long]((<span class="tk-v">$methods</span> | Measure-Object -Property npath -Maximum).Maximum)
+
+<span class="tk-c"># Hotspots: top-N por CRAP (relativizar el fichero al repo si es ruta absoluta)</span>
+<span class="tk-v">$repoRoot</span> = (Get-Location).Path
+<span class="tk-v">$hotspots</span> = <span class="tk-v">$methods</span> | Sort-Object crap -Descending | Select-Object -First <span class="tk-v">$TopHotspots</span> | ForEach-Object {
+    <span class="tk-v">$fic</span> = <span class="tk-v">$_</span>.fichero
+    <span class="tk-k">if</span> (<span class="tk-v">$fic</span> -and <span class="tk-v">$fic</span>.StartsWith(<span class="tk-v">$repoRoot</span>, [System.StringComparison]::OrdinalIgnoreCase)) {
+        <span class="tk-v">$fic</span> = <span class="tk-v">$fic</span>.Substring(<span class="tk-v">$repoRoot</span>.Length).TrimStart(<span class="tk-s">'\'</span>,<span class="tk-s">'/'</span>)
+    }
+    [pscustomobject]@{ metodo = <span class="tk-v">$_</span>.metodo; fichero = <span class="tk-v">$fic</span>; crap = <span class="tk-v">$_</span>.crap;
+        ciclomatica = <span class="tk-v">$_</span>.ciclomatica; npath = <span class="tk-v">$_</span>.npath; coberturaPct = <span class="tk-v">$_</span>.coberturaPct; linea = <span class="tk-v">$_</span>.linea }
+}
+
+<span class="tk-c"># Cobertura por clase/namespace (Fase C): top-N por crapMax para acotar el payload</span>
+<span class="tk-v">$clasesTop</span> = @(<span class="tk-v">$clases</span> | Sort-Object crapMax -Descending | Select-Object -First <span class="tk-v">$TopClases</span>)
+<span class="tk-k">if</span> (<span class="tk-v">$clases</span>.Count -gt <span class="tk-v">$TopClases</span>) {
+    Write-Warn (<span class="tk-s">&quot;Desglose por clase truncado: {0} clases -&gt; top {1} por crapMax.&quot;</span> -f <span class="tk-v">$clases</span>.Count, <span class="tk-v">$TopClases</span>)
+}
+
+<span class="tk-c"># --- 6. Quality gate (verdict del PRODUCTOR; el dashboard NO recalcula) ---</span>
+<span class="tk-v">$gateReglas</span> = @(
+    [pscustomobject]@{ regla = <span class="tk-s">'CRAP maximo'</span>; umbral = <span class="tk-v">$CrapThreshold</span>; valor = <span class="tk-v">$crapMax</span>; pasa = (<span class="tk-v">$crapMax</span> -le <span class="tk-v">$CrapThreshold</span>) },
+    [pscustomobject]@{ regla = <span class="tk-s">'Cobertura linea minima'</span>; umbral = <span class="tk-v">$CoverageLineMin</span>; valor = [math]::Round(<span class="tk-v">$coberturaLinea</span>,<span class="tk-n">1</span>); pasa = (<span class="tk-v">$coberturaLinea</span> -ge <span class="tk-v">$CoverageLineMin</span>) },
+    [pscustomobject]@{ regla = <span class="tk-s">'Cobertura rama minima'</span>; umbral = <span class="tk-v">$CoverageBranchMin</span>; valor = [math]::Round(<span class="tk-v">$coberturaRama</span>,<span class="tk-n">1</span>); pasa = (<span class="tk-v">$coberturaRama</span> -ge <span class="tk-v">$CoverageBranchMin</span>) }
+)
+<span class="tk-v">$gatePass</span> = (<span class="tk-v">$gateReglas</span> | Where-Object { -not <span class="tk-v">$_</span>.pasa }).Count -eq <span class="tk-n">0</span>
+
+<span class="tk-c"># --- 7. Codigo QR-nnn secuencial por proyecto (consultar el ultimo en el hub) ---</span>
+<span class="tk-v">$headers</span> = @{ <span class="tk-s">'X-Hub-Api-Key'</span> = <span class="tk-v">$ApiKey</span>; <span class="tk-s">'Accept'</span> = <span class="tk-s">'application/json'</span> }
+<span class="tk-v">$codigo</span> = <span class="tk-s">'QR-001'</span>
+<span class="tk-k">try</span> {
+    <span class="tk-v">$existing</span> = Invoke-RestMethod -Uri <span class="tk-s">&quot;$ServerUrl/v2/stats/quality/$ProjectId&quot;</span> -Headers @{ <span class="tk-s">'Accept'</span> = <span class="tk-s">'application/json'</span> } -TimeoutSec <span class="tk-n">30</span>
+    <span class="tk-k">if</span> (-not <span class="tk-v">$existing</span>.sin_datos -and <span class="tk-v">$existing</span>.ultimo -and <span class="tk-v">$existing</span>.ultimo.codigo -match <span class="tk-s">'QR-(\d+)'</span>) {
+        <span class="tk-v">$codigo</span> = <span class="tk-s">'QR-{0:D3}'</span> -f ([int]<span class="tk-v">$matches</span>[<span class="tk-n">1</span>] + <span class="tk-n">1</span>)
+    }
+} <span class="tk-k">catch</span> { Write-Warn <span class="tk-s">&quot;No se pudo leer el ultimo QR (se usa $codigo): $($_.Exception.Message)&quot;</span> }
+
+<span class="tk-c"># --- 8. Payload ---</span>
+<span class="tk-v">$fecha</span> = <span class="tk-k">if</span> (<span class="tk-v">$BuildId</span>) { (Get-Date).ToUniversalTime().ToString(<span class="tk-s">'o'</span>) } <span class="tk-k">else</span> { (Get-Date).ToUniversalTime().ToString(<span class="tk-s">'o'</span>) }
+<span class="tk-v">$registro</span> = [ordered]@{
+    codigo = <span class="tk-v">$codigo</span>
+    fechaBuild = <span class="tk-v">$fecha</span>
+    buildId = <span class="tk-v">$BuildId</span>
+    coberturaLineaPct = [math]::Round(<span class="tk-v">$coberturaLinea</span>, <span class="tk-n">2</span>)
+    coberturaRamaPct  = [math]::Round(<span class="tk-v">$coberturaRama</span>, <span class="tk-n">2</span>)
+    crapMax = <span class="tk-v">$crapMax</span>
+    metodosCrappy = <span class="tk-v">$metodosCrappy</span>
+    ciclomaticaMedia = <span class="tk-v">$ciclomaticaMed</span>
+    nPathMax = <span class="tk-v">$npathMax</span>
+    qualityGatePass = <span class="tk-v">$gatePass</span>
+    gateReglas = <span class="tk-v">$gateReglas</span>
+    hotspots = <span class="tk-v">$hotspots</span>
+    clases = <span class="tk-v">$clasesTop</span>
+    adrRelacionados = <span class="tk-v">$AdrRelacionados</span>
+    codeSearchBase = <span class="tk-v">$CodeSearchBase</span>
+    coberturaIntegracionMedida = <span class="tk-v">$CoberturaIntegracionMedida</span>
+}
+<span class="tk-v">$body</span> = @{ projectId = <span class="tk-v">$ProjectId</span>; registros = @(<span class="tk-v">$registro</span>) }
+
+Write-Info (<span class="tk-s">&quot;Resumen {0}: gate={1} | cobLinea={2}% cobRama={3}% | CRAPmax={4} crappy={5} cicloMed={6} NPathMax={7} | hotspots={8} clases={9}&quot;</span> -f `
+    <span class="tk-v">$codigo</span>, $(<span class="tk-k">if</span>(<span class="tk-v">$gatePass</span>){<span class="tk-s">'PASS'</span>}<span class="tk-k">else</span>{<span class="tk-s">'FAIL'</span>}), [math]::Round(<span class="tk-v">$coberturaLinea</span>,<span class="tk-n">1</span>), [math]::Round(<span class="tk-v">$coberturaRama</span>,<span class="tk-n">1</span>), `
+    <span class="tk-v">$crapMax</span>, <span class="tk-v">$metodosCrappy</span>, <span class="tk-v">$ciclomaticaMed</span>, <span class="tk-v">$npathMax</span>, <span class="tk-v">$hotspots</span>.Count, <span class="tk-v">$clasesTop</span>.Count)
+
+<span class="tk-k">if</span> (<span class="tk-v">$DryRun</span>) {
+    Write-Info <span class="tk-s">&quot;DryRun -&gt; NO se envia. Payload:&quot;</span>
+    <span class="tk-v">$body</span> | ConvertTo-Json -Depth <span class="tk-n">8</span>
+    <span class="tk-k">exit</span> <span class="tk-n">0</span>
+}
+
+<span class="tk-c"># --- 9. POST best-effort (no romper el build si el hub no soporta quality) ---</span>
+<span class="tk-k">try</span> {
+    <span class="tk-v">$resp</span> = Invoke-RestMethod -Uri <span class="tk-s">&quot;$ServerUrl/v2/sync/quality-batch&quot;</span> -Method Post -Headers <span class="tk-v">$headers</span> `
+        -Body (<span class="tk-v">$body</span> | ConvertTo-Json -Depth <span class="tk-n">8</span>) -ContentType <span class="tk-s">'application/json'</span> -TimeoutSec <span class="tk-n">60</span>
+    Write-Info <span class="tk-s">&quot;[OK] publicado: created=$($resp.created) updated=$($resp.updated) skipped=$($resp.skipped)&quot;</span>
+} <span class="tk-k">catch</span> {
+    <span class="tk-v">$status</span> = <span class="tk-k">if</span> (<span class="tk-v">$_</span>.Exception.Response) { [int]<span class="tk-v">$_</span>.Exception.Response.StatusCode } <span class="tk-k">else</span> { <span class="tk-n">0</span> }
+    <span class="tk-k">if</span> (<span class="tk-v">$status</span> -eq <span class="tk-n">404</span>) {
+        Write-Warn <span class="tk-s">&quot;[SKIP] el hub no expone /v2/sync/quality-batch (necesita v1.3.0+). QR no publicado.&quot;</span>
+    } <span class="tk-k">else</span> {
+        Write-Warn <span class="tk-s">&quot;[FAIL] POST quality-batch HTTP $status : $($_.Exception.Message)&quot;</span>
+    }
+    <span class="tk-c"># best-effort: no romper el build por el sync de calidad</span>
+    <span class="tk-k">exit</span> <span class="tk-n">0</span>
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/calidad-codigo-sync.html#ficheros">← Volver a la ficha de calidad-codigo-sync</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/calidad-codigo-sync/scripts/coverage.html"><small>Anterior</small>scripts/coverage.runsettings</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/calidad-codigo-sync/scripts/Sync-QualityRecord.ps1</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

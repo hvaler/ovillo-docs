@@ -1,0 +1,118 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Runbook operacional CI/CD — {{PROYECTO_NOMBRE}} · Ovillo</title><meta name="description" content="Runbook operacional CI/CD — {{PROYECTO_NOMBRE}}"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Runbook operacional CI/CD — {{PROYECTO_NOMBRE}} · Ovillo"><meta property="og:description" content="Runbook operacional CI/CD — {{PROYECTO_NOMBRE}}"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/runbook_template.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/runbook_template.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/runbook_template.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 08_CICD (9)</h4><ul class="sibs"><li><a href="../guias/auditar_pipeline.html">Auditar tu pipeline CI/CD (<code>cicd-pipeline-reviewer</code> · <code>github-actions-reviewer</code>)</a></li><li><a href="../guias/cicd-readme.html">08_CICD — Integracion Continua / Despliegue Continuo</a></li><li><a href="../guias/guia_completa_cicd.html">Guía completa de CI/CD Ovillo — los comandos <code>/cicd-*</code> y todas sus variantes</a></li><li><a href="../guias/guia_fases_adopcion.html">Guia de adopcion CI/CD — Fases 0, 1 y 2</a></li><li><a href="../guias/guia_github_actions.html">Guía CI/CD con GitHub Actions — Fases 0, 1 y 2, comandos y seguridad</a></li><li><a href="../guias/permisos_cicd.html">Permisos e infraestructura CI/CD — PLANTILLA</a></li><li><a href="../guias/runbook_actualizar_pipeline.html">Runbook — Actualizar el pipeline tras un refresco de plantilla</a></li><li><a href="../guias/runbook_deploy_manual.html">Runbook deploy manual — Fase 0</a></li><li><a href="../guias/runbook_template.html" class="cur">Runbook operacional CI/CD — <code>{{PROYECTO_NOMBRE}}</code></a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 08_CICD</span><span>Runbook operacional CI/CD — <code>{{PROYECTO_NOMBRE}}</code></span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 08_CICD</span><span>español</span></div><h1>Runbook operacional CI/CD — <code>{{PROYECTO_NOMBRE}}</code></h1><div class="meta-grid"><div><b>5 min</b><span>lectura</span></div><div><b>1184</b><span>palabras</span></div><div><b>8</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>8</b><span>cambios</span></div></div><blockquote><p><strong>Cuando usar este runbook</strong>: proyecto en <strong>Fase 2</strong> con pipeline completo CD. Si tu proyecto esta en <strong>Fase 0</strong>, usa <code>RUNBOOK_DEPLOY_MANUAL.md</code>. Si esta en <strong>Fase 1</strong>, este runbook aun no aplica completo (no hay CD).</p>
+<p><strong>Politica</strong>: cada seccion ≤1 pagina, legible bajo presion. Sin parrafos largos. Este es <strong>plantilla</strong>. <code>/hv:cicd-init</code> lo rellena con datos del proyecto. Los <code>{{placeholders}}</code> se reemplazan al generar el runbook concreto.</p></blockquote>
+<hr>
+<section class="sec" id="sec-1-build-falla-en-ci">
+<h3 id="1-build-falla-en-ci">1. Build falla en CI</h3>
+<p><strong>Sintomas tipicos</strong>: <code>dotnet build</code> / <code>npm run build</code> rojo, tests rojos, lint con error, coverage gate incumplido (line &lt;70% o branch &lt;60%).</p>
+<p><strong>Diagnostico</strong>:</p>
+<ol>
+<li>Abrir el build en la UI de Azure DevOps: <code>{{PIPELINE_URL}}</code></li>
+<li>Bajar al primer step rojo. Leer las ultimas ~30 lineas del log.</li>
+<li>¿Es bug del codigo? → fix + commit + push (re-encola CI automatico)</li>
+<li>¿Es infra (agente offline, NuGet/npm registry caido, disco lleno)? → ver seccion 5 &quot;Contactos y escalation&quot;</li>
+</ol>
+<p><strong>Causas frecuentes en la organización</strong> (orden de probabilidad):</p>
+<ul>
+<li>Test que pasa local porque accede a <code>localhost:5000</code> real (R12.4)</li>
+<li><code>appsettings.Development.json</code> versionado por error con credenciales reales</li>
+<li>Path absoluto en <code>vite.config.ts</code> apuntando a otro repo del filesystem del dev (R12.1)</li>
+<li><code>package-lock.json</code> desfasado respecto a <code>package.json</code> (olvidaste commitear lockfile tras <code>npm install</code>)</li>
+<li>SDK .NET no instalado en el agente de build para el <code>&lt;TargetFramework&gt;</code> exigido</li>
+<li>Coverage gate incumplido: cobertura de lineas/branches por debajo del umbral (coverage-gate.ps1; exit 3 solo en <code>-Mode block</code>)</li>
+</ul>
+<p><strong>Re-encolar</strong>: tras fix, hacer <code>git push</code> dispara CI nuevo. <strong>NO</strong> encolar manualmente desde UI de Azure DevOps (memoria <code>feedback_no_manual_queue</code>).</p>
+<hr>
+</section>
+<section class="sec" id="sec-1b-el-build-no-se-encola-tras-el-push-r7">
+<h3 id="1b-el-build-no-se-encola-tras-el-push-r7">1b. El build NO se encola tras el push (R7)</h3>
+<p><strong>Sintoma</strong>: haces <code>git push</code> y <strong>el build ni aparece</strong> en Azure DevOps (no es que falle: no arranca). Tipico cuando el commit <strong>solo toca subcarpetas profundas</strong> (ej. <code>docs/testing/**</code>, recursos anidados).</p>
+<p><strong>Causa</strong>: bug confirmado de Azure DevOps Server 2020 con <code>trigger.paths.include</code> y <code>settingsSourceType=2</code> — los patrones <code>'&lt;dir&gt;/**'</code> no matchean subdirectorios profundos (R7). El YAML del proyecto ya emite el doble patron <code>'&lt;dir&gt;/**'</code> + <code>'&lt;dir&gt;/**/*'</code> como defensa, pero la deteccion sigue siendo flaky para rutas muy anidadas.</p>
+<p><strong>Que NO es</strong>: no confundir con &quot;build encolado pero parado en <code>notStarted</code>/<code>Checkpoint.Authorization</code>&quot; (eso es permiso de pool, TEC-003, ver seccion 5).</p>
+<p><strong>Workaround — encolar manualmente por REST</strong> (excepcion legitima a la regla &quot;no encolar manual&quot;, que aplica solo al flujo normal):</p>
+<pre data-lang="powershell"><code><span class="tk-c"># Requiere PAT o --negotiate. Sustituir {{ADO_COLLECTION_PROJECT_URL}} y definitionId.</span>
+<span class="tk-v">$body</span> = @{ definition = @{ id = {{PIPELINE_DEFINITION_ID}} }; sourceBranch = <span class="tk-s">'refs/heads/{{RAMA_BASE}}'</span> } | ConvertTo-Json
+Invoke-RestMethod -Uri <span class="tk-s">&quot;{{ADO_COLLECTION_PROJECT_URL}}/_apis/build/builds?api-version=6.0&quot;</span> `
+  -Method Post -UseDefaultCredentials -ContentType <span class="tk-s">'application/json'</span> -Body <span class="tk-v">$body</span></code></pre>
+<p><strong>Fix de fondo</strong>: revisar que el commit toque tambien algun path que SI dispare (codigo en <code>{{SRC_DIR}}/</code>), o aceptar el encolado manual para pushes de solo-tests.</p>
+<hr>
+</section>
+<section class="sec" id="sec-2-deploy-a-demo-falla">
+<h3 id="2-deploy-a-demo-falla">2. Deploy a DEMO falla</h3>
+<p><strong>Sintomas tipicos</strong>: stage <code>Build</code> verde, stage <code>DeployDemo</code> rojo.</p>
+<p><strong>Servidor DEMO</strong>: <code>{{DEMO_SERVER_FQDN}}</code> (computer name: <code>{{DEMO_COMPUTER_NAME}}</code>)</p>
+<p><strong>Diagnostico</strong>:</p>
+<ol>
+<li>Mirar el log del step <code>IISWebAppDeploymentOnMachineGroup@0</code></li>
+<li>Errores tipicos:</li>
+<ul>
+<li><code>Could not find a part of the path '&lt;wwwroot&gt;'</code> → el path no existe; pedir al equipo de infraestructura crear el IIS site</li>
+<li><code>Access to the path is denied</code> → la cuenta del agente (<code>NT AUTHORITY\SYSTEM</code> por convencion) no tiene permisos; pedir al equipo de infraestructura</li>
+<li><code>One or more files locked</code> → en .NET ASP.NET Core in-process falta <code>TakeAppOfflineFlag: true</code> (R10). Editar YAML y re-encolar.</li>
+<li><code>The remote server returned an error: (401) Unauthorized</code> en MSDeploy → credencial del agente caducada</li>
+<li>Smoke test <code>https://{{DEMO_FQDN}}/...</code> 404 o timeout → ver &quot;Verificacion alternativa&quot; abajo</li>
+</ul>
+</ol>
+<p><strong>Verificacion post-fix</strong>: el smoke test del propio pipeline confirma (estricto si .NET API, best-effort si SPA — emite warning + diagnostico sin throw, R11).</p>
+<p><strong>Verificacion alternativa por el humano</strong> (cuando smoke best-effort emite warning): abrir <code>{{DEMO_URL}}</code> desde tu navegador (NO desde el server, hairpin NAT). Si carga 200 con contenido esperado → el deploy esta verde aunque el smoke automatico no pudiera verificarlo.</p>
+<hr>
+</section>
+<section class="sec" id="sec-3-deploy-a-prod-falla">
+<h3 id="3-deploy-a-prod-falla">3. Deploy a PROD falla</h3>
+<p><strong>Sintomas tipicos</strong>: stage <code>DeployProd</code> rojo tras gate de aprobacion del grupo <code>{{PROD_APPROVERS_GROUP}}</code>.</p>
+<p><strong>Servidores PROD</strong>: <code>{{PROD_SERVER_A}}</code> + <code>{{PROD_SERVER_B}}</code> (rolling deploy, 2 en serie).</p>
+<p><strong>Rollback automatico</strong>: si el smoke test post-deploy falla, el step <code>condition: failed()</code> del job restaura el backup pre-deploy automaticamente (R15). El log mostrara &quot;Rollback ejecutado&quot; y el job termina rojo. El sitio queda en la version PREVIA al deploy.</p>
+<p><strong>Si el rollback automatico tambien falla</strong> (raro pero documentado):</p>
+<ol>
+<li>RDP al server PROD: <code>{{PROD_SERVER_FQDN}}</code></li>
+<li>Ubicar el backup mas reciente: <code>dir D:\Backups\{{APP_NAME}}\backup-*</code> (ordenar por fecha)</li>
+<li>Leer el marker para confirmar el BuildId: <code>type D:\Backups\{{APP_NAME}}\backup-&lt;BuildId&gt;\_backup-metadata.txt</code></li>
+<li>Parar el app pool: <code>appcmd stop apppool {{APP_POOL}}</code></li>
+<li>Borrar el wwwroot actual (preserva <code>appsettings.Production.json</code>):</li>
+</ol>
+<pre><code>   pushd C:\inetpub\wwwroot\{{APP_NAME}}
+   for /f &quot;delims=&quot; %i in ('dir /b /a-d ^| findstr /v /i &quot;appsettings.Production.json web.Production.config&quot;') do del /Q &quot;%i&quot;</code></pre>
+<ol>
+<li>Restaurar: <code>xcopy /E /Y D:\Backups\{{APP_NAME}}\backup-&lt;BuildId&gt;\* C:\inetpub\wwwroot\{{APP_NAME}}\</code></li>
+<li>Re-arrancar pool: <code>appcmd start apppool {{APP_POOL}}</code></li>
+<li>Verificar 200 desde un navegador externo (NO desde el server por hairpin NAT)</li>
+<li>Si el segundo server PROD (<code>{{PROD_SERVER_B}}</code>) tambien quedo afectado por el rolling deploy, repetir pasos 1-8 alli</li>
+<li>Comunicar al equipo + escribir post-mortem en <code>_hilo/INCIDENTES.md</code></li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-4-app-caida-tras-deploy-verde">
+<h3 id="4-app-caida-tras-deploy-verde">4. App caida tras deploy verde</h3>
+<p><strong>Sintomas tipicos</strong>: build verde, deploy verde, smoke verde, pero los usuarios reportan 500/503.</p>
+<p><strong>Distinguir</strong>:</p>
+<ul>
+<li>¿La app responde a <code>/health/ready</code>? Si si → es bug de la app, NO del deploy. Hotfix en codigo.</li>
+<li>¿Hay dependencia externa caida (Oracle BIPublisher, Azure AD, SQL Server)? → mirar logs de la app, no es problema del pipeline. Avisar a el equipo de infraestructura si es infra de la organización.</li>
+<li>¿Es un secreto vacio o rotado mal? → ir a UI de Azure DevOps Variable Group <code>{{PIPELINE_NAME}}-secrets</code>, verificar valores.</li>
+</ul>
+<p><strong>Reciclar pool sin volver al backup</strong> (si la app simplemente esta confundida con cache/conexiones):</p>
+<pre><code>appcmd recycle apppool {{APP_POOL}}</code></pre>
+<p><strong>Si todo lo anterior falla</strong>: rollback manual (ver seccion 3).</p>
+<hr>
+</section>
+<section class="sec" id="sec-5-contactos-y-escalation">
+<h3 id="5-contactos-y-escalation">5. Contactos y escalation</h3>
+<div class="tbl"><table><thead><tr><th>Tipo de problema</th><th>Contacto</th><th>Como</th></tr></thead><tbody><tr><td>Agente offline / capability mal configurada</td><td>Sistemas de la organización</td><td><code>{{CONTACTO_SISTEMAS}}</code></td></tr><tr><td>Permisos Azure DevOps (pool, project, environment)</td><td>Admin del pool configurado (<code>cicd.buildPool</code>)</td><td><code>{{CONTACTO_ADMIN_POOL}}</code></td></tr><tr><td>Bug de la app / codigo</td><td><code>{{RESPONSABLE_TECNICO}}</code></td><td>Teams / email</td></tr><tr><td>Secretos / rotaciones</td><td><code>{{RESPONSABLE_SECRETOS}}</code> (ver <code>SECRETOS.md</code> si existe)</td><td>Teams</td></tr><tr><td>Decision de rollback PROD bajo presion</td><td><code>{{JEFE_PROYECTO}}</code> + <code>{{RESPONSABLE_TECNICO}}</code></td><td>Teams ASAP</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-6-backups">
+<h3 id="6-backups">6. Backups</h3>
+<ul>
+<li><strong>Ubicacion</strong>: <code>{{BACKUP_ROOT}}</code> en cada server destino (tipicamente <code>D:\Backups\{{APP_NAME}}\</code>)</li>
+<li><strong>Formato</strong>: <code>backup-&lt;BuildId&gt;/</code> con <code>_backup-metadata.txt</code> dentro (BuildId + BuildNumber + SourceVersion + Timestamp)</li>
+<li><strong>Retencion</strong>: 7 dias automatica (step <code>condition: always()</code> del job de deploy borra los antiguos, R17)</li>
+<li><strong>Builds que llegan a PROD</strong>: marcar manualmente &quot;Retain indefinitely&quot; en la UI de Azure DevOps por build, para que <code>retentionRules</code> del pipeline no los borre</li>
+<li><strong>Restaurar un backup especifico</strong>: ver seccion 3 paso a paso</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-equivalencias-github-actions-si-cicdplatform--github-actions">
+<h3 id="equivalencias-github-actions-si-cicdplatform--github-actions">Equivalencias GitHub Actions (si <code>cicd.platform = github-actions</code>)</h3>
+<p><code>/hv:cicd-init</code> sustituye al generar el runbook: la UI del build es la run (<code>{{PIPELINE_URL}}</code> → <code>https://github.com/&lt;owner&gt;/&lt;repo&gt;/actions/workflows/cd-&lt;slug&gt;.yml</code>); re-encolar = <code>git push</code> (o <code>gh run rerun &lt;id&gt;</code> para el mismo commit; nunca «Re-run» de un deploy a pro sin leer el smoke); los secretos viven en <em>Settings → Environments → &lt;env&gt; → Secrets</em> (<code>gh secret list --env pro</code>), no en un Variable Group; el «agente» es el runner (<code>gh api repos/&lt;o&gt;/&lt;r&gt;/actions/runners</code> para self-hosted; hosted no tiene estado que mirar); retención = <code>retention-days</code> del artefacto (subir a 90 para builds que llegan a pro); contactos: «Permisos GitHub (environments, secrets, runners) → admin del repo / owner de la organización». Rollback (G9): <code>/hv:cicd-deploy --env &lt;env&gt; --tag &lt;anterior&gt;</code>.</p>
+<hr>
+<p><em>Runbook generado por <code>/hv:cicd-init</code>. Mantener al dia: cuando aparezca un nuevo escenario de fallo, anadir seccion. Cuando una seccion quede obsoleta, archivarla en <code>RUNBOOK_HISTORICO.md</code>.</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/08_CICD/RUNBOOK_TEMPLATE.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/runbook_deploy_manual.html"><small>Anterior</small>Runbook deploy manual — Fase 0</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/08_CICD/RUNBOOK_TEMPLATE.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-build-falla-en-ci">1. Build falla en CI</a></li><li class="l2"><a href="#1b-el-build-no-se-encola-tras-el-push-r7">1b. El build NO se encola tras el push (R7)</a></li><li class="l2"><a href="#2-deploy-a-demo-falla">2. Deploy a DEMO falla</a></li><li class="l2"><a href="#3-deploy-a-prod-falla">3. Deploy a PROD falla</a></li><li class="l2"><a href="#4-app-caida-tras-deploy-verde">4. App caida tras deploy verde</a></li><li class="l2"><a href="#5-contactos-y-escalation">5. Contactos y escalation</a></li><li class="l2"><a href="#6-backups">6. Backups</a></li><li class="l2"><a href="#equivalencias-github-actions-si-cicdplatform--github-actions">Equivalencias GitHub Actions (si cicd.platform = github-actions)</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

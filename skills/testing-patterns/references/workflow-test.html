@@ -1,0 +1,437 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · references/workflow-test.md · Ovillo</title><meta name="description" content="Fichero references/workflow-test.md de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · references/workflow-test.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-test.md de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/references/workflow-test.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/references/workflow-test.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/references/workflow-test.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (16)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html" class="cur">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>references</span><span>workflow-test.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>references/</span></div><h1>workflow-test.md</h1><p class="lede">Referencia que <code>testing-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>20.029 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: <code>/testing-patterns</code> con intencion de ejecutar o generar, o una peticion del tipo &quot;ejecuta los tests&quot;, &quot;genera tests para X&quot;, &quot;analiza la cobertura&quot;. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para aqui.</p></blockquote>
+<section class="sec" id="sec-extended-thinking-mode">
+<h3 id="extended-thinking-mode">Extended Thinking Mode</h3>
+<p><strong>think hard</strong> - Analiza casos edge y genera tests exhaustivos cuando se soliciten.</p>
+<hr>
+</section>
+<section class="sec" id="sec-1-contexto-del-proyecto">
+<h3 id="1-contexto-del-proyecto">1. Contexto del Proyecto</h3>
+<h4 id="11-detectar-vcs-y-solucion">1.1 Detectar VCS y Solucion</h4>
+<pre><code>DETECTAR tipo de VCS:
+  - Buscar carpeta .git/ → Git
+  - Ninguno → Sin VCS
+
+DETECTAR el objetivo de compilacion (ADR-037: una sola funcion, no buscar .sln a mano):
+  node &quot;${CLAUDE_PLUGIN_ROOT}/hooks/build-target.js&quot; --json
+  - Exit 0 → usar 'objetivo' (puede ser una solucion O un .csproj: el SDK acepta los dos)
+  - Exit 3 → mostrar 'candidatos' y preguntar cual usar (solucionActiva del Hilo es el default)
+  - Exit 4 → informar: no hay codigo .NET que testear</code></pre>
+<h4 id="12-ubicacion-de-tests">1.2 Ubicacion de Tests</h4>
+<p>Location_note</p>
+<pre><code>MiProyecto/
+├── _hilo/                         ← Metricas de tests
+├── src/                  ← CODIGO Y TESTS
+│   ├── MiSolucion.sln|.slnx       ← .slnx solo .NET 8+
+│   ├── MyCompany.MyApp.Domain/
+│   ├── MyCompany.MyApp.Application/
+│   ├── MyCompany.MyApp.Tests/           ← Tests unitarios
+│   ├── MyCompany.MyApp.Integration.Tests/ ← Tests integracion
+│   └── MyCompany.MyApp.Blazor.Tests/    ← Tests bUnit (si Blazor)
+└── docs/testing/                     ← Documentacion de pruebas
+    ├── planes/
+    ├── resultados/
+    └── reportes/</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-modos-de-ejecucion">
+<h3 id="2-modos-de-ejecucion">2. Modos de Ejecucion</h3>
+<p>Modes_title</p>
+<h4 id="21-modo-ejecutar-default---run">2.1 Modo Ejecutar (default: <code>--run</code>)</h4>
+<p>Ejecutar la suite de tests existente y mostrar resultados con cobertura.</p>
+<h4 id="22-modo-generar---generate">2.2 Modo Generar (<code>--generate</code>)</h4>
+<p>Generar tests nuevos para codigo existente que no tiene tests.</p>
+<h4 id="23-modo-analizar-cobertura---coverage">2.3 Modo Analizar Cobertura (<code>--coverage</code>)</h4>
+<p>Analizar gaps de cobertura sin ejecutar tests, identificando clases/metodos sin tests.</p>
+<h4 id="24-modo-filtrado---filter">2.4 Modo Filtrado (<code>--filter</code>)</h4>
+<p>Ejecutar tests filtrados por clase, metodo, categoria o proyecto.</p>
+<pre><code>Ejemplos de uso:
+  /test                             → Ejecutar todos los tests
+  /test --generate ScholarshipService      → Generar tests para ScholarshipService
+  /test --coverage                  → Analizar gaps de cobertura
+  /test --filter &quot;ClassName&quot;        → Filtrar tests por clase
+  /test --project Tests.Unit        → Solo proyecto especifico
+  /test --category integration      → Solo tests de integracion</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-3-modo-ejecutar-flujo-de-10-pasos">
+<h3 id="3-modo-ejecutar-flujo-de-10-pasos">3. MODO EJECUTAR: Flujo de 10 pasos</h3>
+<h4 id="paso-1-detectar-framework-de-tests">Paso 1: Detectar Framework de Tests</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Buscar proyectos de test en src/</span>
+<span class="tk-v">$testProjects</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Recurse -Filter <span class="tk-s">&quot;*.csproj&quot;</span> |
+    Where-Object { <span class="tk-v">$_</span>.Name -match <span class="tk-s">&quot;Test|Tests|Spec&quot;</span> }
+
+<span class="tk-c"># Detectar framework en cada .csproj:</span>
+<span class="tk-c"># - xUnit       → &lt;PackageReference Include=&quot;xunit&quot; /&gt;</span>
+<span class="tk-c"># - NUnit       → &lt;PackageReference Include=&quot;NUnit&quot; /&gt;</span>
+<span class="tk-c"># - MSTest      → &lt;PackageReference Include=&quot;MSTest.TestFramework&quot; /&gt;</span>
+<span class="tk-c"># - bUnit       → &lt;PackageReference Include=&quot;bunit&quot; /&gt;</span>
+<span class="tk-c"># - Testcontainers → &lt;PackageReference Include=&quot;Testcontainers&quot; /&gt;</span></code></pre>
+<h4 id="paso-2-mostrar-tests-disponibles">Paso 2: Mostrar Tests Disponibles</h4>
+<pre><code>TEST DETECTADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Projects_header
+
+Proyecto                              Framework    Tests
+────────────────────────────────────────────────────────
+src/MyCompany.MyApp.Tests    xUnit+Moq    ~[N]
+src/MyCompany.MyApp.IT       xUnit+TC     ~[N]
+src/MyCompany.MyApp.Blazor   bUnit        ~[N]
+
+Total: [N] proyectos de test, ~[N] tests
+
+Ejecutar: [T]odos / [U]nitarios / [I]ntegracion / [S]eleccionar</code></pre>
+<h4 id="paso-3-verificar-prerequisitos">Paso 3: Verificar Prerequisitos</h4>
+<p>Antes de ejecutar, verificar:</p>
+<ul>
+<li>Build compila sin errores</li>
+<li>Docker running si hay Testcontainers (tests de integracion)</li>
+<li>Connection strings disponibles si hay tests de BD</li>
+</ul>
+<pre data-lang="powershell"><code><span class="tk-c"># Verificar build</span>
+Push-Location <span class="tk-s">&quot;src&quot;</span>
+<span class="tk-v">$buildResult</span> = dotnet build --no-restore --verbosity quiet <span class="tk-n">2</span>&gt;&amp;<span class="tk-n">1</span>
+<span class="tk-k">if</span> (<span class="tk-v">$LASTEXITCODE</span> -ne <span class="tk-n">0</span>) {
+    <span class="tk-c"># Mostrar errores de build y detener</span>
+}
+Pop-Location</code></pre>
+<h4 id="paso-4-ejecutar-tests">Paso 4: Ejecutar Tests</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Objetivo de compilacion (solucion o .csproj)</span>
+<span class="tk-v">$target</span> = node <span class="tk-s">&quot;$env:CLAUDE_PLUGIN_ROOT/hooks/build-target.js&quot;</span>
+
+<span class="tk-c"># Ejecutar con cobertura</span>
+dotnet test <span class="tk-v">$target</span> `
+    --collect:<span class="tk-s">&quot;XPlat Code Coverage&quot;</span> `
+    --results-directory <span class="tk-s">&quot;docs/testing/results&quot;</span> `
+    --logger <span class="tk-s">&quot;console;verbosity=normal&quot;</span> `
+    --settings <span class="tk-s">&quot;src/runsettings.xml&quot;</span> <span class="tk-n">2</span>&gt;<span class="tk-v">$null</span>
+
+<span class="tk-c"># Con filter (si se especifico)</span>
+dotnet test <span class="tk-v">$target</span> `
+    --filter <span class="tk-s">&quot;FullyQualifiedName~ScholarshipServiceTests&quot;</span> `
+    --collect:<span class="tk-s">&quot;XPlat Code Coverage&quot;</span>
+
+<span class="tk-c"># Solo proyecto especifico</span>
+dotnet test <span class="tk-s">&quot;src/MyCompany.MyApp.Tests/MyCompany.MyApp.Tests.csproj&quot;</span> `
+    --collect:<span class="tk-s">&quot;XPlat Code Coverage&quot;</span></code></pre>
+<h4 id="paso-5-mostrar-resultados">Paso 5: Mostrar Resultados</h4>
+<pre><code>RESULTADOS DE TESTS
+━━━━━━━━━━━━━━━━━━━━━
+
+  Pasaron:  [N]
+  Fallaron: [N]
+  Saltados: [N]
+
+  Tiempo: [X]s
+
+  Cobertura Global: [X]%
+
+  Cobertura por Capa:
+  ┌──────────────────────┬───────────┬──────────┬──────────┐
+  │ Capa                 │ Cobertura │ Objetivo │ Estado   │
+  ├──────────────────────┼───────────┼──────────┼──────────┤
+  │ Domain               │ [X]%      │ 90%      │ [OK/WARN]│
+  │ Application          │ [X]%      │ 80%      │ [OK/WARN]│
+  │ Infrastructure       │ [X]%      │ 60%      │ [OK/WARN]│
+  │ Presentation/Web     │ [X]%      │ 40%      │ [OK/WARN]│
+  └──────────────────────┴───────────┴──────────┴──────────┘
+
+  Code testeado: src/
+  Resultados en:   docs/testing/results/</code></pre>
+<h4 id="paso-6-detalle-de-tests-fallidos">Paso 6: Detalle de Tests Fallidos</h4>
+<pre><code>TESTS FALLIDOS
+━━━━━━━━━━━━━━━━
+
+1. ScholarshipServiceTests.Create_EmptyName_ThrowsValidationException
+   Mensaje: Expected exception of type ValidationException but no exception was thrown
+   Ubicacion: src/MyCompany.MyApp.Tests/Services/ScholarshipServiceTests.cs:45
+   Sugerencia: Verificar que el servicio valida el nombre antes de crear
+
+2. PeriodTests.Constructor_EndDateAnterior_ThrowsExcepcion
+   Mensaje: Assert.Throws() failed - no exception thrown
+   Ubicacion: src/MyCompany.MyApp.Tests/ValueObjects/PeriodTests.cs:28
+   Sugerencia: Verificar validacion en constructor de Period
+
+Ver detalle: (numero) | Corregir: (c) | Continuar: (Enter)</code></pre>
+<h4 id="paso-7-analisis-de-cobertura-gaps">Paso 7: Analisis de Cobertura Gaps</h4>
+<pre><code>GAPS DE COBERTURA DETECTADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Clases sin tests (ordenadas por criticidad):
+  [ALTA]  ScholarshipService.cs         → 12 metodos publicos, 0 tests
+  [ALTA]  StudentService.cs   → 8 metodos publicos, 0 tests
+  [MEDIA] NotificacionService.cs → 5 metodos publicos, 2 tests (40%)
+  [BAJA]  MappingProfile.cs      → 3 metodos, 0 tests
+
+Metodos sin cobertura en clases testeadas:
+  ScholarshipController.Update()       → Sin test de 404
+  ScholarshipController.Delete()       → Sin test de autorizacion
+  Period.SeSolapa()            → Sin test
+
+Generar tests para gaps? (s/n/seleccionar)</code></pre>
+<h4 id="paso-8-actualizar-estado">Paso 8: Actualizar Estado</h4>
+<p>Actualizar <code>_hilo/ESTADO_PROYECTO.json</code>:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;metricas&quot;</span>: {
+    <span class="tk-s">&quot;tests&quot;</span>: {
+      <span class="tk-s">&quot;total&quot;</span>: <span class="tk-s">&quot;[N]&quot;</span>,
+      <span class="tk-s">&quot;pasaron&quot;</span>: <span class="tk-s">&quot;[N]&quot;</span>,
+      <span class="tk-s">&quot;fallaron&quot;</span>: <span class="tk-s">&quot;[N]&quot;</span>,
+      <span class="tk-s">&quot;saltados&quot;</span>: <span class="tk-s">&quot;[N]&quot;</span>,
+      <span class="tk-s">&quot;cobertura_global&quot;</span>: <span class="tk-s">&quot;[X]&quot;</span>,
+      <span class="tk-s">&quot;cobertura_por_capa&quot;</span>: {
+        <span class="tk-s">&quot;domain&quot;</span>: <span class="tk-s">&quot;[X]&quot;</span>,
+        <span class="tk-s">&quot;application&quot;</span>: <span class="tk-s">&quot;[X]&quot;</span>,
+        <span class="tk-s">&quot;infrastructure&quot;</span>: <span class="tk-s">&quot;[X]&quot;</span>,
+        <span class="tk-s">&quot;presentation&quot;</span>: <span class="tk-s">&quot;[X]&quot;</span>
+      },
+      <span class="tk-s">&quot;frameworks&quot;</span>: [<span class="tk-s">&quot;xUnit&quot;</span>, <span class="tk-s">&quot;bUnit&quot;</span>],
+      <span class="tk-s">&quot;proyectos_test&quot;</span>: <span class="tk-s">&quot;[N]&quot;</span>,
+      <span class="tk-s">&quot;ultimaEjecucion&quot;</span>: <span class="tk-s">&quot;[FECHA_HORA]&quot;</span>,
+      <span class="tk-s">&quot;rutaTests&quot;</span>: <span class="tk-s">&quot;src&quot;</span>,
+      <span class="tk-s">&quot;rutaResultados&quot;</span>: <span class="tk-s">&quot;docs/testing/results&quot;</span>
+    }
+  }
+}</code></pre>
+<h4 id="paso-9-generar-reporte-en-docstesting">Paso 9: Generar Reporte en docs/testing/</h4>
+<pre data-lang="markdown"><code># Reporte de Tests - [FECHA]
+
+## Resumen Ejecutivo
+- **Total**: [N] tests en [N] proyectos
+- **Resultado**: [PASARON] / [FALLARON] / [SALTADOS]
+- **Cobertura Global**: [X]%
+- **Tiempo Total**: [X]s
+
+## Cobertura por Proyecto
+| Proyecto | Tests | Pasaron | Fallaron | Cobertura |
+|----------|-------|---------|----------|-----------|
+| MyCompany.MyApp.Tests | [N] | [N] | [N] | [X]% |
+| MyCompany.MyApp.IntegrationTests | [N] | [N] | [N] | [X]% |
+
+## Cobertura por Capa
+| Capa | Lineas | Cubiertos | Cobertura | Objetivo | Estado |
+|------|--------|-----------|-----------|----------|--------|
+| Domain | [N] | [N] | [X]% | 90% | [OK/WARN] |
+| Application | [N] | [N] | [X]% | 80% | [OK/WARN] |
+| Infrastructure | [N] | [N] | [X]% | 60% | [OK/WARN] |
+
+## Tests Fallidos
+[Detalle si los hay]
+
+## Gaps de Cobertura
+[Lista de clases/metodos sin tests]
+
+## Recomendaciones
+[Sugerencias basadas en gaps detectados]
+
+---
+*Generado por /test - Ovillo*</code></pre>
+<p>Guardar en <code>docs/testing/results/reporte_tests_[FECHA].md</code></p>
+<h4 id="paso-10-resumen-final">Paso 10: Resumen Final</h4>
+<pre><code>RESUMEN DE TESTS
+━━━━━━━━━━━━━━━━━━
+
+Estado:    [ OK | FALLANDO]
+Total:     [N] tests
+Cobertura: [X]%
+Tiempo:    [X]s
+Reporte:   docs/testing/results/reporte_tests_[FECHA].md
+
+Next_steps
+  - /commit           → Si todo OK, hacer commit
+  - /test --generate  → Generar tests para gaps
+  - /revision         → Code review antes de commit
+
+  testing-patterns skill:
+  - patterns/builders.md           → Test data builders
+  - patterns/mocking-avanzado.md   → Mocking avanzado con Moq
+  - patterns/integration-fixtures.md → WebApplicationFactory + Testcontainers</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-modo-generar-flujo">
+<h3 id="4-modo-generar-flujo">4. MODO GENERAR: Flujo</h3>
+<p>Cuando se ejecuta <code>/testing-patterns --generate [archivo|clase]</code>:</p>
+<h4 id="41-analizar-codigo-fuente">4.1 Analizar Codigo Fuente</h4>
+<pre><code>Leer el archivo/clase objetivo en src/
+Identificar:
+  - Metodos publicos
+  - Dependencias inyectadas (constructor)
+  - Validaciones existentes
+  - Excepciones posibles
+  - Value Objects y entidades
+  - Flujos happy path y edge cases</code></pre>
+<h4 id="42-seleccionar-patron-de-test">4.2 Seleccionar Patron de Test</h4>
+<p>Usar el <strong>arbol de decision del skill testing-patterns</strong>:</p>
+<pre><code>¿Que estas testeando?
+├── Entidad de Dominio    → Patron: Domain entity test (SKILL.md)
+├── Value Object          → Patron: Value object test (SKILL.md)
+├── Service/Handler       → Patron: Service test + mocking-avanzado.md
+├── Controller/Endpoint   → Patron: API test + ApiTestBase.cs.template
+├── Repositorio           → Patron: Integration test + integration-fixtures.md
+├── Componente Blazor     → Patron: bUnit test (bunit-patterns.md)
+└── Datos complejos       → Patron: Builder/Factory (builders.md / test-data-factory.md)</code></pre>
+<h4 id="43-generar-tests-con-convenciones">4.3 Generar Tests con Convenciones</h4>
+<p>Aplicar SIEMPRE las convenciones de <code>tests.md</code>:</p>
+<ul>
+<li>Nomenclatura: <code>Method_Scenario_ExpectedResult</code></li>
+<li>Patron AAA: Arrange, Act, Assert (comentar cada seccion)</li>
+<li>System Under Test: variable <code>_sut</code></li>
+<li>Mocking: Moq con <code>Mock&lt;IInterface&gt;</code></li>
+<li>Assertions: FluentAssertions (<code>Should()</code>)</li>
+<li>Async: <code>CancellationToken</code> en todos los metodos async</li>
+</ul>
+<h4 id="44-template-base">4.4 Template Base</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// src/MyCompany.MyApp.Tests/[Carpeta]/[Clase]Tests.cs</span>
+<span class="tk-k">using</span> Xunit;
+<span class="tk-k">using</span> Moq;
+<span class="tk-k">using</span> FluentAssertions;
+
+<span class="tk-k">namespace</span> MyCompany.MyApp.Tests.[Carpeta];
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> [Clase]Tests
+{
+    <span class="tk-c">// Mocks de dependencias</span>
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;I[Dependencia1]&gt; _[dep1]Mock;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;ILogger&lt;[Clase]&gt;&gt; _loggerMock;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> [Clase] _sut; <span class="tk-c">// System Under Test</span>
+
+    <span class="tk-k">public</span> [Clase]Tests()
+    {
+        _[dep1]Mock = <span class="tk-k">new</span> Mock&lt;I[Dependencia1]&gt;();
+        _loggerMock = <span class="tk-k">new</span> Mock&lt;ILogger&lt;[Clase]&gt;&gt;();
+        _sut = <span class="tk-k">new</span> [Clase](_[dep1]Mock.Object, _loggerMock.Object);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task [Metodo]_[EscenarioPositivo]_[ResultadoEsperado]()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-c">// ... setup mocks y datos</span>
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.[Metodo]Async(...);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().NotBeNull();
+        _[dep1]Mock.Verify(x =&gt; x.[Metodo](...), Times.Once);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task [Metodo]_[EscenarioNegativo]_[ThrowsExcepcion]()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-c">// ... setup para fallo</span>
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> act = () =&gt; _sut.[Metodo]Async(...);
+
+        <span class="tk-c">// Assert</span>
+        <span class="tk-k">await</span> act.Should().ThrowAsync&lt;[TipoExcepcion]&gt;()
+            .WithMessage(<span class="tk-s">&quot;*[texto esperado]*&quot;</span>);
+    }
+
+    [Theory]
+    [InlineData(<span class="tk-s">&quot;&quot;</span>, <span class="tk-k">false</span>)]
+    [InlineData(<span class="tk-k">null</span>, <span class="tk-k">false</span>)]
+    [InlineData(<span class="tk-s">&quot;valor valido&quot;</span>, <span class="tk-k">true</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task [Metodo]_[VariosEscenarios]_[ResultadoVariable](
+        <span class="tk-k">string</span> input, <span class="tk-k">bool</span> expectedValid)
+    {
+        <span class="tk-c">// Arrange + Act + Assert parametrizado</span>
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-umbrales-de-cobertura-configurables">
+<h3 id="5-umbrales-de-cobertura-configurables">5. Umbrales de Cobertura Configurables</h3>
+<p>Leer umbrales de <code>_hilo/ESTADO_PROYECTO.json</code>:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;metricas&quot;</span>: {
+    <span class="tk-s">&quot;umbrales_cobertura&quot;</span>: {
+      <span class="tk-s">&quot;domain&quot;</span>: <span class="tk-n">90</span>,
+      <span class="tk-s">&quot;application&quot;</span>: <span class="tk-n">80</span>,
+      <span class="tk-s">&quot;infrastructure&quot;</span>: <span class="tk-n">60</span>,
+      <span class="tk-s">&quot;presentation&quot;</span>: <span class="tk-n">40</span>,
+      <span class="tk-s">&quot;global_minimo&quot;</span>: <span class="tk-n">70</span>
+    }
+  }
+}</code></pre>
+<p>Si no estan configurados, usar los defaults de <code>CLAUDE_BASE.md</code>:</p>
+<ul>
+<li>Domain: 90%, Application: 80%, Infrastructure: 60%, Presentation: 40%</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-6-integracion-con-skill-y-regla">
+<h3 id="6-integracion-con-skill-y-regla">6. Integracion con Skill y Regla</h3>
+<h4 id="tabla-de-referencia-cruzada">Tabla de Referencia Cruzada</h4>
+<div class="tbl"><table><thead><tr><th>Necesitas...</th><th>Recurso</th><th>Ubicacion</th></tr></thead><tbody><tr><td>Ejecutar tests existentes</td><td><strong>Este workflow</strong></td><td><code>.claude/skills/testing-patterns/references/workflow-test.md</code></td></tr><tr><td>Convenciones y nomenclatura</td><td><strong>Regla tests.md</strong></td><td><code>.claude/skills/tests/SKILL.md</code></td></tr><tr><td>Patron de test unitario</td><td><strong>SKILL.md</strong> seccion &quot;Plantillas&quot;</td><td><code>.claude/skills/testing-patterns/SKILL.md</code></td></tr><tr><td>Builder pattern (datos)</td><td><strong>builders.md</strong></td><td><code>.claude/skills/testing-patterns/patterns/builders.md</code></td></tr><tr><td>Mocking avanzado (Moq)</td><td><strong>mocking-avanzado.md</strong></td><td><code>.claude/skills/testing-patterns/patterns/mocking-avanzado.md</code></td></tr><tr><td>Tests de integracion</td><td><strong>integration-fixtures.md</strong></td><td><code>.claude/skills/testing-patterns/patterns/integration-fixtures.md</code></td></tr><tr><td>Snapshot testing (Verify)</td><td><strong>snapshot-testing.md</strong></td><td><code>.claude/skills/testing-patterns/patterns/snapshot-testing.md</code></td></tr><tr><td>Contract testing (API)</td><td><strong>api-contract-testing.md</strong></td><td><code>.claude/skills/testing-patterns/patterns/api-contract-testing.md</code></td></tr><tr><td>Performance testing</td><td><strong>performance-testing.md</strong></td><td><code>.claude/skills/testing-patterns/patterns/performance-testing.md</code></td></tr><tr><td>Factory pattern (datos)</td><td><strong>test-data-factory.md</strong></td><td><code>.claude/skills/testing-patterns/patterns/test-data-factory.md</code></td></tr><tr><td>Tests Blazor (bUnit)</td><td><strong>bunit-patterns.md</strong></td><td><code>.claude/skills/testing-patterns/patterns/bunit-patterns.md</code></td></tr><tr><td>Base class unitaria</td><td><strong>TestBase.cs.template</strong></td><td><code>.claude/skills/testing-patterns/templates/TestBase.cs.template</code></td></tr><tr><td>Base class integracion</td><td><strong>IntegrationTestBase.cs.template</strong></td><td><code>.claude/skills/testing-patterns/templates/IntegrationTestBase.cs.template</code></td></tr><tr><td>Base class API</td><td><strong>ApiTestBase.cs.template</strong></td><td><code>.claude/skills/testing-patterns/templates/ApiTestBase.cs.template</code></td></tr><tr><td>Builder base con Bogus</td><td><strong>FakeBuilder.cs.template</strong></td><td><code>.claude/skills/testing-patterns/templates/FakeBuilder.cs.template</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-7-diagrama-de-flujo">
+<h3 id="7-diagrama-de-flujo">7. Diagrama de Flujo</h3>
+<pre><code>┌──────────────────────────────────────────────────────────────┐
+│                       /test                                   │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│  PASO 1: Detectar VCS + multi-solucion                      │
+│     │                                                        │
+│  PASO 2: Detectar framework (xUnit/NUnit/MSTest/bUnit)      │
+│     │                                                        │
+│  PASO 3: Verificar prerequisitos (build, Docker)            │
+│     │                                                        │
+│  ┌──┴───────────────────────────────────────────────┐       │
+│  │  ¿Modo?                                          │       │
+│  ├──────────────────────────────────────────────────┤       │
+│  │  --run (default)  │  --generate  │  --coverage   │       │
+│  │       │           │      │       │      │        │       │
+│  │  PASO 4: dotnet   │ Analizar    │ Escanear     │       │
+│  │  test + coverage  │ codigo      │ clases sin   │       │
+│  │       │           │ fuente      │ tests         │       │
+│  │  PASO 5: Show     │      │      │      │        │       │
+│  │  resultados       │ Seleccionar │ Mostrar      │       │
+│  │       │           │ patron      │ gaps          │       │
+│  │  PASO 6: Detalle  │      │      │      │        │       │
+│  │  fallidos         │ Generar     │ Sugerir      │       │
+│  │       │           │ tests       │ prioridades   │       │
+│  └──┬───────────────────────────────────────────────┘       │
+│     │                                                        │
+│  PASO 7: Analisis de gaps                                   │
+│     │                                                        │
+│  PASO 8: Actualizar _hilo/ESTADO_PROYECTO.json             │
+│     │                                                        │
+│  PASO 9: Generar reporte en docs/testing/results/          │
+│     │                                                        │
+│  PASO 10: Resumen + proximos pasos + skill refs             │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-8-tabla-resumen-del-comando">
+<h3 id="8-tabla-resumen-del-comando">8. Tabla Resumen del Comando</h3>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>Valor</th></tr></thead><tbody><tr><td><strong>Invocacion</strong></td><td><code>/testing-patterns</code></td></tr><tr><td><strong>Version</strong></td><td>1.0.0</td></tr><tr><td><strong>Modos</strong></td><td><code>--run</code> (default), <code>--generate</code>, <code>--coverage</code>, <code>--filter</code></td></tr><tr><td><strong>Parametros</strong></td><td><code>--project</code>, <code>--category</code>, <code>--filter</code>, <code>--no-report</code></td></tr><tr><td><strong>VCS</strong></td><td>Git</td></tr><tr><td><strong>Multi-solucion</strong></td><td>Si (selector interactivo)</td></tr><tr><td><strong>Framework</strong></td><td>xUnit, NUnit, MSTest, bUnit</td></tr><tr><td><strong>Cobertura</strong></td><td>XPlat Code Coverage + umbrales configurables</td></tr><tr><td><strong>Reportes</strong></td><td><code>docs/testing/results/reporte_tests_[FECHA].md</code></td></tr><tr><td><strong>Actualiza</strong></td><td><code>_hilo/ESTADO_PROYECTO.json</code> → metricas.tests</td></tr><tr><td><strong>Skill relacionado</strong></td><td><code>testing-patterns</code> (13 archivos, 7 patrones, 4 templates)</td></tr><tr><td><strong>Regla relacionada</strong></td><td><code>tests.md</code> (convenciones AAA, nomenclatura, cobertura)</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-9-recordatorios-criticos">
+<h3 id="9-recordatorios-criticos">9. Recordatorios Criticos</h3>
+<h4 id="NUNCA">NUNCA</h4>
+<ul>
+<li>Ejecutar tests sin verificar que el build compila</li>
+<li>Ignorar tests fallidos sin analizar la causa</li>
+<li>Generar tests que dependan de orden de ejecucion</li>
+<li>Hardcodear datos sensibles en tests (connection strings, passwords)</li>
+<li>Usar <code>Thread.Sleep</code> en tests (usar <code>Task.Delay</code> o <code>Polly</code>)</li>
+</ul>
+<h4 id="SIEMPRE">SIEMPRE</h4>
+<ul>
+<li>Verificar build antes de ejecutar tests</li>
+<li>Usar patron AAA con comentarios en cada seccion</li>
+<li>Generar tests con nomenclatura <code>Metodo_Escenario_Resultado</code></li>
+<li>Incluir tests de happy path Y edge cases</li>
+<li>Usar <code>CancellationToken</code> en metodos async</li>
+<li>Actualizar metricas en <code>_hilo/ESTADO_PROYECTO.json</code></li>
+<li>Consultar <strong>testing-patterns</strong> skill para patrones avanzados</li>
+</ul>
+<hr>
+<p><em>Comando /test - Ovillo</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/references/test-templates.html"><small>Anterior</small>references/test-templates.md</a><a class="next" href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html"><small>Siguiente</small>templates/ApiTestBase.cs.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/references/workflow-test.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#extended-thinking-mode">Extended Thinking Mode</a></li><li class="l2"><a href="#1-contexto-del-proyecto">1. Contexto del Proyecto</a></li><li class="l3"><a href="#11-detectar-vcs-y-solucion">1.1 Detectar VCS y Solucion</a></li><li class="l3"><a href="#12-ubicacion-de-tests">1.2 Ubicacion de Tests</a></li><li class="l2"><a href="#2-modos-de-ejecucion">2. Modos de Ejecucion</a></li><li class="l3"><a href="#21-modo-ejecutar-default---run">2.1 Modo Ejecutar (default: --run)</a></li><li class="l3"><a href="#22-modo-generar---generate">2.2 Modo Generar (--generate)</a></li><li class="l3"><a href="#23-modo-analizar-cobertura---coverage">2.3 Modo Analizar Cobertura (--coverage)</a></li><li class="l3"><a href="#24-modo-filtrado---filter">2.4 Modo Filtrado (--filter)</a></li><li class="l2"><a href="#3-modo-ejecutar-flujo-de-10-pasos">3. MODO EJECUTAR: Flujo de 10 pasos</a></li><li class="l3"><a href="#paso-1-detectar-framework-de-tests">Paso 1: Detectar Framework de Tests</a></li><li class="l3"><a href="#paso-2-mostrar-tests-disponibles">Paso 2: Mostrar Tests Disponibles</a></li><li class="l3"><a href="#paso-3-verificar-prerequisitos">Paso 3: Verificar Prerequisitos</a></li><li class="l3"><a href="#paso-4-ejecutar-tests">Paso 4: Ejecutar Tests</a></li><li class="l3"><a href="#paso-5-mostrar-resultados">Paso 5: Mostrar Resultados</a></li><li class="l3"><a href="#paso-6-detalle-de-tests-fallidos">Paso 6: Detalle de Tests Fallidos</a></li><li class="l3"><a href="#paso-7-analisis-de-cobertura-gaps">Paso 7: Analisis de Cobertura Gaps</a></li><li class="l3"><a href="#paso-8-actualizar-estado">Paso 8: Actualizar Estado</a></li><li class="l3"><a href="#paso-9-generar-reporte-en-docstesting">Paso 9: Generar Reporte en docs/testing/</a></li><li class="l3"><a href="#paso-10-resumen-final">Paso 10: Resumen Final</a></li><li class="l2"><a href="#4-modo-generar-flujo">4. MODO GENERAR: Flujo</a></li><li class="l3"><a href="#41-analizar-codigo-fuente">4.1 Analizar Codigo Fuente</a></li><li class="l3"><a href="#42-seleccionar-patron-de-test">4.2 Seleccionar Patron de Test</a></li><li class="l3"><a href="#43-generar-tests-con-convenciones">4.3 Generar Tests con Convenciones</a></li><li class="l3"><a href="#44-template-base">4.4 Template Base</a></li><li class="l2"><a href="#5-umbrales-de-cobertura-configurables">5. Umbrales de Cobertura Configurables</a></li><li class="l2"><a href="#6-integracion-con-skill-y-regla">6. Integracion con Skill y Regla</a></li><li class="l3"><a href="#tabla-de-referencia-cruzada">Tabla de Referencia Cruzada</a></li><li class="l2"><a href="#7-diagrama-de-flujo">7. Diagrama de Flujo</a></li><li class="l2"><a href="#8-tabla-resumen-del-comando">8. Tabla Resumen del Comando</a></li><li class="l2"><a href="#9-recordatorios-criticos">9. Recordatorios Criticos</a></li><li class="l3"><a href="#NUNCA">NUNCA</a></li><li class="l3"><a href="#SIEMPRE">SIEMPRE</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

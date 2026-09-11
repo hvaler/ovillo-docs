@@ -1,0 +1,213 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>eval-gap · Ovillo</title><meta name="description" content="Redactar un Work Item o Issue «Eval gap» tras un fallo de smoke test del consumidor"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="eval-gap · Ovillo"><meta property="og:description" content="Redactar un Work Item o Issue «Eval gap» tras un fallo de smoke test del consumidor"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/eval-gap.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/eval-gap.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/eval-gap.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html" class="cur">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>eval-gap</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:eval-gap</span><span>solo usuario</span></div><h1>eval-gap</h1><p class="lede">Redactar un Work Item o Issue «Eval gap» tras un fallo de smoke test del consumidor</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:eval-gap</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>707</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:eval-gap</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:eval-gap</code>.</p></blockquote>
+<hr>
+<blockquote><p>Ayuda a documentar un fallo reproducible de un smoke test (<code>smoke-tests/</code>) y prepara la descripcion + la petición (REST de Azure DevOps o <code>gh issue create</code>) para abrir un Work Item o Issue «Eval gap» en el proyecto DevOps de quien mantiene el ecosistema (<code>{ProyectoConstructor}</code> en <code>devops.example.org</code>; ambos son placeholders que fija la organizacion).</p></blockquote>
+<hr>
+<section class="sec" id="sec-reglas-criticas">
+<h3 id="reglas-criticas">REGLAS CRITICAS</h3>
+<ul>
+<li><strong>NO crear el Work Item</strong> sin confirmacion explicita del usuario.</li>
+<li><strong>Verificar duplicados</strong> ANTES de proponer creacion (WIQL).</li>
+<li><strong>Solo abrir gap</strong> si el smoke fallo reproduciblemente &gt;=2 veces (no flaky).</li>
+<li><strong>Solo abrir gap</strong> si los evals del constructor estan en verde (sino, el fallo no es un gap — es un bug ya conocido del constructor).</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-parametros">
+<h3 id="parametros">Parametros</h3>
+<div class="tbl"><table><thead><tr><th>Parametro</th><th>Descripcion</th></tr></thead><tbody><tr><td>(sin parametro)</td><td>Drafter interactivo: te pregunta y compone el Work Item</td></tr><tr><td>`--smoke &lt;01</td><td>02</td><td>03&gt;`</td><td>Pre-rellena el smoke especifico que fallo</td></tr><tr><td><code>--skill &lt;name&gt;</code></td><td>Pre-rellena el skill afectado</td></tr><tr><td><code>--from-log &lt;path&gt;</code></td><td>Lee un fichero de log de fallo y extrae la info</td></tr><tr><td><code>--list-open</code></td><td>Solo lista los Eval gap abiertos (no propone creacion)</td></tr><tr><td><code>--dry-run</code></td><td>Genera la descripcion + curl pero NO ejecuta nada (default)</td></tr><tr><td><code>--live</code></td><td>Tras revisar, crea el item en la plataforma del ecosistema (REST de Azure DevOps o <code>gh issue create</code>; requiere confirmacion)</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-fase-1-verificar-pre-requisitos">
+<h3 id="fase-1-verificar-pre-requisitos">Fase 1: Verificar pre-requisitos</h3>
+<pre><code>================================================================
+  /eval-gap - PRE-REQUISITOS
+================================================================</code></pre>
+<ol>
+<li>Existe <code>.claude/smoke-tests/eval-gap-template.md</code> (lo escribe <code>/hv:init</code>). Si no existe, abortar y sugerir <code>/hv:init</code>.</li>
+<li>Plataforma del <strong>ecosistema</strong> (donde se abre el item, no la del proyecto consumidor):</li>
+<ul>
+<li>Azure DevOps: <code>_hilo/ESTADO_PROYECTO.json → infraestructura.azureDevOps.url</code> (si no, pedirla).</li>
+<li>GitHub: <code>_hilo/ESTADO_PROYECTO.json → ecosistema.repositorio</code> (<code>owner/repo</code> del ecosistema); si falta, preguntarlo y guardarlo ahí.</li>
+</ul>
+<li>Conectividad: <code>curl --negotiate -u : &lt;URL&gt;/_apis/projects?api-version=6.0</code> (Azure) · <code>gh auth status</code> + <code>gh repo view &lt;owner/repo&gt;</code> (GitHub).</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-fase-2-recopilar-contexto">
+<h3 id="fase-2-recopilar-contexto">Fase 2: Recopilar contexto</h3>
+<p>Preguntar al usuario (o leer de <code>--from-log</code> si se especifica):</p>
+<div class="tbl"><table><thead><tr><th>Pregunta</th><th>Ejemplo</th></tr></thead><tbody><tr><td>¿Que smoke fallo?</td><td><code>02-compilation.md</code></td></tr><tr><td>¿Que skill esperabas que se activase?</td><td><code>generador-crud</code></td></tr><tr><td>¿Que skill se activo (si alguna)?</td><td>(ninguna) o <code>analisis-arquitectura</code></td></tr><tr><td>¿Cual fue el prompt exacto?</td><td>&quot;Genera CRUD para <code>_SmokeTestEntity</code>...&quot;</td></tr><tr><td>¿Cual fue el error/output?</td><td>(pegar primeras 30 lineas)</td></tr><tr><td>¿Reprodujiste el fallo &gt;=2 veces?</td><td>sí/no</td></tr><tr><td>¿Bloquea release?</td><td>sí (prio 1) / no (prio 2)</td></tr></tbody></table></div>
+<p>Tambien leer del entorno automaticamente:</p>
+<ul>
+<li>Branch + commit SHA (<code>git rev-parse HEAD</code>).</li>
+<li>Stack del proyecto desde <code>_hilo/ESTADO_PROYECTO.json</code>:</li>
+<ul>
+<li><code>proyecto.nombre</code>, <code>infraestructura.entornos</code>, NuGets pinados.</li>
+</ul>
+<li>Version del ecosistema desde <code>Publicacion/VERSION.json</code> o de la propia ruta <code>install.ps1</code> instalada.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-fase-3-buscar-duplicados-wiql">
+<h3 id="fase-3-buscar-duplicados-wiql">Fase 3: Buscar duplicados (WIQL)</h3>
+<p>Antes de proponer crear, lanzar:</p>
+<pre data-lang="sql"><code><span class="tk-k">SELECT</span> [System.Id], [System.Title], [System.Tags], [System.State]
+<span class="tk-k">FROM</span> WorkItems
+<span class="tk-k">WHERE</span> [System.TeamProject] = <span class="tk-s">'{ProyectoConstructor}'</span>
+  <span class="tk-k">AND</span> [System.Tags] CONTAINS <span class="tk-s">'eval-gap'</span>
+  <span class="tk-k">AND</span> [System.Tags] CONTAINS <span class="tk-s">'{skill}'</span>
+  <span class="tk-k">AND</span> [System.State] <span class="tk-k">IN</span> (<span class="tk-s">'To Do'</span>, <span class="tk-s">'Doing'</span>, <span class="tk-s">'New'</span>, <span class="tk-s">'Approved'</span>, <span class="tk-s">'Committed'</span>)</code></pre>
+<p>GitHub (repo del ecosistema):</p>
+<pre data-lang="bash"><code><span class="tk-k">gh</span> issue list -R &lt;owner/repo&gt; --label eval-gap --label <span class="tk-s">&quot;skill:{skill}&quot;</span> --state open --json number,title,labels,assignees</code></pre>
+<p>Mostrar resultados al usuario:</p>
+<pre><code>================================================================
+  Eval gaps abiertos para skill `generador-crud`:
+
+  #1234 [P2] [Eval gap] generador-crud: introduce EF Core en net48 (Doing, HV)
+  #1287 [P2] [Eval gap] generador-crud: SP sin SET NOCOUNT ON  (To Do, HV)
+
+  Crear nuevo igualmente? (s/N)
+================================================================</code></pre>
+<p>Si el usuario escribe <code>n</code>, abortar — sugerir comentar en el item existente.</p>
+<hr>
+</section>
+<section class="sec" id="sec-fase-4-componer-el-work-item">
+<h3 id="fase-4-componer-el-work-item">Fase 4: Componer el Work Item</h3>
+<p>Generar la descripcion siguiendo <code>eval-gap-template.md</code>:</p>
+<ul>
+<li>Titulo:  <code>[Eval gap] {skill}: {sintoma corto}</code> (max 80 chars).</li>
+<li>Tags:    <code>eval-gap; smoke-{01|02|03}; {skill}</code> (GitHub: labels <code>eval-gap</code>, <code>smoke-{01|02|03}</code>, <code>skill:{skill}</code>, <code>priority:P1|P2</code>).</li>
+<li>Area:    <code>{ProyectoConstructor}/Calidad</code> (GitHub: label <code>area:calidad</code>).</li>
+<li>Priority: <code>1</code> si bloquea release, <code>2</code> por defecto.</li>
+<li>Description: render del template MD con todos los campos rellenados.</li>
+</ul>
+<p>Mostrar preview al usuario:</p>
+<pre><code>================================================================
+  PREVIEW del Work Item (no creado todavia)
+================================================================
+
+  Title:    [Eval gap] generador-crud: introduce EF Core en net48
+  Tags:     eval-gap; smoke-02; generador-crud
+  Area:     {ProyectoConstructor}/Calidad
+  Priority: 2
+  Assigned: el mantenedor del ecosistema
+
+  Description (truncada a 30 lineas):
+  ----------------------------------------------------------------
+  ## Resumen
+  El skill generador-crud introduce 'using Microsoft.EntityFrameworkCore;'
+  en LicenseManager, que es .NET 4.8 + Dapper. Build falla con CS0246.
+
+  ## Smoke test que fallo
+  | Repo consumidor | LicenseManager / main / a1b2c3d |
+  ...
+  ----------------------------------------------------------------
+
+  Acciones:
+    [1] Crear ahora (REST de Azure DevOps · gh issue create en el repo del ecosistema)
+    [2] Copiar al portapapeles para crear desde la UI web
+    [3] Guardar como _hilo/eval-gaps/draft-{timestamp}.md y salir
+    [4] Cancelar
+================================================================</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-fase-5-crear-solo-con---live--confirmacion">
+<h3 id="fase-5-crear-solo-con---live--confirmacion">Fase 5: Crear (solo con --live + confirmacion)</h3>
+<p>Si el usuario confirma <code>[1]</code>:</p>
+<pre data-lang="bash"><code>URL=$(jq -r <span class="tk-s">'.infraestructura.azureDevOps.url'</span> _hilo/ESTADO_PROYECTO.json | sed <span class="tk-s">'s|/[^/]*$||'</span>)
+WIT_TYPE=<span class="tk-s">&quot;Issue&quot;</span>   <span class="tk-c"># o &quot;Product%20Backlog%20Item&quot; segun proceso</span>
+
+<span class="tk-k">curl</span> -s --negotiate -u : \
+  <span class="tk-s">&quot;${URL}/{ProyectoConstructor}/_apis/wit/workitems/\$${WIT_TYPE}?api-version=6.0&quot;</span> \
+  -X POST \
+  -H <span class="tk-s">&quot;Content-Type: application/json-patch+json&quot;</span> \
+  --data-binary <span class="tk-s">&quot;@/tmp/eval-gap-payload.json&quot;</span></code></pre>
+<p>Donde <code>/tmp/eval-gap-payload.json</code> es el JSON-Patch con todos los campos.</p>
+<p>GitHub (ecosistema en GitHub): el cuerpo es el mismo Markdown del template.</p>
+<pre data-lang="bash"><code>REPO=$(jq -r <span class="tk-s">'.ecosistema.repositorio'</span> _hilo/ESTADO_PROYECTO.json)
+<span class="tk-k">gh</span> issue create -R <span class="tk-s">&quot;$REPO&quot;</span> -t <span class="tk-s">&quot;[Eval gap] {skill}: {sintoma corto}&quot;</span> -F /tmp/eval-gap-body.md \
+  -l eval-gap -l <span class="tk-s">&quot;smoke-{01|02|03}&quot;</span> -l <span class="tk-s">&quot;skill:{skill}&quot;</span> -l <span class="tk-s">&quot;priority:P{1|2}&quot;</span> -l area:calidad
+<span class="tk-c"># labels inexistentes: gh label create &lt;nombre&gt; -R &quot;$REPO&quot; -f  (idempotente) antes de crear</span></code></pre>
+<p>En GitHub la referencia guardada usa <code>issue_number</code> y la <code>url</code> del issue en vez de <code>wi_id</code>.</p>
+<p>Tras el POST exitoso, mostrar el numero del Work Item creado y guardar referencia en <code>_hilo/eval-gaps/</code>:</p>
+<pre><code>{
+  &quot;wi_id&quot;: 1342,
+  &quot;url&quot;: &quot;https://devops.example.org/.../_workitems/edit/1342&quot;,
+  &quot;skill&quot;: &quot;generador-crud&quot;,
+  &quot;smoke&quot;: &quot;02-compilation.md&quot;,
+  &quot;consumer&quot;: &quot;LicenseManager&quot;,
+  &quot;created_at&quot;: &quot;2026-04-20T15:30:00&quot;,
+  &quot;branch&quot;: &quot;main&quot;,
+  &quot;sha&quot;: &quot;a1b2c3d&quot;
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-fase-6-opcional-notificar">
+<h3 id="fase-6-opcional-notificar">Fase 6 (opcional): notificar</h3>
+<p>Si el usuario lo pide, generar un resumen para Teams/email del mantenedor:</p>
+<pre><code>Asunto: [Eval gap #1342] generador-crud: introduce EF Core en net48
+
+Hola HV,
+
+Smoke test 02-compilation fallo en LicenseManager (rama main, SHA a1b2c3d).
+El skill generador-crud introduce 'using Microsoft.EntityFrameworkCore;' en
+un proyecto .NET 4.8 + Dapper, lo que rompe el build con error CS0246.
+
+Detalles: https://devops.example.org/.../_workitems/edit/1342
+
+Prioridad: P2. SLA: 1 sprint del constructor.</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-fallback-si-no-hay-conectividad-con-la-plataforma">
+<h3 id="fallback-si-no-hay-conectividad-con-la-plataforma">Fallback si no hay conectividad con la plataforma</h3>
+<p>Si la peticion REST falla por conectividad o auth, <strong>NUNCA</strong> bloquear al usuario. Guardar el draft en <code>_hilo/eval-gaps/pending-{timestamp}.md</code> con la descripcion completa, y mostrar:</p>
+<pre><code>⚠️  No se pudo crear el Work Item ahora (sin conectividad / 401).
+
+Draft guardado en:
+  _hilo/eval-gaps/pending-20260420-153012.md
+
+Cuando tengas conexion:
+  - Re-ejecuta /eval-gap --from-log _hilo/eval-gaps/pending-20260420-153012.md --live
+  - O copia/pega la descripcion en la UI de la plataforma (Azure DevOps o GitHub Issues)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-salida-del-comando">
+<h3 id="salida-del-comando">Salida del comando</h3>
+<pre><code>================================================================
+  /eval-gap COMPLETADO
+================================================================
+  Work Item:    #1342 (creado / draft / cancelado)
+  Smoke:        02-compilation.md (FAIL)
+  Skill:        generador-crud
+  Prioridad:    P2
+  SLA:          ~1 sprint constructor (~14 dias)
+  URL:          https://devops.example.org/.../_workitems/edit/1342
+
+  Proximos pasos del mantenedor:
+    1. Reproducir el caso en {ProyectoConstructor}
+    2. Anadir eval negativo a `eval-set.json` del skill
+    3. Ajustar description (USE FOR / DO NOT USE FOR) si aplica
+    4. PR contra main → pipeline `validate-skills` debe pasar
+    5. Cerrar Work Item con commit referencia
+================================================================</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patrones">
+<h3 id="anti-patrones">Anti-patrones</h3>
+<ul>
+<li>NO abrir gap si el smoke nunca paso en este proyecto (es bug del consumidor).</li>
+<li>NO abrir si el constructor tiene el pipeline <code>validate-skills</code> en rojo (esperar a que se estabilice).</li>
+<li>NO inventar campos del template — si falta info, preguntar.</li>
+<li>NO crear con <code>--live</code> sin haber mostrado preview y obtener confirmacion.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-referencia">
+<h3 id="referencia">Referencia</h3>
+<ul>
+<li>Template: <code>.claude/smoke-tests/eval-gap-template.md</code></li>
+<li>Smoke tests: <code>.claude/smoke-tests/{01-activation,02-compilation,03-conventions}.md</code></li>
+</ul>
+<hr>
+<p><em>Skill eval-gap · kind: workflow</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>83</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 707 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>8 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(coherencia): Lote F - el portal deja de prometer lo que el codigo no cumple (ADR-026)</em> (<code>9d2d915</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/eval-gap/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#reglas-criticas">REGLAS CRITICAS</a></li><li class="l3"><a href="#parametros">Parametros</a></li><li class="l3"><a href="#fase-1-verificar-pre-requisitos">Fase 1: Verificar pre-requisitos</a></li><li class="l3"><a href="#fase-2-recopilar-contexto">Fase 2: Recopilar contexto</a></li><li class="l3"><a href="#fase-3-buscar-duplicados-wiql">Fase 3: Buscar duplicados (WIQL)</a></li><li class="l3"><a href="#fase-4-componer-el-work-item">Fase 4: Componer el Work Item</a></li><li class="l3"><a href="#fase-5-crear-solo-con---live--confirmacion">Fase 5: Crear (solo con --live + confirmacion)</a></li><li class="l3"><a href="#fase-6-opcional-notificar">Fase 6 (opcional): notificar</a></li><li class="l3"><a href="#fallback-si-no-hay-conectividad-con-la-plataforma">Fallback si no hay conectividad con la plataforma</a></li><li class="l3"><a href="#salida-del-comando">Salida del comando</a></li><li class="l3"><a href="#anti-patrones">Anti-patrones</a></li><li class="l3"><a href="#referencia">Referencia</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

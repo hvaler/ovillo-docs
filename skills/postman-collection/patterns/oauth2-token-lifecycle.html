@@ -1,0 +1,135 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>postman-collection · patterns/oauth2-token-lifecycle.md · Ovillo</title><meta name="description" content="Fichero patterns/oauth2-token-lifecycle.md de la skill postman-collection"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="postman-collection · patterns/oauth2-token-lifecycle.md · Ovillo"><meta property="og:description" content="Fichero patterns/oauth2-token-lifecycle.md de la skill postman-collection"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/postman-collection/patterns/oauth2-token-lifecycle.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/postman-collection/patterns/oauth2-token-lifecycle.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/postman-collection/patterns/oauth2-token-lifecycle.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de postman-collection (16)</h4><ul class="sibs"><li><a href="../../../skills/postman-collection/checklists/auth-configuration-checklist.html">checklists/auth-configuration-checklist.md</a></li><li><a href="../../../skills/postman-collection/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/postman-collection/patterns/auth-detection.html">patterns/auth-detection.md</a></li><li><a href="../../../skills/postman-collection/patterns/azure-ad-auth.html">patterns/azure-ad-auth.md</a></li><li><a href="../../../skills/postman-collection/patterns/http-signature-mtls.html">patterns/http-signature-mtls.md</a></li><li><a href="../../../skills/postman-collection/patterns/oauth2-token-lifecycle.html" class="cur">patterns/oauth2-token-lifecycle.md</a></li><li><a href="../../../skills/postman-collection/references/auth-examples.html">references/auth-examples.md</a></li><li><a href="../../../skills/postman-collection/references/test-assertions.html">references/test-assertions.md</a></li><li><a href="../../../skills/postman-collection/references/workflow-postman.html">references/workflow-postman.md</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-apikey.js.html">templates/auth-prerequest-apikey.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-azuread.js.html">templates/auth-prerequest-azuread.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-basic.js.html">templates/auth-prerequest-basic.js.template</a></li><li><a href="../../../skills/postman-collection/templates/collection.json.html">templates/collection.json.template</a></li><li><a href="../../../skills/postman-collection/templates/environment.json.html">templates/environment.json.template</a></li><li><a href="../../../skills/postman-collection/templates/request.json.html">templates/request.json.template</a></li><li><a href="../../../skills/postman-collection/templates/tests.js.html">templates/tests.js.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/postman-collection.html">postman-collection</a></span><span>patterns</span><span>oauth2-token-lifecycle.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>postman-collection</span><span>patterns/</span></div><h1>oauth2-token-lifecycle.md</h1><p class="lede">Referencia que <code>postman-collection</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/postman-collection.html">postman-collection</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>4697 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Purpose</strong>: Manage OAuth2 token acquisition, caching, expiry, and refresh in Postman collections. <strong>Version</strong>: 1.0.0</p></blockquote>
+<hr>
+<section class="sec" id="sec-token-lifecycle-overview">
+<h3 id="token-lifecycle-overview">Token Lifecycle Overview</h3>
+<pre><code>[Request] → [Check token exists?]
+                │
+         ┌──────┴──────┐
+         │ NO           │ YES
+         ▼              ▼
+   [Request token]  [Check expiry]
+         │              │
+         │         ┌────┴────┐
+         │         │ Valid    │ Expired
+         │         ▼         ▼
+         │    [Use token]  [Refresh or re-request]
+         │                   │
+         └───────────────────┘
+                │
+            [Store token + expiry]
+                │
+            [Execute request with Bearer header]</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-token-expiry-tracking">
+<h3 id="token-expiry-tracking">Token Expiry Tracking</h3>
+<h4 id="using-datenow-for-expiry-check">Using <code>Date.now()</code> for Expiry Check</h4>
+<pre data-lang="javascript"><code><span class="tk-c">// Store expiry timestamp when receiving token</span>
+<span class="tk-k">const</span> expiresIn = response.expires_in; <span class="tk-c">// seconds</span>
+<span class="tk-k">const</span> expiryTimestamp = Date.now() + (expiresIn * <span class="tk-n">1000</span>);
+pm.environment.set(<span class="tk-s">&quot;tokenExpiry&quot;</span>, String(expiryTimestamp));
+
+<span class="tk-c">// Check before each request (with 60s buffer)</span>
+<span class="tk-k">const</span> tokenExpiry = parseInt(pm.environment.get(<span class="tk-s">&quot;tokenExpiry&quot;</span>));
+<span class="tk-k">const</span> isExpired = !tokenExpiry || Date.now() &gt; (tokenExpiry - <span class="tk-n">60000</span>);</code></pre>
+<h4 id="why-60-second-buffer">Why 60-Second Buffer?</h4>
+<ul>
+<li>Network latency between check and actual request execution</li>
+<li>Prevents edge cases where token expires mid-flight</li>
+<li>Standard practice for OAuth2 client implementations</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-grant-types">
+<h3 id="grant-types">Grant Types</h3>
+<h4 id="client-credentials-machine-to-machine">Client Credentials (Machine-to-Machine)</h4>
+<p>Most common for API testing at the organization. No user interaction required.</p>
+<pre data-lang="javascript"><code>body: {
+    mode: <span class="tk-s">&quot;urlencoded&quot;</span>,
+    urlencoded: [
+        { key: <span class="tk-s">&quot;grant_type&quot;</span>, value: <span class="tk-s">&quot;client_credentials&quot;</span> },
+        { key: <span class="tk-s">&quot;client_id&quot;</span>, value: clientId },
+        { key: <span class="tk-s">&quot;client_secret&quot;</span>, value: clientSecret },
+        { key: <span class="tk-s">&quot;scope&quot;</span>, value: scope }
+    ]
+}</code></pre>
+<h4 id="authorization-code-user-context">Authorization Code (User Context)</h4>
+<p>Required when API needs user identity. Use Postman's built-in OAuth2 Authorization tab.</p>
+<ol>
+<li>Set Auth type to &quot;OAuth 2.0&quot; in Postman</li>
+<li>Configure callback URL: <code>https://oauth.pstmn.io/v1/callback</code></li>
+<li>Set Auth URL and Token URL from Azure AD</li>
+<li>Click &quot;Get New Access Token&quot;</li>
+</ol>
+<h4 id="refresh-token">Refresh Token</h4>
+<pre data-lang="javascript"><code><span class="tk-c">// If refresh_token is available</span>
+<span class="tk-k">const</span> refreshToken = pm.environment.get(<span class="tk-s">&quot;refreshToken&quot;</span>);
+
+<span class="tk-k">if</span> (refreshToken) {
+    pm.sendRequest({
+        url: tokenUrl,
+        method: <span class="tk-s">&quot;POST&quot;</span>,
+        header: { <span class="tk-s">&quot;Content-Type&quot;</span>: <span class="tk-s">&quot;application/x-www-form-urlencoded&quot;</span> },
+        body: {
+            mode: <span class="tk-s">&quot;urlencoded&quot;</span>,
+            urlencoded: [
+                { key: <span class="tk-s">&quot;grant_type&quot;</span>, value: <span class="tk-s">&quot;refresh_token&quot;</span> },
+                { key: <span class="tk-s">&quot;client_id&quot;</span>, value: clientId },
+                { key: <span class="tk-s">&quot;client_secret&quot;</span>, value: clientSecret },
+                { key: <span class="tk-s">&quot;refresh_token&quot;</span>, value: refreshToken }
+            ]
+        }
+    }, <span class="tk-k">function</span> (err, res) {
+        <span class="tk-k">if</span> (!err &amp;&amp; res.code === <span class="tk-n">200</span>) {
+            <span class="tk-k">const</span> json = res.json();
+            pm.environment.set(<span class="tk-s">&quot;token&quot;</span>, json.access_token);
+            pm.environment.set(<span class="tk-s">&quot;refreshToken&quot;</span>, json.refresh_token);
+            pm.environment.set(<span class="tk-s">&quot;tokenExpiry&quot;</span>,
+                String(Date.now() + (json.expires_in * <span class="tk-n">1000</span>)));
+        }
+    });
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-secret-storage">
+<h3 id="secret-storage">Secret Storage</h3>
+<h4 id="environment-variables-with-type-secret">Environment Variables with <code>type: &quot;secret&quot;</code></h4>
+<pre data-lang="json"><code>{
+    <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;clientSecret&quot;</span>,
+    <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;&quot;</span>,
+    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;secret&quot;</span>,
+    <span class="tk-s">&quot;enabled&quot;</span>: true
+}</code></pre>
+<p>Variables with <code>type: &quot;secret&quot;</code>:</p>
+<ul>
+<li>Are masked in Postman UI (shown as <code>••••••</code>)</li>
+<li>Are NOT synced to Postman cloud (team workspaces)</li>
+<li>Must be set manually on each machine</li>
+<li>Are passed securely in Newman via <code>--env-var</code></li>
+</ul>
+<h4 id="variables-that-should-be-secrets">Variables That Should Be Secrets</h4>
+<div class="tbl"><table><thead><tr><th>Variable</th><th>Why</th></tr></thead><tbody><tr><td><code>clientSecret</code></td><td>OAuth2 client credential</td></tr><tr><td><code>basicPassword</code></td><td>Basic auth password</td></tr><tr><td><code>apiKey</code></td><td>API key value</td></tr><tr><td><code>httpSignaturePrivateKey</code></td><td>Signing key</td></tr><tr><td><code>refreshToken</code></td><td>Can obtain new access tokens</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-newman-cicd-integration">
+<h3 id="newman-cicd-integration">Newman CI/CD Integration</h3>
+<h4 id="passing-secrets-in-ci">Passing Secrets in CI</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Never store secrets in environment files committed to Git</span>
+newman run collection.json \
+    -e environment_dev.json \
+    --env-var <span class="tk-s">&quot;clientSecret=$CLIENT_SECRET&quot;</span> \
+    --env-var <span class="tk-s">&quot;token=$PRE_OBTAINED_TOKEN&quot;</span></code></pre>
+<h4 id="pre-obtaining-token-in-ci">Pre-Obtaining Token in CI</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Option 1: Use curl to get token before Newman</span>
+TOKEN=$(<span class="tk-k">curl</span> -s -X POST <span class="tk-s">&quot;$TOKEN_URL&quot;</span> \
+    -d <span class="tk-s">&quot;grant_type=client_credentials&quot;</span> \
+    -d <span class="tk-s">&quot;client_id=$CLIENT_ID&quot;</span> \
+    -d <span class="tk-s">&quot;client_secret=$CLIENT_SECRET&quot;</span> \
+    -d <span class="tk-s">&quot;scope=$SCOPE&quot;</span> | jq -r <span class="tk-s">'.access_token'</span>)
+
+newman run collection.json \
+    -e environment_dev.json \
+    --env-var <span class="tk-s">&quot;token=$TOKEN&quot;</span></code></pre>
+<hr>
+<p><em>Pattern v1.0.0 - OAuth2 Token Lifecycle for Postman</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/postman-collection.html#ficheros">← Volver a la ficha de postman-collection</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/postman-collection/patterns/http-signature-mtls.html"><small>Anterior</small>patterns/http-signature-mtls.md</a><a class="next" href="../../../skills/postman-collection/references/auth-examples.html"><small>Siguiente</small>references/auth-examples.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/postman-collection/patterns/oauth2-token-lifecycle.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#token-lifecycle-overview">Token Lifecycle Overview</a></li><li class="l2"><a href="#token-expiry-tracking">Token Expiry Tracking</a></li><li class="l3"><a href="#using-datenow-for-expiry-check">Using Date.now() for Expiry Check</a></li><li class="l3"><a href="#why-60-second-buffer">Why 60-Second Buffer?</a></li><li class="l2"><a href="#grant-types">Grant Types</a></li><li class="l3"><a href="#client-credentials-machine-to-machine">Client Credentials (Machine-to-Machine)</a></li><li class="l3"><a href="#authorization-code-user-context">Authorization Code (User Context)</a></li><li class="l3"><a href="#refresh-token">Refresh Token</a></li><li class="l2"><a href="#secret-storage">Secret Storage</a></li><li class="l3"><a href="#environment-variables-with-type-secret">Environment Variables with type: &quot;secret&quot;</a></li><li class="l3"><a href="#variables-that-should-be-secrets">Variables That Should Be Secrets</a></li><li class="l2"><a href="#newman-cicd-integration">Newman CI/CD Integration</a></li><li class="l3"><a href="#passing-secrets-in-ci">Passing Secrets in CI</a></li><li class="l3"><a href="#pre-obtaining-token-in-ci">Pre-Obtaining Token in CI</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

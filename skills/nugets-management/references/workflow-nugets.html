@@ -1,0 +1,529 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>nugets-management · references/workflow-nugets.md · Ovillo</title><meta name="description" content="Fichero references/workflow-nugets.md de la skill nugets-management"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="nugets-management · references/workflow-nugets.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-nugets.md de la skill nugets-management"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/nugets-management/references/workflow-nugets.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/nugets-management/references/workflow-nugets.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/nugets-management/references/workflow-nugets.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de nugets-management (10)</h4><ul class="sibs"><li><a href="../../../skills/nugets-management/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/nugets-management/patterns/central-package-management.html">patterns/central-package-management.md</a></li><li><a href="../../../skills/nugets-management/patterns/version-strategy.html">patterns/version-strategy.md</a></li><li><a href="../../../skills/nugets-management/patterns/vulnerability-remediation.html">patterns/vulnerability-remediation.md</a></li><li><a href="../../../skills/nugets-management/references/workflow-nugets.html" class="cur">references/workflow-nugets.md</a></li><li><a href="../../../skills/nugets-management/scripts/Audit-Packages.html">scripts/Audit-Packages.ps1</a></li><li><a href="../../../skills/nugets-management/scripts/Migrate-ToCPM.html">scripts/Migrate-ToCPM.ps1</a></li><li><a href="../../../skills/nugets-management/templates/Directory.Build.props.html">templates/Directory.Build.props.template</a></li><li><a href="../../../skills/nugets-management/templates/Directory.Packages.props.html">templates/Directory.Packages.props.template</a></li><li><a href="../../../skills/nugets-management/templates/nuget.config.html">templates/nuget.config.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/nugets-management.html">nugets-management</a></span><span>references</span><span>workflow-nugets.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>nugets-management</span><span>references/</span></div><h1>workflow-nugets.md</h1><p class="lede">Referencia que <code>nugets-management</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/nugets-management.html">nugets-management</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>29.282 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>nugets-management</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para.</p></blockquote>
+<hr>
+<blockquote><p>🔒 <strong>SEGURIDAD: Este comando puede detectar vulnerabilidades CVE en dependencias.</strong> Ejecutar <code>--audit</code> regularmente como parte del ciclo de desarrollo.</p></blockquote>
+<hr>
+<section class="sec" id="sec-skills-asociados">
+<h3 id="skills-asociados">Skills Asociados</h3>
+<p>Claude activará automáticamente estos skills cuando:</p>
+<div class="tbl"><table><thead><tr><th>Skill</th><th>Descripción</th><th>CVEs, Central Package Management, categorización</th></tr></thead><tbody><tr><td><strong>nugets-management</strong></td><td><code>--audit</code>, <code>--consolidate</code>, análisis profundo</td><td>CVEs, Central Package Management, categorización</td></tr><tr><td><strong>security-audit</strong></td><td>Vulnerabilidades críticas detectadas</td><td>OWASP, detección de secrets, hardening</td></tr></tbody></table></div>
+<p>Claude activará automáticamente estos skills cuando:</p>
+<ul>
+<li>Se detecten vulnerabilidades que requieran análisis de impacto</li>
+<li>Se solicite implementar Central Package Management</li>
+<li>Se necesite verificar compatibilidad con TargetFramework</li>
+<li>Se encuentren CVEs críticos (se invoca security-audit adicional)</li>
+</ul>
+</section>
+<section class="sec" id="sec-parámetros">
+<h3 id="parámetros">Parámetros</h3>
+<div class="tbl"><table><thead><tr><th>Parámetro</th><th>Descripción</th></tr></thead><tbody><tr><td><code>--list</code></td><td>Lista todos los paquetes instalados con versiones</td></tr><tr><td><code>--audit</code></td><td>🔒 <strong>Auditoría de seguridad - Detecta CVEs y vulnerabilidades</strong></td></tr><tr><td><code>--outdated</code></td><td>Muestra paquetes con actualizaciones disponibles</td></tr><tr><td><code>--update [paquete]</code></td><td>Actualiza paquete(s) a última versión compatible</td></tr><tr><td><code>--consolidate</code></td><td>Detecta y corrige versiones inconsistentes entre proyectos</td></tr><tr><td>(sin parámetro)</td><td>Muestra resumen general + paquetes desactualizados críticos</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-importante-ubicación-del-código">
+<h3 id="importante-ubicación-del-código">IMPORTANTE: Ubicación del Código</h3>
+<pre><code>MiProyecto/
+├── src/              ← ⭐ BUSCAR .csproj AQUÍ
+│   ├── MiSolucion.sln|.slnx    ← .slnx solo .NET 8+
+│   ├── MiApi/MiApi.csproj
+│   ├── MiDomain/MiDomain.csproj
+│   └── ...
+└── ...</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-ejecutar">
+<h3 id="ejecutar">Ejecutar:</h3>
+<h4 id="sin-parámetro-análisis-de-nugets">Sin parámetro (ANÁLISIS DE NUGETS)</h4>
+<pre><code>▶ ANÁLISIS DE NUGETS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📦 RESUMEN
+┌─────────────────────────────────────────────────┐
+│  Total paquetes únicos:     45                  │
+│  Proyectos analizados:      8                   │
+│  Paquetes desactualizados:  12                  │
+│  🔴 Vulnerabilidades:       2                   │
+└─────────────────────────────────────────────────┘
+
+⚠️ REQUIEREN ATENCIÓN INMEDIATA
+
+🔴 VULNERABILIDADES DETECTADAS
+┌─────────────────────────────────────────────────┐
+│ Newtonsoft.Json 12.0.3                          │
+│ CVE-2024-21907 (CRÍTICAS)                        │
+│ → Actualizar a &gt;= 13.0.1                        │
+├─────────────────────────────────────────────────┤
+│ System.Text.Json 6.0.0                          │
+│ CVE-2024-30105 (ALTAS)                           │
+│ → Actualizar a &gt;= 6.0.10                        │
+└─────────────────────────────────────────────────┘
+
+📊 TOP 5 DESACTUALIZADOS (por antigüedad)
+
+| Paquete | Actual | Última | Proyectos |
+|---------|--------|--------|-----------|
+| AutoMapper | 10.1.1 | 13.0.1 | 5 |
+| FluentValidation | 9.5.0 | 11.9.0 | 4 |
+| Serilog | 2.10.0 | 3.1.1 | 6 |
+| xunit | 2.4.1 | 2.7.0 | 3 |
+| Moq | 4.16.1 | 4.20.70 | 3 |
+
+💡 Ejecutar:
+   /nugets --audit      → Ver todas las vulnerabilidades
+   /nugets --outdated   → Ver todos los desactualizados
+   /nugets --update     → Actualizar todo (interactivo)</code></pre>
+<hr>
+<h4 id="--list---listado-de-paquetes-nuget"><code>--list</code> - LISTADO DE PAQUETES NUGET</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Ejecutar en src/</span>
+Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.csproj&quot;</span> -Recurse | ForEach-Object {
+    Write-Host <span class="tk-s">&quot;`n📁 $($_.Name)&quot;</span> -ForegroundColor Cyan
+    [xml]<span class="tk-v">$proj</span> = Get-Content <span class="tk-v">$_</span>.FullName
+    <span class="tk-v">$proj</span>.Project.ItemGroup.PackageReference | ForEach-Object {
+        Write-Host <span class="tk-s">&quot;  📦 $($_.Include) v$($_.Version)&quot;</span>
+    }
+}</code></pre>
+<p><strong>Output esperado:</strong></p>
+<pre><code>▶ LISTADO DE PAQUETES NUGET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 MiApi.csproj
+├── Microsoft.AspNetCore.OpenApi          9.0.0
+├── Swashbuckle.AspNetCore                6.5.0
+├── Serilog.AspNetCore                    8.0.0
+├── FluentValidation.AspNetCore           11.3.0
+└── AutoMapper.Extensions.Microsoft.DI    12.0.1
+
+📁 MiDomain.csproj
+├── FluentValidation                      11.9.0
+├── Mediator.Abstractions                 2.1.7   ← MIT (gratuito)
+└── Mediator.SourceGenerator              2.1.7   ← Source generators
+
+📁 MiInfrastructure.csproj
+├── Microsoft.EntityFrameworkCore         8.0.0
+├── Microsoft.EntityFrameworkCore.SqlServer  8.0.0
+├── Dapper                                2.1.35
+└── StackExchange.Redis                   2.7.33
+
+📁 MiApi.Tests.csproj
+├── xunit                                 2.7.0
+├── xunit.runner.visualstudio             2.5.7
+├── Moq                                   4.20.70
+├── FluentAssertions                      6.12.0
+└── Microsoft.NET.Test.Sdk                17.9.0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 Total: {0} paquetes únicos en {1} proyectos</code></pre>
+<hr>
+<h4 id="--audit---auditoría-de-seguridad-nuget"><code>--audit</code> - AUDITORÍA DE SEGURIDAD NUGET 🔒</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Ejecutar dotnet list package --vulnerable</span>
+cd src
+dotnet list package --vulnerable --include-transitive</code></pre>
+<p><strong>Output esperado:</strong></p>
+<pre><code>▶ AUDITORÍA DE SEGURIDAD NUGET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔒 ANÁLISIS DE VULNERABILIDADES (CVE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔴 CRÍTICAS (2)
+┌─────────────────────────────────────────────────────────────────┐
+│ 📦 Newtonsoft.Json 12.0.3                                       │
+│ ─────────────────────────────────────────────────────────────── │
+│ CVE-2024-21907                                                  │
+│ Severidad: CRÍTICAS (9.8)                                        │
+│ Tipo: Remote Code Execution                                     │
+│ Descripción: Unsafe deserialization allows RCE                  │
+│ Afecta: MiApi.csproj, MiInfrastructure.csproj                   │
+│ ─────────────────────────────────────────────────────────────── │
+│ ✅ SOLUCIÓN: Actualizar a &gt;= 13.0.1                             │
+│    dotnet add package Newtonsoft.Json --version 13.0.3          │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 📦 System.Text.Json 6.0.0 (transitiva)                          │
+│ ─────────────────────────────────────────────────────────────── │
+│ CVE-2024-30105                                                  │
+│ Severidad: ALTAS (7.5)                                           │
+│ Tipo: Denial of Service                                         │
+│ Descripción: Stack overflow via deeply nested JSON              │
+│ Afecta: Vía Microsoft.AspNetCore.* 6.0.x                        │
+│ ─────────────────────────────────────────────────────────────── │
+│ ✅ SOLUCIÓN: Migrar a .NET 8+ o añadir explícitamente           │
+│    dotnet add package System.Text.Json --version 8.0.3          │
+└─────────────────────────────────────────────────────────────────┘
+
+🟠 ALTAS (1)
+┌─────────────────────────────────────────────────────────────────┐
+│ 📦 Microsoft.Data.SqlClient 4.1.0                               │
+│ CVE-2024-0056 | Severidad: ALTAS (7.1)                           │
+│ ✅ Actualizar a &gt;= 5.1.5                                        │
+└─────────────────────────────────────────────────────────────────┘
+
+🟡 MEDIAS (0)
+✅ No se encontraron vulnerabilidades de severidad MEDIAS
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 RESUMEN DE AUDITORÍA
+┌─────────────────────────────────────────────────┐
+│  🔴 Críticas:    2                              │
+│  🟠 Altas:       1                              │
+│  🟡 Medias:      0                              │
+│  🟢 Bajas:       0                              │
+│  ─────────────────────────────────────────────  │
+│  ⚠️  TOTAL:      3 vulnerabilidades             │
+└─────────────────────────────────────────────────┘
+
+🎯 ACCIONES REQUERIDAS
+
+1. 🔴 [URGENTE] Actualizar Newtonsoft.Json
+   cd src
+   dotnet add MiApi/MiApi.csproj package Newtonsoft.Json -v 13.0.3
+   dotnet add MiInfrastructure/MiInfrastructure.csproj package Newtonsoft.Json -v 13.0.3
+
+2. 🔴 [URGENTE] Actualizar System.Text.Json
+   dotnet add package System.Text.Json -v 8.0.3
+
+3. 🟠 [IMPORTANTE] Actualizar SqlClient
+   dotnet add package Microsoft.Data.SqlClient -v 5.1.5
+
+💡 Para actualizar todo automáticamente:
+   /nugets --update</code></pre>
+<hr>
+<h4 id="--outdated---paquetes-desactualizados"><code>--outdated</code> - PAQUETES DESACTUALIZADOS</h4>
+<pre data-lang="powershell"><code>cd src
+dotnet list package --outdated</code></pre>
+<p><strong>Output esperado:</strong></p>
+<pre><code>▶ PAQUETES DESACTUALIZADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 RESUMEN POR PROYECTO
+
+📁 MiApi.csproj ({0} desactualizados)
+┌────────────────────────────────┬──────────┬──────────┬────────────┐
+│ Paquete                        │ Actual   │ Última   │ Tipo       │
+├────────────────────────────────┼──────────┼──────────┼────────────┤
+│ Swashbuckle.AspNetCore         │ 6.5.0    │ 6.7.3    │ 🟢 Minor   │
+│ Serilog.AspNetCore             │ 7.0.0    │ 8.0.1    │ 🟡 Major   │
+│ AutoMapper.Extensions.MS.DI    │ 11.0.0   │ 12.0.1   │ 🟡 Major   │
+└────────────────────────────────┴──────────┴──────────┴────────────┘
+
+📁 MiDomain.csproj ({0} desactualizados)
+┌────────────────────────────────┬──────────┬──────────┬────────────┐
+│ MediatR                        │ 11.1.0   │ 12.2.0   │ 🟡 Major   │
+│ ⚠️ v12+ es COMERCIAL ($500-2000/año)                      │
+│ 💡 Alternativa: Mediator (MIT/gratuito) - Ver GUIA_ARQUITECTURA  │
+└────────────────────────────────┴──────────┴──────────┴────────────┘
+
+📁 MiInfrastructure.csproj ({0} desactualizados)
+┌────────────────────────────────┬──────────┬──────────┬────────────┐
+│ Microsoft.EntityFrameworkCore  │ 7.0.14   │ 8.0.6    │ 🟡 Major   │
+│ Dapper                         │ 2.0.123  │ 2.1.35   │ 🟢 Minor   │
+└────────────────────────────────┴──────────┴──────────┴────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📈 ESTADÍSTICAS
+┌─────────────────────────────────────────────────┐
+│  Total desactualizados:  6                      │
+│  🟡 Major (breaking):    4                      │
+│  🟢 Minor (compatible):  2                      │
+│  🔵 Patch (seguro):      0                      │
+└─────────────────────────────────────────────────┘
+
+⚠️ RECOMENDACIONES
+
+🟡 ACTUALIZACIONES MAJOR (revisar breaking changes):
+   • Serilog 7.x → 8.x: Cambios en configuración
+   • EF Core 7.x → 8.x: Requiere .NET 8
+   • MediatR 12.x → 13.x: ⚠️ LICENCIA COMERCIAL (la 12.4.1 es la ultima Apache-2.0)
+     → Alternativa: Mediator (martinothamar, MIT/gratuito)
+     → Ver: _patron/01_Estructura_Tecnica/GUIA_ARQUITECTURA.md
+
+🟢 ACTUALIZACIONES MINOR (seguras):
+   • Swashbuckle, Dapper: Actualizar directamente
+
+💡 Comandos:
+   /nugets --update Swashbuckle.AspNetCore   → Actualiza uno
+   /nugets --update                          → Actualiza todos (interactivo)</code></pre>
+<hr>
+<h4 id="--update-paquete---actualización-de-paquetes"><code>--update [paquete]</code> - ACTUALIZACIÓN DE PAQUETES</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Actualizar específico</span>
+dotnet add package [NombrePaquete] --version [version]
+
+<span class="tk-c"># Actualizar todos los de un proyecto</span>
+dotnet outdated --upgrade</code></pre>
+<p><strong>Output esperado:</strong></p>
+<pre><code>▶ ACTUALIZACIÓN DE PAQUETES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📦 Actualizando: Swashbuckle.AspNetCore
+
+Proyecto: MiApi.csproj
+├── Versión actual:  6.5.0
+├── Versión nueva:   6.7.3
+├── Tipo cambio:     🟢 Minor (compatible)
+└── Estado::          ✅ Actualizado
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ ACTUALIZACIÓN COMPLETADA
+
+📋 Cambios realizados:
+   • MiApi.csproj: Swashbuckle.AspNetCore 6.5.0 → 6.7.3
+
+⚠️ IMPORTANTE: Ejecutar después:
+   1. dotnet restore
+   2. dotnet build
+   3. dotnet test
+
+💡 Verificar que todo funciona antes de commit</code></pre>
+<hr>
+<h4 id="--consolidate---consolidación-de-versiones"><code>--consolidate</code> - CONSOLIDACIÓN DE VERSIONES</h4>
+<pre><code>▶ CONSOLIDACIÓN DE VERSIONES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ INCONSISTENCIAS DETECTADAS
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 📦 Newtonsoft.Json                                              │
+│ ─────────────────────────────────────────────────────────────── │
+│ MiApi.csproj:            13.0.1                                 │
+│ MiInfrastructure.csproj: 12.0.3  ← ⚠️ DESACTUALIZADO           │
+│ MiWorker.csproj:         13.0.3  ← ✅ Más reciente             │
+│ ─────────────────────────────────────────────────────────────── │
+│ 💡 Recomendación: Usar {0} en todos                          │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 📦 FluentValidation                                             │
+│ ─────────────────────────────────────────────────────────────── │
+│ MiApi.csproj:    11.9.0                                         │
+│ MiDomain.csproj: 11.5.1  ← ⚠️ DESACTUALIZADO                   │
+│ ─────────────────────────────────────────────────────────────── │
+│ 💡 Recomendación: Usar {0} en todos                          │
+└─────────────────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 RESUMEN
+┌─────────────────────────────────────────────────┐
+│  Paquetes con versiones inconsistentes: 2       │
+│  Proyectos afectados: 4                         │
+└─────────────────────────────────────────────────┘
+
+🔧 SOLUCIÓN RECOMENDADA: Directory.Packages.props
+
+Crear archivo en raíz de solución para centralizar versiones:
+</code></pre>
+<p>&lt;!-- src/Directory.Packages.props --&gt; &lt;Project&gt;   &lt;PropertyGroup&gt;     &lt;ManagePackageVersionsCentrally&gt;true&lt;/ManagePackageVersionsCentrally&gt;   &lt;/PropertyGroup&gt;   &lt;ItemGroup&gt;     &lt;PackageVersion Include=&quot;Newtonsoft.Json&quot; Version=&quot;13.0.3&quot; /&gt;     &lt;PackageVersion Include=&quot;FluentValidation&quot; Version=&quot;11.9.0&quot; /&gt;     &lt;!-- ... más paquetes ... --&gt;   &lt;/ItemGroup&gt; &lt;/Project&gt;</p>
+<pre><code>
+💡 Comandos:
+   ¿Aplicar consolidación automática? (esto modificará los .csproj)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-integración-con-otros-comandos">
+<h3 id="integración-con-otros-comandos">Integración con Otros Comandos</h3>
+<div class="tbl"><table><thead><tr><th>Comando</th><th>Relación</th></tr></thead><tbody><tr><td><code>/hv:analizar</code></td><td>Incluye resumen de NuGets en análisis completo</td></tr><tr><td><code>/hv:analizar --security</code></td><td>Ejecuta <code>--audit</code> automáticamente</td></tr><tr><td><code>/hv:prepara-entrega</code></td><td>Verifica que no haya CVEs críticos</td></tr><tr><td><code>/testing-patterns</code></td><td>Verifica compatibilidad tras actualización</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-gestión-nuget-completada">
+<h3 id="gestión-nuget-completada">GESTIÓN NUGET COMPLETADA</h3>
+<pre><code>📦 GESTIÓN NUGET COMPLETADA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 Estado actual:
+   • Paquetes totales: [N]
+   • Desactualizados: [N]
+   • Vulnerabilidades: [N]
+
+💡 Próximos pasos:
+   • /nugets --audit      → Revisar seguridad
+   • /nugets --update     → Actualizar paquetes
+   • /test                → Verificar compatibilidad
+   • /commit              → Guardar cambios</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-uso-de-skills-avanzados">
+<h3 id="uso-de-skills-avanzados">Uso de Skills Avanzados</h3>
+<h4 id="cuando-se-detectan-cves-críticos">Cuando se detectan CVEs críticos</h4>
+<p>Si <code>--audit</code> detecta vulnerabilidades CRÍTICAS o ALTAS, Claude automáticamente:</p>
+<ol>
+<li>Activa <strong>nugets-management</strong> para:</li>
+<ul>
+<li>Interpretar severidad CVSS</li>
+<li>Verificar versiones seguras</li>
+<li>Comprobar compatibilidad con TargetFramework</li>
+</ul>
+</ol>
+<ol>
+<li>Puede activar <strong>security-audit</strong> si:</li>
+<ul>
+<li>Hay CVEs relacionados con deserialización (RCE)</li>
+<li>Se detectan paquetes con problemas de autenticación</li>
+<li>El proyecto necesita hardening adicional</li>
+</ul>
+</ol>
+<h4 id="solicitar-análisis-profundo">Solicitar análisis profundo</h4>
+<pre><code>Usuario: &quot;Analiza las dependencias NuGet y busca vulnerabilidades&quot;
+→ Claude activa: nugets-management skill
+
+Usuario: &quot;Implementa Central Package Management&quot;
+→ Claude activa: nugets-management skill (sección Directory.Packages.props)
+
+Usuario: &quot;Revisa la seguridad del proyecto&quot;
+→ Claude activa: security-audit skill
+
+Usuario: &quot;Busca secrets expuestos y actualiza los NuGets vulnerables&quot;
+→ Claude activa: ambos skills</code></pre>
+<h4 id="acceso-directo-a-skills">Acceso directo a skills</h4>
+<p>Los skills también se pueden invocar directamente si Claude detecta:</p>
+<ul>
+<li>Menciones a &quot;CVE&quot;, &quot;vulnerabilidad&quot;, &quot;OWASP&quot;</li>
+<li>Applications de &quot;Central Package Management&quot; o &quot;Directory.Packages.props&quot;</li>
+<li>Peticiones de &quot;auditoría de seguridad&quot; o &quot;buscar secrets&quot;</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-verificacion-de-licencias">
+<h3 id="verificacion-de-licencias">Verificacion de Licencias</h3>
+<p>Al ejecutar <code>--audit</code> o sin parametro, Claude debe verificar las licencias de los paquetes instalados:</p>
+<pre data-lang="powershell"><code><span class="tk-c"># Listar licencias de todos los paquetes</span>
+dotnet list package --format json | ConvertFrom-Json
+<span class="tk-c"># O revisar manualmente en cada .csproj las licencias conocidas</span></code></pre>
+<p><strong>Clasificacion de licencias:</strong></p>
+<div class="tbl"><table><thead><tr><th>Licencia</th><th>Estado</th><th>Accion</th></tr></thead><tbody><tr><td>MIT, Apache-2.0, BSD</td><td>✅ Compatible</td><td>Ninguna</td></tr><tr><td>LGPL-2.1, LGPL-3.0</td><td>⚠️ Cuidado</td><td>Verificar que se usa como libreria, no modificado</td></tr><tr><td>GPL-2.0, GPL-3.0</td><td>🔴 Conflictivo</td><td>Alertar al usuario — incompatible con proyectos privativos de la organización</td></tr><tr><td>Comercial (MediatR v13+)</td><td>🟡 Coste</td><td>Alertar — recomendar Mediator (MIT)</td></tr><tr><td>Sin licencia / Custom</td><td>⚠️ Revisar</td><td>Requiere aprobacion manual del JP</td></tr></tbody></table></div>
+<p><strong>Output esperado:</strong></p>
+<pre><code>🔒 LICENCIAS
+━━━━━━━━━━━━━━
+⚠️ MediatR 13.0.0 → Licencia COMERCIAL (la 12.4.1 sigue en Apache-2.0)
+   💡 Alternativa: Mediator (MIT, gratuito, API compatible)
+🔴 PaqueteX 1.0.0 → Licencia GPL-3.0
+   ⚠️ INCOMPATIBLE con proyectos privativos de la organización
+✅ 43 paquetes con licencias compatibles (MIT/Apache/BSD)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-deteccion-de-paquetes-deprecated">
+<h3 id="deteccion-de-paquetes-deprecated">Deteccion de Paquetes Deprecated</h3>
+<p>Al ejecutar <code>--audit</code> o <code>--outdated</code>, detectar paquetes marcados como <strong>deprecated</strong> en NuGet.org:</p>
+<pre data-lang="powershell"><code>dotnet list package --deprecated</code></pre>
+<p><strong>Paquetes comunes deprecated en stack del ecosistema:</strong></p>
+<div class="tbl"><table><thead><tr><th>Paquete deprecated</th><th>Alternativa</th><th>Razon</th></tr></thead><tbody><tr><td><code>Microsoft.AspNetCore.Mvc.NewtonsoftJson</code></td><td><code>System.Text.Json</code> nativo</td><td>Rendimiento + mantenimiento</td></tr><tr><td><code>Swashbuckle.AspNetCore</code> (.NET 10)</td><td>OpenAPI nativo <code>AddOpenApi()</code></td><td>Incluido en framework</td></tr><tr><td><code>AutoMapper</code> (v15+)</td><td><code>Riok.Mapperly</code> (<a href="https://www.nuget.org/packages/Riok.Mapperly" rel="noopener">Apache-2.0</a>) o <code>Mapster</code></td><td><strong>Licencia comercial</strong> desde la v15 (dual RPL-1.5); Mapperly genera codigo y no rompe trimming ni AOT. En codigo existente, rango cerrado <code>[13.0.0,15.0.0)</code></td></tr><tr><td><code>MediatR</code> (v13+)</td><td><code>Mediator</code> (martinothamar, MIT)</td><td>Licencia comercial desde la 13.0.0 (<a href="https://www.nuget.org/packages/MediatR/13.0.0" rel="noopener">nuget.org</a>); la 12.4.1 es Apache-2.0</td></tr></tbody></table></div>
+<p><strong>Output esperado:</strong></p>
+<pre><code>⚠️ PAQUETES DEPRECATED
+━━━━━━━━━━━━━━━━━━━━━━
+📦 Swashbuckle.AspNetCore 6.7.3
+   Estado: DEPRECATED en NuGet.org
+   Razon: Reemplazado por OpenAPI nativo en .NET 10
+   Alternativa: builder.Services.AddOpenApi()
+   Afecta: MiApi.csproj
+
+📦 AutoMapper.Extensions.Microsoft.DI 12.0.1
+   Estado: DEPRECATED
+   Razon: AutoMapper 13+ unifica DI extensions
+   Alternativa: Riok.Mapperly (Apache-2.0), o AutoMapper 13.x con rango cerrado [13.0.0,15.0.0)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-compatibilidad-cruzada-entre-paquetes">
+<h3 id="compatibilidad-cruzada-entre-paquetes">Compatibilidad Cruzada entre Paquetes</h3>
+<p>Al ejecutar <code>--outdated</code> o <code>--update</code>, verificar que los paquetes son compatibles entre si:</p>
+<p><strong>Matriz de compatibilidad conocida:</strong></p>
+<div class="tbl"><table><thead><tr><th>Paquete</th><th>Requiere</th><th>Conflicto con</th></tr></thead><tbody><tr><td>EF Core 10.x</td><td>.NET 10+</td><td>EF Core 8.x en misma solucion</td></tr><tr><td>Microsoft.Identity.Web 3.x</td><td>.NET 8+</td><td>Azure.Identity 1.x legacy</td></tr><tr><td>Polly 8.x</td><td>.NET 8+</td><td>Polly 7.x (API incompatible)</td></tr><tr><td>FluentValidation 11.9+</td><td>.NET 8+</td><td>FluentValidation.AspNetCore (deprecated)</td></tr><tr><td>xUnit 2.7+</td><td>.NET 8+</td><td>xunit.runner.console legacy</td></tr><tr><td>Serilog 4.x</td><td>.NET 8+</td><td>Serilog.Sinks.Console 5.x (ok) vs 4.x (incompatible)</td></tr></tbody></table></div>
+<p><strong>Output esperado al detectar incompatibilidad:</strong></p>
+<pre><code>⚠️ COMPATIBILIDAD CRUZADA
+━━━━━━━━━━━━━━━━━━━━━━━━━
+🔴 EF Core 10.0.0 + TargetFramework net8.0 → INCOMPATIBLE
+   EF Core 10.x requiere .NET 10+
+   Accion: Migrar a net10.0 primero, luego actualizar EF Core
+
+🟡 FluentValidation 11.9.0 + FluentValidation.AspNetCore 11.3.0
+   FluentValidation.AspNetCore esta DEPRECATED
+   Accion: Usar FluentValidation.DependencyInjectionExtensions</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-estrategia-de-rollback">
+<h3 id="estrategia-de-rollback">Estrategia de Rollback</h3>
+<p>Al ejecutar <code>--update</code>, si la actualizacion rompe la compilacion o tests:</p>
+<p><strong>Protocolo de rollback:</strong></p>
+<ol>
+<li><strong>Intento 1</strong>: Corregir el codigo afectado (breaking change menor)</li>
+<li><strong>Intento 2</strong>: Si el esfuerzo es desproporcionado, revertir el paquete:</li>
+</ol>
+<pre data-lang="powershell"><code>   dotnet add package [Paquete] --version [version-anterior]</code></pre>
+<ol>
+<li><strong>Documentar</strong> el bloqueo en <code>_hilo/DEUDA_TECNICA.md</code>:</li>
+</ol>
+<pre><code>   ## Paquete bloqueado: [Nombre]
+   - Version actual: X.Y.Z
+   - Version deseada: A.B.C
+   - Motivo bloqueo: [breaking change en API X]
+   - Esfuerzo estimado: [horas]
+   - Riesgo de no actualizar: [CVE-XXXX si aplica]</code></pre>
+<ol>
+<li><strong>Continuar</strong> con el resto de actualizaciones</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-propuesta-dependabot--renovate">
+<h3 id="propuesta-dependabot--renovate">Propuesta Dependabot / Renovate</h3>
+<p>Al final de <code>--consolidate</code> o <code>--audit</code>, si el proyecto no tiene automatizacion de dependencias, proponer. En GitHub, la plantilla completa (NuGet agrupado + acciones de los workflows, Conventional Commits) es <code>.claude/skills/git-best-practices/templates/dependabot.yml.template</code>; lo de abajo es el minimo:</p>
+<pre data-lang="yaml"><code><span class="tk-c"># .github/dependabot.yml (si GitHub)</span>
+version: <span class="tk-n">2</span>
+updates:
+  - package-ecosystem: <span class="tk-s">&quot;nuget&quot;</span>
+    directory: <span class="tk-s">&quot;/src&quot;</span>
+    schedule:
+      interval: <span class="tk-s">&quot;weekly&quot;</span>
+    open-pull-requests-limit: <span class="tk-n">5</span>
+    labels: [<span class="tk-s">&quot;dependencies&quot;</span>, <span class="tk-s">&quot;nuget&quot;</span>]
+    ignore:
+      - dependency-name: <span class="tk-s">&quot;MediatR&quot;</span>
+        versions: [<span class="tk-s">&quot;&gt;=12.0.0&quot;</span>]</code></pre>
+<pre data-lang="json"><code>// renovate.json (si Azure DevOps / genérico)
+{
+  <span class="tk-s">&quot;$schema&quot;</span>: <span class="tk-s">&quot;https://docs.renovatebot.com/renovate-schema.json&quot;</span>,
+  <span class="tk-s">&quot;extends&quot;</span>: [<span class="tk-s">&quot;config:base&quot;</span>],
+  <span class="tk-s">&quot;packageRules&quot;</span>: [
+    {
+      <span class="tk-s">&quot;matchManagers&quot;</span>: [<span class="tk-s">&quot;nuget&quot;</span>],
+      <span class="tk-s">&quot;matchUpdateTypes&quot;</span>: [<span class="tk-s">&quot;minor&quot;</span>, <span class="tk-s">&quot;patch&quot;</span>],
+      <span class="tk-s">&quot;automerge&quot;</span>: true
+    },
+    {
+      <span class="tk-s">&quot;matchPackageNames&quot;</span>: [<span class="tk-s">&quot;MediatR&quot;</span>],
+      <span class="tk-s">&quot;enabled&quot;</span>: false
+    }
+  ]
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-historico-de-auditorias-hilo">
+<h3 id="historico-de-auditorias-hilo">Historico de Auditorias Hilo</h3>
+<p>Tras cada ejecucion de <code>--audit</code>, guardar resultado en <code>_hilo/AUDITORIA_NUGET.json</code>:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;_comentario&quot;</span>: <span class="tk-s">&quot;Historico de auditorias NuGet. Se actualiza con /nugets --audit&quot;</span>,
+  <span class="tk-s">&quot;ultimaAuditoria&quot;</span>: <span class="tk-s">&quot;2026-04-16&quot;</span>,
+  <span class="tk-s">&quot;auditorias&quot;</span>: [
+    {
+      <span class="tk-s">&quot;fecha&quot;</span>: <span class="tk-s">&quot;2026-04-16&quot;</span>,
+      <span class="tk-s">&quot;ejecutadoPor&quot;</span>: <span class="tk-s">&quot;HV&quot;</span>,
+      <span class="tk-s">&quot;vulnerabilidades&quot;</span>: {
+        <span class="tk-s">&quot;criticas&quot;</span>: <span class="tk-n">0</span>,
+        <span class="tk-s">&quot;altas&quot;</span>: <span class="tk-n">1</span>,
+        <span class="tk-s">&quot;medias&quot;</span>: <span class="tk-n">2</span>,
+        <span class="tk-s">&quot;bajas&quot;</span>: <span class="tk-n">0</span>
+      },
+      <span class="tk-s">&quot;deprecated&quot;</span>: <span class="tk-n">2</span>,
+      <span class="tk-s">&quot;licenciasConflictivas&quot;</span>: <span class="tk-n">0</span>,
+      <span class="tk-s">&quot;paquetesTotales&quot;</span>: <span class="tk-n">45</span>,
+      <span class="tk-s">&quot;paquetesDesactualizados&quot;</span>: <span class="tk-n">8</span>,
+      <span class="tk-s">&quot;accionesTomadas&quot;</span>: [
+        <span class="tk-s">&quot;Actualizado Newtonsoft.Json 12.0.3 → 13.0.3 (CVE-2024-21907)&quot;</span>,
+        <span class="tk-s">&quot;Bloqueado: EF Core 10.x requiere migrar a .NET 10 primero&quot;</span>
+      ]
+    }
+  ]
+}</code></pre>
+<p>Claude debe LEER este archivo al inicio de <code>--audit</code> para comparar con la auditoria anterior y detectar <strong>regresiones</strong> (nuevas vulnerabilidades desde la ultima auditoria).</p>
+<hr>
+<p><em>Comando actualizado - Con licencias, deprecated, cross-compat, rollback, Dependabot, historico Hilo</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/nugets-management.html#ficheros">← Volver a la ficha de nugets-management</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/nugets-management/patterns/vulnerability-remediation.html"><small>Anterior</small>patterns/vulnerability-remediation.md</a><a class="next" href="../../../skills/nugets-management/scripts/Audit-Packages.html"><small>Siguiente</small>scripts/Audit-Packages.ps1</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/nugets-management/references/workflow-nugets.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#skills-asociados">Skills Asociados</a></li><li class="l2"><a href="#parámetros">Parámetros</a></li><li class="l2"><a href="#importante-ubicación-del-código">IMPORTANTE: Ubicación del Código</a></li><li class="l2"><a href="#ejecutar">Ejecutar:</a></li><li class="l3"><a href="#sin-parámetro-análisis-de-nugets">Sin parámetro (ANÁLISIS DE NUGETS)</a></li><li class="l3"><a href="#--list---listado-de-paquetes-nuget">--list - LISTADO DE PAQUETES NUGET</a></li><li class="l3"><a href="#--audit---auditoría-de-seguridad-nuget">--audit - AUDITORÍA DE SEGURIDAD NUGET 🔒</a></li><li class="l3"><a href="#--outdated---paquetes-desactualizados">--outdated - PAQUETES DESACTUALIZADOS</a></li><li class="l3"><a href="#--update-paquete---actualización-de-paquetes">--update [paquete] - ACTUALIZACIÓN DE PAQUETES</a></li><li class="l3"><a href="#--consolidate---consolidación-de-versiones">--consolidate - CONSOLIDACIÓN DE VERSIONES</a></li><li class="l2"><a href="#integración-con-otros-comandos">Integración con Otros Comandos</a></li><li class="l2"><a href="#gestión-nuget-completada">GESTIÓN NUGET COMPLETADA</a></li><li class="l2"><a href="#uso-de-skills-avanzados">Uso de Skills Avanzados</a></li><li class="l3"><a href="#cuando-se-detectan-cves-críticos">Cuando se detectan CVEs críticos</a></li><li class="l3"><a href="#solicitar-análisis-profundo">Solicitar análisis profundo</a></li><li class="l3"><a href="#acceso-directo-a-skills">Acceso directo a skills</a></li><li class="l2"><a href="#verificacion-de-licencias">Verificacion de Licencias</a></li><li class="l2"><a href="#deteccion-de-paquetes-deprecated">Deteccion de Paquetes Deprecated</a></li><li class="l2"><a href="#compatibilidad-cruzada-entre-paquetes">Compatibilidad Cruzada entre Paquetes</a></li><li class="l2"><a href="#estrategia-de-rollback">Estrategia de Rollback</a></li><li class="l2"><a href="#propuesta-dependabot--renovate">Propuesta Dependabot / Renovate</a></li><li class="l2"><a href="#historico-de-auditorias-hilo">Historico de Auditorias Hilo</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

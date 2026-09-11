@@ -1,0 +1,415 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · patterns/api-contract-testing.md · Ovillo</title><meta name="description" content="Fichero patterns/api-contract-testing.md de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · patterns/api-contract-testing.md · Ovillo"><meta property="og:description" content="Fichero patterns/api-contract-testing.md de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/api-contract-testing.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/api-contract-testing.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/patterns/api-contract-testing.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (16)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html" class="cur">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>patterns</span><span>api-contract-testing.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>patterns/</span></div><h1>api-contract-testing.md</h1><p class="lede">Referencia que <code>testing-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>16.915 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: testing-patterns</p></blockquote>
+<p class="lede">Contract testing verifica que los endpoints mantienen su contrato: status codes, estructura de respuesta, headers, y compatibilidad backward. Incluye WebApplicationFactory, Pact.NET para consumer-driven contracts, y OpenAPI validation.</p>
+<hr>
+<section class="sec" id="sec-cuando-usar-contract-testing">
+<h3 id="cuando-usar-contract-testing">Cuando Usar Contract Testing</h3>
+<div class="tbl"><table><thead><tr><th>Usar</th><th>No Usar</th></tr></thead><tbody><tr><td>APIs consumidas por otros equipos/sistemas</td><td>APIs internas con un solo consumidor</td></tr><tr><td>Endpoints publicos con contratos documentados</td><td>Logica de negocio (usar unit tests)</td></tr><tr><td>Verificar backward compatibility en PRs</td><td>Tests de rendimiento (usar performance-testing)</td></tr><tr><td>Integrar con microservicios externos</td><td>Validacion de datos (usar FluentValidation tests)</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-paquetes-nuget">
+<h3 id="paquetes-nuget">Paquetes NuGet</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-c">&lt;!-- Contract testing basico --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.AspNetCore.Mvc.Testing&quot;</span> Version=<span class="tk-s">&quot;10.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;xunit&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;FluentAssertions&quot;</span> Version=<span class="tk-s">&quot;6.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- Consumer-driven contracts (opcional) --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;PactNet&quot;</span> Version=<span class="tk-s">&quot;5.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- OpenAPI validation (opcional) --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Verify.Http&quot;</span> Version=<span class="tk-s">&quot;6.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-1-contract-tests-basicos-con-webapplicationfactory">
+<h3 id="patron-1-contract-tests-basicos-con-webapplicationfactory">Patron 1: Contract Tests Basicos con WebApplicationFactory</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsContractTests : IClassFixture&lt;WebApplicationFactory&lt;Program&gt;&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> HttpClient _client;
+
+    <span class="tk-k">public</span> ScholarshipsContractTests(WebApplicationFactory&lt;Program&gt; factory)
+    {
+        _client = factory.WithWebHostBuilder(builder =&gt;
+        {
+            builder.ConfigureServices(services =&gt;
+            {
+                <span class="tk-c">// Reemplazar DB con in-memory para aislamiento</span>
+                services.RemoveAll&lt;DbContextOptions&lt;ApplicationDbContext&gt;&gt;();
+                services.AddDbContext&lt;ApplicationDbContext&gt;(o =&gt;
+                    o.UseInMemoryDatabase(<span class="tk-s">&quot;ContractTests_&quot;</span> + Guid.NewGuid()));
+            });
+        }).CreateClient();
+    }
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// STATUS CODE CONTRACTS</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+
+    [Theory]
+    [InlineData(<span class="tk-s">&quot;/api/scholarships&quot;</span>, HttpStatusCode.OK)]
+    [InlineData(<span class="tk-s">&quot;/api/scholarships/999999&quot;</span>, HttpStatusCode.NotFound)]
+    [InlineData(<span class="tk-s">&quot;/api/health&quot;</span>, HttpStatusCode.OK)]
+    [InlineData(<span class="tk-s">&quot;/api/health/ready&quot;</span>, HttpStatusCode.OK)]
+    [InlineData(<span class="tk-s">&quot;/api/noexiste&quot;</span>, HttpStatusCode.NotFound)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Endpoint_ReturnsExpectedStatusCode(<span class="tk-k">string</span> url, HttpStatusCode expected)
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(url);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(expected);
+    }
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// RESPONSE SHAPE CONTRACTS</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetScholarships_ReturnsPaginatedResponse_WithRequiredFields()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>);
+        <span class="tk-k">var</span> json = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;JsonElement&gt;();
+
+        <span class="tk-c">// Assert - Verificar estructura del contrato</span>
+        json.TryGetProperty(<span class="tk-s">&quot;items&quot;</span>, <span class="tk-k">out</span> <span class="tk-k">var</span> items).Should().BeTrue(<span class="tk-s">&quot;'items' es obligatorio&quot;</span>);
+        json.TryGetProperty(<span class="tk-s">&quot;totalItems&quot;</span>, <span class="tk-k">out</span> <span class="tk-k">var</span> total).Should().BeTrue(<span class="tk-s">&quot;'totalItems' es obligatorio&quot;</span>);
+        json.TryGetProperty(<span class="tk-s">&quot;page&quot;</span>, <span class="tk-k">out</span> <span class="tk-k">var</span> page).Should().BeTrue(<span class="tk-s">&quot;'page' es obligatorio&quot;</span>);
+        json.TryGetProperty(<span class="tk-s">&quot;pageSize&quot;</span>, <span class="tk-k">out</span> <span class="tk-k">var</span> size).Should().BeTrue(<span class="tk-s">&quot;'pageSize' es obligatorio&quot;</span>);
+
+        <span class="tk-c">// Tipos correctos</span>
+        items.ValueKind.Should().Be(JsonValueKind.Array);
+        total.ValueKind.Should().Be(JsonValueKind.Number);
+        page.ValueKind.Should().Be(JsonValueKind.Number);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetScholarshipById_ReturnsExpectedShape()
+    {
+        <span class="tk-c">// Arrange - Crear dato via API</span>
+        <span class="tk-k">var</span> createRequest = <span class="tk-k">new</span> { Name = <span class="tk-s">&quot;Contract Test&quot;</span>, Amount = 1000m };
+        <span class="tk-k">var</span> createResponse = <span class="tk-k">await</span> _client.PostAsJsonAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>, createRequest);
+        <span class="tk-k">var</span> location = createResponse.Headers.Location;
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(location);
+        <span class="tk-k">var</span> json = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;JsonElement&gt;();
+
+        <span class="tk-c">// Assert - Verificar todos los campos del contrato</span>
+        json.TryGetProperty(<span class="tk-s">&quot;id&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue();
+        json.TryGetProperty(<span class="tk-s">&quot;name&quot;</span>, <span class="tk-k">out</span> <span class="tk-k">var</span> name).Should().BeTrue();
+        json.TryGetProperty(<span class="tk-s">&quot;amount&quot;</span>, <span class="tk-k">out</span> <span class="tk-k">var</span> amount).Should().BeTrue();
+        json.TryGetProperty(<span class="tk-s">&quot;status&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue();
+        json.TryGetProperty(<span class="tk-s">&quot;createdAt&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue();
+
+        name.GetString().Should().Be(<span class="tk-s">&quot;Contract Test&quot;</span>);
+        amount.GetDecimal().Should().Be(1000m);
+    }
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// HEADER CONTRACTS</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task AllEndpoints_ReturnJsonContentType()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        response.Content.Headers.ContentType?.MediaType
+            .Should().Be(<span class="tk-s">&quot;application/json&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_ReturnsLocationHeader()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> { Name = <span class="tk-s">&quot;Location Test&quot;</span>, Amount = 500m };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.PostAsJsonAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>, request);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.Created);
+        response.Headers.Location.Should().NotBeNull(<span class="tk-s">&quot;POST exitoso debe incluir Location header&quot;</span>);
+        response.Headers.Location!.ToString().Should().Contain(<span class="tk-s">&quot;/api/scholarships/&quot;</span>);
+    }
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// ERROR RESPONSE CONTRACTS (ProblemDetails RFC 7807)</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task NotFound_ReturnsProblemDetails()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/api/scholarships/999999&quot;</span>);
+        <span class="tk-k">var</span> json = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;JsonElement&gt;();
+
+        <span class="tk-c">// Assert - ProblemDetails shape</span>
+        json.TryGetProperty(<span class="tk-s">&quot;type&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue();
+        json.TryGetProperty(<span class="tk-s">&quot;title&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue();
+        json.TryGetProperty(<span class="tk-s">&quot;status&quot;</span>, <span class="tk-k">out</span> <span class="tk-k">var</span> status).Should().BeTrue();
+        status.GetInt32().Should().Be(<span class="tk-n">404</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task ValidationError_ReturnsValidationProblemDetails()
+    {
+        <span class="tk-c">// Arrange - Datos invalidos</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> { Name = <span class="tk-s">&quot;&quot;</span>, Amount = -100m };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.PostAsJsonAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>, request);
+        <span class="tk-k">var</span> json = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;JsonElement&gt;();
+
+        <span class="tk-c">// Assert - ValidationProblemDetails shape</span>
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        json.TryGetProperty(<span class="tk-s">&quot;errors&quot;</span>, <span class="tk-k">out</span> <span class="tk-k">var</span> errors).Should().BeTrue();
+        errors.ValueKind.Should().Be(JsonValueKind.Object);
+    }
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// BACKWARD COMPATIBILITY CONTRACTS</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════</span>
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetScholarships_V1Fields_StillPresent()
+    {
+        <span class="tk-c">// Estos campos existian en v1 y DEBEN seguir existiendo</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>);
+        <span class="tk-k">var</span> json = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;JsonElement&gt;();
+        <span class="tk-k">var</span> items = json.GetProperty(<span class="tk-s">&quot;items&quot;</span>);
+
+        <span class="tk-k">if</span> (items.GetArrayLength() &gt; <span class="tk-n">0</span>)
+        {
+            <span class="tk-k">var</span> firstItem = items[<span class="tk-n">0</span>];
+            <span class="tk-c">// Campos v1 - NUNCA eliminar</span>
+            firstItem.TryGetProperty(<span class="tk-s">&quot;id&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue(<span class="tk-s">&quot;'id' existe desde v1&quot;</span>);
+            firstItem.TryGetProperty(<span class="tk-s">&quot;name&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue(<span class="tk-s">&quot;'name' existe desde v1&quot;</span>);
+            firstItem.TryGetProperty(<span class="tk-s">&quot;amount&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue(<span class="tk-s">&quot;'amount' existe desde v1&quot;</span>);
+            firstItem.TryGetProperty(<span class="tk-s">&quot;status&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue(<span class="tk-s">&quot;'status' existe desde v1&quot;</span>);
+        }
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-2-consumer-driven-contracts-con-pactnet">
+<h3 id="patron-2-consumer-driven-contracts-con-pactnet">Patron 2: Consumer-Driven Contracts con Pact.NET</h3>
+<p>Para APIs consumidas por otros equipos/microservicios.</p>
+<h4 id="provider-side-tu-api">Provider Side (tu API)</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsProviderPactTests : IDisposable
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> PactVerifier _verifier;
+
+    <span class="tk-k">public</span> ScholarshipsProviderPactTests()
+    {
+        _verifier = <span class="tk-k">new</span> PactVerifier(<span class="tk-s">&quot;ScholarshipsAPI&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> EnsureProviderHonoursConsumerPacts()
+    {
+        <span class="tk-c">// Arrange - Levantar API de test</span>
+        <span class="tk-k">var</span> factory = <span class="tk-k">new</span> WebApplicationFactory&lt;Program&gt;();
+        <span class="tk-k">var</span> client = factory.CreateClient();
+        <span class="tk-k">var</span> baseUri = client.BaseAddress!;
+
+        <span class="tk-c">// Act &amp; Assert - Verificar contra pacts de consumidores</span>
+        _verifier
+            .WithHttpEndpoint(baseUri)
+            .WithPactBrokerSource(<span class="tk-k">new</span> Uri(<span class="tk-s">&quot;https://pact-broker.example.org&quot;</span>), options =&gt;
+            {
+                options.ConsumerVersionSelectors(
+                    <span class="tk-k">new</span> ConsumerVersionSelector { MainBranch = <span class="tk-k">true</span> });
+            })
+            .WithProviderStateUrl(<span class="tk-k">new</span> Uri(baseUri, <span class="tk-s">&quot;/api/pact-states&quot;</span>))
+            .Verify();
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Dispose() =&gt; _verifier.Dispose();
+}</code></pre>
+<h4 id="consumer-side-quien-consume-tu-api">Consumer Side (quien consume tu API)</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsConsumerPactTests
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IPactBuilderV4 _pactBuilder;
+
+    <span class="tk-k">public</span> ScholarshipsConsumerPactTests()
+    {
+        <span class="tk-k">var</span> pact = Pact.V4(<span class="tk-s">&quot;FrontendApp&quot;</span>, <span class="tk-s">&quot;ScholarshipsAPI&quot;</span>, <span class="tk-k">new</span> PactConfig
+        {
+            PactDir = Path.Combine(<span class="tk-s">&quot;..&quot;</span>, <span class="tk-s">&quot;..&quot;</span>, <span class="tk-s">&quot;..&quot;</span>, <span class="tk-s">&quot;pacts&quot;</span>)
+        });
+        _pactBuilder = pact.WithHttpInteractions();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetScholarships_ReturnsExpectedFormat()
+    {
+        <span class="tk-c">// Arrange - Definir expectativa del consumidor</span>
+        _pactBuilder
+            .UponReceiving(<span class="tk-s">&quot;a request for all scholarships&quot;</span>)
+            .WithRequest(HttpMethod.Get, <span class="tk-s">&quot;/api/scholarships&quot;</span>)
+            .WillRespond()
+            .WithStatus(HttpStatusCode.OK)
+            .WithJsonBody(<span class="tk-k">new</span>
+            {
+                items = Match.MinType(<span class="tk-k">new</span>
+                {
+                    id = Match.Integer(<span class="tk-n">1</span>),
+                    name = Match.Type(<span class="tk-s">&quot;Scholarship Test&quot;</span>),
+                    amount = Match.Decimal(<span class="tk-n">5000</span>.00m),
+                    status = Match.Type(<span class="tk-s">&quot;Published&quot;</span>)
+                }, <span class="tk-n">1</span>),
+                totalItems = Match.Integer(<span class="tk-n">1</span>),
+                page = Match.Integer(<span class="tk-n">1</span>),
+                pageSize = Match.Integer(<span class="tk-n">10</span>)
+            });
+
+        <span class="tk-c">// Act &amp; Assert</span>
+        <span class="tk-k">await</span> _pactBuilder.VerifyAsync(<span class="tk-k">async</span> ctx =&gt;
+        {
+            <span class="tk-k">var</span> client = <span class="tk-k">new</span> HttpClient { BaseAddress = ctx.MockServerUri };
+            <span class="tk-k">var</span> response = <span class="tk-k">await</span> client.GetFromJsonAsync&lt;JsonElement&gt;(<span class="tk-s">&quot;/api/scholarships&quot;</span>);
+
+            response.GetProperty(<span class="tk-s">&quot;items&quot;</span>).GetArrayLength().Should().BeGreaterThan(<span class="tk-n">0</span>);
+        });
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-3-openapi-contract-validation">
+<h3 id="patron-3-openapi-contract-validation">Patron 3: OpenAPI Contract Validation</h3>
+<p>Verificar que la API cumple con su especificacion OpenAPI.</p>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> OpenApiContractTests : IClassFixture&lt;WebApplicationFactory&lt;Program&gt;&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> HttpClient _client;
+
+    <span class="tk-k">public</span> OpenApiContractTests(WebApplicationFactory&lt;Program&gt; factory)
+    {
+        _client = factory.CreateClient();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task OpenApiSpec_IsAccessible()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/openapi/v1.json&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        <span class="tk-k">var</span> content = <span class="tk-k">await</span> response.Content.ReadAsStringAsync();
+        content.Should().Contain(<span class="tk-s">&quot;\&quot;openapi\&quot;&quot;</span>);
+        content.Should().Contain(<span class="tk-s">&quot;\&quot;paths\&quot;&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task OpenApiSpec_ContainsAllExpectedPaths()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> spec = <span class="tk-k">await</span> _client.GetFromJsonAsync&lt;JsonElement&gt;(<span class="tk-s">&quot;/openapi/v1.json&quot;</span>);
+        <span class="tk-k">var</span> paths = spec.GetProperty(<span class="tk-s">&quot;paths&quot;</span>);
+
+        <span class="tk-c">// Assert - Todos los endpoints documentados</span>
+        <span class="tk-k">var</span> expectedPaths = <span class="tk-k">new</span>[]
+        {
+            <span class="tk-s">&quot;/api/scholarships&quot;</span>,
+            <span class="tk-s">&quot;/api/scholarships/{id}&quot;</span>,
+            <span class="tk-s">&quot;/api/health&quot;</span>,
+            <span class="tk-s">&quot;/api/health/ready&quot;</span>
+        };
+
+        <span class="tk-k">foreach</span> (<span class="tk-k">var</span> path <span class="tk-k">in</span> expectedPaths)
+        {
+            paths.TryGetProperty(path, <span class="tk-k">out</span> _).Should().BeTrue(
+                <span class="tk-s">$&quot;Path '{path}' debe estar en la especificacion OpenAPI&quot;</span>);
+        }
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task OpenApiSpec_ScholarshipSchema_HasRequiredFields()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> spec = <span class="tk-k">await</span> _client.GetFromJsonAsync&lt;JsonElement&gt;(<span class="tk-s">&quot;/openapi/v1.json&quot;</span>);
+        <span class="tk-k">var</span> schemas = spec.GetProperty(<span class="tk-s">&quot;components&quot;</span>).GetProperty(<span class="tk-s">&quot;schemas&quot;</span>);
+
+        <span class="tk-c">// Assert - ScholarshipDto schema</span>
+        schemas.TryGetProperty(<span class="tk-s">&quot;ScholarshipDto&quot;</span>, <span class="tk-k">out</span> <span class="tk-k">var</span> becaSchema).Should().BeTrue();
+        <span class="tk-k">var</span> properties = becaSchema.GetProperty(<span class="tk-s">&quot;properties&quot;</span>);
+
+        properties.TryGetProperty(<span class="tk-s">&quot;id&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue();
+        properties.TryGetProperty(<span class="tk-s">&quot;name&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue();
+        properties.TryGetProperty(<span class="tk-s">&quot;amount&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue();
+        properties.TryGetProperty(<span class="tk-s">&quot;status&quot;</span>, <span class="tk-k">out</span> _).Should().BeTrue();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-4-versionado-de-contratos">
+<h3 id="patron-4-versionado-de-contratos">Patron 4: Versionado de Contratos</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ApiVersionContractTests : IClassFixture&lt;WebApplicationFactory&lt;Program&gt;&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> HttpClient _client;
+
+    <span class="tk-k">public</span> ApiVersionContractTests(WebApplicationFactory&lt;Program&gt; factory)
+    {
+        _client = factory.CreateClient();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task V1Endpoints_StillAvailable()
+    {
+        <span class="tk-c">// Endpoints v1 que NUNCA deben desaparecer</span>
+        <span class="tk-k">var</span> v1Endpoints = <span class="tk-k">new</span>[]
+        {
+            (<span class="tk-s">&quot;GET&quot;</span>, <span class="tk-s">&quot;/api/scholarships&quot;</span>),
+            (<span class="tk-s">&quot;GET&quot;</span>, <span class="tk-s">&quot;/api/scholarships/1&quot;</span>),
+            (<span class="tk-s">&quot;POST&quot;</span>, <span class="tk-s">&quot;/api/scholarships&quot;</span>),
+            (<span class="tk-s">&quot;PUT&quot;</span>, <span class="tk-s">&quot;/api/scholarships/1&quot;</span>),
+            (<span class="tk-s">&quot;DELETE&quot;</span>, <span class="tk-s">&quot;/api/scholarships/1&quot;</span>)
+        };
+
+        <span class="tk-k">foreach</span> (<span class="tk-k">var</span> (method, url) <span class="tk-k">in</span> v1Endpoints)
+        {
+            <span class="tk-k">var</span> request = <span class="tk-k">new</span> HttpRequestMessage(<span class="tk-k">new</span> HttpMethod(method), url);
+            <span class="tk-k">if</span> (method <span class="tk-k">is</span> <span class="tk-s">&quot;POST&quot;</span> or <span class="tk-s">&quot;PUT&quot;</span>)
+            {
+                request.Content = JsonContent.Create(<span class="tk-k">new</span> { Name = <span class="tk-s">&quot;Test&quot;</span>, Amount = 1000m });
+            }
+
+            <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.SendAsync(request);
+
+            <span class="tk-c">// No debe ser 404 ni 405</span>
+            response.StatusCode.Should().NotBe(HttpStatusCode.NotFound,
+                <span class="tk-s">$&quot;{method} {url} debe seguir existiendo (contrato v1)&quot;</span>);
+            response.StatusCode.Should().NotBe(HttpStatusCode.MethodNotAllowed,
+                <span class="tk-s">$&quot;{method} {url} debe seguir aceptando {method} (contrato v1)&quot;</span>);
+        }
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task ResponseFields_NeverRemoved_OnlyAdded()
+    {
+        <span class="tk-c">// Campos que existian en v1 - regla: solo se anaden campos, nunca se eliminan</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>);
+        <span class="tk-k">var</span> json = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;JsonElement&gt;();
+
+        <span class="tk-c">// v1 contract fields</span>
+        <span class="tk-k">var</span> requiredFields = <span class="tk-k">new</span>[] { <span class="tk-s">&quot;items&quot;</span>, <span class="tk-s">&quot;totalItems&quot;</span>, <span class="tk-s">&quot;page&quot;</span>, <span class="tk-s">&quot;pageSize&quot;</span> };
+        <span class="tk-k">foreach</span> (<span class="tk-k">var</span> field <span class="tk-k">in</span> requiredFields)
+        {
+            json.TryGetProperty(field, <span class="tk-k">out</span> _).Should().BeTrue(
+                <span class="tk-s">$&quot;Campo '{field}' es parte del contrato v1 y no debe eliminarse&quot;</span>);
+        }
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-de-contract-testing">
+<h3 id="checklist-de-contract-testing">Checklist de Contract Testing</h3>
+<div class="tbl"><table><thead><tr><th>Check</th><th>Descripcion</th></tr></thead><tbody><tr><td>Status codes</td><td>Todos los endpoints devuelven los codigos esperados</td></tr><tr><td>Response shape</td><td>Campos obligatorios presentes con tipos correctos</td></tr><tr><td>Error format</td><td>Errores siguen ProblemDetails RFC 7807</td></tr><tr><td>Headers</td><td>Content-Type, Location, CORS headers correctos</td></tr><tr><td>Backward compat</td><td>Campos v1 siguen presentes</td></tr><tr><td>OpenAPI sync</td><td>Spec refleja endpoints reales</td></tr><tr><td>Pact (si aplica)</td><td>Contratos de consumidores verificados</td></tr></tbody></table></div>
+<hr>
+<p><em>Pattern api-contract-testing</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/eval-set.html"><small>Anterior</small>eval-set.json</a><a class="next" href="../../../skills/testing-patterns/patterns/builders.html"><small>Siguiente</small>patterns/builders.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/patterns/api-contract-testing.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando-usar-contract-testing">Cuando Usar Contract Testing</a></li><li class="l2"><a href="#paquetes-nuget">Paquetes NuGet</a></li><li class="l2"><a href="#patron-1-contract-tests-basicos-con-webapplicationfactory">Patron 1: Contract Tests Basicos con WebApplicationFactory</a></li><li class="l2"><a href="#patron-2-consumer-driven-contracts-con-pactnet">Patron 2: Consumer-Driven Contracts con Pact.NET</a></li><li class="l3"><a href="#provider-side-tu-api">Provider Side (tu API)</a></li><li class="l3"><a href="#consumer-side-quien-consume-tu-api">Consumer Side (quien consume tu API)</a></li><li class="l2"><a href="#patron-3-openapi-contract-validation">Patron 3: OpenAPI Contract Validation</a></li><li class="l2"><a href="#patron-4-versionado-de-contratos">Patron 4: Versionado de Contratos</a></li><li class="l2"><a href="#checklist-de-contract-testing">Checklist de Contract Testing</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

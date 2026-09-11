@@ -1,0 +1,158 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>bash-guard · Ovillo</title><meta name="description" content="Bloquear operaciones destructivas"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="bash-guard · Ovillo"><meta property="og:description" content="Bloquear operaciones destructivas"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/bash-guard.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/bash-guard.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/bash-guard.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html" class="cur">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>bash-guard</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>PreToolUse[Bash]</span><span class="kind kind-block">bloquea</span></div><h1>bash-guard</h1><p class="lede">Bloquear operaciones destructivas</p><div class="meta-grid"><div><b><code>PreToolUse</code></b><span>evento</span></div><div><b><code>Bash</code></b><span>matcher</span></div><div><b><span class="kind kind-block">bloquea</span></b><span>política</span></div><div><b>1.0.0</b><span>versión</span></div><div><b>10 s</b><span>timeout</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p>Los flags cortos se tokenizan: -rf, -r -f, -fu y find -delete cuentan igual que la forma canonica (ADR-032) Salida: hallazgos y motivo del bloqueo por stderr, que es lo que Claude Code muestra con exit 1 y 2 (stdout solo es contexto en SessionStart y UserPromptSubmit; ADR-004 D1 enmendado por ADR-030)</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>0</code></td><td>permitir</td></tr><tr><td><code>2</code></td><td>BLOCK intrinseco (operacion git o SQL destructiva; no configurable)</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>Bloquea <strong>siempre</strong>: es uno de los irrenunciables (daño irreversible), no configurable.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>bash-guard.js · 158 líneas</summary><pre data-lang="javascript"><code><span class="tk-c">// bash-guard.js - Bloquear operaciones destructivas</span>
+<span class="tk-c">// Evento: PreToolUse[Bash]</span>
+<span class="tk-c">// Exit 0 = permitir · Exit 2 = BLOCK intrinseco (operacion git o SQL destructiva; no configurable)</span>
+<span class="tk-c">// Los flags cortos se tokenizan: -rf, -r -f, -fu y find -delete cuentan igual que la forma canonica (ADR-032)</span>
+<span class="tk-c">// Salida: hallazgos y motivo del bloqueo por stderr, que es lo que Claude Code muestra con exit 1 y 2 (stdout solo es</span>
+<span class="tk-c">//         contexto en SessionStart y UserPromptSubmit; ADR-004 D1 enmendado por ADR-030)</span>
+<span class="tk-c">// Version: 1.0.0</span>
+<span class="tk-c">// Historial del original (condensado):</span>
+<span class="tk-c">//   v2.1.0: safeTargets incluye .git/*.lock (FB-001: borrar un index.lock/HEAD.lock</span>
+<span class="tk-c">//     huerfano que deja Visual Studio NO es destructivo).</span>
+<span class="tk-c">//   v2.0.0: try/catch global, git restore ., branch -D, --no-verify, stash drop/clear, SQL DROP</span>
+<span class="tk-c">//     ampliado, --force-with-lease NO bloqueado, word boundaries. v1.0.0: 7 patrones basicos.</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Politica: BLOCK INTRINSECO — resolvePolicy con intrinsicBlock:true devuelve</span>
+<span class="tk-c">// 'block' incondicionalmente (operaciones destructivas irreversibles, no degradable a WARN).</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(<span class="tk-s">'./lib/helpers'</span>);
+<span class="tk-k">const</span> config = <span class="tk-k">require</span>(<span class="tk-s">'./lib/config'</span>);
+
+<span class="tk-c">// --- Wrapper de seguridad -----------------------------------------</span>
+<span class="tk-c">// Cualquier excepcion no controlada -&gt; exit 0 (permitir) + log a stderr.</span>
+<span class="tk-c">// Mejor un falso negativo silencioso que un hook que rompe el flujo.</span>
+<span class="tk-k">try</span> {
+  <span class="tk-k">const</span> hookData = h.readHookInput();
+  <span class="tk-c">// El comando en claro, no el JSON escapado del tool_input: casar patrones sobre el JSON era un falso negativo</span>
+  <span class="tk-c">// por construccion (ADR-026 para los guards de Write; aqui el separador anterior a rm era una comilla, no un espacio).</span>
+  <span class="tk-k">const</span> ti = hookData &amp;&amp; hookData.tool_input;
+  <span class="tk-k">const</span> command = ti &amp;&amp; <span class="tk-k">typeof</span> ti === <span class="tk-s">'object'</span> &amp;&amp; <span class="tk-k">typeof</span> ti.command === <span class="tk-s">'string'</span> ? ti.command : h.getToolInput(hookData);
+  <span class="tk-k">if</span> (!command) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-k">const</span> mode = config.resolvePolicy(config.load(), <span class="tk-s">'bash-guard'</span>, { intrinsicBlock: <span class="tk-k">true</span> }); <span class="tk-c">// siempre 'block'</span>
+  <span class="tk-k">const</span> EXIT_BLOCK = mode === <span class="tk-s">'block'</span> ? <span class="tk-n">2</span> : <span class="tk-n">1</span>; <span class="tk-c">// intrinseco: siempre 2</span>
+
+  <span class="tk-c">// Flags cortos de una invocacion: cada grupo &quot;-abc&quot; aporta sus letras, en cualquier orden y repartidos en</span>
+  <span class="tk-c">// grupos distintos (&quot;-rf&quot;, &quot;-r -f&quot;, &quot;-fu&quot;). Antes se casaba una forma concreta y &quot;rm -r -f&quot;, &quot;git push -fu&quot;</span>
+  <span class="tk-c">// o &quot;find -delete&quot; pasaban (ADR-030 fase 2, H-02). El segmento termina en | ; &amp;&amp; o un salto de linea.</span>
+  <span class="tk-k">const</span> segmentOf = (re) =&gt; { <span class="tk-k">const</span> m = command.match(re); <span class="tk-k">return</span> m ? m[<span class="tk-n">1</span>] : <span class="tk-k">null</span>; };
+  <span class="tk-k">const</span> shortFlags = (seg) =&gt; (seg.match(/(?:^|\s)-([a-zA-Z]+)(?=\s|$)/g) || []).map(g =&gt; g.trim().slice(<span class="tk-n">1</span>)).join(<span class="tk-s">''</span>);
+
+  <span class="tk-c">// -- Operaciones git destructivas ----------------------------------</span>
+
+  <span class="tk-c">// --force-with-lease es SEGURO (chequea remoto antes de sobrescribir). Bloquear --force y cualquier</span>
+  <span class="tk-c">// grupo de flags cortos que lleve la f (-f, -fu, -uf...).</span>
+  <span class="tk-k">const</span> pushSeg = segmentOf(/\bgit\s+push\b([^|;&amp;\n]*)/i);
+  <span class="tk-k">if</span> (pushSeg !== <span class="tk-k">null</span> &amp;&amp;
+      (/(^|\s)--force(=|\s|$)/i.test(pushSeg) || shortFlags(pushSeg).includes(<span class="tk-s">'f'</span>)) &amp;&amp;
+      !/--force-with-lease/i.test(pushSeg)) {
+    console.error(<span class="tk-s">'BLOQUEADO: git push --force/-f. Usa --force-with-lease (mas seguro) o un push normal.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-k">if</span> (/\bgit\s+reset\s+--hard\b/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: git reset --hard descartara todos los cambios no committeados.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-k">if</span> (/\bgit\s+clean\s+-[a-zA-Z]*f/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: git clean -f eliminara archivos no rastreados permanentemente.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-c">// v2.0.0: cubre legacy 'git checkout .' y moderno 'git restore .'</span>
+  <span class="tk-k">if</span> (/\bgit\s+(checkout|restore)\s+\.\B/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: descartara todos los cambios sin stage (git checkout/restore .).'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-c">// v2.0.0: git branch -D / --delete --force borra rama sin garantia de merge.</span>
+  <span class="tk-c">// Case-sensitive (sin /i, como -cmatch) para distinguir -D (force) de -d (safe).</span>
+  <span class="tk-k">if</span> (/\bgit\s+branch\s+-D\b/.test(command) ||
+      /\bgit\s+branch\s+--<span class="tk-k">delete</span>\s+--force\b/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: git branch -D borra una rama sin garantia de merge. Usa -d en su lugar.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-c">// v2.0.0: --no-verify saltea pre-commit/pre-push hooks (red flag)</span>
+  <span class="tk-k">if</span> (/\bgit\s+(commit|push|merge|rebase)\b.*--no-verify\b/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: --no-verify saltea hooks defensivos. Si fallan, arregla la causa raiz.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-c">// v2.0.0: git stash drop/clear elimina stashes sin recuperacion</span>
+  <span class="tk-k">if</span> (/\bgit\s+stash\s+(drop|clear)\b/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: git stash drop/clear elimina stashes sin posibilidad de recuperar.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-c">// -- Eliminacion recursiva peligrosa -------------------------------</span>
+  <span class="tk-c">// Cubre: rm -rf, rm -fr, rm -r -f, rm -Rf, rm --recursive --force, Remove-Item -Recurse -Force, find ... -delete</span>
+  <span class="tk-c">// Permitir en targets seguros (carpetas de build/cache/IDE + locks git huerfanos).</span>
+  <span class="tk-c">// FB-001: .git/*.lock (index.lock, HEAD.lock) que deja Visual Studio NO es destructivo borrarlo.</span>
+  <span class="tk-k">const</span> safeTargets = /(node_modules|bin[\\/]|obj[\\/]|TestResults|\.vs|packages[\\/]|\.next|dist[\\/]|coverage[\\/]|out[\\/]|\.git[\\/][^ &quot;']*\.lock)/i;
+  <span class="tk-k">const</span> rmSeg = segmentOf(/(?:^|[\s;&amp;|])rm\s([^|;&amp;\n]*)/i);
+  <span class="tk-k">const</span> rmFlags = rmSeg === <span class="tk-k">null</span> ? <span class="tk-s">''</span> : shortFlags(rmSeg).toLowerCase();
+  <span class="tk-k">const</span> rmDestructive = rmSeg !== <span class="tk-k">null</span> &amp;&amp; (
+    (rmFlags.includes(<span class="tk-s">'r'</span>) &amp;&amp; rmFlags.includes(<span class="tk-s">'f'</span>)) ||
+    (/(^|\s)--recursive(\s|$)/i.test(rmSeg) &amp;&amp; /(^|\s)--force(\s|$)/i.test(rmSeg)) ||
+    ((rmFlags.includes(<span class="tk-s">'r'</span>) || /(^|\s)--recursive(\s|$)/i.test(rmSeg)) &amp;&amp; /(^|\s)--force(\s|$)/i.test(rmSeg)) ||
+    ((rmFlags.includes(<span class="tk-s">'f'</span>) || /(^|\s)--force(\s|$)/i.test(rmSeg)) &amp;&amp; /(^|\s)--recursive(\s|$)/i.test(rmSeg)));
+  <span class="tk-k">if</span> ((rmDestructive || /Remove-Item.*-Recurse.*-Force|Remove-Item.*-Force.*-Recurse/i.test(command)) &amp;&amp; !safeTargets.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: Eliminacion recursiva forzada detectada. Verifica el path.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+  <span class="tk-k">const</span> findSeg = segmentOf(/\bfind\s([^|;&amp;\n]*)/i);
+  <span class="tk-k">if</span> (findSeg !== <span class="tk-k">null</span> &amp;&amp; /(^|\s)-<span class="tk-k">delete</span>(\s|$)/i.test(findSeg) &amp;&amp; !safeTargets.test(findSeg)) {
+    console.error(<span class="tk-s">'BLOQUEADO: find ... -delete borra todo lo que casa, sin papelera ni confirmacion. Lista primero sin -delete y verifica el path.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-c">// -- Operaciones SQL destructivas ----------------------------------</span>
+
+  <span class="tk-c">// v2.0.0: DROP ampliado a 8 tipos de objetos</span>
+  <span class="tk-k">if</span> (/\bDROP\s+(TABLE|DATABASE|SCHEMA|COLUMN|CONSTRAINT|INDEX|VIEW|PROCEDURE|FUNCTION|TRIGGER)\b/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: Operacion SQL DROP destructiva detectada. Verifica scope y backup.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-k">if</span> (/\bTRUNCATE\s+TABLE\b/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: TRUNCATE TABLE no es transaccional y borra todos los datos.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-c">// DELETE FROM sin WHERE. Negative lookahead: bloquear si NO va seguido de WHERE.</span>
+  <span class="tk-c">// Cubre tanto 'DELETE FROM T' final como 'DELETE FROM T;' o dentro de quotes.</span>
+  <span class="tk-k">if</span> (/\bDELETE\s+FROM\s+\w+\b(?!\s+WHERE\b)/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: DELETE FROM sin WHERE detectado. Anade clausula WHERE.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-c">// v2.0.0: ALTER TABLE ... DROP COLUMN/CONSTRAINT</span>
+  <span class="tk-k">if</span> (/\bALTER\s+TABLE\s+\w+.*\bDROP\s+(COLUMN|CONSTRAINT)\b/i.test(command)) {
+    console.error(<span class="tk-s">'BLOQUEADO: ALTER TABLE...DROP destructivo detectado. Verifica scope.'</span>);
+    process.exit(EXIT_BLOCK);
+  }
+
+  <span class="tk-c">// -- Proteccion de archivos sensibles ---------------------</span>
+  <span class="tk-k">if</span> (/\.(pfx|key|pem|p12)\b/i.test(command)) {
+    <span class="tk-k">if</span> (/\b(rm|del|Remove-Item|move|mv)\b/i.test(command)) {
+      console.error(<span class="tk-s">'BLOQUEADO: Operacion destructiva sobre certificado/clave privada detectada.'</span>);
+      process.exit(EXIT_BLOCK);
+    }
+  }
+
+  <span class="tk-c">// -- Advertencia dotnet run (no bloquea) ---------------------------</span>
+  <span class="tk-k">if</span> (/\bdotnet\s+run\b/i.test(command)) {
+    console.log(<span class="tk-s">'AVISO: dotnet run detectado. Verifica que launchSettings.json existe y el perfil es correcto.'</span>);
+  }
+
+  process.exit(<span class="tk-n">0</span>);
+} <span class="tk-k">catch</span> (e) {
+  <span class="tk-c">// Error inesperado: permitir operacion en lugar de romper el flujo.</span>
+  <span class="tk-c">// Log a stderr para diagnostico (no interfiere con exit 0).</span>
+  console.error(<span class="tk-s">`bash-guard.js: error inesperado, permitiendo operacion. Detalle: ${e &amp;&amp; e.message ? e.message : e}`</span>);
+  process.exit(<span class="tk-n">0</span>);
+}
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>5 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(hooks): bash-guard tokeniza los flags y hilo-json-guard vigila tambien Write|Edit (H-02, H-03)</em>.</p><h3>Notas de versiones anteriores</h3><ul><li>v2.1.0: safeTargets incluye .git/*.lock (FB-001: borrar un index.lock/HEAD.lock</li><li>huerfano que deja Visual Studio NO es destructivo).</li><li>v2.0.0: try/catch global, git restore ., branch -D, --no-verify, stash drop/clear, SQL DROP</li><li>ampliado, --force-with-lease NO bloqueado, word boundaries. v1.0.0: 7 patrones basicos.</li><li>Politica: BLOCK INTRINSECO — resolvePolicy con intrinsicBlock:true devuelve</li><li>'block' incondicionalmente (operaciones destructivas irreversibles, no degradable a WARN).</li></ul></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/recuperar.html">recuperar</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/bash-guard.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

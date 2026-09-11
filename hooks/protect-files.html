@@ -1,0 +1,97 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>protect-files · Ovillo</title><meta name="description" content="Bloquear escritura en archivos protegidos"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="protect-files · Ovillo"><meta property="og:description" content="Bloquear escritura en archivos protegidos"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/protect-files.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/protect-files.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/protect-files.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html" class="cur">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>protect-files</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>PreToolUse[Write|Edit]</span><span class="kind kind-block">bloquea</span></div><h1>protect-files</h1><p class="lede">Bloquear escritura en archivos protegidos</p><div class="meta-grid"><div><b><code>PreToolUse</code></b><span>evento</span></div><div><b><code>Write|Edit</code></b><span>matcher</span></div><div><b><span class="kind kind-block">bloquea</span></b><span>política</span></div><div><b>1.0.0</b><span>versión</span></div><div><b>5 s</b><span>timeout</span></div><div><b>2026-09-07</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p class="muted">La cabecera del fichero no describe el comportamiento (la higiene de fuentes lo señala).</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>2</code></td><td>bloquear (certs/keys, dano irreversible)</td></tr><tr><td><code>1</code></td><td>AVISO (configs PROD)</td></tr><tr><td><code>0</code></td><td>permitir</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>Bloquea <strong>siempre</strong>: es uno de los irrenunciables (daño irreversible), no configurable.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>protect-files.js · 97 líneas</summary><pre data-lang="javascript"><code><span class="tk-c">// protect-files.js - Bloquear escritura en archivos protegidos</span>
+<span class="tk-c">// Evento: PreToolUse[Write|Edit]</span>
+<span class="tk-c">// Exit 2 = bloquear (certs/keys, dano irreversible), Exit 1 = AVISO (configs PROD), Exit 0 = permitir.</span>
+<span class="tk-c">// Version: 1.0.0</span>
+<span class="tk-c">// Historial del original (condensado):</span>
+<span class="tk-c">//   v1.1.0: politica WARN-first selectiva — certs (.pfx/.key/.pem/.p12/</span>
+<span class="tk-c">//     .cer/.crt) siguen BLOCK (editar private key destruye el cert, dano irreversible); configs de</span>
+<span class="tk-c">//     PROD pasan a WARN (los devs si las editan legitimamente). Mensajes via stderr para visibilidad</span>
+<span class="tk-c">//     en Claude Code. v1.0.0: todos los archivos sensibles bloqueados.</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Politica: la parte de certificados/keys es BLOCK INTRINSECO (resolvePolicy con</span>
+<span class="tk-c">// intrinsicBlock:true — siempre exit 2); la parte de configs PROD es WARN-first configurable</span>
+<span class="tk-c">// (hooks.policy / hooks.blockList en ecosystem.config.json).</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> path = <span class="tk-k">require</span>(<span class="tk-s">'path'</span>);
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(<span class="tk-s">'./lib/helpers'</span>);
+<span class="tk-k">const</span> config = <span class="tk-k">require</span>(<span class="tk-s">'./lib/config'</span>);
+
+<span class="tk-k">try</span> {
+  <span class="tk-k">const</span> hookData = h.readHookInput();
+  <span class="tk-k">const</span> toolInput = h.getToolInput(hookData);
+  <span class="tk-k">if</span> (!toolInput) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-c">// Helper: emitir mensaje por stderr (visible para Claude Code)</span>
+  <span class="tk-k">const</span> aviso = (msg) =&gt; console.error(msg);
+
+  <span class="tk-c">// Extraer file_path del input</span>
+  <span class="tk-k">const</span> filePath = h.getFilePath(hookData);
+  <span class="tk-k">if</span> (!filePath) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-c">// path.win32.basename maneja / y \ (equivalente a Split-Path -Leaf en Windows)</span>
+  <span class="tk-k">const</span> fileName = path.win32.basename(filePath);
+  <span class="tk-k">const</span> extension = path.extname(fileName).toLowerCase();
+  <span class="tk-k">const</span> fileNameLower = fileName.toLowerCase();
+
+  <span class="tk-k">const</span> cfg = config.load();
+
+  <span class="tk-c">// === BLOCK ESTRICTO (dano irreversible) ===</span>
+
+  <span class="tk-c">// Certificados y claves privadas: editar = destruir. Renovar via CA, NO modificar.</span>
+  <span class="tk-k">const</span> blockedExtensions = [<span class="tk-s">'.pfx'</span>, <span class="tk-s">'.key'</span>, <span class="tk-s">'.pem'</span>, <span class="tk-s">'.p12'</span>, <span class="tk-s">'.cer'</span>, <span class="tk-s">'.crt'</span>];
+  <span class="tk-k">if</span> (blockedExtensions.includes(extension)) {
+    <span class="tk-k">const</span> modeCerts = config.resolvePolicy(cfg, <span class="tk-s">'protect-files'</span>, { intrinsicBlock: <span class="tk-k">true</span> }); <span class="tk-c">// siempre 'block'</span>
+    aviso(<span class="tk-s">`BLOQUEADO: No se permite escribir archivos de certificado/clave (${fileName})`</span>);
+    aviso(<span class="tk-s">'  Razon: editar private key destruye el cert. Renovar con CA, NO modificar.'</span>);
+    aviso(<span class="tk-s">'  Si necesitas crear un cert NUEVO: hacerlo fuera de Claude (openssl, certmgr, etc.)'</span>);
+    process.exit(modeCerts === <span class="tk-s">'block'</span> ? <span class="tk-n">2</span> : <span class="tk-n">1</span>); <span class="tk-c">// intrinseco: siempre 2</span>
+  }
+
+  <span class="tk-c">// === WARN (configs PROD - se editan legitimamente pero con cuidado) ===</span>
+
+  <span class="tk-c">// Archivos de produccion sensibles (comparacion case-insensitive, como -contains en PS)</span>
+  <span class="tk-k">const</span> warnProdFiles = [
+    <span class="tk-s">'Production.json'</span>,
+    <span class="tk-s">'appsettings.Production.json'</span>,
+    <span class="tk-s">'appsettings.Staging.json'</span>,
+    <span class="tk-s">'web.Production.config'</span>,
+  ];
+  <span class="tk-k">if</span> (warnProdFiles.some((f) =&gt; f.toLowerCase() === fileNameLower)) {
+    <span class="tk-k">const</span> mode = config.resolvePolicy(cfg, <span class="tk-s">'protect-files'</span>); <span class="tk-c">// WARN-first configurable</span>
+    <span class="tk-k">const</span> prefijo = mode === <span class="tk-s">'block'</span> ? <span class="tk-s">'BLOQUEADO'</span> : <span class="tk-s">'AVISO'</span>;
+    aviso(<span class="tk-s">`${prefijo}: Editando configuracion de PRODUCCION (${fileName}).`</span>);
+    aviso(<span class="tk-s">'  Verifica:'</span>);
+    aviso(<span class="tk-s">'    1. El cambio es realmente necesario en PROD ya, o puede esperar a develop primero?'</span>);
+    aviso(<span class="tk-s">'    2. Tienes backup del archivo original (commit anterior en git)?'</span>);
+    aviso(<span class="tk-s">'    3. Has revisado con el JP/responsable tecnico antes de desplegar?'</span>);
+    aviso(<span class="tk-s">'  Politica de la organización WARN-first: edit permitido, decision del dev.'</span>);
+    process.exit(mode === <span class="tk-s">'block'</span> ? <span class="tk-n">2</span> : <span class="tk-n">1</span>);
+  }
+
+  <span class="tk-c">// === AVISOS INFORMATIVOS (no bloquean ni hacen exit 1, solo informan) ===</span>
+
+  <span class="tk-c">// Connection strings en appsettings</span>
+  <span class="tk-k">if</span> (/^appsettings.*\.json$/i.test(fileName) &amp;&amp; /(Password|pwd|Server=|Data Source)/i.test(toolInput)) {
+    aviso(<span class="tk-s">`AVISO: Posible connection string en ${fileName}. Usa Azure Key Vault para produccion.`</span>);
+  }
+
+  <span class="tk-c">// .env files</span>
+  <span class="tk-k">if</span> (/^\.env/i.test(fileName)) {
+    aviso(<span class="tk-s">`AVISO: Archivo .env detectado (${fileName}). Verifica que esta en .gitignore.`</span>);
+  }
+
+  <span class="tk-c">// Archivos de configuracion critica</span>
+  <span class="tk-k">const</span> warnFiles = [<span class="tk-s">'global.json'</span>, <span class="tk-s">'Directory.Build.props'</span>, <span class="tk-s">'Directory.Packages.props'</span>, <span class="tk-s">'NuGet.Config'</span>];
+  <span class="tk-k">if</span> (warnFiles.some((f) =&gt; f.toLowerCase() === fileNameLower)) {
+    aviso(<span class="tk-s">`AVISO: Modificando archivo de configuracion critica (${fileName}).`</span>);
+  }
+
+  process.exit(<span class="tk-n">0</span>);
+} <span class="tk-k">catch</span> (e) {
+  <span class="tk-c">// Error inesperado: permitir operacion en lugar de romper el flujo.</span>
+  console.error(<span class="tk-s">`protect-files.js: error inesperado, permitiendo operacion. Detalle: ${e &amp;&amp; e.message ? e.message : e}`</span>);
+  process.exit(<span class="tk-n">0</span>);
+}
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>2 cambios · 2026-09-07 → 2026-09-07. Último cambio: <em>feat!: Ovillo 1.0.0 — primera publicacion, sin genealogia; ADR-001..010; GitHub y modelos al dia</em>.</p><h3>Notas de versiones anteriores</h3><ul><li>v1.1.0: politica WARN-first selectiva — certs (.pfx/.key/.pem/.p12/</li><li>.cer/.crt) siguen BLOCK (editar private key destruye el cert, dano irreversible); configs de</li><li>PROD pasan a WARN (los devs si las editan legitimamente). Mensajes via stderr para visibilidad</li><li>en Claude Code. v1.0.0: todos los archivos sensibles bloqueados.</li><li>Politica: la parte de certificados/keys es BLOCK INTRINSECO (resolvePolicy con</li><li>intrinsicBlock:true — siempre exit 2); la parte de configs PROD es WARN-first configurable</li><li>(hooks.policy / hooks.blockList en ecosystem.config.json).</li></ul></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/console.html">console</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/protect-files.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

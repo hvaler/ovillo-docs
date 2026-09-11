@@ -1,0 +1,83 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>developer-branch · Ovillo</title><meta name="description" content="developer-branch"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="developer-branch · Ovillo"><meta property="og:description" content="developer-branch"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/reglas/developer-branch.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/reglas/developer-branch.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="reglas/developer-branch.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html" class="cur">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>reglas (3)</h4><ul class="sibs"><li><a href="../reglas/context-optimization.html">context-optimization</a></li><li><a href="../reglas/developer-branch.html" class="cur">developer-branch</a></li><li><a href="../reglas/devops-awareness.html">devops-awareness</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../reglas.html">Reglas</a></span><span>developer-branch</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>regla incondicional</span><span>.claude/rules/developer-branch.md</span><span>siempre en contexto</span></div><h1>Regla: Estrategia Developer Branch</h1><div class="meta-grid"><div><b>siempre (sin paths)</b><span>carga</span></div><div><b>≈ 1027 tokens</b><span>coste</span></div><div><b>383</b><span>palabras</span></div><div><b><code>/hv:init</code></b><span>la escribe</span></div><div><b>2026-09-07</b><span>último cambio</span></div></div><blockquote><p><strong>Carga</strong>: incondicional (sin <code>paths:</code>) porque su activacion NO depende de la ruta de un fichero, sino del valor <code>configuracion.branching.estrategia</code> en <code>_hilo/ESTADO_PROYECTO.json</code>. La regla se autogatea: Claude lee ese valor y solo aplica lo de abajo si es <code>developer-branch</code>. <code>/hv:init</code> la escribe en todos los proyectos; solo actua cuando la estrategia coincide.</p></blockquote>
+<blockquote><p>Esta regla se activa cuando <code>_hilo/ESTADO_PROYECTO.json</code> tiene <code>configuracion.branching.estrategia == &quot;developer-branch&quot;</code>. Define el flujo de trabajo con rama personal remota y features locales.</p></blockquote>
+<hr>
+<section class="sec" id="sec-deteccion">
+<h3 id="deteccion">Deteccion</h3>
+<p>Claude debe verificar <code>configuracion.branching.estrategia</code> en ESTADO_PROYECTO.json al inicio de cualquier tarea de desarrollo. Si el valor es <code>&quot;developer-branch&quot;</code>, aplicar las reglas de este archivo.</p>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion-esperada">
+<h3 id="configuracion-esperada">Configuracion Esperada</h3>
+<pre data-lang="json"><code><span class="tk-s">&quot;branching&quot;</span>: {
+    <span class="tk-s">&quot;estrategia&quot;</span>: <span class="tk-s">&quot;developer-branch&quot;</span>,
+    <span class="tk-s">&quot;ramaBase&quot;</span>: <span class="tk-s">&quot;dev.{usuario}&quot;</span>,
+    <span class="tk-s">&quot;mergeStrategy&quot;</span>: <span class="tk-s">&quot;merge&quot;</span>,
+    <span class="tk-s">&quot;convencionRamas&quot;</span>: <span class="tk-s">&quot;yyyyMMdd-{tipo}-{codigo}-{descripcion}&quot;</span>,
+    <span class="tk-s">&quot;pushFeatures&quot;</span>: false,
+    <span class="tk-s">&quot;tiposTarea&quot;</span>: {
+        <span class="tk-s">&quot;DT&quot;</span>: <span class="tk-s">&quot;Deuda técnica&quot;</span>,
+        <span class="tk-s">&quot;EV&quot;</span>: <span class="tk-s">&quot;Evolutivo&quot;</span>
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-flujo-obligatorio">
+<h3 id="flujo-obligatorio">Flujo Obligatorio</h3>
+<p>Antes de escribir cualquier cambio de codigo, seguir este flujo:</p>
+<h4 id="1-posicionarse-en-la-rama-base">1. Posicionarse en la rama base</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Leer ramaBase de ESTADO_PROYECTO.json (ej: dev.claudio)</span>
+<span class="tk-k">git</span> checkout {ramaBase}
+<span class="tk-k">git</span> pull origin {ramaBase}</code></pre>
+<h4 id="2-crear-rama-local">2. Crear rama local</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Formato: yyyyMMdd-{tipo}-{codigo}-{descripcion}</span>
+<span class="tk-c"># La fecha es la fecha de INICIO de la tarea (hoy)</span>
+<span class="tk-k">git</span> checkout -b {yyyyMMdd}-{tipo}-{codigo}-{descripcion}
+
+<span class="tk-c"># Ejemplos:</span>
+<span class="tk-c"># git checkout -b 20260406-DT-005-fix-xyz</span>
+<span class="tk-c"># git checkout -b 20260406-EV-18-filter-scholarships</span></code></pre>
+<p><strong>Tipo de tarea</strong>: Leer <code>tiposTarea</code> de ESTADO_PROYECTO.json; si es <code>null</code>, usar <code>workflow.taskTypes</code> del <code>ecosystem.config.json</code> (default: EV/DT). Si hay mas de un tipo disponible, preguntar al usuario cual aplica.</p>
+<h4 id="3-desarrollar">3. Desarrollar</h4>
+<ul>
+<li>Commits parciales permitidos (atomicos, conventional commits)</li>
+<li>Compilar y verificar: <code>dotnet build</code> / <code>dotnet test</code></li>
+</ul>
+<h4 id="4-merge-a-rama-base">4. Merge a rama base</h4>
+<blockquote><p><strong>CONFIRMAR con el usuario antes de ejecutar</strong></p></blockquote>
+<pre data-lang="bash"><code><span class="tk-k">git</span> checkout {ramaBase}
+<span class="tk-k">git</span> merge {rama-feature}</code></pre>
+<h4 id="5-push-al-remoto">5. Push al remoto</h4>
+<blockquote><p><strong>CONFIRMAR con el usuario antes de ejecutar</strong></p></blockquote>
+<pre data-lang="bash"><code><span class="tk-k">git</span> push origin {ramaBase}</code></pre>
+<h4 id="6-limpieza-opcional">6. Limpieza (opcional)</h4>
+<pre data-lang="bash"><code><span class="tk-c"># La rama local se puede mantener como historico o borrar</span>
+<span class="tk-k">git</span> branch -d {rama-feature}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-restricciones-criticas">
+<h3 id="restricciones-criticas">Restricciones CRITICAS</h3>
+<div class="tbl"><table><thead><tr><th>Regla</th><th>Descripcion</th></tr></thead><tbody><tr><td><strong>NUNCA</strong> pushear ramas locales</td><td>Las ramas feature solo existen localmente</td></tr><tr><td><strong>NUNCA</strong> desarrollar en rama base</td><td>Siempre crear rama local primero</td></tr><tr><td><strong>SIEMPRE</strong> confirmar merge/push</td><td>Pasos 4 y 5 requieren aprobacion del usuario</td></tr><tr><td><strong>SIEMPRE</strong> usar fecha de inicio</td><td>La fecha en el nombre es cuando se INICIO la tarea</td></tr><tr><td><strong>SIEMPRE</strong> leer config</td><td>Rama base, tipos y nomenclatura vienen de ESTADO_PROYECTO.json</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-nomenclatura-de-ramas">
+<h3 id="nomenclatura-de-ramas">Nomenclatura de Ramas</h3>
+<p>El formato se lee de <code>configuracion.branching.convencionRamas</code>:</p>
+<pre><code>yyyyMMdd-{tipo}-{codigo}-{descripcion}</code></pre>
+<div class="tbl"><table><thead><tr><th>Componente</th><th>Fuente</th><th>Ejemplo</th></tr></thead><tbody><tr><td><code>yyyyMMdd</code></td><td>Fecha actual (inicio tarea)</td><td><code>20260406</code></td></tr><tr><td><code>{tipo}</code></td><td>De <code>tiposTarea</code> en config (fallback <code>workflow.taskTypes</code>)</td><td><code>DT</code>, <code>EV</code>, <code>BUG</code></td></tr><tr><td><code>{codigo}</code></td><td>Codigo evolutivo o numero secuencial</td><td><code>005</code>, <code>18</code></td></tr><tr><td><code>{descripcion}</code></td><td>Descripcion breve kebab-case</td><td><code>fix-xyz</code>, <code>filtro-becas</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-diferencias-con-otras-estrategias">
+<h3 id="diferencias-con-otras-estrategias">Diferencias con Otras Estrategias</h3>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>developer-branch</th><th>github-flow-simplificado</th></tr></thead><tbody><tr><td>Rama base</td><td><code>dev.{usuario}</code> (personal)</td><td><code>main</code></td></tr><tr><td>Features se pushean</td><td>No</td><td>No</td></tr><tr><td>Merge</td><td>plain merge</td><td><code>--no-ff</code></td></tr><tr><td>Nomenclatura</td><td>Temporal (fecha)</td><td>Semantica (feature/...)</td></tr><tr><td>Tipo tarea en rama</td><td>Si (DT/EV/...)</td><td>No</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-cuando-recomendar">
+<h3 id="cuando-recomendar">Cuando Recomendar</h3>
+<ul>
+<li>Desarrollador unico sin CI/CD formal</li>
+<li>Proyectos con rama personal remota como punto de integracion</li>
+<li>Equipos que prefieren trazabilidad temporal en ramas</li>
+</ul>
+<hr>
+<p><em>Regla incondicional — Estrategia Developer Branch</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Se carga en <strong>toda</strong> sesión (sin <code>paths:</code>): 4106 caracteres ≈ 1027 tokens, el 39 % de lo que pesan las 3 reglas juntas.</p><div class="bar "><i style="width:39%"></i></div><p class="muted">Medido por <code>measure-context.js</code>.</p></section><section class="sec" id="sec-relaciones"><h2 id="relaciones">Relaciones</h2><p>Skills, agents y hooks que la regla cita:</p><ul><li><a href="../skills/init.html">init</a></li></ul></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>2 cambios · 2026-09-07 → 2026-09-07. Último cambio: <em>feat!: Ovillo 1.0.0 — primera publicacion, sin genealogia; ADR-001..010; GitHub y modelos al dia</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/init.html">init</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/rules/developer-branch.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#deteccion">Deteccion</a></li><li class="l2"><a href="#configuracion-esperada">Configuracion Esperada</a></li><li class="l2"><a href="#flujo-obligatorio">Flujo Obligatorio</a></li><li class="l2"><a href="#restricciones-criticas">Restricciones CRITICAS</a></li><li class="l2"><a href="#nomenclatura-de-ramas">Nomenclatura de Ramas</a></li><li class="l2"><a href="#diferencias-con-otras-estrategias">Diferencias con Otras Estrategias</a></li><li class="l2"><a href="#cuando-recomendar">Cuando Recomendar</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#relaciones">Relaciones</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

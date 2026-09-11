@@ -1,0 +1,75 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>docs-agente-sync · references/workflow-docs-sync.md · Ovillo</title><meta name="description" content="Fichero references/workflow-docs-sync.md de la skill docs-agente-sync"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="docs-agente-sync · references/workflow-docs-sync.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-docs-sync.md de la skill docs-agente-sync"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/docs-agente-sync/references/workflow-docs-sync.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/docs-agente-sync/references/workflow-docs-sync.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/docs-agente-sync/references/workflow-docs-sync.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de docs-agente-sync (6)</h4><ul class="sibs"><li><a href="../../../skills/docs-agente-sync/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/docs-agente-sync/references/ci-wiring.html">references/ci-wiring.md</a></li><li><a href="../../../skills/docs-agente-sync/references/hub-contract.html">references/hub-contract.md</a></li><li><a href="../../../skills/docs-agente-sync/references/workflow-docs-sync.html" class="cur">references/workflow-docs-sync.md</a></li><li><a href="../../../skills/docs-agente-sync/scripts/Get-SourceStamp.html">scripts/Get-SourceStamp.ps1</a></li><li><a href="../../../skills/docs-agente-sync/scripts/Sync-AgentDoc.html">scripts/Sync-AgentDoc.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/docs-agente-sync.html">docs-agente-sync</a></span><span>references</span><span>workflow-docs-sync.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>docs-agente-sync</span><span>references/</span></div><h1>workflow-docs-sync.md</h1><p class="lede">Referencia que <code>docs-agente-sync</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/docs-agente-sync.html">docs-agente-sync</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>4731 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>docs-agente-sync</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para.</p></blockquote>
+<hr>
+<p class="lede">Publica los <strong>Registros de Documentacion de Agente (DOC)</strong> del proyecto al hub Ovillo: descubre los docs de agente en <code>docs/agente/</code>, recomputa el hash del subarbol de fuente de cada entrypoint, detecta <strong>drift</strong> (fuente cambio → doc obsoleto), estima el coste de contexto (tokens) y hace el POST. Es lo que da visibilidad de &quot;contexto de agente fresco/podrido&quot; en el portfolio.</p>
+<blockquote><p>El comando <strong>NO genera codigo ni documentacion</strong>: orquesta la skill <code>docs-agente-sync</code> y su script estable <code>scripts/Sync-AgentDoc.ps1</code> de esta skill. La <strong>derivacion</strong> del doc es de <code>/analisis-arquitectura --agente</code>; este comando solo <strong>registra y vigila</strong>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-alcance-estricto-leer-antes-de-actuar">
+<h3 id="alcance-estricto-leer-antes-de-actuar">ALCANCE ESTRICTO (leer antes de actuar)</h3>
+<p>Este comando <strong>solo REGISTRA y DETECTA DRIFT</strong>. Mientras lo ejecutas:</p>
+<ul>
+<li>❌ <strong>NO</strong> generes ni edites los docs de <code>docs/agente/</code> (eso es <code>/analisis-arquitectura --agente</code>).</li>
+<li>❌ <strong>NO</strong> regeneres un doc porque salga <code>drift=stale</code>: el DOC refleja el <strong>estado real</strong>, que es justo lo que el portfolio debe mostrar. La decision de regenerar es del usuario, on-demand (R20).</li>
+<li>❌ <strong>NO</strong> inlines contenido de los docs en <code>CLAUDE.md</code> (prohibido por <code>context-optimization</code>: el doc se referencia, nunca se incrusta).</li>
+<li>❌ <strong>NO</strong> hagas commits ni toques codigo de produccion.</li>
+<li>✅ Si <code>docs/agente/</code> esta vacia o un doc no tiene sello → <strong>avisa</strong> de que hay que correr <code>/analisis-arquitectura --agente</code> primero. No lo ejecutes tu por tu cuenta sin que lo pidan.</li>
+</ul>
+<blockquote><p>Guarda heredada del patron de <code>/calidad-codigo-sync</code>: publicar un registro es una <strong>foto</strong>, no un disparador de cambios.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-sintaxis">
+<h3 id="sintaxis">Sintaxis</h3>
+<pre><code>/docs-sync                       Registra el estado de docs/agente/ y publica los DOC
+/docs-sync --dry-run             Calcula e imprime el payload (drift/tokens/gate), NO envia
+/docs-sync --docs-dir &lt;ruta&gt;     Carpeta de docs de agente (default docs/agente)
+/docs-sync --budget &lt;tokens&gt;     Umbral del gate de contexto (default 4000; WARN si se supera)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-flujo">
+<h3 id="flujo">Flujo</h3>
+<h4 id="paso-0--pre-checks">Paso 0 — Pre-checks</h4>
+<ol>
+<li>Leer <code>_hilo/.mcp-project.json</code> → <code>projectId</code>. Si no existe → avisar (proyecto no registrado en el hub; <code>/hv:mcp-register</code>).</li>
+<li>Verificar que existe <code>docs/agente/</code>. Si no → avisar: &quot;Genera el contexto primero con <code>/analisis-arquitectura --agente</code>.&quot; y parar (best-effort, no es error).</li>
+</ol>
+<h4 id="paso-1--invocar-el-script-la-skill-hace-el-trabajo">Paso 1 — Invocar el script (la skill hace el trabajo)</h4>
+<pre><code>pwsh &quot;${CLAUDE_PLUGIN_ROOT}/skills/docs-agente-sync/scripts/Sync-AgentDoc.ps1&quot; `
+  -ProjectId &lt;projectId&gt; `
+  -DocsDir &lt;docs-dir&gt; `
+  -SourceRoot src `
+  -TokenBudget &lt;budget&gt; `
+  [-DryRun]</code></pre>
+<ul>
+<li><strong>Autenticacion</strong>: NO pasar <code>-ApiKey</code> (dev/agente en local). El script resuelve la service-key solo. El unico sitio con <code>-ApiKey</code> es CI (ver <code>references/ci-wiring.md</code>).</li>
+<li>El script es <strong>best-effort</strong>: si el hub no expone <code>/v2/sync/docs-batch</code> (tool <code>register_agentdoc</code> no desplegada) responde <code>[SKIP]</code> sin romper nada.</li>
+</ul>
+<h4 id="paso-2--interpretar-y-mostrar">Paso 2 — Interpretar y mostrar</h4>
+<p>Mostrar al usuario la tabla que emite el script (por entrypoint): <code>drift</code> (fresh/stale/orphan), <code>tokens</code>, <code>gate</code> (PASS/WARN). Si hay <code>stale</code> o <code>WARN</code>, <strong>informar</strong> (no actuar):</p>
+<pre><code>2 DOC publicados. 1 en drift=stale (MyCompany.X.Web): el codigo cambio desde que se genero el doc.
+Para refrescarlo (cuando quieras): /analisis-arquitectura --agente --solucion &lt;sln&gt;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-reglas-criticas">
+<h3 id="reglas-criticas">REGLAS CRITICAS</h3>
+<ul>
+<li><strong>NUNCA</strong> generar/editar docs de agente aqui (eso es <code>/analisis-arquitectura --agente</code>).</li>
+<li><strong>NUNCA</strong> inlinar docs en CLAUDE.md (context-optimization).</li>
+<li><strong>NUNCA</strong> pasar <code>-ApiKey</code> a mano fuera de CI.</li>
+<li><strong>SIEMPRE</strong> best-effort: la doc no tumba nada; <code>[SKIP]</code> si el hub no tiene la tool aun.</li>
+<li>El registro es una <strong>foto</strong>; el re-generado es on-demand y lo decide el usuario (R20).</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-REFERENCIAS">
+<h3 id="REFERENCIAS">REFERENCIAS</h3>
+<ul>
+<li>Skill orquestada: <code>.claude/skills/docs-agente-sync/</code> (SKILL.md + scripts + references)</li>
+<li>Generador del doc: <code>/analisis-arquitectura --agente</code></li>
+<li>Tool MCP consumida: <code>register_agentdoc</code> (Hub) · endpoints <code>/v2/sync/docs-batch</code>, <code>/v2/stats/docs/{id}</code></li>
+<li>Cableado CI: <code>.claude/skills/docs-agente-sync/references/ci-wiring.md</code></li>
+<li>Contrato server-side: <code>.claude/skills/docs-agente-sync/references/hub-contract.md</code></li>
+<li>Hermano: <code>/calidad-codigo-sync</code> (QR) — mismo patron, distinto tipo de registro</li>
+<li>ADR: <code>_estado/DECISIONES.md</code> ADR de docs-agente (OpenWiki→nativo)</li>
+</ul>
+<hr>
+<p><em>Comando plantilla Ovillo — wrapper de docs-agente-sync. Registrar = foto del contexto de agente + drift; generar = /analisis-arquitectura --agente.</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/docs-agente-sync.html#ficheros">← Volver a la ficha de docs-agente-sync</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/docs-agente-sync/references/hub-contract.html"><small>Anterior</small>references/hub-contract.md</a><a class="next" href="../../../skills/docs-agente-sync/scripts/Get-SourceStamp.html"><small>Siguiente</small>scripts/Get-SourceStamp.ps1</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/docs-agente-sync/references/workflow-docs-sync.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#alcance-estricto-leer-antes-de-actuar">ALCANCE ESTRICTO (leer antes de actuar)</a></li><li class="l2"><a href="#sintaxis">Sintaxis</a></li><li class="l2"><a href="#flujo">Flujo</a></li><li class="l3"><a href="#paso-0--pre-checks">Paso 0 — Pre-checks</a></li><li class="l3"><a href="#paso-1--invocar-el-script-la-skill-hace-el-trabajo">Paso 1 — Invocar el script (la skill hace el trabajo)</a></li><li class="l3"><a href="#paso-2--interpretar-y-mostrar">Paso 2 — Interpretar y mostrar</a></li><li class="l2"><a href="#reglas-criticas">REGLAS CRITICAS</a></li><li class="l2"><a href="#REFERENCIAS">REFERENCIAS</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

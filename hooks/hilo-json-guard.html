@@ -1,0 +1,129 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hilo-json-guard · Ovillo</title><meta name="description" content="Bloquea escribir o commitear un _hilo/*.json vacio o invalido (FB-007, Portal); avisa si"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="hilo-json-guard · Ovillo"><meta property="og:description" content="Bloquea escribir o commitear un _hilo/*.json vacio o invalido (FB-007, Portal); avisa si"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/hilo-json-guard.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/hilo-json-guard.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/hilo-json-guard.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html" class="cur">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>hilo-json-guard</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>PreToolUse[Bash]</span><span>PreToolUse[Write|Edit]</span><span class="kind kind-block">bloquea</span></div><h1>hilo-json-guard</h1><p class="lede">Bloquea escribir o commitear un _hilo/*.json vacio o invalido (FB-007, Portal); avisa si</p><div class="meta-grid"><div><b><code>PreToolUse</code> <code>PreToolUse</code></b><span>evento</span></div><div><b><code>Bash</code> <code>Write|Edit</code></b><span>matcher</span></div><div><b><span class="kind kind-block">bloquea</span></b><span>política</span></div><div><b>1.1.0</b><span>versión</span></div><div><b>10 s</b><span>timeout</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p>ESTADO_PROYECTO.json lleva claves de configuracion duplicadas con valores divergentes (ADR-023)</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>0</code></td><td>permitir</td></tr><tr><td><code>1</code></td><td>AVISO (configuracion divergente; politica warn)</td></tr><tr><td><code>2</code></td><td>BLOCK intrinseco (un _hilo/*.json que quedaria vacio o invalido, al escribirlo o al commitearlo) o config-guard en hooks.blockList</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>Bloquea <strong>siempre</strong>: es uno de los irrenunciables (daño irreversible), no configurable.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>hilo-json-guard.js · 129 líneas</summary><pre data-lang="javascript"><code><span class="tk-c">// hilo-json-guard.js - Bloquea escribir o commitear un _hilo/*.json vacio o invalido (FB-007, Portal); avisa si</span>
+<span class="tk-c">// ESTADO_PROYECTO.json lleva claves de configuracion duplicadas con valores divergentes (ADR-023)</span>
+<span class="tk-c">// Evento: PreToolUse[Bash|Write|Edit]</span>
+<span class="tk-c">// Exit 0 = permitir · Exit 1 = AVISO (configuracion divergente; politica warn) · Exit 2 = BLOCK intrinseco (un _hilo/*.json que quedaria vacio o invalido, al escribirlo o al commitearlo) o config-guard en hooks.blockList</span>
+<span class="tk-c">// Version: 1.1.0</span>
+<span class="tk-c">// Historial del original (condensado):</span>
+<span class="tk-c">//   v1.1.0 (ADR-032, H-03): tambien en Write|Edit. La promesa &quot;JSON del Hilo invalido bloquea siempre&quot; solo se</span>
+<span class="tk-c">//     cumplia al commitear: un Write de &quot;{bad&quot; a _hilo/ESTADO_PROYECTO.json pasaba con exit 0. Ahora se valida el</span>
+<span class="tk-c">//     contenido que quedaria en disco (Write: el content; Edit: el fichero con el reemplazo aplicado) antes de escribir.</span>
+<span class="tk-c">//   v1.0.0 (Ovillo, FB-007): un hook dejo _hilo/ESTADO_PROYECTO.json a 0 bytes Y se committeo -&gt;</span>
+<span class="tk-c">//     rompio el @import del CLAUDE.md y /mcp-sync. Intercepta 'git commit' y rechaza si algun</span>
+<span class="tk-c">//     _hilo/*.json STAGED esta vacio o no parsea. Complementa writeHiloJson (defensa en profundidad).</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Politica: BLOCK INTRINSECO — data-loss del state file, dano concreto e inmediato;</span>
+<span class="tk-c">// resolvePolicy con intrinsicBlock:true devuelve 'block' incondicionalmente.</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> fs = <span class="tk-k">require</span>(<span class="tk-s">'fs'</span>);
+<span class="tk-k">const</span> path = <span class="tk-k">require</span>(<span class="tk-s">'path'</span>);
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(<span class="tk-s">'./lib/helpers'</span>);
+<span class="tk-k">const</span> config = <span class="tk-k">require</span>(<span class="tk-s">'./lib/config'</span>);
+
+<span class="tk-k">const</span> ES_HILO_JSON = /(^|[\\/])_hilo[\\/][^\\/]+\.json$/i;
+
+<span class="tk-k">function</span> bloquear(mode, bad, verbo) {
+  console.error(<span class="tk-s">''</span>);
+  console.error(<span class="tk-s">'BLOQUEADO hilo-json-guard: vas a '</span> + verbo + <span class="tk-s">' un _hilo/*.json vacio o invalido (data loss).'</span>);
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> b <span class="tk-k">of</span> bad) console.error(<span class="tk-s">`  - ${b}`</span>);
+  console.error(<span class="tk-s">''</span>);
+  console.error(<span class="tk-s">'Un _hilo/*.json vacio o invalido rompe el @import del CLAUDE.md y /mcp-sync.'</span>);
+  console.error(verbo === <span class="tk-s">'commitear'</span>
+    ? <span class="tk-s">'Fix: restaura el contenido (git checkout HEAD -- &lt;archivo&gt; o regeneralo) y re-stagea antes de commitear.'</span>
+    : <span class="tk-s">'Fix: escribe el JSON completo y valido (los hooks usan writeHiloJson de .claude/hooks/lib/helpers.js).'</span>);
+  process.exit(mode === <span class="tk-s">'block'</span> ? <span class="tk-n">2</span> : <span class="tk-n">1</span>); <span class="tk-c">// intrinseco: siempre 2</span>
+}
+
+<span class="tk-k">function</span> validarTexto(raw) {
+  <span class="tk-k">const</span> s = String(raw == <span class="tk-k">null</span> ? <span class="tk-s">''</span> : raw).replace(/^﻿/, <span class="tk-s">''</span>);
+  <span class="tk-k">if</span> (!s.trim()) <span class="tk-k">return</span> <span class="tk-s">'vacio / 0 bytes'</span>;
+  <span class="tk-k">try</span> { JSON.parse(s); <span class="tk-k">return</span> <span class="tk-k">null</span>; } <span class="tk-k">catch</span> (e) { <span class="tk-k">return</span> <span class="tk-s">'JSON invalido: '</span> + (e &amp;&amp; e.message ? e.message : e); }
+}
+
+<span class="tk-k">try</span> {
+  <span class="tk-k">const</span> hookData = h.readHookInput();
+  <span class="tk-k">if</span> (!hookData) process.exit(<span class="tk-n">0</span>);
+  <span class="tk-k">const</span> toolInput = h.getToolInput(hookData);
+  <span class="tk-k">if</span> (!toolInput) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-k">const</span> mode = config.resolvePolicy(config.load(), <span class="tk-s">'hilo-json-guard'</span>, { intrinsicBlock: <span class="tk-k">true</span> }); <span class="tk-c">// siempre 'block'</span>
+  <span class="tk-k">const</span> repoRoot = process.env.CLAUDE_PROJECT_DIR || process.cwd();
+  <span class="tk-k">const</span> tool = String(hookData.tool_name || <span class="tk-s">''</span>);
+  <span class="tk-k">const</span> ti = hookData.tool_input &amp;&amp; <span class="tk-k">typeof</span> hookData.tool_input === <span class="tk-s">'object'</span> ? hookData.tool_input : <span class="tk-k">null</span>;
+
+  <span class="tk-c">// ---- Write | Edit: el contenido que quedaria en disco ----------------------------------------------------------</span>
+  <span class="tk-k">if</span> (tool === <span class="tk-s">'Write'</span> || tool === <span class="tk-s">'Edit'</span> || tool === <span class="tk-s">'MultiEdit'</span>) {
+    <span class="tk-k">const</span> filePath = h.getFilePath(hookData);
+    <span class="tk-k">if</span> (!filePath || !ES_HILO_JSON.test(filePath)) process.exit(<span class="tk-n">0</span>);
+    <span class="tk-k">let</span> contenido = <span class="tk-k">null</span>;
+    <span class="tk-k">if</span> (tool === <span class="tk-s">'Write'</span>) {
+      contenido = ti &amp;&amp; <span class="tk-k">typeof</span> ti.content === <span class="tk-s">'string'</span> ? ti.content : (h.getNewContent(hookData) || <span class="tk-s">''</span>);
+    } <span class="tk-k">else</span> {
+      <span class="tk-c">// Edit: aplicar el reemplazo sobre el fichero actual. Si el old_string no casa, Claude Code rechazara el</span>
+      <span class="tk-c">// Edit por su cuenta; si el fichero no existe, no hay nada que proteger.</span>
+      <span class="tk-k">const</span> abs = path.isAbsolute(filePath) ? filePath : path.join(repoRoot, filePath);
+      <span class="tk-k">if</span> (!fs.existsSync(abs) || !ti || <span class="tk-k">typeof</span> ti.old_string !== <span class="tk-s">'string'</span> || <span class="tk-k">typeof</span> ti.new_string !== <span class="tk-s">'string'</span>) process.exit(<span class="tk-n">0</span>);
+      <span class="tk-k">const</span> actual = fs.readFileSync(abs, <span class="tk-s">'utf8'</span>);
+      <span class="tk-k">if</span> (!actual.includes(ti.old_string)) process.exit(<span class="tk-n">0</span>);
+      contenido = ti.replace_all ? actual.split(ti.old_string).join(ti.new_string) : actual.replace(ti.old_string, () =&gt; ti.new_string);
+    }
+    <span class="tk-k">const</span> problema = validarTexto(contenido);
+    <span class="tk-k">if</span> (problema) bloquear(mode, [<span class="tk-s">`${filePath} (${problema})`</span>], <span class="tk-s">'escribir'</span>);
+    process.exit(<span class="tk-n">0</span>);
+  }
+
+  <span class="tk-c">// ---- Bash: solo 'git commit' -----------------------------------------------------------------------------------</span>
+  <span class="tk-k">let</span> command = <span class="tk-k">null</span>;
+  <span class="tk-k">if</span> (ti &amp;&amp; ti.command) {
+    command = ti.command;
+  } <span class="tk-k">else</span> {
+    <span class="tk-k">const</span> m = toolInput.match(/<span class="tk-s">&quot;command&quot;</span>\s*:\s*<span class="tk-s">&quot;((?:[^&quot;</span>\\]|\\.)*)&quot;/);
+    <span class="tk-k">if</span> (m) command = m[<span class="tk-n">1</span>];
+  }
+  <span class="tk-k">if</span> (!command) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-c">// Solo activa en 'git commit' (no diff, log, etc.)</span>
+  <span class="tk-k">if</span> (!/\bgit\s+commit\b/i.test(command)) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-c">// Leer staged files (added/modified). Sin lock (GIT_OPTIONAL_LOCKS=0 via gitReadOnly)</span>
+  <span class="tk-c">// para no colisionar con VS/GitLens.</span>
+  <span class="tk-k">const</span> diff = h.gitReadOnly([<span class="tk-s">'-c'</span>, <span class="tk-s">'core.quotepath=off'</span>, <span class="tk-s">'diff'</span>, <span class="tk-s">'--cached'</span>, <span class="tk-s">'--name-only'</span>, <span class="tk-s">'--diff-filter=AM'</span>], repoRoot);
+  <span class="tk-k">if</span> (diff.exitCode !== <span class="tk-n">0</span>) process.exit(<span class="tk-n">0</span>); <span class="tk-c">// si git falla (repo nuevo, primer commit), no bloquear</span>
+  <span class="tk-k">const</span> staged = diff.stdOut.split(/\r?\n/).filter(Boolean);
+  <span class="tk-k">if</span> (staged.length === <span class="tk-n">0</span>) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-k">const</span> duranJsons = staged.filter((f) =&gt; /(^|\/)_hilo\/.*\.json$/i.test(f));
+  <span class="tk-k">if</span> (duranJsons.length === <span class="tk-n">0</span>) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-k">const</span> bad = [];
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> f <span class="tk-k">of</span> duranJsons) {
+    <span class="tk-k">const</span> show = h.gitReadOnly([<span class="tk-s">'show'</span>, <span class="tk-s">`:${f}`</span>], repoRoot); <span class="tk-c">// contenido STAGED (indice), no el working tree</span>
+    <span class="tk-k">if</span> (show.exitCode !== <span class="tk-n">0</span>) <span class="tk-k">continue</span>; <span class="tk-c">// no se pudo leer el staged: no bloquear por esto</span>
+    <span class="tk-k">const</span> problema = validarTexto(show.stdOut);
+    <span class="tk-k">if</span> (problema) bad.push(<span class="tk-s">`${f} (${problema})`</span>);
+  }
+
+  <span class="tk-c">// Coherencia de la configuracion (ADR-023): solo si ESTADO_PROYECTO.json esta staged. WARN-first, elevable con</span>
+  <span class="tk-c">// hooks.blockList: ['config-guard']. NUNCA intrinseco: una divergencia no es data-loss.</span>
+  <span class="tk-k">if</span> (bad.length === <span class="tk-n">0</span> &amp;&amp; duranJsons.some((f) =&gt; /ESTADO_PROYECTO\.json$/i.test(f))) {
+    <span class="tk-k">const</span> divergent = config.validate(repoRoot).filter((f) =&gt; f.code === <span class="tk-s">'DUP_DIVERGENTE'</span>);
+    <span class="tk-k">if</span> (divergent.length) {
+      <span class="tk-k">const</span> cfgMode = config.resolvePolicy(config.load(), <span class="tk-s">'config-guard'</span>);
+      console.error(<span class="tk-s">''</span>);
+      console.error((cfgMode === <span class="tk-s">'block'</span> ? <span class="tk-s">'BLOQUEADO'</span> : <span class="tk-s">'AVISO'</span>) + <span class="tk-s">' config-guard: _hilo/ESTADO_PROYECTO.json tiene claves de configuracion duplicadas con valores distintos:'</span>);
+      <span class="tk-k">for</span> (<span class="tk-k">const</span> f <span class="tk-k">of</span> divergent) console.error(<span class="tk-s">`  - ${f.path} = ${JSON.stringify(f.valores.plana)} frente a configuracion.branching = ${JSON.stringify(f.valores.branching)}`</span>);
+      console.error(<span class="tk-s">'Gana configuracion.branching.* (ADR-023). Fix: '</span> + h.cmdEcosistema(<span class="tk-s">'hooks/config-check.js'</span>, <span class="tk-s">'--migrate'</span>));
+      process.exit(cfgMode === <span class="tk-s">'block'</span> ? <span class="tk-n">2</span> : <span class="tk-n">1</span>);
+    }
+  }
+
+  <span class="tk-k">if</span> (bad.length &gt; <span class="tk-n">0</span>) bloquear(mode, bad, <span class="tk-s">'commitear'</span>);
+
+  process.exit(<span class="tk-n">0</span>);
+} <span class="tk-k">catch</span> (e) {
+  <span class="tk-c">// Error inesperado: permitir operacion en lugar de romper el flujo.</span>
+  console.error(<span class="tk-s">`hilo-json-guard.js: error inesperado, permitiendo operacion. Detalle: ${e &amp;&amp; e.message ? e.message : e}`</span>);
+  process.exit(<span class="tk-n">0</span>);
+}
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>6 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>fix(init,hooks): el .gitignore del proyecto, las rutas segun el modo de distribucion y la deteccion de complementos (ADR-035)</em>.</p><h3>Notas de versiones anteriores</h3><ul><li>v1.1.0 (ADR-032, H-03): tambien en Write|Edit. La promesa &quot;JSON del Hilo invalido bloquea siempre&quot; solo se</li><li>cumplia al commitear: un Write de &quot;{bad&quot; a _hilo/ESTADO_PROYECTO.json pasaba con exit 0. Ahora se valida el</li><li>contenido que quedaria en disco (Write: el content; Edit: el fichero con el reemplazo aplicado) antes de escribir.</li><li>v1.0.0 (Ovillo, FB-007): un hook dejo _hilo/ESTADO_PROYECTO.json a 0 bytes Y se committeo -&gt;</li><li>rompio el @import del CLAUDE.md y /mcp-sync. Intercepta 'git commit' y rechaza si algun</li><li>_hilo/*.json STAGED esta vacio o no parsea. Complementa writeHiloJson (defensa en profundidad).</li><li>Politica: BLOCK INTRINSECO — data-loss del state file, dano concreto e inmediato;</li><li>resolvePolicy con intrinsicBlock:true devuelve 'block' incondicionalmente.</li></ul></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/console.html">console</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/hilo-json-guard.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

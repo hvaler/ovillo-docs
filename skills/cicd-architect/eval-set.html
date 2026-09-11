@@ -1,0 +1,212 @@
+<!doctype html><html lang="es" data-rel="../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · eval-set.json · Ovillo</title><meta name="description" content="Fichero eval-set.json de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · eval-set.json · Ovillo"><meta property="og:description" content="Fichero eval-set.json de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/eval-set.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/eval-set.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../recursos/portal.css"></head><body data-page="skills/cicd-architect/eval-set.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../index.html">Inicio</a></li><li><a href="../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../curso/index.html">Curso</a></li><li><a href="../../chuletas/index.html">Chuletas</a></li><li><a href="../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../patron.html">Patrón</a></li><li><a href="../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../referencia-config.html">Configuración</a></li><li><a href="../../referencia-hilo.html">Hilo</a></li><li><a href="../../changelog.html">Versiones</a></li><li><a href="../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../buscar.html">Buscar</a></li><li><a href="../../privacidad.html">Datos y privacidad</a></li><li><a href="../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../skills/cicd-architect/eval-set.html" class="cur">eval-set.json</a></li><li><a href="../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../index.html">Inicio</a></span><span><a href="../../skills/index.html">Skills</a></span><span><a href="../../skills/cicd-architect.html">cicd-architect</a></span><span>eval-set.json</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>8290 B</span></div><h1>eval-set.json</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>8290 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="json"><code>{
+ <span class="tk-s">&quot;skill&quot;</span>: <span class="tk-s">&quot;cicd-architect&quot;</span>,
+ <span class="tk-s">&quot;version&quot;</span>: <span class="tk-s">&quot;1.0.0&quot;</span>,
+ <span class="tk-s">&quot;queries&quot;</span>: [
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Necesito un step de smoke test para mi API .NET en azure-pipelines.yml&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Trigger directo — smoke test estricto .NET, R11&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Como configuro pool configurado (`cicd.buildPool`) con capability DeployTarget en mi pipeline&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R1 capability pattern&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Mi step PowerShell falla con 'The underlying connection was closed'&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R2 TLS 1.2+ — sintoma claro de regla violada&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Como descargo el artefacto drop sin usar DownloadBuildArtifacts@0&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R3 REST API&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Cache@2 me da error en mi Azure DevOps Server on-premise, que hago&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R5 servicio no existe TFS 2020&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Configure triple rollback for production deploy in my Azure pipeline&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R15 triple rollback PROD&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;What should TakeAppOfflineFlag be for my Vue SPA&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R10 — debe ser false para SPA&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Mi smoke test post-deploy al servidor de demo da timeout, hairpin NAT?&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R9/R11 hairpin NAT diagnostico&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;How do I add a Variable Group with fail-fast pre-build check&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R16 Variable Group + fail-fast&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;El trigger no dispara tras push a master, paths estan bien&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R7 workaround doble patron&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Quiero que el pipeline tenga retention rules diferenciadas master vs otras&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R17 retention rules&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Como configuro el coverage gate del pipeline con umbrales line/branch (G7)&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Trigger: gate de cobertura del template (G7/R18, coverage-gate.ps1)&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Como genero GitHub Actions workflow para mi proyecto&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;GitHub Actions: cicd-architect genera desde templates/github/ y aplica G1-G19&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Genera el workflow de CD de GitHub Actions con environments dev, pre y pro y despliegue on-demand por workflow_dispatch&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;GitHub Actions Fase 2: cd.fase2.dotnet.yml.template, environments, on-demand (G1)&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Add a composite action for the security verdict gate to my GitHub Actions deploy job&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;GitHub Actions: templates/github/actions/security-gate (G8)&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Necesito un .gitlab-ci.yml para mi pipeline&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Adversarial — GitLab CI ortogonal&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Como migro mi pipeline TFS Classic .xaml a YAML&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;cicd-architect absorbe la migracion Classic (manual guiada, references/classic-migration.md) tras retirar cicd-classic-migrator&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Como ejecuto el wizard /cicd-init paso a paso&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Adversarial — el wizard es el comando, no la skill&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Quiero ver el estado de los ultimos 10 builds de mi pipeline&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Adversarial — eso es /cicd-status, no esta skill&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Audita mi azure-pipelines.yml y dame reporte con severidad&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Adversarial — eso es el agent cicd-pipeline-reviewer, no esta skill (la skill sugiere fix interactivo, el agent produce reporte batch)&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Como hago que el pipeline NO despliegue en cada push, solo bajo demanda&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R20 modelo deploy on-demand — variable DeployEnv + condition por stage&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Set up the pipeline so deploy only runs on-demand, not on every push&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R20 on-demand deploy model (DeployEnv)&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Lanza el deploy a dev ahora mismo&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Adversarial — disparar el deploy es /cicd-deploy (comando), no esta skill (la skill disena el YAML)&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Configura el trigger.branches del azure-pipelines.yml segun mi estrategia de branching&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R21 — trigger CI alineado con branching.estrategia (ramas + branch policy segun estrategia)&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Cambia la estrategia de branching del proyecto a gitflow&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Adversarial — cambiar la estrategia de branching es config del proyecto (/onboarding), no diseno de pipeline&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Anade un gate de seguridad al pipeline que bloquee el deploy a PROD si hay CVEs High o secretos hardcodeados&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R22 — gate de ciberseguridad verdict-file (security-scan.ps1, deploys leen el verdict)&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Como configuro security-scan.ps1 con el patron verdict-file para que el Build no se caiga pero DeployDemo bloquee&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R22 — verdict-file, continueOnError en Build + throw en deploy por severidad&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;My project is a dotnet tool library that publishes a nupkg, not a web app; I need the azure-pipelines.yml&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Stack .NET-tool (Variante C) — template nettool, un solo stage, push al feed con tag v*&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Necesito el pipeline para mi libreria NuGet que hace dotnet pack y publica al feed interno con un tag v*&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Stack .NET-tool (Variante C) — azure-pipelines.nettool.yml.template&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Audita la seguridad de mi codigo C# y dame las vulnerabilidades OWASP del proyecto&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Adversarial — auditar la seguridad del codigo es security-auditor / skill security-audit, no el diseno del gate en el YAML&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Quiero que dev y demo se desplieguen solo desde develop y produccion solo desde main&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R24 branch-gated — ramas por entorno (gitlab-flow)&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Configura el pipeline branch-gated con DeployEnv y Build.SourceBranch&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R24 branch-gated explicito&quot;</span>
+  },
+  {
+   <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;How do I gate each deploy stage by source branch in my azure pipeline&quot;</span>,
+   <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+   <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en&quot;</span>,
+   <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;R24 branch-gated EN&quot;</span>
+  }
+ ],
+ <span class="tk-s">&quot;overlap_notes&quot;</span>: {
+  <span class="tk-s">&quot;cicd-classic-migrator&quot;</span>: <span class="tk-s">&quot;La migracion .xaml/.xoml a YAML la cubre AHORA cicd-architect como guia manual (references/classic-migration.md + side-by-side). La skill separada se retiro tras 6 versiones de placeholder sin piloto.&quot;</span>,
+  <span class="tk-s">&quot;cicd-pipeline-reviewer (agent)&quot;</span>: <span class="tk-s">&quot;skill = asistencia interactiva inline. agent = audit batch con reporte estructurado severidad.&quot;</span>,
+  <span class="tk-s">&quot;hub-client&quot;</span>: <span class="tk-s">&quot;hub-client = catalogo MCP del Hub (tools/resources/prompts). cicd-architect = arquitectura de pipelines TFS. Si /cicd-init invoca register_pipeline tool, ambas se complementan.&quot;</span>,
+  <span class="tk-s">&quot;issue-tracker-sync&quot;</span>: <span class="tk-s">&quot;issue-tracker-sync = Boards/Wiki/work items. cicd-architect = runtime pipelines YAML. Ortogonales.&quot;</span>,
+  <span class="tk-s">&quot;security-auditor&quot;</span>: <span class="tk-s">&quot;security-auditor (agent) / security-audit (skill) = auditar la seguridad del codigo C# (OWASP/CWE). cicd-architect = disenar el GATE de seguridad en el YAML (R22, security-scan.ps1 verdict-file). El gate del pipeline orquesta el scan; la auditoria del codigo es otro componente.&quot;</span>
+ }
+}
+</code></pre><p style="margin-top:32px"><a href="../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../skills/cicd-architect.html"><small>Anterior</small>Ficha de cicd-architect</a><a class="next" href="../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html"><small>Siguiente</small>references/azure-devops-server-2020-quick-ref.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/eval-set.json</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../recursos/search-index.js" defer></script><script src="../../recursos/portal.js" defer></script></body></html>

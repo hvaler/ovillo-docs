@@ -1,0 +1,203 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>clean · Ovillo</title><meta name="description" content="Pipeline de limpieza sistematica de 7 pasos para codigo .NET con deteccion de slop IA"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="clean · Ovillo"><meta property="og:description" content="Pipeline de limpieza sistematica de 7 pasos para codigo .NET con deteccion de slop IA"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/clean.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/clean.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/clean.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html" class="cur">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>clean</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:clean</span><span>solo usuario</span></div><h1>clean</h1><p class="lede">Pipeline de limpieza sistematica de 7 pasos para codigo .NET con deteccion de slop IA</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:clean</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>972</b><span>palabras</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:clean</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:clean</code>.</p></blockquote>
+<hr>
+<blockquote><p>Inspirado en <strong>de-sloppify</strong> (dotnet-claude-kit) y <strong>slopwatch</strong> (Aaronontheweb). Ejecuta 7 pasos en orden (formato primero, codigo muerto ultimo) + escaneo slop IA.</p></blockquote>
+<hr>
+<section class="sec" id="sec-reglas-criticas">
+<h3 id="reglas-criticas">REGLAS CRITICAS</h3>
+<blockquote><p><strong>REGLA 1</strong>: Verificar build+test entre los pasos 3, 4, 6 y 7. Si algo se rompe, revertir el paso. <strong>REGLA 2</strong>: Cada paso que modifique archivos sugiere un commit separado (el usuario decide). <strong>REGLA 3</strong>: Paso 4 (dead code) SIEMPRE pregunta antes de eliminar. NUNCA borrar automaticamente. <strong>REGLA 4</strong>: Paso 5 (TODOs) es solo reporte. No eliminar ni modificar comentarios. <strong>REGLA 5</strong>: Usar MCP Roslyn cuando este disponible; fallback a CLI/grep si no.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-paso-0-preparacion">
+<h3 id="paso-0-preparacion">PASO 0: Preparacion</h3>
+<ol>
+<li>Resolver el <strong>objetivo de compilacion</strong> con la funcion unica del ecosistema (ADR-037), sin buscar <code>.sln</code> a mano:</li>
+</ol>
+<pre data-lang="bash"><code>   <span class="tk-k">node</span> <span class="tk-s">&quot;${CLAUDE_PLUGIN_ROOT}/hooks/build-target.js&quot;</span> --json</code></pre>
+<blockquote><p>En instalacion por zip, <code>node .claude/hooks/build-target.js --json</code>.</p></blockquote>
+<p>   Exit 0: usar <code>objetivo</code> como <code>&lt;objetivo&gt;</code> en los comandos de abajo (puede ser una solucion <strong>o un <code>.csproj</code></strong>;    el SDK acepta los dos). Exit 3: mostrar <code>candidatos</code> y preguntar cual usar. Exit 4: informar y detenerse.</p>
+<ol>
+<li>Ejecutar <code>dotnet build &lt;objetivo&gt;</code> para verificar que el proyecto compila antes de empezar.</li>
+<li>Si <code>build-target.js --tests</code> devuelve al menos un proyecto, ejecutar <code>dotnet test &lt;objetivo&gt;</code> para capturar el baseline. Si no devuelve ninguno, anotarlo y seguir: sin tests no hay baseline que comparar.</li>
+<li>Si build o tests fallan, DETENERSE e informar al usuario.</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-paso-1-format-dotnet-format">
+<h3 id="paso-1-format-dotnet-format">PASO 1: Format (dotnet format)</h3>
+<p>Ejecutar formateo automatico del codigo C#:</p>
+<pre data-lang="bash"><code><span class="tk-k">dotnet</span> format &lt;objetivo&gt; --verbosity diagnostic</code></pre>
+<p>Registrar cuantos archivos se modificaron. Si hay cambios, sugerir commit:</p>
+<pre><code>style: auto-format C# files</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-2-usings-ide0005">
+<h3 id="paso-2-usings-ide0005">PASO 2: Usings (IDE0005)</h3>
+<p>Eliminar directivas <code>using</code> no utilizadas:</p>
+<pre data-lang="bash"><code><span class="tk-k">dotnet</span> format &lt;objetivo&gt; --diagnostics IDE0005 --severity info</code></pre>
+<p>Registrar cuantos usings se eliminaron. Si hay cambios, sugerir commit:</p>
+<pre><code>refactor: remove unused usings</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-3-analyzers-warnings-como-errores">
+<h3 id="paso-3-analyzers-warnings-como-errores">PASO 3: Analyzers (warnings como errores)</h3>
+<p>Compilar tratando warnings como errores para detectar problemas de analizadores:</p>
+<pre data-lang="bash"><code><span class="tk-k">dotnet</span> build &lt;objetivo&gt; -warnaserror</code></pre>
+<p>Si el MCP Roslyn esta disponible, usar <code>get_diagnostics</code> para obtener la lista completa.</p>
+<p>Para cada warning:</p>
+<ol>
+<li>Evaluar si es un falso positivo o un problema real.</li>
+<li>Corregir los problemas reales (nullable, async sin await, variables sin usar, etc.).</li>
+<li>Para warnings que no se pueden corregir, documentar la justificacion.</li>
+</ol>
+<p>Tras las correcciones, verificar: <code>dotnet build</code> + <code>dotnet test</code>.</p>
+<p>Si hay cambios, sugerir commit:</p>
+<pre><code>fix: resolve analyzer warnings</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-4-dead-code-codigo-muerto">
+<h3 id="paso-4-dead-code-codigo-muerto">PASO 4: Dead Code (codigo muerto)</h3>
+<p>Buscar codigo que no se usa en ninguna parte del proyecto.</p>
+<p><strong>Con MCP Roslyn</strong> (preferido):</p>
+<ul>
+<li>Usar <code>find_dead_code</code> para detectar clases, metodos y propiedades sin referencias.</li>
+</ul>
+<p><strong>Sin MCP</strong> (fallback manual):</p>
+<ul>
+<li>Buscar clases <code>internal</code>/<code>private</code> sin referencias.</li>
+<li>Buscar metodos privados no invocados.</li>
+<li>Buscar variables asignadas pero nunca leidas.</li>
+</ul>
+<p><strong>Comprobaciones de seguridad</strong> — NO marcar como dead code si:</p>
+<ul>
+<li>Es <code>public</code> en un proyecto de libreria (API publica).</li>
+<li>Tiene atributos de reflexion (<code>[JsonProperty]</code>, <code>[Column]</code>, <code>[Bind]</code>, etc.).</li>
+<li>Esta registrado en DI (<code>services.AddScoped&lt;T&gt;</code>, <code>services.AddTransient&lt;T&gt;</code>, etc.).</li>
+<li>Tiene <code>[Obsolete]</code> con fecha futura o plan de migracion documentado.</li>
+<li>Es un handler de eventos, middleware, o filtro registrado por convencion.</li>
+<li>Es usado via reflexion (<code>typeof(T)</code>, <code>nameof(T)</code>, <code>Activator.CreateInstance</code>).</li>
+</ul>
+<p><strong>IMPORTANTE</strong>: Presentar la lista al usuario y PREGUNTAR que eliminar. No borrar nada automaticamente.</p>
+<p>Tras las eliminaciones aprobadas, verificar: <code>dotnet build</code> + <code>dotnet test</code>.</p>
+<p>Si hay cambios, sugerir commit:</p>
+<pre><code>refactor: remove dead code</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-5-todos-y-deuda-tecnica-solo-reporte">
+<h3 id="paso-5-todos-y-deuda-tecnica-solo-reporte">PASO 5: TODOs y Deuda Tecnica (solo reporte)</h3>
+<p>Buscar todos los comentarios de deuda tecnica en el codigo:</p>
+<pre><code>// TODO:
+// HACK:
+// FIXME:
+// BUG:
+// UNDONE:
+// XXX:</code></pre>
+<p>Para cada hallazgo, registrar: archivo, linea, texto del comentario.</p>
+<p><strong>NO modificar ni eliminar nada.</strong> Solo reportar para decision del usuario.</p>
+<hr>
+</section>
+<section class="sec" id="sec-paso-6-sealed-classes-optimizacion-jit">
+<h3 id="paso-6-sealed-classes-optimizacion-jit">PASO 6: Sealed Classes (optimizacion JIT)</h3>
+<p>Buscar clases que deberian ser <code>sealed</code> para optimizacion del JIT:</p>
+<ul>
+<li>Clase no es <code>abstract</code>.</li>
+<li>Clase no es <code>static</code>.</li>
+<li>Clase no es ya <code>sealed</code>.</li>
+<li>Clase no tiene clases derivadas en la solucion.</li>
+</ul>
+<p><strong>Con MCP Roslyn</strong> (preferido):</p>
+<ul>
+<li>Usar <code>find_implementations</code> para verificar que no hay clases derivadas.</li>
+</ul>
+<p><strong>Sin MCP</strong> (fallback):</p>
+<ul>
+<li>Buscar patrones <code>: NombreClase</code> en toda la solucion.</li>
+</ul>
+<p>Excluir de sellado:</p>
+<ul>
+<li>Clases base de dominio (Entity, ValueObject, AuditableEntity).</li>
+<li>Clases que implementan patrones de herencia por diseno (Template Method, etc.).</li>
+<li>Clases con <code>virtual</code> members que sugieren intencion de herencia.</li>
+</ul>
+<p>Aplicar <code>sealed</code> a las clases candidatas.</p>
+<p>Tras los cambios, verificar: <code>dotnet build</code> + <code>dotnet test</code>.</p>
+<p>Si hay cambios, sugerir commit:</p>
+<pre><code>perf: seal non-inherited classes</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-7-cancellationtoken-en-metodos-async">
+<h3 id="paso-7-cancellationtoken-en-metodos-async">PASO 7: CancellationToken en metodos async</h3>
+<p>Buscar metodos <code>public async</code> que NO reciben <code>CancellationToken</code> como parametro.</p>
+<p><strong>Con MCP Roslyn</strong> (preferido):</p>
+<ul>
+<li>Usar <code>detect_antipatterns</code> con patron AP009 si esta disponible.</li>
+</ul>
+<p><strong>Sin MCP</strong> (fallback):</p>
+<ul>
+<li>Buscar <code>public async Task</code> y <code>public async Task&lt;</code> sin <code>CancellationToken</code> en la firma.</li>
+</ul>
+<p>Excluir:</p>
+<ul>
+<li>Metodos de test (<code>[Fact]</code>, <code>[Theory]</code>, <code>[Test]</code>).</li>
+<li>Event handlers (<code>async void</code> — reportar como warning separado).</li>
+<li>Metodos <code>Main</code> o <code>Program</code>.</li>
+<li>Overrides de framework donde la firma es fija.</li>
+</ul>
+<p>Anadir <code>CancellationToken ct = default</code> como ultimo parametro y propagarlo a las llamadas internas.</p>
+<p>Tras los cambios, verificar: <code>dotnet build</code> + <code>dotnet test</code>.</p>
+<p>Si hay cambios, sugerir commit:</p>
+<pre><code>refactor: add CancellationToken to async methods</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-deteccion-slop-slopwatch">
+<h3 id="deteccion-slop-slopwatch">DETECCION SLOP (slopwatch)</h3>
+<p>Tras completar los 7 pasos, ejecutar un escaneo de patrones tipicos de codigo generado por IA:</p>
+<div class="tbl"><table><thead><tr><th>Regla</th><th>Patron</th><th>Busqueda</th></tr></thead><tbody><tr><td><strong>SW001</strong></td><td>Tests deshabilitados</td><td><code>[Fact(Skip=</code> , <code>[Theory(Skip=</code> , <code>[Ignore]</code> , <code>[Ignore(</code></td></tr><tr><td><strong>SW002</strong></td><td>Warnings suprimidos</td><td><code>#pragma warning disable</code> sin <code>#pragma warning restore</code> en el mismo archivo</td></tr><tr><td><strong>SW003</strong></td><td>Catch vacios</td><td><code>catch {</code> o <code>catch (</code> seguido de bloque vacio <code>{ }</code> sin logging</td></tr><tr><td><strong>SW004</strong></td><td>Sleep/Delay arbitrarios</td><td><code>Thread.Sleep(</code> o <code>Task.Delay(</code> en codigo que NO es de test</td></tr><tr><td><strong>SW005</strong></td><td>Bypass CPM</td><td><code>&lt;PackageReference</code> con atributo <code>Version=</code> cuando existe <code>Directory.Packages.props</code> en la solucion</td></tr></tbody></table></div>
+<p>Para cada regla, reportar: archivo, linea, contexto.</p>
+<hr>
+</section>
+<section class="sec" id="sec-formato-de-salida">
+<h3 id="formato-de-salida">FORMATO DE SALIDA</h3>
+<p>Al finalizar, presentar el resumen completo:</p>
+<pre data-lang="markdown"><code>## Resultado Limpieza
+
+| Paso | Accion | Resultado |
+|------|--------|-----------|
+| 1. Format | dotnet format | X archivos formateados |
+| 2. Usings | IDE0005 | X usings eliminados |
+| 3. Analyzers | -warnaserror | X warnings corregidos |
+| 4. Dead code | Analisis referencias | X elementos eliminados (con aprobacion) |
+| 5. TODOs | Reporte | X comentarios encontrados |
+| 6. Sealed | Clases selladas | X clases selladas |
+| 7. CancellationToken | Async methods | X metodos actualizados |
+
+### Deteccion Slop (slopwatch)
+
+| Regla | Description | Resultado |
+|-------|-------------|-----------|
+| SW001 | Tests deshabilitados | X encontrados |
+| SW002 | Warnings suprimidos sin restore | X encontrados |
+| SW003 | Catch vacios | X encontrados |
+| SW004 | Sleep/Delay en produccion | X encontrados |
+| SW005 | Bypass CPM (Version= con D.P.props) | X encontrados |
+
+### Commits sugeridos
+- [ ] `style: auto-format C# files`
+- [ ] `refactor: remove unused usings`
+- [ ] `fix: resolve analyzer warnings`
+- [ ] `refactor: remove dead code`
+- [ ] `perf: seal non-inherited classes`
+- [ ] `refactor: add CancellationToken to async methods`</code></pre>
+<p>Si algun paso no produjo cambios, indicar &quot;Sin cambios&quot; en la columna Resultado. Si algun paso se salto por error, indicar &quot;Saltado: [razon]&quot;.</p>
+<hr>
+<p><em>Skill clean · kind: workflow</em></p>
+</section>
+<section class="sec" id="sec-delegacion-en-agents">
+<h3 id="delegacion-en-agents">DELEGACION EN AGENTS</h3>
+<p>Estos agents trabajan en su propio contexto: devuelven un resumen y no gastan el de la sesion (ADR-028). Se invocan con la herramienta Task.</p>
+<h4 id="refactor-cleaner"><code>refactor-cleaner</code></h4>
+<p>Cuando la limpieza va mas alla de los siete pasos y hace falta un barrido sistematico:</p>
+<pre><code>Task tool con:
+  subagent_type: refactor-cleaner
+  prompt: &quot;Limpieza sistematica de {path}: codigo muerto, clases sealed, formateo, analyzers y descuidos
+              (catch vacios, tests deshabilitados, warnings suprimidos, Thread.Sleep arbitrarios).&quot;</code></pre>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>85</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 972 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>6 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>feat: el objetivo de compilacion lo resuelve una sola funcion (ADR-037)</em> (<code>f30140e</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/clean/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#reglas-criticas">REGLAS CRITICAS</a></li><li class="l3"><a href="#paso-0-preparacion">PASO 0: Preparacion</a></li><li class="l3"><a href="#paso-1-format-dotnet-format">PASO 1: Format (dotnet format)</a></li><li class="l3"><a href="#paso-2-usings-ide0005">PASO 2: Usings (IDE0005)</a></li><li class="l3"><a href="#paso-3-analyzers-warnings-como-errores">PASO 3: Analyzers (warnings como errores)</a></li><li class="l3"><a href="#paso-4-dead-code-codigo-muerto">PASO 4: Dead Code (codigo muerto)</a></li><li class="l3"><a href="#paso-5-todos-y-deuda-tecnica-solo-reporte">PASO 5: TODOs y Deuda Tecnica (solo reporte)</a></li><li class="l3"><a href="#paso-6-sealed-classes-optimizacion-jit">PASO 6: Sealed Classes (optimizacion JIT)</a></li><li class="l3"><a href="#paso-7-cancellationtoken-en-metodos-async">PASO 7: CancellationToken en metodos async</a></li><li class="l3"><a href="#deteccion-slop-slopwatch">DETECCION SLOP (slopwatch)</a></li><li class="l3"><a href="#formato-de-salida">FORMATO DE SALIDA</a></li><li class="l3"><a href="#delegacion-en-agents">DELEGACION EN AGENTS</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

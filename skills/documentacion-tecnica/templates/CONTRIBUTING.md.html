@@ -1,0 +1,280 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>documentacion-tecnica · templates/CONTRIBUTING.md.template · Ovillo</title><meta name="description" content="Fichero templates/CONTRIBUTING.md.template de la skill documentacion-tecnica"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="documentacion-tecnica · templates/CONTRIBUTING.md.template · Ovillo"><meta property="og:description" content="Fichero templates/CONTRIBUTING.md.template de la skill documentacion-tecnica"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/documentacion-tecnica/templates/CONTRIBUTING.md.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/documentacion-tecnica/templates/CONTRIBUTING.md.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/documentacion-tecnica/templates/CONTRIBUTING.md.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de documentacion-tecnica (12)</h4><ul class="sibs"><li><a href="../../../skills/documentacion-tecnica/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/documentacion-tecnica/patterns/diagrams-mermaid.html">patterns/diagrams-mermaid.md</a></li><li><a href="../../../skills/documentacion-tecnica/patterns/documentation-standards.html">patterns/documentation-standards.md</a></li><li><a href="../../../skills/documentacion-tecnica/references/workflow-documentar.html">references/workflow-documentar.md</a></li><li><a href="../../../skills/documentacion-tecnica/templates/ADR.md.html">templates/ADR.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/API-REFERENCE.md.html">templates/API-REFERENCE.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/ARCHITECTURE.md.html">templates/ARCHITECTURE.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/CHANGELOG.md.html">templates/CHANGELOG.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/CONTRIBUTING.md.html" class="cur">templates/CONTRIBUTING.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/DEPLOYMENT.md.html">templates/DEPLOYMENT.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/SECURITY.md.html">templates/SECURITY.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/TROUBLESHOOTING.md.html">templates/TROUBLESHOOTING.md.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/documentacion-tecnica.html">documentacion-tecnica</a></span><span>templates</span><span>CONTRIBUTING.md.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>documentacion-tecnica</span><span>templates/</span><span>5799 B</span></div><h1>CONTRIBUTING.md.template</h1><p class="lede">Fichero que <code>/hv:documentacion-tecnica</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/documentacion-tecnica.html">documentacion-tecnica</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>5799 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code><span class="tk-c"># Guía de Contribución</span>
+
+&gt; Template para documentar cómo contribuir al proyecto
+&gt; Skill: documentacion-tecnica
+
+Gracias por tu interés en contribuir a **{{NombreProyecto}}**. Esta guía te ayudará
+a entender cómo puedes colaborar de manera efectiva.
+
+---
+
+<span class="tk-c">## Tabla de Contenidos</span>
+
+- [Código de Conducta](<span class="tk-c">#código-de-conducta)</span>
+- [Cómo Empezar](<span class="tk-c">#cómo-empezar)</span>
+- [Proceso de Desarrollo](<span class="tk-c">#proceso-de-desarrollo)</span>
+- [Estándares de Código](<span class="tk-c">#estándares-de-código)</span>
+- [Commits y Pull Requests](<span class="tk-c">#commits-y-pull-requests)</span>
+- [Testing](<span class="tk-c">#testing)</span>
+- [Documentación](<span class="tk-c">#documentación)</span>
+- [Contacto](<span class="tk-c">#contacto)</span>
+
+---
+
+<span class="tk-c">## Código de Conducta</span>
+
+Este proyecto sigue el código de conducta de la organización.
+Se espera que todos los contribuidores:
+
+- Sean respetuosos y profesionales
+- Acepten críticas constructivas
+- Se enfoquen en lo mejor para el proyecto
+- Muestren empatía hacia otros miembros del equipo
+
+---
+
+<span class="tk-c">## Cómo Empezar</span>
+
+<span class="tk-c">### Requisitos Previos</span>
+
+- .NET <span class="tk-n">10</span> SDK
+- SQL Server <span class="tk-n">2019</span>+ o Docker
+- Visual Studio <span class="tk-n">2022</span> / VS Code / Rider
+- Git
+
+<span class="tk-c">### Configuración del Entorno</span>
+
+<span class="tk-n">1</span>. **Clonar el repositorio**
+   ` ` `bash
+   git clone https://github.com/myorg/{{NombreProyecto}}.git
+   cd {{NombreProyecto}}
+   ` ` `
+
+<span class="tk-n">2</span>. **Restaurar dependencias**
+   ` ` `bash
+   dotnet restore
+   ` ` `
+
+<span class="tk-n">3</span>. **Configurar secretos locales**
+   ` ` `bash
+   dotnet user-secrets set <span class="tk-s">&quot;ConnectionStrings:DefaultConnection&quot;</span> <span class="tk-s">&quot;tu-connection-string&quot;</span>
+   ` ` `
+
+<span class="tk-n">4</span>. **Ejecutar migraciones**
+   ` ` `bash
+   dotnet ef database update --project src/Infrastructure
+   ` ` `
+
+<span class="tk-n">5</span>. **Ejecutar la aplicación**
+   ` ` `bash
+   dotnet run --project src/Web
+   ` ` `
+
+---
+
+<span class="tk-c">## Proceso de Desarrollo</span>
+
+<span class="tk-c">### 1. Buscar o Crear Issue</span>
+
+- Revisa los [issues existentes](https://github.com/myorg/{{NombreProyecto}}/issues)
+- Si <span class="tk-k">no</span> existe, crea uno describiendo el bug o feature
+- Espera confirmación antes de empezar (para features grandes)
+
+<span class="tk-c">### 2. Crear Rama</span>
+
+` ` `bash
+<span class="tk-c"># Para features</span>
+git checkout -b feature/HV-123-descripcion-corta
+
+<span class="tk-c"># Para bugs</span>
+git checkout -b bugfix/HV-456-descripcion-corta
+
+<span class="tk-c"># Para hotfixes</span>
+git checkout -b hotfix/HV-789-descripcion-corta
+` ` `
+
+<span class="tk-c">### 3. Desarrollar</span>
+
+- Escribe código siguiendo los estándares
+- Añade tests para código nuevo
+- Actualiza documentación si es necesario
+
+<span class="tk-c">### 4. Commit y Push</span>
+
+` ` `bash
+git add.
+git commit -m <span class="tk-s">&quot;feat(scholarships): añadir filter por status (#123)&quot;</span>
+git push origin feature/HV-123-descripcion-corta
+` ` `
+
+<span class="tk-c">### 5. Crear Pull Request</span>
+
+- Usa la plantilla de PR
+- Describe los cambios claramente
+- Enlaza el issue relacionado
+- Solicita revisión
+
+---
+
+<span class="tk-c">## Estándares de Código</span>
+
+<span class="tk-c">### Nomenclatura</span>
+
+| Elemento | Convención | Ejemplo |
+|----------|------------|---------|
+| Clases | PascalCase | `ScholarshipService` |
+| Interfaces | IPascalCase | `IScholarshipRepository` |
+| Métodos | PascalCase | `GetByIdAsync` |
+| Variables | camelCase | `becaActual` |
+| Constantes | UPPER_SNAKE | `MAX_ITEMS` |
+| Campos privados | _camelCase | `_repository` |
+
+<span class="tk-c">### Estructura de Archivos</span>
+
+` ` `
+src/
+├── Domain/           <span class="tk-c"># Entidades, Value Objects</span>
+├── Application/      <span class="tk-c"># Servicios, DTOs, Validadores</span>
+├── Infrastructure/   <span class="tk-c"># EF Core, Repositorios</span>
+└── Web/              <span class="tk-c"># Controllers, Views</span>
+` ` `
+
+<span class="tk-c">### Reglas Generales</span>
+
+- Máximo <span class="tk-n">120</span> caracteres por línea
+- Usar `var` cuando el tipo es evidente
+- Métodos async deben terminar en `Async`
+- Una clase por archivo
+- Ordenar miembros: campos, constructores, propiedades, métodos
+
+---
+
+<span class="tk-c">## Commits y Pull Requests</span>
+
+<span class="tk-c">### Formato de Commits</span>
+
+Usamos [Conventional Commits](https://www.conventionalcommits.org/):
+
+` ` `
+tipo(ámbito): descripción corta (<span class="tk-c">#issue)</span>
+
+Cuerpo opcional con más detalles.
+
+BREAKING CHANGE: descripción si aplica
+` ` `
+
+**Tipos permitidos:**
+- `feat`: Nueva funcionalidad
+- `fix`: Corrección de bug
+- `docs`: Documentación
+- `style`: Formato (sin cambio de código)
+- `refactor`: Refactorización
+- `test`: Tests
+- `chore`: Mantenimiento
+
+<span class="tk-c">### Ejemplos</span>
+
+` ` `bash
+feat(scholarships): añadir endpoint de exportación a Excel (<span class="tk-c">#123)</span>
+fix(applications): corregir cálculo de fecha límite (<span class="tk-c">#456)</span>
+docs(readme): actualizar instrucciones de instalación
+refactor(domain): extraer validaciones a Value Objects
+test(services): añadir tests para ScholarshipService
+` ` `
+
+<span class="tk-c">### Pull Request Template</span>
+
+` ` `markdown
+<span class="tk-c">## Descripción</span>
+Breve descripción de los cambios.
+
+<span class="tk-c">## Issue Relacionado</span>
+Closes <span class="tk-c">#123</span>
+
+<span class="tk-c">## Tipo de Cambio</span>
+- [ ] Bug fix
+- [ ] Nueva feature
+- [ ] Breaking change
+- [ ] Documentación
+
+<span class="tk-c">## Checklist</span>
+- [ ] He seguido los estándares de código
+- [ ] He añadido tests
+- [ ] He actualizado la documentación
+- [ ] Los tests pasan localmente
+` ` `
+
+---
+
+<span class="tk-c">## Testing</span>
+
+<span class="tk-c">### Ejecutar Tests</span>
+
+` ` `bash
+<span class="tk-c"># Todos los tests</span>
+dotnet test
+
+<span class="tk-c"># Con cobertura</span>
+dotnet test --collect:<span class="tk-s">&quot;XPlat Code Coverage&quot;</span>
+
+<span class="tk-c"># Tests específicos</span>
+dotnet test --filter <span class="tk-s">&quot;FullyQualifiedName~ScholarshipServiceTests&quot;</span>
+` ` `
+
+<span class="tk-c">### Cobertura Mínima</span>
+
+| Capa | Mínimo |
+|------|--------|
+| Domain | <span class="tk-n">90</span>% |
+| Application | <span class="tk-n">80</span>% |
+| Infrastructure | <span class="tk-n">60</span>% |
+
+<span class="tk-c">### Estructura de Tests</span>
+
+` ` `csharp
+[Fact]
+public async Task NombreMethod_Scenario_ExpectedResult()
+{
+    // Arrange
+    var sut = new ScholarshipService(...);
+
+    // Act
+    var result = await sut.GetByIdAsync(<span class="tk-n">1</span>);
+
+    // Assert
+    result.Should().NotBeNull();
+}
+` ` `
+
+---
+
+<span class="tk-c">## Documentación</span>
+
+<span class="tk-c">### Cuándo Documentar</span>
+
+- Nuevos endpoints API
+- Cambios en configuración
+- Nuevas dependencias
+- Decisiones arquitectónicas (ADRs)
+
+<span class="tk-c">### Dónde Documentar</span>
+
+| Tipo | Ubicación |
+|------|-----------|
+| API | Comentarios XML + Swagger |
+| Arquitectura | `docs/architecture/` |
+| Configuración | `README.md` |
+| Decisiones | `docs/adr/` |
+
+---
+
+<span class="tk-c">## Contacto</span>
+
+- **Equipo**: {{Equipo}}
+- **Email**: soporte@example.com
+- **Issues**: [GitHub Issues](https://github.com/myorg/{{NombreProyecto}}/issues)
+
+---
+
+*Generado con documentacion-tecnica skill v2.<span class="tk-n">8.0</span>*
+</code></pre><p style="margin-top:32px"><a href="../../../skills/documentacion-tecnica.html#ficheros">← Volver a la ficha de documentacion-tecnica</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/documentacion-tecnica/templates/CHANGELOG.md.html"><small>Anterior</small>templates/CHANGELOG.md.template</a><a class="next" href="../../../skills/documentacion-tecnica/templates/DEPLOYMENT.md.html"><small>Siguiente</small>templates/DEPLOYMENT.md.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/documentacion-tecnica/templates/CONTRIBUTING.md.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,113 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · patterns/ssh-signing.md · Ovillo</title><meta name="description" content="Fichero patterns/ssh-signing.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · patterns/ssh-signing.md · Ovillo"><meta property="og:description" content="Fichero patterns/ssh-signing.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/patterns/ssh-signing.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/patterns/ssh-signing.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/patterns/ssh-signing.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html" class="cur">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>patterns</span><span>ssh-signing.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>patterns/</span></div><h1>ssh-signing.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>3339 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: git-best-practices</p></blockquote>
+<p class="lede">Configuracion de firmado SSH para commits y tags (Git 2.34+, recomendado sobre GPG).</p>
+<hr>
+<section class="sec" id="sec-por-que-firmar-commits">
+<h3 id="por-que-firmar-commits">Por que Firmar Commits</h3>
+<ul>
+<li><strong>Verificacion de identidad</strong>: Prueba que el commit fue hecho por quien dice ser</li>
+<li><strong>Integridad</strong>: Garantiza que el contenido no fue alterado</li>
+<li><strong>Compliance</strong>: Requisito en entornos regulados y cadena de suministro de software</li>
+<li><strong>GitHub/GitLab</strong>: Muestra insignia &quot;Verified&quot; en commits</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-requisitos">
+<h3 id="requisitos">Requisitos</h3>
+<ul>
+<li>Git 2.34 o superior (preferible 2.52+)</li>
+<li>OpenSSH 8.8 o superior</li>
+<li>Clave SSH ED25519 (recomendada) o RSA 4096</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion-paso-a-paso">
+<h3 id="configuracion-paso-a-paso">Configuracion Paso a Paso</h3>
+<h4 id="1-generar-clave-ssh-si-no-existe">1. Generar clave SSH (si no existe)</h4>
+<pre data-lang="bash"><code><span class="tk-c"># ED25519 (recomendado - mas seguro y rapido)</span>
+ssh-keygen -t ed25519 -C <span class="tk-s">&quot;usuario@example.com&quot;</span> -f ~/.ssh/id_ed25519_signing
+
+<span class="tk-c"># RSA 4096 (alternativa compatible)</span>
+ssh-keygen -t rsa -b <span class="tk-n">4096</span> -C <span class="tk-s">&quot;usuario@example.com&quot;</span> -f ~/.ssh/id_rsa_signing</code></pre>
+<h4 id="2-configurar-git-para-usar-ssh-signing">2. Configurar Git para usar SSH signing</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Formato de firma: SSH</span>
+<span class="tk-k">git</span> config --global gpg.format ssh
+
+<span class="tk-c"># Clave publica para firmar</span>
+<span class="tk-k">git</span> config --global user.signingkey ~/.ssh/id_ed25519_signing.pub
+
+<span class="tk-c"># Auto-firmar commits</span>
+<span class="tk-k">git</span> config --global commit.gpgsign true
+
+<span class="tk-c"># Auto-firmar tags</span>
+<span class="tk-k">git</span> config --global tag.gpgsign true</code></pre>
+<h4 id="3-configurar-allowed_signers-verificacion-local">3. Configurar allowed_signers (verificacion local)</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Crear archivo de firmantes autorizados</span>
+<span class="tk-c"># Formato: email algorithm key</span>
+<span class="tk-k">echo</span> <span class="tk-s">&quot;usuario@example.com $(cat ~/.ssh/id_ed25519_signing.pub)&quot;</span> &gt;&gt; ~/.ssh/allowed_signers
+
+<span class="tk-c"># Decirle a Git donde esta</span>
+<span class="tk-k">git</span> config --global gpg.ssh.allowedSignersFile ~/.ssh/allowed_signers</code></pre>
+<h4 id="4-registrar-clave-en-githubgitlab">4. Registrar clave en GitHub/GitLab</h4>
+<p><strong>GitHub:</strong></p>
+<ol>
+<li>Settings &gt; SSH and GPG keys &gt; New SSH key</li>
+<li>Key type: <strong>Signing Key</strong></li>
+<li>Pegar contenido de <code>~/.ssh/id_ed25519_signing.pub</code></li>
+</ol>
+<p><strong>GitLab:</strong></p>
+<ol>
+<li>Preferences &gt; SSH Keys</li>
+<li>Usage type: <strong>Authentication &amp; Signing</strong></li>
+<li>Pegar clave publica</li>
+</ol>
+<p><strong>Azure DevOps:</strong></p>
+<ul>
+<li>Azure DevOps no soporta verificacion de firmas SSH nativamente</li>
+<li>Usar GPG como alternativa si se requiere verificacion en ADO</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-verificacion">
+<h3 id="verificacion">Verificacion</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Verificar firma de un commit</span>
+<span class="tk-k">git</span> log --show-signature -1
+
+<span class="tk-c"># Verificar firma de un tag</span>
+<span class="tk-k">git</span> tag -v v1.<span class="tk-n">2.0</span>
+
+<span class="tk-c"># Ver commits con estado de firma</span>
+<span class="tk-k">git</span> log --format=<span class="tk-s">'%H %G? %aN %s'</span>
+<span class="tk-c"># G = Good signature</span>
+<span class="tk-c"># B = Bad signature</span>
+<span class="tk-c"># U = Untrusted</span>
+<span class="tk-c"># N = No signature</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion-por-proyecto">
+<h3 id="configuracion-por-proyecto">Configuracion por Proyecto</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Si se necesita una clave diferente para un proyecto especifico</span>
+<span class="tk-k">cd</span> /ruta/proyecto
+<span class="tk-k">git</span> config --<span class="tk-k">local</span> user.signingkey ~/.ssh/id_ed25519_work.pub
+<span class="tk-k">git</span> config --<span class="tk-k">local</span> commit.gpgsign true</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-alternativa-gpg-signing">
+<h3 id="alternativa-gpg-signing">Alternativa: GPG Signing</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Solo usar si Azure DevOps requiere verificacion o si SSH no es viable</span>
+
+<span class="tk-c"># Generar clave GPG</span>
+gpg --full-generate-key
+<span class="tk-c"># Elegir RSA 4096, email corporativo</span>
+
+<span class="tk-c"># Configurar Git</span>
+gpg --list-secret-keys --keyid-format=long
+<span class="tk-k">git</span> config --global user.signingkey &lt;KEY_ID&gt;
+<span class="tk-k">git</span> config --global commit.gpgsign true</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-troubleshooting">
+<h3 id="troubleshooting">Troubleshooting</h3>
+<div class="tbl"><table><thead><tr><th>Problema</th><th>Solucion</th></tr></thead><tbody><tr><td><code>error: Load key: invalid format</code></td><td>Verificar que se usa la clave publica (.pub)</td></tr><tr><td><code>error: ssh-keygen not found</code></td><td>Instalar OpenSSH 8.8+</td></tr><tr><td>Commits no muestran &quot;Verified&quot; en GitHub</td><td>Verificar que la clave esta registrada como &quot;Signing Key&quot;</td></tr><tr><td><code>error: gpg.ssh.allowedSignersFile</code></td><td>Crear el archivo con <code>echo &quot;email $(cat key.pub)&quot; &gt;&gt; allowed_signers</code></td></tr></tbody></table></div>
+<hr>
+<p><em>Pattern 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html"><small>Anterior</small>patterns/monorepo-patterns.md</a><a class="next" href="../../../skills/git-best-practices/references/workflow-branching.html"><small>Siguiente</small>references/workflow-branching.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/patterns/ssh-signing.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#por-que-firmar-commits">Por que Firmar Commits</a></li><li class="l2"><a href="#requisitos">Requisitos</a></li><li class="l2"><a href="#configuracion-paso-a-paso">Configuracion Paso a Paso</a></li><li class="l3"><a href="#1-generar-clave-ssh-si-no-existe">1. Generar clave SSH (si no existe)</a></li><li class="l3"><a href="#2-configurar-git-para-usar-ssh-signing">2. Configurar Git para usar SSH signing</a></li><li class="l3"><a href="#3-configurar-allowed_signers-verificacion-local">3. Configurar allowed_signers (verificacion local)</a></li><li class="l3"><a href="#4-registrar-clave-en-githubgitlab">4. Registrar clave en GitHub/GitLab</a></li><li class="l2"><a href="#verificacion">Verificacion</a></li><li class="l2"><a href="#configuracion-por-proyecto">Configuracion por Proyecto</a></li><li class="l2"><a href="#alternativa-gpg-signing">Alternativa: GPG Signing</a></li><li class="l2"><a href="#troubleshooting">Troubleshooting</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

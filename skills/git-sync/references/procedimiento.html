@@ -1,0 +1,275 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-sync · references/procedimiento.md · Ovillo</title><meta name="description" content="Fichero references/procedimiento.md de la skill git-sync"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-sync · references/procedimiento.md · Ovillo"><meta property="og:description" content="Fichero references/procedimiento.md de la skill git-sync"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-sync/references/procedimiento.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-sync/references/procedimiento.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-sync/references/procedimiento.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-sync (1)</h4><ul class="sibs"><li><a href="../../../skills/git-sync/references/procedimiento.html" class="cur">references/procedimiento.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-sync.html">git-sync</a></span><span>references</span><span>procedimiento.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>git-sync</span><span>references/</span></div><h1>procedimiento.md</h1><p class="lede">Referencia que <code>git-sync</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-sync.html">git-sync</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>11.582 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Se lee bajo demanda al invocar la skill. Vive aparte para no pasar del techo de 400 lineas del <code>SKILL.md</code>.</p></blockquote>
+<hr>
+<blockquote><p><strong>USE FOR</strong>: sincronizar el repo con el <strong>REMOTO git</strong> (pull + push, según <code>branching.estrategia</code>). <strong>DO NOT USE FOR</strong>: actualizar la documentación <code>_hilo/</code> con el estado del código → usar <strong><code>/hv:sync</code></strong>. Sincronizar con el Hub → <strong><code>/hub-client</code></strong>.</p></blockquote>
+<blockquote><p>Skill ref <strong>Skill</strong>: <code>git-best-practices</code> — Skill ref detail</p></blockquote>
+<hr>
+<section class="sec" id="sec-1-flujo-git">
+<h3 id="1-flujo-git">1. Flujo Git</h3>
+<h4 id="21-1-verificar-estado-local">2.1 1. Verificar Estado Local</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Verificar si hay cambios sin commitear</span>
+<span class="tk-k">git</span> status --porcelain</code></pre>
+<p>If uncommitted changes:</p>
+<pre><code>⚠️ CAMBIOS SIN COMMITEAR
+
+Tienes cambios locales no commiteados. ¿Qué deseas hacer?
+
+1. Hacer commit primero (/commit)
+2. Guardar en stash y continuar
+3. Cancelar
+
+Opción (1/2/3):</code></pre>
+<h4 id="22-pre-merge-checklist">2.2 Pre merge checklist</h4>
+<blockquote><p>🔍 <strong>Pre merge intro</strong> → See skill: <code>git-best-practices/checklists/pre-merge.md</code></p></blockquote>
+<p>Pre merge auto checks:</p>
+<div class="tbl"><table><thead><tr><th>Verificacion</th><th>Comando</th><th>Bloqueante</th></tr></thead><tbody><tr><td>Check build</td><td><code>dotnet build --no-restore -q</code></td><td>✅</td></tr><tr><td>Check tests</td><td><code>dotnet test --no-build -q</code></td><td>⚠️ If configured</td></tr><tr><td>Check secrets</td><td>Pattern scan</td><td>✅</td></tr><tr><td>Check conflict markers</td><td><code>grep -r &quot;&lt;&lt;&lt;&lt;&lt;&lt;&quot; src/</code></td><td>✅</td></tr></tbody></table></div>
+<pre><code>🔍 PRE-MERGE CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━
+
+  ✅ Check build
+  ✅ Check secrets
+  ✅ Check conflict markers
+  ⬜ Check tests (Skipped no config)
+
+All checks passed</code></pre>
+<h4 id="23-merge-strategy">2.3 Merge strategy</h4>
+<blockquote><p>Merge strategy intro → See skill: <code>git-best-practices/strategies/merge-strategies.md</code></p></blockquote>
+<blockquote><p>⚠️ <strong>Adaptable a estrategia</strong>: Claude lee la estrategia de branching de ESTADO_PROYECTO.json para adaptar el comportamiento de merge → <code>_hilo/ESTADO_PROYECTO.json</code> → <code>configuracion.branching.estrategia</code></p></blockquote>
+<h5 id="estrategia-por-defecto-github-flow-prs--squash">Estrategia por defecto: <code>github-flow</code> (PRs + squash)</h5>
+<div class="tbl"><table><thead><tr><th>Branch type</th><th>Estrategia</th><th>Razon</th></tr></thead><tbody><tr><td><code>feature/*</code> → Actualizar</td><td><code>git pull --rebase</code></td><td>Rebase reason</td></tr><tr><td><code>feature/*</code> → <code>main</code> (PR)</td><td>Squash merge</td><td>Squash reason</td></tr><tr><td><code>hotfix/*</code> → <code>main</code></td><td>Merge commit</td><td>Hotfix reason</td></tr><tr><td><code>release/*</code> → <code>main</code></td><td>Merge commit</td><td>Release reason</td></tr></tbody></table></div>
+<h5 id="estrategia-simplificada-github-flow-simplificado-desarrollador-individual-sin-prs">Estrategia simplificada: <code>github-flow-simplificado</code> (desarrollador individual, sin PRs)</h5>
+<div class="tbl"><table><thead><tr><th>Branch type</th><th>Estrategia</th><th>Razon</th></tr></thead><tbody><tr><td><code>feature/*</code> → Actualizar</td><td><code>git pull --rebase</code></td><td>Rebase reason</td></tr><tr><td><code>feature/*</code> → <code>main</code> (merge local)</td><td><code>git merge --no-ff</code></td><td>Preserva commits individuales, revertible limpiamente con git revert -m1</td></tr><tr><td><code>hotfix/*</code> → <code>main</code></td><td><code>git merge --no-ff</code></td><td>Hotfix reason</td></tr><tr><td><code>release/*</code> → <code>main</code></td><td>Merge commit</td><td>Release reason</td></tr></tbody></table></div>
+<blockquote><p>💡 <strong><code>github-flow-simplificado</code></strong>: Merge --no-ff en local en lugar de crear PR. Ideal para desarrollador individual.</p>
+<ul>
+<li>No requiere PR — merge directo en local</li>
+<li>Preserva commits individuales para mejor git bisect</li>
+<li>Revertible limpiamente: git revert -m1 &lt;merge-commit&gt;</li>
+</ul></blockquote>
+<h5 id="estrategia-developer-branch-developer-branch-rama-personal-remota-con-features-locales">Estrategia Developer Branch: <code>developer-branch</code> (Rama personal remota con features locales)</h5>
+<blockquote><p>Leer nomenclatura de configuracion.branching.convencionRamas: <code>_hilo/ESTADO_PROYECTO.json</code> → <code>configuracion.branching</code></p></blockquote>
+<div class="tbl"><table><thead><tr><th>Branch type</th><th>Estrategia</th><th>Razon</th></tr></thead><tbody><tr><td><code>{ramaBase}</code> → Actualizar</td><td><code>git pull origin {ramaBase}</code></td><td>Rama base configurable (main, master, dev.{usuario}...)</td></tr><tr><td><code>yyyyMMdd-{tipo}-nnn</code> → <code>{ramaBase}</code></td><td><code>git merge</code> (plain)</td><td>Flujo: crear rama local → desarrollar → merge a rama base → push</td></tr></tbody></table></div>
+<blockquote><p>⚠️ <strong>Las ramas feature NUNCA se pushean al remoto</strong></p>
+<ul>
+<li>Push de features deshabilitado</li>
+<li>Confirmar con usuario antes de merge y push</li>
+</ul></blockquote>
+<p><strong>Flujo: crear rama local → desarrollar → merge a rama base → push:</strong></p>
+<pre><code>1. git checkout {ramaBase}              # Posicionarse en rama base
+2. git pull origin {ramaBase}           # Actualizar
+3. git checkout -b {yyyyMMdd-tipo-nnn}  # Crear rama local (NUNCA pushear)
+4. # ... desarrollo + commits ...
+5. git checkout {ramaBase}
+6. git merge {rama-local}               # ⚠️ CONFIRMAR con usuario
+7. git push origin {ramaBase}           # ⚠️ CONFIRMAR con usuario
+8. git branch -d {rama-local}           # Limpieza opcional</code></pre>
+<blockquote><p>💡 <strong>Nomenclatura configurable</strong>: Leer <code>convencionRamas</code> de ESTADO_PROYECTO.json. Si contiene <code>{tipo}</code>, leer <code>tiposTarea</code> para los códigos válidos (DT, HV, BUG...).</p></blockquote>
+<h4 id="24-2-obtener-cambios-remotos">2.4 2. Obtener Cambios Remotos</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Fetch para ver si hay cambios</span>
+<span class="tk-c"># NOTA: En developer-branch, fetch apunta a {ramaBase} (ej: dev.claudio), no a main</span>
+<span class="tk-k">git</span> fetch origin
+
+<span class="tk-c"># Ver diferencias</span>
+<span class="tk-k">git</span> log HEAD..origin/$(<span class="tk-k">git</span> branch --show-current) --oneline</code></pre>
+<pre><code>📥 CAMBIOS REMOTOS DISPONIBLES
+
+Rama: feature/HV-05
+Commits nuevos: 3
+
+  abc1234 - feat: Añadir validación (jperez, hace 2h)
+  def5678 - fix: Corregir error (mlopez, hace 1h)
+  ghi9012 - docs: Actualizar README (jgarcia, hace 30m)
+
+¿Descargar e integrar? (s/n):</code></pre>
+<h4 id="25-3-integrar-cambios-pull-con-rebase">2.5 3. Integrar Cambios (Pull con Rebase)</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Rebase para historial limpio (branch tipo feature/*)</span>
+<span class="tk-k">git</span> pull --rebase origin $(<span class="tk-k">git</span> branch --show-current)</code></pre>
+<p>If conflicts:</p>
+<pre><code>⚠️ CONFLICTOS DETECTADOS
+
+Archivos en conflicto:
+  • src/Controllers/ScholarshipsController.cs
+  • src/Services/ScholarshipService.cs
+
+Opciones:
+1. Resolver manualmente (abre VS Code)
+2. Aceptar cambios remotos (theirs)
+3. Mantener mis cambios (ours)
+4. Abortar rebase
+
+Opción (1/2/3/4):</code></pre>
+<h4 id="26-4-subir-cambios-locales-push">2.6 4. Subir Cambios Locales (Push)</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Push normal (en developer-branch: solo pushear ramaBase, NUNCA features)</span>
+<span class="tk-k">git</span> push origin $(<span class="tk-k">git</span> branch --show-current)
+
+<span class="tk-c"># Después de rebase con conflictos resueltos → force-with-lease (NUNCA --force)</span>
+<span class="tk-c"># NOTA: En developer-branch con pushFeatures=false, NUNCA pushear ramas locales</span>
+<span class="tk-k">git</span> push --force-with-lease origin $(<span class="tk-k">git</span> branch --show-current)</code></pre>
+<blockquote><p>⚠️ <strong>Force with lease</strong> Force with lease intro:</p>
+<ul>
+<li><code>--force-with-lease</code>: ✅ Force with lease safe</li>
+<li><code>--force</code>: ❌ Force dangerous</li>
+</ul>
+<p>→ See skill: <code>git-best-practices/strategies/merge-strategies.md</code></p></blockquote>
+<pre><code>📤 SUBIENDO CAMBIOS
+
+Rama: feature/HV-05
+Commits a subir: 2
+
+  xyz1234 - [HV-05] feat(api): Añadir paginación
+  xyz5678 - [HV-05] test: Añadir tests de paginación
+
+✅ Push completado</code></pre>
+<h4 id="27-post-merge-restore">2.7 Post merge restore</h4>
+<blockquote><p>🔄 <strong>Post merge restore intro</strong></p></blockquote>
+<p>After pull detect:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Detectar si package-lock.json o *.csproj cambiaron en los commits descargados</span>
+<span class="tk-k">git</span> diff HEAD@{<span class="tk-n">1</span>}..HEAD --name-only | grep -E <span class="tk-s">&quot;(\.csproj|packages\.lock\.json|package-lock\.json|yarn\.lock)&quot;</span></code></pre>
+<p>If dependencies changed:</p>
+<div class="tbl"><table><thead><tr><th>File type</th><th>Restore command</th></tr></thead><tbody><tr><td><code>*.csproj</code> / <code>packages.lock.json</code></td><td><code>dotnet restore</code></td></tr><tr><td><code>package-lock.json</code></td><td><code>npm ci</code></td></tr><tr><td><code>yarn.lock</code></td><td><code>yarn install --frozen-lockfile</code></td></tr></tbody></table></div>
+<pre><code>🔄 Dependency changes detected
+
+Changed files:
+  • src/MyCompany.MyApp.Web/MyCompany.MyApp.Web.csproj
+  • src/MyCompany.MyApp.Infrastructure/MyCompany.MyApp.Infrastructure.csproj
+
+Restoring: dotnet restore...
+✅ Restore completed</code></pre>
+<h4 id="28-5-confirmación">2.8 5. Confirmación</h4>
+<pre><code>✅ SINCRONIZACIÓN COMPLETADA
+
+📥 Descargados: 3 commits
+📤 Subidos: 2 commits
+🔀 Rama: feature/HV-05
+🔍 Pre merge checklist: ✅ All passed
+🔄 Dependency restore: ✅ dotnet restore
+⏱️ Última sincronización: [FECHA_HORA]
+
+Estado: Al día con origin/{0}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-resumen-de-comandos">
+<h3 id="2-resumen-de-comandos">2. Resumen de comandos</h3>
+<div class="tbl"><table><thead><tr><th>Acción</th><th>Git</th></tr></thead><tbody><tr><td>Obtener cambios</td><td><code>git pull --rebase</code></td></tr><tr><td>Subir cambios</td><td><code>git push</code></td><td>Included in checkin</td></tr><tr><td>Push after rebase</td><td><code>git push --force-with-lease</code></td><td>N/A</td></tr><tr><td>Ver historial</td><td><code>git log</code></td><td><code>tf history</code></td></tr><tr><td>Resolver conflictos</td><td><code>git mergetool</code></td><td><code>tf resolve</code></td></tr><tr><td>Descartar cambios</td><td><code>git checkout -- .</code></td><td><code>tf undo /recursive</code></td></tr><tr><td>Restore deps</td><td><code>dotnet restore</code> / <code>npm ci</code></td><td><code>dotnet restore</code> / <code>npm ci</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-3-configuracion">
+<h3 id="3-configuracion">3. Configuracion</h3>
+<p>Config intro <code>_hilo/ESTADO_PROYECTO.json</code>:</p>
+<div class="tbl"><table><thead><tr><th>Nivel de integracion</th><th>Comportamiento</th></tr></thead><tbody><tr><td><strong>basico</strong></td><td>Config basic</td></tr><tr><td><strong>medio</strong></td><td>Config medium</td></tr><tr><td><strong>alto</strong></td><td>Config high</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-4-casos-de-error">
+<h3 id="4-casos-de-error">4. Casos de error</h3>
+<h4 id="no-connection">No connection</h4>
+<pre><code>❌ Connection error
+
+Verify connection:
+  • Check internet
+  • Check credentials
+  • Check remote url: git remote -v</code></pre>
+<h4 id="branch-not-published">Branch not published</h4>
+<pre><code>⚠️ Branch not published title
+
+Branch not published msg: feature/HV-05
+
+Publish branch:
+  git push -u origin feature/HV-05
+
+Publish now</code></pre>
+<h4 id="rebase-conflict">Rebase conflict</h4>
+<pre><code>⚠️ Rebase conflict title
+
+Rebase conflict msg
+
+To continue after resolve:
+  git rebase --continue
+
+To abort:
+  git rebase --abort
+
+After rebase push:
+  git push --force-with-lease origin $(git branch --show-current)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-critical-reminders">
+<h3 id="critical-reminders">⚠️ Critical reminders</h3>
+<h4 id="siempre">Siempre</h4>
+<ul>
+<li>✅ Always check uncommitted</li>
+<li>✅ Always rebase</li>
+<li>✅ Always pre merge checklist (2.2)</li>
+<li>✅ Always force with lease (2.6)</li>
+<li>✅ Always post merge restore (2.7)</li>
+<li>✅ Always show commits</li>
+<li>✅ Always offer conflict options</li>
+</ul>
+<h4 id="nunca">Nunca</h4>
+<ul>
+<li>❌ <code>git push --force</code> — Never force reason</li>
+<li>❌ Never pull without warning</li>
+<li>❌ Never auto resolve conflicts</li>
+<li>❌ Never skip pre merge</li>
+</ul>
+<h4 id="skill-integration">Skill integration</h4>
+<p>Skill integration intro <code>git-best-practices</code>:</p>
+<div class="tbl"><table><thead><tr><th>Recurso</th><th>Uso</th></tr></thead><tbody><tr><td><code>strategies/merge-strategies.md</code></td><td>Skill merge</td></tr><tr><td><code>strategies/branching-models.md</code></td><td>Skill branching</td></tr><tr><td><code>checklists/pre-merge.md</code></td><td>Skill pre merge</td></tr><tr><td><code>tools/git-hooks-automation.md</code></td><td>Skill hooks</td></tr><tr><td><code>patterns/ssh-signing.md</code></td><td>Skill signing</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-execution-flow-diagram">
+<h3 id="execution-flow-diagram">Execution flow diagram</h3>
+<pre><code>┌─────────────────┐
+│ 1. Detectar VCS  │
+└────────┬────────┘
+         │
+    ┌────┴────┐
+    │  Git?   │
+    └────┬────┘
+    Yes  │  No
+         ▼
+┌─────────────────┐
+│ 2. git status    │ → Cambios? → Commit/Stash/Cancel
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│ 3. Pre-merge     │ → Build + Secrets + Conflict markers
+│    CHECKLIST     │
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│ 4. git fetch     │ → Ver commits remotos
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│ 5. Merge strategy│ → Adaptar según tipo de rama
+│    (rebase/merge)│
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│ 6. git pull      │ → Conflictos? → Resolver
+│    --rebase      │
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│ 7. Post-merge    │ → ¿Cambió .csproj? → dotnet restore
+│    RESTORE       │ → ¿Cambió package-lock? → npm ci
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│ 8. git push      │ → Normal o --force-with-lease
+│    (según nivel) │
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│ 9. Confirmación  │ → Resumen completo
+└─────────────────┘</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-NOTAS">
+<h3 id="NOTAS">NOTAS</h3>
+<ul>
+<li>En <strong>Git</strong>: Pull + Push son operaciones separadas</li>
+<li>El comando <code>/hv:commit</code> ya maneja ambos VCS</li>
+<li>Este comando (<code>/hv:git-sync</code>) muestra instrucciones adaptadas al VCS detectado</li>
+<li>Note pre merge</li>
+<li>Note restore</li>
+</ul>
+</section><p style="margin-top:32px"><a href="../../../skills/git-sync.html#ficheros">← Volver a la ficha de git-sync</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-sync.html"><small>Anterior</small>Ficha de git-sync</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-sync/references/procedimiento.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-flujo-git">1. Flujo Git</a></li><li class="l3"><a href="#21-1-verificar-estado-local">2.1 1. Verificar Estado Local</a></li><li class="l3"><a href="#22-pre-merge-checklist">2.2 Pre merge checklist</a></li><li class="l3"><a href="#23-merge-strategy">2.3 Merge strategy</a></li><li class="l3"><a href="#24-2-obtener-cambios-remotos">2.4 2. Obtener Cambios Remotos</a></li><li class="l3"><a href="#25-3-integrar-cambios-pull-con-rebase">2.5 3. Integrar Cambios (Pull con Rebase)</a></li><li class="l3"><a href="#26-4-subir-cambios-locales-push">2.6 4. Subir Cambios Locales (Push)</a></li><li class="l3"><a href="#27-post-merge-restore">2.7 Post merge restore</a></li><li class="l3"><a href="#28-5-confirmación">2.8 5. Confirmación</a></li><li class="l2"><a href="#2-resumen-de-comandos">2. Resumen de comandos</a></li><li class="l2"><a href="#3-configuracion">3. Configuracion</a></li><li class="l2"><a href="#4-casos-de-error">4. Casos de error</a></li><li class="l3"><a href="#no-connection">No connection</a></li><li class="l3"><a href="#branch-not-published">Branch not published</a></li><li class="l3"><a href="#rebase-conflict">Rebase conflict</a></li><li class="l2"><a href="#critical-reminders">⚠️ Critical reminders</a></li><li class="l3"><a href="#siempre">Siempre</a></li><li class="l3"><a href="#nunca">Nunca</a></li><li class="l3"><a href="#skill-integration">Skill integration</a></li><li class="l2"><a href="#execution-flow-diagram">Execution flow diagram</a></li><li class="l2"><a href="#NOTAS">NOTAS</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

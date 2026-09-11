@@ -1,0 +1,217 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · templates/validate-pipeline-complete.ps1 · Ovillo</title><meta name="description" content="Fichero templates/validate-pipeline-complete.ps1 de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · templates/validate-pipeline-complete.ps1 · Ovillo"><meta property="og:description" content="Fichero templates/validate-pipeline-complete.ps1 de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/validate-pipeline-complete.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/validate-pipeline-complete.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/templates/validate-pipeline-complete.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../skills/cicd-architect/templates/validate-pipeline-complete.html" class="cur">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/cicd-architect.html">cicd-architect</a></span><span>templates</span><span>validate-pipeline-complete.ps1</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>templates/</span><span>9681 B</span></div><h1>validate-pipeline-complete.ps1</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>9681 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="powershell"><code><span class="tk-c">#Requires -Version 5.1</span>
+<span class="tk-c">&lt;#
+.SYNOPSIS
+    Self-check determinista de completitud de un azure-pipelines.yml generado por /cicd-init.
+
+.DESCRIPTION
+    Verifica que un pipeline YAML generado contiene TODOS los steps/artefactos canonicos
+    del template del stack del que deberia haberse renderizado. Disena para detectar
+    &quot;under-application&quot; del edit-mode de /cicd-init (Opcion 4): cuando el agente hace un
+    edit quirurgico de 1 linea en vez de re-renderizar el YAML completo, faltan steps de
+    la plantilla (ej. el step del gate de cobertura G7, el reporte HTML CoverageReport, etc.).
+
+    NO mantiene una lista hardcodeada de markers: los DERIVA del propio template
+    (displayNames + ArtifactName + referencias a steps/*.yml). Asi auto-sigue la evolucion
+    de la plantilla sin tocar este script.
+
+    Filosofia: en flujos copia+genera (forzados por Azure DevOps Server 2020, sin 'extends' fiable) la
+    defensa es VERIFICAR LA SALIDA -- igual que el smoke test de /hotfix o build-zip.js --check.
+
+.PARAMETER Yaml
+    Ruta al azure-pipelines.yml generado (la salida a verificar).
+
+.PARAMETER Template
+    Ruta al *.yml.template del stack usado para generar (la referencia).
+
+.PARAMETER Quiet
+    Solo emite el veredicto final y la lista de ausentes (sin cabeceras).
+
+.OUTPUTS
+    exit 0 = COMPLETO (todos los markers del template presentes en el YAML)
+    exit 1 = INCOMPLETO (faltan markers -&gt; regeneracion a medias, NO cerrar /cicd-init)
+    exit 2 = ERROR (argumentos invalidos / ficheros no encontrados)
+
+.EXAMPLE
+    pwsh validate-pipeline-complete.ps1 -Yaml azure-pipelines.yml -Template .claude/skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.template
+
+.EXAMPLE
+    pwsh validate-pipeline-complete.ps1 -GitHub -Yaml .github/workflows/cd-web.yml -Template &lt;plugin&gt;/skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.template
+#&gt;</span>
+[CmdletBinding()]
+<span class="tk-k">param</span>(
+    [Parameter(Mandatory = <span class="tk-v">$true</span>)]
+    [string] <span class="tk-v">$Yaml</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$true</span>)]
+    [string] <span class="tk-v">$Template</span>,
+
+    <span class="tk-c"># Substrings de markers que NO se exigen (bloques que /cicd-init dropea legitimamente:</span>
+    <span class="tk-c"># sin proyecto de test -&gt; 'dotnet test'/'coverage'/'Coverage gate'/'Reporte HTML'/'CoverageReport';</span>
+    <span class="tk-c"># sin endpoint /health -&gt; 'smoke-strict'; etc.). Coma-separados. Default: ninguno (estricto).</span>
+    [string] <span class="tk-v">$Allow</span> = <span class="tk-s">''</span>,
+
+    <span class="tk-c"># GitHub Actions: los markers se derivan de 'name:' (jobs y steps) y 'uses:' (acciones) en vez de</span>
+    <span class="tk-c"># displayName/ArtifactName/- template. Mismo algoritmo, otro vocabulario YAML.</span>
+    [<span class="tk-k">switch</span>] <span class="tk-v">$GitHub</span>,
+
+    [<span class="tk-k">switch</span>] <span class="tk-v">$Quiet</span>
+)
+
+<span class="tk-v">$ErrorActionPreference</span> = <span class="tk-s">'Stop'</span>
+
+<span class="tk-k">function</span> Write-Info([string] <span class="tk-v">$msg</span>) {
+    <span class="tk-k">if</span> (-not <span class="tk-v">$Quiet</span>) { Write-Host <span class="tk-v">$msg</span> }
+}
+
+<span class="tk-k">try</span> {
+    <span class="tk-k">if</span> (-not (Test-Path -LiteralPath <span class="tk-v">$Yaml</span>)) {
+        Write-Host <span class="tk-s">&quot;ERROR: no existe el YAML generado: $Yaml&quot;</span> -ForegroundColor Red
+        <span class="tk-k">exit</span> <span class="tk-n">2</span>
+    }
+    <span class="tk-k">if</span> (-not (Test-Path -LiteralPath <span class="tk-v">$Template</span>)) {
+        Write-Host <span class="tk-s">&quot;ERROR: no existe el template: $Template&quot;</span> -ForegroundColor Red
+        <span class="tk-k">exit</span> <span class="tk-n">2</span>
+    }
+
+    <span class="tk-v">$yamlText</span> = Get-Content -LiteralPath <span class="tk-v">$Yaml</span> -Raw
+    <span class="tk-v">$tplLines</span> = Get-Content -LiteralPath <span class="tk-v">$Template</span>
+
+    <span class="tk-c"># -------------------------------------------------------------------------</span>
+    <span class="tk-c"># Construir el TEXTO DEL YAML SIN bloques CUSTOM. Un marker del template que</span>
+    <span class="tk-c"># el usuario haya retirado y envuelto en '# CUSTOM:' ... '# /CUSTOM' no debe</span>
+    <span class="tk-c"># contar como presente por accidente, pero tampoco lo exigimos: simplemente</span>
+    <span class="tk-c"># buscamos los markers del template en el cuerpo NO-custom del YAML.</span>
+    <span class="tk-c"># -------------------------------------------------------------------------</span>
+    <span class="tk-v">$yamlLines</span> = Get-Content -LiteralPath <span class="tk-v">$Yaml</span>
+    <span class="tk-v">$sb</span> = New-Object System.Text.StringBuilder
+    <span class="tk-v">$inCustom</span> = <span class="tk-v">$false</span>
+    <span class="tk-k">foreach</span> (<span class="tk-v">$ln</span> <span class="tk-k">in</span> <span class="tk-v">$yamlLines</span>) {
+        <span class="tk-k">if</span> (<span class="tk-v">$ln</span> -match <span class="tk-s">'#\s*CUSTOM\s*:'</span>) { <span class="tk-v">$inCustom</span> = <span class="tk-v">$true</span>; <span class="tk-k">continue</span> }
+        <span class="tk-k">if</span> (<span class="tk-v">$ln</span> -match <span class="tk-s">'#\s*/CUSTOM'</span>) { <span class="tk-v">$inCustom</span> = <span class="tk-v">$false</span>; <span class="tk-k">continue</span> }
+        <span class="tk-k">if</span> (-not <span class="tk-v">$inCustom</span>) { [void]<span class="tk-v">$sb</span>.AppendLine(<span class="tk-v">$ln</span>) }
+    }
+    <span class="tk-v">$yamlBody</span> = <span class="tk-v">$sb</span>.ToString()
+
+    <span class="tk-c"># -------------------------------------------------------------------------</span>
+    <span class="tk-c"># Derivar markers del TEMPLATE.</span>
+    <span class="tk-c">#   1) displayName: '&lt;algo&gt;'   -&gt; cada step tiene displayName; si falta el step,</span>
+    <span class="tk-c">#                                  falta su displayName en el YAML.</span>
+    <span class="tk-c">#   2) ArtifactName: '&lt;algo&gt;'  -&gt; artefactos publicados.</span>
+    <span class="tk-c">#   3) - template: steps/x.yml -&gt; sub-steps referenciados.</span>
+    <span class="tk-c"># Normalizacion: los placeholders {{...}} se vuelven comodin (.*) porque /cicd-init</span>
+    <span class="tk-c"># los sustituye; los $(...) son literales en ambos (variables runtime del pipeline).</span>
+    <span class="tk-c"># -------------------------------------------------------------------------</span>
+    <span class="tk-v">$markers</span> = New-Object System.Collections.Generic.List[object]
+
+    <span class="tk-k">function</span> Add-Marker([string] <span class="tk-v">$kind</span>, [string] <span class="tk-v">$raw</span>) {
+        <span class="tk-v">$val</span> = <span class="tk-v">$raw</span>.Trim()
+        <span class="tk-c"># quitar comillas envolventes simples o dobles</span>
+        <span class="tk-k">if</span> (<span class="tk-v">$val</span>.Length -ge <span class="tk-n">2</span>) {
+            <span class="tk-v">$first</span> = <span class="tk-v">$val</span>.Substring(<span class="tk-n">0</span>, <span class="tk-n">1</span>)
+            <span class="tk-v">$last</span> = <span class="tk-v">$val</span>.Substring(<span class="tk-v">$val</span>.Length - <span class="tk-n">1</span>, <span class="tk-n">1</span>)
+            <span class="tk-k">if</span> ((<span class="tk-v">$first</span> -eq <span class="tk-s">&quot;'&quot;</span> -and <span class="tk-v">$last</span> -eq <span class="tk-s">&quot;'&quot;</span>) -or (<span class="tk-v">$first</span> -eq <span class="tk-s">'&quot;'</span> -and <span class="tk-v">$last</span> -eq <span class="tk-s">'&quot;'</span>)) {
+                <span class="tk-v">$val</span> = <span class="tk-v">$val</span>.Substring(<span class="tk-n">1</span>, <span class="tk-v">$val</span>.Length - <span class="tk-n">2</span>)
+            }
+        }
+        <span class="tk-k">if</span> ([string]::IsNullOrWhiteSpace(<span class="tk-v">$val</span>)) { <span class="tk-k">return</span> }
+        <span class="tk-v">$script:markers</span>.Add([pscustomobject]@{ Kind = <span class="tk-v">$kind</span>; Value = <span class="tk-v">$val</span> })
+    }
+
+    <span class="tk-k">foreach</span> (<span class="tk-v">$line</span> <span class="tk-k">in</span> <span class="tk-v">$tplLines</span>) {
+        <span class="tk-k">if</span> (<span class="tk-v">$GitHub</span>) {
+            <span class="tk-v">$m</span> = [regex]::Match(<span class="tk-v">$line</span>, <span class="tk-s">'^\s*-?\s*name:\s*(.+?)\s*$'</span>)
+            <span class="tk-k">if</span> (<span class="tk-v">$m</span>.Success -and <span class="tk-v">$line</span> -notmatch <span class="tk-s">'^name:'</span>) { Add-Marker <span class="tk-s">'name'</span> <span class="tk-v">$m</span>.Groups[<span class="tk-n">1</span>].Value; <span class="tk-k">continue</span> }
+            <span class="tk-v">$m</span> = [regex]::Match(<span class="tk-v">$line</span>, <span class="tk-s">'^\s*-?\s*uses:\s*([^\s#]+)'</span>)
+            <span class="tk-k">if</span> (<span class="tk-v">$m</span>.Success) { Add-Marker <span class="tk-s">'uses'</span> <span class="tk-v">$m</span>.Groups[<span class="tk-n">1</span>].Value; <span class="tk-k">continue</span> }
+            <span class="tk-k">continue</span>
+        }
+        <span class="tk-v">$m</span> = [regex]::Match(<span class="tk-v">$line</span>, <span class="tk-s">'^\s*displayName:\s*(.+?)\s*$'</span>)
+        <span class="tk-k">if</span> (<span class="tk-v">$m</span>.Success) { Add-Marker <span class="tk-s">'displayName'</span> <span class="tk-v">$m</span>.Groups[<span class="tk-n">1</span>].Value; <span class="tk-k">continue</span> }
+
+        <span class="tk-v">$m</span> = [regex]::Match(<span class="tk-v">$line</span>, <span class="tk-s">'^\s*ArtifactName:\s*(.+?)\s*$'</span>)
+        <span class="tk-k">if</span> (<span class="tk-v">$m</span>.Success) { Add-Marker <span class="tk-s">'ArtifactName'</span> <span class="tk-v">$m</span>.Groups[<span class="tk-n">1</span>].Value; <span class="tk-k">continue</span> }
+
+        <span class="tk-v">$m</span> = [regex]::Match(<span class="tk-v">$line</span>, <span class="tk-s">'^\s*-\s*template:\s*(steps/[^\s#]+)'</span>)
+        <span class="tk-k">if</span> (<span class="tk-v">$m</span>.Success) { Add-Marker <span class="tk-s">'template'</span> <span class="tk-v">$m</span>.Groups[<span class="tk-n">1</span>].Value; <span class="tk-k">continue</span> }
+    }
+
+    <span class="tk-k">if</span> (<span class="tk-v">$markers</span>.Count -eq <span class="tk-n">0</span>) {
+        Write-Host <span class="tk-s">&quot;ERROR: el template no expone markers (displayName/ArtifactName/template; con -GitHub name/uses). Template invalido?: $Template&quot;</span> -ForegroundColor Red
+        <span class="tk-k">exit</span> <span class="tk-n">2</span>
+    }
+
+    <span class="tk-c"># Construir un regex por marker. Key-aware: cada marker se ancla a SU clave YAML</span>
+    <span class="tk-c"># (displayName:/ArtifactName:/- template:) al inicio de linea, para no casar por</span>
+    <span class="tk-c"># coincidencia el texto de un marker dentro de otra clave (ej. 'CoverageReport'</span>
+    <span class="tk-c"># del ArtifactName aparece tambien en el displayName 'Publish CoverageReport...').</span>
+    <span class="tk-c"># Los placeholders {{...}} se vuelven comodin (.*); el resto es literal.</span>
+    <span class="tk-v">$keyPrefix</span> = @{
+        <span class="tk-s">'displayName'</span>  = <span class="tk-s">'^\s*displayName:\s*['</span><span class="tk-s">'&quot;]?'</span>
+        <span class="tk-s">'ArtifactName'</span> = <span class="tk-s">'^\s*ArtifactName:\s*['</span><span class="tk-s">'&quot;]?'</span>
+        <span class="tk-s">'template'</span>     = <span class="tk-s">'^\s*-\s*template:\s*'</span>
+        <span class="tk-s">'name'</span>         = <span class="tk-s">'^\s*-?\s*name:\s*['</span><span class="tk-s">'&quot;]?'</span>
+        <span class="tk-s">'uses'</span>         = <span class="tk-s">'^\s*-?\s*uses:\s*'</span>
+    }
+
+    <span class="tk-k">function</span> ConvertTo-ValueRegex([string] <span class="tk-v">$value</span>) {
+        <span class="tk-c"># trocear por los placeholders {{...}} y escapar cada trozo literal</span>
+        <span class="tk-v">$parts</span> = [regex]::Split(<span class="tk-v">$value</span>, <span class="tk-s">'\{\{[^}]+\}\}'</span>)
+        <span class="tk-v">$escaped</span> = @()
+        <span class="tk-k">foreach</span> (<span class="tk-v">$p</span> <span class="tk-k">in</span> <span class="tk-v">$parts</span>) { <span class="tk-v">$escaped</span> += [regex]::Escape(<span class="tk-v">$p</span>) }
+        <span class="tk-k">return</span> (<span class="tk-v">$escaped</span> -join <span class="tk-s">'.*'</span>)
+    }
+
+    <span class="tk-c"># Exenciones: markers cuyo Value contiene alguno de estos substrings no se exigen.</span>
+    <span class="tk-v">$allowList</span> = @()
+    <span class="tk-k">if</span> (-not [string]::IsNullOrWhiteSpace(<span class="tk-v">$Allow</span>)) {
+        <span class="tk-v">$allowList</span> = <span class="tk-v">$Allow</span>.Split(<span class="tk-s">','</span>) | ForEach-Object { <span class="tk-v">$_</span>.Trim() } | Where-Object { <span class="tk-v">$_</span> -ne <span class="tk-s">''</span> }
+    }
+
+    <span class="tk-c"># Matching linea-a-linea sobre el cuerpo NO-custom (markers son de una sola linea).</span>
+    <span class="tk-v">$bodyLines</span> = <span class="tk-v">$yamlBody</span> -split <span class="tk-s">&quot;`r?`n&quot;</span>
+    <span class="tk-v">$missing</span> = New-Object System.Collections.Generic.List[object]
+    <span class="tk-v">$exempted</span> = <span class="tk-n">0</span>
+    <span class="tk-v">$present</span> = <span class="tk-n">0</span>
+    <span class="tk-k">foreach</span> (<span class="tk-v">$mk</span> <span class="tk-k">in</span> <span class="tk-v">$markers</span>) {
+        <span class="tk-v">$isAllowed</span> = <span class="tk-v">$false</span>
+        <span class="tk-k">foreach</span> (<span class="tk-v">$a</span> <span class="tk-k">in</span> <span class="tk-v">$allowList</span>) {
+            <span class="tk-k">if</span> (<span class="tk-v">$mk</span>.Value -like <span class="tk-s">&quot;*$a*&quot;</span>) { <span class="tk-v">$isAllowed</span> = <span class="tk-v">$true</span>; <span class="tk-k">break</span> }
+        }
+        <span class="tk-k">if</span> (<span class="tk-v">$isAllowed</span>) { <span class="tk-v">$exempted</span>++; <span class="tk-k">continue</span> }
+
+        <span class="tk-v">$rx</span> = <span class="tk-v">$keyPrefix</span>[<span class="tk-v">$mk</span>.Kind] + (ConvertTo-ValueRegex <span class="tk-v">$mk</span>.Value)
+        <span class="tk-v">$found</span> = <span class="tk-v">$false</span>
+        <span class="tk-k">foreach</span> (<span class="tk-v">$bl</span> <span class="tk-k">in</span> <span class="tk-v">$bodyLines</span>) {
+            <span class="tk-k">if</span> (<span class="tk-v">$bl</span> -match <span class="tk-v">$rx</span>) { <span class="tk-v">$found</span> = <span class="tk-v">$true</span>; <span class="tk-k">break</span> }
+        }
+        <span class="tk-k">if</span> (<span class="tk-v">$found</span>) { <span class="tk-v">$present</span>++ } <span class="tk-k">else</span> { <span class="tk-v">$missing</span>.Add(<span class="tk-v">$mk</span>) }
+    }
+
+    Write-Info <span class="tk-s">&quot;&quot;</span>
+    Write-Info <span class="tk-s">&quot;Self-check de completitud del pipeline&quot;</span>
+    Write-Info <span class="tk-s">&quot;  YAML:     $Yaml&quot;</span>
+    Write-Info <span class="tk-s">&quot;  Template: $Template&quot;</span>
+    Write-Info <span class="tk-s">&quot;  Markers derivados del template: $($markers.Count) (presentes: $present, exentos: $exempted, ausentes: $($missing.Count))&quot;</span>
+
+    <span class="tk-k">if</span> (<span class="tk-v">$missing</span>.Count -eq <span class="tk-n">0</span>) {
+        Write-Info <span class="tk-s">&quot;&quot;</span>
+        Write-Host <span class="tk-s">&quot;OK: pipeline COMPLETO. Todos los steps/artefactos canonicos del template estan presentes.&quot;</span> -ForegroundColor Green
+        <span class="tk-k">exit</span> <span class="tk-n">0</span>
+    }
+
+    Write-Host <span class="tk-s">&quot;&quot;</span>
+    Write-Host <span class="tk-s">&quot;INCOMPLETO: faltan $($missing.Count) marker(s) del template en el YAML generado:&quot;</span> -ForegroundColor Yellow
+    <span class="tk-k">foreach</span> (<span class="tk-v">$mk</span> <span class="tk-k">in</span> <span class="tk-v">$missing</span>) {
+        Write-Host (<span class="tk-s">&quot;  [{0}] {1}&quot;</span> -f <span class="tk-v">$mk</span>.Kind, <span class="tk-v">$mk</span>.Value) -ForegroundColor Yellow
+    }
+    Write-Host <span class="tk-s">&quot;&quot;</span>
+    Write-Host <span class="tk-s">&quot;ACCION: el YAML NO refleja la plantilla completa (probable edit-mode parcial).&quot;</span> -ForegroundColor Yellow
+    Write-Host <span class="tk-s">&quot;        Re-renderiza con /cicd-init Opcion 4 (re-render COMPLETO, no patch) y&quot;</span> -ForegroundColor Yellow
+    Write-Host <span class="tk-s">&quot;        re-aplica solo los bloques '# CUSTOM:'. NO cerrar /cicd-init con el self-check en rojo.&quot;</span> -ForegroundColor Yellow
+    <span class="tk-k">exit</span> <span class="tk-n">1</span>
+}
+<span class="tk-k">catch</span> {
+    Write-Host <span class="tk-s">&quot;ERROR inesperado en validate-pipeline-complete.ps1: $($_.Exception.Message)&quot;</span> -ForegroundColor Red
+    <span class="tk-k">exit</span> <span class="tk-n">2</span>
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html"><small>Anterior</small>templates/steps/smoke-strict-dotnet.yml</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/templates/validate-pipeline-complete.ps1</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

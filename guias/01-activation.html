@@ -1,0 +1,102 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Smoke 01 · Activacion de skills · Ovillo</title><meta name="description" content="Smoke 01 · Activacion de skills"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Smoke 01 · Activacion de skills · Ovillo"><meta property="og:description" content="Smoke 01 · Activacion de skills"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/01-activation.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/01-activation.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/01-activation.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Verificación (5)</h4><ul class="sibs"><li><a href="../guias/01-activation.html" class="cur">Smoke 01 · Activacion de skills</a></li><li><a href="../guias/02-compilation.html">Smoke 02 · Compilacion</a></li><li><a href="../guias/03-conventions.html">Smoke 03 · Convenciones locales del proyecto</a></li><li><a href="../guias/eval-gap-template.html">Plantilla · Work Item «Eval gap»</a></li><li><a href="../guias/smoke-tests-readme.html">Ovillo · Smoke Tests del proyecto consumidor</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Verificación</span><span>Smoke 01 · Activacion de skills</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Verificación</span><span>español</span></div><h1>Smoke 01 · Activacion de skills</h1><div class="meta-grid"><div><b>2 min</b><span>lectura</span></div><div><b>504</b><span>palabras</span></div><div><b>5</b><span>secciones</span></div><div><b>2026-09-07</b><span>última edición</span></div><div><b>3</b><span>cambios</span></div></div><blockquote><p>Verifica que ante prompts tipicos del proyecto, <strong>Claude Code activa la skill correcta</strong>. Sin esto, todo lo demas da igual: si el agente ignora la skill, ni las convenciones ni la compilacion sirven de nada.</p></blockquote>
+<hr>
+<section class="sec" id="sec-pre-requisitos">
+<h3 id="pre-requisitos">Pre-requisitos</h3>
+<ul>
+<li><code>claude --debug</code> funciona en esta maquina.</li>
+<li><code>claude plugin update hv@ovillo</code> ejecutado en la ultima semana (skills sincronizadas).</li>
+<li>Al menos <strong>una</strong> solucion compila en este repo (<code>dotnet build</code> o <code>msbuild</code> OK).</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-los-tests">
+<h3 id="los-tests">Los tests</h3>
+<p><strong>Personaliza</strong> los <code>{placeholders}</code> segun este proyecto. Los ejemplos usan entidades reales de cada dominio; sustitulelos por los tuyos.</p>
+<h4 id="test-11--crud-basico">Test 1.1 · CRUD basico</h4>
+<p><strong>Prompt</strong>:</p>
+<blockquote><p>Necesito un CRUD completo para <code>{ENTITY}</code> en el modulo de {MODULO}.</p></blockquote>
+<p><strong>Skill esperada</strong>: <code>generador-crud</code></p>
+<p><strong>Ejemplo sustituido</strong> (LicenseManager):</p>
+<blockquote><p>Necesito un CRUD completo para <code>LicenseApplication</code> en el modulo de licencias.</p></blockquote>
+<p><strong>Ejemplo sustituido</strong> (MyCompany.Exchange):</p>
+<blockquote><p>Necesito un CRUD completo para <code>Nomination</code> en el modulo de intercambios Portal.</p></blockquote>
+<hr>
+<h4 id="test-12--consulta-puntual-no-debe-activar-crud">Test 1.2 · Consulta puntual (NO debe activar CRUD)</h4>
+<p><strong>Prompt</strong>:</p>
+<blockquote><p>Quiero un endpoint que devuelva un listado de <code>{ENTITY}</code> activos, solo lectura.</p></blockquote>
+<p><strong>Skill esperada</strong>: <strong>NO</strong> <code>generador-crud</code>. Lo correcto es activar una skill de query-scaffolding o generar una Razor Page simple sin maquinaria CRUD.</p>
+<p>Este test es critico: una skill que sabe decir «esto no es asunto mio» vale mas que una que fuerza su workflow.</p>
+<hr>
+<h4 id="test-13--revision-arquitectura-aggregate-root">Test 1.3 · Revision arquitectura (aggregate root)</h4>
+<p><strong>Prompt</strong>:</p>
+<blockquote><p>Revisa si <code>{AGGREGATE}</code> esta bien modelado como Aggregate Root.</p></blockquote>
+<p><strong>Skill esperada</strong>: <code>analisis-arquitectura</code></p>
+<p><strong>Ejemplo sustituido</strong> (LicenseManager):</p>
+<blockquote><p>Revisa si <code>ContratoLicencia</code> esta bien modelado como Aggregate Root.</p></blockquote>
+<hr>
+<h4 id="test-14--auditoria-seguridad">Test 1.4 · Auditoria seguridad</h4>
+<p><strong>Prompt</strong>:</p>
+<blockquote><p>Audita la seguridad de <code>{CONTROLLER}</code> centrandote en SQL Injection y headers.</p></blockquote>
+<p><strong>Skill esperada</strong>: <code>security-audit</code></p>
+<hr>
+<h4 id="test-15--sincronizacion-azure-devops">Test 1.5 · Sincronizacion Azure DevOps</h4>
+<p><strong>Prompt</strong>:</p>
+<blockquote><p>Configura los Area Paths de este proyecto en Azure DevOps y arregla el Kanban que esta vacio.</p></blockquote>
+<p><strong>Skill esperada</strong>: <code>issue-tracker-sync</code>.</p>
+<blockquote><p>Si esta skill NO se activa tras el update, el plugin no se actualizo bien o el motor no tiene la skill registrada. Re-ejecutar <code>claude plugin update hv@ovillo</code>.</p></blockquote>
+<hr>
+<h4 id="test-16--no-activar-con-mencion-de-jira">Test 1.6 · NO activar con mencion de Jira</h4>
+<p><strong>Prompt</strong>:</p>
+<blockquote><p>Crea un issue en Jira y vinculalo a este repo.</p></blockquote>
+<p><strong>Skill esperada</strong>: <strong>NO</strong> <code>issue-tracker-sync</code>. Debe activar la skill de Jira (si existe) o responder sin skills cuando Jira no esta configurado.</p>
+<hr>
+</section>
+<section class="sec" id="sec-como-ejecutarlo">
+<h3 id="como-ejecutarlo">Como ejecutarlo</h3>
+<h4 id="opcion-a--manual">Opcion A · Manual</h4>
+<p>Por cada test, lanzar Claude en una terminal con <code>--debug</code>:</p>
+<pre data-lang="powershell"><code>claude --debug -p <span class="tk-s">&quot;Necesito un CRUD completo para LicenseApplication&quot;</span> <span class="tk-n">2</span>&gt;&amp;<span class="tk-n">1</span> |
+  Select-String -Pattern <span class="tk-s">&quot;loading skill:|activating skill:|trigger skill:&quot;</span></code></pre>
+<p>Si aparece <code>loading skill: generador-crud</code> → <strong>PASS</strong>. Si aparece cualquier otra skill o ninguna → <strong>FAIL</strong>.</p>
+<h4 id="opcion-b--script-semi-automatico">Opcion B · Script (semi-automatico)</h4>
+<p>Guarda los 6 prompts en un fichero <code>prompts.txt</code> y procesalos en bucle:</p>
+<pre data-lang="powershell"><code><span class="tk-v">$tests</span> = @(
+    @{ prompt = <span class="tk-s">&quot;Necesito un CRUD completo para LicenseApplication&quot;</span>;        expected = <span class="tk-s">&quot;generador-crud&quot;</span> },
+    @{ prompt = <span class="tk-s">&quot;Quiero un endpoint que devuelva licencias activas&quot;</span>;       expected = <span class="tk-s">&quot;NONE&quot;</span> },
+    @{ prompt = <span class="tk-s">&quot;Revisa si ContratoLicencia es un Aggregate Root&quot;</span>;         expected = <span class="tk-s">&quot;analisis-arquitectura&quot;</span> },
+    @{ prompt = <span class="tk-s">&quot;Audita ScholarshipApplicationController contra SQL Injection&quot;</span>;         expected = <span class="tk-s">&quot;security-audit&quot;</span> },
+    @{ prompt = <span class="tk-s">&quot;Configura Area Paths y arregla el Kanban vacio&quot;</span>;          expected = <span class="tk-s">&quot;issue-tracker-sync&quot;</span> },
+    @{ prompt = <span class="tk-s">&quot;Crea los issues del backlog en GitHub con labels de area y el milestone del sprint&quot;</span>; expected = <span class="tk-s">&quot;issue-tracker-sync&quot;</span> },
+    @{ prompt = <span class="tk-s">&quot;Crea un issue en Jira&quot;</span>;                                   expected = <span class="tk-s">&quot;NONE&quot;</span> }
+)
+
+<span class="tk-v">$pass</span> = <span class="tk-n">0</span>
+<span class="tk-k">foreach</span> (<span class="tk-v">$t</span> <span class="tk-k">in</span> <span class="tk-v">$tests</span>) {
+    <span class="tk-v">$log</span> = claude --debug -p <span class="tk-v">$t</span>.prompt <span class="tk-n">2</span>&gt;&amp;<span class="tk-n">1</span>
+    <span class="tk-v">$match</span> = (<span class="tk-v">$log</span> | Select-String <span class="tk-s">&quot;loading skill: $($t.expected)&quot;</span>).Count
+    <span class="tk-k">if</span> (<span class="tk-v">$t</span>.expected -eq <span class="tk-s">&quot;NONE&quot;</span>) {
+        <span class="tk-v">$noSkillMsg</span> = <span class="tk-v">$log</span> | Select-String <span class="tk-s">&quot;loading skill:&quot;</span>
+        <span class="tk-k">if</span> (-not <span class="tk-v">$noSkillMsg</span>) { Write-Host <span class="tk-s">&quot;PASS (no skill): $($t.prompt)&quot;</span>; <span class="tk-v">$pass</span>++ }
+        <span class="tk-k">else</span> { Write-Host <span class="tk-s">&quot;FAIL (activo skill inesperada): $($t.prompt)&quot;</span> }
+    } <span class="tk-k">else</span> {
+        <span class="tk-k">if</span> (<span class="tk-v">$match</span> -gt <span class="tk-n">0</span>) { Write-Host <span class="tk-s">&quot;PASS: $($t.prompt) -&gt; $($t.expected)&quot;</span>; <span class="tk-v">$pass</span>++ }
+        <span class="tk-k">else</span> { Write-Host <span class="tk-s">&quot;FAIL: $($t.prompt) (esperado $($t.expected))&quot;</span> }
+    }
+}
+Write-Host <span class="tk-s">&quot;&quot;</span>
+Write-Host <span class="tk-s">&quot;Resultado: $pass / $($tests.Count)&quot;</span>
+<span class="tk-k">if</span> (<span class="tk-v">$pass</span> -lt <span class="tk-v">$tests</span>.Count) { <span class="tk-k">exit</span> <span class="tk-n">1</span> }</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-criterios-de-aceptacion">
+<h3 id="criterios-de-aceptacion">Criterios de aceptacion</h3>
+<ul>
+<li><strong>PASS</strong> si 5/6 o mas tests pasan.</li>
+<li><strong>FAIL</strong> si 4/6 o menos pasan → abrir Work Item «Eval gap» en <code>{ProyectoConstructor}</code>.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-troubleshooting">
+<h3 id="troubleshooting">Troubleshooting</h3>
+<div class="tbl"><table><thead><tr><th>Sintoma</th><th>Causa probable</th><th>Accion</th></tr></thead><tbody><tr><td>Ninguna skill se activa</td><td><code>claude plugin update hv@ovillo</code> no copio las skills</td><td>Re-ejecutar update</td></tr><tr><td>Siempre activa la misma skill</td><td>Description sobre-pesca</td><td>Abrir issue «Eval gap» con los 2 prompts conflictivos</td></tr><tr><td><code>issue-tracker-sync</code> no activa (test 1.5)</td><td>Version del ecosistema anterior</td><td>Actualizar ecosistema</td></tr><tr><td><code>generador-crud</code> activa en test 1.2</td><td>Description captura consultas</td><td>Documentar negativo, abrir Work Item</td></tr></tbody></table></div>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/.claude/smoke-tests/01-activation.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/issue-tracker-sync.html">issue-tracker-sync</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a><a class="next" href="../guias/02-compilation.html"><small>Siguiente</small>Smoke 02 · Compilacion</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/smoke-tests/01-activation.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#pre-requisitos">Pre-requisitos</a></li><li class="l2"><a href="#los-tests">Los tests</a></li><li class="l3"><a href="#test-11--crud-basico">Test 1.1 · CRUD basico</a></li><li class="l3"><a href="#test-12--consulta-puntual-no-debe-activar-crud">Test 1.2 · Consulta puntual (NO debe activar CRUD)</a></li><li class="l3"><a href="#test-13--revision-arquitectura-aggregate-root">Test 1.3 · Revision arquitectura (aggregate root)</a></li><li class="l3"><a href="#test-14--auditoria-seguridad">Test 1.4 · Auditoria seguridad</a></li><li class="l3"><a href="#test-15--sincronizacion-azure-devops">Test 1.5 · Sincronizacion Azure DevOps</a></li><li class="l3"><a href="#test-16--no-activar-con-mencion-de-jira">Test 1.6 · NO activar con mencion de Jira</a></li><li class="l2"><a href="#como-ejecutarlo">Como ejecutarlo</a></li><li class="l3"><a href="#opcion-a--manual">Opcion A · Manual</a></li><li class="l3"><a href="#opcion-b--script-semi-automatico">Opcion B · Script (semi-automatico)</a></li><li class="l2"><a href="#criterios-de-aceptacion">Criterios de aceptacion</a></li><li class="l2"><a href="#troubleshooting">Troubleshooting</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

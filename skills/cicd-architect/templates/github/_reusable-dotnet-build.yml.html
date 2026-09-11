@@ -1,0 +1,132 @@
+<!doctype html><html lang="es" data-rel="../../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · templates/github/_reusable-dotnet-build.yml.template · Ovillo</title><meta name="description" content="Fichero templates/github/_reusable-dotnet-build.yml.template de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · templates/github/_reusable-dotnet-build.yml.template · Ovillo"><meta property="og:description" content="Fichero templates/github/_reusable-dotnet-build.yml.template de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../../index.html">Inicio</a></li><li><a href="../../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../../curso/index.html">Curso</a></li><li><a href="../../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../../patron.html">Patrón</a></li><li><a href="../../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../../referencia-config.html">Configuración</a></li><li><a href="../../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../../changelog.html">Versiones</a></li><li><a href="../../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../../buscar.html">Buscar</a></li><li><a href="../../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html" class="cur">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../../index.html">Inicio</a></span><span><a href="../../../../skills/index.html">Skills</a></span><span><a href="../../../../skills/cicd-architect.html">cicd-architect</a></span><span>templates</span><span>_reusable-dotnet-build.yml.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>templates/</span><span>4901 B</span></div><h1>_reusable-dotnet-build.yml.template</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>4901 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code><span class="tk-c"># =============================================================================</span>
+<span class="tk-c"># {{PROYECTO_NOMBRE}} — Reusable workflow: build + test + coverage + security-scan (+ publish)</span>
+<span class="tk-c"># Ovillo cicd-architect github-reusable @ {{TEMPLATE_STAMP}}   (sello de plantilla; /cicd-status detecta drift)</span>
+<span class="tk-c"># Reglas: cicd-runtime G1-G19 (G15 permisos minimos, G16 pin por SHA, G8 verdict-file, G10 retention)</span>
+<span class="tk-c"># Materializado por /cicd-init en .github/workflows/_reusable-dotnet-build.yml (una vez por repo).</span>
+<span class="tk-c"># Lo consumen cd-&lt;slug&gt;.yml (Fase 2). Se ejecuta con el GITHUB_TOKEN de solo lectura del caller.</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># Scripts que ejecuta y que /cicd-init materializa en el repo (CI no puede leer el plugin):</span>
+<span class="tk-c">#   ops/cicd/scripts/security-scan.ps1        (G8, via .github/actions/security-scan)</span>
+<span class="tk-c"># =============================================================================</span>
+name: Reusable .NET build
+
+<span class="tk-k">on</span>:
+  workflow_call:
+    inputs:
+      solution-path:
+        description: <span class="tk-s">'Objetivo de compilacion: ruta a la .sln, .slnx o al .csproj unico (el SDK acepta los tres)'</span>
+        required: <span class="tk-k">true</span>
+        type: string
+      dotnet-version:
+        required: <span class="tk-k">false</span>
+        type: string
+        default: <span class="tk-s">'{{NET_VERSION}}'</span>
+      test-filter:
+        description: <span class="tk-s">'Filtro de dotnet test (vacio = todos)'</span>
+        required: <span class="tk-k">false</span>
+        type: string
+        default: <span class="tk-s">''</span>
+      runsettings:
+        description: <span class="tk-s">'runsettings de cobertura (vacio = sin --settings)'</span>
+        required: <span class="tk-k">false</span>
+        type: string
+        default: <span class="tk-s">'ops/testing/coverlet.runsettings'</span>
+      api-project:
+        description: <span class="tk-s">'csproj del entrypoint a publicar (vacio = no publica)'</span>
+        required: <span class="tk-k">false</span>
+        type: string
+        default: <span class="tk-s">''</span>
+      artifact-name:
+        required: <span class="tk-k">false</span>
+        type: string
+        default: <span class="tk-s">'publish'</span>
+      runner:
+        required: <span class="tk-k">false</span>
+        type: string
+        default: <span class="tk-s">'ubuntu-latest'</span>
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: <span class="tk-v">${{ inputs.runner }}</span>
+    timeout-minutes: <span class="tk-n">20</span>
+    env:
+      <span class="tk-c"># G17: las entradas van por env y se leen como &quot;$VAR&quot; (nunca ${{ inputs.* }} dentro de run:)</span>
+      SOLUTION_PATH: <span class="tk-v">${{ inputs.solution-path }}</span>
+      TEST_FILTER: <span class="tk-v">${{ inputs.test-filter }}</span>
+      RUNSETTINGS: <span class="tk-v">${{ inputs.runsettings }}</span>
+      API_PROJECT: <span class="tk-v">${{ inputs.api-project }}</span>
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 <span class="tk-c"># v6.0.0</span>
+        with:
+          dotnet-version: <span class="tk-v">${{ inputs.dotnet-version }}</span>
+
+      - name: Cache NuGet packages
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 <span class="tk-c"># v6.1.0</span>
+        with:
+          path: ~/.nuget/packages
+          key: nuget-<span class="tk-v">${{ runner.os }}</span>-<span class="tk-v">${{ hashFiles('**/*.csproj', '**/Directory.Packages.props') }}</span>
+          restore-keys: nuget-<span class="tk-v">${{ runner.os }}</span>-
+
+      - name: Restore
+        run: dotnet restore <span class="tk-s">&quot;${{ env.SOLUTION_PATH }}&quot;</span>
+
+      - name: Build
+        run: dotnet build <span class="tk-s">&quot;${{ env.SOLUTION_PATH }}&quot;</span> --no-restore --configuration Release
+
+      - name: Test
+        <span class="tk-c"># Rama condicional (a): sin proyecto de test, /cicd-init elimina este step y 'Upload coverage'.</span>
+        shell: bash
+        run: |
+          args=(--no-build --configuration Release --results-directory TestResults)
+          [ -n <span class="tk-s">&quot;${TEST_FILTER}&quot;</span> ] &amp;&amp; args+=(--filter <span class="tk-s">&quot;${TEST_FILTER}&quot;</span>)
+          [ -n <span class="tk-s">&quot;${RUNSETTINGS}&quot;</span> ] &amp;&amp; [ -f <span class="tk-s">&quot;${RUNSETTINGS}&quot;</span> ] &amp;&amp; args+=(--settings <span class="tk-s">&quot;${RUNSETTINGS}&quot;</span>)
+          dotnet test <span class="tk-s">&quot;${SOLUTION_PATH}&quot;</span> <span class="tk-s">&quot;${args[@]}&quot;</span>
+
+      - name: Upload coverage
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a <span class="tk-c"># v7.0.1</span>
+        with:
+          name: coverage-<span class="tk-v">${{ github.run_number }}</span>
+          path: |
+            TestResults/**/coverage.cobertura.xml
+            TestResults/**/coverage.opencover.xml
+          if-no-files-found: ignore
+          retention-days: <span class="tk-n">14</span>
+
+      - name: Coverage gate (G7, warn)
+        if: always()
+        uses: ./.github/actions/coverage-gate
+        with:
+          path: TestResults
+          threshold-line: <span class="tk-s">'70'</span>
+          threshold-branch: <span class="tk-s">'60'</span>
+          mode: warn
+
+      - name: Security scan (G8, verdict-file; <span class="tk-k">no</span> tumba el build)
+        if: always()
+        uses: ./.github/actions/security-scan
+        with:
+          stack: dotnet
+          solution-path: <span class="tk-v">${{ inputs.solution-path }}</span>
+          api-project: <span class="tk-v">${{ inputs.api-project }}</span>
+
+      - name: Publish
+        if: inputs.api-project != <span class="tk-s">''</span>
+        run: dotnet publish <span class="tk-s">&quot;${{ env.API_PROJECT }}&quot;</span> --configuration Release --no-build --output ./publish
+
+      - name: Upload publish artifact
+        if: inputs.api-project != <span class="tk-s">''</span>
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a <span class="tk-c"># v7.0.1</span>
+        with:
+          name: <span class="tk-v">${{ inputs.artifact-name }}</span>-<span class="tk-v">${{ github.sha }}</span>
+          path: ./publish
+          retention-days: <span class="tk-n">30</span>
+</code></pre><p style="margin-top:32px"><a href="../../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../../skills/cicd-architect/templates/Get-TemplateStamp.html"><small>Anterior</small>templates/Get-TemplateStamp.ps1</a><a class="next" href="../../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html"><small>Siguiente</small>templates/github/actions/coverage-gate/action.yml.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../../recursos/search-index.js" defer></script><script src="../../../../recursos/portal.js" defer></script></body></html>

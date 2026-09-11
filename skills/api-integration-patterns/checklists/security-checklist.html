@@ -1,0 +1,240 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · checklists/security-checklist.md · Ovillo</title><meta name="description" content="Fichero checklists/security-checklist.md de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · checklists/security-checklist.md · Ovillo"><meta property="og:description" content="Fichero checklists/security-checklist.md de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/checklists/security-checklist.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/checklists/security-checklist.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/checklists/security-checklist.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html" class="cur">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>checklists</span><span>security-checklist.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>checklists/</span></div><h1>security-checklist.md</h1><p class="lede">Referencia que <code>api-integration-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>checklists</b><span>carpeta</span></div><div><b>7288 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Versión</strong>: 1.0.0 <strong>Uso</strong>: Verificar aspectos de seguridad antes de desplegar integración API <strong>Basado en</strong>: OWASP API Security Top 10</p></blockquote>
+<hr>
+<section class="sec" id="sec-autenticación-y-autorización">
+<h3 id="autenticación-y-autorización">🔒 AUTENTICACIÓN Y AUTORIZACIÓN</h3>
+<h4 id="credenciales">Credenciales</h4>
+<ul>
+<li><input type="checkbox" disabled> <strong>CRÍTICO</strong>: Client Secrets almacenados en Azure Key Vault (NO en código)</li>
+<li><input type="checkbox" disabled> <strong>CRÍTICO</strong>: API Keys almacenados en Azure Key Vault (NO en appsettings.json)</li>
+<li><input type="checkbox" disabled> Credenciales diferentes por ambiente (dev/test/prod)</li>
+<li><input type="checkbox" disabled> Tokens OAuth2 con expiración adecuada (&lt;1 hora)</li>
+<li><input type="checkbox" disabled> Tokens almacenados en IMemoryCache (NO en variables estáticas)</li>
+<li><input type="checkbox" disabled> Renovación automática de tokens implementada</li>
+<li><input type="checkbox" disabled> Secrets rotados periódicamente (cada 90 días mínimo)</li>
+</ul>
+<h4 id="validación-de-tokens">Validación de Tokens</h4>
+<ul>
+<li><input type="checkbox" disabled> Validación de token antes de cada llamada</li>
+<li><input type="checkbox" disabled> Manejo de 401 Unauthorized (invalidar caché, renovar token)</li>
+<li><input type="checkbox" disabled> Manejo de 403 Forbidden (loguear intento, no reintentar)</li>
+<li><input type="checkbox" disabled> Scopes OAuth2 con principio de mínimo privilegio</li>
+<li><input type="checkbox" disabled> Tokens NO logueados (ni en desarrollo)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-transporte-y-cifrado">
+<h3 id="transporte-y-cifrado">🔐 TRANSPORTE Y CIFRADO</h3>
+<h4 id="HTTPS">HTTPS</h4>
+<ul>
+<li><input type="checkbox" disabled> <strong>CRÍTICO</strong>: Solo HTTPS permitido (NO HTTP)</li>
+<li><input type="checkbox" disabled> Validación de certificados SSL habilitada</li>
+<li><input type="checkbox" disabled> TLS 1.2+ requerido (TLS 1.0/1.1 deshabilitados)</li>
+<li><input type="checkbox" disabled> Certificate pinning considerado (APIs críticas)</li>
+<li><input type="checkbox" disabled> Man-in-the-middle (MITM) attacks mitigados</li>
+</ul>
+<h4 id="headers-de-seguridad">Headers de Seguridad</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>X-Content-Type-Options: nosniff</code> configurado</li>
+<li><input type="checkbox" disabled> <code>X-Frame-Options: DENY</code> configurado</li>
+<li><input type="checkbox" disabled> <code>X-XSS-Protection: 1; mode=block</code> configurado</li>
+<li><input type="checkbox" disabled> <code>Strict-Transport-Security</code> (HSTS) configurado</li>
+<li><input type="checkbox" disabled> <code>Content-Security-Policy</code> (CSP) configurado si aplica</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-logging-y-auditoría">
+<h3 id="logging-y-auditoría">📊 LOGGING Y AUDITORÍA</h3>
+<h4 id="datos-sensibles">Datos Sensibles</h4>
+<ul>
+<li><input type="checkbox" disabled> <strong>CRÍTICO</strong>: Passwords NUNCA logueados</li>
+<li><input type="checkbox" disabled> <strong>CRÍTICO</strong>: Tokens NUNCA logueados (ni parciales)</li>
+<li><input type="checkbox" disabled> API Keys NUNCA logueados</li>
+<li><input type="checkbox" disabled> Client Secrets NUNCA logueados</li>
+<li><input type="checkbox" disabled> DNI/NIF/NIE enmascarados en logs (RGPD)</li>
+<li><input type="checkbox" disabled> Emails parcialmente enmascarados (<code>j***@example.com</code>)</li>
+<li><input type="checkbox" disabled> Números de tarjeta enmascarados (si aplica)</li>
+</ul>
+<h4 id="auditoría">Auditoría</h4>
+<ul>
+<li><input type="checkbox" disabled> Llamadas API logueadas con Correlation ID</li>
+<li><input type="checkbox" disabled> Usuario/aplicación que inicia llamada registrado</li>
+<li><input type="checkbox" disabled> Timestamp de cada operación registrado</li>
+<li><input type="checkbox" disabled> Errores de autenticación logueados (intentos fallidos)</li>
+<li><input type="checkbox" disabled> Logs centralizados (Application Insights, Elastic, etc.)</li>
+<li><input type="checkbox" disabled> Retención de logs según normativa (mínimo 1 año)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-validación-de-datos">
+<h3 id="validación-de-datos">⚠️ VALIDACIÓN DE DATOS</h3>
+<h4 id="entrada-request">Entrada (Request)</h4>
+<ul>
+<li><input type="checkbox" disabled> Validación de parámetros antes de enviar a API</li>
+<li><input type="checkbox" disabled> Sanitización de inputs (evitar injection)</li>
+<li><input type="checkbox" disabled> Límites de tamaño implementados (max request size)</li>
+<li><input type="checkbox" disabled> Tipos de datos validados (int, email, url, etc.)</li>
+<li><input type="checkbox" disabled> FluentValidation o DataAnnotations usado</li>
+<li><input type="checkbox" disabled> Caracteres especiales escapados</li>
+</ul>
+<h4 id="salida-response">Salida (Response)</h4>
+<ul>
+<li><input type="checkbox" disabled> Validación de schema de respuesta</li>
+<li><input type="checkbox" disabled> Deserialización con try-catch robusto</li>
+<li><input type="checkbox" disabled> Respuestas inesperadas manejadas sin crash</li>
+<li><input type="checkbox" disabled> XSS mitigado al mostrar datos en UI</li>
+<li><input type="checkbox" disabled> HTML encoding aplicado antes de renderizar</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-rate-limiting-y-dos">
+<h3 id="rate-limiting-y-dos">🚦 RATE LIMITING Y DoS</h3>
+<h4 id="protección">Protección</h4>
+<ul>
+<li><input type="checkbox" disabled> Rate limiting implementado (máx requests/min)</li>
+<li><input type="checkbox" disabled> Circuit breaker configurado (evitar cascada de fallos)</li>
+<li><input type="checkbox" disabled> Timeout configurado (evitar hanging requests)</li>
+<li><input type="checkbox" disabled> Retry con backoff exponencial (NO retry inmediato)</li>
+<li><input type="checkbox" disabled> Máximo de reintentos definido (NO bucles infinitos)</li>
+<li><input type="checkbox" disabled> DoS involuntario evitado (no saturar API externa)</li>
+</ul>
+<h4 id="headers-respetados">Headers Respetados</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>Retry-After</code> header respetado (429 Rate Limit)</li>
+<li><input type="checkbox" disabled> <code>X-RateLimit-*</code> headers interpretados</li>
+<li><input type="checkbox" disabled> Backoff exponencial aplicado en 429/503</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-owasp-api-security-top-10">
+<h3 id="owasp-api-security-top-10">🔍 OWASP API SECURITY TOP 10</h3>
+<h4 id="api1-broken-object-level-authorization">API1: Broken Object Level Authorization</h4>
+<ul>
+<li><input type="checkbox" disabled> IDs de recursos validados antes de enviar</li>
+<li><input type="checkbox" disabled> No exponer IDs internos directamente</li>
+<li><input type="checkbox" disabled> Autorización verificada por recurso</li>
+</ul>
+<h4 id="api2-broken-authentication">API2: Broken Authentication</h4>
+<ul>
+<li><input type="checkbox" disabled> OAuth2 o autenticación robusta implementada</li>
+<li><input type="checkbox" disabled> Tokens con expiración</li>
+<li><input type="checkbox" disabled> Refresh tokens rotados</li>
+</ul>
+<h4 id="api3-broken-object-property-level-authorization">API3: Broken Object Property Level Authorization</h4>
+<ul>
+<li><input type="checkbox" disabled> Solo campos necesarios enviados</li>
+<li><input type="checkbox" disabled> Mass assignment evitado</li>
+<li><input type="checkbox" disabled> DTOs específicos por operación</li>
+</ul>
+<h4 id="api4-unrestricted-resource-consumption">API4: Unrestricted Resource Consumption</h4>
+<ul>
+<li><input type="checkbox" disabled> Rate limiting implementado</li>
+<li><input type="checkbox" disabled> Paginación usada para listados</li>
+<li><input type="checkbox" disabled> Timeouts configurados</li>
+</ul>
+<h4 id="api5-broken-function-level-authorization">API5: Broken Function Level Authorization</h4>
+<ul>
+<li><input type="checkbox" disabled> Permisos verificados antes de operaciones</li>
+<li><input type="checkbox" disabled> Roles/scopes validados</li>
+</ul>
+<h4 id="api6-unrestricted-access-to-sensitive-business-flows">API6: Unrestricted Access to Sensitive Business Flows</h4>
+<ul>
+<li><input type="checkbox" disabled> Operaciones críticas con confirmación adicional</li>
+<li><input type="checkbox" disabled> Alertas en operaciones anómalas</li>
+</ul>
+<h4 id="api7-server-side-request-forgery-ssrf">API7: Server Side Request Forgery (SSRF)</h4>
+<ul>
+<li><input type="checkbox" disabled> URLs validadas antes de requests</li>
+<li><input type="checkbox" disabled> Whitelist de dominios permitidos</li>
+<li><input type="checkbox" disabled> NO permitir URLs arbitrarias del usuario</li>
+</ul>
+<h4 id="api8-security-misconfiguration">API8: Security Misconfiguration</h4>
+<ul>
+<li><input type="checkbox" disabled> Configuración de seguridad revisada</li>
+<li><input type="checkbox" disabled> Secrets en Key Vault (NO hardcodeados)</li>
+<li><input type="checkbox" disabled> HTTPS obligatorio</li>
+<li><input type="checkbox" disabled> Error messages genéricos en producción</li>
+</ul>
+<h4 id="api9-improper-inventory-management">API9: Improper Inventory Management</h4>
+<ul>
+<li><input type="checkbox" disabled> APIs consumidas documentadas</li>
+<li><input type="checkbox" disabled> Versiones de APIs documentadas</li>
+<li><input type="checkbox" disabled> Deprecaciones monitoreadas</li>
+</ul>
+<h4 id="api10-unsafe-consumption-of-apis">API10: Unsafe Consumption of APIs</h4>
+<ul>
+<li><input type="checkbox" disabled> Validación de responses de APIs externas</li>
+<li><input type="checkbox" disabled> No confiar ciegamente en datos externos</li>
+<li><input type="checkbox" disabled> Sanitización de datos recibidos</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-rgpd-y-privacidad">
+<h3 id="rgpd-y-privacidad">🛡️ RGPD Y PRIVACIDAD</h3>
+<h4 id="datos-personales">Datos Personales</h4>
+<ul>
+<li><input type="checkbox" disabled> Datos personales mínimos enviados a API</li>
+<li><input type="checkbox" disabled> Consentimiento del usuario obtenido (si aplica)</li>
+<li><input type="checkbox" disabled> Datos enmascarados en logs y telemetría</li>
+<li><input type="checkbox" disabled> DPO notificado de nueva integración con datos personales</li>
+<li><input type="checkbox" disabled> Transferencias internacionales evaluadas (RGPD Art. 44-50)</li>
+</ul>
+<h4 id="derechos-de-los-interesados">Derechos de los Interesados</h4>
+<ul>
+<li><input type="checkbox" disabled> Procedimiento de acceso implementado (Art. 15 RGPD)</li>
+<li><input type="checkbox" disabled> Procedimiento de rectificación implementado (Art. 16 RGPD)</li>
+<li><input type="checkbox" disabled> Procedimiento de supresión implementado (Art. 17 RGPD)</li>
+<li><input type="checkbox" disabled> Procedimiento de portabilidad implementado (Art. 20 RGPD)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-testing-de-seguridad">
+<h3 id="testing-de-seguridad">🧪 TESTING DE SEGURIDAD</h3>
+<h4 id="pruebas-realizadas">Pruebas Realizadas</h4>
+<ul>
+<li><input type="checkbox" disabled> Secrets scanning ejecutado (no secrets en código)</li>
+<li><input type="checkbox" disabled> Dependency scan ejecutado (vulnerabilidades en NuGets)</li>
+<li><input type="checkbox" disabled> Penetration testing realizado (si API crítica)</li>
+<li><input type="checkbox" disabled> OWASP ZAP scan ejecutado</li>
+<li><input type="checkbox" disabled> Man-in-the-middle test realizado</li>
+</ul>
+<h4 id="casos-de-test">Casos de Test</h4>
+<ul>
+<li><input type="checkbox" disabled> Test con credenciales inválidas</li>
+<li><input type="checkbox" disabled> Test con token expirado</li>
+<li><input type="checkbox" disabled> Test con rate limit excedido</li>
+<li><input type="checkbox" disabled> Test con datos maliciosos (SQL injection, XSS)</li>
+<li><input type="checkbox" disabled> Test con timeouts</li>
+<li><input type="checkbox" disabled> Test con respuestas malformadas</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-red-flags-de-seguridad">
+<h3 id="red-flags-de-seguridad">⚠️ RED FLAGS DE SEGURIDAD</h3>
+<ul>
+<li><input type="checkbox" disabled> ❌ Secrets hardcodeados en código</li>
+<li><input type="checkbox" disabled> ❌ HTTP en lugar de HTTPS</li>
+<li><input type="checkbox" disabled> ❌ Validación de certificados SSL deshabilitada</li>
+<li><input type="checkbox" disabled> ❌ Tokens logueados</li>
+<li><input type="checkbox" disabled> ❌ Passwords en logs</li>
+<li><input type="checkbox" disabled> ❌ Retry ilimitado (DoS involuntario)</li>
+<li><input type="checkbox" disabled> ❌ Deserialización sin validación</li>
+<li><input type="checkbox" disabled> ❌ Datos personales sin enmascarar en logs</li>
+<li><input type="checkbox" disabled> ❌ API Keys en appsettings.json (deben estar en Key Vault)</li>
+<li><input type="checkbox" disabled> ❌ Errores con stack traces en producción</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-aprobaciones-requeridas">
+<h3 id="aprobaciones-requeridas">📋 APROBACIONES REQUERIDAS</h3>
+<ul>
+<li><input type="checkbox" disabled> Code review de seguridad completado</li>
+<li><input type="checkbox" disabled> Aprobación del Security Champion del equipo</li>
+<li><input type="checkbox" disabled> Aprobación del DPO (si hay datos personales)</li>
+<li><input type="checkbox" disabled> Aprobación del responsable de infraestructura</li>
+<li><input type="checkbox" disabled> Penetration testing aprobado (si API crítica)</li>
+</ul>
+<hr>
+<p><strong>Progreso</strong>: ___/80 items completados</p>
+<p><strong>Severidad Alta detectada</strong>: ___ <strong>Severidad Media detectada</strong>: ___ <strong>Severidad Baja detectada</strong>: ___</p>
+<p><em>Checklist: security-checklist - Ovillo</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html"><small>Anterior</small>checklists/api-integration-checklist.md</a><a class="next" href="../../../skills/api-integration-patterns/eval-set.html"><small>Siguiente</small>eval-set.json</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/checklists/security-checklist.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#autenticación-y-autorización">🔒 AUTENTICACIÓN Y AUTORIZACIÓN</a></li><li class="l3"><a href="#credenciales">Credenciales</a></li><li class="l3"><a href="#validación-de-tokens">Validación de Tokens</a></li><li class="l2"><a href="#transporte-y-cifrado">🔐 TRANSPORTE Y CIFRADO</a></li><li class="l3"><a href="#HTTPS">HTTPS</a></li><li class="l3"><a href="#headers-de-seguridad">Headers de Seguridad</a></li><li class="l2"><a href="#logging-y-auditoría">📊 LOGGING Y AUDITORÍA</a></li><li class="l3"><a href="#datos-sensibles">Datos Sensibles</a></li><li class="l3"><a href="#auditoría">Auditoría</a></li><li class="l2"><a href="#validación-de-datos">⚠️ VALIDACIÓN DE DATOS</a></li><li class="l3"><a href="#entrada-request">Entrada (Request)</a></li><li class="l3"><a href="#salida-response">Salida (Response)</a></li><li class="l2"><a href="#rate-limiting-y-dos">🚦 RATE LIMITING Y DoS</a></li><li class="l3"><a href="#protección">Protección</a></li><li class="l3"><a href="#headers-respetados">Headers Respetados</a></li><li class="l2"><a href="#owasp-api-security-top-10">🔍 OWASP API SECURITY TOP 10</a></li><li class="l3"><a href="#api1-broken-object-level-authorization">API1: Broken Object Level Authorization</a></li><li class="l3"><a href="#api2-broken-authentication">API2: Broken Authentication</a></li><li class="l3"><a href="#api3-broken-object-property-level-authorization">API3: Broken Object Property Level Authorization</a></li><li class="l3"><a href="#api4-unrestricted-resource-consumption">API4: Unrestricted Resource Consumption</a></li><li class="l3"><a href="#api5-broken-function-level-authorization">API5: Broken Function Level Authorization</a></li><li class="l3"><a href="#api6-unrestricted-access-to-sensitive-business-flows">API6: Unrestricted Access to Sensitive Business Flows</a></li><li class="l3"><a href="#api7-server-side-request-forgery-ssrf">API7: Server Side Request Forgery (SSRF)</a></li><li class="l3"><a href="#api8-security-misconfiguration">API8: Security Misconfiguration</a></li><li class="l3"><a href="#api9-improper-inventory-management">API9: Improper Inventory Management</a></li><li class="l3"><a href="#api10-unsafe-consumption-of-apis">API10: Unsafe Consumption of APIs</a></li><li class="l2"><a href="#rgpd-y-privacidad">🛡️ RGPD Y PRIVACIDAD</a></li><li class="l3"><a href="#datos-personales">Datos Personales</a></li><li class="l3"><a href="#derechos-de-los-interesados">Derechos de los Interesados</a></li><li class="l2"><a href="#testing-de-seguridad">🧪 TESTING DE SEGURIDAD</a></li><li class="l3"><a href="#pruebas-realizadas">Pruebas Realizadas</a></li><li class="l3"><a href="#casos-de-test">Casos de Test</a></li><li class="l2"><a href="#red-flags-de-seguridad">⚠️ RED FLAGS DE SEGURIDAD</a></li><li class="l2"><a href="#aprobaciones-requeridas">📋 APROBACIONES REQUERIDAS</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

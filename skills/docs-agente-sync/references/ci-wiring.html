@@ -1,0 +1,75 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>docs-agente-sync · references/ci-wiring.md · Ovillo</title><meta name="description" content="Fichero references/ci-wiring.md de la skill docs-agente-sync"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="docs-agente-sync · references/ci-wiring.md · Ovillo"><meta property="og:description" content="Fichero references/ci-wiring.md de la skill docs-agente-sync"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/docs-agente-sync/references/ci-wiring.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/docs-agente-sync/references/ci-wiring.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/docs-agente-sync/references/ci-wiring.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de docs-agente-sync (6)</h4><ul class="sibs"><li><a href="../../../skills/docs-agente-sync/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/docs-agente-sync/references/ci-wiring.html" class="cur">references/ci-wiring.md</a></li><li><a href="../../../skills/docs-agente-sync/references/hub-contract.html">references/hub-contract.md</a></li><li><a href="../../../skills/docs-agente-sync/references/workflow-docs-sync.html">references/workflow-docs-sync.md</a></li><li><a href="../../../skills/docs-agente-sync/scripts/Get-SourceStamp.html">scripts/Get-SourceStamp.ps1</a></li><li><a href="../../../skills/docs-agente-sync/scripts/Sync-AgentDoc.html">scripts/Sync-AgentDoc.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/docs-agente-sync.html">docs-agente-sync</a></span><span>references</span><span>ci-wiring.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>docs-agente-sync</span><span>references/</span></div><h1>ci-wiring.md</h1><p class="lede">Referencia que <code>docs-agente-sync</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/docs-agente-sync.html">docs-agente-sync</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>4949 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><p class="lede">Cómo conectar el productor de DOC en CI para que <strong>cada build registre el estado de la documentación-de-agente</strong> en el Hub y <strong>avise si quedó stale</strong> respecto al código.</p>
+<blockquote><p>Principio: la documentación <strong>NO gatea el build</strong> (best-effort, <code>continueOnError: true</code> + el script sale 0 ante fallo). Mismo contrato que <code>calidad-codigo-sync</code>. La doctrina de re-generado es <strong>on-demand</strong> (R20): el build <em>avisa</em> del drift, tú decides regenerar con <code>/analisis-arquitectura --agente</code>.</p></blockquote>
+<section class="sec" id="sec-dónde-encaja-en-el-flujo">
+<h3 id="dónde-encaja-en-el-flujo">Dónde encaja en el flujo</h3>
+<pre><code>/analisis-arquitectura --agente   -&gt;  genera docs/agente/&lt;slug&gt;.md  (sellados)   [on-demand, tú]
+        |
+        v
+docs-agente-sync (este paso CI)   -&gt;  lee docs, recomputa srcStamp, publica DOC   [cada build]
+        |
+        v
+Hub  register_agentdoc            -&gt;  dashboard del portfolio ve drift + tokens    [server-side]</code></pre>
+<p>El paso CI <strong>no genera</strong> nada: si <code>docs/agente/</code> está vacía, sale 0 con un aviso. Solo registra y detecta drift de lo que ya existe en el repo.</p>
+</section>
+<section class="sec" id="sec-1-step-best-effort-en-el-stage-build-tras-los-tests">
+<h3 id="1-step-best-effort-en-el-stage-build-tras-los-tests">1. Step best-effort en el stage Build (tras los tests)</h3>
+<pre data-lang="yaml"><code>- task: PowerShell@<span class="tk-n">2</span>
+  displayName: <span class="tk-s">'Sync docs de agente (DOC) al Hub Ovillo'</span>
+  continueOnError: <span class="tk-k">true</span>          <span class="tk-c"># best-effort: la doc no tumba el build</span>
+  inputs:
+    targetType: filePath
+    filePath: <span class="tk-s">'$(Build.SourcesDirectory)/ops/cicd/scripts/Sync-AgentDoc.ps1'</span>   <span class="tk-c"># copiado por /cicd-init desde la skill (el agente no tiene el plugin)</span>
+    arguments: &gt;-
+      -ProjectId <span class="tk-v">$(HubProjectId)</span>
+      -DocsDir docs/agente
+      -SourceRoot src
+      -TokenBudget <span class="tk-n">4000</span>
+      -ApiKey <span class="tk-v">$(HUB_SERVICE_KEY)</span>
+      -BuildId <span class="tk-v">$(Build.BuildId)</span>
+      -CodeSearchBase <span class="tk-s">'https://devops.example.org/$(System.TeamProject)/_search?type=code&amp;text='</span>
+  env:
+    HUB_SERVICE_KEY: <span class="tk-v">$(HUB_SERVICE_KEY)</span>   <span class="tk-c"># R16: secreto del Variable Group</span></code></pre>
+<ul>
+<li><code>-ApiKey $(HUB_SERVICE_KEY)</code>: <strong>solo en CI</strong> (la ejecuta el pipeline, no una persona). El DOC queda atribuido a <code>'ci'</code>. En local <strong>no</strong> se pasa.</li>
+<li>El helper <code>Get-SourceStamp.ps1</code> (hermano de este script en <code>scripts/</code>) se autodetecta y calcula el hash del subarbol de fuente. Misma normalizacion EOL que <code>Get-TemplateStamp</code> pero fichero aparte, para NO tocar el helper critico de cicd. Generacion y sync llaman al MISMO helper.</li>
+</ul>
+<p><strong>GitHub Actions</strong> (job tras <code>build</code>, en <code>cd-&lt;slug&gt;.yml</code>; el script vive en <code>ops/cicd/scripts/</code> porque el runner no tiene el plugin):</p>
+<pre data-lang="yaml"><code>  docs:
+    name: Agent docs
+    runs-on: ubuntu-latest
+    needs: build
+    if: always() &amp;&amp; needs.build.result != <span class="tk-s">'cancelled'</span>
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+      - name: Sync docs de agente (DOC) al Hub Ovillo
+        continue-on-error: <span class="tk-k">true</span>          <span class="tk-c"># best-effort: la doc no tumba el workflow</span>
+        shell: pwsh
+        env:
+          HUB_SERVICE_KEY: <span class="tk-v">${{ secrets.HUB_SERVICE_KEY }}</span>     <span class="tk-c"># G5: secreto de repositorio, misma key que quality-sync</span>
+          HUB_PROJECT_ID: <span class="tk-v">${{ vars.HUB_PROJECT_ID }}</span>
+        run: |
+          if (-not $env:HUB_SERVICE_KEY) { Write-Host <span class="tk-s">&quot;::warning::HUB_SERVICE_KEY vacia; DOC no publicado&quot;</span>; exit <span class="tk-n">0</span> }
+          ./ops/cicd/scripts/Sync-AgentDoc.ps1 -ProjectId $env:HUB_PROJECT_ID -DocsDir docs/agente -SourceRoot src -TokenBudget <span class="tk-n">4000</span> `
+            -ApiKey $env:HUB_SERVICE_KEY -BuildId $env:GITHUB_RUN_NUMBER -CodeSearchBase <span class="tk-s">&quot;https://github.com/$env:GITHUB_REPOSITORY/search?q=&quot;</span></code></pre>
+</section>
+<section class="sec" id="sec-2-variables--prerrequisitos">
+<h3 id="2-variables--prerrequisitos">2. Variables / prerrequisitos</h3>
+<div class="tbl"><table><thead><tr><th>Requisito</th><th>Cómo</th></tr></thead><tbody><tr><td><code>HUB_SERVICE_KEY</code> en el Variable Group secreto</td><td>R16. Emisión: <code>EXEC mcp.EmitirServiceKey @Label='ci-docs'</code> (una vez, plaintext → VG, nunca al chat). Reutiliza la misma service-key del proyecto que ya usa <code>calidad-codigo-sync</code>.</td></tr><tr><td><code>HubProjectId</code></td><td>GUID del proyecto en el Hub (de <code>_hilo/.mcp-project.json</code>). En GitHub: variable <code>HUB_PROJECT_ID</code>.</td></tr><tr><td>Tool <code>register_agentdoc</code> desplegada en el Hub</td><td>Ver <code>hub-contract.md</code>. Sin ella, el step corre en modo <code>[SKIP]</code> (404) — inofensivo.</td></tr></tbody></table></div>
+</section>
+<section class="sec" id="sec-3-opt-in-vs-opt-out">
+<h3 id="3-opt-in-vs-opt-out">3. Opt-in vs opt-out</h3>
+<p>A diferencia de <code>quality-sync</code> (incluido por defecto en <code>/hv:cicd-init</code> Fase 2 .NET ), <code>docs-agente-sync</code> es <strong>opt-in</strong> hasta que exista un proyecto piloto con <code>docs/agente/</code> poblada. Cuando se valide, <code>cicd-architect</code> puede hornear el step en el template <code>fase2.dotnet</code> igual que hizo con el de calidad. <strong>No</strong> lo metas en el scaffolding hasta tener el piloto.</p>
+</section>
+<section class="sec" id="sec-4-interpretar-la-salida">
+<h3 id="4-interpretar-la-salida">4. Interpretar la salida</h3>
+<pre><code>[docs-sync] MyCompany.X.Api          drift=fresh  tokens=2180  gate=PASS
+[docs-sync] MyCompany.X.Web          drift=stale  tokens=3990  gate=WARN
+[docs-sync] Publicados 2 DOC en el Hub. (respuesta: ok)</code></pre>
+<ul>
+<li><code>drift=stale</code> → el código del entrypoint cambió desde que se generó el doc. Regenera on-demand: <code>/analisis-arquitectura --agente</code> sobre ese entrypoint.</li>
+<li><code>gate=WARN</code> por <code>tokens &gt; TokenBudget</code> → el doc de agente engordó; poda o divide (context-optimization).</li>
+<li><code>[SKIP]</code> (404) → falta la tool de Hub; no es un fallo del proyecto.</li>
+</ul>
+</section><p style="margin-top:32px"><a href="../../../skills/docs-agente-sync.html#ficheros">← Volver a la ficha de docs-agente-sync</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/docs-agente-sync/eval-set.html"><small>Anterior</small>eval-set.json</a><a class="next" href="../../../skills/docs-agente-sync/references/hub-contract.html"><small>Siguiente</small>references/hub-contract.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/docs-agente-sync/references/ci-wiring.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#dónde-encaja-en-el-flujo">Dónde encaja en el flujo</a></li><li class="l2"><a href="#1-step-best-effort-en-el-stage-build-tras-los-tests">1. Step best-effort en el stage Build (tras los tests)</a></li><li class="l2"><a href="#2-variables--prerrequisitos">2. Variables / prerrequisitos</a></li><li class="l2"><a href="#3-opt-in-vs-opt-out">3. Opt-in vs opt-out</a></li><li class="l2"><a href="#4-interpretar-la-salida">4. Interpretar la salida</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

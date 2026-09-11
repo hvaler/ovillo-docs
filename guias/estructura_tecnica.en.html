@@ -1,0 +1,593 @@
+<!doctype html><html lang="en" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Technical Structure Document · Ovillo</title><meta name="description" content="Technical guide for projects from the organization."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Technical Structure Document · Ovillo"><meta property="og:description" content="Technical guide for projects from the organization."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/estructura_tecnica.en.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/estructura_tecnica.en.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/estructura_tecnica.en.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 01_Estructura_Tecnica (2)</h4><ul class="sibs"><li><a href="../guias/estructura_tecnica.en.html" class="cur">Technical Structure Document</a></li><li><a href="../guias/guia_arquitectura.en.html">Architecture and Patterns Guide</a></li></ul></aside><main id="principal" lang="en"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 01_Estructura_Tecnica</span><span>Technical Structure Document</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 01_Estructura_Tecnica</span><span>english</span><span><a href="../guias/estructura_tecnica.html">versión en español</a></span></div><h1>Technical Structure Document</h1><p class="lede">Technical guide for projects from the organization.</p><div class="meta-grid"><div><b>5 min</b><span>lectura</span></div><div><b>1098</b><span>palabras</span></div><div><b>13</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>2</b><span>cambios</span></div></div><p class="lede">Technical guide for projects from the organization.</p>
+<hr>
+<section class="sec" id="sec-1-technology-stack">
+<h3 id="1-technology-stack">1. Technology Stack</h3>
+<h4 id="11-recommended-technologies-microsoft">1.1 Recommended Technologies (Microsoft)</h4>
+<div class="tbl"><table><thead><tr><th>Layer</th><th>Technology</th><th>Version</th><th>Justification</th></tr></thead><tbody><tr><td>Backend</td><td>.NET / C#</td><td>8+ LTS</td><td>Corporate standard, long-term support</td></tr><tr><td>Data access</td><td>Dapper</td><td>Latest stable</td><td>Performance, SQL control</td></tr><tr><td>Database</td><td>SQL Server</td><td>2017 (14.0)</td><td>Existing infrastructure</td></tr><tr><td>DB Collation</td><td>SQL_Latin1_General_CP1250_CI_AS</td><td>-</td><td>Production compatibility</td></tr><tr><td>Cloud</td><td>Azure</td><td>-</td><td>Corporate contract</td></tr><tr><td>Containers</td><td>Docker</td><td>-</td><td>Environment standardization</td></tr><tr><td>Cache</td><td>Redis</td><td>7+</td><td>Distributed cache for load balancing</td></tr><tr><td>Storage</td><td>Azure Blob Storage</td><td>-</td><td>Files in load-balanced infrastructure</td></tr></tbody></table></div>
+<h4 id="12-permitted-technologies-with-justification">1.2 Permitted Technologies (with justification)</h4>
+<div class="tbl"><table><thead><tr><th>Category</th><th>Alternatives</th><th>When to use</th></tr></thead><tbody><tr><td>Data access</td><td>ADO.NET, EF Core</td><td>Legacy projects, specific requirements</td></tr><tr><td>Database</td><td>Oracle</td><td>Integration with existing systems</td></tr><tr><td>Frontend</td><td>React, Angular</td><td>Client requirements, specialized team</td></tr><tr><td>Cloud</td><td>AWS</td><td>Explicit client requirement</td></tr></tbody></table></div>
+<p><strong>Process for using alternative technology:</strong></p>
+<ol>
+<li>Developer proposes alternative with technical justification</li>
+<li>PM and Technical Lead evaluate impact and feasibility</li>
+<li>Decision is documented in the project</li>
+<li>This document is updated if applicable to more projects</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-2-reference-architecture">
+<h3 id="2-reference-architecture">2. Reference Architecture</h3>
+<h4 id="21-pattern-clean-architecture">2.1 Pattern: Clean Architecture</h4>
+<pre><code>Solution/
+├── Project.API/              # Presentation layer
+│   ├── Controllers/
+│   ├── Middleware/
+│   └── Program.cs
+│
+├── Project.Application/      # Use cases
+│   ├── Services/
+│   ├── DTOs/
+│   └── Interfaces/
+│
+├── Project.Domain/           # Entities and business logic
+│   ├── Entities/
+│   ├── ValueObjects/
+│   └── Exceptions/
+│
+├── Project.Infrastructure/   # External implementations
+│   ├── Repositories/
+│   ├── ExternalServices/
+│   ├── BlobStorage/          # Azure Blob services
+│   └── Persistence/
+│
+└── Project.Tests/            # Tests
+    ├── Unit/
+    └── Integration/</code></pre>
+<h4 id="22-mandatory-principles">2.2 Mandatory Principles</h4>
+<ul>
+<li><input type="checkbox" disabled> Separation of concerns by layers</li>
+<li><input type="checkbox" disabled> Dependency injection</li>
+<li><input type="checkbox" disabled> Interfaces for external services</li>
+<li><input type="checkbox" disabled> No business logic in controllers</li>
+<li><input type="checkbox" disabled> Externalized configuration (not hardcoded)</li>
+<li><input type="checkbox" disabled> No local state (prepared for load balancing)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-3-security-critical">
+<h3 id="3-security-critical">3. Security (CRITICAL)</h3>
+<h4 id="31-owasp-top-10---mandatory-checklist">3.1 OWASP Top 10 - Mandatory Checklist</h4>
+<div class="tbl"><table><thead><tr><th>Vulnerability</th><th>Mitigation</th><th>Implementation</th></tr></thead><tbody><tr><td><strong>Injection (SQL, NoSQL)</strong></td><td>Parameterized queries</td><td>Dapper with parameters, never concatenate strings</td></tr><tr><td><strong>Broken Authentication</strong></td><td>Azure AD / JWT</td><td>Tokens with expiration, refresh tokens</td></tr><tr><td><strong>Sensitive Data Exposure</strong></td><td>Encryption, HTTPS</td><td>TLS 1.2+, sensitive data encrypted in DB</td></tr><tr><td><strong>XML External Entities</strong></td><td>Disable DTD</td><td><code>XmlReaderSettings.DtdProcessing = Prohibit</code></td></tr><tr><td><strong>Broken Access Control</strong></td><td>Role-based authorization</td><td><code>[Authorize(Roles = &quot;...&quot;)]</code>, claims</td></tr><tr><td><strong>Security Misconfiguration</strong></td><td>Secure headers</td><td>HSTS, X-Content-Type-Options, CSP</td></tr><tr><td><strong>Cross-Site Scripting (XSS)</strong></td><td>Output encoding</td><td>Razor automatic encoding, validate inputs</td></tr><tr><td><strong>Insecure Deserialization</strong></td><td>Validate types</td><td>Don't deserialize untrusted data</td></tr><tr><td><strong>Vulnerable Components</strong></td><td>Update dependencies</td><td>Dependabot, NuGet audits</td></tr><tr><td><strong>Insufficient Logging</strong></td><td>Complete logging</td><td>Application Insights, don't log sensitive data</td></tr></tbody></table></div>
+<h4 id="32-azure-key-vault-mandatory">3.2 Azure Key Vault (MANDATORY)</h4>
+<p><strong>NEVER store secrets in code or appsettings.json</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - Mandatory configuration</span>
+<span class="tk-k">var</span> keyVaultName = builder.Configuration[<span class="tk-s">&quot;KeyVaultName&quot;</span>];
+builder.Configuration.AddAzureKeyVault(
+    <span class="tk-k">new</span> Uri(<span class="tk-s">$&quot;https://{keyVaultName}.vault.azure.net/&quot;</span>),
+    <span class="tk-k">new</span> DefaultAzureCredential());</code></pre>
+<p><strong>Secrets that MUST be in Key Vault:</strong></p>
+<ul>
+<li>Database connection strings</li>
+<li>External service API Keys</li>
+<li>SSL/TLS certificates</li>
+<li>Integration credentials</li>
+<li>Encryption keys</li>
+</ul>
+<p><strong>For local development:</strong></p>
+<pre data-lang="bash"><code><span class="tk-c"># Use .NET User Secrets</span>
+<span class="tk-k">dotnet</span> user-secrets init
+<span class="tk-k">dotnet</span> user-secrets <span class="tk-k">set</span> <span class="tk-s">&quot;ConnectionStrings:DefaultConnection&quot;</span> <span class="tk-s">&quot;Server=localhost...&quot;</span></code></pre>
+<h4 id="33-authentication-and-authorization">3.3 Authentication and Authorization</h4>
+<p><strong>Recommended method: Azure AD + JWT</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection(<span class="tk-s">&quot;AzureAd&quot;</span>));
+
+builder.Services.AddAuthorization(options =&gt;
+{
+    options.AddPolicy(<span class="tk-s">&quot;RequireAdminRole&quot;</span>, policy =&gt;
+        policy.RequireRole(<span class="tk-s">&quot;Admin&quot;</span>));
+});</code></pre>
+<p><strong>Principles:</strong></p>
+<ul>
+<li>JWT tokens verifiable by any instance (no local state)</li>
+<li>Claims for granular permissions</li>
+<li>Refresh tokens with rotation</li>
+<li>Configurable session expiration</li>
+</ul>
+<h4 id="34-input-validation">3.4 Input Validation</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Use FluentValidation or DataAnnotations</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> CreateUserValidator : AbstractValidator&lt;CreateUserDto&gt;
+{
+    <span class="tk-k">public</span> CreateUserValidator()
+    {
+        RuleFor(x =&gt; x.Email)
+            .NotEmpty()
+            .EmailAddress()
+            .MaximumLength(<span class="tk-n">255</span>);
+
+        RuleFor(x =&gt; x.Name)
+            .NotEmpty()
+            .MaximumLength(<span class="tk-n">100</span>)
+            .Matches(<span class="tk-s">@&quot;^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-load-balanced-infrastructure-critical">
+<h3 id="4-load-balanced-infrastructure-critical">4. Load-Balanced Infrastructure (CRITICAL)</h3>
+<h4 id="41-fundamental-principle">4.1 Fundamental Principle</h4>
+<p><strong>ALL applications are deployed on multiple load-balanced servers. Code MUST be designed without local state.</strong></p>
+<h4 id="42-azure-blob-storage-mandatory">4.2 Azure Blob Storage (MANDATORY)</h4>
+<p><strong>All generated or uploaded files must be stored in Blob Storage, both in Frontend and Backend.</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Storage service</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> BlobStorageService : IBlobStorageService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> BlobServiceClient _blobServiceClient;
+
+    <span class="tk-k">public</span> BlobStorageService(IConfiguration configuration)
+    {
+        <span class="tk-c">// Connection string from Key Vault</span>
+        <span class="tk-k">var</span> connectionString = configuration[<span class="tk-s">&quot;AzureStorage:ConnectionString&quot;</span>];
+        _blobServiceClient = <span class="tk-k">new</span> BlobServiceClient(connectionString);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;<span class="tk-k">string</span>&gt; UploadFileAsync(Stream content, <span class="tk-k">string</span> fileName, <span class="tk-k">string</span> container)
+    {
+        <span class="tk-k">var</span> containerClient = _blobServiceClient.GetBlobContainerClient(container);
+        <span class="tk-k">await</span> containerClient.CreateIfNotExistsAsync();
+
+        <span class="tk-k">var</span> blobClient = containerClient.GetBlobClient(fileName);
+        <span class="tk-k">await</span> blobClient.UploadAsync(content, overwrite: <span class="tk-k">true</span>);
+
+        <span class="tk-k">return</span> blobClient.Uri.ToString();
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;Stream&gt; DownloadFileAsync(<span class="tk-k">string</span> fileName, <span class="tk-k">string</span> container)
+    {
+        <span class="tk-k">var</span> containerClient = _blobServiceClient.GetBlobContainerClient(container);
+        <span class="tk-k">var</span> blobClient = containerClient.GetBlobClient(fileName);
+
+        <span class="tk-k">var</span> download = <span class="tk-k">await</span> blobClient.DownloadAsync();
+        <span class="tk-k">return</span> download.Value.Content;
+    }
+}</code></pre>
+<p><strong>Registration in Program.cs:</strong></p>
+<pre data-lang="csharp"><code>builder.Services.AddSingleton&lt;IBlobStorageService, BlobStorageService&gt;();</code></pre>
+<p><strong>Usage example:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> DocumentController : ControllerBase
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IBlobStorageService _blobStorage;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IActionResult&gt; UploadDocument(IFormFile <span class="tk-k">file</span>)
+    {
+        <span class="tk-k">using</span> <span class="tk-k">var</span> stream = <span class="tk-k">file</span>.OpenReadStream();
+        <span class="tk-k">var</span> url = <span class="tk-k">await</span> _blobStorage.UploadFileAsync(stream, <span class="tk-k">file</span>.FileName, <span class="tk-s">&quot;documents&quot;</span>);
+        <span class="tk-k">return</span> Ok(<span class="tk-k">new</span> { Url = url });
+    }
+}</code></pre>
+<h4 id="43-redis-distributed-cache-mandatory">4.3 Redis Distributed Cache (MANDATORY)</h4>
+<p><strong>Session and cache MUST be distributed to support load balancing.</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddStackExchangeRedisCache(options =&gt;
+{
+    options.Configuration = builder.Configuration.GetConnectionString(<span class="tk-s">&quot;Redis&quot;</span>);
+    options.InstanceName = <span class="tk-s">&quot;MyApp_&quot;</span>;
+});
+
+<span class="tk-c">// Usage example</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ProductService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IDistributedCache _cache;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;Product&gt; GetProductAsync(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">var</span> cacheKey = <span class="tk-s">$&quot;product_{id}&quot;</span>;
+        <span class="tk-k">var</span> cached = <span class="tk-k">await</span> _cache.GetStringAsync(cacheKey);
+
+        <span class="tk-k">if</span> (cached != <span class="tk-k">null</span>)
+            <span class="tk-k">return</span> JsonSerializer.Deserialize&lt;Product&gt;(cached);
+
+        <span class="tk-k">var</span> product = <span class="tk-k">await</span> _repository.GetByIdAsync(id);
+        <span class="tk-k">await</span> _cache.SetStringAsync(cacheKey,
+            JsonSerializer.Serialize(product),
+            <span class="tk-k">new</span> DistributedCacheEntryOptions { AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(<span class="tk-n">10</span>) });
+
+        <span class="tk-k">return</span> product;
+    }
+}</code></pre>
+<h4 id="44-what-not-to-do--what-to-do">4.4 What NOT to do / What TO do</h4>
+<div class="tbl"><table><thead><tr><th>❌ DO NOT</th><th>✅ DO</th></tr></thead><tbody><tr><td>Save files to <code>wwwroot/uploads/</code></td><td>Use Azure Blob Storage</td></tr><tr><td>Use <code>Session[&quot;key&quot;]</code></td><td>Use <code>IDistributedCache</code> with Redis</td></tr><tr><td>Store in-memory cache</td><td>Use Redis distributed cache</td></tr><tr><td>Use <code>Server.MapPath()</code></td><td>Use configuration from appsettings.json</td></tr><tr><td>Local temp files</td><td>Azure Blob Storage for temporary files</td></tr><tr><td>Singleton with mutable state</td><td>Scoped or Transient services</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-5-legacy-projects-webforms">
+<h3 id="5-legacy-projects-webforms">5. Legacy Projects (WebForms)</h3>
+<h4 id="51-detect-if-project-is-legacy">5.1 Detect if project is legacy</h4>
+<p><strong>Indicators:</strong></p>
+<ul>
+<li><code>.aspx</code> and <code>.aspx.cs</code> files</li>
+<li><code>Web.config</code> instead of <code>appsettings.json</code></li>
+<li><code>System.Web</code> references</li>
+<li>ViewState and PostBack</li>
+<li><code>&lt;asp:*&gt;</code> controls</li>
+</ul>
+<h4 id="52-security-headers-in-webconfig">5.2 Security headers in Web.config</h4>
+<pre data-lang="xml"><code><span class="tk-t">&lt;system.webServer</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;httpProtocol</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;customHeaders</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;add</span> name=<span class="tk-s">&quot;X-Content-Type-Options&quot;</span> value=<span class="tk-s">&quot;nosniff&quot;</span> <span class="tk-t">/&gt;</span>
+            <span class="tk-t">&lt;add</span> name=<span class="tk-s">&quot;X-Frame-Options&quot;</span> value=<span class="tk-s">&quot;SAMEORIGIN&quot;</span> <span class="tk-t">/&gt;</span>
+            <span class="tk-t">&lt;add</span> name=<span class="tk-s">&quot;X-XSS-Protection&quot;</span> value=<span class="tk-s">&quot;1; mode=block&quot;</span> <span class="tk-t">/&gt;</span>
+            <span class="tk-t">&lt;add</span> name=<span class="tk-s">&quot;Strict-Transport-Security&quot;</span> value=<span class="tk-s">&quot;max-age=31536000; includeSubDomains&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;/customHeaders</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/httpProtocol</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;security</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;requestFiltering</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;requestLimits</span> maxAllowedContentLength=<span class="tk-s">&quot;104857600&quot;</span> <span class="tk-t">/&gt;</span> <span class="tk-c">&lt;!-- 100 MB --&gt;</span>
+        <span class="tk-t">&lt;/requestFiltering</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/security</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/system.webServer</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="53-connection-strings-in-webconfig">5.3 Connection strings in Web.config</h4>
+<pre data-lang="xml"><code><span class="tk-t">&lt;connectionStrings</span><span class="tk-t">&gt;</span>
+    <span class="tk-c">&lt;!-- ❌ NEVER hardcode in production --&gt;</span>
+    <span class="tk-t">&lt;add</span> name=<span class="tk-s">&quot;DefaultConnection&quot;</span>
+         connectionString=<span class="tk-s">&quot;Data Source=SERVER;Initial Catalog=DB;Integrated Security=True;&quot;</span>
+         providerName=<span class="tk-s">&quot;System.Data.SqlClient&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/connectionStrings</span><span class="tk-t">&gt;</span></code></pre>
+<p><strong>For production:</strong> Use encrypted sections or Key Vault via custom configuration provider.</p>
+<h4 id="54-decision-document-for-legacy-projects">5.4 Decision Document for Legacy Projects</h4>
+<p><strong>When evaluating a legacy project, create a document answering:</strong></p>
+<ol>
+<li><strong>Technical Assessment</strong></li>
+<ul>
+<li>.NET version (4.x?)</li>
+<li>Database version and compatibility</li>
+<li>External dependencies (outdated libraries?)</li>
+<li>Known security vulnerabilities</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Business Impact</strong></li>
+<ul>
+<li>Number of active users</li>
+<li>Criticality (low/medium/high/critical)</li>
+<li>Frequency of changes</li>
+<li>Integration with other systems</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Recommendation</strong></li>
+<ul>
+<li><input type="checkbox" disabled> <strong>Maintain as-is</strong> (minimal changes, hardening only)</li>
+<li><input type="checkbox" disabled> <strong>Modernize in place</strong> (update to .NET 4.8, secure headers)</li>
+<li><input type="checkbox" disabled> <strong>Gradual migration</strong> (API-first, then migrate frontend)</li>
+<li><input type="checkbox" disabled> <strong>Full rewrite</strong> (Clean Architecture, .NET 8+)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Risks of Migration</strong></li>
+<ul>
+<li>Estimated time and cost</li>
+<li>Business interruption</li>
+<li>Data migration complexity</li>
+<li>Training required</li>
+</ul>
+</ol>
+<p><strong>Template:</strong> Save this analysis in <code>_patron/05_Migracion_Legacy/ANALISIS_[ProjectName].md</code></p>
+<hr>
+</section>
+<section class="sec" id="sec-6-docker-compose-for-development-environment">
+<h3 id="6-docker-compose-for-development-environment">6. Docker Compose for Development Environment</h3>
+<h4 id="61-standard-configuration">6.1 Standard Configuration</h4>
+<pre data-lang="yaml"><code><span class="tk-c"># docker-compose.yml - For local development</span>
+version: <span class="tk-s">'3.8'</span>
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:<span class="tk-n">2022</span>-latest
+    environment:
+      ACCEPT_EULA: <span class="tk-s">&quot;Y&quot;</span>
+      SA_PASSWORD: <span class="tk-s">&quot;DevPassword123!&quot;</span>
+      MSSQL_COLLATION: SQL_Latin1_General_CP1250_CI_AS
+    ports:
+      - <span class="tk-s">&quot;1433:1433&quot;</span>
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+  redis:
+    image: redis:<span class="tk-n">7</span>-alpine
+    ports:
+      - <span class="tk-s">&quot;6379:6379&quot;</span>
+    volumes:
+      - redis_data:/data
+
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    ports:
+      - <span class="tk-s">&quot;10000:10000&quot;</span>  <span class="tk-c"># Blob service</span>
+      - <span class="tk-s">&quot;10001:10001&quot;</span>  <span class="tk-c"># Queue service</span>
+      - <span class="tk-s">&quot;10002:10002&quot;</span>  <span class="tk-c"># Table service</span>
+    volumes:
+      - azurite_data:/data
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - <span class="tk-s">&quot;1025:1025&quot;</span>  <span class="tk-c"># SMTP</span>
+      - <span class="tk-s">&quot;8025:8025&quot;</span>  <span class="tk-c"># Web UI</span>
+
+volumes:
+  sqlserver_data:
+  redis_data:
+  azurite_data:</code></pre>
+<h4 id="62-local-appsettingsdevelopmentjson">6.2 Local appsettings.Development.json</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;ConnectionStrings&quot;</span>: {
+    <span class="tk-s">&quot;DefaultConnection&quot;</span>: <span class="tk-s">&quot;Server=localhost,1433;Database=MyProject;User Id=sa;Password=DevPassword123!;TrustServerCertificate=True;&quot;</span>,
+    <span class="tk-s">&quot;Redis&quot;</span>: <span class="tk-s">&quot;localhost:6379&quot;</span>
+  },
+  <span class="tk-s">&quot;AzureStorage&quot;</span>: {
+    <span class="tk-s">&quot;ConnectionString&quot;</span>: <span class="tk-s">&quot;UseDevelopmentStorage=true&quot;</span>
+  },
+  <span class="tk-s">&quot;Email&quot;</span>: {
+    <span class="tk-s">&quot;SmtpHost&quot;</span>: <span class="tk-s">&quot;localhost&quot;</span>,
+    <span class="tk-s">&quot;SmtpPort&quot;</span>: <span class="tk-n">1025</span>
+  }
+}</code></pre>
+<h4 id="63-how-to-use">6.3 How to use</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Start all services</span>
+docker-compose up -d
+
+<span class="tk-c"># Stop services</span>
+docker-compose down
+
+<span class="tk-c"># View logs</span>
+docker-compose logs -f
+
+<span class="tk-c"># Access services</span>
+<span class="tk-c"># SQL Server: localhost,1433 (user: sa, password: DevPassword123!)</span>
+<span class="tk-c"># Redis: localhost:6379</span>
+<span class="tk-c"># Azurite Blob Storage: http://127.0.0.1:10000</span>
+<span class="tk-c"># MailHog UI: http://localhost:8025</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-7-version-control-git">
+<h3 id="7-version-control-git">7. Version Control (Git)</h3>
+<h4 id="71-branch-strategy">7.1 Branch Strategy</h4>
+<pre><code>main              ← Production
+  ├── develop     ← Integration
+  │   ├── feature/JIRA-123-user-crud
+  │   ├── feature/JIRA-124-auth
+  │   └── bugfix/JIRA-125-fix-validation
+  └── hotfix/JIRA-126-critical-bug</code></pre>
+<h4 id="72-commit-message-convention">7.2 Commit Message Convention</h4>
+<pre><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+
+Examples:
+feat(auth): add Azure AD authentication
+fix(api): resolve null reference in user endpoint
+docs(readme): update installation instructions
+refactor(services): simplify user service logic</code></pre>
+<h4 id="73-gitignore-mandatory">7.3 .gitignore Mandatory</h4>
+<pre data-lang="gitignore"><code># Secrets (NEVER commit)
+appsettings.Production.json
+*.pfx
+*.p12
+
+# Build output
+bin/
+obj/
+publish/
+
+# User-specific
+.vs/
+.vscode/
+*.user
+*.suo
+
+# NuGet
+packages/
+*.nupkg
+
+# Docker
+.docker/</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-8-nuget-packages---recommended">
+<h3 id="8-nuget-packages---recommended">8. NuGet Packages - Recommended</h3>
+<h4 id="81-core-packages">8.1 Core Packages</h4>
+<div class="tbl"><table><thead><tr><th>Package</th><th>Version</th><th>Purpose</th></tr></thead><tbody><tr><td>Dapper</td><td>2.x</td><td>Data access (micro-ORM)</td></tr><tr><td>FluentValidation</td><td>11.x</td><td>Input validation</td></tr><tr><td>Serilog.AspNetCore</td><td>7.x</td><td>Structured logging</td></tr><tr><td>Azure.Storage.Blobs</td><td>12.x</td><td>Blob Storage</td></tr><tr><td>StackExchange.Redis</td><td>2.x</td><td>Redis cache</td></tr><tr><td>Azure.Identity</td><td>1.x</td><td>Azure AD authentication</td></tr><tr><td>Azure.Extensions.AspNetCore.Configuration.Secrets</td><td>1.x</td><td>Key Vault integration</td></tr></tbody></table></div>
+<h4 id="82-testing-packages">8.2 Testing Packages</h4>
+<div class="tbl"><table><thead><tr><th>Package</th><th>Version</th><th>Purpose</th></tr></thead><tbody><tr><td>xUnit</td><td>2.x</td><td>Test framework</td></tr><tr><td>FluentAssertions</td><td>6.x</td><td>Assertion library</td></tr><tr><td>Moq</td><td>4.x</td><td>Mocking framework</td></tr><tr><td>Testcontainers</td><td>3.x</td><td>Integration tests with Docker</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-9-performance-and-monitoring">
+<h3 id="9-performance-and-monitoring">9. Performance and Monitoring</h3>
+<h4 id="91-response-time-targets">9.1 Response Time Targets</h4>
+<div class="tbl"><table><thead><tr><th>Endpoint Type</th><th>Target</th><th>Maximum</th></tr></thead><tbody><tr><td>Simple GET (cache hit)</td><td>&lt; 50ms</td><td>100ms</td></tr><tr><td>GET with DB query</td><td>&lt; 200ms</td><td>500ms</td></tr><tr><td>POST/PUT (simple)</td><td>&lt; 300ms</td><td>1s</td></tr><tr><td>Complex operations</td><td>&lt; 1s</td><td>3s</td></tr><tr><td>File upload</td><td>&lt; 5s</td><td>15s</td></tr></tbody></table></div>
+<h4 id="92-caching-strategy">9.2 Caching Strategy</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Cache frequently accessed data</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ProductRepository
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IDistributedCache _cache;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IDbConnection _db;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;List&lt;Category&gt;&gt; GetCategoriesAsync()
+    {
+        <span class="tk-k">const</span> <span class="tk-k">string</span> cacheKey = <span class="tk-s">&quot;categories_all&quot;</span>;
+        <span class="tk-k">var</span> cached = <span class="tk-k">await</span> _cache.GetStringAsync(cacheKey);
+
+        <span class="tk-k">if</span> (cached != <span class="tk-k">null</span>)
+            <span class="tk-k">return</span> JsonSerializer.Deserialize&lt;List&lt;Category&gt;&gt;(cached);
+
+        <span class="tk-k">var</span> categories = <span class="tk-k">await</span> _db.QueryAsync&lt;Category&gt;(<span class="tk-s">&quot;SELECT * FROM Categories&quot;</span>);
+        <span class="tk-k">await</span> _cache.SetStringAsync(cacheKey, JsonSerializer.Serialize(categories),
+            <span class="tk-k">new</span> DistributedCacheEntryOptions { AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(<span class="tk-n">1</span>) });
+
+        <span class="tk-k">return</span> categories.ToList();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-10-application-insights-telemetry">
+<h3 id="10-application-insights-telemetry">10. Application Insights (Telemetry)</h3>
+<h4 id="101-basic-configuration">10.1 Basic Configuration</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddApplicationInsightsTelemetry(options =&gt;
+{
+    options.ConnectionString = builder.Configuration[<span class="tk-s">&quot;ApplicationInsights:ConnectionString&quot;</span>];
+});</code></pre>
+<h4 id="102-custom-telemetry">10.2 Custom Telemetry</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> OrderService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> TelemetryClient _telemetry;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;Order&gt; CreateOrderAsync(CreateOrderDto dto)
+    {
+        <span class="tk-k">using</span> <span class="tk-k">var</span> operation = _telemetry.StartOperation&lt;RequestTelemetry&gt;(<span class="tk-s">&quot;CreateOrder&quot;</span>);
+
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-k">var</span> order = <span class="tk-k">await</span> _repository.CreateAsync(dto);
+
+            _telemetry.TrackEvent(<span class="tk-s">&quot;OrderCreated&quot;</span>, <span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">string</span>&gt;
+            {
+                [<span class="tk-s">&quot;OrderId&quot;</span>] = order.Id.ToString(),
+                [<span class="tk-s">&quot;Amount&quot;</span>] = order.TotalAmount.ToString(),
+                [<span class="tk-s">&quot;CustomerId&quot;</span>] = order.CustomerId.ToString()
+            });
+
+            <span class="tk-k">return</span> order;
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            operation.Telemetry.Success = <span class="tk-k">false</span>;
+            _telemetry.TrackException(ex);
+            <span class="tk-k">throw</span>;
+        }
+    }
+}</code></pre>
+<h4 id="103-what-not-to-log">10.3 What NOT to log</h4>
+<p>❌ <strong>Never log:</strong></p>
+<ul>
+<li>Passwords</li>
+<li>Credit card numbers</li>
+<li>Social security numbers (DNI/NIE)</li>
+<li>Full email addresses (only domain)</li>
+<li>Session tokens</li>
+<li>Personal health information</li>
+</ul>
+<p>✅ <strong>Safe to log:</strong></p>
+<ul>
+<li>User IDs (anonymized)</li>
+<li>Operation duration</li>
+<li>Error codes</li>
+<li>IP addresses (anonymized)</li>
+<li>Non-sensitive metadata</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-11-deployment-checklist">
+<h3 id="11-deployment-checklist">11. Deployment Checklist</h3>
+<h4 id="111-pre-production">11.1 Pre-Production</h4>
+<ul>
+<li><input type="checkbox" disabled> All secrets in Azure Key Vault</li>
+<li><input type="checkbox" disabled> Connection strings tested</li>
+<li><input type="checkbox" disabled> Redis cache configured</li>
+<li><input type="checkbox" disabled> Blob Storage configured</li>
+<li><input type="checkbox" disabled> Application Insights enabled</li>
+<li><input type="checkbox" disabled> HTTPS enforced (HSTS header)</li>
+<li><input type="checkbox" disabled> Security headers configured</li>
+<li><input type="checkbox" disabled> Error pages configured (not revealing stack traces)</li>
+<li><input type="checkbox" disabled> Logging configured (not logging sensitive data)</li>
+<li><input type="checkbox" disabled> Database migrations tested</li>
+</ul>
+<h4 id="112-production">11.2 Production</h4>
+<ul>
+<li><input type="checkbox" disabled> Health check endpoint (<code>/health</code>)</li>
+<li><input type="checkbox" disabled> Monitoring alerts configured</li>
+<li><input type="checkbox" disabled> Backup strategy defined</li>
+<li><input type="checkbox" disabled> Disaster recovery plan</li>
+<li><input type="checkbox" disabled> Performance tested (load testing)</li>
+<li><input type="checkbox" disabled> Security scan completed (OWASP)</li>
+<li><input type="checkbox" disabled> Documentation updated</li>
+<li><input type="checkbox" disabled> Rollback plan defined</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-12-common-patterns">
+<h3 id="12-common-patterns">12. Common Patterns</h3>
+<h4 id="121-repository-pattern">12.1 Repository Pattern</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">interface</span> IUserRepository
+{
+    Task&lt;User&gt; GetByIdAsync(<span class="tk-k">int</span> id);
+    Task&lt;IEnumerable&lt;User&gt;&gt; GetAllAsync();
+    Task&lt;User&gt; CreateAsync(User user);
+    Task UpdateAsync(User user);
+    Task DeleteAsync(<span class="tk-k">int</span> id);
+}
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> UserRepository : IUserRepository
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IDbConnection _db;
+
+    <span class="tk-k">public</span> UserRepository(IDbConnection db)
+    {
+        _db = db;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;User&gt; GetByIdAsync(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _db.QuerySingleOrDefaultAsync&lt;User&gt;(
+            <span class="tk-s">&quot;SELECT * FROM Users WHERE Id = @Id&quot;</span>,
+            <span class="tk-k">new</span> { Id = id });
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IEnumerable&lt;User&gt;&gt; GetAllAsync()
+    {
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _db.QueryAsync&lt;User&gt;(<span class="tk-s">&quot;SELECT * FROM Users WHERE IsDeleted = 0&quot;</span>);
+    }
+}</code></pre>
+<h4 id="122-service-layer-pattern">12.2 Service Layer Pattern</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> UserService : IUserService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IUserRepository _repository;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IValidator&lt;CreateUserDto&gt; _validator;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;UserDto&gt; CreateAsync(CreateUserDto dto)
+    {
+        <span class="tk-c">// 1. Validate</span>
+        <span class="tk-k">var</span> validationResult = <span class="tk-k">await</span> _validator.ValidateAsync(dto);
+        <span class="tk-k">if</span> (!validationResult.IsValid)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> ValidationException(validationResult.Errors);
+
+        <span class="tk-c">// 2. Map DTO to Entity</span>
+        <span class="tk-k">var</span> user = <span class="tk-k">new</span> User
+        {
+            Email = dto.Email,
+            Name = dto.Name
+        };
+
+        <span class="tk-c">// 3. Business logic</span>
+        user.NormalizeEmail();
+
+        <span class="tk-c">// 4. Persist</span>
+        <span class="tk-k">await</span> _repository.CreateAsync(user);
+
+        <span class="tk-c">// 5. Return DTO</span>
+        <span class="tk-k">return</span> <span class="tk-k">new</span> UserDto { Id = user.Id, Email = user.Email, Name = user.Name };
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-13-references">
+<h3 id="13-references">13. References</h3>
+<ul>
+<li><strong>OWASP Top 10</strong>: https://owasp.org/www-project-top-ten/</li>
+<li><strong>Azure Architecture Center</strong>: https://learn.microsoft.com/azure/architecture/</li>
+<li><strong>Clean Architecture</strong>: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html</li>
+<li><strong>.NET Documentation</strong>: https://learn.microsoft.com/dotnet/</li>
+</ul>
+<hr>
+<p><strong>Document version</strong>: 3.0 <strong>Last updated</strong>: January 2026 <strong>Owner</strong>: Digital Transformation Office Technical Committee</p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/01_Estructura_Tecnica/ESTRUCTURA_TECNICA_EN.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a><a class="next" href="../guias/guia_arquitectura.en.html"><small>Siguiente</small>Architecture and Patterns Guide</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/01_Estructura_Tecnica/ESTRUCTURA_TECNICA_EN.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-technology-stack">1. Technology Stack</a></li><li class="l3"><a href="#11-recommended-technologies-microsoft">1.1 Recommended Technologies (Microsoft)</a></li><li class="l3"><a href="#12-permitted-technologies-with-justification">1.2 Permitted Technologies (with justification)</a></li><li class="l2"><a href="#2-reference-architecture">2. Reference Architecture</a></li><li class="l3"><a href="#21-pattern-clean-architecture">2.1 Pattern: Clean Architecture</a></li><li class="l3"><a href="#22-mandatory-principles">2.2 Mandatory Principles</a></li><li class="l2"><a href="#3-security-critical">3. Security (CRITICAL)</a></li><li class="l3"><a href="#31-owasp-top-10---mandatory-checklist">3.1 OWASP Top 10 - Mandatory Checklist</a></li><li class="l3"><a href="#32-azure-key-vault-mandatory">3.2 Azure Key Vault (MANDATORY)</a></li><li class="l3"><a href="#33-authentication-and-authorization">3.3 Authentication and Authorization</a></li><li class="l3"><a href="#34-input-validation">3.4 Input Validation</a></li><li class="l2"><a href="#4-load-balanced-infrastructure-critical">4. Load-Balanced Infrastructure (CRITICAL)</a></li><li class="l3"><a href="#41-fundamental-principle">4.1 Fundamental Principle</a></li><li class="l3"><a href="#42-azure-blob-storage-mandatory">4.2 Azure Blob Storage (MANDATORY)</a></li><li class="l3"><a href="#43-redis-distributed-cache-mandatory">4.3 Redis Distributed Cache (MANDATORY)</a></li><li class="l3"><a href="#44-what-not-to-do--what-to-do">4.4 What NOT to do / What TO do</a></li><li class="l2"><a href="#5-legacy-projects-webforms">5. Legacy Projects (WebForms)</a></li><li class="l3"><a href="#51-detect-if-project-is-legacy">5.1 Detect if project is legacy</a></li><li class="l3"><a href="#52-security-headers-in-webconfig">5.2 Security headers in Web.config</a></li><li class="l3"><a href="#53-connection-strings-in-webconfig">5.3 Connection strings in Web.config</a></li><li class="l3"><a href="#54-decision-document-for-legacy-projects">5.4 Decision Document for Legacy Projects</a></li><li class="l2"><a href="#6-docker-compose-for-development-environment">6. Docker Compose for Development Environment</a></li><li class="l3"><a href="#61-standard-configuration">6.1 Standard Configuration</a></li><li class="l3"><a href="#62-local-appsettingsdevelopmentjson">6.2 Local appsettings.Development.json</a></li><li class="l3"><a href="#63-how-to-use">6.3 How to use</a></li><li class="l2"><a href="#7-version-control-git">7. Version Control (Git)</a></li><li class="l3"><a href="#71-branch-strategy">7.1 Branch Strategy</a></li><li class="l3"><a href="#72-commit-message-convention">7.2 Commit Message Convention</a></li><li class="l3"><a href="#73-gitignore-mandatory">7.3 .gitignore Mandatory</a></li><li class="l2"><a href="#8-nuget-packages---recommended">8. NuGet Packages - Recommended</a></li><li class="l3"><a href="#81-core-packages">8.1 Core Packages</a></li><li class="l3"><a href="#82-testing-packages">8.2 Testing Packages</a></li><li class="l2"><a href="#9-performance-and-monitoring">9. Performance and Monitoring</a></li><li class="l3"><a href="#91-response-time-targets">9.1 Response Time Targets</a></li><li class="l3"><a href="#92-caching-strategy">9.2 Caching Strategy</a></li><li class="l2"><a href="#10-application-insights-telemetry">10. Application Insights (Telemetry)</a></li><li class="l3"><a href="#101-basic-configuration">10.1 Basic Configuration</a></li><li class="l3"><a href="#102-custom-telemetry">10.2 Custom Telemetry</a></li><li class="l3"><a href="#103-what-not-to-log">10.3 What NOT to log</a></li><li class="l2"><a href="#11-deployment-checklist">11. Deployment Checklist</a></li><li class="l3"><a href="#111-pre-production">11.1 Pre-Production</a></li><li class="l3"><a href="#112-production">11.2 Production</a></li><li class="l2"><a href="#12-common-patterns">12. Common Patterns</a></li><li class="l3"><a href="#121-repository-pattern">12.1 Repository Pattern</a></li><li class="l3"><a href="#122-service-layer-pattern">12.2 Service Layer Pattern</a></li><li class="l2"><a href="#13-references">13. References</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

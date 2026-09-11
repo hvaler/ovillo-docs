@@ -1,0 +1,345 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · patterns/builders.md · Ovillo</title><meta name="description" content="Fichero patterns/builders.md de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · patterns/builders.md · Ovillo"><meta property="og:description" content="Fichero patterns/builders.md de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/builders.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/builders.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/patterns/builders.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (16)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html" class="cur">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>patterns</span><span>builders.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>patterns/</span></div><h1>builders.md</h1><p class="lede">Referencia que <code>testing-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>9434 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: testing-patterns</p></blockquote>
+<hr>
+<section class="sec" id="sec-descripción">
+<h3 id="descripción">Descripción</h3>
+<p>El patrón Builder permite construir objetos de test de forma fluida y expresiva, evitando constructores con muchos parámetros y haciendo los tests más legibles.</p>
+<hr>
+</section>
+<section class="sec" id="sec-builder-genérico">
+<h3 id="builder-genérico">Builder Genérico</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">abstract</span> <span class="tk-k">class</span> Builder&lt;T, TBuilder&gt; where TBuilder : Builder&lt;T, TBuilder&gt;
+{
+    <span class="tk-k">protected</span> <span class="tk-k">abstract</span> T Build();
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> implicit operator T(Builder&lt;T, TBuilder&gt; builder) =&gt; builder.Build();
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-builder-para-entidad-scholarship">
+<h3 id="builder-para-entidad-scholarship">Builder para Entidad Scholarship</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipBuilder : Builder&lt;Scholarship, ScholarshipBuilder&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">int</span> _id = <span class="tk-n">1</span>;
+    <span class="tk-k">private</span> <span class="tk-k">string</span> _codigo = <span class="tk-s">&quot;BECA-001&quot;</span>;
+    <span class="tk-k">private</span> <span class="tk-k">string</span> _nombre = <span class="tk-s">&quot;Scholarship de Prueba&quot;</span>;
+    <span class="tk-k">private</span> <span class="tk-k">string</span>? _descripcion;
+    <span class="tk-k">private</span> <span class="tk-k">decimal</span> _importe = 5000m;
+    <span class="tk-k">private</span> ScholarshipStatus _estado = ScholarshipStatus.Draft;
+    <span class="tk-k">private</span> DateTime _startDate = DateTime.Today;
+    <span class="tk-k">private</span> DateTime _endDate = DateTime.Today.AddMonths(<span class="tk-n">6</span>);
+    <span class="tk-k">private</span> List&lt;ScholarshipApplication&gt; _applications = [];
+
+    <span class="tk-k">public</span> ScholarshipBuilder ConId(<span class="tk-k">int</span> id)
+    {
+        _id = id;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder ConCode(<span class="tk-k">string</span> code)
+    {
+        _codigo = code;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder ConNombre(<span class="tk-k">string</span> name)
+    {
+        _nombre = name;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder ConDescription(<span class="tk-k">string</span> descripcion)
+    {
+        _descripcion = descripcion;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder ConAmount(<span class="tk-k">decimal</span> amount)
+    {
+        _importe = amount;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder ConEstado(ScholarshipStatus status)
+    {
+        _estado = status;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder Published()
+    {
+        _estado = ScholarshipStatus.Published;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder Closed()
+    {
+        _estado = ScholarshipStatus.Closed;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder ConPeriod(DateTime start, DateTime end)
+    {
+        _startDate = start;
+        _endDate = end;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder ConScholarshipApplication(ScholarshipApplication application)
+    {
+        _applications.Add(application);
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipBuilder ConApplications(<span class="tk-k">int</span> amount)
+    {
+        <span class="tk-k">for</span> (<span class="tk-k">int</span> i = <span class="tk-n">0</span>; i &lt; amount; i++)
+        {
+            _applications.Add(<span class="tk-k">new</span> ScholarshipApplicationBuilder()
+                .ConScholarshipId(_id)
+                .ConStudentId(i + <span class="tk-n">1</span>)
+                .Build());
+        }
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> Scholarship Build()
+    {
+        <span class="tk-k">var</span> scholarship = Scholarship.Create(_codigo, _nombre, _importe,
+            <span class="tk-k">new</span> Period(_startDate, _endDate));
+
+        <span class="tk-c">// Usar reflection para setear Id y otros campos privados en tests</span>
+        SetPrivateProperty(scholarship, nameof(Scholarship.Id), _id);
+        SetPrivateProperty(scholarship, nameof(Scholarship.Description), _descripcion);
+        SetPrivateProperty(scholarship, nameof(Scholarship.Status), _estado);
+
+        <span class="tk-k">foreach</span> (<span class="tk-k">var</span> application <span class="tk-k">in</span> _applications)
+        {
+            <span class="tk-c">// Agregar a colección privada</span>
+            <span class="tk-k">var</span> field = <span class="tk-k">typeof</span>(Scholarship).GetField(<span class="tk-s">&quot;_applications&quot;</span>,
+                BindingFlags.NonPublic | BindingFlags.Instance);
+            <span class="tk-k">var</span> list = (List&lt;ScholarshipApplication&gt;)field!.GetValue(scholarship)!;
+            list.Add(application);
+        }
+
+        <span class="tk-k">return</span> scholarship;
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">void</span> SetPrivateProperty&lt;TValue&gt;(<span class="tk-k">object</span> obj, <span class="tk-k">string</span> propertyName, TValue value)
+    {
+        <span class="tk-k">var</span> property = obj.GetType().GetProperty(propertyName,
+            BindingFlags.Public | BindingFlags.Instance);
+
+        <span class="tk-k">if</span> (property?.CanWrite == <span class="tk-k">true</span>)
+        {
+            property.SetValue(obj, value);
+        }
+        <span class="tk-k">else</span>
+        {
+            <span class="tk-c">// Intentar con backing field</span>
+            <span class="tk-k">var</span> field = obj.GetType().GetField(<span class="tk-s">$&quot;&lt;{propertyName}&gt;k__BackingField&quot;</span>,
+                BindingFlags.NonPublic | BindingFlags.Instance);
+            field?.SetValue(obj, value);
+        }
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-builder-para-dtos">
+<h3 id="builder-para-dtos">Builder para DTOs</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipDtoBuilder
+{
+    <span class="tk-k">private</span> <span class="tk-k">int</span> _id = <span class="tk-n">1</span>;
+    <span class="tk-k">private</span> <span class="tk-k">string</span> _codigo = <span class="tk-s">&quot;BECA-001&quot;</span>;
+    <span class="tk-k">private</span> <span class="tk-k">string</span> _nombre = <span class="tk-s">&quot;Scholarship de Prueba&quot;</span>;
+    <span class="tk-k">private</span> <span class="tk-k">decimal</span> _importe = 5000m;
+    <span class="tk-k">private</span> <span class="tk-k">string</span> _estado = <span class="tk-s">&quot;Draft&quot;</span>;
+    <span class="tk-k">private</span> DateTime _startDate = DateTime.Today;
+    <span class="tk-k">private</span> DateTime _endDate = DateTime.Today.AddMonths(<span class="tk-n">6</span>);
+
+    <span class="tk-k">public</span> ScholarshipDtoBuilder ConId(<span class="tk-k">int</span> id)
+    {
+        _id = id;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipDtoBuilder ConNombre(<span class="tk-k">string</span> name)
+    {
+        _nombre = name;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipDtoBuilder ConAmount(<span class="tk-k">decimal</span> amount)
+    {
+        _importe = amount;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipDtoBuilder Published()
+    {
+        _estado = <span class="tk-s">&quot;Published&quot;</span>;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> ScholarshipDto Build() =&gt; <span class="tk-k">new</span>()
+    {
+        Id = _id,
+        Code = _codigo,
+        Name = _nombre,
+        Amount = _importe,
+        Status = _estado,
+        StartDate = _startDate,
+        EndDate = _endDate
+    };
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> implicit operator ScholarshipDto(ScholarshipDtoBuilder builder) =&gt; builder.Build();
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-builder-para-requests">
+<h3 id="builder-para-requests">Builder para Requests</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> CreateScholarshipRequestBuilder
+{
+    <span class="tk-k">private</span> <span class="tk-k">string</span> _codigo = <span class="tk-s">&quot;BECA-001&quot;</span>;
+    <span class="tk-k">private</span> <span class="tk-k">string</span> _nombre = <span class="tk-s">&quot;New Scholarship&quot;</span>;
+    <span class="tk-k">private</span> <span class="tk-k">string</span>? _descripcion;
+    <span class="tk-k">private</span> <span class="tk-k">decimal</span> _importe = 5000m;
+    <span class="tk-k">private</span> DateTime _startDate = DateTime.Today.AddDays(<span class="tk-n">1</span>);
+    <span class="tk-k">private</span> DateTime _endDate = DateTime.Today.AddMonths(<span class="tk-n">6</span>);
+
+    <span class="tk-k">public</span> CreateScholarshipRequestBuilder ConCode(<span class="tk-k">string</span> code)
+    {
+        _codigo = code;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> CreateScholarshipRequestBuilder ConNombre(<span class="tk-k">string</span> name)
+    {
+        _nombre = name;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> CreateScholarshipRequestBuilder SinNombre()
+    {
+        _nombre = <span class="tk-k">string</span>.Empty;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> CreateScholarshipRequestBuilder ConAmount(<span class="tk-k">decimal</span> amount)
+    {
+        _importe = amount;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> CreateScholarshipRequestBuilder ConAmountInvalido()
+    {
+        _importe = -1000m;
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> CreateScholarshipRequestBuilder ConFechasInvalidas()
+    {
+        _startDate = DateTime.Today.AddMonths(<span class="tk-n">6</span>);
+        _endDate = DateTime.Today; <span class="tk-c">// Fin antes que start</span>
+        <span class="tk-k">return</span> <span class="tk-k">this</span>;
+    }
+
+    <span class="tk-k">public</span> CreateScholarshipCommand Build() =&gt; <span class="tk-k">new</span>()
+    {
+        Code = _codigo,
+        Name = _nombre,
+        Description = _descripcion,
+        Amount = _importe,
+        StartDate = _startDate,
+        EndDate = _endDate
+    };
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-uso-en-tests">
+<h3 id="uso-en-tests">Uso en Tests</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipServiceTests
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetById_ScholarshipExists_ReturnsScholarshipDto()
+    {
+        <span class="tk-c">// Arrange - Uso fluido del builder</span>
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">new</span> ScholarshipBuilder()
+            .ConId(<span class="tk-n">1</span>)
+            .ConNombre(<span class="tk-s">&quot;Scholarship Excelencia&quot;</span>)
+            .ConAmount(10000m)
+            .Published()
+            .Build();
+
+        _repositoryMock
+            .Setup(r =&gt; r.GetByIdAsync(<span class="tk-n">1</span>, It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync(scholarship);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.GetByIdAsync(<span class="tk-n">1</span>);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().NotBeNull();
+        result!.Name.Should().Be(<span class="tk-s">&quot;Scholarship Excelencia&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_ValidData_CreatesYReturnsScholarship()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> CreateScholarshipRequestBuilder()
+            .ConNombre(<span class="tk-s">&quot;New Scholarship&quot;</span>)
+            .ConAmount(5000m)
+            .Build();
+
+        <span class="tk-c">// Act &amp; Assert</span>
+        <span class="tk-c">// ...</span>
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Delete_ScholarshipWithApplications_ThrowsExcepcion()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">new</span> ScholarshipBuilder()
+            .ConId(<span class="tk-n">1</span>)
+            .Published()
+            .ConApplications(<span class="tk-n">5</span>) <span class="tk-c">// 5 applications generadas</span>
+            .Build();
+
+        <span class="tk-c">// Act &amp; Assert</span>
+        <span class="tk-c">// ...</span>
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-factoría-de-builders">
+<h3 id="factoría-de-builders">Factoría de Builders</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> TestDataFactory
+{
+    <span class="tk-k">public</span> <span class="tk-k">static</span> ScholarshipBuilder Scholarship() =&gt; <span class="tk-k">new</span>();
+    <span class="tk-k">public</span> <span class="tk-k">static</span> ScholarshipApplicationBuilder ScholarshipApplication() =&gt; <span class="tk-k">new</span>();
+    <span class="tk-k">public</span> <span class="tk-k">static</span> StudentBuilder Student() =&gt; <span class="tk-k">new</span>();
+    <span class="tk-k">public</span> <span class="tk-k">static</span> CreateScholarshipRequestBuilder CreateScholarshipRequest() =&gt; <span class="tk-k">new</span>();
+
+    <span class="tk-c">// Builders predefinidos para escenarios comunes</span>
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Scholarship ScholarshipPublishedValida() =&gt; <span class="tk-k">new</span> ScholarshipBuilder()
+        .Published()
+        .ConPeriod(DateTime.Today, DateTime.Today.AddMonths(<span class="tk-n">6</span>))
+        .Build();
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Scholarship ScholarshipClosedConApplications() =&gt; <span class="tk-k">new</span> ScholarshipBuilder()
+        .Closed()
+        .ConApplications(<span class="tk-n">10</span>)
+        .Build();
+}
+
+<span class="tk-c">// Uso</span>
+<span class="tk-k">var</span> scholarship = TestDataFactory.ScholarshipPublishedValida();
+<span class="tk-k">var</span> request = TestDataFactory.CreateScholarshipRequest().ConNombre(<span class="tk-s">&quot;Mi Scholarship&quot;</span>).Build();</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-ventajas-del-patrón-builder">
+<h3 id="ventajas-del-patrón-builder">Ventajas del Patrón Builder</h3>
+<div class="tbl"><table><thead><tr><th>Ventaja</th><th>Descripción</th></tr></thead><tbody><tr><td><strong>Legibilidad</strong></td><td>Tests autodocumentados</td></tr><tr><td><strong>Mantenibilidad</strong></td><td>Cambios centralizados</td></tr><tr><td><strong>Flexibilidad</strong></td><td>Fácil crear variaciones</td></tr><tr><td><strong>Reutilización</strong></td><td>Builders compartidos</td></tr><tr><td><strong>Defaults sensatos</strong></td><td>Valores por defecto válidos</td></tr></tbody></table></div>
+<hr>
+<p><em>Pattern v1.0 - testing-patterns skill</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html"><small>Anterior</small>patterns/api-contract-testing.md</a><a class="next" href="../../../skills/testing-patterns/patterns/bunit-patterns.html"><small>Siguiente</small>patterns/bunit-patterns.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/patterns/builders.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#descripción">Descripción</a></li><li class="l2"><a href="#builder-genérico">Builder Genérico</a></li><li class="l2"><a href="#builder-para-entidad-scholarship">Builder para Entidad Scholarship</a></li><li class="l2"><a href="#builder-para-dtos">Builder para DTOs</a></li><li class="l2"><a href="#builder-para-requests">Builder para Requests</a></li><li class="l2"><a href="#uso-en-tests">Uso en Tests</a></li><li class="l2"><a href="#factoría-de-builders">Factoría de Builders</a></li><li class="l2"><a href="#ventajas-del-patrón-builder">Ventajas del Patrón Builder</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,1187 @@
+{
+  "_generado": "scripts/generate-inventory.js - NO editar a mano (se regenera en el flujo de release)",
+  "_criterios": "skill=dir con SKILL.md; hook=entrada cableada en settings.json; comando=.md en commands/",
+  "version": "1.2.3",
+  "counts": {
+    "version": "1.2.3",
+    "comandos": 0,
+    "skills": 68,
+    "skills_resource_packs": 0,
+    "agents": 19,
+    "hooks_cableados": 22,
+    "hooks_entradas": 23,
+    "hooks_ficheros": 22,
+    "hooks_utilidades": 3,
+    "reglas": 3,
+    "reglas_siempre_cargadas": 3,
+    "mcp_tools": 15,
+    "adrs": 40,
+    "archivos_skills": 391,
+    "mcps_configurados": 3
+  },
+  "commands": [],
+  "skills": [
+    {
+      "name": "analisis-arquitectura",
+      "description": "Formal architecture audit of a .NET solution with versioned deliverables in Markdown and HTML: layer and dependency analysis, Clean Architecture compliance, design pattern catalog, database and API design review, performance and security review, migration viability, and architecture diagrams. Includ",
+      "files": 19,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "analizar",
+      "description": "Analisis completo del proyecto: arquitectura, seguridad, codigo, observabilidad, resiliencia, infra y diagramas.",
+      "files": 4,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": "[--quick | --full | --security | --backend | --frontend | --infra]",
+      "context": "fork",
+      "agent": "general-purpose",
+      "allowedTools": "Read, Grep, Glob, Bash(dotnet *), Bash(git *)"
+    },
+    {
+      "name": "api",
+      "description": "Convenciones de la capa de API: controladores REST, Minimal APIs, versionado, validacion y formato de respuesta.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "api-integration-patterns",
+      "description": "Implements REST API integration patterns for external systems from the configured catalog (ecosystem.config.json -> integrations[] and ESTADO_PROYECTO.json -> dominiosExternos[]) and custom APIs: HttpClientFactory, OAuth2 client credentials, retry, circuit breaker, response caching, API versioning. ",
+      "files": 20,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "application",
+      "description": "Convenciones de la capa de aplicacion: casos de uso, CQRS, DTOs, validadores y mapeos.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "asignar",
+      "description": "Permite asignar un evolutivo a otro desarrollador del equipo",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "blazor",
+      "description": "Convenciones de componentes Blazor: ciclo de vida, parametros, formularios, autenticacion e interoperabilidad con JS.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "calidad-codigo-sync",
+      "description": "Publishes the project's Quality Records (QR) to the Ovillo Hub so the portfolio quality dashboard shows them. USE FOR: sincronizar metricas de calidad (cobertura linea/rama, CRAP, complejidad ciclomatica, NPath, risk hotspots, quality gate) al hub tras correr los tests con cobertura, normalmente com",
+      "files": 7,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "cicd-architect",
+      "description": "CI/CD architect for the configured platform (cicd.platform, cicd.variant, cicd.environments): azure-pipelines, with its on-premise server-2020 variant, and github-actions. Knows the G1-G19 invariants of cicd-runtime, the three adoption phases and the stacks .NET, Vue and NuGet tool. USE FOR: editar ",
+      "files": 44,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": "Read, Grep, Glob"
+    },
+    {
+      "name": "cicd-deploy",
+      "description": "Despliega el proyecto a Dev, Pre o Pro bajo demanda (encola el pipeline de Azure DevOps con DeployEnv o despacha el workflow de GitHub Actions con environment, segun cicd.platform). Nunca despliega en cada push.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "cicd-init",
+      "description": "Scaffolding de CI/CD del proyecto por fases de adopcion (Azure Pipelines o GitHub Actions segun cicd.platform), con wizard interactivo.",
+      "files": 6,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": "Read, Grep, Glob, Write, Edit, Bash(git *)"
+    },
+    {
+      "name": "cicd-release",
+      "description": "Crea un tag SemVer, lo empuja y dispara el build del pipeline; en GitHub crea ademas la Release con notas generadas. No despliega (eso es /cicd-deploy).",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "cicd-runtime",
+      "description": "Invariantes G1-G19 del pipeline: modelos de deploy, gates, rollback, secretos, retencion, idempotencia; y para GitHub Actions permisos minimos, pin por SHA, pull_request_target, OIDC y concurrency.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "cicd-status",
+      "description": "Estado del pipeline registrado (ultimos builds, tiempos por stage o job, tendencia de cobertura, ultimo deploy por entorno y enlaces a Azure DevOps o GitHub Actions segun cicd.platform).",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "clean",
+      "description": "Pipeline de limpieza sistematica de 7 pasos para codigo .NET con deteccion de slop IA",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "cloud-config",
+      "description": "Configures cloud services for .NET applications according to the configured provider (ecosystem.config.json -> cloud.provider: azure|aws|gcp|none): secrets management (Key Vault / Secrets Manager / GSM), file storage (Blob / S3 / GCS), Redis distributed cache, telemetry (App Insights / CloudWatch / ",
+      "files": 12,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "commit",
+      "description": "Crea un commit con conventional commits y verificaciones previas (secretos, build, mensaje).",
+      "files": 2,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": "Read, Grep, Glob, Bash(git *)"
+    },
+    {
+      "name": "console",
+      "description": "Convenciones de aplicaciones de consola y servicios alojados: hosting, workers y ciclo de vida.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "continuar",
+      "description": "Retoma trabajo cargando spec completo y estado desde _hilo/",
+      "files": 2,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "database",
+      "description": "Convenciones de base de datos: nomenclatura SQL, procedimientos almacenados, vistas, migraciones y repositorios.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "docs-agente-sync",
+      "description": "Publishes the project's Agent Documentation Records (DOC) to the Ovillo Hub and rates their freshness against the source code. USE FOR: sincronizar al hub el estado de la documentacion-de-agente generada por /hv:analisis-arquitectura --agente (contexto compacto que consumen los agentes de codigo, re",
+      "files": 7,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "documentacion-tecnica",
+      "description": "Generates technical documentation for developers: README files, ADR (Architecture Decision Records), API reference docs, deployment guides, changelog entries, Mermaid diagrams, and CONTRIBUTING guides. USE FOR: README files, ADRs, API docs, architecture diagrams, developer onboarding docs, documenta",
+      "files": 13,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "domain",
+      "description": "Convenciones de la capa de dominio: entidades, objetos de valor, agregados y eventos de dominio.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "domain-api-docs",
+      "description": "Activacion condicional para consultar docs externas via Context7 cuando se edita codigo de integracion con sistemas externos configurados",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "equipo",
+      "description": "Muestra el estado actual del equipo y los evolutivos asignados",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "estado",
+      "description": "Muestra estado completo del proyecto incluyendo evolutivos y specs",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "estandares-base",
+      "description": "Puntero a los estandares de codigo de la organizacion: donde estan y que fija cada seccion.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "eval-gap",
+      "description": "Redactar un Work Item o Issue «Eval gap» tras un fallo de smoke test del consumidor",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "finalizar-evolutivo",
+      "description": "Finaliza evolutivo actualizando spec, FUNCIONALIDADES.md y _hilo/ESTADO_PROYECTO.json",
+      "files": 2,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "generador-crud",
+      "description": "Generates complete CRUD operations following the organization coding standards: Controller, Service, Repository, DTOs, Validators, and Entity configurations. Supports both traditional Controllers and Minimal API endpoints. USE FOR: creating CRUD operations, generate a new entity with all layers foll",
+      "files": 25,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "git-best-practices",
+      "description": "Implements Git best practices for development teams: 13 branching strategies, Conventional Commits, SSH/GPG signing, Azure DevOps branch policies and YAML pipelines, GitHub Rulesets (merge queue, required checks, signatures, tag protection) applied by API, CODEOWNERS, pull request and issue template",
+      "files": 30,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": "fork",
+      "agent": "Explore",
+      "allowedTools": "Read, Grep, Glob, Bash(git *)"
+    },
+    {
+      "name": "git-sync",
+      "description": "Sincroniza el repositorio con el remoto (pull + push). NO actualiza la documentacion del Hilo: para eso es sync.",
+      "files": 2,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "hub-client",
+      "description": "MCP client for the Ovillo Hub (URL in hub.url; optional, disabled by default). How to call its tools, resources and prompts from a consumer project. The hub centralises ADR, lecciones aprendidas, technical health (vulnerabilidades y deuda tecnica), evolutivos, pipelines, agent documentation (DOC) an",
+      "files": 3,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "infrastructure",
+      "description": "Convenciones de la capa de infraestructura: repositorios, contexto de datos, migraciones y servicios externos.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "init",
+      "description": "Prepara un repositorio para trabajar con el ecosistema Ovillo instalado como plugin. Crea el layout src/docs/ops, el Hilo, el Patron y la configuracion del proyecto sin pisar lo que ya exista.",
+      "files": 2,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": "[--ide none|visual-studio|vscode|rider] [--refresh-memoria] [--dry-run]",
+      "context": null,
+      "agent": null,
+      "allowedTools": "Read, Glob, Bash(node *)"
+    },
+    {
+      "name": "issue-tracker-sync",
+      "description": "Knowledge base for issue-tracker integration (ecosystem.config.json -> vcs.platform / cicd.platform: azure-devops | github | gitlab). Azure DevOps (Server and Services): Boards (Epic/Feature/PBI, Scrum/Basic/Agile), Wiki, Dashboard raw-markdown widgets, Assigned To by git log, Area Paths + Team incl",
+      "files": 6,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "jira",
+      "description": "Integración con Jira Software (consultar, crear, actualizar issues)",
+      "files": 2,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "liberar",
+      "description": "Permite liberar (desasignarse de) el evolutivo actual para que otro lo tome",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "mcp-config",
+      "description": "Convenciones de los ficheros de configuracion y credenciales del Hub del ecosistema.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "mcp-forget",
+      "description": "Desregistra el proyecto del Hub Ovillo y borra todos sus datos del servidor (derecho de supresion, RGPD art. 17). Accion inmediata e irreversible.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "mcp-register",
+      "description": "Registra el proyecto y al desarrollador en el Hub Ovillo (opt-in explicito) y gestiona el opt-in de telemetria de agents. Requiere hub.enabled y hub.url en ecosystem.config.json.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "mi-config",
+      "description": "Configura preferencias personales del desarrollador (nivel Git, etc.)",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "migrar",
+      "description": "Asiste en la migración de proyectos entre versiones de .NET",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "migrate-to-cpm",
+      "description": "Migra la solucion .NET actual a Central Package Management (Directory.Packages.props) delegando en el agente cpm-migration-assistant.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "nuevo-evolutivo",
+      "description": "Abre un evolutivo y lo documenta de inmediato en el Hilo del proyecto.",
+      "files": 3,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": "[--spec \\\"descripcion breve\\\"]",
+      "context": null,
+      "agent": null,
+      "allowedTools": "Read, Grep, Glob, Write, Edit, Bash(git *)"
+    },
+    {
+      "name": "nuevo-proyecto",
+      "description": "Crea un proyecto .NET desde cero con un wizard interactivo, segun los estandares de la organizacion.",
+      "files": 3,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": "Read, Grep, Glob, Write, Edit, Bash(dotnet *), Bash(git *)"
+    },
+    {
+      "name": "nugets-management",
+      "description": "Manages NuGet packages for .NET projects: Central Package Management (CPM), version strategy, vulnerability auditing, package consolidation, and migration to Directory.Packages.props. USE FOR: managing NuGet packages, CPM migration, version strategy, vulnerability scanning, package updates, gestiona",
+      "files": 11,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": "Read, Grep, Glob, Bash(dotnet *)"
+    },
+    {
+      "name": "observability-patterns",
+      "description": "Configures observability and telemetry for .NET applications: OpenTelemetry setup, Serilog structured logging, custom metrics, distributed tracing, and Application Insights integration. USE FOR: configuring OpenTelemetry, Serilog setup, structured logging, Application Insights, health checks, metric",
+      "files": 8,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "onboarding",
+      "description": "Wizard de 8 fases para contextualizar un proyecto existente e integrarlo en el ecosistema.",
+      "files": 3,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": "[--section <branching|equipo|infraestructura|...>]",
+      "context": null,
+      "agent": null,
+      "allowedTools": "Read, Grep, Glob, Write, Edit, Bash(git *)"
+    },
+    {
+      "name": "optimizar",
+      "description": "Optimizar contexto: analizar consumo, limpiar y compactar para sesiones mas eficientes",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "pausar",
+      "description": "Guarda estado de sesión en spec, FUNCIONALIDADES.md y JSON",
+      "files": 2,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "postman-collection",
+      "description": "Generates Postman collections for API testing with automatic authentication detection: scans Program.cs to detect Azure AD, OAuth2, API Key, Basic Auth, or HttpSignature, then configures collection-level auth, pre-request scripts, environment variables per environment (Dev/Pre/Pro), test assertions,",
+      "files": 17,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "prepara-entrega",
+      "description": "Prepara versión para release - genera documentación de entrega",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "recuperar",
+      "description": "Recupera contexto después de emergencia (SOS/CP)",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "resilience-patterns",
+      "description": "Configures resilience and reliability patterns for .NET applications: Polly v8+ retry policies, circuit breaker, bulkhead isolation, health checks (/health, /ready, /live), and graceful shutdown. USE FOR: Polly v8 retry policies, circuit breakers, health checks, graceful shutdown, configurar resilie",
+      "files": 9,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "revision",
+      "description": "Analiza el impacto de cambios antes de modificar código crítico",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "security-audit",
+      "description": "Performs comprehensive code security audits following OWASP Top 10 2025, SAST analysis, CVSS scoring, CWE classification, and secret detection. Covers .NET, Java, Python, PHP, Ruby, Go, JavaScript, mobile (OWASP MASTG), and LLM/AI security patterns. USE FOR: security audits, OWASP review, review the",
+      "files": 34,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": "fork",
+      "agent": "security-auditor",
+      "allowedTools": "Read, Grep, Glob"
+    },
+    {
+      "name": "sos",
+      "description": "Modo SOS de emergencia - captura estado actual del proyecto para recuperacion posterior",
+      "files": 2,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "sync",
+      "description": "Sincroniza la documentacion de contexto del Hilo con el codigo actual (specs, funcionalidades, inventario de paquetes). NO toca el repositorio remoto: para pull/push es git-sync.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "testing-patterns",
+      "description": "Generates unit and integration tests following the ecosystem conventions: xUnit, FluentAssertions, Moq, Testcontainers, and bUnit for Blazor. Includes test data builders, snapshot testing, and performance test patterns. USE FOR: writing unit tests, integration tests, xUnit patterns, Testcontainers, ",
+      "files": 17,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "tests",
+      "description": "Convenciones de pruebas: nomenclatura, estructura de carpetas y umbrales de cobertura por capa.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "tomar",
+      "description": "Permite autoasignarse un evolutivo pendiente (sin asignar)",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "user-documentation",
+      "description": "Generates end-user documentation: usage guides, FAQ pages, API consumer guides, user flow diagrams, screenshot-annotated walkthroughs, and Postman collection guides. USE FOR: user guides, FAQ pages, help documentation, user flow diagrams, release notes for users, guia de usuario, documentacion de us",
+      "files": 13,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "verificar-claude",
+      "description": "Analiza CLAUDE.md del proyecto para detectar problemas y ofrece corrección automática",
+      "files": 2,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "verify",
+      "description": "Ejecutar pipeline de verificacion de 7 fases antes de commit o PR",
+      "files": 1,
+      "evalSet": false,
+      "kind": "workflow",
+      "userOnly": true,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "webapp",
+      "description": "Convenciones de vistas y front web: Razor, layout, TagHelpers y estaticos.",
+      "files": 1,
+      "evalSet": false,
+      "kind": "rule",
+      "userOnly": false,
+      "porRuta": true,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "webapp-dashboard",
+      "description": "Reusable base template for an ADMIN PANEL (dashboard) in the organization's internal .NET apps: fixed collapsible navy sidebar, sticky topbar, native Bootstrap 5.3 dark mode (data-bs-theme), Chart.js charts that re-render with the theme palette, full-width layout and brand tokens from the theme. USE",
+      "files": 9,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    },
+    {
+      "name": "webapp-layout",
+      "description": "Generates web layouts following configurable corporate design standards (theme tokens): institutional colors (#33475B), responsive layout, header/footer/sidebar components, dark mode, print styles, and WCAG 2.1 AA accessibility. USE FOR: generating web layouts, configurable corporate design, institu",
+      "files": 16,
+      "evalSet": true,
+      "kind": "knowledge",
+      "userOnly": false,
+      "porRuta": false,
+      "argumentHint": null,
+      "context": null,
+      "agent": null,
+      "allowedTools": null
+    }
+  ],
+  "resourcePacks": [],
+  "agents": [
+    {
+      "name": "api-contract-validator",
+      "file": "api-contract-validator.md",
+      "model": null,
+      "description": "Valida contratos OpenAPI/Swagger de APIs .NET y detecta breaking changes: versionado, schemas de request/response, atributos HTTP, ProblemDetails. USE FOR auditar el contrato pre-release, API breaking change, validar el versionado de un endpoint. DO NOT USE FOR escribir endpoints (skill api-integrat"
+    },
+    {
+      "name": "architecture-validator",
+      "file": "architecture-validator.md",
+      "model": null,
+      "description": "Valida Clean Architecture en soluciones .NET: violaciones de capa, dependencias inversas Domain a Infrastructure, ciclos entre proyectos y naming. USE FOR auditar arquitectura, viola las capas, circular dependencies, revisar un PR estructural. DO NOT USE FOR disenar arquitectura (skill analisis-arqu"
+    },
+    {
+      "name": "build-fixer",
+      "file": "build-fixer.md",
+      "model": null,
+      "description": "Resuelve errores de compilacion .NET iterativamente: categoriza los errores del compilador y aplica fixes hasta el build verde. USE FOR el build falla, fix compilation errors, errores CS masivos tras una migracion, rename o merge. DO NOT USE FOR tests que fallan (test-runner), refactor de codigo san"
+    },
+    {
+      "name": "cicd-pipeline-reviewer",
+      "file": "cicd-pipeline-reviewer.md",
+      "model": null,
+      "description": "Audita un azure-pipelines.yml existente contra los invariantes G1-G19, con severidad HARD/SOFT/INFO, linea y fix. USE FOR audita mi pipeline, revisar azure-pipelines.yml, features que la plataforma no soporta. DO NOT USE FOR workflows de GitHub Actions (github-actions-reviewer), generarlo (skill cic"
+    },
+    {
+      "name": "code-reviewer",
+      "file": "code-reviewer.md",
+      "model": null,
+      "description": "Revision de codigo .NET multidimensional: correctitud, seguridad, rendimiento, mantenibilidad, tests y convenciones, priorizada por severidad. USE FOR PR review, revisa este codigo, sanity check antes de una release. DO NOT USE FOR auditorias de un solo tema (security-auditor, architecture-validator"
+    },
+    {
+      "name": "cpm-migration-assistant",
+      "file": "cpm-migration-assistant.md",
+      "model": null,
+      "description": "Migra una solucion .NET multi-csproj a Central Package Management: detecta conflictos de version y edita los csproj contra Directory.Packages.props. USE FOR convertir a Central Package Management, consolidar versiones duplicadas, version drift. DO NOT USE FOR vulnerabilidades NuGet (nuget-analyzer),"
+    },
+    {
+      "name": "database-reviewer",
+      "file": "database-reviewer.md",
+      "model": null,
+      "description": "Audita acceso a datos y rendimiento SQL: patrones EF Core, migraciones, N+1, indices, T-SQL y nomenclatura de procedimientos. USE FOR audita el SQL, revisar una migracion de EF Core, detectar N+1, optimizar una query lenta, validar el nombre de un SP nuevo. DO NOT USE FOR SQL injection (security-aud"
+    },
+    {
+      "name": "github-actions-reviewer",
+      "file": "github-actions-reviewer.md",
+      "model": null,
+      "description": "Audita workflows de GitHub Actions contra G1-G19: permisos del GITHUB_TOKEN, pin por SHA, pull_request_target, secretos, OIDC, concurrency y environments. Solo lectura, con linea y fix. USE FOR workflow security review, acciones sin pin, supply chain. DO NOT USE FOR azure-pipelines.yml (cicd-pipelin"
+    },
+    {
+      "name": "hilo-coherence-checker",
+      "file": "hilo-coherence-checker.md",
+      "model": "sonnet",
+      "description": "Audita la coherencia del Hilo: evolutivos vs FUNCIONALIDADES, equipo vs autores de git, DEPENDENCIAS vs PackageReference, LECCIONES vs DECISIONES. Devuelve las divergencias con su fix. USE FOR que esta desincronizado en _hilo, coherence check, antes de una release. DO NOT USE FOR escribir documentac"
+    },
+    {
+      "name": "identity-auditor",
+      "file": "identity-auditor.md",
+      "model": "opus",
+      "description": "Audita la configuracion de identidad de la aplicacion: TokenValidationParameters, redirect URIs, scopes, claims y policies. USE FOR validar AddMicrosoftIdentityWebApi, revisar los ajustes del JWT, redirect URIs insegura, audit tras cambiar grupos del directorio. DO NOT USE FOR disenar RBAC nuevo (rb"
+    },
+    {
+      "name": "migration-assistant",
+      "file": "migration-assistant.md",
+      "model": null,
+      "description": "Guia la migracion de .NET Framework 4.x a .NET 10 por capas (Domain primero, Web al final) minimizando cambios de comportamiento. USE FOR plan de migracion de 4.8 a 10, upgrade gradual por capas, MVC 5 a ASP.NET Core MVC. DO NOT USE FOR Central Package Management (cpm-migration-assistant), refactor "
+    },
+    {
+      "name": "nuget-analyzer",
+      "file": "nuget-analyzer.md",
+      "model": null,
+      "description": "Analiza los paquetes NuGet de la solucion: CVE conocidos, licencias y coherencia de versiones entre csproj. USE FOR que paquetes tienen CVE, licencias antes de un update masivo, version drift entre proyectos, scan antes de una release. DO NOT USE FOR ejecutar la migracion a CPM (cpm-migration-assist"
+    },
+    {
+      "name": "performance-profiler",
+      "file": "performance-profiler.md",
+      "model": null,
+      "description": "Detecta anti-patrones de rendimiento en .NET: allocations, async/await, cache, hot paths y CancellationToken. Mide antes de optimizar. USE FOR tengo un problema de rendimiento, async void, sync-over-async, DateTime.Now, new HttpClient, memoria y GC. DO NOT USE FOR N+1 en SQL (database-reviewer), ref"
+    },
+    {
+      "name": "rbac-designer",
+      "file": "rbac-designer.md",
+      "model": null,
+      "description": "Disena autorizacion por roles y claims: mapea grupos del directorio a roles de la app y genera AddAuthorization() con policies, requirements y handlers. USE FOR como modelar permisos, disenar RBAC nuevo, generar IAuthorizationHandler, claims transformation. DO NOT USE FOR auditar el RBAC existente ("
+    },
+    {
+      "name": "refactor-cleaner",
+      "file": "refactor-cleaner.md",
+      "model": null,
+      "description": "Limpieza sistematica de codigo .NET en pipeline: codigo muerto, clases sealed, formateo, analyzers y descuidos. USE FOR limpia este codigo, catch vacios, tests deshabilitados, warnings suprimidos, Thread.Sleep arbitrarios, cleanup despues de un PR. DO NOT USE FOR errores de build (build-fixer), migr"
+    },
+    {
+      "name": "secret-rotation-advisor",
+      "file": "secret-rotation-advisor.md",
+      "model": null,
+      "description": "Detecta secretos hardcodeados (cadenas de conexion, API keys, passwords, certificados) y plantea la migracion al servicio de secretos configurado, con rotacion y limpieza. USE FOR tengo secretos en la configuracion, plan de migracion a Key Vault, rotar credenciales. DO NOT USE FOR OWASP general (sec"
+    },
+    {
+      "name": "security-auditor",
+      "file": "security-auditor.md",
+      "model": null,
+      "description": "Auditoria de seguridad OWASP Top 10 para .NET, con la configuracion real de identidad y secretos. USE FOR audita la seguridad de X, SQL injection, weak crypto, secretos hardcodeados, CSRF, informe formal antes de una release. DO NOT USE FOR STRIDE formal (threat-modeler), solo identidad (identity-au"
+    },
+    {
+      "name": "test-runner",
+      "file": "test-runner.md",
+      "model": null,
+      "description": "Ejecuta tests xUnit y de integracion (WebApplicationFactory, Testcontainers), analiza los fallos y evalua la cobertura. USE FOR ejecuta los tests, analizar un test que falla, que cobertura tenemos, proponer los tests que faltan para un metodo. DO NOT USE FOR escribir tests desde cero (skill testing-"
+    },
+    {
+      "name": "threat-modeler",
+      "file": "threat-modeler.md",
+      "model": "opus",
+      "description": "Modelado de amenazas STRIDE: flujo de datos en Mermaid, matriz de riesgo y mitigaciones para la infraestructura del proyecto. USE FOR threat modeling formal, que amenazas tiene esta aplicacion, diseno seguro de un modulo nuevo, antes del go-live. DO NOT USE FOR auditar el codigo existente (security-"
+    }
+  ],
+  "hooks": {
+    "wired": [
+      {
+        "event": "SessionStart",
+        "matcher": "*",
+        "file": "banner.js"
+      },
+      {
+        "event": "SessionStart",
+        "matcher": "*",
+        "file": "mcp-check.js"
+      },
+      {
+        "event": "SessionStart",
+        "matcher": "*",
+        "file": "skill-guard.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Bash",
+        "file": "bash-guard.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Bash",
+        "file": "antipattern-guard.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Bash",
+        "file": "hilo-json-guard.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Write|Edit",
+        "file": "protect-files.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Write|Edit",
+        "file": "secret-scanner.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Write|Edit",
+        "file": "auth-config-guard.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Write|Edit",
+        "file": "cert-expiry-reminder.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Write|Edit",
+        "file": "sql-injection-guard.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Write|Edit",
+        "file": "token-validation-guard.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Write|Edit",
+        "file": "sql-nomenclatura-guard.js"
+      },
+      {
+        "event": "PreToolUse",
+        "matcher": "Write|Edit",
+        "file": "hilo-json-guard.js"
+      },
+      {
+        "event": "PostToolUse",
+        "matcher": "Write|Edit",
+        "file": "auto-format.js"
+      },
+      {
+        "event": "PostToolUse",
+        "matcher": "Write|Edit",
+        "file": "multi-rol-coordination.js"
+      },
+      {
+        "event": "PostToolUse",
+        "matcher": "Bash",
+        "file": "post-build-check.js"
+      },
+      {
+        "event": "PostToolUse",
+        "matcher": "Bash",
+        "file": "quality-alert.js"
+      },
+      {
+        "event": "PostToolUse",
+        "matcher": "Task",
+        "file": "agent-telemetry.js"
+      },
+      {
+        "event": "Stop",
+        "matcher": "*",
+        "file": "session-checkpoint.js"
+      },
+      {
+        "event": "Stop",
+        "matcher": "*",
+        "file": "hilo-checkpoint.js"
+      },
+      {
+        "event": "UserPromptSubmit",
+        "matcher": "*",
+        "file": "hilo-freshness.js"
+      },
+      {
+        "event": "UserPromptSubmit",
+        "matcher": "*",
+        "file": "pre-cicd-init.js"
+      }
+    ],
+    "utilities": [
+      "build-target.js",
+      "config-check.js",
+      "sql-baseline-generate.js"
+    ]
+  },
+  "rules": [
+    {
+      "name": "context-optimization",
+      "file": "context-optimization.md",
+      "paths": false,
+      "alwaysLoaded": true
+    },
+    {
+      "name": "developer-branch",
+      "file": "developer-branch.md",
+      "paths": false,
+      "alwaysLoaded": true
+    },
+    {
+      "name": "devops-awareness",
+      "file": "devops-awareness.md",
+      "paths": false,
+      "alwaysLoaded": true
+    }
+  ],
+  "mcpTools": [
+    "count_projects",
+    "get_active_workitems",
+    "get_cicd_status",
+    "get_health_summary",
+    "get_version",
+    "list_pipelines",
+    "list_projects",
+    "ping",
+    "register_agentdoc",
+    "register_decision",
+    "register_ecosystem_feedback",
+    "register_lesson",
+    "register_pipeline",
+    "search_decisions",
+    "search_lessons"
+  ]
+}

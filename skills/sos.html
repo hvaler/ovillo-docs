@@ -1,0 +1,70 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>sos · Ovillo</title><meta name="description" content="Modo SOS de emergencia - captura estado actual del proyecto para recuperacion posterior"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="sos · Ovillo"><meta property="og:description" content="Modo SOS de emergencia - captura estado actual del proyecto para recuperacion posterior"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/sos.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/sos.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/sos.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html" class="cur">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>sos</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:sos</span><span>solo usuario</span></div><h1>sos</h1><p class="lede">Modo SOS de emergencia - captura estado actual del proyecto para recuperacion posterior</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:sos</code></b><span>invocación</span></div><div><b>2</b><span>ficheros</span></div><div><b>174</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:sos</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">1</span></h2><div class="tree"><ul><li><span class="dir">references/</span><ul><li><a href="../skills/sos/references/workflow-cp.html">workflow-cp.md</a> <span class="muted">880 B</span></li></ul></li></ul></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:sos</code>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-contexto-2">
+<h3 id="contexto-2">Contexto</h3>
+<p>Comando de emergencia para capturar el estado actual del proyecto y la sesion de trabajo cuando algo va mal y el desarrollador necesita pausar de forma abrupta sin perder contexto. Guarda toda la informacion relevante en un archivo de recuperacion que <code>/hv:recuperar</code> puede leer despues para retomar el trabajo.</p>
+</section>
+<section class="sec" id="sec-ejecucion-inmediata">
+<h3 id="ejecucion-inmediata">Ejecucion Inmediata</h3>
+<h4 id="1-capturar-estado-actual">1. Capturar estado actual</h4>
+<pre><code>🚨 SOS — captura de emergencia
+═══════════════════════════════</code></pre>
+<p>Claude debe detectar:</p>
+<ul>
+<li>Evolutivo activo (de <code>_hilo/ESTADO_PROYECTO.json.evolutivoActivo</code>)</li>
+<li>Rama git actual</li>
+<li>Archivos modificados sin commit</li>
+<li>Ultima accion realizada en esta sesion</li>
+<li>Resumen breve de la conversacion (ultimos intercambios)</li>
+</ul>
+<h4 id="2-guardar-en-json">2. Guardar en JSON</h4>
+<p>Actualizar <code>_hilo/ESTADO_PROYECTO.json</code> anadiendo bloque <code>emergencia</code>:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;emergencia&quot;</span>: {
+    <span class="tk-s">&quot;fecha&quot;</span>: <span class="tk-s">&quot;[FECHA_HORA]&quot;</span>,
+    <span class="tk-s">&quot;tipo&quot;</span>: <span class="tk-s">&quot;sos&quot;</span>,
+    <span class="tk-s">&quot;evolutivoActivo&quot;</span>: <span class="tk-s">&quot;[detectado]&quot;</span>,
+    <span class="tk-s">&quot;ultimaAccion&quot;</span>: <span class="tk-s">&quot;[lo que se estaba haciendo]&quot;</span>,
+    <span class="tk-s">&quot;contextoConversacion&quot;</span>: <span class="tk-s">&quot;[resumen breve]&quot;</span>
+  }
+}</code></pre>
+<h4 id="3-crear-archivo-de-recuperacion">3. Crear archivo de recuperacion</h4>
+<p>Crear <code>_hilo/SOS_[FECHA].md</code>:</p>
+<pre data-lang="markdown"><code># 🚨 SOS - [FECHA_HORA]
+
+## Estado en este momento
+
+### Evolutivo activo
+- ID: [EVO-XXX]
+- Nombre: [nombre]
+- Progreso: [X]%
+
+### Ultima accion
+[Description de lo que se estaba haciendo]
+
+### Conversacion relevante
+[Resumen de los ultimos intercambios importantes]
+
+### Archivos implicados
+- archivo1.cs
+- archivo2.cs
+
+### Siguiente paso sugerido
+[Lo que se deberia hacer al retomar]
+
+## Para recuperar
+Ejecutar: `/hv:recuperar`</code></pre>
+<h4 id="4-confirmacion-ultra-rapida">4. Confirmacion Ultra-Rapida</h4>
+<pre><code>✅ SOS guardado correctamente
+
+📄 _hilo/SOS_[FECHA].md
+
+Para recuperar, ejecuta: /recuperar</code></pre>
+<hr>
+<p><em>Skill sos · kind: workflow</em></p>
+<hr>
+</section>
+<section class="sec" id="sec-modo---rapido-absorbe-el-antiguo-cp">
+<h3 id="modo---rapido-absorbe-el-antiguo-cp">Modo <code>--rapido</code> (absorbe el antiguo <code>/cp</code>)</h3>
+<p>Version ligera del procedimiento, procedente de <code>/cp</code>, retirado por duplicidad: ambos capturan estado para recuperar despues; <code>cp</code> era la version instantanea de <code>sos</code>. Detalle en <strong><code>references/workflow-cp.md</code></strong>.</p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>87</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 174 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>4 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(fuentes): Lote A de la auditoria externa — prosa fosil, dato personal, frases rotas, /hv: canonico y correctivos del generador (ADR-022)</em> (<code>ff4b4fb</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/recuperar.html">recuperar</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/sos/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#contexto-2">Contexto</a></li><li class="l3"><a href="#ejecucion-inmediata">Ejecucion Inmediata</a></li><li class="l3"><a href="#modo---rapido-absorbe-el-antiguo-cp">Modo --rapido (absorbe el antiguo /cp)</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

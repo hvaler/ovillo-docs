@@ -1,0 +1,265 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · scripts/Generate-ApiClient.ps1 · Ovillo</title><meta name="description" content="Fichero scripts/Generate-ApiClient.ps1 de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · scripts/Generate-ApiClient.ps1 · Ovillo"><meta property="og:description" content="Fichero scripts/Generate-ApiClient.ps1 de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/scripts/Generate-ApiClient.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/scripts/Generate-ApiClient.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/scripts/Generate-ApiClient.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html" class="cur">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>scripts</span><span>Generate-ApiClient.ps1</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>scripts/</span><span>8639 B</span></div><h1>Generate-ApiClient.ps1</h1><p class="lede">Fichero que <code>/hv:api-integration-patterns</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>scripts</b><span>carpeta</span></div><div><b>8639 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="powershell"><code><span class="tk-c">#Requires -Version 5.1</span>
+<span class="tk-c">&lt;#
+.SYNOPSIS
+    Generate C# API Client from OpenAPI/Swagger spec
+
+.DESCRIPTION
+    Script para generar cliente C# desde especificación OpenAPI usando NSwag o Kiota.
+    Genera DTOs, interfaces y cliente HTTP tipado.
+
+.PARAMETER OpenApiUrl
+    URL del archivo OpenAPI/Swagger (ej: https://api.example.org/swagger/v1/swagger.json)
+
+.PARAMETER OpenApiFile
+    Ruta al archivo OpenAPI/Swagger local (alternativa a OpenApiUrl)
+
+.PARAMETER OutputPath
+    Carpeta destino para archivos generados
+
+.PARAMETER Namespace
+    Namespace para las clases generadas
+
+.PARAMETER ClientName
+    Nombre del cliente generado (ej: ExternalApiClient)
+
+.PARAMETER Tool
+    Herramienta a usar: NSwag o Kiota
+
+.EXAMPLE
+    .\Generate-ApiClient.ps1 -OpenApiUrl &quot;https://external-api.example.org/api/swagger/v1/swagger.json&quot; -OutputPath &quot;.\Generated&quot; -Namespace &quot;MyCompany.SistemaA.Client&quot; -ClientName &quot;ExternalApiClient&quot;
+
+.EXAMPLE
+    .\Generate-ApiClient.ps1 -OpenApiFile &quot;.\swagger.json&quot; -OutputPath &quot;.\Generated&quot; -Namespace &quot;MyCompany.Api&quot; -Tool Kiota
+#&gt;</span>
+
+[CmdletBinding()]
+<span class="tk-k">param</span>(
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [string]<span class="tk-v">$OpenApiUrl</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [string]<span class="tk-v">$OpenApiFile</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$true</span>)]
+    [string]<span class="tk-v">$OutputPath</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$true</span>)]
+    [string]<span class="tk-v">$Namespace</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [string]<span class="tk-v">$ClientName</span> = <span class="tk-s">&quot;ApiClient&quot;</span>,
+
+    [Parameter(Mandatory = <span class="tk-v">$false</span>)]
+    [ValidateSet(<span class="tk-s">&quot;NSwag&quot;</span>, <span class="tk-s">&quot;Kiota&quot;</span>)]
+    [string]<span class="tk-v">$Tool</span> = <span class="tk-s">&quot;NSwag&quot;</span>
+)
+
+<span class="tk-c"># ============================================================================</span>
+<span class="tk-c"># FUNCIONES</span>
+<span class="tk-c"># ============================================================================</span>
+
+<span class="tk-k">function</span> Write-ColorOutput {
+    <span class="tk-k">param</span>(
+        [string]<span class="tk-v">$Message</span>,
+        [string]<span class="tk-v">$Color</span> = <span class="tk-s">&quot;White&quot;</span>
+    )
+    Write-Host <span class="tk-v">$Message</span> -ForegroundColor <span class="tk-v">$Color</span>
+}
+
+<span class="tk-k">function</span> Test-ToolInstalled {
+    <span class="tk-k">param</span>([string]<span class="tk-v">$Command</span>)
+
+    <span class="tk-k">try</span> {
+        <span class="tk-v">$null</span> = Get-Command <span class="tk-v">$Command</span> -ErrorAction Stop
+        <span class="tk-k">return</span> <span class="tk-v">$true</span>
+    }
+    <span class="tk-k">catch</span> {
+        <span class="tk-k">return</span> <span class="tk-v">$false</span>
+    }
+}
+
+<span class="tk-k">function</span> Install-NSwag {
+    Write-ColorOutput <span class="tk-s">&quot;`n[NSwag] Instalando NSwag.ConsoleCore...&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+
+    <span class="tk-k">try</span> {
+        dotnet tool install --global NSwag.ConsoleCore --version <span class="tk-n">14</span>.*
+        Write-ColorOutput <span class="tk-s">&quot;[NSwag] ✅ Instalado correctamente&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+    }
+    <span class="tk-k">catch</span> {
+        Write-ColorOutput <span class="tk-s">&quot;[NSwag] ❌ Error al instalar: $($_.Exception.Message)&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+        <span class="tk-k">throw</span>
+    }
+}
+
+<span class="tk-k">function</span> Install-Kiota {
+    Write-ColorOutput <span class="tk-s">&quot;`n[Kiota] Instalando Kiota...&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+
+    <span class="tk-k">try</span> {
+        dotnet tool install --global Microsoft.OpenApi.Kiota
+        Write-ColorOutput <span class="tk-s">&quot;[Kiota] ✅ Instalado correctamente&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+    }
+    <span class="tk-k">catch</span> {
+        Write-ColorOutput <span class="tk-s">&quot;[Kiota] ❌ Error al instalar: $($_.Exception.Message)&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+        <span class="tk-k">throw</span>
+    }
+}
+
+<span class="tk-k">function</span> Generate-WithNSwag {
+    <span class="tk-k">param</span>(
+        [string]<span class="tk-v">$Input</span>,
+        [string]<span class="tk-v">$OutputPath</span>,
+        [string]<span class="tk-v">$Namespace</span>,
+        [string]<span class="tk-v">$ClientName</span>
+    )
+
+    Write-ColorOutput <span class="tk-s">&quot;`n[NSwag] Generando cliente...&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+
+    <span class="tk-v">$outputFile</span> = Join-Path <span class="tk-v">$OutputPath</span> <span class="tk-s">&quot;$ClientName.cs&quot;</span>
+
+    <span class="tk-v">$nswagCommand</span> = <span class="tk-s">&quot;nswag openapi2csclient &quot;</span> +
+                    <span class="tk-s">&quot;/input:$Input &quot;</span> +
+                    <span class="tk-s">&quot;/output:$outputFile &quot;</span> +
+                    <span class="tk-s">&quot;/namespace:$Namespace &quot;</span> +
+                    <span class="tk-s">&quot;/className:$ClientName &quot;</span> +
+                    <span class="tk-s">&quot;/generateClientInterfaces:true &quot;</span> +
+                    <span class="tk-s">&quot;/generateDtoTypes:true &quot;</span> +
+                    <span class="tk-s">&quot;/injectHttpClient:true &quot;</span> +
+                    <span class="tk-s">&quot;/useBaseUrl:false&quot;</span>
+
+    <span class="tk-k">try</span> {
+        Invoke-Expression <span class="tk-v">$nswagCommand</span>
+
+        <span class="tk-k">if</span> (Test-Path <span class="tk-v">$outputFile</span>) {
+            Write-ColorOutput <span class="tk-s">&quot;[NSwag] ✅ Cliente generado: $outputFile&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+            Write-ColorOutput <span class="tk-s">&quot;[NSwag] Tamaño: $((Get-Item $outputFile).Length / 1KB) KB&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+            <span class="tk-c"># Contar líneas</span>
+            <span class="tk-v">$lines</span> = (Get-Content <span class="tk-v">$outputFile</span>).Count
+            Write-ColorOutput <span class="tk-s">&quot;[NSwag] Líneas de código: $lines&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+        }
+        <span class="tk-k">else</span> {
+            Write-ColorOutput <span class="tk-s">&quot;[NSwag] ⚠️ Archivo no encontrado, pero comando ejecutado&quot;</span> <span class="tk-s">&quot;Yellow&quot;</span>
+        }
+    }
+    <span class="tk-k">catch</span> {
+        Write-ColorOutput <span class="tk-s">&quot;[NSwag] ❌ Error: $($_.Exception.Message)&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+        <span class="tk-k">throw</span>
+    }
+}
+
+<span class="tk-k">function</span> Generate-WithKiota {
+    <span class="tk-k">param</span>(
+        [string]<span class="tk-v">$Input</span>,
+        [string]<span class="tk-v">$OutputPath</span>,
+        [string]<span class="tk-v">$Namespace</span>
+    )
+
+    Write-ColorOutput <span class="tk-s">&quot;`n[Kiota] Generando cliente...&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+
+    <span class="tk-v">$kiotaCommand</span> = <span class="tk-s">&quot;kiota generate &quot;</span> +
+                    <span class="tk-s">&quot;-l CSharp &quot;</span> +
+                    <span class="tk-s">&quot;-d $Input &quot;</span> +
+                    <span class="tk-s">&quot;-o $OutputPath &quot;</span> +
+                    <span class="tk-s">&quot;-n $Namespace&quot;</span>
+
+    <span class="tk-k">try</span> {
+        Invoke-Expression <span class="tk-v">$kiotaCommand</span>
+
+        Write-ColorOutput <span class="tk-s">&quot;[Kiota] ✅ Cliente generado en: $OutputPath&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+
+        <span class="tk-c"># Listar archivos generados</span>
+        <span class="tk-v">$files</span> = Get-ChildItem -Path <span class="tk-v">$OutputPath</span> -Recurse -File
+        Write-ColorOutput <span class="tk-s">&quot;[Kiota] Archivos generados: $($files.Count)&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+        <span class="tk-k">foreach</span> (<span class="tk-v">$file</span> <span class="tk-k">in</span> <span class="tk-v">$files</span> | Select-Object -First <span class="tk-n">10</span>) {
+            Write-ColorOutput <span class="tk-s">&quot;  - $($file.Name)&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+        }
+
+        <span class="tk-k">if</span> (<span class="tk-v">$files</span>.Count &gt; <span class="tk-n">10</span>) {
+            Write-ColorOutput <span class="tk-s">&quot;  ... y $($files.Count - 10) más&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+        }
+    }
+    <span class="tk-k">catch</span> {
+        Write-ColorOutput <span class="tk-s">&quot;[Kiota] ❌ Error: $($_.Exception.Message)&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+        <span class="tk-k">throw</span>
+    }
+}
+
+<span class="tk-c"># ============================================================================</span>
+<span class="tk-c"># MAIN</span>
+<span class="tk-c"># ============================================================================</span>
+
+Write-ColorOutput <span class="tk-s">&quot;╔══════════════════════════════════════════════════════════╗&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;║  GENERADOR DE CLIENTE API                                ║&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;╚══════════════════════════════════════════════════════════╝&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+
+<span class="tk-c"># Validar entrada</span>
+<span class="tk-k">if</span> (-not <span class="tk-v">$OpenApiUrl</span> -and -not <span class="tk-v">$OpenApiFile</span>) {
+    Write-ColorOutput <span class="tk-s">&quot;`n❌ Error: Debes especificar OpenApiUrl o OpenApiFile&quot;</span> <span class="tk-s">&quot;Red&quot;</span>
+    <span class="tk-k">exit</span> <span class="tk-n">1</span>
+}
+
+<span class="tk-k">if</span> (<span class="tk-v">$OpenApiUrl</span> -and <span class="tk-v">$OpenApiFile</span>) {
+    Write-ColorOutput <span class="tk-s">&quot;`n⚠️ Warning: Se especificaron ambos OpenApiUrl y OpenApiFile. Usando OpenApiUrl.&quot;</span> <span class="tk-s">&quot;Yellow&quot;</span>
+}
+
+<span class="tk-v">$input</span> = <span class="tk-k">if</span> (<span class="tk-v">$OpenApiUrl</span>) { <span class="tk-v">$OpenApiUrl</span> } <span class="tk-k">else</span> { <span class="tk-v">$OpenApiFile</span> }
+
+Write-ColorOutput <span class="tk-s">&quot;`nConfiguración:&quot;</span> <span class="tk-s">&quot;Yellow&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;Input: $input&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;Output: $OutputPath&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;Namespace: $Namespace&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;Cliente: $ClientName&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;Tool: $Tool&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+<span class="tk-c"># Crear carpeta de salida si no existe</span>
+<span class="tk-k">if</span> (-not (Test-Path <span class="tk-v">$OutputPath</span>)) {
+    Write-ColorOutput <span class="tk-s">&quot;`n[INFO] Creando carpeta: $OutputPath&quot;</span> <span class="tk-s">&quot;Yellow&quot;</span>
+    New-Item -ItemType Directory -Path <span class="tk-v">$OutputPath</span> | Out-Null
+}
+
+<span class="tk-c"># Verificar herramienta</span>
+<span class="tk-v">$toolCommand</span> = <span class="tk-v">$Tool</span>.ToLower()
+
+<span class="tk-k">if</span> (-not (Test-ToolInstalled <span class="tk-v">$toolCommand</span>)) {
+    Write-ColorOutput <span class="tk-s">&quot;`n⚠️ $Tool no está instalado. Instalando...&quot;</span> <span class="tk-s">&quot;Yellow&quot;</span>
+
+    <span class="tk-k">switch</span> (<span class="tk-v">$Tool</span>) {
+        <span class="tk-s">&quot;NSwag&quot;</span> { Install-NSwag }
+        <span class="tk-s">&quot;Kiota&quot;</span> { Install-Kiota }
+    }
+}
+<span class="tk-k">else</span> {
+    Write-ColorOutput <span class="tk-s">&quot;`n✅ $Tool ya está instalado&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+}
+
+<span class="tk-c"># Generar cliente</span>
+<span class="tk-k">switch</span> (<span class="tk-v">$Tool</span>) {
+    <span class="tk-s">&quot;NSwag&quot;</span> {
+        Generate-WithNSwag -Input <span class="tk-v">$input</span> -OutputPath <span class="tk-v">$OutputPath</span> -Namespace <span class="tk-v">$Namespace</span> -ClientName <span class="tk-v">$ClientName</span>
+    }
+    <span class="tk-s">&quot;Kiota&quot;</span> {
+        Generate-WithKiota -Input <span class="tk-v">$input</span> -OutputPath <span class="tk-v">$OutputPath</span> -Namespace <span class="tk-v">$Namespace</span>
+    }
+}
+
+<span class="tk-c"># Siguiente pasos</span>
+Write-ColorOutput <span class="tk-s">&quot;`n╔══════════════════════════════════════════════════════════╗&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;║  ✅ GENERACIÓN COMPLETADA                                ║&quot;</span> <span class="tk-s">&quot;Green&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;╚══════════════════════════════════════════════════════════╝&quot;</span> <span class="tk-s">&quot;Cyan&quot;</span>
+
+Write-ColorOutput <span class="tk-s">&quot;`nPróximos pasos:&quot;</span> <span class="tk-s">&quot;Yellow&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;1. Revisar archivos generados en: $OutputPath&quot;</span> <span class="tk-s">&quot;White&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;2. Añadir al proyecto:&quot;</span> <span class="tk-s">&quot;White&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;   dotnet add reference $OutputPath&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;3. Registrar en Program.cs:&quot;</span> <span class="tk-s">&quot;White&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;   builder.Services.AddHttpClient&lt;I$ClientName, $ClientName&gt;()&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;4. Usar en tu código:&quot;</span> <span class="tk-s">&quot;White&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;   var result = await _client.GetSomethingAsync();&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+Write-ColorOutput <span class="tk-s">&quot;`n📚 Documentación:&quot;</span> <span class="tk-s">&quot;Yellow&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;NSwag: https://github.com/RicoSuter/NSwag&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+Write-ColorOutput <span class="tk-s">&quot;Kiota: https://learn.microsoft.com/en-us/openapi/kiota/&quot;</span> <span class="tk-s">&quot;Gray&quot;</span>
+
+<span class="tk-k">exit</span> <span class="tk-n">0</span>
+</code></pre><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/references/integration-examples.html"><small>Anterior</small>references/integration-examples.md</a><a class="next" href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html"><small>Siguiente</small>scripts/Test-ApiConnection.ps1</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/scripts/Generate-ApiClient.ps1</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

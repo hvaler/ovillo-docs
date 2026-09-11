@@ -1,0 +1,100 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · examples/polly-advanced.md · Ovillo</title><meta name="description" content="Fichero examples/polly-advanced.md de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · examples/polly-advanced.md · Ovillo"><meta property="og:description" content="Fichero examples/polly-advanced.md de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/examples/polly-advanced.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/examples/polly-advanced.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/examples/polly-advanced.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html" class="cur">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>examples</span><span>polly-advanced.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>examples/</span></div><h1>polly-advanced.md</h1><p class="lede">Referencia que <code>api-integration-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>examples</b><span>carpeta</span></div><div><b>3501 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Patrón</strong>: Retry + Circuit Breaker + Timeout + Fallback <strong>Versión</strong>: Polly v8+ <strong>Uso</strong>: Máxima resiliencia para APIs críticas</p></blockquote>
+<hr>
+<section class="sec" id="sec-pipeline-completo">
+<h3 id="pipeline-completo">Pipeline Completo</h3>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly;
+<span class="tk-k">using</span> Polly.Retry;
+<span class="tk-k">using</span> Polly.CircuitBreaker;
+<span class="tk-k">using</span> Polly.Timeout;
+
+builder.Services.AddResiliencePipeline(<span class="tk-s">&quot;critical-api&quot;</span>, pipelineBuilder =&gt;
+{
+    <span class="tk-c">// 1. TIMEOUT (más interno - se ejecuta primero)</span>
+    pipelineBuilder.AddTimeout(TimeSpan.FromSeconds(<span class="tk-n">10</span>));
+
+    <span class="tk-c">// 2. RETRY con backoff exponencial + jitter</span>
+    pipelineBuilder.AddRetry(<span class="tk-k">new</span> RetryStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        MaxRetryAttempts = <span class="tk-n">3</span>,
+        BackoffType = DelayBackoffType.Exponential,
+        Delay = TimeSpan.FromSeconds(<span class="tk-n">1</span>),
+        UseJitter = <span class="tk-k">true</span>,
+        ShouldHandle = <span class="tk-k">new</span> PredicateBuilder&lt;HttpResponseMessage&gt;()
+            .Handle&lt;HttpRequestException&gt;()
+            .Handle&lt;TimeoutException&gt;()
+            .HandleResult(r =&gt;
+                r.StatusCode == System.Net.HttpStatusCode.TooManyRequests ||
+                r.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable),
+        OnRetry = args =&gt;
+        {
+            Console.WriteLine(<span class="tk-s">$&quot;Retry {args.AttemptNumber} tras {args.RetryDelay}&quot;</span>);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        }
+    });
+
+    <span class="tk-c">// 3. CIRCUIT BREAKER</span>
+    pipelineBuilder.AddCircuitBreaker(<span class="tk-k">new</span> CircuitBreakerStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        FailureRatio = <span class="tk-n">0.5</span>,
+        SamplingDuration = TimeSpan.FromSeconds(<span class="tk-n">10</span>),
+        MinimumThroughput = <span class="tk-n">10</span>,
+        BreakDuration = TimeSpan.FromMinutes(<span class="tk-n">1</span>),
+        ShouldHandle = <span class="tk-k">new</span> PredicateBuilder&lt;HttpResponseMessage&gt;()
+            .Handle&lt;HttpRequestException&gt;()
+            .HandleResult(r =&gt; r.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable),
+        OnOpened = args =&gt;
+        {
+            Console.WriteLine(<span class="tk-s">&quot;⚠️ Circuit ABIERTO&quot;</span>);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        }
+    });
+
+    <span class="tk-c">// 4. FALLBACK (más externo)</span>
+    pipelineBuilder.AddFallback(<span class="tk-k">new</span> FallbackStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        ShouldHandle = <span class="tk-k">new</span> PredicateBuilder&lt;HttpResponseMessage&gt;()
+            .Handle&lt;BrokenCircuitException&gt;(),
+        FallbackAction = args =&gt;
+        {
+            <span class="tk-k">var</span> fallbackResponse = <span class="tk-k">new</span> HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = <span class="tk-k">new</span> StringContent(JsonSerializer.Serialize(<span class="tk-k">new</span>
+                {
+                    message = <span class="tk-s">&quot;Servicio temporalmente no disponible&quot;</span>,
+                    usandoFallback = <span class="tk-k">true</span>
+                }))
+            };
+
+            <span class="tk-k">return</span> Outcome.FromResult(fallbackResponse);
+        }
+    });
+});
+
+<span class="tk-c">// Uso en HttpClient</span>
+builder.Services.AddHttpClient&lt;ICriticalApiClient, CriticalApiClient&gt;()
+    .AddResilienceHandler(<span class="tk-s">&quot;critical-api&quot;</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-con-telemetría-application-insights">
+<h3 id="con-telemetría-application-insights">Con Telemetría (Application Insights)</h3>
+<pre data-lang="csharp"><code>builder.Services.AddResiliencePipeline(<span class="tk-s">&quot;api-with-telemetry&quot;</span>, (pipelineBuilder, context) =&gt;
+{
+    <span class="tk-k">var</span> telemetry = context.ServiceProvider.GetService&lt;TelemetryClient&gt;();
+
+    pipelineBuilder.AddRetry(<span class="tk-k">new</span> RetryStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        MaxRetryAttempts = <span class="tk-n">3</span>,
+        OnRetry = args =&gt;
+        {
+            telemetry?.TrackEvent(<span class="tk-s">&quot;ApiRetry&quot;</span>, <span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">string</span>&gt;
+            {
+                [<span class="tk-s">&quot;Attempt&quot;</span>] = args.AttemptNumber.ToString(),
+                [<span class="tk-s">&quot;Outcome&quot;</span>] = args.Outcome.Exception?.Message ?? args.Outcome.Result?.StatusCode.ToString() ?? <span class="tk-s">&quot;Unknown&quot;</span>
+            });
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        }
+    });
+});</code></pre>
+<hr>
+<p><em>Example: polly-advanced - Ovillo</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/examples/external-api-example.html"><small>Anterior</small>examples/external-api-example.md</a><a class="next" href="../../../skills/api-integration-patterns/patterns/api-versioning.html"><small>Siguiente</small>patterns/api-versioning.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/examples/polly-advanced.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#pipeline-completo">Pipeline Completo</a></li><li class="l2"><a href="#con-telemetría-application-insights">Con Telemetría (Application Insights)</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

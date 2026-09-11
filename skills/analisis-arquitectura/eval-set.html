@@ -1,0 +1,112 @@
+<!doctype html><html lang="es" data-rel="../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>analisis-arquitectura · eval-set.json · Ovillo</title><meta name="description" content="Fichero eval-set.json de la skill analisis-arquitectura"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="analisis-arquitectura · eval-set.json · Ovillo"><meta property="og:description" content="Fichero eval-set.json de la skill analisis-arquitectura"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/eval-set.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/eval-set.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../recursos/portal.css"></head><body data-page="skills/analisis-arquitectura/eval-set.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../index.html">Inicio</a></li><li><a href="../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../curso/index.html">Curso</a></li><li><a href="../../chuletas/index.html">Chuletas</a></li><li><a href="../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../patron.html">Patrón</a></li><li><a href="../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../referencia-config.html">Configuración</a></li><li><a href="../../referencia-hilo.html">Hilo</a></li><li><a href="../../changelog.html">Versiones</a></li><li><a href="../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../buscar.html">Buscar</a></li><li><a href="../../privacidad.html">Datos y privacidad</a></li><li><a href="../../acerca.html">Acerca</a></li></ul><h4>Pack de analisis-arquitectura (18)</h4><ul class="sibs"><li><a href="../../skills/analisis-arquitectura/checklists/api-design-review.html">checklists/api-design-review.md</a></li><li><a href="../../skills/analisis-arquitectura/checklists/clean-architecture.html">checklists/clean-architecture.md</a></li><li><a href="../../skills/analisis-arquitectura/checklists/database-review.html">checklists/database-review.md</a></li><li><a href="../../skills/analisis-arquitectura/checklists/microservices-review.html">checklists/microservices-review.md</a></li><li><a href="../../skills/analisis-arquitectura/checklists/migration-viability.html">checklists/migration-viability.md</a></li><li><a href="../../skills/analisis-arquitectura/checklists/performance-review.html">checklists/performance-review.md</a></li><li><a href="../../skills/analisis-arquitectura/checklists/security-review.html">checklists/security-review.md</a></li><li><a href="../../skills/analisis-arquitectura/eval-set.html" class="cur">eval-set.json</a></li><li><a href="../../skills/analisis-arquitectura/patterns/architecture-diagrams.html">patterns/architecture-diagrams.md</a></li><li><a href="../../skills/analisis-arquitectura/patterns/dependency-analysis.html">patterns/dependency-analysis.md</a></li><li><a href="../../skills/analisis-arquitectura/patterns/design-pattern-catalog.html">patterns/design-pattern-catalog.md</a></li><li><a href="../../skills/analisis-arquitectura/prompts/prompt-clean-architecture.html">prompts/prompt-clean-architecture.md</a></li><li><a href="../../skills/analisis-arquitectura/prompts/prompt-contexto-agente.html">prompts/prompt-contexto-agente.md</a></li><li><a href="../../skills/analisis-arquitectura/prompts/prompt-general.html">prompts/prompt-general.md</a></li><li><a href="../../skills/analisis-arquitectura/README.html">README.md</a></li><li><a href="../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html">templates/ANALISIS_ARQUITECTURA.html.template</a></li><li><a href="../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.md.html">templates/ANALISIS_ARQUITECTURA.md.template</a></li><li><a href="../../skills/analisis-arquitectura/templates/CONTEXTO_AGENTE.md.html">templates/CONTEXTO_AGENTE.md.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../index.html">Inicio</a></span><span><a href="../../skills/index.html">Skills</a></span><span><a href="../../skills/analisis-arquitectura.html">analisis-arquitectura</a></span><span>eval-set.json</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>analisis-arquitectura</span><span>5361 B</span></div><h1>eval-set.json</h1><p class="lede">Fichero que <code>/hv:analisis-arquitectura</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../skills/analisis-arquitectura.html">analisis-arquitectura</a></b><span>skill</span></div><div><b>5361 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="json"><code>{
+  <span class="tk-s">&quot;skill&quot;</span>: <span class="tk-s">&quot;analisis-arquitectura&quot;</span>,
+  <span class="tk-s">&quot;version&quot;</span>: <span class="tk-s">&quot;1.0.0&quot;</span>,
+  <span class="tk-s">&quot;created&quot;</span>: <span class="tk-s">&quot;2026-03-12&quot;</span>,
+  <span class="tk-s">&quot;updated&quot;</span>: <span class="tk-s">&quot;2026-04-06&quot;</span>,
+  <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Trigger evaluation dataset for analisis-arquitectura skill. 16 queries: 9 should trigger, 7 should NOT trigger.&quot;</span>,
+  <span class="tk-s">&quot;queries&quot;</span>: [
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Analiza la arquitectura del proyecto y genera un diagrama de dependencias entre capas&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Caso de uso principal: análisis de arquitectura con diagramas&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Review the project architecture for Clean Architecture compliance and layer violations&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en-US&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;English trigger: architecture compliance audit&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Estoy haciendo onboarding en este proyecto, necesito entender la estructura y las dependencias entre módulos&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Onboarding trigger: entender proyecto nuevo&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Hay violaciones de capas en el proyecto? Infrastructure referencia directamente a los Controllers?&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Layer violation detection&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Generate a dependency graph showing how Domain, Application, Infrastructure and Web interact&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en-US&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;English trigger: dependency graph generation&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Genera un informe de auditoría arquitectónica completo con puntuación y recomendaciones en HTML y Markdown&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEW: Formal report generation trigger (HTML+MD)&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;¿Merece la pena migrar este proyecto a Clean Architecture? Evalúa la viabilidad&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEW: Migration viability assessment trigger&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Produce an architecture audit report with scoring, patterns detected, and NuGet analysis&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en-US&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEW: English formal audit report trigger&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Quiero un análisis de la arquitectura actual con métricas cuantitativas y los 5 problemas más críticos&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEW: Quantitative analysis with critical problems&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Crea un CRUD completo para la entidad Alumno con Controller, Service y Repository&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar generador-crud. Crear código != analizar arquitectura&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Revisa la seguridad de este endpoint y busca vulnerabilidades OWASP Top 10&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar security-audit. Seguridad != arquitectura&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Configure Azure Application Insights and OpenTelemetry for distributed tracing&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en-US&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar observability-patterns. Configurar telemetría != analizar arquitectura&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Actualiza los paquetes NuGet obsoletos y audita vulnerabilidades en las dependencias&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar nugets-management. Gestión NuGet != análisis arquitectura&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Genera la documentación técnica del proyecto con ADR y README&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar documentacion-tecnica. Generar docs != analizar estructura&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Genera un informe de tests con cobertura y recomendaciones de mejora de tests&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar testing-patterns. Tests != arquitectura&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Crea una colección Postman para probar los endpoints de la API&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar postman-collection. Postman != arquitectura&quot;</span>
+    }
+  ],
+  <span class="tk-s">&quot;overlap_notes&quot;</span>: {
+    <span class="tk-s">&quot;generador-crud&quot;</span>: <span class="tk-s">&quot;Clean Architecture: analisis-arquitectura EVALÚA compliance, generador-crud GENERA código siguiendo el patrón. Query 'revisar capas' → analisis-arquitectura, query 'crear entidad con capas' → generador-crud&quot;</span>,
+    <span class="tk-s">&quot;security-audit&quot;</span>: <span class="tk-s">&quot;Code review: analisis-arquitectura revisa ESTRUCTURA y patrones, security-audit revisa VULNERABILIDADES. Query 'revisar dependencias entre módulos' → analisis-arquitectura, query 'buscar SQL injection' → security-audit&quot;</span>,
+    <span class="tk-s">&quot;nugets-management&quot;</span>: <span class="tk-s">&quot;Dependencies: analisis-arquitectura analiza dependencias entre CAPAS del código, nugets-management analiza dependencias de PAQUETES NuGet. Query 'dependencias entre proyectos' → analisis-arquitectura, query 'NuGet desactualizados' → nugets-management&quot;</span>,
+    <span class="tk-s">&quot;documentacion-tecnica&quot;</span>: <span class="tk-s">&quot;Reports: analisis-arquitectura genera informes de AUDITORÍA ARQUITECTÓNICA, documentacion-tecnica genera documentación FUNCIONAL/TÉCNICA del proyecto. Query 'informe arquitectura' → analisis-arquitectura, query 'documentación API' → documentacion-tecnica&quot;</span>
+  }
+}
+</code></pre><p style="margin-top:32px"><a href="../../skills/analisis-arquitectura.html#ficheros">← Volver a la ficha de analisis-arquitectura</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../skills/analisis-arquitectura/checklists/security-review.html"><small>Anterior</small>checklists/security-review.md</a><a class="next" href="../../skills/analisis-arquitectura/patterns/architecture-diagrams.html"><small>Siguiente</small>patterns/architecture-diagrams.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/analisis-arquitectura/eval-set.json</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../recursos/search-index.js" defer></script><script src="../../recursos/portal.js" defer></script></body></html>

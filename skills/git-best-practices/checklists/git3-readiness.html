@@ -1,0 +1,82 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · checklists/git3-readiness.md · Ovillo</title><meta name="description" content="Fichero checklists/git3-readiness.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · checklists/git3-readiness.md · Ovillo"><meta property="og:description" content="Fichero checklists/git3-readiness.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/checklists/git3-readiness.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/checklists/git3-readiness.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/checklists/git3-readiness.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html" class="cur">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>checklists</span><span>git3-readiness.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>checklists/</span></div><h1>git3-readiness.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>checklists</b><span>carpeta</span></div><div><b>3009 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: git-best-practices</p></blockquote>
+<p class="lede">Git 3.0 esta previsto para finales de 2026. Estos son los cambios que preparar.</p>
+<hr>
+<section class="sec" id="sec-cambios-confirmados-en-git-30">
+<h3 id="cambios-confirmados-en-git-30">Cambios Confirmados en Git 3.0</h3>
+<h4 id="1-sha-256-como-default">1. SHA-256 como Default</h4>
+<p><strong>Que cambia:</strong> Los nuevos repositorios usaran SHA-256 en lugar de SHA-1 por defecto.</p>
+<ul>
+<li><input type="checkbox" disabled> Verificar que herramientas y scripts no dependen del formato SHA-1 (40 chars hex)</li>
+<li><input type="checkbox" disabled> SHA-256 produce hashes de 64 chars hex</li>
+<li><input type="checkbox" disabled> Los repositorios existentes NO se rompen (interoperabilidad SHA-1/SHA-256)</li>
+<li><input type="checkbox" disabled> Planificar migracion de repositorios existentes (no urgente, hay interop)</li>
+</ul>
+<pre data-lang="bash"><code><span class="tk-c"># Crear repo con SHA-256 (ya disponible en Git 2.52)</span>
+<span class="tk-k">git</span> init --object-format=sha256
+
+<span class="tk-c"># Verificar formato de un repo</span>
+<span class="tk-k">git</span> rev-parse --show-object-format</code></pre>
+<h4 id="2-rust-como-dependencia-obligatoria">2. Rust como Dependencia Obligatoria</h4>
+<p><strong>Que cambia:</strong> Git 3.0 requiere Rust para compilar. Partes criticas se reescriben en Rust.</p>
+<ul>
+<li><input type="checkbox" disabled> Verificar que entornos de build tienen Rust disponible</li>
+<li><input type="checkbox" disabled> Actualizar Docker images de CI/CD para incluir Rust toolchain</li>
+<li><input type="checkbox" disabled> No afecta al USO de Git, solo a la COMPILACION desde fuente</li>
+<li><input type="checkbox" disabled> Las distribuciones (apt, brew, winget) manejaran esto transparentemente</li>
+</ul>
+<h4 id="3-default-branch-main">3. Default Branch: main</h4>
+<p><strong>Que cambia:</strong> <code>git init</code> creara <code>main</code> por defecto (ya configurado en Git 2.28+).</p>
+<ul>
+<li><input type="checkbox" disabled> Verificar que todos los repos usan <code>main</code> (no <code>master</code>)</li>
+<li><input type="checkbox" disabled> Actualizar scripts que referencien <code>master</code> hardcodeado</li>
+<li><input type="checkbox" disabled> Actualizar documentacion que mencione <code>master</code></li>
+</ul>
+<pre data-lang="bash"><code><span class="tk-c"># Verificar configuracion actual</span>
+<span class="tk-k">git</span> config --global init.defaultBranch
+<span class="tk-c"># Debe ser: main</span>
+
+<span class="tk-c"># Cambiar si no esta configurado</span>
+<span class="tk-k">git</span> config --global init.defaultBranch main</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-cambios-a-monitorizar">
+<h3 id="cambios-a-monitorizar">Cambios a Monitorizar</h3>
+<h4 id="reftable-backend">Reftable Backend</h4>
+<p>Git 3.0 puede cambiar el backend de almacenamiento de referencias.</p>
+<ul>
+<li><input type="checkbox" disabled> Reftable mejora rendimiento en repos con muchas ramas/tags</li>
+<li><input type="checkbox" disabled> Compatible hacia atras</li>
+<li><input type="checkbox" disabled> No requiere accion inmediata</li>
+</ul>
+<h4 id="deprecaciones">Deprecaciones</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>git checkout</code> para cambio de ramas → usar <code>git switch</code></li>
+<li><input type="checkbox" disabled> <code>git checkout</code> para restaurar archivos → usar <code>git restore</code></li>
+<li><input type="checkbox" disabled> <code>git stash save</code> → usar <code>git stash push</code></li>
+</ul>
+<pre data-lang="bash"><code><span class="tk-c"># Comandos modernos (ya disponibles)</span>
+<span class="tk-k">git</span> switch feature/HV-18       <span class="tk-c"># En lugar de: git checkout feature/HV-18</span>
+<span class="tk-k">git</span> switch -c nueva-rama        <span class="tk-c"># En lugar de: git checkout -b nueva-rama</span>
+<span class="tk-k">git</span> restore archivo.cs          <span class="tk-c"># En lugar de: git checkout -- archivo.cs</span>
+<span class="tk-k">git</span> stash push -m <span class="tk-s">&quot;descripcion&quot;</span> <span class="tk-c"># En lugar de: git stash save &quot;descripcion&quot;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-lts-de-git-2x">
+<h3 id="lts-de-git-2x">LTS de Git 2.x</h3>
+<p>La ultima version de Git antes de 3.0 sera LTS con:</p>
+<ul>
+<li>Bug fixes por 4 ciclos de release</li>
+<li>Security fixes por 6 ciclos de release</li>
+</ul>
+<ul>
+<li><input type="checkbox" disabled> Planificar ventana de migracion a Git 3.0 (no urgente)</li>
+<li><input type="checkbox" disabled> Mantener Git actualizado durante la transicion</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-timeline-estimado">
+<h3 id="timeline-estimado">Timeline Estimado</h3>
+<div class="tbl"><table><thead><tr><th>Fecha</th><th>Evento</th></tr></thead><tbody><tr><td>Nov 2025</td><td>Git 2.52 (preparaciones 3.0)</td></tr><tr><td>2026 Q1-Q2</td><td>Git 2.53-2.54 (Rust por defecto)</td></tr><tr><td>2026 Q3-Q4</td><td><strong>Git 3.0</strong> (SHA-256 default, breaking changes)</td></tr><tr><td>2026 Q4+</td><td>Git 2.x LTS (soporte extendido)</td></tr></tbody></table></div>
+<hr>
+<p><em>Checklist 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html"><small>Anterior</small>checklists/branching-antipatterns.md</a><a class="next" href="../../../skills/git-best-practices/checklists/pre-merge.html"><small>Siguiente</small>checklists/pre-merge.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/checklists/git3-readiness.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cambios-confirmados-en-git-30">Cambios Confirmados en Git 3.0</a></li><li class="l3"><a href="#1-sha-256-como-default">1. SHA-256 como Default</a></li><li class="l3"><a href="#2-rust-como-dependencia-obligatoria">2. Rust como Dependencia Obligatoria</a></li><li class="l3"><a href="#3-default-branch-main">3. Default Branch: main</a></li><li class="l2"><a href="#cambios-a-monitorizar">Cambios a Monitorizar</a></li><li class="l3"><a href="#reftable-backend">Reftable Backend</a></li><li class="l3"><a href="#deprecaciones">Deprecaciones</a></li><li class="l2"><a href="#lts-de-git-2x">LTS de Git 2.x</a></li><li class="l2"><a href="#timeline-estimado">Timeline Estimado</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

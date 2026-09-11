@@ -1,0 +1,186 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · checklists/branching-antipatterns.md · Ovillo</title><meta name="description" content="Fichero checklists/branching-antipatterns.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · checklists/branching-antipatterns.md · Ovillo"><meta property="og:description" content="Fichero checklists/branching-antipatterns.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/checklists/branching-antipatterns.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/checklists/branching-antipatterns.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/checklists/branching-antipatterns.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html" class="cur">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>checklists</span><span>branching-antipatterns.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>checklists/</span></div><h1>branching-antipatterns.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>checklists</b><span>carpeta</span></div><div><b>6788 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: git-best-practices Documento fuente: <code>Guias/reglas-externas/branching-strategies-v2-guia-completa.html</code></p></blockquote>
+<p class="lede">Errores comunes en estrategias de ramificacion y como evitarlos.</p>
+<hr>
+<section class="sec" id="sec-los-9-antipatrones">
+<h3 id="los-9-antipatrones">Los 9 Antipatrones</h3>
+<h4 id="1-long-lived-feature-branches">1. Long-Lived Feature Branches</h4>
+<p><strong>Problema</strong>: Ramas feature que viven semanas o meses sin mergear.</p>
+<pre><code>main ──────●────●────●────●────●────●────●────●──── (avanza)
+            \
+             ●──●──●──●──●──●──●──●──●──●──●        (3 semanas, merge hell)</code></pre>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>Merge conflicts masivos</li>
+<li>Codigo divergente, tests desactualizados</li>
+<li>Integracion tardia = bugs tardios</li>
+</ul>
+<p><strong>Solucion</strong>:</p>
+<ul>
+<li>Feature branches &lt; 3 dias (ideal &lt; 1 dia)</li>
+<li>Stacked PRs para features grandes</li>
+<li>Feature flags para codigo incompleto</li>
+<li>Mergear a main frecuentemente (al menos diario)</li>
+</ul>
+<hr>
+<h4 id="2-ramas-zombie">2. Ramas Zombie</h4>
+<p><strong>Problema</strong>: Ramas que nadie elimina despues del merge.</p>
+<pre><code>main ──────●────●────●────●────
+            \  /
+             ●         ← rama mergeada pero no eliminada
+feature/HV-12  ← sigue existiendo sin actividad
+feature/HV-08  ← 2 meses sin actividad
+bugfix/old     ← sin actividad desde enero</code></pre>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>Confusion sobre que esta activo</li>
+<li>Repositorio desordenado</li>
+<li>Builds innecesarios si hay triggers por rama</li>
+</ul>
+<p><strong>Solucion</strong>:</p>
+<ul>
+<li>Configurar auto-delete de ramas tras merge en Azure DevOps/GitHub</li>
+<li>Revision mensual de ramas inactivas</li>
+<li>Convencion: borrar rama inmediatamente despues del merge</li>
+</ul>
+<hr>
+<h4 id="3-cherry-pick-inverso">3. Cherry-Pick Inverso</h4>
+<p><strong>Problema</strong>: Aplicar fixes directamente a release branch sin pasar por main.</p>
+<pre><code>main ────────────────────●──── (¡NO tiene el fix!)
+
+release/v2.3 ─────●───── (fix aplicado aqui primero)</code></pre>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>Fix se pierde en proxima release</li>
+<li>Regresion al crear release/v2.4 desde main</li>
+<li>Historial inconsistente</li>
+</ul>
+<p><strong>Solucion (Release Flow)</strong>:</p>
+<ol>
+<li>Fix va a <code>main</code> primero (via PR)</li>
+<li>Cherry-pick de <code>main</code> a <code>release/*</code></li>
+<li>Nunca al reves</li>
+</ol>
+<hr>
+<h4 id="4-merge-a-deshoras-integration-hell">4. Merge a Deshoras (Integration Hell)</h4>
+<p><strong>Problema</strong>: Hacer merge solo al final del sprint o milestone.</p>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>Acumulacion de conflictos</li>
+<li>Sesiones de merge de horas</li>
+<li>Bugs descubiertos tarde</li>
+</ul>
+<p><strong>Solucion</strong>:</p>
+<ul>
+<li>Integrar a main al menos una vez al dia</li>
+<li>CI que ejecuta en cada push</li>
+<li>PRs pequenos y frecuentes</li>
+</ul>
+<hr>
+<h4 id="5-ramas-por-entorno-sin-necesidad">5. Ramas por Entorno (sin necesidad)</h4>
+<p><strong>Problema</strong>: Mantener ramas <code>dev</code>, <code>staging</code>, <code>production</code> cuando un pipeline multi-stage cumple el mismo proposito.</p>
+<pre><code>dev        ──●──●──●──●──●──●──●──── (¿quien mergea que a donde?)
+staging    ──────●────────●──────────
+production ──────────────────●───────</code></pre>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>Merges manuales entre ramas = fuente de errores</li>
+<li>No esta claro que codigo esta en que entorno</li>
+<li>Complejidad innecesaria</li>
+</ul>
+<p><strong>Solucion</strong>:</p>
+<ul>
+<li>Usar pipeline multi-stage de Azure Pipelines</li>
+<li>Una rama (<code>main</code>) con deploy progresivo: Dev → Demo → Pro</li>
+<li>Las ramas representan <em>trabajo</em>, los entornos se gestionan con <em>pipelines</em></li>
+</ul>
+<hr>
+<h4 id="6-gitflow-para-webapps">6. GitFlow para Webapps</h4>
+<p><strong>Problema</strong>: Usar GitFlow (con <code>develop</code>, <code>release/*</code>, <code>hotfix/*</code>) para aplicaciones web con deploy continuo.</p>
+<blockquote><p>&quot;If your team is doing continuous delivery of software, I would suggest to adopt a much simpler workflow instead of trying to shoehorn git-flow into your team.&quot; — Vincent Driessen (creador de GitFlow), 2020</p></blockquote>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>Overhead de ramas innecesario</li>
+<li>Merges redundantes (feature → develop → release → main)</li>
+<li>Ralentiza deploys</li>
+</ul>
+<p><strong>Solucion</strong>:</p>
+<ul>
+<li>GitHub Flow para webapps (90% de proyectos de la organización)</li>
+<li>Release Flow si necesitas releases versionadas</li>
+<li>GitFlow solo para software empaquetado con multiples versiones en produccion</li>
+</ul>
+<hr>
+<h4 id="7-prs-gigantes">7. PRs Gigantes</h4>
+<p><strong>Problema</strong>: Pull Requests de 1000+ lineas que nadie puede revisar efectivamente.</p>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>Reviews superficiales (&quot;LGTM&quot; sin leer)</li>
+<li>Bugs que se cuelan</li>
+<li>Tiempo de review excesivo</li>
+</ul>
+<p><strong>Solucion</strong>:</p>
+<ul>
+<li>PRs de &lt; 400 lineas (ideal &lt; 200)</li>
+<li>Stacked PRs para features grandes</li>
+<li>Descomponer: modelo → API → UI (3 PRs encadenados)</li>
+</ul>
+<hr>
+<h4 id="8-push-directo-a-main">8. Push Directo a Main</h4>
+<p><strong>Problema</strong>: Desarrolladores hacen push directamente a main sin PR ni review.</p>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>Sin code review = calidad variable</li>
+<li>Sin build validation = posibles regresiones</li>
+<li>Sin trazabilidad de quien aprobo que</li>
+</ul>
+<p><strong>Solucion</strong>:</p>
+<ul>
+<li>Branch policies obligatorias en main</li>
+<li>Build validation automatica</li>
+<li>Excepcion controlada: Ship/Show/Ask para cambios triviales (typos, deps minor) solo si el equipo tiene madurez</li>
+</ul>
+<hr>
+<h4 id="9-merge-strategy-inconsistente">9. Merge Strategy Inconsistente</h4>
+<p><strong>Problema</strong>: Mezclar squash merges, regular merges y rebases sin criterio.</p>
+<pre><code>main ──M──S──M──R──S──M──S──R──── (historial caotico)
+       │  │  │  │  │  │  │  │
+       merge squash merge rebase...</code></pre>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>Historial dificil de leer</li>
+<li><code>git bisect</code> se complica</li>
+<li>Confusion del equipo</li>
+</ul>
+<p><strong>Solucion</strong>:</p>
+<ul>
+<li>Elegir UNA estrategia y forzarla via branch policies</li>
+<li>Recomendacion del ecosistema: <strong>Squash merge</strong> para GitHub Flow</li>
+<li>Registrar en <code>_hilo/ESTADO_PROYECTO.json</code> campo <code>mergeStrategy</code></li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-quick-checklist">
+<h3 id="quick-checklist">Quick Checklist</h3>
+<p>Antes de establecer la estrategia de branching del proyecto, verificar:</p>
+<ul>
+<li><input type="checkbox" disabled> <strong>Estrategia elegida</strong> esta documentada en <code>ESTADO_PROYECTO.json</code></li>
+<li><input type="checkbox" disabled> <strong>Branch policies</strong> configuradas en Azure DevOps/GitHub</li>
+<li><input type="checkbox" disabled> <strong>Merge strategy</strong> unica y forzada via policies</li>
+<li><input type="checkbox" disabled> <strong>Auto-delete</strong> de ramas tras merge habilitado</li>
+<li><input type="checkbox" disabled> <strong>Build validation</strong> obligatoria en main</li>
+<li><input type="checkbox" disabled> <strong>Feature branches</strong> con vida &lt; 3 dias</li>
+<li><input type="checkbox" disabled> <strong>PRs</strong> de tamano razonable (&lt; 400 lineas)</li>
+<li><input type="checkbox" disabled> <strong>Cherry-pick direction</strong> clara: main → release (nunca al reves)</li>
+<li><input type="checkbox" disabled> <strong>Pipeline</strong> refleja la estrategia (no ramas por entorno innecesarias)</li>
+<li><input type="checkbox" disabled> <strong>Equipo</strong> entiende y aplica la estrategia elegida</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-conexion-con-branch-policies">
+<h3 id="conexion-con-branch-policies">Conexion con Branch Policies</h3>
+<p>Los antipatrones 2, 7, 8 y 9 se previenen con branch policies correctas:</p>
+<div class="tbl"><table><thead><tr><th>Antipatron</th><th>Policy que lo previene</th></tr></thead><tbody><tr><td>Ramas zombie</td><td>Auto-delete after merge</td></tr><tr><td>PRs gigantes</td><td>Limite de archivos cambiados (revisor manual)</td></tr><tr><td>Push directo</td><td>Minimum approvers &gt;= 1</td></tr><tr><td>Merge inconsistente</td><td>Limit merge types (solo squash)</td></tr><tr><td>Sin build validation</td><td>Build validation required</td></tr></tbody></table></div>
+<p>Ver <code>patterns/azure-devops-branching.md</code> para configuracion detallada de policies.</p>
+<hr>
+<p><em>Checklist 1.0.0 — 9 antipatrones, quick checklist, branch policies</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices.html"><small>Anterior</small>Ficha de git-best-practices</a><a class="next" href="../../../skills/git-best-practices/checklists/git3-readiness.html"><small>Siguiente</small>checklists/git3-readiness.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/checklists/branching-antipatterns.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#los-9-antipatrones">Los 9 Antipatrones</a></li><li class="l3"><a href="#1-long-lived-feature-branches">1. Long-Lived Feature Branches</a></li><li class="l3"><a href="#2-ramas-zombie">2. Ramas Zombie</a></li><li class="l3"><a href="#3-cherry-pick-inverso">3. Cherry-Pick Inverso</a></li><li class="l3"><a href="#4-merge-a-deshoras-integration-hell">4. Merge a Deshoras (Integration Hell)</a></li><li class="l3"><a href="#5-ramas-por-entorno-sin-necesidad">5. Ramas por Entorno (sin necesidad)</a></li><li class="l3"><a href="#6-gitflow-para-webapps">6. GitFlow para Webapps</a></li><li class="l3"><a href="#7-prs-gigantes">7. PRs Gigantes</a></li><li class="l3"><a href="#8-push-directo-a-main">8. Push Directo a Main</a></li><li class="l3"><a href="#9-merge-strategy-inconsistente">9. Merge Strategy Inconsistente</a></li><li class="l2"><a href="#quick-checklist">Quick Checklist</a></li><li class="l2"><a href="#conexion-con-branch-policies">Conexion con Branch Policies</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

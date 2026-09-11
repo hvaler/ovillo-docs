@@ -1,0 +1,197 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>postman-collection · references/workflow-postman.md · Ovillo</title><meta name="description" content="Fichero references/workflow-postman.md de la skill postman-collection"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="postman-collection · references/workflow-postman.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-postman.md de la skill postman-collection"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/postman-collection/references/workflow-postman.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/postman-collection/references/workflow-postman.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/postman-collection/references/workflow-postman.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de postman-collection (16)</h4><ul class="sibs"><li><a href="../../../skills/postman-collection/checklists/auth-configuration-checklist.html">checklists/auth-configuration-checklist.md</a></li><li><a href="../../../skills/postman-collection/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/postman-collection/patterns/auth-detection.html">patterns/auth-detection.md</a></li><li><a href="../../../skills/postman-collection/patterns/azure-ad-auth.html">patterns/azure-ad-auth.md</a></li><li><a href="../../../skills/postman-collection/patterns/http-signature-mtls.html">patterns/http-signature-mtls.md</a></li><li><a href="../../../skills/postman-collection/patterns/oauth2-token-lifecycle.html">patterns/oauth2-token-lifecycle.md</a></li><li><a href="../../../skills/postman-collection/references/auth-examples.html">references/auth-examples.md</a></li><li><a href="../../../skills/postman-collection/references/test-assertions.html">references/test-assertions.md</a></li><li><a href="../../../skills/postman-collection/references/workflow-postman.html" class="cur">references/workflow-postman.md</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-apikey.js.html">templates/auth-prerequest-apikey.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-azuread.js.html">templates/auth-prerequest-azuread.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-basic.js.html">templates/auth-prerequest-basic.js.template</a></li><li><a href="../../../skills/postman-collection/templates/collection.json.html">templates/collection.json.template</a></li><li><a href="../../../skills/postman-collection/templates/environment.json.html">templates/environment.json.template</a></li><li><a href="../../../skills/postman-collection/templates/request.json.html">templates/request.json.template</a></li><li><a href="../../../skills/postman-collection/templates/tests.js.html">templates/tests.js.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/postman-collection.html">postman-collection</a></span><span>references</span><span>workflow-postman.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>postman-collection</span><span>references/</span></div><h1>workflow-postman.md</h1><p class="lede">Referencia que <code>postman-collection</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/postman-collection.html">postman-collection</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>6124 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>postman-collection</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para.</p></blockquote>
+<hr>
+<p class="lede">Genera colecciones Postman, environments y tests automáticos para APIs .NET.</p>
+<hr>
+<section class="sec" id="sec-uso">
+<h3 id="uso">Uso</h3>
+<pre><code>/postman                    → Menú interactivo
+/postman collection         → Genera colección desde controllers
+/postman environment        → Genera environments (Dev/Pre/Pro)
+/postman tests              → Añade tests a colección existente
+/postman full               → Todo: colección + environments + tests
+/postman swagger [url]      → Importa desde OpenAPI/Swagger</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-instrucciones-para-claude">
+<h3 id="instrucciones-para-claude">Instrucciones para Claude</h3>
+<h4 id="al-ejecutar-postman-sin-parámetros">Al ejecutar <code>/postman</code> (sin parámetros)</h4>
+<p>Mostrar menú interactivo:</p>
+<pre><code>📦 POSTMAN COLLECTION GENERATOR
+═══════════════════════════════════════════════════════════════
+
+¿Qué deseas generar?
+
+[1] 📋 Colección completa (collection + environments + tests)
+[2] 📁 Solo colección (desde controllers)
+[3] 🌍 Solo environments (Dev/Pre/Pro)
+[4] ✅ Solo tests (añadir a colección existente)
+[5] 📥 Importar desde Swagger/OpenAPI
+
+Selecciona una opción (1-5):</code></pre>
+<h4 id="al-ejecutar-postman-full-o-seleccionar-opción-1">Al ejecutar <code>/postman full</code> o seleccionar opción 1</h4>
+<h5 id="paso-1-análisis">Paso 1: Análisis</h5>
+<pre><code>Analizando proyecto...
+
+Buscando controllers en:
+  → src/**/*Controller.cs
+  → **/*Controller.cs</code></pre>
+<p>Detectar:</p>
+<ol>
+<li><strong>Controllers</strong>: Buscar archivos <code>*Controller.cs</code></li>
+<li><strong>Rutas</strong>: Extraer <code>[Route]</code>, <code>[HttpGet]</code>, <code>[HttpPost]</code>, etc.</li>
+<li><strong>Parámetros</strong>: <code>[FromBody]</code>, <code>[FromQuery]</code>, <code>[FromRoute]</code></li>
+<li><strong>DTOs</strong>: Tipos de request/response</li>
+<li><strong>Autenticación</strong>: <code>[Authorize]</code>, JWT, Azure AD</li>
+</ol>
+<h5 id="paso-2-mostrar-resumen">Paso 2: Mostrar resumen</h5>
+<pre><code>✅ Detectados X controllers:
+   - NombreController (N endpoints)
+   - ...
+
+✅ Autenticación: JWT Bearer / Azure AD / Ninguna
+
+✅ Environments en appsettings:
+   - Development: https://localhost:XXXX
+   - ...</code></pre>
+<h5 id="paso-3-generar-archivos">Paso 3: Generar archivos</h5>
+<p>Crear en <code>docs/postman/</code>:</p>
+<ol>
+<li><strong><code>{Proyecto}_collection.json</code></strong></li>
+<ul>
+<li>Un folder por controller</li>
+<li>Un request por endpoint</li>
+<li>Ejemplos de body para POST/PUT</li>
+<li>Tests automáticos según tipo</li>
+</ul>
+</ol>
+<ol>
+<li><strong><code>{Proyecto}_environment_dev.json</code></strong></li>
+<ul>
+<li>baseUrl de appsettings.Development.json</li>
+<li>Variables para desarrollo</li>
+</ul>
+</ol>
+<ol>
+<li><strong><code>{Proyecto}_environment_pre.json</code></strong> (si existe config)</li>
+</ol>
+<ol>
+<li><strong><code>{Proyecto}_environment_pro.json</code></strong> (si existe config)</li>
+</ol>
+<ol>
+<li><strong><code>README.md</code></strong></li>
+<ul>
+<li>Instrucciones de importación</li>
+<li>Cómo configurar autenticación</li>
+<li>Variables disponibles</li>
+</ul>
+</ol>
+<h5 id="paso-4-mostrar-resultado">Paso 4: Mostrar resultado</h5>
+<pre><code>📁 docs/postman/
+   ├── MyCompany.MiApi_collection.json     (X requests)
+   ├── MyCompany.MiApi_environment_dev.json
+   ├── MyCompany.MiApi_environment_pre.json
+   ├── MyCompany.MiApi_environment_pro.json
+   └── README.md
+
+═══════════════════════════════════════════════════════════════
+
+📋 PRÓXIMOS PASOS:
+
+1. Abrir Postman
+2. Import → File → Seleccionar collection.json
+3. Import → File → Seleccionar environment deseado
+4. Seleccionar environment en dropdown superior derecho
+5. Configurar variable {{token}} con tu JWT
+
+✅ Colección lista para usar</code></pre>
+<hr>
+<h4 id="al-ejecutar-postman-collection">Al ejecutar <code>/postman collection</code></h4>
+<p>Solo genera la colección JSON, sin environments.</p>
+<h4 id="al-ejecutar-postman-environment">Al ejecutar <code>/postman environment</code></h4>
+<p>Solo genera los archivos de environment.</p>
+<p>Preguntar si no se detectan URLs:</p>
+<pre><code>No se detectaron URLs en appsettings.
+
+Introduce las URLs para cada entorno:
+
+Development URL: [input]
+Preproducción URL (opcional): [input]
+Producción URL (opcional): [input]</code></pre>
+<h4 id="al-ejecutar-postman-tests">Al ejecutar <code>/postman tests</code></h4>
+<p>Buscar colección existente en <code>docs/postman/</code> y añadir/actualizar tests.</p>
+<h4 id="al-ejecutar-postman-swagger-url">Al ejecutar <code>/postman swagger [url]</code></h4>
+<pre><code>/postman swagger
+/postman swagger https://localhost:7001/swagger/v1/swagger.json</code></pre>
+<ol>
+<li>Si no se proporciona URL, buscar en:</li>
+<ul>
+<li><code>wwwroot/swagger.json</code></li>
+<li><code>/swagger/v1/swagger.json</code> (hacer request si servidor corriendo)</li>
+</ul>
+</ol>
+<ol>
+<li>Parsear OpenAPI spec</li>
+<li>Generar colección con toda la info del swagger</li>
+<li>Incluir ejemplos de los schemas</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-estructura-de-colección-generada">
+<h3 id="estructura-de-colección-generada">Estructura de Colección Generada</h3>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;info&quot;</span>: {
+    <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Proyecto API&quot;</span>,
+    <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Documentación generada por Claude Code (Ovillo)&quot;</span>
+  },
+  <span class="tk-s">&quot;auth&quot;</span>: {
+    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;bearer&quot;</span>,
+    <span class="tk-s">&quot;bearer&quot;</span>: [{ <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;token&quot;</span>, <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;{{token}}&quot;</span> }]
+  },
+  <span class="tk-s">&quot;item&quot;</span>: [
+    {
+      <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Scholarships&quot;</span>,
+      <span class="tk-s">&quot;item&quot;</span>: [
+        {
+          <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Obtener todas las scholarships&quot;</span>,
+          <span class="tk-s">&quot;request&quot;</span>: {
+            <span class="tk-s">&quot;method&quot;</span>: <span class="tk-s">&quot;GET&quot;</span>,
+            <span class="tk-s">&quot;url&quot;</span>: <span class="tk-s">&quot;{{baseUrl}}/api/scholarships&quot;</span>
+          },
+          <span class="tk-s">&quot;response&quot;</span>: []
+        }
+      ]
+    }
+  ]
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-tests-automáticos-por-tipo">
+<h3 id="tests-automáticos-por-tipo">Tests Automáticos por Tipo</h3>
+<div class="tbl"><table><thead><tr><th>Método</th><th>Tests incluidos</th></tr></thead><tbody><tr><td><strong>GET lista</strong></td><td>Status 200, es array, tiempo respuesta</td></tr><tr><td><strong>GET por ID</strong></td><td>Status 200/404, tiene ID, formato error</td></tr><tr><td><strong>POST</strong></td><td>Status 201, Location header, guarda ID</td></tr><tr><td><strong>PUT</strong></td><td>Status 200/204, tiempo respuesta</td></tr><tr><td><strong>DELETE</strong></td><td>Status 204, body vacío</td></tr><tr><td><strong>Auth</strong></td><td>Guarda token en environment</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-variables-de-environment">
+<h3 id="variables-de-environment">Variables de Environment</h3>
+<div class="tbl"><table><thead><tr><th>Variable</th><th>Descripción</th></tr></thead><tbody><tr><td><code>baseUrl</code></td><td>URL base del API</td></tr><tr><td><code>token</code></td><td>JWT o access token</td></tr><tr><td><code>refreshToken</code></td><td>Token de refresco</td></tr><tr><td><code>lastCreatedId</code></td><td>ID del último recurso creado</td></tr><tr><td><code>testUserId</code></td><td>Usuario de prueba</td></tr><tr><td><code>testEmail</code></td><td>Email de prueba</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-integración-con-cicd">
+<h3 id="integración-con-cicd">Integración con CI/CD</h3>
+<p>Incluir en README.md instrucciones para Newman:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Ejecutar tests con Newman</span>
+<span class="tk-k">npm</span> install -g newman
+newman run collection.json -e environment_dev.json</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-skill-asociado">
+<h3 id="skill-asociado">Skill asociado</h3>
+<p>Este comando activa el skill <code>postman-collection</code> que contiene:</p>
+<ul>
+<li>Plantillas de colección</li>
+<li>Plantillas de environment</li>
+<li>Plantillas de tests</li>
+<li>Lógica de detección de endpoints</li>
+</ul>
+<hr>
+<p><em>Comando v1.0.0 - Generador de Colecciones Postman</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/postman-collection.html#ficheros">← Volver a la ficha de postman-collection</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/postman-collection/references/test-assertions.html"><small>Anterior</small>references/test-assertions.md</a><a class="next" href="../../../skills/postman-collection/templates/auth-prerequest-apikey.js.html"><small>Siguiente</small>templates/auth-prerequest-apikey.js.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/postman-collection/references/workflow-postman.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#uso">Uso</a></li><li class="l2"><a href="#instrucciones-para-claude">Instrucciones para Claude</a></li><li class="l3"><a href="#al-ejecutar-postman-sin-parámetros">Al ejecutar /postman (sin parámetros)</a></li><li class="l3"><a href="#al-ejecutar-postman-full-o-seleccionar-opción-1">Al ejecutar /postman full o seleccionar opción 1</a></li><li class="l3"><a href="#al-ejecutar-postman-collection">Al ejecutar /postman collection</a></li><li class="l3"><a href="#al-ejecutar-postman-environment">Al ejecutar /postman environment</a></li><li class="l3"><a href="#al-ejecutar-postman-tests">Al ejecutar /postman tests</a></li><li class="l3"><a href="#al-ejecutar-postman-swagger-url">Al ejecutar /postman swagger [url]</a></li><li class="l2"><a href="#estructura-de-colección-generada">Estructura de Colección Generada</a></li><li class="l2"><a href="#tests-automáticos-por-tipo">Tests Automáticos por Tipo</a></li><li class="l2"><a href="#variables-de-environment">Variables de Environment</a></li><li class="l2"><a href="#integración-con-cicd">Integración con CI/CD</a></li><li class="l2"><a href="#skill-asociado">Skill asociado</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

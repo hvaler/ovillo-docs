@@ -1,0 +1,298 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guía de Acceso a Datos: Dapper vs ADO.NET · Ovillo</title><meta name="description" content="Esta guía te ayudará a elegir la mejor opción de acceso a datos para tu proyecto."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Guía de Acceso a Datos: Dapper vs ADO.NET · Ovillo"><meta property="og:description" content="Esta guía te ayudará a elegir la mejor opción de acceso a datos para tu proyecto."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/guia_acceso_datos.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/guia_acceso_datos.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/guia_acceso_datos.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 01_Estructura_Tecnica (4)</h4><ul class="sibs"><li><a href="../guias/estructura_tecnica.html">Documento de Estructura Técnica</a></li><li><a href="../guias/guia_acceso_datos.html" class="cur">Guía de Acceso a Datos: Dapper vs ADO.NET</a></li><li><a href="../guias/guia_arquitectura.html">Guia de Arquitectura y Patrones</a></li><li><a href="../guias/guia_mcp_instalacion.html">Guía: Instalación y uso de MCPs en Ovillo</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 01_Estructura_Tecnica</span><span>Guía de Acceso a Datos: Dapper vs ADO.NET</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 01_Estructura_Tecnica</span><span>español</span></div><h1>Guía de Acceso a Datos: Dapper vs ADO.NET</h1><p class="lede">Esta guía te ayudará a elegir la mejor opción de acceso a datos para tu proyecto.</p><div class="meta-grid"><div><b>2 min</b><span>lectura</span></div><div><b>497</b><span>palabras</span></div><div><b>9</b><span>secciones</span></div><div><b>2026-09-07</b><span>última edición</span></div><div><b>1</b><span>cambios</span></div></div><p class="lede">Esta guía te ayudará a elegir la mejor opción de acceso a datos para tu proyecto.</p>
+<hr>
+<section class="sec" id="sec-comparativa-rápida">
+<h3 id="comparativa-rápida">Comparativa Rápida</h3>
+<div class="tbl"><table><thead><tr><th>Característica</th><th>Dapper (Recomendado)</th><th>ADO.NET</th></tr></thead><tbody><tr><td><strong>Rendimiento</strong></td><td>Muy alto (casi nativo)</td><td>Máximo (nativo)</td></tr><tr><td><strong>Productividad</strong></td><td>Alta</td><td>Baja</td></tr><tr><td><strong>Curva de aprendizaje</strong></td><td>Fácil</td><td>Media</td></tr><tr><td><strong>Código boilerplate</strong></td><td>Mínimo</td><td>Mucho</td></tr><tr><td><strong>Mapeo automático</strong></td><td>Sí</td><td>Manual</td></tr><tr><td><strong>Mantenibilidad</strong></td><td>Excelente</td><td>Media</td></tr><tr><td><strong>Comunidad</strong></td><td>Muy activa</td><td>Estable</td></tr><tr><td><strong>NuGet Package</strong></td><td>Dapper</td><td>Microsoft.Data.SqlClient</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-cuándo-usar-qué">
+<h3 id="cuándo-usar-qué">Cuándo Usar Qué</h3>
+<h4 id="usa-dapper-recomendado-en-90-de-casos">Usa Dapper (Recomendado en 90% de casos)</h4>
+<p><strong>Ideal para:</strong></p>
+<ul>
+<li>Proyectos nuevos</li>
+<li>APIs RESTful</li>
+<li>Necesitas rendimiento y productividad</li>
+<li>Equipos que quieren escribir menos código</li>
+<li>Proyectos con queries complejos pero quieres simplicidad</li>
+<li>Escalabilidad con mantenibilidad</li>
+</ul>
+<p><strong>Ventajas:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Código simple y limpio</span>
+<span class="tk-k">var</span> users = <span class="tk-k">await</span> connection.QueryAsync&lt;User&gt;(
+    <span class="tk-s">&quot;SELECT * FROM Users WHERE IsActive = @IsActive&quot;</span>,
+    <span class="tk-k">new</span> { IsActive = <span class="tk-k">true</span> }
+);
+
+<span class="tk-c">// Mapeo automático a objetos</span>
+<span class="tk-c">// Sin configuración adicional</span>
+<span class="tk-c">// Fácil de leer y mantener</span></code></pre>
+<hr>
+<h4 id="usa-adonet-solo-casos-específicos">Usa ADO.NET (Solo casos específicos)</h4>
+<p><strong>Ideal para:</strong></p>
+<ul>
+<li>Control absoluto del rendimiento (diferencia &lt; 5% vs Dapper)</li>
+<li>Streaming de grandes volúmenes de datos</li>
+<li>Proyectos legacy que ya usan ADO.NET</li>
+<li>Restricciones de dependencias externas</li>
+<li>Equipos con expertise profundo en ADO.NET</li>
+</ul>
+<p><strong>Desventajas:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Mucho código boilerplate</span>
+<span class="tk-k">using</span> (<span class="tk-k">var</span> connection = <span class="tk-k">new</span> SqlConnection(connectionString))
+<span class="tk-k">using</span> (<span class="tk-k">var</span> command = <span class="tk-k">new</span> SqlCommand(<span class="tk-s">&quot;SELECT * FROM Users WHERE IsActive = @IsActive&quot;</span>, connection))
+{
+    command.Parameters.AddWithValue(<span class="tk-s">&quot;@IsActive&quot;</span>, <span class="tk-k">true</span>);
+    <span class="tk-k">await</span> connection.OpenAsync();
+
+    <span class="tk-k">using</span> (<span class="tk-k">var</span> reader = <span class="tk-k">await</span> command.ExecuteReaderAsync())
+    {
+        <span class="tk-k">var</span> users = <span class="tk-k">new</span> List&lt;User&gt;();
+        <span class="tk-k">while</span> (<span class="tk-k">await</span> reader.ReadAsync())
+        {
+            users.Add(<span class="tk-k">new</span> User
+            {
+                Id = reader.GetInt32(<span class="tk-n">0</span>),
+                Name = reader.GetString(<span class="tk-n">1</span>),
+                Email = reader.GetString(<span class="tk-n">2</span>),
+                <span class="tk-c">// ... más campos manualmente</span>
+            });
+        }
+        <span class="tk-k">return</span> users;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-decisión-recomendada-por-tipo-de-proyecto">
+<h3 id="decisión-recomendada-por-tipo-de-proyecto">Decisión Recomendada por Tipo de Proyecto</h3>
+<h4 id="proyecto-nuevo---dapper">Proyecto Nuevo - Dapper</h4>
+<p><strong>Razón:</strong></p>
+<ul>
+<li>Productividad 5x mayor</li>
+<li>Código más limpio y mantenible</li>
+<li>Rendimiento prácticamente idéntico a ADO.NET</li>
+<li>Comunidad activa y documentación excelente</li>
+</ul>
+<hr>
+<h4 id="api-restful---dapper">API RESTful - Dapper</h4>
+<p><strong>Razón:</strong></p>
+<ul>
+<li>Ideal para operaciones CRUD</li>
+<li>Mapeo automático a DTOs</li>
+<li>Queries simples y complejos sin esfuerzo</li>
+<li>Integración perfecta con async/await</li>
+</ul>
+<hr>
+<h4 id="migración-de-sistema-legacy---evaluar">Migración de Sistema Legacy - Evaluar</h4>
+<p><strong>Si ya usa ADO.NET:</strong></p>
+<ul>
+<li>Mantener ADO.NET si funciona bien</li>
+<li>O migrar gradualmente a Dapper (módulo por módulo)</li>
+</ul>
+<p><strong>Si usa Entity Framework:</strong></p>
+<ul>
+<li>Migrar a Dapper para mejorar rendimiento</li>
+<li>Mantener arquitectura de repositorios</li>
+</ul>
+<hr>
+<h4 id="microservicios---dapper">Microservicios - Dapper</h4>
+<p><strong>Razón:</strong></p>
+<ul>
+<li>Lightweight</li>
+<li>Sin dependencias pesadas</li>
+<li>Rápido y eficiente</li>
+<li>Fácil de dockerizar</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-ejemplos-de-código">
+<h3 id="ejemplos-de-código">Ejemplos de Código</h3>
+<h4 id="operación-crud-con-dapper">Operación CRUD con Dapper</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// 1. Interface del Repositorio</span>
+<span class="tk-k">public</span> <span class="tk-k">interface</span> IUserRepository
+{
+    Task&lt;User&gt; GetByIdAsync(<span class="tk-k">int</span> id);
+    Task&lt;IEnumerable&lt;User&gt;&gt; GetAllAsync();
+    Task&lt;<span class="tk-k">int</span>&gt; CreateAsync(User user);
+    Task&lt;<span class="tk-k">bool</span>&gt; UpdateAsync(User user);
+    Task&lt;<span class="tk-k">bool</span>&gt; DeleteAsync(<span class="tk-k">int</span> id);
+}
+
+<span class="tk-c">// 2. Implementación con Dapper</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> UserRepository : IUserRepository
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IDbConnection _connection;
+
+    <span class="tk-k">public</span> UserRepository(IDbConnection connection)
+    {
+        _connection = connection;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;User&gt; GetByIdAsync(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">var</span> sql = <span class="tk-s">&quot;SELECT * FROM Users WHERE Id = @Id&quot;</span>;
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _connection.QueryFirstOrDefaultAsync&lt;User&gt;(sql, <span class="tk-k">new</span> { Id = id });
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IEnumerable&lt;User&gt;&gt; GetAllAsync()
+    {
+        <span class="tk-k">var</span> sql = <span class="tk-s">&quot;SELECT * FROM Users WHERE IsActive = 1&quot;</span>;
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _connection.QueryAsync&lt;User&gt;(sql);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;<span class="tk-k">int</span>&gt; CreateAsync(User user)
+    {
+        <span class="tk-k">var</span> sql = @&quot;INSERT INTO Users (Name, Email, IsActive)
+                    VALUES (@Name, @Email, @IsActive);
+                    SELECT CAST(SCOPE_IDENTITY() <span class="tk-k">as</span> <span class="tk-k">int</span>)&quot;;
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _connection.ExecuteScalarAsync&lt;<span class="tk-k">int</span>&gt;(sql, user);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;<span class="tk-k">bool</span>&gt; UpdateAsync(User user)
+    {
+        <span class="tk-k">var</span> sql = @&quot;UPDATE Users
+                    SET Name = @Name, Email = @Email, IsActive = @IsActive
+                    WHERE Id = @Id&quot;;
+        <span class="tk-k">var</span> affectedRows = <span class="tk-k">await</span> _connection.ExecuteAsync(sql, user);
+        <span class="tk-k">return</span> affectedRows &gt; <span class="tk-n">0</span>;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;<span class="tk-k">bool</span>&gt; DeleteAsync(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">var</span> sql = <span class="tk-s">&quot;DELETE FROM Users WHERE Id = @Id&quot;</span>;
+        <span class="tk-k">var</span> affectedRows = <span class="tk-k">await</span> _connection.ExecuteAsync(sql, <span class="tk-k">new</span> { Id = id });
+        <span class="tk-k">return</span> affectedRows &gt; <span class="tk-n">0</span>;
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-configuración-en-proyecto-net">
+<h3 id="configuración-en-proyecto-net">Configuración en Proyecto .NET</h3>
+<h4 id="setup-con-dapper">Setup con Dapper</h4>
+<p><strong>1. Instalar NuGet:</strong></p>
+<pre data-lang="bash"><code><span class="tk-k">dotnet</span> add package Dapper
+<span class="tk-k">dotnet</span> add package Microsoft.Data.SqlClient</code></pre>
+<p><strong>2. Configurar en Program.cs:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Registrar IDbConnection en DI</span>
+builder.Services.AddScoped&lt;IDbConnection&gt;(sp =&gt;
+    <span class="tk-k">new</span> SqlConnection(builder.Configuration.GetConnectionString(<span class="tk-s">&quot;DefaultConnection&quot;</span>))
+);
+
+<span class="tk-c">// Registrar repositorios</span>
+builder.Services.AddScoped&lt;IUserRepository, UserRepository&gt;();</code></pre>
+<p><strong>3. appsettings.json:</strong></p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;ConnectionStrings&quot;</span>: {
+    <span class="tk-s">&quot;DefaultConnection&quot;</span>: <span class="tk-s">&quot;Server=localhost;Database=MiDB;User Id=sa;Password=***;TrustServerCertificate=true&quot;</span>
+  }
+}</code></pre>
+<p><strong>Nota:</strong> En producción, usar Azure Key Vault para el connection string.</p>
+<hr>
+</section>
+<section class="sec" id="sec-mejores-prácticas-con-dapper">
+<h3 id="mejores-prácticas-con-dapper">Mejores Prácticas con Dapper</h3>
+<h4 id="do---hacer">DO - Hacer</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Usar parámetros siempre (previene SQL Injection)</span>
+<span class="tk-k">var</span> users = <span class="tk-k">await</span> connection.QueryAsync&lt;User&gt;(
+    <span class="tk-s">&quot;SELECT * FROM Users WHERE Email = @Email&quot;</span>,
+    <span class="tk-k">new</span> { Email = email }
+);
+
+<span class="tk-c">// Usar async/await</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;User&gt; GetUserAsync(<span class="tk-k">int</span> id) { ... }
+
+<span class="tk-c">// Usar stored procedures cuando sea apropiado</span>
+<span class="tk-k">var</span> result = <span class="tk-k">await</span> connection.QueryAsync&lt;User&gt;(
+    <span class="tk-s">&quot;sp_GetUsersByRole&quot;</span>,
+    <span class="tk-k">new</span> { Role = <span class="tk-s">&quot;Admin&quot;</span> },
+    commandType: CommandType.StoredProcedure
+);
+
+<span class="tk-c">// Mapear múltiples resultados</span>
+<span class="tk-k">var</span> sql = @&quot;
+    SELECT * FROM Users WHERE Id = @Id;
+    SELECT * FROM Orders WHERE UserId = @Id;
+&quot;;
+<span class="tk-k">using</span> (<span class="tk-k">var</span> multi = <span class="tk-k">await</span> connection.QueryMultipleAsync(sql, <span class="tk-k">new</span> { Id = id }))
+{
+    <span class="tk-k">var</span> user = <span class="tk-k">await</span> multi.ReadFirstOrDefaultAsync&lt;User&gt;();
+    <span class="tk-k">var</span> orders = <span class="tk-k">await</span> multi.ReadAsync&lt;Order&gt;();
+    user.Orders = orders.ToList();
+}
+
+<span class="tk-c">// Usar transacciones cuando sea necesario</span>
+<span class="tk-k">using</span> (<span class="tk-k">var</span> transaction = connection.BeginTransaction())
+{
+    <span class="tk-k">try</span>
+    {
+        <span class="tk-k">await</span> connection.ExecuteAsync(sql1, param1, transaction);
+        <span class="tk-k">await</span> connection.ExecuteAsync(sql2, param2, transaction);
+        transaction.Commit();
+    }
+    <span class="tk-k">catch</span>
+    {
+        transaction.Rollback();
+        <span class="tk-k">throw</span>;
+    }
+}</code></pre>
+<h4 id="dont---no-hacer">DON'T - No hacer</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// NO concatenar strings SQL (SQL Injection vulnerability!)</span>
+<span class="tk-k">var</span> sql = <span class="tk-s">$&quot;SELECT * FROM Users WHERE Email = '{email}'&quot;</span>; <span class="tk-c">// NUNCA!</span>
+
+<span class="tk-c">// NO abrir conexión manualmente innecesariamente</span>
+connection.Open(); <span class="tk-c">// Dapper lo hace automáticamente</span>
+
+<span class="tk-c">// NO usar síncrono cuando corresponde async</span>
+<span class="tk-k">var</span> users = connection.Query&lt;User&gt;(sql); <span class="tk-c">// Usar QueryAsync</span>
+
+<span class="tk-c">// NO olvidar disponer de conexiones</span>
+<span class="tk-c">// Siempre usar using o inyección de dependencias con scope</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-benchmarks-de-rendimiento">
+<h3 id="benchmarks-de-rendimiento">Benchmarks de Rendimiento</h3>
+<h4 id="operación-select-simple-1000-registros">Operación: SELECT simple (1000 registros)</h4>
+<div class="tbl"><table><thead><tr><th>Método</th><th>Tiempo</th><th>Memoria</th><th>Código</th></tr></thead><tbody><tr><td><strong>Dapper</strong></td><td>12 ms</td><td>1.2 MB</td><td>3 líneas</td></tr><tr><td><strong>ADO.NET</strong></td><td>11 ms</td><td>1.1 MB</td><td>25 líneas</td></tr><tr><td><strong>Entity Framework</strong></td><td>45 ms</td><td>3.5 MB</td><td>5 líneas</td></tr></tbody></table></div>
+<p><strong>Conclusión:</strong></p>
+<ul>
+<li>Dapper: 99% del rendimiento de ADO.NET con 88% menos código</li>
+<li>EF Core: Más lento pero más features (change tracking, migrations, etc.)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-recursos-de-aprendizaje">
+<h3 id="recursos-de-aprendizaje">Recursos de Aprendizaje</h3>
+<h4 id="dapper">Dapper</h4>
+<ul>
+<li><a href="https://github.com/DapperLib/Dapper" rel="noopener">Documentación Oficial</a></li>
+<li><a href="https://www.learndapper.com/" rel="noopener">Dapper Tutorial</a></li>
+<li><a href="https://dapper-plus.net/" rel="noopener">Dapper Plus Extensions</a></li>
+</ul>
+<h4 id="ADO.NET">ADO.NET</h4>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/" rel="noopener">Documentación Microsoft</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-code-examples" rel="noopener">Best Practices</a></li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-recomendación-final">
+<h3 id="recomendación-final">Recomendación Final</h3>
+<h4 id="para-el-90-de-proyectos-usa-dapper">Para el 90% de proyectos: Usa Dapper</h4>
+<p><strong>Razones:</strong></p>
+<ol>
+<li>Productividad significativamente mayor</li>
+<li>Código limpio y mantenible</li>
+<li>Rendimiento casi idéntico a ADO.NET (diferencia &lt; 10%)</li>
+<li>Comunidad activa y soporte excelente</li>
+<li>Curva de aprendizaje suave</li>
+<li>Perfecto balance entre control y simplicidad</li>
+</ol>
+<h4 id="solo-usa-adonet-si">Solo usa ADO.NET si:</h4>
+<ul>
+<li>Proyecto legacy existente con ADO.NET</li>
+<li>Restricciones específicas de no usar librerías externas</li>
+<li>Necesitas optimizaciones muy específicas (casos raros)</li>
+</ul>
+<hr>
+<p><strong>Versión:</strong> 1.0 <strong>Última actualización:</strong> 2025-10-27 <strong>Recomendación:</strong> Dapper en 90% de casos</p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/01_Estructura_Tecnica/GUIA_ACCESO_DATOS.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/migrar.html">migrar</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/estructura_tecnica.html"><small>Anterior</small>Documento de Estructura Técnica</a><a class="next" href="../guias/guia_arquitectura.html"><small>Siguiente</small>Guia de Arquitectura y Patrones</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/01_Estructura_Tecnica/GUIA_ACCESO_DATOS.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#comparativa-rápida">Comparativa Rápida</a></li><li class="l2"><a href="#cuándo-usar-qué">Cuándo Usar Qué</a></li><li class="l3"><a href="#usa-dapper-recomendado-en-90-de-casos">Usa Dapper (Recomendado en 90% de casos)</a></li><li class="l3"><a href="#usa-adonet-solo-casos-específicos">Usa ADO.NET (Solo casos específicos)</a></li><li class="l2"><a href="#decisión-recomendada-por-tipo-de-proyecto">Decisión Recomendada por Tipo de Proyecto</a></li><li class="l3"><a href="#proyecto-nuevo---dapper">Proyecto Nuevo - Dapper</a></li><li class="l3"><a href="#api-restful---dapper">API RESTful - Dapper</a></li><li class="l3"><a href="#migración-de-sistema-legacy---evaluar">Migración de Sistema Legacy - Evaluar</a></li><li class="l3"><a href="#microservicios---dapper">Microservicios - Dapper</a></li><li class="l2"><a href="#ejemplos-de-código">Ejemplos de Código</a></li><li class="l3"><a href="#operación-crud-con-dapper">Operación CRUD con Dapper</a></li><li class="l2"><a href="#configuración-en-proyecto-net">Configuración en Proyecto .NET</a></li><li class="l3"><a href="#setup-con-dapper">Setup con Dapper</a></li><li class="l2"><a href="#mejores-prácticas-con-dapper">Mejores Prácticas con Dapper</a></li><li class="l3"><a href="#do---hacer">DO - Hacer</a></li><li class="l3"><a href="#dont---no-hacer">DON'T - No hacer</a></li><li class="l2"><a href="#benchmarks-de-rendimiento">Benchmarks de Rendimiento</a></li><li class="l3"><a href="#operación-select-simple-1000-registros">Operación: SELECT simple (1000 registros)</a></li><li class="l2"><a href="#recursos-de-aprendizaje">Recursos de Aprendizaje</a></li><li class="l3"><a href="#dapper">Dapper</a></li><li class="l3"><a href="#ADO.NET">ADO.NET</a></li><li class="l2"><a href="#recomendación-final">Recomendación Final</a></li><li class="l3"><a href="#para-el-90-de-proyectos-usa-dapper">Para el 90% de proyectos: Usa Dapper</a></li><li class="l3"><a href="#solo-usa-adonet-si">Solo usa ADO.NET si:</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

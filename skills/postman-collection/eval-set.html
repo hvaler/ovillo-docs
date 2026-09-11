@@ -1,0 +1,77 @@
+<!doctype html><html lang="es" data-rel="../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>postman-collection · eval-set.json · Ovillo</title><meta name="description" content="Fichero eval-set.json de la skill postman-collection"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="postman-collection · eval-set.json · Ovillo"><meta property="og:description" content="Fichero eval-set.json de la skill postman-collection"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/postman-collection/eval-set.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/postman-collection/eval-set.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../recursos/portal.css"></head><body data-page="skills/postman-collection/eval-set.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../index.html">Inicio</a></li><li><a href="../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../curso/index.html">Curso</a></li><li><a href="../../chuletas/index.html">Chuletas</a></li><li><a href="../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../patron.html">Patrón</a></li><li><a href="../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../referencia-config.html">Configuración</a></li><li><a href="../../referencia-hilo.html">Hilo</a></li><li><a href="../../changelog.html">Versiones</a></li><li><a href="../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../buscar.html">Buscar</a></li><li><a href="../../privacidad.html">Datos y privacidad</a></li><li><a href="../../acerca.html">Acerca</a></li></ul><h4>Pack de postman-collection (16)</h4><ul class="sibs"><li><a href="../../skills/postman-collection/checklists/auth-configuration-checklist.html">checklists/auth-configuration-checklist.md</a></li><li><a href="../../skills/postman-collection/eval-set.html" class="cur">eval-set.json</a></li><li><a href="../../skills/postman-collection/patterns/auth-detection.html">patterns/auth-detection.md</a></li><li><a href="../../skills/postman-collection/patterns/azure-ad-auth.html">patterns/azure-ad-auth.md</a></li><li><a href="../../skills/postman-collection/patterns/http-signature-mtls.html">patterns/http-signature-mtls.md</a></li><li><a href="../../skills/postman-collection/patterns/oauth2-token-lifecycle.html">patterns/oauth2-token-lifecycle.md</a></li><li><a href="../../skills/postman-collection/references/auth-examples.html">references/auth-examples.md</a></li><li><a href="../../skills/postman-collection/references/test-assertions.html">references/test-assertions.md</a></li><li><a href="../../skills/postman-collection/references/workflow-postman.html">references/workflow-postman.md</a></li><li><a href="../../skills/postman-collection/templates/auth-prerequest-apikey.js.html">templates/auth-prerequest-apikey.js.template</a></li><li><a href="../../skills/postman-collection/templates/auth-prerequest-azuread.js.html">templates/auth-prerequest-azuread.js.template</a></li><li><a href="../../skills/postman-collection/templates/auth-prerequest-basic.js.html">templates/auth-prerequest-basic.js.template</a></li><li><a href="../../skills/postman-collection/templates/collection.json.html">templates/collection.json.template</a></li><li><a href="../../skills/postman-collection/templates/environment.json.html">templates/environment.json.template</a></li><li><a href="../../skills/postman-collection/templates/request.json.html">templates/request.json.template</a></li><li><a href="../../skills/postman-collection/templates/tests.js.html">templates/tests.js.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../index.html">Inicio</a></span><span><a href="../../skills/index.html">Skills</a></span><span><a href="../../skills/postman-collection.html">postman-collection</a></span><span>eval-set.json</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>postman-collection</span><span>3612 B</span></div><h1>eval-set.json</h1><p class="lede">Fichero que <code>/hv:postman-collection</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../skills/postman-collection.html">postman-collection</a></b><span>skill</span></div><div><b>3612 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="json"><code>{
+  <span class="tk-s">&quot;skill&quot;</span>: <span class="tk-s">&quot;postman-collection&quot;</span>,
+  <span class="tk-s">&quot;version&quot;</span>: <span class="tk-s">&quot;1.0.0&quot;</span>,
+  <span class="tk-s">&quot;created&quot;</span>: <span class="tk-s">&quot;2026-03-12&quot;</span>,
+  <span class="tk-s">&quot;updated&quot;</span>: <span class="tk-s">&quot;2026-03-12&quot;</span>,
+  <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;Trigger evaluation dataset for postman-collection skill. 10 queries: 5 should trigger, 5 should NOT trigger.&quot;</span>,
+  <span class="tk-s">&quot;queries&quot;</span>: [
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Genera una colección Postman para los endpoints de la API de Scholarships con environments de dev y producción&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Caso principal: colección Postman + environments&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Create a Postman collection with pre-request scripts, test assertions, and folder organization&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en-US&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;English trigger: Postman + scripts + assertions&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Necesito actualizar la colección Postman con los nuevos endpoints y variables de entorno&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;Keywords: actualizar colección Postman + endpoints&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Detecta el modo de autenticacion del proyecto y configura la coleccion Postman con Azure AD y pre-request scripts&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEW: Auth detection + Azure AD + Postman configuration&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Generate Postman pre-request scripts for API Key authentication with environment variables per environment&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: true,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en-US&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEW: API Key auth + pre-request scripts + Postman environments&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Genera tests unitarios con xUnit y Moq para el servicio de Scholarships&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar testing-patterns. Unit tests != Postman collections&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Create the CRUD endpoints for the Student entity with Controller and Service&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en-US&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar generador-crud. Crear endpoints != colección Postman&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Genera documentación de la API con ADR y referencia de endpoints&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar documentacion-tecnica. API reference docs != Postman JSON&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Implementa autenticacion OAuth2 client credentials en el servicio .NET con HttpClient&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;es-ES&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar api-integration-patterns. Implementar OAuth2 en C# != configurar Postman&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;query&quot;</span>: <span class="tk-s">&quot;Audit the authentication configuration and check for security vulnerabilities in the login flow&quot;</span>,
+      <span class="tk-s">&quot;should_trigger&quot;</span>: false,
+      <span class="tk-s">&quot;language&quot;</span>: <span class="tk-s">&quot;en-US&quot;</span>,
+      <span class="tk-s">&quot;note&quot;</span>: <span class="tk-s">&quot;NEGATIVE: Debe activar security-audit. Auditar seguridad auth != configurar Postman auth&quot;</span>
+    }
+  ],
+  <span class="tk-s">&quot;overlap_notes&quot;</span>: {
+    <span class="tk-s">&quot;testing-patterns&quot;</span>: <span class="tk-s">&quot;API testing: postman-collection genera JSON collections para testing manual/CI, testing-patterns genera xUnit code tests&quot;</span>,
+    <span class="tk-s">&quot;generador-crud&quot;</span>: <span class="tk-s">&quot;Endpoints: postman-collection documenta endpoints EXISTENTES, generador-crud CREA los endpoints&quot;</span>,
+    <span class="tk-s">&quot;api-integration-patterns&quot;</span>: <span class="tk-s">&quot;Auth: postman-collection CONFIGURA auth en Postman; api-integration-patterns IMPLEMENTA OAuth2 en C#&quot;</span>,
+    <span class="tk-s">&quot;security-audit&quot;</span>: <span class="tk-s">&quot;Auth: postman-collection CONFIGURA auth para testing; security-audit AUDITA la implementacion de seguridad&quot;</span>,
+    <span class="tk-s">&quot;cloud-config&quot;</span>: <span class="tk-s">&quot;Auth: postman-collection CONFIGURA variables Postman para Azure AD; cloud-config CONFIGURA Azure AD en el proyecto .NET&quot;</span>
+  }
+}
+</code></pre><p style="margin-top:32px"><a href="../../skills/postman-collection.html#ficheros">← Volver a la ficha de postman-collection</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../skills/postman-collection/checklists/auth-configuration-checklist.html"><small>Anterior</small>checklists/auth-configuration-checklist.md</a><a class="next" href="../../skills/postman-collection/patterns/auth-detection.html"><small>Siguiente</small>patterns/auth-detection.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/postman-collection/eval-set.json</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../recursos/search-index.js" defer></script><script src="../../recursos/portal.js" defer></script></body></html>

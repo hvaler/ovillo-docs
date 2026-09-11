@@ -1,0 +1,140 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>multi-rol-coordination · Ovillo</title><meta name="description" content="Aviso de coordinacion en proyectos colaborativos"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="multi-rol-coordination · Ovillo"><meta property="og:description" content="Aviso de coordinacion en proyectos colaborativos"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/multi-rol-coordination.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/multi-rol-coordination.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/multi-rol-coordination.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html" class="cur">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>multi-rol-coordination</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>PostToolUse[Write|Edit]</span><span class="kind kind-ok">informa</span></div><h1>multi-rol-coordination</h1><p class="lede">Aviso de coordinacion en proyectos colaborativos</p><div class="meta-grid"><div><b><code>PostToolUse</code></b><span>evento</span></div><div><b><code>Write|Edit</code></b><span>matcher</span></div><div><b><span class="kind kind-ok">informa</span></b><span>política</span></div><div><b>1.0.0-node</b><span>versión</span></div><div><b>5 s</b><span>timeout</span></div><div><b>2026-09-07</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p>Logica: - Si el proyecto tiene &gt;1 miembro en <a href="../skills/equipo.html">equipo</a>.miembros[] - Y se edita un archivo en _hilo/EVOLUTIVOS/, _hilo/ESTADO_PROYECTO.json (campo evolutivos), o se modifica un evolutivo no asignado al usuario actual - Mostrar recordatorio: &quot;Considera notificar a {otros_devs} de los cambios en {evolutivo}&quot; Identificacion del usuario actual: git config user.name (matching contra git_author_name OR nombre) Anti-ruido: - Solo dispara si <a href="../skills/equipo.html">equipo</a>.miembros[].Count &gt;= 2 (proyectos colaborativos) - No dispara si el evolutivo esta sin <a href="../skills/asignar.html">asignar</a> (asignadoA = null) Nota: este hook solo LEE _hilo/*.json; no escribe. Si en el futuro escribiera, usar SIEMPRE helpers.writeHiloJson (FB-004/FB-007).</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code></code></td><td>Exit 0 (no bloquea) - solo aviso pasivo</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>Informa: nunca bloquea.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>multi-rol-coordination.js · 140 líneas</summary><pre data-lang="javascript"><code>#!/usr/bin/env node
+<span class="tk-c">// multi-rol-coordination.js - Aviso de coordinacion en proyectos colaborativos</span>
+<span class="tk-c">// Evento: PostToolUse[Edit]</span>
+<span class="tk-c">// Exit 0 (no bloquea) - solo aviso pasivo</span>
+<span class="tk-c">// Version: 1.0.0-node</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Logica:</span>
+<span class="tk-c">//   - Si el proyecto tiene &gt;1 miembro en equipo.miembros[]</span>
+<span class="tk-c">//   - Y se edita un archivo en _hilo/EVOLUTIVOS/, _hilo/ESTADO_PROYECTO.json (campo evolutivos),</span>
+<span class="tk-c">//     o se modifica un evolutivo no asignado al usuario actual</span>
+<span class="tk-c">//   - Mostrar recordatorio: &quot;Considera notificar a {otros_devs} de los cambios en {evolutivo}&quot;</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Identificacion del usuario actual: git config user.name (matching contra git_author_name OR nombre)</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Anti-ruido:</span>
+<span class="tk-c">//   - Solo dispara si equipo.miembros[].Count &gt;= 2 (proyectos colaborativos)</span>
+<span class="tk-c">//   - No dispara si el evolutivo esta sin asignar (asignadoA = null)</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Nota: este hook solo LEE _hilo/*.json; no escribe. Si en el futuro escribiera,</span>
+<span class="tk-c">// usar SIEMPRE helpers.writeHiloJson (FB-004/FB-007).</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> fs = <span class="tk-k">require</span>(<span class="tk-s">'fs'</span>);
+<span class="tk-k">const</span> path = <span class="tk-k">require</span>(<span class="tk-s">'path'</span>);
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(path.join(__dirname, <span class="tk-s">'lib'</span>, <span class="tk-s">'helpers'</span>));
+
+<span class="tk-k">function</span> main() {
+  <span class="tk-k">const</span> hookData = h.readHookInput();
+  <span class="tk-k">if</span> (!hookData) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-k">const</span> filePath = h.getFilePath(hookData);
+  <span class="tk-k">if</span> (!filePath) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Solo aplica a archivos de Hilo relacionados con evolutivos</span>
+  <span class="tk-k">const</span> normalized = filePath.replace(/\\/g, <span class="tk-s">'/'</span>);
+  <span class="tk-k">const</span> isEvolutivoFile =
+    /_hilo\/EVOLUTIVOS\<span class="tk-c">//i.test(normalized) ||</span>
+    /_hilo\/ESTADO_PROYECTO\.json$/i.test(normalized) ||
+    /_hilo\/FUNCIONALIDADES\.md$/i.test(normalized);
+  <span class="tk-k">if</span> (!isEvolutivoFile) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Localizar ESTADO_PROYECTO.json</span>
+  <span class="tk-k">const</span> repoRoot = h.projectDir();
+  <span class="tk-k">const</span> estadoFile = path.join(repoRoot, <span class="tk-s">'_hilo'</span>, <span class="tk-s">'ESTADO_PROYECTO.json'</span>);
+  <span class="tk-k">if</span> (!fs.existsSync(estadoFile)) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-k">const</span> estado = h.readJsonSafe(estadoFile);
+  <span class="tk-k">if</span> (!estado) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Verificar proyecto colaborativo (&gt;=2 miembros reales con campo 'usuario')</span>
+  <span class="tk-k">if</span> (!estado.equipo || !Array.isArray(estado.equipo.miembros)) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  <span class="tk-k">const</span> miembrosReales = estado.equipo.miembros.filter(
+    (m) =&gt; m &amp;&amp; m.usuario &amp;&amp; !/^ejemplo_/i.test(String(m.usuario))
+  );
+  <span class="tk-k">if</span> (miembrosReales.length &lt; <span class="tk-n">2</span>) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Identificar usuario git actual</span>
+  <span class="tk-k">let</span> gitUser = <span class="tk-k">null</span>;
+  <span class="tk-k">const</span> gu = h.gitReadOnly([<span class="tk-s">'config'</span>, <span class="tk-s">'user.name'</span>], repoRoot);
+  <span class="tk-k">if</span> (gu.exitCode === <span class="tk-n">0</span> &amp;&amp; gu.stdOut) gitUser = gu.stdOut.trim();
+  <span class="tk-k">if</span> (!gitUser) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Resolver usuario git a entrada en equipo.miembros (matching git_author_name OR nombre)</span>
+  <span class="tk-k">const</span> miembroActual = miembrosReales.find(
+    (m) =&gt; m.git_author_name === gitUser || m.nombre === gitUser
+  );
+  <span class="tk-k">if</span> (!miembroActual) {
+    <span class="tk-c">// Usuario git no encontrado en equipo.miembros - posible miembro fantasma</span>
+    <span class="tk-c">// No disparar aviso (eso lo cubre hilo-coherence-checker R2)</span>
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-k">const</span> usuarioActualAlias = miembroActual.usuario;
+
+  <span class="tk-c">// Leer evolutivos en progreso</span>
+  <span class="tk-k">if</span> (!estado.evolutivos || !Array.isArray(estado.evolutivos.enProgreso)) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  <span class="tk-k">const</span> evolutivosActivos = estado.evolutivos.enProgreso.filter((ev) =&gt; ev &amp;&amp; ev.codigo);
+  <span class="tk-k">if</span> (evolutivosActivos.length === <span class="tk-n">0</span>) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Identificar otros miembros (no el actual)</span>
+  <span class="tk-k">const</span> otrosMiembros = miembrosReales.filter((m) =&gt; m.usuario !== usuarioActualAlias);
+  <span class="tk-k">if</span> (otrosMiembros.length === <span class="tk-n">0</span>) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Determinar si la edicion toca un evolutivo no asignado al usuario actual</span>
+  <span class="tk-k">const</span> evolutivosAjenos = evolutivosActivos.filter(
+    (ev) =&gt; ev.asignadoA &amp;&amp; ev.asignadoA !== usuarioActualAlias
+  );
+
+  <span class="tk-c">// Si edita ESTADO_PROYECTO.json o FUNCIONALIDADES.md global: avisar genericamente</span>
+  <span class="tk-c">// Si edita EVOLUTIVOS/{CODIGO}.md: identificar el evolutivo especifico</span>
+  <span class="tk-k">let</span> evolutivoEditado = <span class="tk-k">null</span>;
+  <span class="tk-k">const</span> mFile = normalized.match(/_hilo\/EVOLUTIVOS\/([^/]+)\.md$/i);
+  <span class="tk-k">if</span> (mFile) {
+    <span class="tk-k">const</span> codigoArchivo = mFile[<span class="tk-n">1</span>];
+    evolutivoEditado = evolutivosActivos.find((ev) =&gt; ev.codigo === codigoArchivo) || <span class="tk-k">null</span>;
+  }
+
+  <span class="tk-c">// Construir aviso solo si hay caso real de coordinacion</span>
+  <span class="tk-k">const</span> avisos = [];
+
+  <span class="tk-k">if</span> (evolutivoEditado &amp;&amp; evolutivoEditado.asignadoA &amp;&amp; evolutivoEditado.asignadoA !== usuarioActualAlias) {
+    <span class="tk-c">// Editando evolutivo asignado a otro</span>
+    <span class="tk-k">const</span> owner = evolutivosActivos.find((ev) =&gt; ev.codigo === evolutivoEditado.codigo);
+    <span class="tk-k">const</span> ownerMiembro = miembrosReales.find((m) =&gt; m.usuario === owner.asignadoA);
+    <span class="tk-k">const</span> ownerNombre = ownerMiembro ? ownerMiembro.nombre : owner.asignadoA;
+    avisos.push(
+      <span class="tk-s">`Editaste ${evolutivoEditado.codigo} '${evolutivoEditado.titulo}' que esta asignado a ${ownerNombre} (${owner.asignadoA}).`</span>
+    );
+    avisos.push(<span class="tk-s">`  Considera notificar a ${ownerNombre} por Teams/email de los cambios.`</span>);
+  } <span class="tk-k">else</span> <span class="tk-k">if</span> (/_hilo\/ESTADO_PROYECTO\.json$/i.test(normalized) &amp;&amp; evolutivosAjenos.length &gt; <span class="tk-n">0</span>) {
+    <span class="tk-c">// Editando ESTADO_PROYECTO global con evolutivos ajenos activos</span>
+    avisos.push(
+      <span class="tk-s">`Editaste _hilo/ESTADO_PROYECTO.json. Hay ${evolutivosAjenos.length} evolutivo(s) activos asignados a otros miembros:`</span>
+    );
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> ev <span class="tk-k">of</span> evolutivosAjenos) {
+      <span class="tk-k">const</span> ownerMiembro = miembrosReales.find((m) =&gt; m.usuario === ev.asignadoA);
+      <span class="tk-k">const</span> ownerNombre = ownerMiembro ? ownerMiembro.nombre : ev.asignadoA;
+      avisos.push(<span class="tk-s">`  - ${ev.codigo} '${ev.titulo}' -&gt; ${ownerNombre}`</span>);
+    }
+    avisos.push(<span class="tk-s">'  Si tus cambios afectan alguno, notifica al responsable.'</span>);
+  }
+
+  <span class="tk-k">if</span> (avisos.length === <span class="tk-n">0</span>) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  console.log(
+    <span class="tk-s">`[multi-rol-coordination] Aviso de coordinacion (proyecto con ${miembrosReales.length} miembros activos):`</span>
+  );
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> a <span class="tk-k">of</span> avisos) console.log(a);
+
+  <span class="tk-k">return</span> <span class="tk-n">0</span>;
+}
+
+<span class="tk-k">try</span> {
+  process.exit(main());
+} <span class="tk-k">catch</span> (e) {
+  console.error(<span class="tk-s">`[multi-rol-coordination] error no fatal: ${e.message}`</span>);
+  process.exit(<span class="tk-n">0</span>);
+}
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>2 cambios · 2026-09-07 → 2026-09-07. Último cambio: <em>feat!: Ovillo 1.0.0 — primera publicacion, sin genealogia; ADR-001..010; GitHub y modelos al dia</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../agents/hilo-coherence-checker.html">hilo-coherence-checker</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/multi-rol-coordination.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

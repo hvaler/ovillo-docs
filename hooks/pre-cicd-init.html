@@ -1,0 +1,266 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pre-cicd-init · Ovillo</title><meta name="description" content="Validacion pre-flight antes de ejecutar /cicd-init"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="pre-cicd-init · Ovillo"><meta property="og:description" content="Validacion pre-flight antes de ejecutar /cicd-init"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/pre-cicd-init.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/pre-cicd-init.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/pre-cicd-init.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html" class="cur">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>pre-cicd-init</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>UserPromptSubmit[*]</span><span class="kind kind-block">bloquea si</span></div><h1>pre-cicd-init</h1><p class="lede">Validacion pre-flight antes de ejecutar /cicd-init</p><div class="meta-grid"><div><b><code>UserPromptSubmit</code></b><span>evento</span></div><div><b><code>*</code></b><span>matcher</span></div><div><b><span class="kind kind-block">bloquea si</span></b><span>política</span></div><div><b>1.1.0</b><span>versión</span></div><div><b>10 s</b><span>timeout</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p>Trigger: prompt del usuario que invoque &quot;/cicd-init&quot; o &quot;/hv:<a href="../skills/cicd-init.html">cicd-init</a>&quot; (plugin) Parametrizacion FASE 2: - La URL de instalacion sale de ecosystem.config -&gt; distribution.baseUrl (placeholder '&lt;distribution.baseUrl&gt;' si esta vacio, como el texto original). - La conectividad al servidor CI/CD (antes hardcodeada a un host Azure DevOps) se deriva de cicd.platform / ESTADO_PROYECTO.infraestructura.cicd: <em> plataforma != 'azure-pipelines' -&gt; sin pre-flight de conectividad (skip informativo) </em> URL del servidor: ESTADO_PROYECTO.infraestructura.cicd.serverUrl &gt; ecosystem.config cicd.serverUrl; sin URL -&gt; skip informativo (nunca bloquear contra un host placeholder). Logica (identica al .ps1): 1. Solo se activa si el prompt contiene &quot;/cicd-init&quot; 2. Verifica que la version instalada de la plantilla sea &gt;= 1.0.0 (si se detecta) 3. Detecta builds Classic (XAML) (aborta delegando al migrador) 4. Si la fase no es 0: verifica conectividad al servidor CI/CD configurado</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>0</code></td><td>continuar (stdout se inyecta como contexto adicional)</td></tr><tr><td><code>2</code></td><td>bloquear con mensaje accionable EN STDERR (R14: idempotencia + pre-flight)</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>Bloquea solo en el caso que documenta su cabecera; en el resto continúa.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>pre-cicd-init.js · 266 líneas</summary><pre data-lang="javascript"><code>#!/usr/bin/env node
+<span class="tk-c">// pre-cicd-init.js - Validacion pre-flight antes de ejecutar /cicd-init</span>
+<span class="tk-c">// Evento: UserPromptSubmit</span>
+<span class="tk-c">// Trigger: prompt del usuario que invoque &quot;/cicd-init&quot; o &quot;/hv:cicd-init&quot; (plugin)</span>
+<span class="tk-c">// Exit 0 = continuar (stdout se inyecta como contexto adicional)</span>
+<span class="tk-c">// Exit 2 = bloquear con mensaje accionable EN STDERR (R14: idempotencia + pre-flight)</span>
+<span class="tk-c">// Version: 1.1.0</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Parametrizacion FASE 2:</span>
+<span class="tk-c">//   - La URL de instalacion sale de ecosystem.config -&gt; distribution.baseUrl</span>
+<span class="tk-c">//     (placeholder '&lt;distribution.baseUrl&gt;' si esta vacio, como el texto original).</span>
+<span class="tk-c">//   - La conectividad al servidor CI/CD (antes hardcodeada a un host Azure DevOps) se deriva de</span>
+<span class="tk-c">//     cicd.platform / ESTADO_PROYECTO.infraestructura.cicd:</span>
+<span class="tk-c">//       * plataforma != 'azure-pipelines' -&gt; sin pre-flight de conectividad (skip informativo)</span>
+<span class="tk-c">//       * URL del servidor: ESTADO_PROYECTO.infraestructura.cicd.serverUrl &gt;</span>
+<span class="tk-c">//         ecosystem.config cicd.serverUrl; sin URL -&gt; skip informativo (nunca bloquear</span>
+<span class="tk-c">//         contra un host placeholder).</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Logica (identica al .ps1):</span>
+<span class="tk-c">//   1. Solo se activa si el prompt contiene &quot;/cicd-init&quot;</span>
+<span class="tk-c">//   2. Verifica que la version instalada de la plantilla sea &gt;= 1.0.0 (si se detecta)</span>
+<span class="tk-c">//   3. Detecta builds Classic (XAML) (aborta delegando al migrador)</span>
+<span class="tk-c">//   4. Si la fase no es 0: verifica conectividad al servidor CI/CD configurado</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> fs = <span class="tk-k">require</span>(<span class="tk-s">'fs'</span>);
+<span class="tk-k">const</span> path = <span class="tk-k">require</span>(<span class="tk-s">'path'</span>);
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(path.join(__dirname, <span class="tk-s">'lib'</span>, <span class="tk-s">'helpers'</span>));
+<span class="tk-k">const</span> configLib = <span class="tk-k">require</span>(path.join(__dirname, <span class="tk-s">'lib'</span>, <span class="tk-s">'config'</span>));
+
+<span class="tk-k">function</span> writeBlock(lines) {
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> l <span class="tk-k">of</span> lines) console.error(l);
+}
+
+<span class="tk-c">/** Compara 'a.b.c' vs 'x.y.z'. Devuelve &lt;0, 0, &gt;0 o null si no parsea. */</span>
+<span class="tk-k">function</span> compareVersions(a, b) {
+  <span class="tk-k">const</span> pa = String(a).split(<span class="tk-s">'.'</span>).map((n) =&gt; parseInt(n, <span class="tk-n">10</span>));
+  <span class="tk-k">const</span> pb = String(b).split(<span class="tk-s">'.'</span>).map((n) =&gt; parseInt(n, <span class="tk-n">10</span>));
+  <span class="tk-k">if</span> (pa.some(Number.isNaN) || pb.some(Number.isNaN) || pa.length === <span class="tk-n">0</span>) <span class="tk-k">return</span> <span class="tk-k">null</span>;
+  <span class="tk-k">for</span> (<span class="tk-k">let</span> i = <span class="tk-n">0</span>; i &lt; Math.max(pa.length, pb.length); i++) {
+    <span class="tk-k">const</span> x = pa[i] ?? <span class="tk-n">0</span>;
+    <span class="tk-k">const</span> y = pb[i] ?? <span class="tk-n">0</span>;
+    <span class="tk-k">if</span> (x !== y) <span class="tk-k">return</span> x - y;
+  }
+  <span class="tk-k">return</span> <span class="tk-n">0</span>;
+}
+
+<span class="tk-k">function</span> relPath(full, root) {
+  <span class="tk-c">// path.relative es robusto ante mezcla de separadores / y \ en root (ej. env vars)</span>
+  <span class="tk-k">const</span> rel = path.relative(root, full);
+  <span class="tk-k">if</span> (rel &amp;&amp; !rel.startsWith(<span class="tk-s">'..'</span>) &amp;&amp; !path.isAbsolute(rel)) <span class="tk-k">return</span> rel;
+  <span class="tk-k">return</span> full.replace(root, <span class="tk-s">''</span>).replace(/^[\\/]+/, <span class="tk-s">''</span>);
+}
+
+<span class="tk-k">async</span> <span class="tk-k">function</span> main() {
+  <span class="tk-k">const</span> hookData = h.readHookInput();
+  <span class="tk-k">if</span> (!hookData) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Solo dispara si el prompt menciona /cicd-init</span>
+  <span class="tk-k">let</span> prompt = <span class="tk-k">null</span>;
+  <span class="tk-k">if</span> (<span class="tk-k">typeof</span> hookData.prompt === <span class="tk-s">'string'</span>) prompt = hookData.prompt;
+  <span class="tk-k">else</span> <span class="tk-k">if</span> (hookData.prompt) prompt = String(hookData.prompt).trim();
+  <span class="tk-c">// /cicd-init en modo fallback en-repo, /hv:cicd-init instalado como plugin</span>
+  <span class="tk-k">if</span> (!prompt || !/\/(?:hv:)?cicd-init\b/.test(prompt)) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Localizar repo root + config de organizacion</span>
+  <span class="tk-k">const</span> repoRoot = h.projectDir();
+  <span class="tk-k">const</span> cfg = configLib.load(repoRoot);
+  <span class="tk-k">const</span> baseUrl = String(configLib.get(cfg, <span class="tk-s">'distribution.baseUrl'</span>, <span class="tk-s">''</span>) || <span class="tk-s">''</span>).trim().replace(/\/+$/, <span class="tk-s">''</span>);
+  <span class="tk-k">const</span> installCmd = <span class="tk-s">`irm ${baseUrl || '&lt;distribution.baseUrl&gt;'}/install.ps1 | iex`</span>;
+
+  <span class="tk-c">// ------------------------------------------------------------------------</span>
+  <span class="tk-c">// Check 1: version instalada de la plantilla &gt;= 1.0.0</span>
+  <span class="tk-c">// Fuente: VERSION.json de la raiz (.version, lo que traen el zip y el plugin) -&gt; legado</span>
+  <span class="tk-c">//         _hilo/VERSION.json (.installedVersion) -&gt; _hilo/ESTADO_PROYECTO.json (.ecosistema.version).</span>
+  <span class="tk-c">// Si no se detecta: WARN (NO bloquear; el wizard maneja el resto).</span>
+  <span class="tk-c">// ------------------------------------------------------------------------</span>
+  <span class="tk-k">let</span> installedVersion = <span class="tk-k">null</span>;
+  <span class="tk-k">try</span> {
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> f <span class="tk-k">of</span> [path.join(repoRoot, <span class="tk-s">'VERSION.json'</span>), path.join(repoRoot, <span class="tk-s">'_hilo'</span>, <span class="tk-s">'VERSION.json'</span>)]) {
+      <span class="tk-k">const</span> vj = h.readJsonSafe(f);
+      <span class="tk-k">const</span> v = vj &amp;&amp; (vj.version || vj.installedVersion);
+      <span class="tk-k">if</span> (v) { installedVersion = String(v); <span class="tk-k">break</span>; }
+    }
+    <span class="tk-k">if</span> (!installedVersion) {
+      <span class="tk-k">const</span> ej = h.readJsonSafe(path.join(repoRoot, <span class="tk-s">'_hilo'</span>, <span class="tk-s">'ESTADO_PROYECTO.json'</span>));
+      <span class="tk-k">if</span> (ej &amp;&amp; ej.ecosistema &amp;&amp; ej.ecosistema.version) installedVersion = ej.ecosistema.version;
+    }
+  } <span class="tk-k">catch</span> (e) {
+    console.log(<span class="tk-s">`[!] pre-cicd-init: no se pudo leer la version instalada (${e.message}). Continuando.`</span>);
+  }
+
+  <span class="tk-k">if</span> (installedVersion) {
+    <span class="tk-c">// Strip pre-release suffix (-beta, -rc1...) antes de comparar</span>
+    <span class="tk-k">const</span> clean = String(installedVersion).replace(/-.*$/, <span class="tk-s">''</span>);
+    <span class="tk-k">const</span> cmp = compareVersions(clean, <span class="tk-s">'1.0.0'</span>);
+    <span class="tk-k">if</span> (cmp === <span class="tk-k">null</span>) {
+      console.log(<span class="tk-s">`[!] pre-cicd-init: version '${installedVersion}' no parseable. Continuando.`</span>);
+    } <span class="tk-k">else</span> <span class="tk-k">if</span> (cmp &lt; <span class="tk-n">0</span>) {
+      writeBlock([
+        <span class="tk-s">`[X] pre-cicd-init: version de plantilla insuficiente (actual ${installedVersion}, requerida &gt;= 1.0.0).`</span>,
+        <span class="tk-s">'    /cicd-init con 3 fases de adopcion necesita Ovillo &gt;= 1.0.0.'</span>,
+        <span class="tk-s">`    Actualizar:  ${installCmd}`</span>,
+      ]);
+      <span class="tk-k">return</span> <span class="tk-n">2</span>;
+    }
+  } <span class="tk-k">else</span> {
+    console.log(<span class="tk-s">'[!] pre-cicd-init: no se detecto version instalada en _hilo/. Continuando bajo riesgo.'</span>);
+  }
+
+  <span class="tk-c">// ------------------------------------------------------------------------</span>
+  <span class="tk-c">// Check 2: fase explicita (--fase 0 no necesita servidor CI/CD)</span>
+  <span class="tk-c">// ------------------------------------------------------------------------</span>
+  <span class="tk-k">const</span> mFase = prompt.match(/--fase\s+(\d)/);
+  <span class="tk-k">if</span> (mFase &amp;&amp; parseInt(mFase[<span class="tk-n">1</span>], <span class="tk-n">10</span>) === <span class="tk-n">0</span>) {
+    console.log(<span class="tk-s">'[i] pre-cicd-init: Fase 0 detectada (solo Ovillo local, cero infra Azure DevOps). Saltando validacion Azure DevOps.'</span>);
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-c">// Plataforma CI/CD efectiva (proyecto &gt; organizacion &gt; default) via la superficie unica (ADR-023).</span>
+  <span class="tk-k">const</span> platform = configLib.resolve(<span class="tk-s">'cicd.platform'</span>, { startDir: repoRoot, fallback: <span class="tk-s">'none'</span> });
+  <span class="tk-k">const</span> esAzureDevOps = String(platform).toLowerCase() === <span class="tk-s">'azure-pipelines'</span>;
+
+  <span class="tk-c">// ------------------------------------------------------------------------</span>
+  <span class="tk-c">// Check 3: builds Classic (XAML) -&gt; abortar. Solo tiene sentido en Azure DevOps Server; en otras</span>
+  <span class="tk-c">// plataformas no se recorre el repo.</span>
+  <span class="tk-c">// ------------------------------------------------------------------------</span>
+  <span class="tk-k">const</span> classicXaml = [];
+  <span class="tk-k">const</span> classicXoml = [];
+  <span class="tk-k">const</span> classicDirs = [];
+  <span class="tk-k">const</span> skipDirs = <span class="tk-k">new</span> Set([<span class="tk-s">'.git'</span>, <span class="tk-s">'node_modules'</span>]);
+
+  <span class="tk-k">function</span> walk(dir) {
+    <span class="tk-k">if</span> (classicXaml.length &gt;= <span class="tk-n">3</span> &amp;&amp; classicXoml.length &gt;= <span class="tk-n">3</span> &amp;&amp; classicDirs.length &gt;= <span class="tk-n">1</span>) <span class="tk-k">return</span>;
+    <span class="tk-k">let</span> entries;
+    <span class="tk-k">try</span> {
+      entries = fs.readdirSync(dir, { withFileTypes: <span class="tk-k">true</span> });
+    } <span class="tk-k">catch</span> {
+      <span class="tk-k">return</span>;
+    }
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> e <span class="tk-k">of</span> entries) {
+      <span class="tk-k">const</span> full = path.join(dir, e.name);
+      <span class="tk-k">if</span> (e.isDirectory()) {
+        <span class="tk-k">if</span> (skipDirs.has(e.name)) <span class="tk-k">continue</span>;
+        <span class="tk-k">if</span> (e.name === <span class="tk-s">'BuildProcessTemplates'</span> &amp;&amp; classicDirs.length &lt; <span class="tk-n">1</span>) classicDirs.push(full);
+        walk(full);
+      } <span class="tk-k">else</span> <span class="tk-k">if</span> (e.isFile()) {
+        <span class="tk-k">const</span> lower = e.name.toLowerCase();
+        <span class="tk-k">if</span> (lower.endsWith(<span class="tk-s">'.xaml'</span>) &amp;&amp; classicXaml.length &lt; <span class="tk-n">3</span> &amp;&amp; /TfsBuild|BuildProcessTemplates/i.test(full)) {
+          classicXaml.push(full);
+        } <span class="tk-k">else</span> <span class="tk-k">if</span> (lower.endsWith(<span class="tk-s">'.xoml'</span>) &amp;&amp; classicXoml.length &lt; <span class="tk-n">3</span>) {
+          classicXoml.push(full);
+        }
+      }
+    }
+  }
+  <span class="tk-k">if</span> (esAzureDevOps) {
+    <span class="tk-k">try</span> { walk(repoRoot); } <span class="tk-k">catch</span> { <span class="tk-c">/* scan best-effort */</span> }
+  }
+
+  <span class="tk-k">const</span> classicFiles = classicXaml.concat(classicXoml);
+  <span class="tk-k">if</span> (classicFiles.length &gt; <span class="tk-n">0</span> || classicDirs.length &gt; <span class="tk-n">0</span>) {
+    <span class="tk-k">const</span> msg = [<span class="tk-s">'[X] pre-cicd-init: detectado pipeline Classic (XAML) (.xaml/.xoml/BuildProcessTemplates).'</span>, <span class="tk-s">''</span>];
+    <span class="tk-k">if</span> (classicFiles.length &gt; <span class="tk-n">0</span>) {
+      msg.push(<span class="tk-s">'    Archivos Classic:'</span>);
+      <span class="tk-k">for</span> (<span class="tk-k">const</span> f <span class="tk-k">of</span> classicFiles.slice(<span class="tk-n">0</span>, <span class="tk-n">3</span>)) msg.push(<span class="tk-s">`      - ${relPath(f, repoRoot)}`</span>);
+    }
+    <span class="tk-k">if</span> (classicDirs.length &gt; <span class="tk-n">0</span>) msg.push(<span class="tk-s">`    Directorio: ${relPath(classicDirs[0], repoRoot)}`</span>);
+    msg.push(
+      <span class="tk-s">''</span>,
+      <span class="tk-s">'    /cicd-init es para GREENFIELD. Migracion Classic -&gt; YAML: guia manual en'</span>,
+      <span class="tk-s">'    .claude/skills/cicd-architect/references/classic-migration.md.'</span>
+    );
+    writeBlock(msg);
+    <span class="tk-k">return</span> <span class="tk-n">2</span>;
+  }
+
+  <span class="tk-c">// ------------------------------------------------------------------------</span>
+  <span class="tk-c">// Check 4: conectividad al servidor CI/CD (solo fase &gt;= 1, implicita o explicita).</span>
+  <span class="tk-c">// Derivado de cicd.platform + ESTADO_PROYECTO.</span>
+  <span class="tk-c">// Node negocia TLS 1.2+ por defecto (equivalente al fix R2/h9 de PS 5.1).</span>
+  <span class="tk-c">// ------------------------------------------------------------------------</span>
+  <span class="tk-k">if</span> (String(platform).toLowerCase() === <span class="tk-s">'github-actions'</span>) {
+    <span class="tk-c">// Pre-flight GitHub, WARN-first: gh instalado y autenticado. Nunca bloquea: el wizard genera los</span>
+    <span class="tk-c">// workflows igual; sin gh, environments y secretos habra que crearlos a mano (FASE 2.5-gh).</span>
+    <span class="tk-k">const</span> { spawnSync } = <span class="tk-k">require</span>(<span class="tk-s">'child_process'</span>);
+    <span class="tk-k">const</span> gh = spawnSync(<span class="tk-s">'gh'</span>, [<span class="tk-s">'auth'</span>, <span class="tk-s">'status'</span>], { encoding: <span class="tk-s">'utf8'</span>, timeout: <span class="tk-n">8000</span> });
+    <span class="tk-k">if</span> (gh.error || gh.status === <span class="tk-k">null</span>) {
+      console.log(<span class="tk-s">'[!] pre-cicd-init: gh (GitHub CLI) no esta instalado o no responde. El wizard generara los workflows; para crear environments y secretos por API instala gh (https://cli.github.com) y ejecuta gh auth login.'</span>);
+    } <span class="tk-k">else</span> <span class="tk-k">if</span> (gh.status !== <span class="tk-n">0</span>) {
+      console.log(<span class="tk-s">'[!] pre-cicd-init: gh auth status falla (sin sesion). Ejecuta gh auth login para que /cicd-init pueda crear environments y secretos por API.'</span>);
+    } <span class="tk-k">else</span> {
+      console.log(<span class="tk-s">'[i] pre-cicd-init: gh autenticado. Pre-flight GitHub OK.'</span>);
+    }
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-k">if</span> (!esAzureDevOps) {
+    console.log(<span class="tk-s">`[i] pre-cicd-init: plataforma CI/CD '${platform}' sin pre-flight de conectividad especifico. Continuando.`</span>);
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-k">const</span> estado = configLib.loadEstado(repoRoot);
+  <span class="tk-k">let</span> serverBase =
+    (estado &amp;&amp; estado.infraestructura &amp;&amp; estado.infraestructura.cicd &amp;&amp; estado.infraestructura.cicd.serverUrl) ||
+    configLib.get(cfg, <span class="tk-s">'cicd.serverUrl'</span>, <span class="tk-s">''</span>) ||
+    <span class="tk-s">''</span>;
+  serverBase = String(serverBase).trim().replace(/\/+$/, <span class="tk-s">''</span>);
+  <span class="tk-k">if</span> (!serverBase) {
+    console.log(<span class="tk-s">'[i] pre-cicd-init: sin URL de servidor CI/CD configurada (infraestructura.cicd.serverUrl o ecosystem.config cicd.serverUrl). Saltando validacion de conectividad.'</span>);
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-k">let</span> host;
+  <span class="tk-k">try</span> {
+    host = <span class="tk-k">new</span> URL(serverBase).host;
+  } <span class="tk-k">catch</span> (e) {
+    console.log(<span class="tk-s">`[!] pre-cicd-init: error inesperado validando Azure DevOps (${e.message}). Continuando bajo riesgo.`</span>);
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-k">const</span> tfsUrl = <span class="tk-s">`${serverBase}/_apis/connectionData?api-version=6.0`</span>;
+  <span class="tk-k">try</span> {
+    <span class="tk-k">const</span> ctrl = <span class="tk-k">new</span> AbortController();
+    <span class="tk-k">const</span> timer = setTimeout(() =&gt; ctrl.abort(), <span class="tk-n">5000</span>);
+    <span class="tk-k">let</span> resp;
+    <span class="tk-k">try</span> {
+      resp = <span class="tk-k">await</span> fetch(tfsUrl, { method: <span class="tk-s">'HEAD'</span>, signal: ctrl.signal, redirect: <span class="tk-s">'manual'</span> });
+    } <span class="tk-k">finally</span> {
+      clearTimeout(timer);
+    }
+    <span class="tk-k">const</span> status = resp.status;
+    <span class="tk-k">if</span> (status === <span class="tk-n">200</span>) {
+      console.log(<span class="tk-s">'[OK] pre-cicd-init: Azure DevOps accesible (HTTP 200). Pre-flight OK.'</span>);
+      <span class="tk-k">return</span> <span class="tk-n">0</span>;
+    }
+    <span class="tk-k">if</span> (status === <span class="tk-n">401</span> || status === <span class="tk-n">403</span>) {
+      console.log(<span class="tk-s">`[!] pre-cicd-init: Azure DevOps accesible pero auth fallida (HTTP ${status}). Continuando bajo riesgo.`</span>);
+      <span class="tk-k">return</span> <span class="tk-n">0</span>;
+    }
+    <span class="tk-c">// HTTP 405 Method Not Allowed: el servidor rechaza HEAD pero el endpoint EXISTE (accesible)</span>
+    <span class="tk-k">if</span> (status === <span class="tk-n">405</span>) {
+      console.log(<span class="tk-s">'[OK] pre-cicd-init: Azure DevOps accesible (HTTP 405 a HEAD; el endpoint existe). Pre-flight OK.'</span>);
+      <span class="tk-k">return</span> <span class="tk-n">0</span>;
+    }
+    console.log(<span class="tk-s">`[!] pre-cicd-init: Azure DevOps respondio HTTP ${status}. Continuando bajo riesgo.`</span>);
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  } <span class="tk-k">catch</span> (e) {
+    writeBlock([
+      <span class="tk-s">`[X] pre-cicd-init: sin conectividad a ${host}.`</span>,
+      <span class="tk-s">`    Error: ${e.message}`</span>,
+      <span class="tk-s">`    Verificar: estas en red corporativa o VPN? ${host} responde en tu navegador?`</span>,
+      <span class="tk-s">'    Si solo quieres Fase 0 (sin Azure DevOps), ejecuta: /cicd-init --fase 0'</span>,
+    ]);
+    <span class="tk-k">return</span> <span class="tk-n">2</span>;
+  }
+}
+
+main()
+  .then((code) =&gt; process.exit(code ?? <span class="tk-n">0</span>))
+  .<span class="tk-k">catch</span>((e) =&gt; {
+    console.error(<span class="tk-s">`[pre-cicd-init] error no fatal: ${e.message}`</span>);
+    process.exit(<span class="tk-n">0</span>);
+  });
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>7 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>fix: el verificador validaba la plantilla que la dieta habia retirado (ADR-038)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/estado.html">estado</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/pre-cicd-init.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

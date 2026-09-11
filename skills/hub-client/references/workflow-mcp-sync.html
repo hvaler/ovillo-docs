@@ -1,0 +1,81 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hub-client · references/workflow-mcp-sync.md · Ovillo</title><meta name="description" content="Fichero references/workflow-mcp-sync.md de la skill hub-client"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="hub-client · references/workflow-mcp-sync.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-mcp-sync.md de la skill hub-client"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/hub-client/references/workflow-mcp-sync.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/hub-client/references/workflow-mcp-sync.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/hub-client/references/workflow-mcp-sync.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de hub-client (2)</h4><ul class="sibs"><li><a href="../../../skills/hub-client/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/hub-client/references/workflow-mcp-sync.html" class="cur">references/workflow-mcp-sync.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/hub-client.html">hub-client</a></span><span>references</span><span>workflow-mcp-sync.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>hub-client</span><span>references/</span></div><h1>workflow-mcp-sync.md</h1><p class="lede">Referencia que <code>hub-client</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/hub-client.html">hub-client</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>4555 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>hub-client</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para.</p></blockquote>
+<hr>
+<p class="lede">Sincroniza datos del proyecto con el MCP Server Ovillo v2 (hub central del ecosistema).</p>
+<blockquote><p><strong>Pre-requisito</strong>: el proyecto debe estar registrado (<code>/hv:mcp-register</code> previo). Credenciales en <code>_hilo/.mcp-credentials.json</code>. Config en <code>_hilo/ESTADO_PROYECTO.json.mcpSync</code>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-sintaxis">
+<h3 id="sintaxis">Sintaxis</h3>
+<pre><code>/mcp-sync                    Sincroniza TODAS las categorias habilitadas
+/mcp-sync --categoria X      Solo una (decisiones | lecciones | nugets | deuda | evolutivos | equipo | feedbackEcosistema)
+/mcp-sync --dry-run          Muestra que se enviaria sin enviar</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-flujo">
+<h3 id="flujo">Flujo</h3>
+<p>El comando <strong>NO genera código ad-hoc</strong>. Simplemente invoca el script estable <code>.claude/scripts/mcp-sync.ps1</code> que viene distribuido en la plantilla.</p>
+<h4 id="paso-1-detectar-argumentos">Paso 1: Detectar argumentos</h4>
+<p>Parsear los argumentos del usuario:</p>
+<ul>
+<li><code>--dry-run</code> → flag bool</li>
+<li><code>--categoria &lt;nombre&gt;</code> → uno de: <code>decisiones</code>, <code>lecciones</code>, <code>nugets</code>, <code>deuda</code>, <code>evolutivos</code>, <code>equipo</code>, <code>feedbackEcosistema</code></li>
+</ul>
+<h4 id="paso-2-pre-checks-rapidos">Paso 2: Pre-checks rapidos</h4>
+<p>Antes de invocar el script:</p>
+<ul>
+<li>Verificar que <code>.claude/scripts/mcp-sync.ps1</code> existe (sino: <code>claude plugin update hv@ovillo</code> y <code>/hv:init</code>)</li>
+<li>Verificar que <code>_hilo/.mcp-credentials.json</code> existe (sino: sugerir <code>/hv:mcp-register</code>)</li>
+<li>Verificar que <code>_hilo/ESTADO_PROYECTO.json.mcpSync.habilitado == true</code></li>
+</ul>
+<h4 id="paso-3-invocar-script">Paso 3: Invocar script</h4>
+<p>Ejecutar via <code>pwsh</code> (cross-platform) o <code>powershell</code> (Windows fallback):</p>
+<pre data-lang="bash"><code><span class="tk-c"># Todas las categorias</span>
+<span class="tk-k">pwsh</span> -NoProfile -ExecutionPolicy Bypass -File .<span class="tk-k">claude</span>/scripts/mcp-sync.ps1
+
+<span class="tk-c"># Dry-run</span>
+<span class="tk-k">pwsh</span> -NoProfile -ExecutionPolicy Bypass -File .<span class="tk-k">claude</span>/scripts/mcp-sync.ps1 -DryRun
+
+<span class="tk-c"># Solo una categoria</span>
+<span class="tk-k">pwsh</span> -NoProfile -ExecutionPolicy Bypass -File .<span class="tk-k">claude</span>/scripts/mcp-sync.ps1 -Category nugets</code></pre>
+<p>El script:</p>
+<ol>
+<li>Lee credentials + config</li>
+<li>Parsea fuentes locales (DECISIONES.md, LECCIONES.md, DEUDA_TECNICA.md, *.csproj+CPM, ESTADO_PROYECTO.json)</li>
+<li>Construye batches por categoria</li>
+<li>Llama a <code>POST /v2/hilo/batch</code> (decisiones + lecciones), <code>POST /v2/sync/f3-batch</code> (nugets + deuda + evolutivos + bloqueadores + equipo + branching) y <code>POST /v2/sync/ecosystem-feedback</code> (feedback ecosistema FB-XXX, best-effort)</li>
+<li>Si todo OK: actualiza <code>mcpSync.ultimaSync</code> en ESTADO_PROYECTO.json (con UTF-8 sin BOM)</li>
+<li>Devuelve resumen al stdout</li>
+</ol>
+<h4 id="paso-4-mostrar-resumen-al-usuario">Paso 4: Mostrar resumen al usuario</h4>
+<p>Capturar el stdout del script y pasarlo tal cual al usuario. NO añadir texto extra.</p>
+<hr>
+</section>
+<section class="sec" id="sec-decision-de-diseño-script-estable-vs-codigo-ad-hoc">
+<h3 id="decision-de-diseño-script-estable-vs-codigo-ad-hoc">Decision de diseño: script estable vs codigo ad-hoc</h3>
+<p><strong>Anterior (frágil)</strong>: el comando <code>/mcp-sync</code> pedia a Claude generar un script PowerShell completo cada vez. Resultado: cada ejecucion reinventaba el codigo, susceptible a bugs de parsing (ej. <code>$status:</code> en lugar de <code>${status}:</code>).</p>
+<p><strong>Actual (hotfix #8)</strong>: el script <code>mcp-sync.ps1</code> vive en la plantilla, se distribuye con cada release. Claude solo lo invoca con los argumentos correctos. Si hay un bug, se arregla en una sola version del script y todas las apps lo reciben en la siguiente actualizacion via <code>claude plugin update hv@ovillo</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-categorias-soportadas">
+<h3 id="categorias-soportadas">Categorias soportadas</h3>
+<div class="tbl"><table><thead><tr><th>Categoria</th><th>Origen local</th><th>Endpoint MCP</th></tr></thead><tbody><tr><td>decisiones</td><td><code>_hilo/DECISIONES.md</code></td><td><code>/v2/hilo/batch</code></td></tr><tr><td>lecciones</td><td><code>_hilo/LECCIONES.md</code></td><td><code>/v2/hilo/batch</code></td></tr><tr><td>nugets</td><td><code>*.csproj</code> + <code>Directory.Packages.props</code></td><td><code>/v2/sync/f3-batch</code></td></tr><tr><td>deuda</td><td><code>_hilo/DEUDA_TECNICA.md</code></td><td><code>/v2/sync/f3-batch</code></td></tr><tr><td>evolutivos</td><td><code>ESTADO_PROYECTO.json.evolutivos</code> + bloqueadores</td><td><code>/v2/sync/f3-batch</code></td></tr><tr><td>equipo</td><td><code>ESTADO_PROYECTO.json.equipo</code> + branching</td><td><code>/v2/sync/f3-batch</code></td></tr><tr><td>feedbackEcosistema</td><td><code>_hilo/FEEDBACK_ECOSISTEMA.md</code></td><td><code>/v2/sync/ecosystem-feedback</code></td></tr></tbody></table></div>
+<p>Telemetria de agents NO se gestiona por este comando — la maneja el hook <code>agent-telemetry.js</code> automaticamente (con cooldown 24h).</p>
+<hr>
+</section>
+<section class="sec" id="sec-manejo-de-errores">
+<h3 id="manejo-de-errores">Manejo de errores</h3>
+<p>El script:</p>
+<ul>
+<li>Devuelve <code>exit 0</code> si todo OK</li>
+<li>Devuelve <code>exit 1</code> si hubo errores HTTP (pero no aborta — sigue intentando otras categorias)</li>
+<li>Si red caida o servidor 5xx: el <code>ultimaSync</code> NO se actualiza (reintento en la siguiente ejecucion)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patrones">
+<h3 id="anti-patrones">Anti-patrones</h3>
+<ul>
+<li><strong>NO regenerar el script cada vez</strong> que el usuario ejecute <code>/mcp-sync</code>. Usar el distribuido.</li>
+<li><strong>NO enviar contenido sensible</strong> — los parsers ya filtran (PII, secrets quedan en local).</li>
+<li><strong>NO commitear</strong> <code>_hilo/.mcp-credentials.json</code> ni <code>_hilo/.mcp-telemetry-state.json</code> (ya en <code>.gitignore</code>).</li>
+</ul>
+</section><p style="margin-top:32px"><a href="../../../skills/hub-client.html#ficheros">← Volver a la ficha de hub-client</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/hub-client/eval-set.html"><small>Anterior</small>eval-set.json</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/hub-client/references/workflow-mcp-sync.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#sintaxis">Sintaxis</a></li><li class="l2"><a href="#flujo">Flujo</a></li><li class="l3"><a href="#paso-1-detectar-argumentos">Paso 1: Detectar argumentos</a></li><li class="l3"><a href="#paso-2-pre-checks-rapidos">Paso 2: Pre-checks rapidos</a></li><li class="l3"><a href="#paso-3-invocar-script">Paso 3: Invocar script</a></li><li class="l3"><a href="#paso-4-mostrar-resumen-al-usuario">Paso 4: Mostrar resumen al usuario</a></li><li class="l2"><a href="#decision-de-diseño-script-estable-vs-codigo-ad-hoc">Decision de diseño: script estable vs codigo ad-hoc</a></li><li class="l2"><a href="#categorias-soportadas">Categorias soportadas</a></li><li class="l2"><a href="#manejo-de-errores">Manejo de errores</a></li><li class="l2"><a href="#anti-patrones">Anti-patrones</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

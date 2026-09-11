@@ -1,0 +1,91 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>docs-agente-sync · scripts/Get-SourceStamp.ps1 · Ovillo</title><meta name="description" content="Fichero scripts/Get-SourceStamp.ps1 de la skill docs-agente-sync"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="docs-agente-sync · scripts/Get-SourceStamp.ps1 · Ovillo"><meta property="og:description" content="Fichero scripts/Get-SourceStamp.ps1 de la skill docs-agente-sync"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/docs-agente-sync/scripts/Get-SourceStamp.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/docs-agente-sync/scripts/Get-SourceStamp.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/docs-agente-sync/scripts/Get-SourceStamp.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de docs-agente-sync (6)</h4><ul class="sibs"><li><a href="../../../skills/docs-agente-sync/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/docs-agente-sync/references/ci-wiring.html">references/ci-wiring.md</a></li><li><a href="../../../skills/docs-agente-sync/references/hub-contract.html">references/hub-contract.md</a></li><li><a href="../../../skills/docs-agente-sync/references/workflow-docs-sync.html">references/workflow-docs-sync.md</a></li><li><a href="../../../skills/docs-agente-sync/scripts/Get-SourceStamp.html" class="cur">scripts/Get-SourceStamp.ps1</a></li><li><a href="../../../skills/docs-agente-sync/scripts/Sync-AgentDoc.html">scripts/Sync-AgentDoc.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/docs-agente-sync.html">docs-agente-sync</a></span><span>scripts</span><span>Get-SourceStamp.ps1</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>docs-agente-sync</span><span>scripts/</span><span>3503 B</span></div><h1>Get-SourceStamp.ps1</h1><p class="lede">Fichero que <code>/hv:docs-agente-sync</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/docs-agente-sync.html">docs-agente-sync</a></b><span>skill</span></div><div><b>scripts</b><span>carpeta</span></div><div><b>3503 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="powershell"><code><span class="tk-c">#Requires -Version 5.1</span>
+<span class="tk-c">&lt;#
+.SYNOPSIS
+    Calcula el sello por HASH DE CONTENIDO del subarbol de codigo fuente de un entrypoint
+    (drift de docs de agente). Hermano de Get-TemplateStamp.ps1 pero para un
+    DIRECTORIO de fuentes, no para un unico *.yml.template.
+
+.DESCRIPTION
+    Devuelve los primeros 12 hex del SHA256 de los ficheros *.cs + *.csproj bajo -Path
+    (excluyendo bin/ y obj/), con los line-endings NORMALIZADOS a LF byte-a-byte (identico
+    a Get-TemplateStamp: robusto a CRLF / git autocrlf entre consumidores y entre shells).
+
+    Es la UNICA fuente de verdad del hash de fuente: la invocan IGUAL
+    /analisis-arquitectura --agente (al sellar la cabecera del doc) y Sync-AgentDoc.ps1
+    (al recomprobar drift). Si las dos partes lo calcularan por separado y divergieran,
+    el sync marcaria 'stale' SIEMPRE.
+
+    Por que un helper aparte y no -Path dentro de Get-TemplateStamp: para NO tocar el helper
+    critico del que dependen /cicd-init y /cicd-status (su hash de plantilla no debe cambiar
+    nunca por un edit colateral). Misma logica de normalizacion, fichero distinto.
+
+.PARAMETER Path
+    Carpeta del entrypoint (p.ej. src/MyCompany.X.Api).
+
+.PARAMETER Include
+    Patrones de fichero a hashear. Default: *.cs, *.csproj.
+
+.OUTPUTS
+    Imprime en stdout los 12 hex del hash. exit 0 OK / exit 2 error (path inexistente / sin ficheros).
+
+.EXAMPLE
+    pwsh Get-SourceStamp.ps1 -Path src/MyCompany.X.Api
+    # -&gt; 9f3a1c07be22
+#&gt;</span>
+[CmdletBinding()]
+<span class="tk-k">param</span>(
+    [Parameter(Mandatory)] [string] <span class="tk-v">$Path</span>,
+    [string[]] <span class="tk-v">$Include</span> = @(<span class="tk-s">'*.cs'</span>, <span class="tk-s">'*.csproj'</span>)
+)
+
+<span class="tk-v">$ErrorActionPreference</span> = <span class="tk-s">'Stop'</span>
+
+<span class="tk-c"># Normaliza EOL a nivel de byte (CRLF y CR sueltos -&gt; LF). IDENTICO a Get-TemplateStamp.ps1.</span>
+<span class="tk-k">function</span> ConvertTo-LfBytes([byte[]] <span class="tk-v">$raw</span>) {
+    <span class="tk-v">$out</span> = New-Object System.Collections.Generic.List[byte]
+    <span class="tk-k">for</span> (<span class="tk-v">$i</span> = <span class="tk-n">0</span>; <span class="tk-v">$i</span> -lt <span class="tk-v">$raw</span>.Length; <span class="tk-v">$i</span>++) {
+        <span class="tk-v">$b</span> = <span class="tk-v">$raw</span>[<span class="tk-v">$i</span>]
+        <span class="tk-k">if</span> (<span class="tk-v">$b</span> -eq 0x0D) {
+            <span class="tk-v">$out</span>.Add([byte]0x0A)                                                   <span class="tk-c"># CR -&gt; LF</span>
+            <span class="tk-k">if</span> ((<span class="tk-v">$i</span> + <span class="tk-n">1</span>) -lt <span class="tk-v">$raw</span>.Length -and <span class="tk-v">$raw</span>[<span class="tk-v">$i</span> + <span class="tk-n">1</span>] -eq 0x0A) { <span class="tk-v">$i</span>++ }      <span class="tk-c"># CRLF -&gt; un solo LF</span>
+        }
+        <span class="tk-k">else</span> { <span class="tk-v">$out</span>.Add(<span class="tk-v">$b</span>) }
+    }
+    , <span class="tk-v">$out</span>.ToArray()
+}
+
+<span class="tk-k">try</span> {
+    <span class="tk-k">if</span> (-not (Test-Path -LiteralPath <span class="tk-v">$Path</span>)) {
+        Write-Host <span class="tk-s">&quot;ERROR: path no encontrado: $Path&quot;</span> -ForegroundColor Red
+        <span class="tk-k">exit</span> <span class="tk-n">2</span>
+    }
+
+    <span class="tk-c"># Enumerar, excluir bin/obj, ORDENAR por ruta completa (ordinal) para hash estable.</span>
+    <span class="tk-v">$files</span> = Get-ChildItem -LiteralPath <span class="tk-v">$Path</span> -Recurse -File -Include <span class="tk-v">$Include</span> -ErrorAction SilentlyContinue |
+        Where-Object { <span class="tk-v">$_</span>.FullName -notmatch <span class="tk-s">'[\\/](bin|obj)[\\/]'</span> } |
+        Sort-Object -Property FullName -Culture <span class="tk-s">''</span>
+
+    <span class="tk-k">if</span> (-not <span class="tk-v">$files</span>) {
+        Write-Host <span class="tk-s">&quot;ERROR: sin ficheros ($($Include -join ', ')) bajo $Path&quot;</span> -ForegroundColor Red
+        <span class="tk-k">exit</span> <span class="tk-n">2</span>
+    }
+
+    <span class="tk-v">$acc</span> = New-Object System.Collections.Generic.List[byte]
+    <span class="tk-k">foreach</span> (<span class="tk-v">$f</span> <span class="tk-k">in</span> <span class="tk-v">$files</span>) {
+        <span class="tk-v">$norm</span> = ConvertTo-LfBytes ([System.IO.File]::ReadAllBytes(<span class="tk-v">$f</span>.FullName))
+        <span class="tk-v">$acc</span>.AddRange(<span class="tk-v">$norm</span>)
+        <span class="tk-v">$acc</span>.Add([byte]0x0A)                                                       <span class="tk-c"># separador de fichero (frontera estable)</span>
+    }
+
+    <span class="tk-v">$sha</span> = [System.Security.Cryptography.SHA256]::Create()
+    <span class="tk-k">try</span> { <span class="tk-v">$hashBytes</span> = <span class="tk-v">$sha</span>.ComputeHash(<span class="tk-v">$acc</span>.ToArray()) } <span class="tk-k">finally</span> { <span class="tk-v">$sha</span>.Dispose() }
+
+    <span class="tk-v">$hex</span> = -join (<span class="tk-v">$hashBytes</span> | ForEach-Object { <span class="tk-v">$_</span>.ToString(<span class="tk-s">'x2'</span>) })
+    Write-Output <span class="tk-v">$hex</span>.Substring(<span class="tk-n">0</span>, <span class="tk-n">12</span>)
+    <span class="tk-k">exit</span> <span class="tk-n">0</span>
+}
+<span class="tk-k">catch</span> {
+    Write-Host <span class="tk-s">&quot;ERROR inesperado en Get-SourceStamp.ps1: $($_.Exception.Message)&quot;</span> -ForegroundColor Red
+    <span class="tk-k">exit</span> <span class="tk-n">2</span>
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/docs-agente-sync.html#ficheros">← Volver a la ficha de docs-agente-sync</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/docs-agente-sync/references/workflow-docs-sync.html"><small>Anterior</small>references/workflow-docs-sync.md</a><a class="next" href="../../../skills/docs-agente-sync/scripts/Sync-AgentDoc.html"><small>Siguiente</small>scripts/Sync-AgentDoc.ps1</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/docs-agente-sync/scripts/Get-SourceStamp.ps1</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

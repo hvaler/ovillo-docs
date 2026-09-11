@@ -1,0 +1,1113 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guia de Arquitectura y Patrones · Ovillo</title><meta name="description" content="Guia de Arquitectura y Patrones"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Guia de Arquitectura y Patrones · Ovillo"><meta property="og:description" content="Guia de Arquitectura y Patrones"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/guia_arquitectura.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/guia_arquitectura.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/guia_arquitectura.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 01_Estructura_Tecnica (4)</h4><ul class="sibs"><li><a href="../guias/estructura_tecnica.html">Documento de Estructura Técnica</a></li><li><a href="../guias/guia_acceso_datos.html">Guía de Acceso a Datos: Dapper vs ADO.NET</a></li><li><a href="../guias/guia_arquitectura.html" class="cur">Guia de Arquitectura y Patrones</a></li><li><a href="../guias/guia_mcp_instalacion.html">Guía: Instalación y uso de MCPs en Ovillo</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 01_Estructura_Tecnica</span><span>Guia de Arquitectura y Patrones</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 01_Estructura_Tecnica</span><span>español</span><span><a href="../guias/guia_arquitectura.en.html">English version</a></span></div><h1>Guia de Arquitectura y Patrones</h1><div class="meta-grid"><div><b>5 min</b><span>lectura</span></div><div><b>1136</b><span>palabras</span></div><div><b>12</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>4</b><span>cambios</span></div></div><blockquote><p><strong>Version</strong>: 1.0.0 <strong>Fecha</strong>: 2026-02-02 <strong>Autor</strong>: la organización <strong>Proposito</strong>: Guia completa para seleccion de arquitectura en proyectos .NET</p></blockquote>
+<hr>
+<section class="sec" id="sec-indice">
+<h3 id="indice">Indice</h3>
+<ol>
+<li><a href="#1-introduccion">Introduccion</a></li>
+<li><a href="#2-perfiles-de-arquitectura">Perfiles de Arquitectura</a></li>
+<li><a href="#3-perfil-basico">Perfil BASICO - Services + Repository</a></li>
+<li><a href="#4-perfil-estandar">Perfil ESTANDAR - Clean Architecture + Mediator</a></li>
+<li><a href="#5-perfil-avanzado">Perfil AVANZADO - CQRS + Mediator</a></li>
+<li><a href="#6-comparativa-de-patrones">Comparativa de Patrones</a></li>
+<li><a href="#7-mediator-vs-mediatr">Mediator vs MediatR - Decision Tecnica</a></li>
+<li><a href="#8-guia-de-seleccion">Guia de Seleccion</a></li>
+<li><a href="#9-implementacion-por-perfil">Implementacion por Perfil</a></li>
+<li><a href="#10-migracion-entre-perfiles">Migracion entre Perfiles</a></li>
+<li><a href="#11-referencias">Referencias</a></li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-1-introduccion">
+<h3 id="1-introduccion">1. Introduccion</h3>
+<h4 id="11-proposito-de-este-documento">1.1 Proposito de este documento</h4>
+<p>Este documento proporciona una guia completa para seleccionar la arquitectura adecuada en proyectos .NET de la organización. Define tres perfiles de arquitectura predefinidos que cubren el 95% de los casos de uso.</p>
+<h4 id="12-principios-de-diseno-del-ecosistema">1.2 Principios de diseno del ecosistema</h4>
+<div class="tbl"><table><thead><tr><th>Principio</th><th>Descripcion</th></tr></thead><tbody><tr><td><strong>Simplicidad</strong></td><td>No sobredisenar. Elegir la complejidad minima necesaria</td></tr><tr><td><strong>Mantenibilidad</strong></td><td>Codigo que otros puedan entender y modificar</td></tr><tr><td><strong>Testabilidad</strong></td><td>Facilitar pruebas unitarias e integracion</td></tr><tr><td><strong>Escalabilidad</strong></td><td>Permitir crecimiento sin reescribir</td></tr></tbody></table></div>
+<h4 id="13-realidad-de-proyectos-de-la-organización">1.3 Realidad de proyectos de la organización</h4>
+<pre><code>Distribucion tipica de proyectos:
+
+70% ─────────────────────────────── CRUD + logica basica
+     Gestores, portales internos, ABMs
+
+20% ───────── Logica moderada
+     Integraciones, workflows, validaciones complejas
+
+10% ── Dominios complejos
+     Sistemas criticos, alta escala, event sourcing</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-perfiles-de-arquitectura">
+<h3 id="2-perfiles-de-arquitectura">2. Perfiles de Arquitectura</h3>
+<h4 id="21-resumen-de-perfiles">2.1 Resumen de perfiles</h4>
+<div class="tbl"><table><thead><tr><th>Perfil</th><th>Patron</th><th>Complejidad</th><th>Archivos/Entidad</th><th>Ideal para</th></tr></thead><tbody><tr><td><strong>BASICO</strong></td><td>Services + Repository</td><td>⭐</td><td>4-6</td><td>CRUD, MVPs, prototipos</td></tr><tr><td><strong>ESTANDAR</strong></td><td>Clean + Mediator</td><td>⭐⭐</td><td>8-12</td><td>APIs REST, apps negocio</td></tr><tr><td><strong>AVANZADO</strong></td><td>CQRS + Mediator</td><td>⭐⭐⭐</td><td>15-20</td><td>Dominios complejos</td></tr></tbody></table></div>
+<h4 id="22-diagrama-de-decision">2.2 Diagrama de decision</h4>
+<pre><code>                    ¿Que tipo de proyecto es?
+                              │
+              ┌───────────────┼───────────────┐
+              │               │               │
+              ▼               ▼               ▼
+         CRUD &gt;80%       CRUD 50-80%      CRUD &lt;50%
+         Logica simple   Logica moderada  Logica compleja
+              │               │               │
+              ▼               ▼               ▼
+         ┌────────┐     ┌──────────┐    ┌──────────┐
+         │ BASICO │     │ ESTANDAR │    │ AVANZADO │
+         └────────┘     └──────────┘    └──────────┘</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-3-perfil-basico">
+<h3 id="3-perfil-basico">3. Perfil BASICO</h3>
+<h4 id="31-descripcion">3.1 Descripcion</h4>
+<p>El perfil BASICO implementa una arquitectura de 2-3 capas con inyeccion directa de servicios. No utiliza el patron Mediator.</p>
+<h4 id="32-diagrama-de-arquitectura">3.2 Diagrama de arquitectura</h4>
+<pre><code>┌──────────────────────────────────────────────────────────────┐
+│                      PERFIL BASICO                           │
+│                  Services + Repository                       │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│   ┌─────────────┐                                           │
+│   │ Controller  │                                           │
+│   │             │                                           │
+│   └──────┬──────┘                                           │
+│          │ Inyeccion directa                                │
+│          ▼                                                  │
+│   ┌─────────────┐                                           │
+│   │   Service   │  ◄── Logica de negocio                   │
+│   │             │      Validaciones                         │
+│   └──────┬──────┘      Mapeo DTO                           │
+│          │                                                  │
+│          ▼                                                  │
+│   ┌─────────────┐                                           │
+│   │ Repository  │  ◄── Acceso a datos                      │
+│   │             │      EF Core DbContext                    │
+│   └──────┬──────┘                                           │
+│          │                                                  │
+│          ▼                                                  │
+│   ┌─────────────┐                                           │
+│   │  Database   │                                           │
+│   └─────────────┘                                           │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘</code></pre>
+<h4 id="33-estructura-de-proyectos">3.3 Estructura de proyectos</h4>
+<pre><code>MyCompany.MyApp/
+├── MyCompany.MyApp.sln
+│
+├── src/
+│   ├── MyCompany.MyApp.Api/           # Controllers + Startup
+│   │   ├── Controllers/
+│   │   │   └── ScholarshipsController.cs
+│   │   ├── appsettings.json
+│   │   └── Program.cs
+│   │
+│   └── MyCompany.MyApp.Core/          # Todo lo demas
+│       ├── Entities/
+│       │   └── Scholarship.cs
+│       ├── DTOs/
+│       │   ├── ScholarshipDto.cs
+│       │   └── CreateScholarshipRequest.cs
+│       ├── Services/
+│       │   ├── IScholarshipService.cs
+│       │   └── ScholarshipService.cs
+│       ├── Repositories/
+│       │   ├── IScholarshipRepository.cs
+│       │   └── ScholarshipRepository.cs
+│       ├── Data/
+│       │   └── ApplicationDbContext.cs
+│       └── DependencyInjection.cs
+│
+└── tests/
+    └── MyCompany.MyApp.Tests/
+        └── Services/
+            └── ScholarshipServiceTests.cs</code></pre>
+<h4 id="34-codigo-ejemplo">3.4 Codigo ejemplo</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// CONTROLLER - Inyeccion directa del servicio</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+[ApiController]
+[ApiVersion(<span class="tk-s">&quot;1.0&quot;</span>)]
+[Route(<span class="tk-s">&quot;api/v{version:apiVersion}/[controller]&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsController : ControllerBase
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipService _scholarshipService;
+
+    <span class="tk-k">public</span> ScholarshipsController(IScholarshipService scholarshipService)
+    {
+        _scholarshipService = scholarshipService;
+    }
+
+    [HttpGet(<span class="tk-s">&quot;{id}&quot;</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&lt;ScholarshipDto&gt;&gt; Get(<span class="tk-k">int</span> id, CancellationToken ct)
+    {
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _scholarshipService.GetByIdAsync(id, ct);
+        <span class="tk-k">if</span> (scholarship <span class="tk-k">is</span> <span class="tk-k">null</span>) <span class="tk-k">return</span> NotFound();
+        <span class="tk-k">return</span> Ok(scholarship);
+    }
+
+    [HttpPost]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&lt;ScholarshipDto&gt;&gt; Create(
+        CreateScholarshipRequest request, CancellationToken ct)
+    {
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _scholarshipService.CreateAsync(request, ct);
+        <span class="tk-k">return</span> CreatedAtAction(nameof(Get), <span class="tk-k">new</span> { id = scholarship.Id }, scholarship);
+    }
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// SERVICE - Contiene logica de negocio</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">public</span> <span class="tk-k">interface</span> IScholarshipService
+{
+    Task&lt;ScholarshipDto?&gt; GetByIdAsync(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>);
+    Task&lt;IReadOnlyList&lt;ScholarshipDto&gt;&gt; GetAllAsync(CancellationToken ct = <span class="tk-k">default</span>);
+    Task&lt;ScholarshipDto&gt; CreateAsync(CreateScholarshipRequest request, CancellationToken ct = <span class="tk-k">default</span>);
+    Task UpdateAsync(<span class="tk-k">int</span> id, UpdateScholarshipRequest request, CancellationToken ct = <span class="tk-k">default</span>);
+    Task DeleteAsync(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>);
+}
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipService : IScholarshipService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipRepository _repository;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;ScholarshipService&gt; _logger;
+
+    <span class="tk-k">public</span> ScholarshipService(IScholarshipRepository repository, ILogger&lt;ScholarshipService&gt; logger)
+    {
+        _repository = repository;
+        _logger = logger;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto?&gt; GetByIdAsync(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _repository.GetByIdAsync(id, ct);
+        <span class="tk-k">return</span> scholarship?.ToDto();
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto&gt; CreateAsync(
+        CreateScholarshipRequest request, CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-c">// Validacion de negocio</span>
+        <span class="tk-k">if</span> (request.Amount &lt;= <span class="tk-n">0</span>)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> ValidationException(<span class="tk-s">&quot;Amount must be positive&quot;</span>);
+
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">new</span> Scholarship
+        {
+            Name = request.Name,
+            Amount = request.Amount,
+            CreatedAt = DateTime.UtcNow
+        };
+
+        <span class="tk-k">await</span> _repository.AddAsync(scholarship, ct);
+
+        _logger.LogInformation(<span class="tk-s">&quot;Scholarship {ScholarshipId} creada&quot;</span>, scholarship.Id);
+
+        <span class="tk-k">return</span> scholarship.ToDto();
+    }
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// REPOSITORY - Acceso a datos</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">public</span> <span class="tk-k">interface</span> IScholarshipRepository
+{
+    Task&lt;Scholarship?&gt; GetByIdAsync(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>);
+    Task&lt;IReadOnlyList&lt;Scholarship&gt;&gt; GetAllAsync(CancellationToken ct = <span class="tk-k">default</span>);
+    Task AddAsync(Scholarship scholarship, CancellationToken ct = <span class="tk-k">default</span>);
+    Task UpdateAsync(Scholarship scholarship, CancellationToken ct = <span class="tk-k">default</span>);
+    Task DeleteAsync(Scholarship scholarship, CancellationToken ct = <span class="tk-k">default</span>);
+}
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipRepository : IScholarshipRepository
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ApplicationDbContext _context;
+
+    <span class="tk-k">public</span> ScholarshipRepository(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;Scholarship?&gt; GetByIdAsync(<span class="tk-k">int</span> id, CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _context.Scholarships.FindAsync(<span class="tk-k">new</span> <span class="tk-k">object</span>[] { id }, ct);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task AddAsync(Scholarship scholarship, CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">await</span> _context.Scholarships.AddAsync(scholarship, ct);
+        <span class="tk-k">await</span> _context.SaveChangesAsync(ct);
+    }
+}</code></pre>
+<h4 id="35-cuando-usar-basico">3.5 Cuando usar BASICO</h4>
+<p><strong>Usar cuando:</strong></p>
+<ul>
+<li>Operaciones CRUD representan &gt;80% del sistema</li>
+<li>Proyecto de duracion corta (&lt;6 meses)</li>
+<li>Equipo pequeno (1-2 personas) o junior</li>
+<li>Prototipo o MVP que puede evolucionar</li>
+<li>No hay requisitos de alta escalabilidad</li>
+</ul>
+<p><strong>NO usar cuando:</strong></p>
+<ul>
+<li>Logica de negocio compleja con muchas reglas</li>
+<li>Necesitas cross-cutting concerns (logging, validacion, caching) centralizados</li>
+<li>El proyecto crecera significativamente</li>
+<li>Testing extensivo es requerido</li>
+</ul>
+<h4 id="36-ventajas-y-desventajas">3.6 Ventajas y desventajas</h4>
+<div class="tbl"><table><thead><tr><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody><tr><td>Simplicidad maxima</td><td>Controllers acoplados a servicios</td></tr><tr><td>Curva de aprendizaje minima</td><td>Sin pipeline behaviors</td></tr><tr><td>F12 funciona directamente</td><td>Cross-cutting concerns manuales</td></tr><tr><td>Menos archivos que mantener</td><td>Dificil evolucionar a CQRS</td></tr><tr><td>Ideal para equipos junior</td><td>Testing mas acoplado</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-4-perfil-estandar">
+<h3 id="4-perfil-estandar">4. Perfil ESTANDAR</h3>
+<h4 id="41-descripcion">4.1 Descripcion</h4>
+<p>El perfil ESTANDAR implementa Clean Architecture con el patron Mediator para desacoplar controladores de handlers. Incluye pipeline behaviors para logging, validacion y otras preocupaciones transversales.</p>
+<h4 id="42-diagrama-de-arquitectura">4.2 Diagrama de arquitectura</h4>
+<pre><code>┌──────────────────────────────────────────────────────────────┐
+│                     PERFIL ESTANDAR                          │
+│              Clean Architecture + Mediator                   │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│   ┌─────────────┐                                           │
+│   │ Controller  │                                           │
+│   └──────┬──────┘                                           │
+│          │                                                  │
+│          ▼                                                  │
+│   ┌─────────────┐     ┌─────────────────────────────────┐  │
+│   │  Mediator   │────►│         APPLICATION             │  │
+│   └─────────────┘     │                                 │  │
+│                       │  ┌──────────┐   ┌───────────┐   │  │
+│                       │  │ Request  │──►│  Handler  │   │  │
+│                       │  └──────────┘   └─────┬─────┘   │  │
+│                       │                       │         │  │
+│                       │  Pipeline Behaviors:  │         │  │
+│                       │  ├─ Validation        │         │  │
+│                       │  ├─ Logging           │         │  │
+│                       │  └─ Performance       │         │  │
+│                       └───────────────────────┼─────────┘  │
+│                                               │             │
+│                                      ┌────────▼────────┐   │
+│                                      │     DOMAIN      │   │
+│                                      │   (Entities)    │   │
+│                                      └────────┬────────┘   │
+│                                               │             │
+│                                      ┌────────▼────────┐   │
+│                                      │ INFRASTRUCTURE  │   │
+│                                      │  (Repository)   │   │
+│                                      └─────────────────┘   │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘</code></pre>
+<h4 id="43-estructura-de-proyectos">4.3 Estructura de proyectos</h4>
+<pre><code>MyCompany.MyApp/
+├── MyCompany.MyApp.sln
+│
+├── src/
+│   ├── MyCompany.MyApp.Api/
+│   │   ├── Controllers/
+│   │   │   └── ScholarshipsController.cs
+│   │   └── Program.cs
+│   │
+│   ├── MyCompany.MyApp.Application/
+│   │   ├── Common/
+│   │   │   ├── Behaviours/
+│   │   │   │   ├── ValidationBehaviour.cs
+│   │   │   │   └── LoggingBehaviour.cs
+│   │   │   └── Interfaces/
+│   │   │       └── IUnitOfWork.cs
+│   │   ├── Scholarships/
+│   │   │   ├── Commands/
+│   │   │   │   ├── CreateScholarship/
+│   │   │   │   │   ├── CreateScholarshipCommand.cs
+│   │   │   │   │   ├── CreateScholarshipCommandHandler.cs
+│   │   │   │   │   └── CreateScholarshipCommandValidator.cs
+│   │   │   │   └── UpdateScholarship/
+│   │   │   │       └── ...
+│   │   │   ├── Queries/
+│   │   │   │   ├── GetScholarshipById/
+│   │   │   │   │   ├── GetScholarshipByIdQuery.cs
+│   │   │   │   │   ├── GetScholarshipByIdQueryHandler.cs
+│   │   │   │   │   └── ScholarshipDto.cs
+│   │   │   │   └── GetAllScholarships/
+│   │   │   │       └── ...
+│   │   │   └── EventHandlers/
+│   │   │       └── ScholarshipCreatedEventHandler.cs
+│   │   └── DependencyInjection.cs
+│   │
+│   ├── MyCompany.MyApp.Domain/
+│   │   ├── Entities/
+│   │   │   └── Scholarship.cs
+│   │   ├── Events/
+│   │   │   └── ScholarshipCreatedEvent.cs
+│   │   └── Interfaces/
+│   │       └── IScholarshipRepository.cs
+│   │
+│   └── MyCompany.MyApp.Infrastructure/
+│       ├── Data/
+│       │   └── ApplicationDbContext.cs
+│       ├── Repositories/
+│       │   └── ScholarshipRepository.cs
+│       └── DependencyInjection.cs
+│
+└── tests/
+    ├── MyCompany.MyApp.Application.Tests/
+    └── MyCompany.MyApp.Integration.Tests/</code></pre>
+<h4 id="44-codigo-ejemplo">4.4 Codigo ejemplo</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// CONTROLLER - Usa Mediator</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+[ApiController]
+[ApiVersion(<span class="tk-s">&quot;1.0&quot;</span>)]
+[Route(<span class="tk-s">&quot;api/v{version:apiVersion}/[controller]&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsController : ControllerBase
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IMediator _mediator;
+
+    <span class="tk-k">public</span> ScholarshipsController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+
+    [HttpGet(<span class="tk-s">&quot;{id}&quot;</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&lt;ScholarshipDto&gt;&gt; Get(<span class="tk-k">int</span> id, CancellationToken ct)
+    {
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _mediator.Send(<span class="tk-k">new</span> GetScholarshipByIdQuery(id), ct);
+        <span class="tk-k">if</span> (result <span class="tk-k">is</span> <span class="tk-k">null</span>) <span class="tk-k">return</span> NotFound();
+        <span class="tk-k">return</span> Ok(result);
+    }
+
+    [HttpPost]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ActionResult&lt;<span class="tk-k">int</span>&gt;&gt; Create(
+        CreateScholarshipCommand command, CancellationToken ct)
+    {
+        <span class="tk-k">var</span> id = <span class="tk-k">await</span> _mediator.Send(command, ct);
+        <span class="tk-k">return</span> CreatedAtAction(nameof(Get), <span class="tk-k">new</span> { id }, id);
+    }
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// QUERY - Lectura</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-c">// Request</span>
+<span class="tk-k">public</span> <span class="tk-k">record</span> GetScholarshipByIdQuery(<span class="tk-k">int</span> Id) : IRequest&lt;ScholarshipDto?&gt;;
+
+<span class="tk-c">// Handler</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> GetScholarshipByIdQueryHandler : IRequestHandler&lt;GetScholarshipByIdQuery, ScholarshipDto?&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipRepository _repository;
+
+    <span class="tk-k">public</span> GetScholarshipByIdQueryHandler(IScholarshipRepository repository)
+    {
+        _repository = repository;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> ValueTask&lt;ScholarshipDto?&gt; Handle(
+        GetScholarshipByIdQuery request, CancellationToken ct)
+    {
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _repository.GetByIdAsync(request.Id, ct);
+        <span class="tk-k">return</span> scholarship?.ToDto();
+    }
+}
+
+<span class="tk-c">// DTO</span>
+<span class="tk-k">public</span> <span class="tk-k">record</span> ScholarshipDto
+{
+    <span class="tk-k">public</span> <span class="tk-k">int</span> Id { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+    <span class="tk-k">public</span> <span class="tk-k">decimal</span> Amount { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> DateTime CreatedAt { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// COMMAND - Escritura</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-c">// Command</span>
+<span class="tk-k">public</span> <span class="tk-k">record</span> CreateScholarshipCommand : IRequest&lt;<span class="tk-k">int</span>&gt;
+{
+    <span class="tk-k">public</span> <span class="tk-k">required</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">decimal</span> Amount { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+}
+
+<span class="tk-c">// Handler</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> CreateScholarshipCommandHandler : IRequestHandler&lt;CreateScholarshipCommand, <span class="tk-k">int</span>&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipRepository _repository;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IUnitOfWork _unitOfWork;
+
+    <span class="tk-k">public</span> CreateScholarshipCommandHandler(
+        IScholarshipRepository repository, IUnitOfWork unitOfWork)
+    {
+        _repository = repository;
+        _unitOfWork = unitOfWork;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> ValueTask&lt;<span class="tk-k">int</span>&gt; Handle(
+        CreateScholarshipCommand request, CancellationToken ct)
+    {
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">new</span> Scholarship
+        {
+            Name = request.Name,
+            Amount = request.Amount,
+            CreatedAt = DateTime.UtcNow
+        };
+
+        <span class="tk-k">await</span> _repository.AddAsync(scholarship, ct);
+        <span class="tk-k">await</span> _unitOfWork.SaveChangesAsync(ct);
+
+        <span class="tk-k">return</span> scholarship.Id;
+    }
+}
+
+<span class="tk-c">// Validator (FluentValidation)</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> CreateScholarshipCommandValidator : AbstractValidator&lt;CreateScholarshipCommand&gt;
+{
+    <span class="tk-k">public</span> CreateScholarshipCommandValidator()
+    {
+        RuleFor(x =&gt; x.Name)
+            .NotEmpty().WithMessage(<span class="tk-s">&quot;Name is required&quot;</span>)
+            .MaximumLength(<span class="tk-n">200</span>).WithMessage(<span class="tk-s">&quot;Maximum 200 characters&quot;</span>);
+
+        RuleFor(x =&gt; x.Amount)
+            .GreaterThan(<span class="tk-n">0</span>).WithMessage(<span class="tk-s">&quot;Amount must be positive&quot;</span>);
+    }
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// PIPELINE BEHAVIOR - Validacion automatica</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ValidationBehaviour&lt;TRequest, TResponse&gt;
+    : IPipelineBehavior&lt;TRequest, TResponse&gt;
+    where TRequest : notnull
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IEnumerable&lt;IValidator&lt;TRequest&gt;&gt; _validators;
+
+    <span class="tk-k">public</span> ValidationBehaviour(IEnumerable&lt;IValidator&lt;TRequest&gt;&gt; validators)
+    {
+        _validators = validators;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> ValueTask&lt;TResponse&gt; Handle(
+        TRequest request,
+        CancellationToken ct,
+        MessageHandlerDelegate&lt;TRequest, TResponse&gt; next)
+    {
+        <span class="tk-k">if</span> (!_validators.Any())
+            <span class="tk-k">return</span> <span class="tk-k">await</span> next(request, ct);
+
+        <span class="tk-k">var</span> context = <span class="tk-k">new</span> ValidationContext&lt;TRequest&gt;(request);
+        <span class="tk-k">var</span> failures = _validators
+            .Select(v =&gt; v.Validate(context))
+            .SelectMany(r =&gt; r.Errors)
+            .Where(f =&gt; f != <span class="tk-k">null</span>)
+            .ToList();
+
+        <span class="tk-k">if</span> (failures.Count &gt; <span class="tk-n">0</span>)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> ValidationException(failures);
+
+        <span class="tk-k">return</span> <span class="tk-k">await</span> next(request, ct);
+    }
+}</code></pre>
+<h4 id="45-configuracion-de-mediator-martinothamarmediator">4.5 Configuracion de Mediator (martinothamar/Mediator)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddMediator(options =&gt;
+{
+    options.ServiceLifetime = ServiceLifetime.Scoped;
+});
+
+<span class="tk-c">// Con behaviors</span>
+builder.Services.AddSingleton(<span class="tk-k">typeof</span>(IPipelineBehavior&lt;,&gt;), <span class="tk-k">typeof</span>(ValidationBehaviour&lt;,&gt;));
+builder.Services.AddSingleton(<span class="tk-k">typeof</span>(IPipelineBehavior&lt;,&gt;), <span class="tk-k">typeof</span>(LoggingBehaviour&lt;,&gt;));
+
+<span class="tk-c">// FluentValidation</span>
+builder.Services.AddValidatorsFromAssemblyContaining&lt;CreateScholarshipCommandValidator&gt;();</code></pre>
+<h4 id="46-cuando-usar-estandar">4.6 Cuando usar ESTANDAR</h4>
+<p><strong>Usar cuando:</strong></p>
+<ul>
+<li>Proyecto de tamano medio (6-18 meses)</li>
+<li>Lógica de negocio moderada</li>
+<li>Necesitas cross-cutting concerns centralizados</li>
+<li>Testing es importante</li>
+<li>Equipo mixto (junior + senior)</li>
+<li>API REST tipica con validaciones</li>
+</ul>
+<p><strong>NO usar cuando:</strong></p>
+<ul>
+<li>CRUD muy simple (&gt;80%)</li>
+<li>Dominio muy complejo que requiere CQRS real</li>
+<li>Time-to-market critico sin margen</li>
+</ul>
+<h4 id="47-ventajas-y-desventajas">4.7 Ventajas y desventajas</h4>
+<div class="tbl"><table><thead><tr><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody><tr><td>Desacoplamiento limpio</td><td>Mas archivos que BASICO</td></tr><tr><td>Pipeline behaviors</td><td>F12 no llega directo al handler</td></tr><tr><td>Testing facilitado</td><td>Curva de aprendizaje media</td></tr><tr><td>Facilmente testeable</td><td>Puede parecer overengineering</td></tr><tr><td>Escalable a CQRS</td><td>para CRUD simple</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-5-perfil-avanzado">
+<h3 id="5-perfil-avanzado">5. Perfil AVANZADO</h3>
+<h4 id="51-descripcion">5.1 Descripcion</h4>
+<p>El perfil AVANZADO implementa CQRS (Command Query Responsibility Segregation) completo, separando los modelos de lectura y escritura. Permite optimizar cada lado independientemente.</p>
+<h4 id="52-diagrama-de-arquitectura">5.2 Diagrama de arquitectura</h4>
+<pre><code>┌──────────────────────────────────────────────────────────────┐
+│                      PERFIL AVANZADO                         │
+│                 CQRS + Mediator + Events                     │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│   Controller                                                 │
+│       │                                                      │
+│       ▼                                                      │
+│   ┌─────────┐                                               │
+│   │ Mediator │                                               │
+│   └────┬────┘                                               │
+│        │                                                     │
+│   ┌────┴────────────────────────────────────┐               │
+│   │                                          │               │
+│   ▼                                          ▼               │
+│ ┌──────────────┐                    ┌──────────────┐        │
+│ │   COMMANDS   │                    │   QUERIES    │        │
+│ │   (Write)    │                    │   (Read)     │        │
+│ │              │                    │              │        │
+│ │ - Create     │                    │ - GetById    │        │
+│ │ - Update     │                    │ - GetAll     │        │
+│ │ - Delete     │                    │ - Search     │        │
+│ └──────┬───────┘                    └──────┬───────┘        │
+│        │                                   │                 │
+│        ▼                                   ▼                 │
+│ ┌──────────────┐                    ┌──────────────┐        │
+│ │   Command    │                    │    Query     │        │
+│ │   Handler    │                    │   Handler    │        │
+│ └──────┬───────┘                    └──────┬───────┘        │
+│        │                                   │                 │
+│        ▼                                   ▼                 │
+│ ┌──────────────┐                    ┌──────────────┐        │
+│ │    DOMAIN    │                    │  READ MODEL  │        │
+│ │ (Aggregates) │                    │   (DTOs)     │        │
+│ │              │                    │              │        │
+│ │ - Entities   │                    │ - Optimized  │        │
+│ │ - ValueObj   │                    │ - Denormal.  │        │
+│ │ - Rules      │                    │              │        │
+│ └──────┬───────┘                    └──────┬───────┘        │
+│        │                                   │                 │
+│        │     Domain Events                 │                 │
+│        │         │                         │                 │
+│        ▼         ▼                         ▼                 │
+│ ┌──────────────────────────────────────────────────┐        │
+│ │              INFRASTRUCTURE                       │        │
+│ │                                                   │        │
+│ │  Write Repository    │    Read Repository         │        │
+│ │  (EF Core)           │    (Dapper/EF)             │        │
+│ └──────────────────────┴────────────────────────────┘        │
+│        │                         │                           │
+│        ▼                         ▼                           │
+│   Write Store              Read Store                       │
+│  (Normalizado)           (Denormalizado)                    │
+│                                                              │
+│        └──────── Sync/Events ────────┘                      │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘</code></pre>
+<h4 id="53-niveles-de-implementacion-cqrs">5.3 Niveles de implementacion CQRS</h4>
+<div class="tbl"><table><thead><tr><th>Nivel</th><th>Descripcion</th><th>Complejidad</th><th>Cuando usar</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>Misma BD, diferentes modelos</td><td>Baja</td><td>Empezar aqui</td></tr><tr><td><strong>2</strong></td><td>Misma BD, vistas materializadas</td><td>Media</td><td>Optimizar lecturas</td></tr><tr><td><strong>3</strong></td><td>BDs separadas (sync eventual)</td><td>Alta</td><td>Alta escala</td></tr><tr><td><strong>4</strong></td><td>Event Sourcing</td><td>Muy alta</td><td>Auditoria completa</td></tr></tbody></table></div>
+<h4 id="54-estructura-de-proyectos">5.4 Estructura de proyectos</h4>
+<pre><code>MyCompany.MyApp/
+├── MyCompany.MyApp.sln
+│
+├── src/
+│   ├── MyCompany.MyApp.Api/
+│   │   └── Controllers/
+│   │
+│   ├── MyCompany.MyApp.Application/
+│   │   ├── Commands/
+│   │   │   └── Scholarships/
+│   │   │       ├── CreateScholarship/
+│   │   │       │   ├── CreateScholarshipCommand.cs
+│   │   │       │   ├── CreateScholarshipCommandHandler.cs
+│   │   │       │   └── CreateScholarshipCommandValidator.cs
+│   │   │       ├── UpdateScholarship/
+│   │   │       └── DeleteScholarship/
+│   │   │
+│   │   ├── Queries/
+│   │   │   └── Scholarships/
+│   │   │       ├── GetScholarshipById/
+│   │   │       │   ├── GetScholarshipByIdQuery.cs
+│   │   │       │   ├── GetScholarshipByIdQueryHandler.cs
+│   │   │       │   └── ScholarshipReadModel.cs     ← Modelo optimizado
+│   │   │       └── SearchScholarships/
+│   │   │           └── ...
+│   │   │
+│   │   └── Events/
+│   │       └── Handlers/
+│   │           └── ScholarshipCreatedEventHandler.cs
+│   │
+│   ├── MyCompany.MyApp.Domain/
+│   │   ├── Aggregates/
+│   │   │   └── Scholarship/
+│   │   │       ├── Scholarship.cs              ← Aggregate Root
+│   │   │       └── ScholarshipApplication.cs         ← Entity
+│   │   ├── ValueObjects/
+│   │   │   └── Period.cs
+│   │   ├── Events/
+│   │   │   └── ScholarshipCreatedEvent.cs
+│   │   └── Interfaces/
+│   │       ├── IScholarshipWriteRepository.cs
+│   │       └── IScholarshipReadRepository.cs
+│   │
+│   └── MyCompany.MyApp.Infrastructure/
+│       ├── Persistence/
+│       │   ├── Write/
+│       │   │   └── ScholarshipWriteRepository.cs
+│       │   └── Read/
+│       │       └── ScholarshipReadRepository.cs  ← Puede usar Dapper
+│       └── EventHandlers/
+│           └── UpdateReadModelHandler.cs
+│
+└── tests/</code></pre>
+<h4 id="55-codigo-ejemplo">5.5 Codigo ejemplo</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// COMMAND - Escritura con Dominio Rico</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> CreateScholarshipCommand : IRequest&lt;Guid&gt;
+{
+    <span class="tk-k">public</span> <span class="tk-k">required</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">decimal</span> Amount { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> DateTime StartDate { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> DateTime EndDate { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> CreateScholarshipCommandHandler : IRequestHandler&lt;CreateScholarshipCommand, Guid&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipWriteRepository _repository;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IUnitOfWork _unitOfWork;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IMediator _mediator;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> ValueTask&lt;Guid&gt; Handle(
+        CreateScholarshipCommand request, CancellationToken ct)
+    {
+        <span class="tk-c">// Crear con logica de dominio</span>
+        <span class="tk-k">var</span> period = <span class="tk-k">new</span> Period(request.StartDate, request.EndDate);
+        <span class="tk-k">var</span> scholarship = Scholarship.Create(request.Name, request.Amount, period);
+
+        <span class="tk-k">await</span> _repository.AddAsync(scholarship, ct);
+        <span class="tk-k">await</span> _unitOfWork.SaveChangesAsync(ct);
+
+        <span class="tk-c">// Publicar eventos de dominio</span>
+        <span class="tk-k">foreach</span> (<span class="tk-k">var</span> domainEvent <span class="tk-k">in</span> scholarship.DomainEvents)
+        {
+            <span class="tk-k">await</span> _mediator.Publish(domainEvent, ct);
+        }
+        scholarship.ClearDomainEvents();
+
+        <span class="tk-k">return</span> scholarship.Id;
+    }
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// QUERY - Lectura con model optimizado</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> GetScholarshipByIdQuery(Guid Id) : IRequest&lt;ScholarshipReadModel?&gt;;
+
+<span class="tk-c">// Modelo de lectura optimizado (puede ser denormalizado)</span>
+<span class="tk-k">public</span> <span class="tk-k">record</span> ScholarshipReadModel
+{
+    <span class="tk-k">public</span> Guid Id { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+    <span class="tk-k">public</span> <span class="tk-k">decimal</span> Amount { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Status { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+    <span class="tk-k">public</span> <span class="tk-k">int</span> TotalApplications { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }  <span class="tk-c">// Denormalizado</span>
+    <span class="tk-k">public</span> DateTime CreatedAt { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> GetScholarshipByIdQueryHandler : IRequestHandler&lt;GetScholarshipByIdQuery, ScholarshipReadModel?&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipReadRepository _readRepository;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> ValueTask&lt;ScholarshipReadModel?&gt; Handle(
+        GetScholarshipByIdQuery request, CancellationToken ct)
+    {
+        <span class="tk-c">// Lectura optimizada (puede usar Dapper, vistas, etc.)</span>
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _readRepository.GetByIdAsync(request.Id, ct);
+    }
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// DOMAIN - Aggregate con logica de negocio</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> Scholarship : AggregateRoot
+{
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; } = <span class="tk-k">null</span>!;
+    <span class="tk-k">public</span> <span class="tk-k">decimal</span> Amount { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+    <span class="tk-k">public</span> Period Period { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; } = <span class="tk-k">null</span>!;
+    <span class="tk-k">public</span> ScholarshipStatus Status { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> List&lt;ScholarshipApplication&gt; _applications = [];
+    <span class="tk-k">public</span> IReadOnlyCollection&lt;ScholarshipApplication&gt; Applications =&gt; _applications.AsReadOnly();
+
+    <span class="tk-k">private</span> Scholarship() { }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Scholarship Create(<span class="tk-k">string</span> name, <span class="tk-k">decimal</span> amount, Period period)
+    {
+        <span class="tk-k">if</span> (<span class="tk-k">string</span>.IsNullOrWhiteSpace(name))
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Name is required&quot;</span>);
+
+        <span class="tk-k">if</span> (amount &lt;= <span class="tk-n">0</span>)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Amount must be positive&quot;</span>);
+
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">new</span> Scholarship
+        {
+            Id = Guid.NewGuid(),
+            Name = name,
+            Amount = amount,
+            Period = period,
+            Status = ScholarshipStatus.Draft
+        };
+
+        scholarship.AddDomainEvent(<span class="tk-k">new</span> ScholarshipCreatedEvent(scholarship.Id, name));
+
+        <span class="tk-k">return</span> scholarship;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Publish()
+    {
+        <span class="tk-k">if</span> (Status != ScholarshipStatus.Draft)
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Only draft scholarships can be published&quot;</span>);
+
+        Status = ScholarshipStatus.Published;
+        AddDomainEvent(<span class="tk-k">new</span> ScholarshipPublishedEvent(Id));
+    }
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// EVENT HANDLER - Sincronizar model de lectura</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipCreatedEventHandler : INotificationHandler&lt;ScholarshipCreatedEvent&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipReadRepository _readRepository;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> ValueTask Handle(ScholarshipCreatedEvent notification, CancellationToken ct)
+    {
+        <span class="tk-c">// Actualizar model de lectura denormalizado</span>
+        <span class="tk-k">await</span> _readRepository.UpsertReadModelAsync(notification.ScholarshipId, ct);
+    }
+}</code></pre>
+<h4 id="56-cuando-usar-avanzado">5.6 Cuando usar AVANZADO</h4>
+<p><strong>Usar cuando:</strong></p>
+<ul>
+<li>Dominio muy complejo con muchas reglas de negocio</li>
+<li>Alta disparidad lectura/escritura (&gt;10:1)</li>
+<li>Necesitas escalar lecturas independientemente</li>
+<li>Event Sourcing es requerido</li>
+<li>Auditoria completa de cambios</li>
+<li>Equipo senior con experiencia en DDD/CQRS</li>
+</ul>
+<p><strong>NO usar cuando:</strong></p>
+<ul>
+<li>CRUD simple o moderado</li>
+<li>Equipo sin experiencia en CQRS</li>
+<li>Time-to-market critico</li>
+<li>Proyecto pequeno o mediano</li>
+</ul>
+<h4 id="57-ventajas-y-desventajas">5.7 Ventajas y desventajas</h4>
+<div class="tbl"><table><thead><tr><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody><tr><td>Optimizacion independiente R/W</td><td>Complejidad significativa</td></tr><tr><td>Escalabilidad superior</td><td>Consistencia eventual</td></tr><tr><td>Auditoria natural</td><td>Muchos mas archivos</td></tr><tr><td>Modelos especializados</td><td>Curva aprendizaje alta</td></tr><tr><td>Domain-Driven Design</td><td>Debugging mas dificil</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-6-comparativa-de-patrones">
+<h3 id="6-comparativa-de-patrones">6. Comparativa de Patrones</h3>
+<h4 id="61-services-vs-mediator">6.1 Services vs Mediator</h4>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                    SERVICES (Inyeccion directa)                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   Controller ──────────────► Service ──────────────► Repository │
+│                                                                 │
+│   Pros:                        Contras:                         │
+│   ✅ Simple                    ❌ Controllers acoplados         │
+│   ✅ F12 funciona              ❌ Sin pipeline behaviors        │
+│   ✅ Menos archivos            ❌ Cross-cutting manual          │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│                    MEDIATOR (Handlers)                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   Controller ──► Mediator ──► Handler ──► Repository            │
+│                      │                                          │
+│                      └──► Pipeline Behaviors                    │
+│                           ├── Validation                        │
+│                           ├── Logging                           │
+│                           └── Caching                           │
+│                                                                 │
+│   Pros:                        Contras:                         │
+│   ✅ Desacoplado               ❌ Mas archivos                  │
+│   ✅ Pipeline behaviors        ❌ F12 indirecto                 │
+│   ✅ Testable                  ❌ Curva aprendizaje             │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<h4 id="62-sin-cqrs-vs-con-cqrs">6.2 Sin CQRS vs Con CQRS</h4>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                    SIN CQRS (Mismo modelo)                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   Read ──────┐                                                  │
+│              ├──► Same Model ──► Same Repository ──► Same DB    │
+│   Write ─────┘                                                  │
+│                                                                 │
+│   Pros:                        Contras:                         │
+│   ✅ Simple                    ❌ No optimizable por separado   │
+│   ✅ Consistencia fuerte       ❌ Modelo compromiso             │
+│   ✅ Un modelo                 ❌ Escala limitada               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│                    CON CQRS (Modelos separados)                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   Read ──► Query ──► Read Model ──► Read Repo ──► Read Store    │
+│                                                                 │
+│   Write ──► Command ──► Domain ──► Write Repo ──► Write Store   │
+│                                         │                       │
+│                                    Events/Sync                  │
+│                                         │                       │
+│                                         ▼                       │
+│                                   Update Read Store             │
+│                                                                 │
+│   Pros:                        Contras:                         │
+│   ✅ Optimizable por separado  ❌ Consistencia eventual         │
+│   ✅ Escala independiente      ❌ Complejidad                   │
+│   ✅ Modelos especializados    ❌ Sincronizacion                │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<h4 id="63-cantidad-de-codigo-por-perfil">6.3 Cantidad de codigo por perfil</h4>
+<p>Para una entidad &quot;Scholarship&quot; con CRUD completo:</p>
+<div class="tbl"><table><thead><tr><th>Perfil</th><th>Archivos</th><th>Lineas aprox.</th><th>Clases</th></tr></thead><tbody><tr><td>BASICO</td><td>6-8</td><td>200-300</td><td>4-5</td></tr><tr><td>ESTANDAR</td><td>12-15</td><td>400-600</td><td>10-12</td></tr><tr><td>AVANZADO</td><td>20-25</td><td>700-1000</td><td>18-22</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-7-mediator-vs-mediatr">
+<h3 id="7-mediator-vs-mediatr">7. Mediator vs MediatR</h3>
+<h4 id="71-el-problema-con-mediatr">7.1 El problema con MediatR</h4>
+<p>A partir de la version 13 (13.0.0, julio de 2025), <strong>MediatR cambio a licencia comercial</strong> (fuente: <a href="https://www.nuget.org/packages/MediatR/13.0.0" rel="noopener">nuget.org</a>):</p>
+<div class="tbl"><table><thead><tr><th>Version</th><th>Licencia</th><th>Coste</th></tr></thead><tbody><tr><td>v12.x y anteriores (ultima: 12.4.1)</td><td>Apache 2.0</td><td>Gratuito</td></tr><tr><td>v13+</td><td>Comercial (licencia propia, &quot;License Info&quot; en nuget.org)</td><td>Segun el acuerdo con el fabricante</td></tr></tbody></table></div>
+<h4 id="72-alternativas-recomendadas">7.2 Alternativas recomendadas</h4>
+<div class="tbl"><table><thead><tr><th>Alternativa</th><th>Licencia</th><th>API compatible</th><th>Rendimiento</th></tr></thead><tbody><tr><td><strong>Mediator (Othamar)</strong></td><td>MIT</td><td>95%</td><td>Mejor (source gen)</td></tr><tr><td>MediatR v11</td><td>Apache 2.0</td><td>100%</td><td>Bueno</td></tr><tr><td><strong>AutoMapper</strong></td><td>≤ 14.x libre · <strong>15+ comercial</strong> (dual RPL-1.5)</td><td><code>Riok.Mapperly</code> (Apache-2.0, source generator)</td><td>Rango cerrado <code>[13.0.0,15.0.0)</code> si ya se usa; Mapperly en código nuevo</td></tr><tr><td>Wolverine</td><td>MIT</td><td>60%</td><td>Similar</td></tr><tr><td>Implementacion propia</td><td>-</td><td>Variable</td><td>Variable</td></tr></tbody></table></div>
+<h4 id="73-recomendacion-del-ecosistema">7.3 Recomendacion del ecosistema</h4>
+<pre><code>RECOMENDACION OFICIAL:
+
+Para nuevos proyectos → martinothamar/Mediator (MIT, gratuito)
+Para proyectos existentes → Evaluar migracion o quedarse en v11
+
+NuGet: Mediator.Abstractions + Mediator.SourceGenerator
+GitHub: github.com/martinothamar/Mediator</code></pre>
+<h4 id="74-migracion-mediatr-a-mediator">7.4 Migracion MediatR a Mediator</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// ANTES (MediatR)</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">using</span> MediatR;
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> GetScholarshipQuery(<span class="tk-k">int</span> Id) : IRequest&lt;ScholarshipDto?&gt;;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> GetScholarshipHandler : IRequestHandler&lt;GetScholarshipQuery, ScholarshipDto?&gt;
+{
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto?&gt; Handle(
+        GetScholarshipQuery request, CancellationToken ct)
+    {
+        <span class="tk-c">// ...</span>
+    }
+}
+
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+<span class="tk-c">// DESPUES (Mediator)</span>
+<span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+<span class="tk-k">using</span> Mediator;  <span class="tk-c">// ← Cambio de namespace</span>
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> GetScholarshipQuery(<span class="tk-k">int</span> Id) : IRequest&lt;ScholarshipDto?&gt;;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> GetScholarshipHandler : IRequestHandler&lt;GetScholarshipQuery, ScholarshipDto?&gt;
+{
+    <span class="tk-k">public</span> <span class="tk-k">async</span> ValueTask&lt;ScholarshipDto?&gt; Handle(  <span class="tk-c">// ← Task → ValueTask</span>
+        GetScholarshipQuery request, CancellationToken ct)
+    {
+        <span class="tk-c">// ... (logica igual)</span>
+    }
+}</code></pre>
+<p><strong>Cambios necesarios:</strong></p>
+<ol>
+<li>Cambiar namespace <code>MediatR</code> → <code>Mediator</code></li>
+<li>Cambiar <code>Task&lt;T&gt;</code> → <code>ValueTask&lt;T&gt;</code> en handlers</li>
+<li>Actualizar registro en DI</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-8-guia-de-seleccion">
+<h3 id="8-guia-de-seleccion">8. Guia de Seleccion</h3>
+<h4 id="81-matriz-de-decision">8.1 Matriz de decision</h4>
+<pre><code>┌─────────────────────────────────────────────────────────────────────┐
+│                    GUIA DE SELECCION DE PERFIL                      │
+├─────────────────────┬───────────┬───────────┬───────────────────────┤
+│     Criterio        │  BASICO   │ ESTANDAR  │      AVANZADO         │
+├─────────────────────┼───────────┼───────────┼───────────────────────┤
+│ Operaciones CRUD    │   &gt;80%    │  50-80%   │       &lt;50%            │
+│ Logica de negocio   │   Poca    │  Moderada │      Compleja         │
+│ Tamano equipo       │   1-2     │    2-5    │        5+             │
+│ Duration proyecto   │  &lt;6 meses │ 6-18 meses│     &gt;18 meses         │
+│ Integraciones       │   0-2     │    2-5    │        5+             │
+│ Escala esperada     │   Baja    │   Media   │       Alta            │
+│ Testing requerido   │  Basico   │   Medio   │     Exhaustivo        │
+│ Experiencia equipo  │  Junior   │   Mixto   │      Senior           │
+├─────────────────────┼───────────┼───────────┼───────────────────────┤
+│ Archivos/entidad    │    4-6    │   8-12    │       15-20           │
+│ Setup inicial       │  1 hora   │  2-3 horas│     4-8 horas         │
+│ Curva aprendizaje   │  1 dia    │  3-5 dias │    1-2 semanas        │
+└─────────────────────┴───────────┴───────────┴───────────────────────┘</code></pre>
+<h4 id="82-arbol-de-decision">8.2 Arbol de decision</h4>
+<pre><code>                        ¿Es principalmente CRUD?
+                                  │
+                    ┌─────────────┼─────────────┐
+                    │             │             │
+                   Sí          Parcial         No
+                  (&gt;80%)       (50-80%)       (&lt;50%)
+                    │             │             │
+                    │             │             │
+              ¿Equipo pequeño    │      ¿Dominio muy complejo?
+              o junior?          │             │
+                    │             │       ┌─────┴─────┐
+              ┌─────┴─────┐       │       │           │
+              │           │       │      Sí          No
+             Sí          No       │       │           │
+              │           │       │       │           │
+              ▼           │       │       ▼           │
+         ┌────────┐       │       │  ┌──────────┐    │
+         │ BASICO │       │       │  │ AVANZADO │    │
+         └────────┘       │       │  └──────────┘    │
+                         │       │                   │
+                         └───────┴───────────────────┘
+                                       │
+                                       ▼
+                               ┌──────────┐
+                               │ ESTANDAR │
+                               └──────────┘</code></pre>
+<h4 id="83-ejemplos-de-proyectos-por-perfil">8.3 Ejemplos de proyectos por perfil</h4>
+<div class="tbl"><table><thead><tr><th>Proyecto</th><th>Perfil</th><th>Justificacion</th></tr></thead><tbody><tr><td>Gestor de documentos</td><td>BASICO</td><td>CRUD puro, sin logica</td></tr><tr><td>Portal interno empleados</td><td>BASICO</td><td>CRUD + consultas simples</td></tr><tr><td>API de gestion de becas</td><td>ESTANDAR</td><td>Validaciones, workflows</td></tr><tr><td>Sistema de matriculacion</td><td>ESTANDAR</td><td>Integraciones, reglas moderadas</td></tr><tr><td>ERP academico completo</td><td>AVANZADO</td><td>Dominio complejo, escala</td></tr><tr><td>Sistema de pagos</td><td>AVANZADO</td><td>Auditoria, alta disponibilidad</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-9-implementacion-por-perfil">
+<h3 id="9-implementacion-por-perfil">9. Implementacion por Perfil</h3>
+<h4 id="91-nugets-por-perfil">9.1 NuGets por perfil</h4>
+<p><strong>BASICO:</strong></p>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.EntityFrameworkCore.SqlServer&quot;</span> Version=<span class="tk-s">&quot;10.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;FluentValidation&quot;</span> Version=<span class="tk-s">&quot;11.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Serilog.AspNetCore&quot;</span> Version=<span class="tk-s">&quot;9.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<p><strong>ESTANDAR:</strong></p>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-c">&lt;!-- Mediator (alternativa gratuita a MediatR) --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Mediator.Abstractions&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Mediator.SourceGenerator&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- Validacion --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;FluentValidation&quot;</span> Version=<span class="tk-s">&quot;11.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;FluentValidation.DependencyInjectionExtensions&quot;</span> Version=<span class="tk-s">&quot;11.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- Mapping --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Mapster&quot;</span> Version=<span class="tk-s">&quot;7.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- EF Core --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.EntityFrameworkCore.SqlServer&quot;</span> Version=<span class="tk-s">&quot;10.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- Logging --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Serilog.AspNetCore&quot;</span> Version=<span class="tk-s">&quot;9.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<p><strong>AVANZADO:</strong></p>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-c">&lt;!-- Todo de ESTANDAR + --&gt;</span>
+
+  <span class="tk-c">&lt;!-- Domain Events --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;MassTransit&quot;</span> Version=<span class="tk-s">&quot;8.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- Outbox Pattern (opcional) --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;MassTransit.EntityFrameworkCore&quot;</span> Version=<span class="tk-s">&quot;8.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- Read optimizado (opcional) --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Dapper&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="92-registro-en-di">9.2 Registro en DI</h4>
+<p><strong>BASICO:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddScoped&lt;IScholarshipService, ScholarshipService&gt;();
+builder.Services.AddScoped&lt;IScholarshipRepository, ScholarshipRepository&gt;();
+builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(...);</code></pre>
+<p><strong>ESTANDAR:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddMediator(options =&gt;
+{
+    options.ServiceLifetime = ServiceLifetime.Scoped;
+});
+
+builder.Services.AddSingleton(<span class="tk-k">typeof</span>(IPipelineBehavior&lt;,&gt;), <span class="tk-k">typeof</span>(ValidationBehaviour&lt;,&gt;));
+builder.Services.AddSingleton(<span class="tk-k">typeof</span>(IPipelineBehavior&lt;,&gt;), <span class="tk-k">typeof</span>(LoggingBehaviour&lt;,&gt;));
+
+builder.Services.AddValidatorsFromAssemblyContaining&lt;Program&gt;();
+
+builder.Services.AddScoped&lt;IScholarshipRepository, ScholarshipRepository&gt;();
+builder.Services.AddScoped&lt;IUnitOfWork, UnitOfWork&gt;();</code></pre>
+<p><strong>AVANZADO:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Todo de ESTANDAR +</span>
+builder.Services.AddScoped&lt;IScholarshipWriteRepository, ScholarshipWriteRepository&gt;();
+builder.Services.AddScoped&lt;IScholarshipReadRepository, ScholarshipReadRepository&gt;();
+
+<span class="tk-c">// MassTransit para eventos</span>
+builder.Services.AddMassTransit(x =&gt;
+{
+    x.AddConsumersFromNamespaceContaining&lt;ScholarshipCreatedEventHandler&gt;();
+    x.UsingInMemory((context, cfg) =&gt;
+    {
+        cfg.ConfigureEndpoints(context);
+    });
+});</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-10-migracion-entre-perfiles">
+<h3 id="10-migracion-entre-perfiles">10. Migracion entre Perfiles</h3>
+<h4 id="101-basico--estandar">10.1 BASICO → ESTANDAR</h4>
+<ol>
+<li>Crear capas Application, Domain, Infrastructure</li>
+<li>Mover entidades a Domain</li>
+<li>Crear Requests/Handlers para cada operacion</li>
+<li>Reemplazar llamadas directas por <code>_mediator.Send()</code></li>
+<li>Añadir pipeline behaviors</li>
+<li>Actualizar tests</li>
+</ol>
+<h4 id="102-estandar--avanzado">10.2 ESTANDAR → AVANZADO</h4>
+<ol>
+<li>Separar Commands y Queries en carpetas</li>
+<li>Crear modelos de lectura optimizados</li>
+<li>Crear repositorios separados Read/Write</li>
+<li>Implementar Domain Events</li>
+<li>(Opcional) Separar bases de datos</li>
+<li>Implementar sincronizacion</li>
+</ol>
+<h4 id="103-consejo">10.3 Consejo</h4>
+<blockquote><p><strong>Empezar simple, evolucionar cuando sea necesario.</strong> Es mas facil anadir complejidad que eliminarla.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-11-referencias">
+<h3 id="11-referencias">11. Referencias</h3>
+<h4 id="111-documentacion-oficial">11.1 Documentacion oficial</h4>
+<div class="tbl"><table><thead><tr><th>Recurso</th><th>URL</th></tr></thead><tbody><tr><td>Mediator (Othamar)</td><td>github.com/martinothamar/Mediator</td></tr><tr><td>Clean Architecture</td><td>blog.cleancoder.com/uncle-bob</td></tr><tr><td>CQRS - Martin Fowler</td><td>martinfowler.com/bliki/CQRS.html</td></tr><tr><td>DDD Reference</td><td>domainlanguage.com/ddd/reference</td></tr></tbody></table></div>
+<h4 id="112-libros-recomendados">11.2 Libros recomendados</h4>
+<ul>
+<li>&quot;Clean Architecture&quot; - Robert C. Martin</li>
+<li>&quot;Implementing Domain-Driven Design&quot; - Vaughn Vernon</li>
+<li>&quot;Patterns of Enterprise Application Architecture&quot; - Martin Fowler</li>
+</ul>
+<h4 id="113-archivos-relacionados-en-la-plantilla">11.3 Archivos relacionados en la plantilla</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Contenido</th></tr></thead><tbody><tr><td><code>.claude/skills/application/SKILL.md</code></td><td>Reglas capa Application</td></tr><tr><td><code>.claude/skills/domain/SKILL.md</code></td><td>Reglas capa Domain</td></tr><tr><td><code>.claude/skills/infrastructure/SKILL.md</code></td><td>Reglas capa Infrastructure</td></tr><tr><td><code>.claude/CLAUDE_BASE.md</code></td><td>Estandares generales</td></tr></tbody></table></div>
+<hr>
+<p><em>Documento generado: 2026-02-02</em> <em>la organización</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/01_Estructura_Tecnica/GUIA_ARQUITECTURA.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/guia_acceso_datos.html"><small>Anterior</small>Guía de Acceso a Datos: Dapper vs ADO.NET</a><a class="next" href="../guias/guia_mcp_instalacion.html"><small>Siguiente</small>Guía: Instalación y uso de MCPs en Ovillo</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/01_Estructura_Tecnica/GUIA_ARQUITECTURA.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#indice">Indice</a></li><li class="l2"><a href="#1-introduccion">1. Introduccion</a></li><li class="l3"><a href="#11-proposito-de-este-documento">1.1 Proposito de este documento</a></li><li class="l3"><a href="#12-principios-de-diseno-del-ecosistema">1.2 Principios de diseno del ecosistema</a></li><li class="l3"><a href="#13-realidad-de-proyectos-de-la-organización">1.3 Realidad de proyectos de la organización</a></li><li class="l2"><a href="#2-perfiles-de-arquitectura">2. Perfiles de Arquitectura</a></li><li class="l3"><a href="#21-resumen-de-perfiles">2.1 Resumen de perfiles</a></li><li class="l3"><a href="#22-diagrama-de-decision">2.2 Diagrama de decision</a></li><li class="l2"><a href="#3-perfil-basico">3. Perfil BASICO</a></li><li class="l3"><a href="#31-descripcion">3.1 Descripcion</a></li><li class="l3"><a href="#32-diagrama-de-arquitectura">3.2 Diagrama de arquitectura</a></li><li class="l3"><a href="#33-estructura-de-proyectos">3.3 Estructura de proyectos</a></li><li class="l3"><a href="#34-codigo-ejemplo">3.4 Codigo ejemplo</a></li><li class="l3"><a href="#35-cuando-usar-basico">3.5 Cuando usar BASICO</a></li><li class="l3"><a href="#36-ventajas-y-desventajas">3.6 Ventajas y desventajas</a></li><li class="l2"><a href="#4-perfil-estandar">4. Perfil ESTANDAR</a></li><li class="l3"><a href="#41-descripcion">4.1 Descripcion</a></li><li class="l3"><a href="#42-diagrama-de-arquitectura">4.2 Diagrama de arquitectura</a></li><li class="l3"><a href="#43-estructura-de-proyectos">4.3 Estructura de proyectos</a></li><li class="l3"><a href="#44-codigo-ejemplo">4.4 Codigo ejemplo</a></li><li class="l3"><a href="#45-configuracion-de-mediator-martinothamarmediator">4.5 Configuracion de Mediator (martinothamar/Mediator)</a></li><li class="l3"><a href="#46-cuando-usar-estandar">4.6 Cuando usar ESTANDAR</a></li><li class="l3"><a href="#47-ventajas-y-desventajas">4.7 Ventajas y desventajas</a></li><li class="l2"><a href="#5-perfil-avanzado">5. Perfil AVANZADO</a></li><li class="l3"><a href="#51-descripcion">5.1 Descripcion</a></li><li class="l3"><a href="#52-diagrama-de-arquitectura">5.2 Diagrama de arquitectura</a></li><li class="l3"><a href="#53-niveles-de-implementacion-cqrs">5.3 Niveles de implementacion CQRS</a></li><li class="l3"><a href="#54-estructura-de-proyectos">5.4 Estructura de proyectos</a></li><li class="l3"><a href="#55-codigo-ejemplo">5.5 Codigo ejemplo</a></li><li class="l3"><a href="#56-cuando-usar-avanzado">5.6 Cuando usar AVANZADO</a></li><li class="l3"><a href="#57-ventajas-y-desventajas">5.7 Ventajas y desventajas</a></li><li class="l2"><a href="#6-comparativa-de-patrones">6. Comparativa de Patrones</a></li><li class="l3"><a href="#61-services-vs-mediator">6.1 Services vs Mediator</a></li><li class="l3"><a href="#62-sin-cqrs-vs-con-cqrs">6.2 Sin CQRS vs Con CQRS</a></li><li class="l3"><a href="#63-cantidad-de-codigo-por-perfil">6.3 Cantidad de codigo por perfil</a></li><li class="l2"><a href="#7-mediator-vs-mediatr">7. Mediator vs MediatR</a></li><li class="l3"><a href="#71-el-problema-con-mediatr">7.1 El problema con MediatR</a></li><li class="l3"><a href="#72-alternativas-recomendadas">7.2 Alternativas recomendadas</a></li><li class="l3"><a href="#73-recomendacion-del-ecosistema">7.3 Recomendacion del ecosistema</a></li><li class="l3"><a href="#74-migracion-mediatr-a-mediator">7.4 Migracion MediatR a Mediator</a></li><li class="l2"><a href="#8-guia-de-seleccion">8. Guia de Seleccion</a></li><li class="l3"><a href="#81-matriz-de-decision">8.1 Matriz de decision</a></li><li class="l3"><a href="#82-arbol-de-decision">8.2 Arbol de decision</a></li><li class="l3"><a href="#83-ejemplos-de-proyectos-por-perfil">8.3 Ejemplos de proyectos por perfil</a></li><li class="l2"><a href="#9-implementacion-por-perfil">9. Implementacion por Perfil</a></li><li class="l3"><a href="#91-nugets-por-perfil">9.1 NuGets por perfil</a></li><li class="l3"><a href="#92-registro-en-di">9.2 Registro en DI</a></li><li class="l2"><a href="#10-migracion-entre-perfiles">10. Migracion entre Perfiles</a></li><li class="l3"><a href="#101-basico--estandar">10.1 BASICO → ESTANDAR</a></li><li class="l3"><a href="#102-estandar--avanzado">10.2 ESTANDAR → AVANZADO</a></li><li class="l3"><a href="#103-consejo">10.3 Consejo</a></li><li class="l2"><a href="#11-referencias">11. Referencias</a></li><li class="l3"><a href="#111-documentacion-oficial">11.1 Documentacion oficial</a></li><li class="l3"><a href="#112-libros-recomendados">11.2 Libros recomendados</a></li><li class="l3"><a href="#113-archivos-relacionados-en-la-plantilla">11.3 Archivos relacionados en la plantilla</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

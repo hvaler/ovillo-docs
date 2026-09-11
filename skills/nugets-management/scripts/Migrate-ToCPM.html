@@ -1,0 +1,83 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>nugets-management · scripts/Migrate-ToCPM.ps1 · Ovillo</title><meta name="description" content="Fichero scripts/Migrate-ToCPM.ps1 de la skill nugets-management"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="nugets-management · scripts/Migrate-ToCPM.ps1 · Ovillo"><meta property="og:description" content="Fichero scripts/Migrate-ToCPM.ps1 de la skill nugets-management"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/nugets-management/scripts/Migrate-ToCPM.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/nugets-management/scripts/Migrate-ToCPM.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/nugets-management/scripts/Migrate-ToCPM.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de nugets-management (10)</h4><ul class="sibs"><li><a href="../../../skills/nugets-management/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/nugets-management/patterns/central-package-management.html">patterns/central-package-management.md</a></li><li><a href="../../../skills/nugets-management/patterns/version-strategy.html">patterns/version-strategy.md</a></li><li><a href="../../../skills/nugets-management/patterns/vulnerability-remediation.html">patterns/vulnerability-remediation.md</a></li><li><a href="../../../skills/nugets-management/references/workflow-nugets.html">references/workflow-nugets.md</a></li><li><a href="../../../skills/nugets-management/scripts/Audit-Packages.html">scripts/Audit-Packages.ps1</a></li><li><a href="../../../skills/nugets-management/scripts/Migrate-ToCPM.html" class="cur">scripts/Migrate-ToCPM.ps1</a></li><li><a href="../../../skills/nugets-management/templates/Directory.Build.props.html">templates/Directory.Build.props.template</a></li><li><a href="../../../skills/nugets-management/templates/Directory.Packages.props.html">templates/Directory.Packages.props.template</a></li><li><a href="../../../skills/nugets-management/templates/nuget.config.html">templates/nuget.config.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/nugets-management.html">nugets-management</a></span><span>scripts</span><span>Migrate-ToCPM.ps1</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>nugets-management</span><span>scripts/</span><span>3082 B</span></div><h1>Migrate-ToCPM.ps1</h1><p class="lede">Fichero que <code>/hv:nugets-management</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/nugets-management.html">nugets-management</a></b><span>skill</span></div><div><b>scripts</b><span>carpeta</span></div><div><b>3082 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="powershell"><code><span class="tk-c">#Requires -Version 5.1</span>
+<span class="tk-c"># SCRIPT: Migrate-ToCPM | Skill: nugets-management</span>
+<span class="tk-c"># Migra una solucion a Central Package Management</span>
+
+<span class="tk-k">param</span>(
+    [string]<span class="tk-v">$SolutionDir</span> = (Get-Location).Path,
+    [<span class="tk-k">switch</span>]<span class="tk-v">$DryRun</span>
+)
+
+<span class="tk-v">$ErrorActionPreference</span> = <span class="tk-s">'Stop'</span>
+Write-Host <span class="tk-s">&quot;=== Migracion a Central Package Management ===&quot;</span> -ForegroundColor Cyan
+Write-Host <span class="tk-s">&quot;Directorio: $SolutionDir&quot;</span>
+<span class="tk-k">if</span> (<span class="tk-v">$DryRun</span>) { Write-Host <span class="tk-s">&quot;[DRY RUN] No se modificaran archivos&quot;</span> -ForegroundColor Yellow }
+
+<span class="tk-c"># 1. Buscar todos los .csproj</span>
+<span class="tk-v">$projects</span> = Get-ChildItem -Path <span class="tk-v">$SolutionDir</span> -Filter <span class="tk-s">&quot;*.csproj&quot;</span> -Recurse
+Write-Host <span class="tk-s">&quot;Encontrados $($projects.Count) proyectos&quot;</span>
+
+<span class="tk-c"># 2. Extraer PackageReference con Version</span>
+<span class="tk-v">$packages</span> = @{}
+<span class="tk-k">foreach</span> (<span class="tk-v">$proj</span> <span class="tk-k">in</span> <span class="tk-v">$projects</span>) {
+    [xml]<span class="tk-v">$xml</span> = Get-Content -Path <span class="tk-v">$proj</span>.FullName -Raw
+    <span class="tk-v">$refs</span> = <span class="tk-v">$xml</span>.SelectNodes(<span class="tk-s">&quot;//PackageReference[@Version]&quot;</span>)
+    <span class="tk-k">foreach</span> (<span class="tk-v">$ref</span> <span class="tk-k">in</span> <span class="tk-v">$refs</span>) {
+        <span class="tk-v">$name</span> = <span class="tk-v">$ref</span>.GetAttribute(<span class="tk-s">&quot;Include&quot;</span>)
+        <span class="tk-v">$version</span> = <span class="tk-v">$ref</span>.GetAttribute(<span class="tk-s">&quot;Version&quot;</span>)
+        <span class="tk-k">if</span> (-not <span class="tk-v">$packages</span>.ContainsKey(<span class="tk-v">$name</span>)) {
+            <span class="tk-v">$packages</span>[<span class="tk-v">$name</span>] = <span class="tk-v">$version</span>
+        } <span class="tk-k">else</span> {
+            <span class="tk-c"># Tomar la version mas alta</span>
+            <span class="tk-k">if</span> ([version](<span class="tk-v">$version</span> -replace <span class="tk-s">'[^0-9.]'</span>,<span class="tk-s">''</span>) -gt [version](<span class="tk-v">$packages</span>[<span class="tk-v">$name</span>] -replace <span class="tk-s">'[^0-9.]'</span>,<span class="tk-s">''</span>)) {
+                <span class="tk-v">$packages</span>[<span class="tk-v">$name</span>] = <span class="tk-v">$version</span>
+            }
+        }
+    }
+}
+
+Write-Host <span class="tk-s">&quot;Encontrados $($packages.Count) paquetes unicos&quot;</span>
+
+<span class="tk-c"># 3. Generar Directory.Packages.props</span>
+<span class="tk-v">$propsPath</span> = Join-Path <span class="tk-v">$SolutionDir</span> <span class="tk-s">&quot;Directory.Packages.props&quot;</span>
+<span class="tk-v">$sb</span> = [System.Text.StringBuilder]::new()
+<span class="tk-v">$null</span> = <span class="tk-v">$sb</span>.AppendLine(<span class="tk-s">'&lt;Project&gt;'</span>)
+<span class="tk-v">$null</span> = <span class="tk-v">$sb</span>.AppendLine(<span class="tk-s">'  &lt;PropertyGroup&gt;'</span>)
+<span class="tk-v">$null</span> = <span class="tk-v">$sb</span>.AppendLine(<span class="tk-s">'    &lt;ManagePackageVersionsCentrally&gt;true&lt;/ManagePackageVersionsCentrally&gt;'</span>)
+<span class="tk-v">$null</span> = <span class="tk-v">$sb</span>.AppendLine(<span class="tk-s">'  &lt;/PropertyGroup&gt;'</span>)
+<span class="tk-v">$null</span> = <span class="tk-v">$sb</span>.AppendLine(<span class="tk-s">'  &lt;ItemGroup&gt;'</span>)
+<span class="tk-k">foreach</span> (<span class="tk-v">$pkg</span> <span class="tk-k">in</span> (<span class="tk-v">$packages</span>.GetEnumerator() | Sort-Object Key)) {
+    <span class="tk-v">$null</span> = <span class="tk-v">$sb</span>.AppendLine(<span class="tk-s">&quot;    &lt;PackageVersion Include=\&quot;</span>$(<span class="tk-v">$pkg</span>.Key)\<span class="tk-s">&quot; Version=\&quot;</span>$(<span class="tk-v">$pkg</span>.Value)\<span class="tk-s">&quot; /&gt;&quot;</span>)
+}
+<span class="tk-v">$null</span> = <span class="tk-v">$sb</span>.AppendLine(<span class="tk-s">'  &lt;/ItemGroup&gt;'</span>)
+<span class="tk-v">$null</span> = <span class="tk-v">$sb</span>.AppendLine(<span class="tk-s">'&lt;/Project&gt;'</span>)
+
+<span class="tk-k">if</span> (-not <span class="tk-v">$DryRun</span>) {
+    Set-Content -Path <span class="tk-v">$propsPath</span> -Value <span class="tk-v">$sb</span>.ToString() -Encoding UTF8
+    Write-Host <span class="tk-s">&quot;Creado: $propsPath&quot;</span> -ForegroundColor Green
+} <span class="tk-k">else</span> {
+    Write-Host <span class="tk-s">&quot;[DRY RUN] Se crearia: $propsPath&quot;</span>
+}
+
+<span class="tk-c"># 4. Eliminar Version de PackageReference en .csproj</span>
+<span class="tk-v">$modified</span> = <span class="tk-n">0</span>
+<span class="tk-k">foreach</span> (<span class="tk-v">$proj</span> <span class="tk-k">in</span> <span class="tk-v">$projects</span>) {
+    <span class="tk-v">$content</span> = Get-Content -Path <span class="tk-v">$proj</span>.FullName -Raw
+    <span class="tk-v">$original</span> = <span class="tk-v">$content</span>
+    <span class="tk-v">$content</span> = <span class="tk-v">$content</span> -replace <span class="tk-s">'(&lt;PackageReference\s+Include=&quot;[^&quot;]+&quot;)\s+Version=&quot;[^&quot;]+&quot;'</span>, <span class="tk-s">'$1'</span>
+    <span class="tk-k">if</span> (<span class="tk-v">$content</span> -ne <span class="tk-v">$original</span>) {
+        <span class="tk-v">$modified</span>++
+        <span class="tk-k">if</span> (-not <span class="tk-v">$DryRun</span>) {
+            Set-Content -Path <span class="tk-v">$proj</span>.FullName -Value <span class="tk-v">$content</span> -Encoding UTF8
+            Write-Host <span class="tk-s">&quot;Modificado: $($proj.Name)&quot;</span> -ForegroundColor Green
+        } <span class="tk-k">else</span> {
+            Write-Host <span class="tk-s">&quot;[DRY RUN] Se modificaria: $($proj.Name)&quot;</span>
+        }
+    }
+}
+
+Write-Host <span class="tk-s">&quot;&quot;</span>
+Write-Host <span class="tk-s">&quot;=== Resumen ===&quot;</span> -ForegroundColor Cyan
+Write-Host <span class="tk-s">&quot;Paquetes unicos: $($packages.Count)&quot;</span>
+Write-Host <span class="tk-s">&quot;Proyectos modificados: $modified / $($projects.Count)&quot;</span>
+<span class="tk-k">if</span> (<span class="tk-v">$DryRun</span>) { Write-Host <span class="tk-s">&quot;Ejecutar sin -DryRun para aplicar cambios&quot;</span> -ForegroundColor Yellow }
+</code></pre><p style="margin-top:32px"><a href="../../../skills/nugets-management.html#ficheros">← Volver a la ficha de nugets-management</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/nugets-management/scripts/Audit-Packages.html"><small>Anterior</small>scripts/Audit-Packages.ps1</a><a class="next" href="../../../skills/nugets-management/templates/Directory.Build.props.html"><small>Siguiente</small>templates/Directory.Build.props.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/nugets-management/scripts/Migrate-ToCPM.ps1</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

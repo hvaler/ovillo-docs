@@ -1,0 +1,160 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · Ovillo</title><meta name="description" content="Generates unit and integration tests following the ecosystem conventions: xUnit, FluentAssertions, Moq, Testcontainers, and bUnit for Blazor."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · Ovillo"><meta property="og:description" content="Generates unit and integration tests following the ecosystem conventions: xUnit, FluentAssertions, Moq, Testcontainers, and bUnit for Blazor."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/testing-patterns.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>conocimiento (20)</h4><ul class="sibs"><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/api-integration-patterns.html">api-integration-patterns</a></li><li><a href="../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></li><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cloud-config.html">cloud-config</a></li><li><a href="../skills/docs-agente-sync.html">docs-agente-sync</a></li><li><a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../skills/hub-client.html">hub-client</a></li><li><a href="../skills/issue-tracker-sync.html">issue-tracker-sync</a></li><li><a href="../skills/nugets-management.html">nugets-management</a></li><li><a href="../skills/observability-patterns.html">observability-patterns</a></li><li><a href="../skills/postman-collection.html">postman-collection</a></li><li><a href="../skills/resilience-patterns.html">resilience-patterns</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../skills/testing-patterns.html" class="cur">testing-patterns</a></li><li><a href="../skills/user-documentation.html">user-documentation</a></li><li><a href="../skills/webapp-dashboard.html">webapp-dashboard</a></li><li><a href="../skills/webapp-layout.html">webapp-layout</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>testing-patterns</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>/hv:testing-patterns</span></div><h1>testing-patterns</h1><p class="lede">Generates unit and integration tests following the ecosystem conventions: xUnit, FluentAssertions, Moq, Testcontainers, and bUnit for Blazor. Includes test data builders, snapshot testing, and performance test patterns.</p><div class="meta-grid"><div><b>conocimiento</b><span>clase</span></div><div><b><code>/hv:testing-patterns</code></b><span>invocación</span></div><div><b>17</b><span>ficheros</span></div><div><b>771</b><span>palabras</span></div><div><b>1.00</b><span>F1 de disparo</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo se activa</h2><ul><li>writing unit tests</li><li>integration tests</li><li>xUnit patterns</li><li>Testcontainers</li><li>WebApplicationFactory</li><li>test naming</li><li>test coverage</li><li>crear tests</li><li>generar tests unitarios</li><li>tests integracion</li></ul></section><section class="sec" id="sec-cuando-no"><h2 id="cuando-no">Cuándo no</h2><ul><li>code review (use <a href="../agents/code-reviewer.html">code-reviewer</a> agent)</li><li>security auditing (use <a href="../skills/security-audit.html">security-audit</a>)</li><li>API contract testing (use <a href="../skills/postman-collection.html">postman-collection</a>)</li></ul></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><div class="kpi"><div><b>1.00</b><span>F1</span></div><div><b>1.00</b><span>precisión</span></div><div><b>1.00</b><span>recall</span></div><div><b>8 / 8</b><span>consultas correctas</span></div></div><p class="muted">Todas las consultas del eval-set se resuelven bien.</p><p class="muted">Motor: <code>run_eval.py</code> deriva el vocabulario de la description real; baseline en <a href="../evaluaciones.html">Evaluaciones</a>.</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">16</span></h2><div class="tree"><ul><li><span class="dir">patterns/</span><ul><li><a href="../skills/testing-patterns/patterns/api-contract-testing.html">api-contract-testing.md</a> <span class="muted">16.915 B</span></li><li><a href="../skills/testing-patterns/patterns/builders.html">builders.md</a> <span class="muted">9434 B</span></li><li><a href="../skills/testing-patterns/patterns/bunit-patterns.html">bunit-patterns.md</a> <span class="muted">15.041 B</span></li><li><a href="../skills/testing-patterns/patterns/integration-fixtures.html">integration-fixtures.md</a> <span class="muted">13.047 B</span></li><li><a href="../skills/testing-patterns/patterns/mocking-avanzado.html">mocking-avanzado.md</a> <span class="muted">7957 B</span></li><li><a href="../skills/testing-patterns/patterns/performance-testing.html">performance-testing.md</a> <span class="muted">1067 B</span></li><li><a href="../skills/testing-patterns/patterns/snapshot-testing.html">snapshot-testing.md</a> <span class="muted">9336 B</span></li><li><a href="../skills/testing-patterns/patterns/test-data-factory.html">test-data-factory.md</a> <span class="muted">6841 B</span></li></ul></li><li><span class="dir">references/</span><ul><li><a href="../skills/testing-patterns/references/test-helpers.html">test-helpers.md</a> <span class="muted">1433 B</span></li><li><a href="../skills/testing-patterns/references/test-templates.html">test-templates.md</a> <span class="muted">7951 B</span></li><li><a href="../skills/testing-patterns/references/workflow-test.html">workflow-test.md</a> <span class="muted">20.029 B</span></li></ul></li><li><span class="dir">templates/</span><ul><li><a href="../skills/testing-patterns/templates/ApiTestBase.cs.html">ApiTestBase.cs.template</a> <span class="muted">1204 B</span></li><li><a href="../skills/testing-patterns/templates/FakeBuilder.cs.html">FakeBuilder.cs.template</a> <span class="muted">1083 B</span></li><li><a href="../skills/testing-patterns/templates/IntegrationTestBase.cs.html">IntegrationTestBase.cs.template</a> <span class="muted">1816 B</span></li><li><a href="../skills/testing-patterns/templates/TestBase.cs.html">TestBase.cs.template</a> <span class="muted">1240 B</span></li></ul></li><li><a href="../skills/testing-patterns/eval-set.html">eval-set.json</a> <span class="muted">2480 B</span></li></ul></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><p class="lede">Este skill genera tests siguiendo estándares del ecosistema. Incluye 8 patrones, 4 templates base y un arbol de decision para elegir el patron correcto.</p>
+<hr>
+<section class="sec" id="sec-cuando-usar-este-skill">
+<h3 id="cuando-usar-este-skill">Cuando Usar Este Skill</h3>
+<ol>
+<li><strong>Tests unitarios</strong> - Generar tests para servicios, entidades, validadores</li>
+<li><strong>Tests de integracion</strong> - Crear tests con WebApplicationFactory + Testcontainers</li>
+<li><strong>Tests Blazor</strong> - Componentes con bUnit (render, eventos, auth, JS interop)</li>
+<li><strong>Configuracion</strong> - Montar proyecto de tests desde cero</li>
+<li><strong>Cobertura</strong> - Analizar y mejorar cobertura de codigo</li>
+<li><strong>Snapshot testing</strong> - Verificar que salidas no cambian (Verify.NET)</li>
+<li><strong>Contract testing</strong> - Verificar contratos API (status, shape, backward compat)</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-arbol-de-decision-que-patron-usar">
+<h3 id="arbol-de-decision-que-patron-usar">Arbol de Decision: ¿Que Patron Usar?</h3>
+<pre><code>¿Que estas testeando?
+│
+├── Entidad de Dominio (Entity/Aggregate)
+│   → Usar: Plantilla &quot;Test de Entidad&quot; en references/test-templates.md
+│   → Pattern: patterns/builders.md para datos complejos
+│
+├── Value Object
+│   → Usar: Plantilla &quot;Test de Value Object&quot; en references/test-templates.md
+│   → Probar: constructor, igualdad, validaciones
+│
+├── Service / Handler (Application Layer)
+│   → Usar: Plantilla &quot;Test Unitario - Service&quot; en references/test-templates.md
+│   → Pattern: patterns/mocking-avanzado.md para Moq avanzado
+│   → Template: templates/TestBase.cs.template (base class con AutoMocker)
+│
+├── Controller / Endpoint (API)
+│   → Usar: patterns/api-contract-testing.md para contratos
+│   → Template: templates/ApiTestBase.cs.template (WebApplicationFactory)
+│
+├── Repositorio / Infrastructure
+│   → Usar: patterns/integration-fixtures.md (Testcontainers)
+│   → Template: templates/IntegrationTestBase.cs.template
+│
+├── Componente Blazor (.razor)
+│   → Usar: patterns/bunit-patterns.md
+│   → Probar: render, eventos, forms, auth, JS interop
+│
+├── Datos de test complejos
+│   ├── Granular (1 entidad) → patterns/builders.md (fluent builder)
+│   └── Escenarios (multiples) → patterns/test-data-factory.md (factory)
+│   → Template: templates/FakeBuilder.cs.template (Bogus)
+│
+├── Verificar que salida no cambia
+│   → Usar: patterns/snapshot-testing.md (Verify.NET)
+│   → Ideal para: respuestas JSON, mapeos DTO, configuraciones
+│
+└── Verificar rendimiento
+    → Usar: patterns/performance-testing.md (BenchmarkDotNet + NBomber)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-indice-de-archivos-del-skill">
+<h3 id="indice-de-archivos-del-skill">Indice de Archivos del Skill</h3>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Proposito</th><th>Lineas</th></tr></thead><tbody><tr><td><strong>SKILL.md</strong></td><td>Entrada principal, arbol de decision, convenciones</td><td>Este archivo</td></tr><tr><td><strong>references/test-templates.md</strong></td><td>Plantillas completas de tests (service, entidad, VO, integracion)</td><td>~300</td></tr><tr><td><strong>references/test-helpers.md</strong></td><td>Test Data Builder pattern y helpers</td><td>~55</td></tr><tr><td><strong>patterns/builders.md</strong></td><td>Builder pattern fluent para datos de test</td><td>~380</td></tr><tr><td><strong>patterns/mocking-avanzado.md</strong></td><td>Moq: setup, callbacks, secuencias, verificaciones</td><td>~340</td></tr><tr><td><strong>patterns/integration-fixtures.md</strong></td><td>WebApplicationFactory + Testcontainers + auth</td><td>~430</td></tr><tr><td><strong>patterns/snapshot-testing.md</strong></td><td>Verify.NET: snapshots, scrubbers, CI config</td><td>~200</td></tr><tr><td><strong>patterns/api-contract-testing.md</strong></td><td>Contract tests, Pact.NET, OpenAPI validation</td><td>~250</td></tr><tr><td><strong>patterns/performance-testing.md</strong></td><td>BenchmarkDotNet + NBomber load testing</td><td>~45</td></tr><tr><td><strong>patterns/test-data-factory.md</strong></td><td>Factory pattern centralizado para datos</td><td>~210</td></tr><tr><td><strong>patterns/bunit-patterns.md</strong></td><td>bUnit: render, eventos, forms, auth, JS interop</td><td>~300</td></tr><tr><td><strong>templates/TestBase.cs.template</strong></td><td>Base class unitaria con AutoMocker</td><td>~40</td></tr><tr><td><strong>templates/IntegrationTestBase.cs.template</strong></td><td>Base class integracion con Testcontainers</td><td>~56</td></tr><tr><td><strong>templates/ApiTestBase.cs.template</strong></td><td>Base class API con WebApplicationFactory</td><td>~39</td></tr><tr><td><strong>templates/FakeBuilder.cs.template</strong></td><td>Builder base con Bogus</td><td>~35</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-activacion-del-skill">
+<h3 id="activacion-del-skill">Activacion del Skill</h3>
+<h4 id="explicita-ejecuta-el-workflow">Explicita (ejecuta el workflow)</h4>
+<div class="tbl"><table><thead><tr><th>Invocacion</th><th>Accion</th></tr></thead><tbody><tr><td><code>/testing-patterns</code></td><td>Ejecutar tests existentes + reportar</td></tr><tr><td><code>/testing-patterns --generate [clase]</code></td><td>Generar tests para codigo existente</td></tr><tr><td><code>/testing-patterns --coverage</code></td><td>Analisis de gaps de cobertura</td></tr></tbody></table></div>
+<h4 id="semantica-solo-responde-no-ejecuta">Semantica (solo responde, NO ejecuta)</h4>
+<p>Claude activa este skill automaticamente cuando detecta:</p>
+<ul>
+<li>Usuario menciona &quot;test&quot;, &quot;pruebas&quot;, &quot;cobertura&quot;, &quot;bUnit&quot;</li>
+<li>Se pide &quot;crear tests para este servicio&quot;</li>
+<li>Se menciona &quot;xUnit&quot;, &quot;FluentAssertions&quot;, &quot;Moq&quot;, &quot;Testcontainers&quot;</li>
+<li>Se trabaja en carpeta <code>tests/</code> o archivos <code>*Tests.cs</code></li>
+<li>Se pide &quot;snapshot testing&quot; o &quot;contract testing&quot;</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-stack-de-testing">
+<h3 id="stack-de-testing">Stack de Testing</h3>
+<div class="tbl"><table><thead><tr><th>Paquete</th><th>Version</th><th>Uso</th><th>Pattern</th></tr></thead><tbody><tr><td><strong>xUnit</strong></td><td>2.x</td><td>Framework de testing</td><td>Todos</td></tr><tr><td><strong>FluentAssertions</strong></td><td>6.x</td><td>Aserciones legibles</td><td>Todos</td></tr><tr><td><strong>Moq</strong></td><td>4.x</td><td>Mocking</td><td>mocking-avanzado.md</td></tr><tr><td><strong>Testcontainers</strong></td><td>3.x</td><td>Tests de integracion</td><td>integration-fixtures.md</td></tr><tr><td><strong>Bogus</strong></td><td>34.x</td><td>Generacion de datos</td><td>builders.md, FakeBuilder.cs</td></tr><tr><td><strong>bUnit</strong></td><td>1.x</td><td>Tests de Blazor</td><td>bunit-patterns.md</td></tr><tr><td><strong>Verify.Xunit</strong></td><td>26.x</td><td>Snapshot testing</td><td>snapshot-testing.md</td></tr><tr><td><strong>PactNet</strong></td><td>5.x</td><td>Consumer-driven contracts</td><td>api-contract-testing.md</td></tr><tr><td><strong>BenchmarkDotNet</strong></td><td>0.14.x</td><td>Benchmarks</td><td>performance-testing.md</td></tr><tr><td><strong>NBomber</strong></td><td>6.x</td><td>Load testing</td><td>performance-testing.md</td></tr></tbody></table></div>
+<blockquote><p>⚠️ <strong>TRAMPA DE LICENCIA — FluentAssertions v8+ es COMERCIAL</strong> (misma trampa que MediatR→Mediator). Desde la <strong>v8</strong>, FluentAssertions requiere licencia de pago para uso empresarial. <strong>Fijar SIEMPRE <code>6.x</code></strong> en el <code>.csproj</code> (<code>&lt;PackageReference Include=&quot;FluentAssertions&quot; Version=&quot;6.*&quot; /&gt;</code>). NO aceptar que un <code>dotnet add package</code> traiga la 8. Alternativa 100% gratuita si se quiere salir del ecosistema FA: <strong>Shouldly</strong> (MIT) o los asserts nativos de xUnit.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-testear-clases-internal--internalsvisibleto">
+<h3 id="testear-clases-internal--internalsvisibleto">Testear clases <code>internal</code> — <code>InternalsVisibleTo</code></h3>
+<p>Caso <strong>muy frecuente</strong> en código de la organización: muchas clases testeables son <code>internal</code> (servicios, validadores, type converters). Para testearlas sin volverlas <code>public</code>, exponer los internals al ensamblado de tests:</p>
+<pre data-lang="xml"><code><span class="tk-c">&lt;!-- En el .csproj de PRODUCCION (no en el de tests) --&gt;</span>
+<span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;InternalsVisibleTo</span> Include=<span class="tk-s">&quot;$(AssemblyName).Tests&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<p>O via atributo en cualquier <code>.cs</code> del proyecto de producción (típicamente <code>AssemblyInfo.cs</code> o <code>Properties/</code>):</p>
+<pre data-lang="csharp"><code>[assembly: System.Runtime.CompilerServices.InternalsVisibleTo(<span class="tk-s">&quot;MyCompany.MyApp.Application.Tests&quot;</span>)]</code></pre>
+<ul>
+<li>Una línea por proyecto de tests que necesite acceso.</li>
+<li>Si usas <strong>Moq</strong> sobre interfaces <code>internal</code>, añade también <code>[assembly: InternalsVisibleTo(&quot;DynamicProxyGenAssembly2&quot;)]</code> (el proxy de Castle que usa Moq).</li>
+<li>Preferible a hacer <code>public</code> lo que el dominio quiere mantener <code>internal</code>: no rompe el encapsulamiento de la API pública.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-convenciones-de-nomenclatura">
+<h3 id="convenciones-de-nomenclatura">Convenciones de Nomenclatura</h3>
+<h4 id="nombre-de-tests">Nombre de Tests</h4>
+<pre><code>Method_Scenario_ExpectedResult
+
+Ejemplos:
+- GetById_ScholarshipExists_ReturnsScholarshipDto
+- GetById_ScholarshipDoesNotExist_ReturnsNull
+- Create_ValidData_SavesYRetorna
+- Create_EmptyName_ThrowsValidationException
+- Delete_ConApplications_ThrowsBusinessException</code></pre>
+<h4 id="estructura-de-carpetas">Estructura de Carpetas</h4>
+<pre><code>tests/
+├── MyCompany.MyApp.Domain.Tests/
+│   ├── Entities/
+│   │   └── ScholarshipTests.cs
+│   └── ValueObjects/
+│       └── PeriodTests.cs
+├── MyCompany.MyApp.Application.Tests/
+│   ├── Services/
+│   │   └── ScholarshipServiceTests.cs
+│   └── Validators/
+│       └── CreateScholarshipRequestValidatorTests.cs
+└── MyCompany.MyApp.Integration.Tests/
+    ├── Api/
+    │   └── ScholarshipsControllerTests.cs
+    └── Fixtures/
+        └── WebApplicationFixture.cs</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-plantillas-de-tests">
+<h3 id="plantillas-de-tests">Plantillas de Tests</h3>
+<blockquote><p>Plantillas completas de codigo en <code>references/test-templates.md</code> Incluye: test unitario de service, test de entidad, test de value object, test de integracion con WebApplicationFactory + Testcontainers.</p></blockquote>
+<blockquote><p>Helpers y builders en <code>references/test-helpers.md</code> Incluye: Test Data Builder pattern con fluent API.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-cobertura-mínima">
+<h3 id="cobertura-mínima">Cobertura Mínima</h3>
+<div class="tbl"><table><thead><tr><th>Capa</th><th>Objetivo</th></tr></thead><tbody><tr><td>Domain</td><td>90%</td></tr><tr><td>Application</td><td>80%</td></tr><tr><td>Infrastructure</td><td>60%</td></tr><tr><td>Presentation</td><td>40%</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-comandos">
+<h3 id="comandos">Comandos</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Ejecutar todos los tests</span>
+<span class="tk-k">dotnet</span> test
+
+<span class="tk-c"># Con cobertura</span>
+<span class="tk-k">dotnet</span> test --collect:<span class="tk-s">&quot;XPlat Code Coverage&quot;</span>
+
+<span class="tk-c"># Generar reporte</span>
+reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-workflow-solo-si-se-invoca-testing-patterns-o-se-pide-ejecutargenerar">
+<h3 id="workflow-solo-si-se-invoca-testing-patterns-o-se-pide-ejecutargenerar">Workflow (solo si se invoca <code>/testing-patterns</code> o se pide ejecutar/generar)</h3>
+<p><strong>Regla de oro</strong>: el disparo semantico de esta skill responde con el conocimiento de arriba y para ahi. Nada de lo que sigue se ejecuta por haber mencionado tests: hace falta una invocacion explicita o una peticion de accion (&quot;ejecuta los tests&quot;, &quot;genera tests para X&quot;, &quot;analiza la cobertura&quot;).</p>
+<p>El procedimiento completo vive aparte para no cargarlo cuando solo se consulta conocimiento: <strong><code>references/workflow-test.md</code></strong> (10 pasos del modo ejecutar, modo generar, umbrales configurables, diagrama de flujo y recordatorios). Leelo y siguelo cuando corresponda.</p>
+<div class="tbl"><table><thead><tr><th>Intencion del usuario</th><th>Que hacer</th></tr></thead><tbody><tr><td>&quot;como nombro los tests&quot;, &quot;que patron uso para X&quot;</td><td>Responder con este <code>SKILL.md</code>. <strong>No</strong> leer el workflow</td></tr><tr><td>&quot;ejecuta los tests&quot;, <code>/testing-patterns</code></td><td>Leer <code>references/workflow-test.md</code> y ejecutar el modo <code>--run</code></td></tr><tr><td>&quot;genera tests para esta clase&quot;</td><td>Leer el workflow y ejecutar el modo <code>--generate</code></td></tr><tr><td>&quot;analiza la cobertura&quot;</td><td>Leer el workflow y ejecutar el modo <code>--coverage</code></td></tr></tbody></table></div>
+<hr>
+<p><em>Skill testing-patterns · kind: knowledge</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>549</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 771 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>9 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>feat: el objetivo de compilacion lo resuelve una sola funcion (ADR-037)</em> (<code>f30140e</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../agents/code-reviewer.html">code-reviewer</a></li><li><a href="../skills/postman-collection.html">postman-collection</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo se activa</a></li><li class="l2"><a href="#cuando-no">Cuándo no</a></li><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#cuando-usar-este-skill">Cuando Usar Este Skill</a></li><li class="l3"><a href="#arbol-de-decision-que-patron-usar">Arbol de Decision: ¿Que Patron Usar?</a></li><li class="l3"><a href="#indice-de-archivos-del-skill">Indice de Archivos del Skill</a></li><li class="l3"><a href="#activacion-del-skill">Activacion del Skill</a></li><li class="l3"><a href="#stack-de-testing">Stack de Testing</a></li><li class="l3"><a href="#testear-clases-internal--internalsvisibleto">Testear clases internal — InternalsVisibleTo</a></li><li class="l3"><a href="#convenciones-de-nomenclatura">Convenciones de Nomenclatura</a></li><li class="l3"><a href="#plantillas-de-tests">Plantillas de Tests</a></li><li class="l3"><a href="#cobertura-mínima">Cobertura Mínima</a></li><li class="l3"><a href="#comandos">Comandos</a></li><li class="l3"><a href="#workflow-solo-si-se-invoca-testing-patterns-o-se-pide-ejecutargenerar">Workflow (solo si se invoca /testing-patterns o se pide ejecutar/generar)</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

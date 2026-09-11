@@ -1,0 +1,307 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · templates/DelegatingHandler.cs.template · Ovillo</title><meta name="description" content="Fichero templates/DelegatingHandler.cs.template de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · templates/DelegatingHandler.cs.template · Ovillo"><meta property="og:description" content="Fichero templates/DelegatingHandler.cs.template de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/templates/DelegatingHandler.cs.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/templates/DelegatingHandler.cs.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/templates/DelegatingHandler.cs.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html" class="cur">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>templates</span><span>DelegatingHandler.cs.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>templates/</span><span>10.578 B</span></div><h1>DelegatingHandler.cs.template</h1><p class="lede">Fichero que <code>/hv:api-integration-patterns</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>10.578 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>// TEMPLATE: HTTP Delegating Handlers
+// Uso: Handlers para logging, autenticación, correlación, retry
+
+using System.Diagnostics;
+using System.Net.Http.Headers;
+
+namespace MyCompany.MyApp.Infrastructure.ApiClients.Handlers;
+
+// ============================================================================
+// <span class="tk-n">1</span>. LOGGING HANDLER - Loguea requests/responses
+// ============================================================================
+
+public class LoggingHandler : DelegatingHandler
+{
+    private readonly ILogger&lt;LoggingHandler&gt; _logger;
+
+    public LoggingHandler(ILogger&lt;LoggingHandler&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    protected override async Task&lt;HttpResponseMessage&gt; SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        var stopwatch = Stopwatch.StartNew();
+
+        // Log request
+        _logger.LogInformation(
+            <span class="tk-s">&quot;HTTP {Method} {Uri}&quot;</span>,
+            request.Method,
+            request.RequestUri);
+
+        if (_logger.IsEnabled(LogLevel.Debug))
+        {
+            _logger.LogDebug(<span class="tk-s">&quot;Request Headers: {@Headers}&quot;</span>, request.Headers);
+
+            if (request.Content is not <span class="tk-k">null</span>)
+            {
+                var content = await request.Content.ReadAsStringAsync(cancellationToken);
+                _logger.LogDebug(<span class="tk-s">&quot;Request Body: {Body}&quot;</span>, content);
+            }
+        }
+
+        // Send request
+        var response = await base.SendAsync(request, cancellationToken);
+
+        stopwatch.Stop();
+
+        // Log response
+        _logger.LogInformation(
+            <span class="tk-s">&quot;HTTP {Method} {Uri} responded {StatusCode} in {ElapsedMs}ms&quot;</span>,
+            request.Method,
+            request.RequestUri,
+            (int)response.StatusCode,
+            stopwatch.ElapsedMilliseconds);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var errorContent = await response.Content.ReadAsStringAsync(cancellationToken);
+            _logger.LogWarning(
+                <span class="tk-s">&quot;HTTP {StatusCode} Error: {Error}&quot;</span>,
+                (int)response.StatusCode,
+                errorContent);
+        }
+
+        return response;
+    }
+}
+
+// ============================================================================
+// <span class="tk-n">2</span>. BEARER TOKEN HANDLER - Inyecta token OAuth2
+// ============================================================================
+
+public class BearerTokenHandler : DelegatingHandler
+{
+    private readonly ITokenService _tokenService;
+    private readonly ILogger&lt;BearerTokenHandler&gt; _logger;
+
+    public BearerTokenHandler(
+        ITokenService tokenService,
+        ILogger&lt;BearerTokenHandler&gt; logger)
+    {
+        _tokenService = tokenService;
+        _logger = logger;
+    }
+
+    protected override async Task&lt;HttpResponseMessage&gt; SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        // <span class="tk-n">1</span>. Obtener token (desde caché o renovar)
+        var token = await _tokenService.GetAccessTokenAsync(cancellationToken);
+
+        // <span class="tk-n">2</span>. Inyectar en Authorization header
+        request.Headers.Authorization = new AuthenticationHeaderValue(<span class="tk-s">&quot;Bearer&quot;</span>, token);
+
+        _logger.LogDebug(<span class="tk-s">&quot;Bearer token inyectado en request&quot;</span>);
+
+        // <span class="tk-n">3</span>. Enviar request
+        var response = await base.SendAsync(request, cancellationToken);
+
+        // <span class="tk-n">4</span>. Si <span class="tk-n">401</span>, invalidar caché y reintentar UNA vez
+        if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+        {
+            _logger.LogWarning(<span class="tk-s">&quot;Token rechazado (401), renovando e reintentando&quot;</span>);
+
+            // Forzar renovación de token
+            await _tokenService.InvalidateCacheAsync();
+            token = await _tokenService.GetAccessTokenAsync(cancellationToken);
+
+            // Reintentar con nuevo token
+            request.Headers.Authorization = new AuthenticationHeaderValue(<span class="tk-s">&quot;Bearer&quot;</span>, token);
+            response = await base.SendAsync(request, cancellationToken);
+        }
+
+        return response;
+    }
+}
+
+// Interfaz del Token Service (implementar según oauth2-client-credentials.md)
+public interface ITokenService
+{
+    Task&lt;string&gt; GetAccessTokenAsync(CancellationToken ct = default);
+    Task InvalidateCacheAsync();
+}
+
+// ============================================================================
+// <span class="tk-n">3</span>. CORRELATION ID HANDLER - Añade X-Correlation-ID
+// ============================================================================
+
+public class CorrelationIdHandler : DelegatingHandler
+{
+    private readonly ILogger&lt;CorrelationIdHandler&gt; _logger;
+
+    public CorrelationIdHandler(ILogger&lt;CorrelationIdHandler&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    protected override async Task&lt;HttpResponseMessage&gt; SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        // Generar o usar Correlation ID existente
+        var correlationId = Activity.Current?.Id ?? Guid.NewGuid().ToString();
+
+        request.Headers.Add(<span class="tk-s">&quot;X-Correlation-ID&quot;</span>, correlationId);
+        request.Headers.Add(<span class="tk-s">&quot;X-Request-ID&quot;</span>, Guid.NewGuid().ToString());
+
+        _logger.LogDebug(<span class="tk-s">&quot;Correlation ID: {CorrelationId}&quot;</span>, correlationId);
+
+        var response = await base.SendAsync(request, cancellationToken);
+
+        // Loguear Correlation ID de respuesta si existe
+        if (response.Headers.TryGetValues(<span class="tk-s">&quot;X-Correlation-ID&quot;</span>, out var values))
+        {
+            _logger.LogDebug(<span class="tk-s">&quot;Response Correlation ID: {CorrelationId}&quot;</span>, values.FirstOrDefault());
+        }
+
+        return response;
+    }
+}
+
+// ============================================================================
+// <span class="tk-n">4</span>. API KEY HANDLER - Añade API Key en header
+// ============================================================================
+
+public class ApiKeyHandler : DelegatingHandler
+{
+    private readonly string _apiKey;
+    private readonly string _headerName;
+
+    public ApiKeyHandler(IConfiguration configuration, string apiKeySectionName, string headerName = <span class="tk-s">&quot;X-API-Key&quot;</span>)
+    {
+        _apiKey = configuration[apiKeySectionName]
+                  ?? throw new InvalidOperationException($<span class="tk-s">&quot;API Key no configurado: {apiKeySectionName}&quot;</span>);
+        _headerName = headerName;
+    }
+
+    protected override async Task&lt;HttpResponseMessage&gt; SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        request.Headers.Add(_headerName, _apiKey);
+
+        return await base.SendAsync(request, cancellationToken);
+    }
+}
+
+// ============================================================================
+// <span class="tk-n">5</span>. RETRY HANDLER - Reintentos con backoff exponencial
+// ============================================================================
+
+public class RetryHandler : DelegatingHandler
+{
+    private readonly int _maxRetries;
+    private readonly ILogger&lt;RetryHandler&gt; _logger;
+
+    public RetryHandler(ILogger&lt;RetryHandler&gt; logger, int maxRetries = <span class="tk-n">3</span>)
+    {
+        _logger = logger;
+        _maxRetries = maxRetries;
+    }
+
+    protected override async Task&lt;HttpResponseMessage&gt; SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        for (int attempt = <span class="tk-n">1</span>; attempt &lt;= _maxRetries; attempt++)
+        {
+            try
+            {
+                var response = await base.SendAsync(request, cancellationToken);
+
+                // Reintentar solo en errores transitorios
+                if (response.IsSuccessStatusCode ||
+                    !IsTransientError(response.StatusCode))
+                {
+                    return response;
+                }
+
+                if (attempt &lt; _maxRetries)
+                {
+                    var delay = TimeSpan.FromSeconds(Math.Pow(<span class="tk-n">2</span>, attempt)); // Backoff exponencial
+                    _logger.LogWarning(
+                        <span class="tk-s">&quot;Reintento {Attempt}/{MaxRetries} tras {StatusCode}. Esperando {Delay}ms&quot;</span>,
+                        attempt,
+                        _maxRetries,
+                        (int)response.StatusCode,
+                        delay.TotalMilliseconds);
+
+                    await Task.Delay(delay, cancellationToken);
+                }
+                else
+                {
+                    return response; // Último intento, retornar respuesta
+                }
+            }
+            catch (HttpRequestException ex) when (attempt &lt; _maxRetries)
+            {
+                var delay = TimeSpan.FromSeconds(Math.Pow(<span class="tk-n">2</span>, attempt));
+                _logger.LogWarning(
+                    ex,
+                    <span class="tk-s">&quot;Reintento {Attempt}/{MaxRetries} tras error HTTP. Esperando {Delay}ms&quot;</span>,
+                    attempt,
+                    _maxRetries,
+                    delay.TotalMilliseconds);
+
+                await Task.Delay(delay, cancellationToken);
+            }
+        }
+
+        throw new InvalidOperationException(<span class="tk-s">&quot;Retry logic failed unexpectedly&quot;</span>);
+    }
+
+    private static bool IsTransientError(System.Net.HttpStatusCode statusCode)
+    {
+        return statusCode is System.Net.HttpStatusCode.RequestTimeout // <span class="tk-n">408</span>
+            or System.Net.HttpStatusCode.TooManyRequests // <span class="tk-n">429</span>
+            or System.Net.HttpStatusCode.InternalServerError // <span class="tk-n">500</span>
+            or System.Net.HttpStatusCode.BadGateway // <span class="tk-n">502</span>
+            or System.Net.HttpStatusCode.ServiceUnavailable // <span class="tk-n">503</span>
+            or System.Net.HttpStatusCode.GatewayTimeout; // <span class="tk-n">504</span>
+    }
+}
+
+// ============================================================================
+// EXTENSION METHODS PARA REGISTRO EN DI
+// ============================================================================
+
+public static class HttpClientHandlerExtensions
+{
+    /// &lt;summary&gt;
+    /// Añade todos los handlers comunes
+    /// &lt;/summary&gt;
+    public static IHttpClientBuilder AddCommonHandlers(this IHttpClientBuilder builder)
+    {
+        return builder
+            .AddHttpMessageHandler&lt;CorrelationIdHandler&gt;()
+            .AddHttpMessageHandler&lt;LoggingHandler&gt;();
+    }
+
+    /// &lt;summary&gt;
+    /// Añade handler de autenticación Bearer Token
+    /// &lt;/summary&gt;
+    public static IHttpClientBuilder AddBearerTokenHandler(this IHttpClientBuilder builder)
+    {
+        return builder.AddHttpMessageHandler&lt;BearerTokenHandler&gt;();
+    }
+
+    /// &lt;summary&gt;
+    /// Añade handler de API Key
+    /// &lt;/summary&gt;
+    public static IHttpClientBuilder AddApiKeyHandler(
+        this IHttpClientBuilder builder,
+        string apiKeySectionName,
+        string headerName = <span class="tk-s">&quot;X-API-Key&quot;</span>)
+    {
+        return builder.AddHttpMessageHandler(sp =&gt;
+        {
+            var configuration = sp.GetRequiredService&lt;IConfiguration&gt;();
+            return new ApiKeyHandler(configuration, apiKeySectionName, headerName);
+        });
+    }
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html"><small>Anterior</small>templates/ApiResponse.cs.template</a><a class="next" href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html"><small>Siguiente</small>templates/ExternalApiClient.cs.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/templates/DelegatingHandler.cs.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

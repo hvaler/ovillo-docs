@@ -1,0 +1,223 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>analisis-arquitectura · checklists/clean-architecture.md · Ovillo</title><meta name="description" content="Fichero checklists/clean-architecture.md de la skill analisis-arquitectura"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="analisis-arquitectura · checklists/clean-architecture.md · Ovillo"><meta property="og:description" content="Fichero checklists/clean-architecture.md de la skill analisis-arquitectura"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/checklists/clean-architecture.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/checklists/clean-architecture.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/analisis-arquitectura/checklists/clean-architecture.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de analisis-arquitectura (18)</h4><ul class="sibs"><li><a href="../../../skills/analisis-arquitectura/checklists/api-design-review.html">checklists/api-design-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/clean-architecture.html" class="cur">checklists/clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/database-review.html">checklists/database-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/microservices-review.html">checklists/microservices-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/migration-viability.html">checklists/migration-viability.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/performance-review.html">checklists/performance-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/security-review.html">checklists/security-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/architecture-diagrams.html">patterns/architecture-diagrams.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/dependency-analysis.html">patterns/dependency-analysis.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/design-pattern-catalog.html">patterns/design-pattern-catalog.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-clean-architecture.html">prompts/prompt-clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-contexto-agente.html">prompts/prompt-contexto-agente.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-general.html">prompts/prompt-general.md</a></li><li><a href="../../../skills/analisis-arquitectura/README.html">README.md</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html">templates/ANALISIS_ARQUITECTURA.html.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.md.html">templates/ANALISIS_ARQUITECTURA.md.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/CONTEXTO_AGENTE.md.html">templates/CONTEXTO_AGENTE.md.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></span><span>checklists</span><span>clean-architecture.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>analisis-arquitectura</span><span>checklists/</span></div><h1>clean-architecture.md</h1><p class="lede">Referencia que <code>analisis-arquitectura</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></b><span>skill</span></div><div><b>checklists</b><span>carpeta</span></div><div><b>6213 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: analisis-arquitectura</p></blockquote>
+<hr>
+<section class="sec" id="sec-descripción">
+<h3 id="descripción">Descripción</h3>
+<p>Checklist para verificar que un proyecto cumple con los principios de Clean Architecture y las convenciones de desarrollo de la organización.</p>
+<hr>
+</section>
+<section class="sec" id="sec-1-estructura-de-proyectos">
+<h3 id="1-estructura-de-proyectos">1. Estructura de Proyectos</h3>
+<h4 id="proyectos-requeridos">Proyectos Requeridos</h4>
+<ul>
+<li><input type="checkbox" disabled> <strong>Domain</strong> - Entidades, Value Objects, Interfaces de repositorio</li>
+<li><input type="checkbox" disabled> <strong>Application</strong> - Casos de uso, DTOs, Validadores</li>
+<li><input type="checkbox" disabled> <strong>Infrastructure</strong> - EF Core, Repositorios, Servicios externos</li>
+<li><input type="checkbox" disabled> <strong>Presentation</strong> (Web/API) - Controllers, Views, Program.cs</li>
+</ul>
+<h4 id="nomenclatura">Nomenclatura</h4>
+<ul>
+<li><input type="checkbox" disabled> Proyectos siguen convención <code>MyCompany.[Area].[Proyecto].[Capa]</code></li>
+<li><input type="checkbox" disabled> Ejemplo: <code>MyCompany.RRHH.ScholarshipManagement.Domain</code></li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-2-capa-domain">
+<h3 id="2-capa-domain">2. Capa Domain</h3>
+<h4 id="entidades">Entidades</h4>
+<ul>
+<li><input type="checkbox" disabled> Constructor privado + método factory <code>Crear()</code></li>
+<li><input type="checkbox" disabled> Propiedades con <code>private set</code></li>
+<li><input type="checkbox" disabled> Validaciones de dominio en factory/métodos</li>
+<li><input type="checkbox" disabled> Sin dependencias de EF Core, HTTP, JSON</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Correcto</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> Scholarship
+{
+    <span class="tk-k">public</span> <span class="tk-k">int</span> Id { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">private</span> <span class="tk-k">set</span>; }
+
+    <span class="tk-k">private</span> Scholarship() { }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Scholarship Create(<span class="tk-k">string</span> name)
+    {
+        <span class="tk-k">if</span> (<span class="tk-k">string</span>.IsNullOrWhiteSpace(name))
+            <span class="tk-k">throw</span> <span class="tk-k">new</span> DomainException(<span class="tk-s">&quot;Name requerido&quot;</span>);
+        <span class="tk-k">return</span> <span class="tk-k">new</span> Scholarship { Name = name };
+    }
+}</code></pre>
+<h4 id="value-objects">Value Objects</h4>
+<ul>
+<li><input type="checkbox" disabled> Inmutables (sin setters)</li>
+<li><input type="checkbox" disabled> Validación en constructor</li>
+<li><input type="checkbox" disabled> <code>Equals</code> y <code>GetHashCode</code> implementados</li>
+<li><input type="checkbox" disabled> Operaciones retornan nuevo objeto</li>
+</ul>
+<h4 id="interfaces">Interfaces</h4>
+<ul>
+<li><input type="checkbox" disabled> Interfaces de repositorio definidas en Domain</li>
+<li><input type="checkbox" disabled> Interfaces de servicios externos definidas en Domain</li>
+<li><input type="checkbox" disabled> Sin implementación, solo contratos</li>
+</ul>
+<h4 id="eventos-de-dominio">Eventos de Dominio</h4>
+<ul>
+<li><input type="checkbox" disabled> Eventos son records inmutables</li>
+<li><input type="checkbox" disabled> Nomenclatura: <code>{Entity}{Accion}Event</code></li>
+<li><input type="checkbox" disabled> Ejemplo: <code>ScholarshipCreadaEvent</code>, <code>ScholarshipPublicadaEvent</code></li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-3-capa-application">
+<h3 id="3-capa-application">3. Capa Application</h3>
+<h4 id="commands-y-queries-cqrs">Commands y Queries (CQRS)</h4>
+<ul>
+<li><input type="checkbox" disabled> Commands para operaciones de escritura</li>
+<li><input type="checkbox" disabled> Queries para operaciones de lectura</li>
+<li><input type="checkbox" disabled> Un handler por command/query</li>
+<li><input type="checkbox" disabled> Commands/Queries son records</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Correcto</span>
+<span class="tk-k">public</span> <span class="tk-k">record</span> CreateScholarshipCommand(<span class="tk-k">string</span> Name, <span class="tk-k">decimal</span> Amount) : IRequest&lt;<span class="tk-k">int</span>&gt;;
+<span class="tk-k">public</span> <span class="tk-k">record</span> GetScholarshipByIdQuery(<span class="tk-k">int</span> Id) : IRequest&lt;ScholarshipDto?&gt;;</code></pre>
+<h4 id="validadores">Validadores</h4>
+<ul>
+<li><input type="checkbox" disabled> FluentValidation para validar inputs</li>
+<li><input type="checkbox" disabled> Un validador por Command</li>
+<li><input type="checkbox" disabled> Mensajes de error en español</li>
+</ul>
+<h4 id="DTOs">DTOs</h4>
+<ul>
+<li><input type="checkbox" disabled> DTOs específicos por caso de uso</li>
+<li><input type="checkbox" disabled> No exponer entidades de dominio</li>
+<li><input type="checkbox" disabled> Records para inmutabilidad</li>
+</ul>
+<h4 id="dependencias">Dependencias</h4>
+<ul>
+<li><input type="checkbox" disabled> Solo depende de Domain</li>
+<li><input type="checkbox" disabled> NO referencia Infrastructure</li>
+<li><input type="checkbox" disabled> NO referencia Presentation</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-4-capa-infrastructure">
+<h3 id="4-capa-infrastructure">4. Capa Infrastructure</h3>
+<h4 id="DbContext">DbContext</h4>
+<ul>
+<li><input type="checkbox" disabled> Configuraciones Fluent API en archivos separados</li>
+<li><input type="checkbox" disabled> <code>IEntityTypeConfiguration&lt;T&gt;</code> por entidad</li>
+<li><input type="checkbox" disabled> Query filters para soft delete</li>
+<li><input type="checkbox" disabled> Auditoría automática en SaveChanges</li>
+</ul>
+<h4 id="repositorios">Repositorios</h4>
+<ul>
+<li><input type="checkbox" disabled> Implementan interfaces de Domain</li>
+<li><input type="checkbox" disabled> Métodos async con CancellationToken</li>
+<li><input type="checkbox" disabled> AsNoTracking para consultas de solo lectura</li>
+</ul>
+<h4 id="servicios-externos">Servicios Externos</h4>
+<ul>
+<li><input type="checkbox" disabled> Implementan interfaces de Application</li>
+<li><input type="checkbox" disabled> Configuración vía IOptions</li>
+<li><input type="checkbox" disabled> Logging de operaciones</li>
+<li><input type="checkbox" disabled> Manejo de errores con reintentos</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-5-capa-presentation">
+<h3 id="5-capa-presentation">5. Capa Presentation</h3>
+<h4 id="controllers">Controllers</h4>
+<ul>
+<li><input type="checkbox" disabled> Solo orquestación, sin lógica</li>
+<li><input type="checkbox" disabled> Inyecta IMediator o servicios de Application</li>
+<li><input type="checkbox" disabled> Atributos de documentación OpenAPI</li>
+<li><input type="checkbox" disabled> Manejo consistente de errores</li>
+</ul>
+<h4 id="programcs">Program.cs</h4>
+<ul>
+<li><input type="checkbox" disabled> Registro de servicios organizado</li>
+<li><input type="checkbox" disabled> Configuración desde appsettings</li>
+<li><input type="checkbox" disabled> Pipeline de middleware ordenado</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-6-dependency-injection">
+<h3 id="6-dependency-injection">6. Dependency Injection</h3>
+<h4 id="flujo-de-dependencias">Flujo de Dependencias</h4>
+<pre><code>Presentation → Application → Domain
+      ↓
+Infrastructure → Domain</code></pre>
+<ul>
+<li><input type="checkbox" disabled> Presentation puede usar Application e Infrastructure</li>
+<li><input type="checkbox" disabled> Application solo usa Domain</li>
+<li><input type="checkbox" disabled> Infrastructure implementa interfaces de Domain/Application</li>
+<li><input type="checkbox" disabled> Domain no depende de nadie</li>
+</ul>
+<h4 id="registro-de-servicios">Registro de Servicios</h4>
+<ul>
+<li><input type="checkbox" disabled> Extension methods por capa: <code>AddDomain()</code>, <code>AddApplication()</code>, <code>AddInfrastructure()</code></li>
+<li><input type="checkbox" disabled> Scoped para servicios con estado por request</li>
+<li><input type="checkbox" disabled> Singleton para servicios stateless</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-7-testing">
+<h3 id="7-testing">7. Testing</h3>
+<h4 id="estructura">Estructura</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>Domain.Tests</code> - Tests de entidades y value objects</li>
+<li><input type="checkbox" disabled> <code>Application.Tests</code> - Tests de handlers</li>
+<li><input type="checkbox" disabled> <code>Infrastructure.Tests</code> - Tests de repositorios</li>
+<li><input type="checkbox" disabled> <code>Integration.Tests</code> - Tests end-to-end</li>
+</ul>
+<h4 id="cobertura">Cobertura</h4>
+<ul>
+<li><input type="checkbox" disabled> Domain: 90%+</li>
+<li><input type="checkbox" disabled> Application: 80%+</li>
+<li><input type="checkbox" disabled> Infrastructure: 60%+</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-8-convenciones-de-código">
+<h3 id="8-convenciones-de-código">8. Convenciones de Código</h3>
+<h4 id="asyncawait">Async/Await</h4>
+<ul>
+<li><input type="checkbox" disabled> Métodos async terminan en <code>Async</code></li>
+<li><input type="checkbox" disabled> CancellationToken en todos los métodos async</li>
+<li><input type="checkbox" disabled> ConfigureAwait(false) en librerías</li>
+</ul>
+<h4 id="null-safety">Null Safety</h4>
+<ul>
+<li><input type="checkbox" disabled> Nullable reference types habilitado</li>
+<li><input type="checkbox" disabled> <code>?</code> para tipos nullables</li>
+<li><input type="checkbox" disabled> Validación de nulls en boundaries</li>
+</ul>
+<h4 id="logging">Logging</h4>
+<ul>
+<li><input type="checkbox" disabled> Structured logging con Serilog</li>
+<li><input type="checkbox" disabled> Niveles apropiados (Info, Warning, Error)</li>
+<li><input type="checkbox" disabled> No loguear datos sensibles</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-9-seguridad">
+<h3 id="9-seguridad">9. Seguridad</h3>
+<ul>
+<li><input type="checkbox" disabled> Secretos en Azure Key Vault</li>
+<li><input type="checkbox" disabled> Connection strings sin credenciales en código</li>
+<li><input type="checkbox" disabled> Validación de inputs con FluentValidation</li>
+<li><input type="checkbox" disabled> Autorización basada en roles/políticas</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-10-anti-patterns-a-evitar">
+<h3 id="10-anti-patterns-a-evitar">10. Anti-Patterns a Evitar</h3>
+<div class="tbl"><table><thead><tr><th>Anti-Pattern</th><th>Descripción</th><th>Correcto</th></tr></thead><tbody><tr><td>Anemic Domain</td><td>Entidades solo con getters/setters</td><td>Entidades con comportamiento</td></tr><tr><td>God Service</td><td>Servicio que hace todo</td><td>Servicios pequeños y focalizados</td></tr><tr><td>DbContext en Controller</td><td>Acceso directo a BD</td><td>Usar repositorios vía IMediator</td></tr><tr><td>Shared DTOs</td><td>Mismo DTO para crear y leer</td><td>DTOs específicos por operación</td></tr><tr><td>Infrastructure en Domain</td><td>Referencias a EF en Domain</td><td>Domain puro, sin dependencias</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-resultado-de-la-revisión">
+<h3 id="resultado-de-la-revisión">Resultado de la Revisión</h3>
+<div class="tbl"><table><thead><tr><th>Sección</th><th>Cumple</th><th>Parcial</th><th>No Cumple</th></tr></thead><tbody><tr><td>Estructura de Proyectos</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Capa Domain</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Capa Application</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Capa Infrastructure</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Capa Presentation</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Dependency Injection</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Testing</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Convenciones</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Seguridad</td><td>☐</td><td>☐</td><td>☐</td></tr></tbody></table></div>
+<hr>
+<p><strong>Fecha de revisión:</strong> _______________ <strong>Revisado por:</strong> _______________ <strong>Proyecto:</strong> _______________</p>
+<hr>
+<p><em>Checklist v1.0 - analisis-arquitectura skill</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/analisis-arquitectura.html#ficheros">← Volver a la ficha de analisis-arquitectura</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/analisis-arquitectura/checklists/api-design-review.html"><small>Anterior</small>checklists/api-design-review.md</a><a class="next" href="../../../skills/analisis-arquitectura/checklists/database-review.html"><small>Siguiente</small>checklists/database-review.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/analisis-arquitectura/checklists/clean-architecture.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#descripción">Descripción</a></li><li class="l2"><a href="#1-estructura-de-proyectos">1. Estructura de Proyectos</a></li><li class="l3"><a href="#proyectos-requeridos">Proyectos Requeridos</a></li><li class="l3"><a href="#nomenclatura">Nomenclatura</a></li><li class="l2"><a href="#2-capa-domain">2. Capa Domain</a></li><li class="l3"><a href="#entidades">Entidades</a></li><li class="l3"><a href="#value-objects">Value Objects</a></li><li class="l3"><a href="#interfaces">Interfaces</a></li><li class="l3"><a href="#eventos-de-dominio">Eventos de Dominio</a></li><li class="l2"><a href="#3-capa-application">3. Capa Application</a></li><li class="l3"><a href="#commands-y-queries-cqrs">Commands y Queries (CQRS)</a></li><li class="l3"><a href="#validadores">Validadores</a></li><li class="l3"><a href="#DTOs">DTOs</a></li><li class="l3"><a href="#dependencias">Dependencias</a></li><li class="l2"><a href="#4-capa-infrastructure">4. Capa Infrastructure</a></li><li class="l3"><a href="#DbContext">DbContext</a></li><li class="l3"><a href="#repositorios">Repositorios</a></li><li class="l3"><a href="#servicios-externos">Servicios Externos</a></li><li class="l2"><a href="#5-capa-presentation">5. Capa Presentation</a></li><li class="l3"><a href="#controllers">Controllers</a></li><li class="l3"><a href="#programcs">Program.cs</a></li><li class="l2"><a href="#6-dependency-injection">6. Dependency Injection</a></li><li class="l3"><a href="#flujo-de-dependencias">Flujo de Dependencias</a></li><li class="l3"><a href="#registro-de-servicios">Registro de Servicios</a></li><li class="l2"><a href="#7-testing">7. Testing</a></li><li class="l3"><a href="#estructura">Estructura</a></li><li class="l3"><a href="#cobertura">Cobertura</a></li><li class="l2"><a href="#8-convenciones-de-código">8. Convenciones de Código</a></li><li class="l3"><a href="#asyncawait">Async/Await</a></li><li class="l3"><a href="#null-safety">Null Safety</a></li><li class="l3"><a href="#logging">Logging</a></li><li class="l2"><a href="#9-seguridad">9. Seguridad</a></li><li class="l2"><a href="#10-anti-patterns-a-evitar">10. Anti-Patterns a Evitar</a></li><li class="l2"><a href="#resultado-de-la-revisión">Resultado de la Revisión</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

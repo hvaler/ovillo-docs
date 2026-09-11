@@ -1,0 +1,759 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>analisis-arquitectura · templates/ANALISIS_ARQUITECTURA.html.template · Ovillo</title><meta name="description" content="Fichero templates/ANALISIS_ARQUITECTURA.html.template de la skill analisis-arquitectura"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="analisis-arquitectura · templates/ANALISIS_ARQUITECTURA.html.template · Ovillo"><meta property="og:description" content="Fichero templates/ANALISIS_ARQUITECTURA.html.template de la skill analisis-arquitectura"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de analisis-arquitectura (18)</h4><ul class="sibs"><li><a href="../../../skills/analisis-arquitectura/checklists/api-design-review.html">checklists/api-design-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/clean-architecture.html">checklists/clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/database-review.html">checklists/database-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/microservices-review.html">checklists/microservices-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/migration-viability.html">checklists/migration-viability.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/performance-review.html">checklists/performance-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/security-review.html">checklists/security-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/architecture-diagrams.html">patterns/architecture-diagrams.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/dependency-analysis.html">patterns/dependency-analysis.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/design-pattern-catalog.html">patterns/design-pattern-catalog.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-clean-architecture.html">prompts/prompt-clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-contexto-agente.html">prompts/prompt-contexto-agente.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-general.html">prompts/prompt-general.md</a></li><li><a href="../../../skills/analisis-arquitectura/README.html">README.md</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html" class="cur">templates/ANALISIS_ARQUITECTURA.html.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.md.html">templates/ANALISIS_ARQUITECTURA.md.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/CONTEXTO_AGENTE.md.html">templates/CONTEXTO_AGENTE.md.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></span><span>templates</span><span>ANALISIS_ARQUITECTURA.html.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>analisis-arquitectura</span><span>templates/</span><span>23.057 B</span></div><h1>ANALISIS_ARQUITECTURA.html.template</h1><p class="lede">Fichero que <code>/hv:analisis-arquitectura</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>23.057 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>&lt;!-- TEMPLATE: analisis-arquitectura | Version: dinamica desde ESTADO_PROYECTO.json --&gt;
+&lt;!-- Uso: Claude rellena los placeholders {{...}} con contenido HTML del analisis. --&gt;
+&lt;!-- El comando /analisis-arquitectura genera este archivo automaticamente. --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=<span class="tk-s">&quot;es&quot;</span> data-theme=<span class="tk-s">&quot;light&quot;</span>&gt;
+&lt;head&gt;
+    &lt;meta charset=<span class="tk-s">&quot;UTF-8&quot;</span>&gt;
+    &lt;meta name=<span class="tk-s">&quot;viewport&quot;</span> content=<span class="tk-s">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;
+    &lt;title&gt;Analisis Arquitectonico — <span class="tk-v">{{NOMBRE_PROYECTO}}</span>&lt;/title&gt;
+    &lt;script src=<span class="tk-s">&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;</span>&gt;&lt;/script&gt;
+    &lt;style&gt;
+        /* ===== CSS Variables ===== */
+        :root {
+            --primary: <span class="tk-c">#33475B;</span>
+            --primary-light: <span class="tk-c">#0066CC;</span>
+            --primary-hover: <span class="tk-c">#24333F;</span>
+            --accent: <span class="tk-c">#E8F4FD;</span>
+            --bg: <span class="tk-c">#f5f7fa;</span>
+            --bg-card: <span class="tk-c">#ffffff;</span>
+            --text: <span class="tk-c">#1a1a2e;</span>
+            --text-muted: <span class="tk-c">#6c757d;</span>
+            --border: <span class="tk-c">#dee2e6;</span>
+            --sidebar-bg: <span class="tk-c">#33475B;</span>
+            --sidebar-text: <span class="tk-c">#ffffff;</span>
+            --badge-critical: <span class="tk-c">#DC3545;</span>
+            --badge-high: <span class="tk-c">#FD7E14;</span>
+            --badge-medium: <span class="tk-c">#FFC107;</span>
+            --badge-ok: <span class="tk-c">#28a745;</span>
+            --badge-warn: <span class="tk-c">#FD7E14;</span>
+            --font: <span class="tk-s">'Segoe UI'</span>, system-ui, -apple-system, sans-serif;
+        }
+
+        [data-theme=<span class="tk-s">&quot;dark&quot;</span>] {
+            --primary: <span class="tk-c">#4da6ff;</span>
+            --primary-light: <span class="tk-c">#66b3ff;</span>
+            --accent: <span class="tk-c">#1a2a3a;</span>
+            --bg: <span class="tk-c">#121212;</span>
+            --bg-card: <span class="tk-c">#1e1e1e;</span>
+            --text: <span class="tk-c">#e0e0e0;</span>
+            --text-muted: <span class="tk-c">#adb5bd;</span>
+            --border: <span class="tk-c">#333;</span>
+            --sidebar-bg: <span class="tk-c">#0d1b2a;</span>
+            --sidebar-text: <span class="tk-c">#e0e0e0;</span>
+        }
+
+        /* ===== Reset &amp; Base ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: <span class="tk-n">0</span>; padding: <span class="tk-n">0</span>; }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: <span class="tk-n">1.6</span>;
+            font-size: 15px;
+        }
+
+        /* ===== Sidebar ===== */
+        .sidebar {
+            position: fixed;
+            top: <span class="tk-n">0</span>; left: <span class="tk-n">0</span>;
+            width: 260px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            overflow-y: auto;
+            z-index: <span class="tk-n">100</span>;
+            padding: <span class="tk-n">1</span>.5rem <span class="tk-n">0</span>;
+            transition: transform <span class="tk-n">0</span>.3s ease;
+        }
+
+        .sidebar-header {
+            padding: <span class="tk-n">0</span> <span class="tk-n">1</span>.2rem 1rem;
+            border-bottom: 1px solid rgba(<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">0.15</span>);
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-header h2 {
+            font-size: 1rem;
+            font-weight: <span class="tk-n">600</span>;
+            color: <span class="tk-c">#ffffff;</span>
+            margin-bottom: <span class="tk-n">0</span>.3rem;
+        }
+
+        .sidebar-header .subtitle {
+            font-size: <span class="tk-n">0</span>.75rem;
+            color: rgba(<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">0.6</span>);
+        }
+
+        .sidebar nav a {
+            display: block;
+            padding: <span class="tk-n">0</span>.5rem <span class="tk-n">1</span>.2rem;
+            color: rgba(<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">0.8</span>);
+            text-decoration: none;
+            font-size: <span class="tk-n">0</span>.85rem;
+            border-left: 3px solid transparent;
+            transition: all <span class="tk-n">0</span>.2s;
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            background: rgba(<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">0.1</span>);
+            color: <span class="tk-c">#ffffff;</span>
+            border-left-color: var(--primary-light);
+        }
+
+        .sidebar nav a .num {
+            display: inline-block;
+            width: <span class="tk-n">1</span>.5em;
+            color: rgba(<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">0.5</span>);
+            font-size: <span class="tk-n">0</span>.8rem;
+        }
+
+        /* ===== Main Content ===== */
+        .main {
+            margin-left: 260px;
+            padding: 2rem 3rem;
+            max-width: 1200px;
+        }
+
+        /* ===== Topbar ===== */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .topbar h1 {
+            font-size: <span class="tk-n">1</span>.6rem;
+            color: var(--primary);
+            font-weight: <span class="tk-n">700</span>;
+        }
+
+        .topbar-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .topbar-meta .badge {
+            padding: <span class="tk-n">0</span>.3rem <span class="tk-n">0</span>.8rem;
+            border-radius: 20px;
+            font-size: <span class="tk-n">0</span>.75rem;
+            font-weight: <span class="tk-n">600</span>;
+        }
+
+        .badge-type {
+            background: var(--accent);
+            color: var(--primary);
+            border: 1px solid var(--primary-light);
+        }
+
+        .badge-version {
+            background: var(--primary);
+            color: <span class="tk-c">#fff;</span>
+        }
+
+        /* ===== Theme Toggle ===== */
+        .theme-toggle {
+            position: fixed;
+            top: 1rem; right: 1rem;
+            z-index: <span class="tk-n">200</span>;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: <span class="tk-n">50</span>%;
+            width: 40px; height: 40px;
+            cursor: pointer;
+            font-size: <span class="tk-n">1</span>.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: <span class="tk-n">0</span> 2px 8px rgba(<span class="tk-n">0</span>,<span class="tk-n">0</span>,<span class="tk-n">0</span>,<span class="tk-n">0.15</span>);
+        }
+
+        /* ===== Hamburger Mobile ===== */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 1rem; left: 1rem;
+            z-index: <span class="tk-n">200</span>;
+            background: var(--primary);
+            color: <span class="tk-c">#fff;</span>
+            border: none;
+            border-radius: 6px;
+            width: 40px; height: 40px;
+            cursor: pointer;
+            font-size: <span class="tk-n">1</span>.5rem;
+        }
+
+        /* ===== Section ===== */
+        .section {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: <span class="tk-n">0</span> 1px 4px rgba(<span class="tk-n">0</span>,<span class="tk-n">0</span>,<span class="tk-n">0</span>,<span class="tk-n">0.06</span>);
+            border: 1px solid var(--border);
+            scroll-margin-top: 1rem;
+        }
+
+        .section h2 {
+            color: var(--primary);
+            font-size: <span class="tk-n">1</span>.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: <span class="tk-n">0</span>.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .section h3 {
+            color: var(--primary);
+            font-size: <span class="tk-n">1</span>.05rem;
+            margin: <span class="tk-n">1</span>.2rem <span class="tk-n">0</span> <span class="tk-n">0</span>.6rem;
+        }
+
+        /* ===== Metric Cards ===== */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1rem <span class="tk-n">0</span>;
+        }
+
+        .metric-card {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: <span class="tk-n">1</span>.2rem;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .metric-card .val {
+            font-size: 2rem;
+            font-weight: <span class="tk-n">700</span>;
+            color: var(--primary);
+        }
+
+        .metric-card .label {
+            font-size: <span class="tk-n">0</span>.8rem;
+            color: var(--text-muted);
+            margin-top: <span class="tk-n">0</span>.3rem;
+        }
+
+        /* ===== Tables ===== */
+        table {
+            width: <span class="tk-n">100</span>%;
+            border-collapse: collapse;
+            margin: 1rem <span class="tk-n">0</span>;
+            font-size: <span class="tk-n">0</span>.9rem;
+        }
+
+        th {
+            background: var(--primary);
+            color: <span class="tk-c">#fff;</span>
+            padding: <span class="tk-n">0</span>.7rem <span class="tk-n">0</span>.8rem;
+            text-align: left;
+            font-weight: <span class="tk-n">600</span>;
+            font-size: <span class="tk-n">0</span>.85rem;
+        }
+
+        td {
+            padding: <span class="tk-n">0</span>.6rem <span class="tk-n">0</span>.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:hover td { background: var(--accent); }
+
+        /* ===== Severity Badges ===== */
+        .severity { display: inline-flex; align-items: center; gap: <span class="tk-n">0</span>.3rem; padding: <span class="tk-n">0</span>.2rem <span class="tk-n">0</span>.6rem; border-radius: 12px; font-size: <span class="tk-n">0</span>.8rem; font-weight: <span class="tk-n">600</span>; }
+        .severity-critical { background: <span class="tk-c">#fce4e4; color: var(--badge-critical); }</span>
+        .severity-high { background: <span class="tk-c">#fff3e0; color: #e65100; }</span>
+        .severity-medium { background: <span class="tk-c">#fff8e1; color: #f57f17; }</span>
+
+        /* ===== Audit Checklist ===== */
+        .audit-pass { background: <span class="tk-c">#e8f5e9 !important; }</span>
+        .audit-warn { background: <span class="tk-c">#fff8e1 !important; }</span>
+        .audit-fail { background: <span class="tk-c">#fce4e4 !important; }</span>
+
+        /* ===== Score Bar ===== */
+        .score-container {
+            margin: 2rem <span class="tk-n">0</span>;
+            text-align: center;
+        }
+
+        .score-bar-wrapper {
+            background: <span class="tk-c">#e9ecef;</span>
+            border-radius: 12px;
+            height: 28px;
+            overflow: hidden;
+            margin: <span class="tk-n">0</span>.5rem <span class="tk-n">0</span>;
+        }
+
+        .score-bar {
+            height: <span class="tk-n">100</span>%;
+            border-radius: 12px;
+            transition: width <span class="tk-n">0</span>.8s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: <span class="tk-n">0</span>.8rem;
+            color: <span class="tk-c">#fff;</span>
+            font-weight: <span class="tk-n">700</span>;
+            font-size: <span class="tk-n">0</span>.85rem;
+        }
+
+        .score-label {
+            font-size: <span class="tk-n">2</span>.5rem;
+            font-weight: <span class="tk-n">800</span>;
+            color: var(--primary);
+        }
+
+        /* ===== Viability Gauge ===== */
+        .gauge-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin: <span class="tk-n">1</span>.5rem <span class="tk-n">0</span>;
+            padding: <span class="tk-n">1</span>.5rem;
+            background: var(--bg);
+            border-radius: 12px;
+        }
+
+        .gauge {
+            position: relative;
+            width: 120px; height: 120px;
+        }
+
+        .gauge svg { transform: rotate(-90deg); }
+
+        .gauge-circle-bg {
+            fill: none;
+            stroke: <span class="tk-c">#e9ecef;</span>
+            stroke-width: <span class="tk-n">10</span>;
+        }
+
+        .gauge-circle {
+            fill: none;
+            stroke-width: <span class="tk-n">10</span>;
+            stroke-linecap: round;
+            transition: stroke-dashoffset <span class="tk-n">0</span>.8s ease;
+        }
+
+        .gauge-text {
+            position: absolute;
+            top: <span class="tk-n">50</span>%; left: <span class="tk-n">50</span>%;
+            transform: translate(-50%, -50%);
+            font-size: <span class="tk-n">1</span>.5rem;
+            font-weight: <span class="tk-n">800</span>;
+            color: var(--primary);
+        }
+
+        .gauge-info h3 { margin-bottom: <span class="tk-n">0</span>.5rem; }
+        .gauge-info p { color: var(--text-muted); font-size: <span class="tk-n">0</span>.9rem; }
+
+        /* ===== Migration Timeline ===== */
+        .timeline {
+            position: relative;
+            margin: 2rem <span class="tk-n">0</span>;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: <span class="tk-s">''</span>;
+            position: absolute;
+            left: <span class="tk-n">0</span>.8rem;
+            top: <span class="tk-n">0</span>; bottom: <span class="tk-n">0</span>;
+            width: 3px;
+            background: var(--primary-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: <span class="tk-n">1</span>.5rem;
+            padding: 1rem <span class="tk-n">1</span>.2rem;
+            background: var(--bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-item::before {
+            content: <span class="tk-s">''</span>;
+            position: absolute;
+            left: -2.15rem;
+            top: <span class="tk-n">1</span>.2rem;
+            width: 14px; height: 14px;
+            background: var(--primary);
+            border-radius: <span class="tk-n">50</span>%;
+            border: 3px solid var(--bg-card);
+        }
+
+        .timeline-item .phase {
+            font-weight: <span class="tk-n">700</span>;
+            color: var(--primary);
+            font-size: <span class="tk-n">0</span>.9rem;
+        }
+
+        .timeline-item .sprints {
+            font-size: <span class="tk-n">0</span>.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Collapsible Details ===== */
+        details {
+            margin: <span class="tk-n">0</span>.5rem <span class="tk-n">0</span>;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        details summary {
+            padding: <span class="tk-n">0</span>.7rem 1rem;
+            background: var(--bg);
+            cursor: pointer;
+            font-weight: <span class="tk-n">600</span>;
+            font-size: <span class="tk-n">0</span>.9rem;
+            list-style: none;
+        }
+
+        details summary::before {
+            content: <span class="tk-s">'▶ '</span>;
+            font-size: <span class="tk-n">0</span>.7rem;
+            transition: transform <span class="tk-n">0</span>.2s;
+            display: inline-block;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        details .detail-content {
+            padding: 1rem;
+        }
+
+        /* ===== Migration Section Banner ===== */
+        .migration-banner {
+            background: linear-gradient(135deg, var(--primary) <span class="tk-n">0</span>%, var(--primary-light) <span class="tk-n">100</span>%);
+            color: <span class="tk-c">#fff;</span>
+            border-radius: 8px;
+            padding: <span class="tk-n">1</span>.5rem 2rem;
+            margin-bottom: <span class="tk-n">1</span>.5rem;
+        }
+
+        .migration-banner h2 {
+            color: <span class="tk-c">#fff;</span>
+            border-bottom-color: rgba(<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">255</span>,<span class="tk-n">0.3</span>);
+        }
+
+        /* ===== Before/After Diagram ===== */
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+            margin: <span class="tk-n">1</span>.5rem <span class="tk-n">0</span>;
+        }
+
+        .before-after .arrow {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: <span class="tk-n">700</span>;
+        }
+
+        .before-after .panel {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: <span class="tk-n">1</span>.2rem;
+        }
+
+        .before-after .panel h4 {
+            color: var(--primary);
+            margin-bottom: <span class="tk-n">0</span>.5rem;
+            text-align: center;
+        }
+
+        /* ===== Code Blocks ===== */
+        code {
+            background: var(--bg);
+            padding: <span class="tk-n">0</span>.15rem <span class="tk-n">0</span>.4rem;
+            border-radius: 4px;
+            font-size: <span class="tk-n">0</span>.85rem;
+            font-family: <span class="tk-s">'Cascadia Code'</span>, <span class="tk-s">'Consolas'</span>, monospace;
+        }
+
+        pre {
+            background: <span class="tk-c">#1e1e2e;</span>
+            color: <span class="tk-c">#cdd6f4;</span>
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: <span class="tk-n">0</span>.85rem;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: <span class="tk-n">0</span>.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        /* ===== Mermaid ===== */
+        .mermaid {
+            text-align: center;
+            margin: <span class="tk-n">1</span>.5rem <span class="tk-n">0</span>;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(<span class="tk-n">0</span>); }
+            .main { margin-left: <span class="tk-n">0</span>; padding: 1rem; }
+            .hamburger { display: flex; }
+            .metrics-grid { grid-template-columns: repeat(<span class="tk-n">2</span>, 1fr); }
+            .before-after { grid-template-columns: 1fr; }
+            .before-after .arrow { text-align: center; transform: rotate(90deg); }
+            .gauge-container { flex-direction: column; text-align: center; }
+        }
+
+        /* ===== Print ===== */
+        @media print {
+            .sidebar, .hamburger, .theme-toggle { display: none !important; }
+            .main { margin-left: <span class="tk-n">0</span>; padding: <span class="tk-n">0</span>.5cm; max-width: <span class="tk-n">100</span>%; }
+            .section { break-inside: avoid; box-shadow: none; border: 1px solid <span class="tk-c">#ccc; }</span>
+            body { font-size: 11pt; }
+            .score-bar { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            th { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .migration-banner { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+            h2 { page-break-after: avoid; }
+            .section { page-break-before: auto; }
+            <span class="tk-c">#seccion-metricas { page-break-before: always; }</span>
+            <span class="tk-c">#seccion-problemas { page-break-before: always; }</span>
+            <span class="tk-c">#seccion-migracion { page-break-before: always; }</span>
+            <span class="tk-c">#seccion-puntuacion { page-break-before: always; }</span>
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- Hamburger Mobile --&gt;
+&lt;button class=<span class="tk-s">&quot;hamburger&quot;</span> onclick=<span class="tk-s">&quot;toggleSidebar()&quot;</span> aria-label=<span class="tk-s">&quot;Abrir menu&quot;</span>&gt;&amp;<span class="tk-c">#9776;&lt;/button&gt;</span>
+
+&lt;!-- Theme Toggle --&gt;
+&lt;button class=<span class="tk-s">&quot;theme-toggle&quot;</span> onclick=<span class="tk-s">&quot;toggleTheme()&quot;</span> aria-label=<span class="tk-s">&quot;Cambiar tema&quot;</span>&gt;&amp;<span class="tk-c">#9790;&lt;/button&gt;</span>
+
+&lt;!-- Sidebar --&gt;
+&lt;aside class=<span class="tk-s">&quot;sidebar&quot;</span> id=<span class="tk-s">&quot;sidebar&quot;</span>&gt;
+    &lt;div class=<span class="tk-s">&quot;sidebar-header&quot;</span>&gt;
+        &lt;h2&gt;&amp;<span class="tk-c">#128203; Analisis Arquitectonico&lt;/h2&gt;</span>
+        &lt;div class=<span class="tk-s">&quot;subtitle&quot;</span>&gt;<span class="tk-v">{{NOMBRE_PROYECTO}}</span> &amp;mdash; v<span class="tk-v">{{VERSION_ANALISIS}}</span>&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;nav&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-resumen&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-n">1</span>.&lt;/span&gt; Resumen Ejecutivo&lt;/a&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-inventario&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-n">2</span>.&lt;/span&gt; Inventario&lt;/a&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-dependencias&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-n">3</span>.&lt;/span&gt; Dependencias&lt;/a&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-auditoria&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-n">4</span>.&lt;/span&gt; <span class="tk-v">{{TITULO_NAV_4}}</span>&lt;/a&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-metricas&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-n">5</span>.&lt;/span&gt; Metricas&lt;/a&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-patrones&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-n">6</span>.&lt;/span&gt; Patrones&lt;/a&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-nuget&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-n">7</span>.&lt;/span&gt; NuGet&lt;/a&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-problemas&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-n">8</span>.&lt;/span&gt; Problemas Criticos&lt;/a&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-recomendaciones&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-n">9</span>.&lt;/span&gt; Recomendaciones&lt;/a&gt;
+        <span class="tk-v">{{NAV_MIGRACION}}</span>
+        &lt;a href=<span class="tk-s">&quot;#seccion-puntuacion&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;<span class="tk-v">{{NUM_PUNTUACION}}</span>.&lt;/span&gt; Puntuacion&lt;/a&gt;
+        &lt;a href=<span class="tk-s">&quot;#seccion-spec&quot;</span>&gt;&lt;span class=<span class="tk-s">&quot;num&quot;</span>&gt;&amp;bull;&lt;/span&gt; Especificacion&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;
+
+&lt;!-- Main Content --&gt;
+&lt;div class=<span class="tk-s">&quot;main&quot;</span>&gt;
+    &lt;!-- Topbar --&gt;
+    &lt;div class=<span class="tk-s">&quot;topbar&quot;</span>&gt;
+        &lt;h1&gt;Analisis Arquitectonico&lt;/h1&gt;
+        &lt;div class=<span class="tk-s">&quot;topbar-meta&quot;</span>&gt;
+            &lt;span class=<span class="tk-s">&quot;badge badge-type&quot;</span>&gt;<span class="tk-v">{{TIPO_BADGE}}</span>&lt;/span&gt;
+            &lt;span class=<span class="tk-s">&quot;badge badge-version&quot;</span>&gt;v<span class="tk-v">{{VERSION_ANALISIS}}</span>&lt;/span&gt;
+            &lt;span style=<span class="tk-s">&quot;color:var(--text-muted); font-size:0.85rem;&quot;</span>&gt;<span class="tk-v">{{FECHA_ANALISIS}}</span>&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">1</span>. Resumen Ejecutivo --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-resumen&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-n">1</span>. Resumen Ejecutivo&lt;/h2&gt;
+        <span class="tk-v">{{HTML_RESUMEN_EJECUTIVO}}</span>
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">2</span>. Inventario --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-inventario&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-n">2</span>. Inventario de la Solucion&lt;/h2&gt;
+        <span class="tk-v">{{HTML_INVENTARIO}}</span>
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">3</span>. Diagrama de Dependencias --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-dependencias&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-n">3</span>. Diagrama de Dependencias&lt;/h2&gt;
+        &lt;div class=<span class="tk-s">&quot;mermaid&quot;</span>&gt;
+<span class="tk-v">{{MERMAID_DEPENDENCIAS}}</span>
+        &lt;/div&gt;
+        <span class="tk-v">{{HTML_NOTAS_DIAGRAMA}}</span>
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">4</span>. Auditoria / Arquitectura Actual --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-auditoria&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-n">4</span>. <span class="tk-v">{{TITULO_SECCION_4}}</span>&lt;/h2&gt;
+        <span class="tk-v">{{HTML_SECCION_4}}</span>
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">5</span>. Metricas --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-metricas&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-n">5</span>. Metricas Cuantitativas&lt;/h2&gt;
+        &lt;div class=<span class="tk-s">&quot;metrics-grid&quot;</span>&gt;
+            <span class="tk-v">{{HTML_METRIC_CARDS}}</span>
+        &lt;/div&gt;
+        &lt;details&gt;
+            &lt;summary&gt;Ver tabla completa de metricas&lt;/summary&gt;
+            &lt;div class=<span class="tk-s">&quot;detail-content&quot;</span>&gt;
+                <span class="tk-v">{{HTML_METRICAS_TABLA}}</span>
+            &lt;/div&gt;
+        &lt;/details&gt;
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">6</span>. Patrones --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-patrones&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-n">6</span>. Patrones de Diseno Detectados&lt;/h2&gt;
+        <span class="tk-v">{{HTML_PATRONES}}</span>
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">7</span>. NuGet --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-nuget&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-n">7</span>. Analisis de Dependencias NuGet&lt;/h2&gt;
+        &lt;details&gt;
+            &lt;summary&gt;Ver tabla completa de paquetes NuGet&lt;/summary&gt;
+            &lt;div class=<span class="tk-s">&quot;detail-content&quot;</span>&gt;
+                <span class="tk-v">{{HTML_NUGET}}</span>
+            &lt;/div&gt;
+        &lt;/details&gt;
+        <span class="tk-v">{{HTML_NUGET_OBSERVACIONES}}</span>
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">8</span>. Problemas Criticos --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-problemas&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-n">8</span>. Los <span class="tk-n">5</span> Problemas Arquitectonicos Mas Criticos&lt;/h2&gt;
+        <span class="tk-v">{{HTML_PROBLEMAS}}</span>
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">9</span>. Recomendaciones --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-recomendaciones&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-n">9</span>. Recomendaciones de Mejora&lt;/h2&gt;
+        <span class="tk-v">{{HTML_RECOMENDACIONES}}</span>
+    &lt;/div&gt;
+
+    &lt;!-- <span class="tk-n">10</span>. Migracion (solo tipo general) --&gt;
+    <span class="tk-v">{{HTML_SECCION_MIGRACION}}</span>
+
+    &lt;!-- Puntuacion General --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-puntuacion&quot;</span>&gt;
+        &lt;h2&gt;<span class="tk-v">{{NUM_PUNTUACION}}</span>. Puntuacion General&lt;/h2&gt;
+        <span class="tk-v">{{HTML_PUNTUACION_TABLA}}</span>
+        &lt;div class=<span class="tk-s">&quot;score-container&quot;</span>&gt;
+            &lt;div class=<span class="tk-s">&quot;score-label&quot;</span>&gt;<span class="tk-v">{{PUNTUACION_TOTAL}}</span> / <span class="tk-n">10</span>&lt;/div&gt;
+            &lt;div class=<span class="tk-s">&quot;score-bar-wrapper&quot;</span>&gt;
+                &lt;div class=<span class="tk-s">&quot;score-bar&quot;</span> style=<span class="tk-s">&quot;width: {{PUNTUACION_PCT}}%; background: {{PUNTUACION_COLOR}};&quot;</span>&gt;
+                    <span class="tk-v">{{PUNTUACION_TOTAL}}</span>
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Especificacion --&gt;
+    &lt;div class=<span class="tk-s">&quot;section&quot;</span> id=<span class="tk-s">&quot;seccion-spec&quot;</span>&gt;
+        &lt;h2&gt;Especificacion del Proyecto Analizado&lt;/h2&gt;
+        <span class="tk-v">{{HTML_SPEC}}</span>
+    &lt;/div&gt;
+
+    &lt;!-- Footer --&gt;
+    &lt;div class=<span class="tk-s">&quot;footer&quot;</span>&gt;
+        Generado por &lt;strong&gt;Ovillo <span class="tk-v">{{OVILLO_VERSION}}</span>&lt;/strong&gt; &amp;mdash; Comando &lt;code&gt;/analisis-arquitectura&lt;/code&gt;&lt;br&gt;
+        la organización&lt;br&gt;
+        <span class="tk-v">{{FECHA_ANALISIS}}</span>
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    // Mermaid init
+    mermaid.initialize({ startOnLoad: <span class="tk-k">true</span>, theme: <span class="tk-s">'default'</span>, securityLevel: <span class="tk-s">'loose'</span> });
+
+    // Theme toggle
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute(<span class="tk-s">'data-theme'</span>);
+        const next = current === <span class="tk-s">'light'</span> ? <span class="tk-s">'dark'</span> : <span class="tk-s">'light'</span>;
+        html.setAttribute(<span class="tk-s">'data-theme'</span>, next);
+        document.querySelector(<span class="tk-s">'.theme-toggle'</span>).textContent = next === <span class="tk-s">'dark'</span> ? <span class="tk-s">'\u2600'</span> : <span class="tk-s">'\u263E'</span>;
+        localStorage.setItem(<span class="tk-s">'theme'</span>, next);
+    }
+
+    // Restore theme
+    (function() {
+        const saved = localStorage.getItem(<span class="tk-s">'theme'</span>);
+        if (saved) {
+            document.documentElement.setAttribute(<span class="tk-s">'data-theme'</span>, saved);
+            if (saved === <span class="tk-s">'dark'</span>) document.querySelector(<span class="tk-s">'.theme-toggle'</span>).textContent = <span class="tk-s">'\u2600'</span>;
+        }
+    })();
+
+    // Sidebar toggle (mobile)
+    function toggleSidebar() {
+        document.getElementById(<span class="tk-s">'sidebar'</span>).classList.toggle(<span class="tk-s">'open'</span>);
+    }
+
+    // Close sidebar <span class="tk-k">on</span> link click (mobile)
+    document.querySelectorAll(<span class="tk-s">'.sidebar nav a'</span>).forEach(function(a) {
+        a.addEventListener(<span class="tk-s">'click'</span>, function() {
+            if (window.innerWidth &lt;= <span class="tk-n">900</span>) {
+                document.getElementById(<span class="tk-s">'sidebar'</span>).classList.remove(<span class="tk-s">'open'</span>);
+            }
+        });
+    });
+
+    // Active section indicator
+    (function() {
+        var sections = document.querySelectorAll(<span class="tk-s">'.section[id]'</span>);
+        var navLinks = document.querySelectorAll(<span class="tk-s">'.sidebar nav a'</span>);
+
+        function updateActive() {
+            var scrollPos = window.scrollY + <span class="tk-n">100</span>;
+            sections.forEach(function(section) {
+                var top = section.offsetTop;
+                var bottom = top + section.offsetHeight;
+                if (scrollPos &gt;= top &amp;&amp; scrollPos &lt; bottom) {
+                    navLinks.forEach(function(link) {
+                        link.classList.remove(<span class="tk-s">'active'</span>);
+                        if (link.getAttribute(<span class="tk-s">'href'</span>) === <span class="tk-s">'#'</span> + section.id) {
+                            link.classList.add(<span class="tk-s">'active'</span>);
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener(<span class="tk-s">'scroll'</span>, updateActive);
+        updateActive();
+    })();
+
+    // Smooth scroll
+    document.querySelectorAll(<span class="tk-s">'a[href^=&quot;#&quot;]'</span>).forEach(function(a) {
+        a.addEventListener(<span class="tk-s">'click'</span>, function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute(<span class="tk-s">'href'</span>));
+            if (target) target.scrollIntoView({ behavior: <span class="tk-s">'smooth'</span> });
+        });
+    });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p style="margin-top:32px"><a href="../../../skills/analisis-arquitectura.html#ficheros">← Volver a la ficha de analisis-arquitectura</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/analisis-arquitectura/README.html"><small>Anterior</small>README.md</a><a class="next" href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.md.html"><small>Siguiente</small>templates/ANALISIS_ARQUITECTURA.md.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

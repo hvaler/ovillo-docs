@@ -1,0 +1,125 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>user-documentation · Ovillo</title><meta name="description" content="Generates end-user documentation: usage guides, FAQ pages, API consumer guides, user flow diagrams, screenshot-annotated walkthroughs, and Postman collection…"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="user-documentation · Ovillo"><meta property="og:description" content="Generates end-user documentation: usage guides, FAQ pages, API consumer guides, user flow diagrams, screenshot-annotated walkthroughs, and Postman collection…"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/user-documentation.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/user-documentation.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/user-documentation.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>conocimiento (20)</h4><ul class="sibs"><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/api-integration-patterns.html">api-integration-patterns</a></li><li><a href="../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></li><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cloud-config.html">cloud-config</a></li><li><a href="../skills/docs-agente-sync.html">docs-agente-sync</a></li><li><a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../skills/hub-client.html">hub-client</a></li><li><a href="../skills/issue-tracker-sync.html">issue-tracker-sync</a></li><li><a href="../skills/nugets-management.html">nugets-management</a></li><li><a href="../skills/observability-patterns.html">observability-patterns</a></li><li><a href="../skills/postman-collection.html">postman-collection</a></li><li><a href="../skills/resilience-patterns.html">resilience-patterns</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li><li><a href="../skills/user-documentation.html" class="cur">user-documentation</a></li><li><a href="../skills/webapp-dashboard.html">webapp-dashboard</a></li><li><a href="../skills/webapp-layout.html">webapp-layout</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>user-documentation</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>/hv:user-documentation</span></div><h1>user-documentation</h1><p class="lede">Generates end-user documentation: usage guides, FAQ pages, API consumer guides, user flow diagrams, screenshot-annotated walkthroughs, and Postman collection guides.</p><div class="meta-grid"><div><b>conocimiento</b><span>clase</span></div><div><b><code>/hv:user-documentation</code></b><span>invocación</span></div><div><b>13</b><span>ficheros</span></div><div><b>578</b><span>palabras</span></div><div><b>0.80</b><span>F1 de disparo</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo se activa</h2><ul><li>user guides</li><li>FAQ pages</li><li>help documentation</li><li>user flow diagrams</li><li>release notes for users</li><li>guia de usuario</li><li>documentacion de uso</li><li>FAQ</li><li>manual usuario</li></ul></section><section class="sec" id="sec-cuando-no"><h2 id="cuando-no">Cuándo no</h2><ul><li>technical/developer documentation (use <a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a>)</li><li>API documentation (use <a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a>)</li><li>code generation (use <a href="../skills/generador-crud.html">generador-crud</a>)</li></ul></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><div class="kpi"><div><b>0.80</b><span>F1</span></div><div><b>1.00</b><span>precisión</span></div><div><b>0.67</b><span>recall</span></div><div><b>5 / 6</b><span>consultas correctas</span></div></div><details><summary>1 consultas que fallan (falsos positivos y negativos)</summary><div class="tbl"><table><thead><tr><th>Consulta</th><th>Idioma</th><th>Resultado</th><th>Nota</th></tr></thead><tbody><tr><td>Necesito documentación funcional para el Product Owner explicando los flujos del sistema</td><td>es-ES</td><td>esperada esta, disparó <a href="../skills/git-best-practices.html">git-best-practices</a></td><td><span class="muted">Keywords: documentación funcional + Product Owner + flujos</span></td></tr></tbody></table></div></details><p class="muted">Motor: <code>run_eval.py</code> deriva el vocabulario de la description real; baseline en <a href="../evaluaciones.html">Evaluaciones</a>.</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">12</span></h2><div class="tree"><ul><li><span class="dir">patterns/</span><ul><li><a href="../skills/user-documentation/patterns/screenshots-guide.html">screenshots-guide.md</a> <span class="muted">849 B</span></li><li><a href="../skills/user-documentation/patterns/user-flows.html">user-flows.md</a> <span class="muted">941 B</span></li></ul></li><li><span class="dir">references/</span><ul><li><a href="../skills/user-documentation/references/api-consumer-guide.html">api-consumer-guide.md</a> <span class="muted">2915 B</span></li><li><a href="../skills/user-documentation/references/cli-guide.html">cli-guide.md</a> <span class="muted">2600 B</span></li><li><a href="../skills/user-documentation/references/operations-guide.html">operations-guide.md</a> <span class="muted">1500 B</span></li><li><a href="../skills/user-documentation/references/user-guide-template.html">user-guide-template.md</a> <span class="muted">1551 B</span></li><li><a href="../skills/user-documentation/references/workflow-documentar-uso.html">workflow-documentar-uso.md</a> <span class="muted">7136 B</span></li></ul></li><li><span class="dir">templates/</span><ul><li><a href="../skills/user-documentation/templates/api-guide.md.html">api-guide.md.template</a> <span class="muted">1083 B</span></li><li><a href="../skills/user-documentation/templates/faq.md.html">faq.md.template</a> <span class="muted">1118 B</span></li><li><a href="../skills/user-documentation/templates/postman-collection.json.html">postman-collection.json.template</a> <span class="muted">2030 B</span></li><li><a href="../skills/user-documentation/templates/webapp-guide.md.html">webapp-guide.md.template</a> <span class="muted">1101 B</span></li></ul></li><li><a href="../skills/user-documentation/eval-set.html">eval-set.json</a> <span class="muted">1956 B</span></li></ul></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><p class="lede">Este skill genera documentación funcional orientada a usuarios finales, QA y Product Owners.</p>
+<hr>
+<section class="sec" id="sec-activación-del-skill">
+<h3 id="activación-del-skill">Activación del Skill</h3>
+<h4 id="por-comando">Por Comando</h4>
+<div class="tbl"><table><thead><tr><th>Comando</th><th>Acción</th></tr></thead><tbody><tr><td><code>/documentar-uso</code></td><td>Activa el skill (auto-detecta tipo de proyecto)</td></tr><tr><td><code>/documentar-uso api</code></td><td>Fuerza documentación de API REST</td></tr><tr><td><code>/documentar-uso web</code></td><td>Fuerza documentación de aplicación web</td></tr><tr><td><code>/documentar-uso servicio</code></td><td>Fuerza documentación de servicio Windows</td></tr><tr><td><code>/documentar-uso cli</code></td><td>Fuerza documentación de aplicación de consola</td></tr></tbody></table></div>
+<h4 id="por-contexto-automático">Por Contexto (Automático)</h4>
+<p>Claude activa este skill automáticamente cuando detecta:</p>
+<ul>
+<li>Usuario menciona &quot;guía de uso&quot;, &quot;manual de usuario&quot;, &quot;documentar uso&quot;</li>
+<li>Se pide generar ejemplos curl o Postman</li>
+<li>Se solicitan flujos de usuario o documentación funcional</li>
+<li>Se pregunta &quot;cómo usar&quot; la API o aplicación</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-cuándo-usar-este-skill">
+<h3 id="cuándo-usar-este-skill">Cuándo Usar Este Skill</h3>
+<div class="tbl"><table><thead><tr><th>Situación</th><th>Este Skill</th><th>documentacion-tecnica</th></tr></thead><tbody><tr><td>Manual de usuario</td><td>✅</td><td>❌</td></tr><tr><td>Guía de API para consumidores</td><td>✅</td><td>❌</td></tr><tr><td>Arquitectura y código</td><td>❌</td><td>✅</td></tr><tr><td>README técnico</td><td>❌</td><td>✅</td></tr><tr><td>Ejemplos curl/Postman</td><td>✅</td><td>❌</td></tr><tr><td>ADRs</td><td>❌</td><td>✅</td></tr><tr><td>Flujos de usuario</td><td>✅</td><td>❌</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-detección-automática-de-tipo-de-proyecto">
+<h3 id="detección-automática-de-tipo-de-proyecto">Detección Automática de Tipo de Proyecto</h3>
+<div class="tbl"><table><thead><tr><th>Tipo proyecto</th><th>Indicadores</th><th>Documentación generada</th></tr></thead><tbody><tr><td><strong>API REST</strong></td><td>Controllers con <code>[ApiController]</code>, Swagger</td><td>Endpoints, params, ejemplos curl/Postman</td></tr><tr><td><strong>Web MVC/Razor</strong></td><td>Views, Razor Pages, Controllers MVC</td><td>Pantallas, flujos, formularios</td></tr><tr><td><strong>Servicio Windows</strong></td><td>ServiceBase, Worker Service</td><td>Config, parámetros, logs</td></tr><tr><td><strong>Librería/NuGet</strong></td><td>Sin punto de entrada, solo clases</td><td>Métodos públicos, quick start</td></tr><tr><td><strong>Consola</strong></td><td>Program.cs con args</td><td>Argumentos, flags, ejemplos CLI</td></tr><tr><td><strong>Blazor</strong></td><td>Components .razor</td><td>Componentes, interacciones</td></tr></tbody></table></div>
+<h4 id="cómo-detectar-el-tipo">Cómo Detectar el Tipo</h4>
+<pre><code>1. Buscar Controllers con [ApiController] → API REST
+2. Buscar carpeta Views/ o Pages/ → Web MVC/Razor
+3. Buscar archivos .razor → Blazor
+4. Buscar ServiceBase o IHostedService → Servicio
+5. Buscar Program.cs con args parsing → Consola
+6. Si solo hay clases públicas → Librería</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-plantillas-por-tipo-de-proyecto">
+<h3 id="plantillas-por-tipo-de-proyecto">Plantillas por Tipo de Proyecto</h3>
+<h4 id="guía-de-consumidor-api">Guía de Consumidor API</h4>
+<blockquote><p>Plantilla completa en <code>references/api-consumer-guide.md</code> Incluye: autenticación, endpoints, códigos de estado, flujos comunes, paginación, contacto.</p></blockquote>
+<p><strong>Ubicación de salida:</strong> <code>_hilo/guias-uso/GUIA_USO_API.md</code></p>
+<h4 id="guía-de-usuario-web-mvcrazor">Guía de Usuario Web (MVC/Razor)</h4>
+<blockquote><p>Plantilla completa en <code>references/user-guide-template.md</code> Incluye: acceso, pantallas con formularios, flujos de usuario, FAQ, soporte.</p></blockquote>
+<p><strong>Ubicación de salida:</strong> <code>_hilo/guias-uso/GUIA_USO_WEB.md</code></p>
+<h4 id="guía-de-operaciones-servicioworker">Guía de Operaciones (Servicio/Worker)</h4>
+<blockquote><p>Plantilla completa en <code>references/operations-guide.md</code> Incluye: instalación, configuración appsettings, logs, monitorización, troubleshooting.</p></blockquote>
+<p><strong>Ubicación de salida:</strong> <code>_hilo/guias-uso/GUIA_USO_SERVICIO.md</code></p>
+<h4 id="guía-de-aplicación-cli">Guía de Aplicación CLI</h4>
+<blockquote><p>Plantilla completa en <code>references/cli-guide.md</code> Incluye: uso básico, comandos, opciones globales, códigos de salida, ejemplos, colección Postman.</p></blockquote>
+<p><strong>Ubicación de salida:</strong> <code>_hilo/guias-uso/GUIA_USO_CLI.md</code></p>
+<hr>
+</section>
+<section class="sec" id="sec-extracción-de-información">
+<h3 id="extracción-de-información">Extracción de Información</h3>
+<h4 id="de-controllers-api">De Controllers API</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Buscar atributos</span>
+[HttpGet]           → Método GET
+[HttpPost]          → Método POST
+[Route(<span class="tk-s">&quot;api/...&quot;</span>)]  → Ruta
+[Authorize]         → Requiere auth
+[FromQuery]         → Parámetro query
+[FromBody]          → Parámetro body
+[FromRoute]         → Parámetro ruta
+[Required]          → Campo requerido
+[MaxLength(n)]      → Longitud máxima</code></pre>
+<h4 id="de-formularios-web">De Formularios Web</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// En ViewModels/DTOs</span>
+[Required]          → Campo obligatorio
+[EmailAddress]      → Formato email
+[Range(min, max)]   → Rango numérico
+[StringLength(max)] → Longitud texto
+[Display(Name=<span class="tk-s">&quot;X&quot;</span>)] → Label mostrado</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-de-documentación-de-usuario">
+<h3 id="checklist-de-documentación-de-usuario">Checklist de Documentación de Usuario</h3>
+<h4 id="API">API</h4>
+<ul>
+<li><input type="checkbox" disabled> Autenticación documentada</li>
+<li><input type="checkbox" disabled> Todos los endpoints listados</li>
+<li><input type="checkbox" disabled> Parámetros con ejemplos</li>
+<li><input type="checkbox" disabled> Códigos de error explicados</li>
+<li><input type="checkbox" disabled> Ejemplos curl generados</li>
+<li><input type="checkbox" disabled> Flujos principales documentados</li>
+</ul>
+<h4 id="web">Web</h4>
+<ul>
+<li><input type="checkbox" disabled> URL de acceso</li>
+<li><input type="checkbox" disabled> Roles y permisos</li>
+<li><input type="checkbox" disabled> Pantallas principales</li>
+<li><input type="checkbox" disabled> Formularios con validaciones</li>
+<li><input type="checkbox" disabled> Flujos de usuario</li>
+<li><input type="checkbox" disabled> FAQ con errores comunes</li>
+</ul>
+<h4 id="servicio">Servicio</h4>
+<ul>
+<li><input type="checkbox" disabled> Instrucciones de instalación</li>
+<li><input type="checkbox" disabled> Configuración documentada</li>
+<li><input type="checkbox" disabled> Ubicación de logs</li>
+<li><input type="checkbox" disabled> Troubleshooting básico</li>
+</ul>
+<h4 id="CLI">CLI</h4>
+<ul>
+<li><input type="checkbox" disabled> Todos los comandos</li>
+<li><input type="checkbox" disabled> Opciones y argumentos</li>
+<li><input type="checkbox" disabled> Ejemplos de uso</li>
+<li><input type="checkbox" disabled> Códigos de salida</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-integración-con-documentar-uso">
+<h3 id="integración-con-documentar-uso">Integración con /documentar-uso</h3>
+<p>Este skill se activa automáticamente con el comando <code>/documentar-uso</code>:</p>
+<pre data-lang="bash"><code>/documentar-uso           <span class="tk-c"># Auto-detecta tipo y genera guía</span>
+/documentar-uso api       <span class="tk-c"># Fuerza documentación de API</span>
+/documentar-uso web       <span class="tk-c"># Fuerza documentación web</span>
+/documentar-uso servicio  <span class="tk-c"># Fuerza documentación de servicio</span>
+/documentar-uso cli       <span class="tk-c"># Fuerza documentación CLI</span></code></pre>
+<hr>
+<hr>
+</section>
+<section class="sec" id="sec-workflow-solo-si-se-invoca-la-skill-o-se-pide-aplicar">
+<h3 id="workflow-solo-si-se-invoca-la-skill-o-se-pide-aplicar">Workflow (solo si se invoca la skill o se pide aplicar)</h3>
+<p><strong>Regla de oro</strong>: el disparo semantico responde con el conocimiento de arriba y para ahi. Nada de lo que sigue se ejecuta por haber mencionado el tema: hace falta invocacion explicita o una peticion de accion clara. El workflow <strong>nunca</strong> se alcanza por accidente.</p>
+<p>El procedimiento vive aparte para no cargarlo al consultar conocimiento: <strong><code>references/workflow-documentar-uso.md</code></strong>.</p>
+<div class="tbl"><table><thead><tr><th>Intencion del usuario</th><th>Que hacer</th></tr></thead><tbody><tr><td>&quot;como redacto una guia para usuario final&quot;</td><td>Responder con el <code>SKILL.md</code>. <strong>No</strong> leer el workflow</td></tr><tr><td>&quot;genera el manual de usuario&quot;, <code>/user-documentation</code></td><td>Leer el workflow y generar la documentacion funcional</td></tr></tbody></table></div>
+<p><em>Skill user-documentation</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>487</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 578 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>6 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(generador): Lote G - el codigo que el ecosistema escribe en el proyecto del cliente (ADR-027)</em> (<code>1566abc</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/user-documentation/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo se activa</a></li><li class="l2"><a href="#cuando-no">Cuándo no</a></li><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#activación-del-skill">Activación del Skill</a></li><li class="l3"><a href="#cuándo-usar-este-skill">Cuándo Usar Este Skill</a></li><li class="l3"><a href="#detección-automática-de-tipo-de-proyecto">Detección Automática de Tipo de Proyecto</a></li><li class="l3"><a href="#plantillas-por-tipo-de-proyecto">Plantillas por Tipo de Proyecto</a></li><li class="l3"><a href="#extracción-de-información">Extracción de Información</a></li><li class="l3"><a href="#checklist-de-documentación-de-usuario">Checklist de Documentación de Usuario</a></li><li class="l3"><a href="#integración-con-documentar-uso">Integración con /documentar-uso</a></li><li class="l3"><a href="#workflow-solo-si-se-invoca-la-skill-o-se-pide-aplicar">Workflow (solo si se invoca la skill o se pide aplicar)</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

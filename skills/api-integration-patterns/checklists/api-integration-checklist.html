@@ -1,0 +1,179 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · checklists/api-integration-checklist.md · Ovillo</title><meta name="description" content="Fichero checklists/api-integration-checklist.md de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · checklists/api-integration-checklist.md · Ovillo"><meta property="og:description" content="Fichero checklists/api-integration-checklist.md de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/checklists/api-integration-checklist.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/checklists/api-integration-checklist.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/checklists/api-integration-checklist.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html" class="cur">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>checklists</span><span>api-integration-checklist.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>checklists/</span></div><h1>api-integration-checklist.md</h1><p class="lede">Referencia que <code>api-integration-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>checklists</b><span>carpeta</span></div><div><b>5196 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Versión</strong>: 1.0.0 <strong>Uso</strong>: Verificar antes de considerar completa una integración API</p></blockquote>
+<hr>
+<section class="sec" id="sec-pre-integración">
+<h3 id="pre-integración">📋 PRE-INTEGRACIÓN</h3>
+<h4 id="análisis-de-la-api">Análisis de la API</h4>
+<ul>
+<li><input type="checkbox" disabled> Documentación API leída y comprendida</li>
+<li><input type="checkbox" disabled> Endpoints necesarios identificados</li>
+<li><input type="checkbox" disabled> Esquema de autenticación confirmado (OAuth2, API Key, HMAC)</li>
+<li><input type="checkbox" disabled> Rate limits documentados (requests/min, requests/día)</li>
+<li><input type="checkbox" disabled> SLA conocido (uptime, tiempo de respuesta)</li>
+<li><input type="checkbox" disabled> Contacto técnico del proveedor disponible</li>
+<li><input type="checkbox" disabled> Ambiente de pruebas/sandbox configurado</li>
+</ul>
+<h4 id="credenciales-y-accesos">Credenciales y Accesos</h4>
+<ul>
+<li><input type="checkbox" disabled> Client ID / API Key obtenidos</li>
+<li><input type="checkbox" disabled> Client Secret / API Secret obtenidos</li>
+<li><input type="checkbox" disabled> Scopes/permisos solicitados y aprobados</li>
+<li><input type="checkbox" disabled> IP de la organización whitelisteada (si aplica)</li>
+<li><input type="checkbox" disabled> Credenciales almacenadas en <strong>Azure Key Vault</strong> (NUNCA en código)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-implementación">
+<h3 id="implementación">🔧 IMPLEMENTACIÓN</h3>
+<h4 id="httpclient-configuration">HttpClient Configuration</h4>
+<ul>
+<li><input type="checkbox" disabled> IHttpClientFactory configurado (NO <code>new HttpClient()</code>)</li>
+<li><input type="checkbox" disabled> BaseAddress configurado</li>
+<li><input type="checkbox" disabled> Timeout configurado (30s default, ajustar según API)</li>
+<li><input type="checkbox" disabled> User-Agent header configurado</li>
+<li><input type="checkbox" disabled> Accept header configurado (<code>application/json</code>)</li>
+</ul>
+<h4 id="autenticación">Autenticación</h4>
+<ul>
+<li><input type="checkbox" disabled> Token Service implementado (para OAuth2)</li>
+<li><input type="checkbox" disabled> Tokens cacheados en IMemoryCache (NO variables estáticas)</li>
+<li><input type="checkbox" disabled> Renovación automática de tokens implementada</li>
+<li><input type="checkbox" disabled> BearerTokenHandler o ApiKeyHandler configurado</li>
+<li><input type="checkbox" disabled> Manejo de 401 Unauthorized (invalidar caché y reintentar)</li>
+</ul>
+<h4 id="resiliencia">Resiliencia</h4>
+<ul>
+<li><input type="checkbox" disabled> Retry Policy configurado (Polly)</li>
+<ul>
+<li><input type="checkbox" disabled> Retry solo en errores transitorios (429, 503, timeout)</li>
+<li><input type="checkbox" disabled> Backoff exponencial implementado</li>
+<li><input type="checkbox" disabled> Jitter configurado (evitar thundering herd)</li>
+</ul>
+<li><input type="checkbox" disabled> Circuit Breaker configurado</li>
+<ul>
+<li><input type="checkbox" disabled> Umbral de fallos definido (ej: 50% en 10s)</li>
+<li><input type="checkbox" disabled> Duración de break definida (ej: 1 min)</li>
+<li><input type="checkbox" disabled> Eventos onOpen/onClose logueados</li>
+</ul>
+<li><input type="checkbox" disabled> Timeout configurado explícitamente</li>
+</ul>
+<h4 id="logging">Logging</h4>
+<ul>
+<li><input type="checkbox" disabled> LoggingHandler configurado</li>
+<li><input type="checkbox" disabled> Request/Response logueados (sin datos sensibles)</li>
+<li><input type="checkbox" disabled> Correlation ID inyectado en headers (<code>X-Correlation-ID</code>)</li>
+<li><input type="checkbox" disabled> Errores logueados con contexto suficiente</li>
+<li><input type="checkbox" disabled> Métricas de latencia capturadas</li>
+</ul>
+<h4 id="manejo-de-respuestas">Manejo de Respuestas</h4>
+<ul>
+<li><input type="checkbox" disabled> Status codes 2xx manejados correctamente</li>
+<li><input type="checkbox" disabled> 404 Not Found manejado (retornar null, no lanzar excepción)</li>
+<li><input type="checkbox" disabled> 429 Rate Limit manejado (retry con Retry-After)</li>
+<li><input type="checkbox" disabled> 5xx Server Error manejado (retry con circuit breaker)</li>
+<li><input type="checkbox" disabled> Deserialización con manejo de errores</li>
+<li><input type="checkbox" disabled> Respuestas grandes paginadas</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-calidad">
+<h3 id="calidad">✅ CALIDAD</h3>
+<h4 id="tests">Tests</h4>
+<ul>
+<li><input type="checkbox" disabled> Tests unitarios escritos (&gt;80% cobertura)</li>
+<ul>
+<li><input type="checkbox" disabled> Mock HttpMessageHandler configurado</li>
+<li><input type="checkbox" disabled> Casos exitosos probados</li>
+<li><input type="checkbox" disabled> Casos de error probados (404, 429, 503)</li>
+<li><input type="checkbox" disabled> Timeout probado</li>
+</ul>
+<li><input type="checkbox" disabled> Tests de integración con API real (ambiente test)</li>
+<li><input type="checkbox" disabled> Tests de carga/stress realizados (si API crítica)</li>
+</ul>
+<h4 id="documentación">Documentación</h4>
+<ul>
+<li><input type="checkbox" disabled> README.md con ejemplo de uso creado</li>
+<li><input type="checkbox" disabled> Endpoints consumidos documentados</li>
+<li><input type="checkbox" disabled> DTOs documentados con XML comments</li>
+<li><input type="checkbox" disabled> Errores comunes y troubleshooting documentados</li>
+<li><input type="checkbox" disabled> Configuración appsettings.json documentada</li>
+</ul>
+<h4 id="code-review">Code Review</h4>
+<ul>
+<li><input type="checkbox" disabled> Código revisado por par</li>
+<li><input type="checkbox" disabled> Secrets verificados (NO en código, TODO en Key Vault)</li>
+<li><input type="checkbox" disabled> Naming conventions aplicadas</li>
+<li><input type="checkbox" disabled> SOLID principles respetados</li>
+<li><input type="checkbox" disabled> DRY (Don't Repeat Yourself) aplicado</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-pre-producción">
+<h3 id="pre-producción">🚀 PRE-PRODUCCIÓN</h3>
+<h4 id="configuración-ambiente">Configuración Ambiente</h4>
+<ul>
+<li><input type="checkbox" disabled> appsettings.Production.json configurado</li>
+<li><input type="checkbox" disabled> Azure Key Vault configurado para producción</li>
+<li><input type="checkbox" disabled> Connection strings actualizados</li>
+<li><input type="checkbox" disabled> Timeouts ajustados (si difieren de dev)</li>
+<li><input type="checkbox" disabled> Logging level ajustado (Information en prod, Debug en dev)</li>
+</ul>
+<h4 id="monitoreo">Monitoreo</h4>
+<ul>
+<li><input type="checkbox" disabled> Application Insights configurado</li>
+<li><input type="checkbox" disabled> Alertas configuradas:</li>
+<ul>
+<li><input type="checkbox" disabled> Alerta si circuit breaker abierto &gt;3 veces/hora</li>
+<li><input type="checkbox" disabled> Alerta si tasa de error &gt;5%</li>
+<li><input type="checkbox" disabled> Alerta si latencia media &gt;2s</li>
+</ul>
+<li><input type="checkbox" disabled> Dashboard con métricas clave creado</li>
+<li><input type="checkbox" disabled> Runbook de incidencias actualizado</li>
+</ul>
+<h4 id="seguridad">Seguridad</h4>
+<ul>
+<li><input type="checkbox" disabled> Checklist de seguridad completado (ver security-checklist.md)</li>
+<li><input type="checkbox" disabled> HTTPS obligatorio verificado</li>
+<li><input type="checkbox" disabled> Validación de certificados SSL habilitada</li>
+<li><input type="checkbox" disabled> Rate limiting implementado (si exponemos endpoints)</li>
+<li><input type="checkbox" disabled> OWASP Top 10 revisado</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-post-despliegue">
+<h3 id="post-despliegue">📊 POST-DESPLIEGUE</h3>
+<h4 id="validación">Validación</h4>
+<ul>
+<li><input type="checkbox" disabled> Smoke test ejecutado en producción</li>
+<li><input type="checkbox" disabled> Primera llamada real exitosa verificada</li>
+<li><input type="checkbox" disabled> Logs verificados (sin errores críticos)</li>
+<li><input type="checkbox" disabled> Métricas iniciales normales</li>
+<li><input type="checkbox" disabled> Equipo de soporte notificado</li>
+</ul>
+<h4 id="handover">Handover</h4>
+<ul>
+<li><input type="checkbox" disabled> Documentación entregada a soporte</li>
+<li><input type="checkbox" disabled> Credenciales de producción compartidas (via Key Vault)</li>
+<li><input type="checkbox" disabled> Contactos de escalamiento compartidos</li>
+<li><input type="checkbox" disabled> Procedimientos de rollback documentados</li>
+<li><input type="checkbox" disabled> Retrospectiva de integración realizada</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-red-flags-revisar-si-detectas">
+<h3 id="red-flags-revisar-si-detectas">⚠️ RED FLAGS (Revisar si detectas)</h3>
+<ul>
+<li><input type="checkbox" disabled> ❌ <code>new HttpClient()</code> en código</li>
+<li><input type="checkbox" disabled> ❌ Secrets hardcodeados</li>
+<li><input type="checkbox" disabled> ❌ Retry sin límite (bucle infinito)</li>
+<li><input type="checkbox" disabled> ❌ Retry en errores 4xx (Bad Request, Unauthorized)</li>
+<li><input type="checkbox" disabled> ❌ Timeout no configurado o &gt;2 minutos</li>
+<li><input type="checkbox" disabled> ❌ Tokens en variables estáticas</li>
+<li><input type="checkbox" disabled> ❌ Deserialización sin try-catch</li>
+<li><input type="checkbox" disabled> ❌ Logging de datos sensibles (tokens, passwords)</li>
+<li><input type="checkbox" disabled> ❌ HTTP en lugar de HTTPS</li>
+<li><input type="checkbox" disabled> ❌ Sin tests unitarios</li>
+</ul>
+<hr>
+<p><strong>Progreso</strong>: ___/50 items completados</p>
+<p><em>Checklist: api-integration-checklist - Ovillo</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns.html"><small>Anterior</small>Ficha de api-integration-patterns</a><a class="next" href="../../../skills/api-integration-patterns/checklists/security-checklist.html"><small>Siguiente</small>checklists/security-checklist.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/checklists/api-integration-checklist.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#pre-integración">📋 PRE-INTEGRACIÓN</a></li><li class="l3"><a href="#análisis-de-la-api">Análisis de la API</a></li><li class="l3"><a href="#credenciales-y-accesos">Credenciales y Accesos</a></li><li class="l2"><a href="#implementación">🔧 IMPLEMENTACIÓN</a></li><li class="l3"><a href="#httpclient-configuration">HttpClient Configuration</a></li><li class="l3"><a href="#autenticación">Autenticación</a></li><li class="l3"><a href="#resiliencia">Resiliencia</a></li><li class="l3"><a href="#logging">Logging</a></li><li class="l3"><a href="#manejo-de-respuestas">Manejo de Respuestas</a></li><li class="l2"><a href="#calidad">✅ CALIDAD</a></li><li class="l3"><a href="#tests">Tests</a></li><li class="l3"><a href="#documentación">Documentación</a></li><li class="l3"><a href="#code-review">Code Review</a></li><li class="l2"><a href="#pre-producción">🚀 PRE-PRODUCCIÓN</a></li><li class="l3"><a href="#configuración-ambiente">Configuración Ambiente</a></li><li class="l3"><a href="#monitoreo">Monitoreo</a></li><li class="l3"><a href="#seguridad">Seguridad</a></li><li class="l2"><a href="#post-despliegue">📊 POST-DESPLIEGUE</a></li><li class="l3"><a href="#validación">Validación</a></li><li class="l3"><a href="#handover">Handover</a></li><li class="l2"><a href="#red-flags-revisar-si-detectas">⚠️ RED FLAGS (Revisar si detectas)</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

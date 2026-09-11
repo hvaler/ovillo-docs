@@ -1,0 +1,287 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>migrar · Ovillo</title><meta name="description" content="Asiste en la migración de proyectos entre versiones de .NET"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="migrar · Ovillo"><meta property="og:description" content="Asiste en la migración de proyectos entre versiones de .NET"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/migrar.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/migrar.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/migrar.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html" class="cur">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>migrar</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:migrar</span><span>solo usuario</span></div><h1>migrar</h1><p class="lede">Asiste en la migración de proyectos entre versiones de .NET</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:migrar</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>412</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:migrar</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:migrar</code>.</p></blockquote>
+<hr>
+<p class="lede">Asiste en la migración de proyectos entre versiones de .NET.</p>
+<section class="sec" id="sec-extended-thinking-mode">
+<h3 id="extended-thinking-mode">🧠 Extended Thinking Mode</h3>
+<p><strong>think hard - Analiza cuidadosamente el impacto de la migración en todo el proyecto.</strong></p>
+<hr>
+</section>
+<section class="sec" id="sec-importante-ubicación-del-código">
+<h3 id="importante-ubicación-del-código">IMPORTANTE: Ubicación del Código</h3>
+<p>El código a migrar está en <code>src/</code>. Los cambios de migración se aplican ahí.</p>
+<pre><code>MiProyecto/
+├── _hilo/
+│   ├── ESTADO_PROYECTO.json   ← Registrar progreso migración
+│   └── DECISIONES.md          ← ADRs de migración
+├── src/             ← CÓDIGO A MIGRAR ⭐
+│   ├── MiSolucion.sln
+│   ├── MiProyecto.API/
+│   │   └── MiProyecto.API.csproj  ← Modificar TargetFramework
+│   ├── MiProyecto.Domain/
+│   └── ...
+└── docs/          ← Guías de migración</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-uso">
+<h3 id="uso">Uso</h3>
+<pre><code>/migrar [versión-destino]</code></pre>
+<p>Ejemplos:</p>
+<pre data-lang="bash"><code>/migrar net10
+/migrar net9
+/migrar --analyze  <span class="tk-c"># Solo analizar, no migrar</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-proceso">
+<h3 id="proceso">Proceso</h3>
+<h4 id="1-análisis-de-versión-actual">1. Análisis de Versión Actual</h4>
+<p>Detectar versión actual del proyecto en <code>src/</code>:</p>
+<pre data-lang="powershell"><code><span class="tk-c"># Buscar TargetFramework en archivos .csproj</span>
+Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Recurse -Filter <span class="tk-s">&quot;*.csproj&quot;</span> | ForEach-Object {
+    <span class="tk-v">$content</span> = Get-Content <span class="tk-v">$_</span>.FullName -Raw
+    <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'&lt;TargetFramework&gt;([^&lt;]+)&lt;/TargetFramework&gt;'</span>) {
+        Write-Host <span class="tk-s">&quot;$($_.Name): $($Matches[1])&quot;</span>
+    }
+}</code></pre>
+<ul>
+<li>Buscar <code>&lt;TargetFramework&gt;</code> en archivos .csproj</li>
+<li>Identificar dependencias NuGet</li>
+<li>Detectar patrones de código específicos de versión</li>
+</ul>
+<h4 id="2-generar-informe-de-migración">2. Generar Informe de Migración</h4>
+<pre data-lang="markdown"><code>## Informe de Migración
+
+### Proyecto
+- Nombre: [detectado]
+- Ubicación: src/
+- Versión actual: .NET [X]
+- Versión destino: .NET [Y]
+
+### Proyectos a Migrar (en src/)
+| Proyecto | Ruta | Versión Actual | Target |
+|----------|------|----------------|--------|
+| MiProyecto.API | src/MiProyecto.API/ | net8.0 | net10.0 |
+| MiProyecto.Domain | src/MiProyecto.Domain/ | net8.0 | net10.0 |
+| MiProyecto.Tests | src/MiProyecto.Tests/ | net8.0 | net10.0 |
+
+### Dependencias
+| Paquete | Versión actual | Compatible | Acción |
+|---------|----------------|------------|--------|
+| EntityFramework | 6.x | ❌ | Migrar a EF Core 10 |
+| Newtonsoft.Json | 13.x | ✅ | Mantener |
+| ... | ... | ... | ... |
+
+### Cambios de Código Necesarios
+1. [ ] Program.cs - Nuevo modelo de hosting
+2. [ ] Startup.cs → Program.cs
+3. [ ] Web.config → appsettings.json
+4. [ ] Global.asax → Eliminar
+
+### APIs Obsoletas Detectadas
+- HttpContext.Current → IHttpContextAccessor
+- ConfigurationManager → IConfiguration
+- ...
+
+### Estimación de Esfuerzo
+- Complejidad: [Alta/Media/Baja]
+- Tiempo estimado: [X días/semanas]
+- Riesgo: [Alto/Medio/Bajo]</code></pre>
+<p>Guardar informe en <code>docs/migration/INFORME_MIGRACION_[VERSION].md</code></p>
+<h4 id="3-plan-de-migración-por-capas">3. Plan de Migración por Capas</h4>
+<pre><code>ORDEN RECOMENDADO (en src/):
+
+1. Domain → src/MiProyecto.Domain/
+   Menor dependencia de infraestructura
+
+2. Application → src/MiProyecto.Application/
+   Depende solo de Domain
+
+3. Infrastructure → src/MiProyecto.Infrastructure/
+   EF, repositorios
+
+4. Web/API → src/MiProyecto.API/
+   Último, más cambios de hosting
+
+5. Tests → src/MiProyecto.Tests/
+   Después de migrar el código principal
+
+Cada capa = un evolutivo separado (/nuevo-evolutivo MIG-00X)</code></pre>
+<h4 id="4-checklist-de-migración">4. Checklist de Migración</h4>
+<pre data-lang="markdown"><code>## Pre-migración
+- [ ] Backup del proyecto (rama o copia)
+- [ ] Tests existentes pasan (`/testing-patterns`)
+- [ ] Documentar versiones actuales en `_hilo/DEPENDENCIAS.md`
+- [ ] Crear evolutivo: `/hv:nuevo-evolutivo &quot;MIG-001: Migración a .NET 10&quot;`
+
+## Durante
+- [ ] Crear rama feature/migracion-netX
+- [ ] Migrar capa por capa (en src/)
+- [ ] Tests después de cada capa
+- [ ] Documentar decisiones en `_hilo/DECISIONES.md`
+
+## Post-migración
+- [ ] Todos los tests pasan
+- [ ] Validación funcional
+- [ ] Actualizar `_hilo/DEPENDENCIAS.md`
+- [ ] PR para revisión
+- [ ] `/hv:finalizar-evolutivo MIG-001`</code></pre>
+<h4 id="5-ejecutar-migración">5. Ejecutar Migración</h4>
+<p><strong>Modificar .csproj en src/:</strong></p>
+<pre data-lang="powershell"><code><span class="tk-c"># Actualizar TargetFramework en todos los .csproj</span>
+Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Recurse -Filter <span class="tk-s">&quot;*.csproj&quot;</span> | ForEach-Object {
+    <span class="tk-v">$content</span> = Get-Content <span class="tk-v">$_</span>.FullName -Raw
+    <span class="tk-v">$newContent</span> = <span class="tk-v">$content</span> -replace <span class="tk-s">'&lt;TargetFramework&gt;net8\.0&lt;/TargetFramework&gt;'</span>, <span class="tk-s">'&lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;'</span>
+    Set-Content -Path <span class="tk-v">$_</span>.FullName -Value <span class="tk-v">$newContent</span>
+    Write-Host <span class="tk-s">&quot;Actualizado: $($_.FullName)&quot;</span>
+}</code></pre>
+<p><strong>Actualizar paquetes NuGet:</strong></p>
+<pre data-lang="powershell"><code>Push-Location <span class="tk-s">&quot;src&quot;</span>
+dotnet restore
+dotnet list package --outdated
+Pop-Location</code></pre>
+<h4 id="6-conversión-de-formato-de-solución-sln--slnx">6. Conversión de Formato de Solución (.sln → .slnx)</h4>
+<blockquote class="callout note"><p><strong>IMPORTANTE: Solo para .NET 8+ (Visual Studio 2022 17.10+)</strong></p></blockquote>
+<pre><code>┌────────────────────────────────────────────────────────────┐
+│ MATRIZ DE COMPATIBILIDAD - FORMATO DE SOLUCIÓN                  │
+├────────────────────────────────────────────────────────────┤
+│ .NET 4.x  │ .NET 7  │ .NET 8  │ .NET 9  │ .NET 10 │ Formato    │
+├───────────┼─────────┼─────────┼─────────┼─────────┼────────────┤
+│    ✅     │   ✅    │   ✅    │   ✅    │   ✅    │ .sln       │
+│    ❌     │   ❌    │   ✅    │   ✅    │   ✅    │ .slnx      │
+└────────────────────────────────────────────────────────────┘</code></pre>
+<p><strong>Detectar versión y ofrecer conversión:</strong></p>
+<pre data-lang="powershell"><code><span class="tk-c"># Buscar TargetFramework en archivos .csproj</span>
+<span class="tk-v">$csprojFiles</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Recurse -Filter <span class="tk-s">&quot;*.csproj&quot;</span>
+<span class="tk-v">$targetFramework</span> = <span class="tk-v">$null</span>
+
+<span class="tk-k">foreach</span> (<span class="tk-v">$csproj</span> <span class="tk-k">in</span> <span class="tk-v">$csprojFiles</span>) {
+    <span class="tk-v">$content</span> = Get-Content <span class="tk-v">$csproj</span>.FullName -Raw
+    <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'&lt;TargetFramework&gt;(net[0-9]+\.0)&lt;/TargetFramework&gt;'</span>) {
+        <span class="tk-v">$targetFramework</span> = <span class="tk-v">$Matches</span>[<span class="tk-n">1</span>]
+        <span class="tk-k">break</span>
+    }
+}
+
+<span class="tk-c"># Determinar si puede usar .slnx</span>
+<span class="tk-v">$puedeUsarSlnx</span> = <span class="tk-v">$targetFramework</span> -match <span class="tk-s">'net(8|9|10|1[1-9]|[2-9][0-9])\.0'</span>
+
+<span class="tk-k">if</span> (<span class="tk-v">$puedeUsarSlnx</span>) {
+    Write-Host <span class="tk-s">&quot;✅ El proyecto usa $targetFramework - compatible con .slnx&quot;</span>
+    Write-Host <span class="tk-s">&quot;&quot;</span>
+    Write-Host <span class="tk-s">&quot;¿Desea convertir el archivo .sln a .slnx?&quot;</span>
+    Write-Host <span class="tk-s">&quot;[S] Sí - Convertir a .slnx (formato XML limpio)&quot;</span>
+    Write-Host <span class="tk-s">&quot;[N] No - Mantener .sln (compatibilidad máxima)&quot;</span>
+}</code></pre>
+<p><strong>Ventajas de .slnx:</strong></p>
+<ul>
+<li>Formato XML legible y editable manualmente</li>
+<li>Sin GUIDs complejos ni secciones difíciles de entender</li>
+<li>Mejor integración con control de versiones (menos conflictos)</li>
+<li>Estructura declarativa más limpia</li>
+</ul>
+<p><strong>Proceso de conversión:</strong></p>
+<pre data-lang="powershell"><code><span class="tk-c"># Convertir .sln a .slnx (requiere VS 2022 17.10+)</span>
+<span class="tk-v">$slnPath</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.sln&quot;</span> | Select-Object -First <span class="tk-n">1</span>
+
+<span class="tk-k">if</span> (<span class="tk-v">$slnPath</span> -and <span class="tk-v">$puedeUsarSlnx</span>) {
+    <span class="tk-c"># Abrir en VS y guardar como .slnx</span>
+    Write-Host <span class="tk-s">&quot;📋 Instrucciones para convertir a .slnx:&quot;</span>
+    Write-Host <span class="tk-s">&quot;1. Abrir $($slnPath.FullName) en Visual Studio 2022 17.10+&quot;</span>
+    Write-Host <span class="tk-s">&quot;2. Archivo → Guardar como → Seleccionar formato 'Solution (*.slnx)'&quot;</span>
+    Write-Host <span class="tk-s">&quot;3. Verificar que todos los proyectos cargan correctamente&quot;</span>
+    Write-Host <span class="tk-s">&quot;4. Eliminar el archivo .sln original (opcional)&quot;</span>
+}</code></pre>
+<p><strong>ADR para documentar la decisión:</strong></p>
+<pre data-lang="markdown"><code>### [ADR-XXX] Migración de formato de solución .sln a .slnx
+- **Fecha**: [FECHA]
+- **Estado**: Implementada
+- **Contexto**: Proyecto migrado a .NET [X], compatible con .slnx
+- **Decisión**: Convertir a formato .slnx para mejor legibilidad y menos conflictos en VCS
+- **Consecuencias**:
+  - Requiere VS 2022 17.10+ para abrir
+  - Mejor experiencia con control de versiones
+  - No compatible con .NET 7 o anterior</code></pre>
+<hr>
+<h4 id="7-registrar-en-contexto">7. Registrar en Contexto</h4>
+<h5 id="net-4x--net-10">.NET 4.x → .NET 10</h5>
+<p><strong>Cambios principales:</strong></p>
+<ul>
+<li><code>Web.config</code> → <code>appsettings.json</code></li>
+<li><code>Global.asax</code> → <code>Program.cs</code></li>
+<li><code>packages.config</code> → <code>PackageReference</code> en .csproj</li>
+<li>Entity Framework 6 → EF Core 10</li>
+<li><code>HttpContext.Current</code> → <code>IHttpContextAccessor</code></li>
+</ul>
+<p><strong>Código típico a cambiar (en src/):</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// ANTES (.NET 4.x) - src/MiProyecto.Web/</span>
+<span class="tk-k">var</span> setting = ConfigurationManager.AppSettings[<span class="tk-s">&quot;MiSetting&quot;</span>];
+
+<span class="tk-c">// DESPUÉS (.NET 10) - src/MiProyecto.API/</span>
+<span class="tk-k">var</span> setting = _configuration[<span class="tk-s">&quot;MiSetting&quot;</span>];</code></pre>
+<h5 id="net-89--net-10">.NET 8/9 → .NET 10</h5>
+<p><strong>Cambios principales:</strong></p>
+<ul>
+<li><code>AddSwaggerGen()</code> → <code>AddOpenApi()</code> (opcional pero recomendado)</li>
+<li><code>Host.CreateDefaultBuilder</code> → <code>Host.CreateApplicationBuilder</code></li>
+<li>Nuevas APIs de C# 13</li>
+<li><strong>Considerar conversión a .slnx (formato de solución XML limpio)</strong></li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ANTES (.NET 8) - src/MiProyecto.API/Program.cs</span>
+<span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSwaggerGen();
+
+<span class="tk-c">// DESPUÉS (.NET 10) - src/MiProyecto.API/Program.cs</span>
+<span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+builder.Services.AddOpenApi();</code></pre>
+<h4 id="7-registrar-en-contexto-2">7. Registrar en Contexto</h4>
+<p><strong>Actualizar <code>_hilo/ESTADO_PROYECTO.json</code>:</strong></p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;proyecto&quot;</span>: {
+    <span class="tk-s">&quot;dotnetVersion&quot;</span>: <span class="tk-s">&quot;10.0&quot;</span>,
+    <span class="tk-s">&quot;migracionDesde&quot;</span>: <span class="tk-s">&quot;8.0&quot;</span>,
+    <span class="tk-s">&quot;fechaMigracion&quot;</span>: <span class="tk-s">&quot;[FECHA]&quot;</span>
+  }
+}</code></pre>
+<p><strong>Añadir ADR en <code>_hilo/DECISIONES.md</code>:</strong></p>
+<pre data-lang="markdown"><code>### [ADR-XXX] Migración a .NET 10
+- **Fecha**: [FECHA]
+- **Estado**: Implementada
+- **Contexto**: .NET 9 finaliza soporte en Mayo 2026
+- **Decisión**: Migrar todos los proyectos en src/ a .NET 10
+- **Consecuencias**:
+  - Mejor rendimiento
+  - Soporte hasta 2028
+  - Requiere actualizar algunos paquetes NuGet</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-notas">
+<h3 id="notas">Notas</h3>
+<ul>
+<li>La migración debe hacerse en rama separada</li>
+<li>No mezclar migración con cambios funcionales</li>
+<li>Priorizar .NET 9 → .NET 10 (fin de soporte Mayo 2026)</li>
+<li>Documentar todo en <code>_hilo/DECISIONES.md</code></li>
+<li>El código está en <code>src/</code>, no en la raíz</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-relacionados">
+<h3 id="relacionados">Relacionados</h3>
+<ul>
+<li>/analizar - Análisis previo del proyecto</li>
+<li>/nuevo-evolutivo - Crear evolutivo de migración</li>
+<li>/test - Ejecutar tests de regresión</li>
+<li>/commit - Guardar cambios de migración</li>
+</ul>
+<hr>
+<p><em>Skill migrar · kind: workflow</em></p>
+</section>
+<section class="sec" id="sec-delegacion-en-agents">
+<h3 id="delegacion-en-agents">DELEGACION EN AGENTS</h3>
+<p>Estos agents trabajan en su propio contexto: devuelven un resumen y no gastan el de la sesion (ADR-028). Se invocan con la herramienta Task.</p>
+<h4 id="migration-assistant"><code>migration-assistant</code></h4>
+<p>Cuando planificar una migracion de .NET Framework 4.x a .NET 10 por capas:</p>
+<pre><code>Task tool con:
+  subagent_type: migration-assistant
+  prompt: &quot;Plan de migracion de {solucion} a .NET 10 por capas (Domain primero, Web al final),
+              minimizando cambios de comportamiento. Devolver el orden y los riesgos por capa.&quot;</code></pre>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>59</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 412 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>5 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(medida): Lote H - los instrumentos miden de verdad y la cobertura se declara (ADR-028)</em> (<code>fa757ef</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/migrar/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#extended-thinking-mode">🧠 Extended Thinking Mode</a></li><li class="l3"><a href="#importante-ubicación-del-código">IMPORTANTE: Ubicación del Código</a></li><li class="l3"><a href="#uso">Uso</a></li><li class="l3"><a href="#proceso">Proceso</a></li><li class="l3"><a href="#notas">Notas</a></li><li class="l3"><a href="#relacionados">Relacionados</a></li><li class="l3"><a href="#delegacion-en-agents">DELEGACION EN AGENTS</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

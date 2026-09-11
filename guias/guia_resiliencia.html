@@ -1,0 +1,607 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guia de Resiliencia · Ovillo</title><meta name="description" content="Guia de Resiliencia"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Guia de Resiliencia · Ovillo"><meta property="og:description" content="Guia de Resiliencia"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/guia_resiliencia.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/guia_resiliencia.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/guia_resiliencia.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 07_Resiliencia (1)</h4><ul class="sibs"><li><a href="../guias/guia_resiliencia.html" class="cur">Guia de Resiliencia</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 07_Resiliencia</span><span>Guia de Resiliencia</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 07_Resiliencia</span><span>español</span><span><a href="../guias/guia_resiliencia.en.html">English version</a></span></div><h1>Guia de Resiliencia</h1><div class="meta-grid"><div><b>5 min</b><span>lectura</span></div><div><b>1119</b><span>palabras</span></div><div><b>10</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>2</b><span>cambios</span></div></div><blockquote><p><strong>Version</strong>: 1.0.0 <strong>Fecha</strong>: 2026-02-10 <strong>Autor</strong>: la organización <strong>Proposito</strong>: Guia completa de resiliencia para proyectos .NET 10</p></blockquote>
+<hr>
+<section class="sec" id="sec-indice">
+<h3 id="indice">Indice</h3>
+<ol>
+<li><a href="#1-introduccion">Introduccion</a></li>
+<li><a href="#2-polly-v8">Polly v8+</a></li>
+<li><a href="#3-httpclientfactory--resilience">HttpClientFactory + Resilience</a></li>
+<li><a href="#4-health-checks">Health Checks</a></li>
+<li><a href="#5-graceful-shutdown">Graceful Shutdown</a></li>
+<li><a href="#6-estrategias-de-retry">Estrategias de Retry</a></li>
+<li><a href="#7-checklist-de-resiliencia">Checklist de Resiliencia</a></li>
+<li><a href="#8-paquetes-nuget">Paquetes NuGet</a></li>
+<li><a href="#9-referencias">Referencias</a></li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-1-introduccion">
+<h3 id="1-introduccion">1. Introduccion</h3>
+<h4 id="11-que-es-la-resiliencia">1.1 Que es la resiliencia</h4>
+<p>La resiliencia es la capacidad de un sistema para recuperarse de fallos y seguir funcionando de forma aceptable. En sistemas distribuidos (APIs, bases de datos, servicios externos), los fallos son inevitables. Un sistema resiliente asume que las cosas fallaran y esta preparado para gestionarlo.</p>
+<h4 id="12-por-que-importa-en-la-organización">1.2 Por que importa en la organización</h4>
+<ul>
+<li>Las aplicaciones dependen de SQL Server, Azure AD, servicios externos (Banner, Oracle HCM, Sigma)</li>
+<li>La infraestructura balanceada requiere que cada instancia gestione sus fallos de forma independiente</li>
+<li>Los picos de carga (matriculaciones, inicio de curso) pueden saturar servicios</li>
+</ul>
+<h4 id="13-patrones-clave-de-resiliencia">1.3 Patrones clave de resiliencia</h4>
+<div class="tbl"><table><thead><tr><th>Patron</th><th>Descripcion</th><th>Analogia</th></tr></thead><tbody><tr><td><strong>Retry</strong></td><td>Reintentar una operacion fallida con espera entre intentos</td><td>Llamar de nuevo a un telefono que comunica</td></tr><tr><td><strong>Circuit Breaker</strong></td><td>Dejar de llamar a un servicio que falla repetidamente para darle tiempo a recuperarse</td><td>Cortar la luz cuando hay sobrecarga electrica</td></tr><tr><td><strong>Timeout</strong></td><td>Limitar el tiempo maximo de espera de una operacion</td><td>No esperar indefinidamente en una cola</td></tr><tr><td><strong>Bulkhead</strong></td><td>Aislar fallos limitando recursos por servicio, evitando que un fallo se propague</td><td>Compartimentos estancos de un barco</td></tr><tr><td><strong>Fallback</strong></td><td>Proporcionar una respuesta alternativa cuando la operacion principal falla</td><td>Plan B preparado de antemano</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-2-polly-v8">
+<h3 id="2-polly-v8">2. Polly v8+</h3>
+<h4 id="21-api-de-resilience-pipeline-v8">2.1 API de Resilience Pipeline (v8+)</h4>
+<p>Polly v8 introduce una nueva API basada en <code>ResiliencePipeline</code> que reemplaza la antigua API de <code>Policy</code>. La nueva API es mas composable, mas eficiente y soporta generics de forma nativa.</p>
+<blockquote class="callout note"><p><strong>IMPORTANTE</strong>: No usar la API legacy de Policy (v7). Los ejemplos en este documento usan exclusivamente la API v8+.</p></blockquote>
+<h4 id="22-retry-reintentos-con-backoff-exponencial-y-jitter">2.2 Retry: reintentos con backoff exponencial y jitter</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly;
+<span class="tk-k">using</span> Polly.Retry;
+
+<span class="tk-c">// Configurar retry con backoff exponencial + jitter</span>
+<span class="tk-k">var</span> retryPipeline = <span class="tk-k">new</span> ResiliencePipelineBuilder&lt;HttpResponseMessage&gt;()
+    .AddRetry(<span class="tk-k">new</span> RetryStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        <span class="tk-c">// Cuantas veces reintentar</span>
+        MaxRetryAttempts = <span class="tk-n">3</span>,
+
+        <span class="tk-c">// Backoff exponencial con jitter (recomendado)</span>
+        BackoffType = DelayBackoffType.Exponential,
+        Delay = TimeSpan.FromSeconds(<span class="tk-n">1</span>),        <span class="tk-c">// 1s, 2s, 4s + jitter</span>
+        UseJitter = <span class="tk-k">true</span>,                        <span class="tk-c">// Evita &quot;thundering herd&quot;</span>
+
+        <span class="tk-c">// Que respuestas HTTP reintentar</span>
+        ShouldHandle = <span class="tk-k">new</span> PredicateBuilder&lt;HttpResponseMessage&gt;()
+            .Handle&lt;HttpRequestException&gt;()
+            .Handle&lt;TimeoutRejectedException&gt;()
+            .HandleResult(response =&gt;
+                response.StatusCode == System.Net.HttpStatusCode.RequestTimeout ||       <span class="tk-c">// 408</span>
+                response.StatusCode == System.Net.HttpStatusCode.TooManyRequests ||       <span class="tk-c">// 429</span>
+                response.StatusCode &gt;= System.Net.HttpStatusCode.InternalServerError),    <span class="tk-c">// 500+</span>
+
+        <span class="tk-c">// Logging de cada reintento</span>
+        OnRetry = args =&gt;
+        {
+            Log.Warning(
+                <span class="tk-s">&quot;Reintento {RetryAttempt} de {MaxRetries} tras {Delay}ms. Motivo: {Outcome}&quot;</span>,
+                args.AttemptNumber + <span class="tk-n">1</span>,
+                <span class="tk-n">3</span>,
+                args.RetryDelay.TotalMilliseconds,
+                args.Outcome.Exception?.Message ?? args.Outcome.Result?.StatusCode.ToString());
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        }
+    })
+    .Build();</code></pre>
+<h4 id="23-circuit-breaker-cortar-llamadas-a-servicios-que-fallan">2.3 Circuit Breaker: cortar llamadas a servicios que fallan</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly.CircuitBreaker;
+
+<span class="tk-k">var</span> circuitBreakerPipeline = <span class="tk-k">new</span> ResiliencePipelineBuilder&lt;HttpResponseMessage&gt;()
+    .AddCircuitBreaker(<span class="tk-k">new</span> CircuitBreakerStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        <span class="tk-c">// Abrir el circuito si falla el 50% de las peticiones</span>
+        FailureRatio = <span class="tk-n">0.5</span>,
+
+        <span class="tk-c">// En una ventana de muestreo de 30 segundos</span>
+        SamplingDuration = TimeSpan.FromSeconds(<span class="tk-n">30</span>),
+
+        <span class="tk-c">// Con un minimo de 10 peticiones para evaluar</span>
+        MinimumThroughput = <span class="tk-n">10</span>,
+
+        <span class="tk-c">// Mantener el circuito abierto durante 30 segundos</span>
+        BreakDuration = TimeSpan.FromSeconds(<span class="tk-n">30</span>),
+
+        <span class="tk-c">// Que se considera fallo</span>
+        ShouldHandle = <span class="tk-k">new</span> PredicateBuilder&lt;HttpResponseMessage&gt;()
+            .Handle&lt;HttpRequestException&gt;()
+            .Handle&lt;TimeoutRejectedException&gt;()
+            .HandleResult(r =&gt; r.StatusCode &gt;= System.Net.HttpStatusCode.InternalServerError),
+
+        <span class="tk-c">// Eventos del circuit breaker</span>
+        OnOpened = args =&gt;
+        {
+            Log.Warning(<span class="tk-s">&quot;Circuit Breaker ABIERTO. Duration: {BreakDuration}s. Motivo: {Outcome}&quot;</span>,
+                args.BreakDuration.TotalSeconds,
+                args.Outcome.Exception?.Message ?? <span class="tk-s">&quot;respuestas con error&quot;</span>);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        },
+        OnClosed = args =&gt;
+        {
+            Log.Information(<span class="tk-s">&quot;Circuit Breaker CERRADO. Servicio recuperado&quot;</span>);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        },
+        OnHalfOpened = args =&gt;
+        {
+            Log.Information(<span class="tk-s">&quot;Circuit Breaker SEMI-ABIERTO. Probando servicio...&quot;</span>);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        }
+    })
+    .Build();</code></pre>
+<h4 id="24-timeout-limitar-tiempo-de-espera">2.4 Timeout: limitar tiempo de espera</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly.Timeout;
+
+<span class="tk-k">var</span> timeoutPipeline = <span class="tk-k">new</span> ResiliencePipelineBuilder&lt;HttpResponseMessage&gt;()
+    .AddTimeout(<span class="tk-k">new</span> TimeoutStrategyOptions
+    {
+        <span class="tk-c">// Timeout por peticion individual</span>
+        Timeout = TimeSpan.FromSeconds(<span class="tk-n">10</span>),
+
+        OnTimeout = args =&gt;
+        {
+            Log.Warning(<span class="tk-s">&quot;Timeout alcanzado tras {Timeout}s&quot;</span>, args.Timeout.TotalSeconds);
+            <span class="tk-k">return</span> <span class="tk-k">default</span>;
+        }
+    })
+    .Build();</code></pre>
+<h4 id="25-bulkhead-limitar-peticiones-concurrentes">2.5 Bulkhead: limitar peticiones concurrentes</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Polly.RateLimiting;
+
+<span class="tk-k">var</span> bulkheadPipeline = <span class="tk-k">new</span> ResiliencePipelineBuilder&lt;HttpResponseMessage&gt;()
+    .AddConcurrencyLimiter(<span class="tk-k">new</span> ConcurrencyLimiterOptions
+    {
+        <span class="tk-c">// Maximo 25 peticiones concurrentes a este servicio</span>
+        PermitLimit = <span class="tk-n">25</span>,
+
+        <span class="tk-c">// Cola de espera de 50 peticiones</span>
+        QueueLimit = <span class="tk-n">50</span>
+    })
+    .Build();</code></pre>
+<h4 id="26-pipeline-combinado-recomendado">2.6 Pipeline combinado (recomendado)</h4>
+<p>El orden importa. Se ejecutan de fuera hacia dentro: Timeout total &gt; Retry &gt; Circuit Breaker &gt; Timeout por intento.</p>
+<pre data-lang="csharp"><code><span class="tk-c">// Pipeline combinado con orden correcto</span>
+<span class="tk-k">var</span> resiliencePipeline = <span class="tk-k">new</span> ResiliencePipelineBuilder&lt;HttpResponseMessage&gt;()
+    <span class="tk-c">// 1. Timeout total (para toda la operacion incluyendo retries)</span>
+    .AddTimeout(<span class="tk-k">new</span> TimeoutStrategyOptions
+    {
+        Timeout = TimeSpan.FromSeconds(<span class="tk-n">60</span>),
+        Name = <span class="tk-s">&quot;TotalTimeout&quot;</span>
+    })
+    <span class="tk-c">// 2. Retry (reintenta la operacion)</span>
+    .AddRetry(<span class="tk-k">new</span> RetryStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        MaxRetryAttempts = <span class="tk-n">3</span>,
+        BackoffType = DelayBackoffType.Exponential,
+        Delay = TimeSpan.FromSeconds(<span class="tk-n">1</span>),
+        UseJitter = <span class="tk-k">true</span>,
+        ShouldHandle = <span class="tk-k">new</span> PredicateBuilder&lt;HttpResponseMessage&gt;()
+            .Handle&lt;HttpRequestException&gt;()
+            .Handle&lt;TimeoutRejectedException&gt;()
+            .HandleResult(r =&gt; (<span class="tk-k">int</span>)r.StatusCode &gt;= <span class="tk-n">500</span>),
+        Name = <span class="tk-s">&quot;Retry&quot;</span>
+    })
+    <span class="tk-c">// 3. Circuit Breaker (protege el servicio destino)</span>
+    .AddCircuitBreaker(<span class="tk-k">new</span> CircuitBreakerStrategyOptions&lt;HttpResponseMessage&gt;
+    {
+        FailureRatio = <span class="tk-n">0.5</span>,
+        SamplingDuration = TimeSpan.FromSeconds(<span class="tk-n">30</span>),
+        MinimumThroughput = <span class="tk-n">10</span>,
+        BreakDuration = TimeSpan.FromSeconds(<span class="tk-n">30</span>),
+        ShouldHandle = <span class="tk-k">new</span> PredicateBuilder&lt;HttpResponseMessage&gt;()
+            .Handle&lt;HttpRequestException&gt;()
+            .HandleResult(r =&gt; (<span class="tk-k">int</span>)r.StatusCode &gt;= <span class="tk-n">500</span>),
+        Name = <span class="tk-s">&quot;CircuitBreaker&quot;</span>
+    })
+    <span class="tk-c">// 4. Timeout por intento individual</span>
+    .AddTimeout(<span class="tk-k">new</span> TimeoutStrategyOptions
+    {
+        Timeout = TimeSpan.FromSeconds(<span class="tk-n">10</span>),
+        Name = <span class="tk-s">&quot;AttemptTimeout&quot;</span>
+    })
+    .Build();</code></pre>
+<h4 id="27-nota-sobre-polly-v8-vs-v7">2.7 Nota sobre Polly v8 vs v7</h4>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>Polly v7 (legacy)</th><th>Polly v8+ (actual)</th></tr></thead><tbody><tr><td>API</td><td><code>Policy.Handle&lt;T&gt;().WaitAndRetryAsync()</code></td><td><code>ResiliencePipelineBuilder.AddRetry()</code></td></tr><tr><td>Composicion</td><td><code>Policy.WrapAsync()</code></td><td>Builder fluido con <code>.Add*()</code></td></tr><tr><td>Performance</td><td>Reflexion</td><td>Optimizado, menos allocations</td></tr><tr><td>Generics</td><td>Limitado</td><td>Nativo</td></tr><tr><td>Microsoft.Extensions</td><td>Separado</td><td>Integrado</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-3-httpclientfactory--resilience">
+<h3 id="3-httpclientfactory--resilience">3. HttpClientFactory + Resilience</h3>
+<h4 id="31-standard-resilience-handler">3.1 Standard Resilience Handler</h4>
+<p>.NET 10 incluye <code>Microsoft.Extensions.Http.Resilience</code> que integra Polly directamente con <code>HttpClientFactory</code>.</p>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - Resiliencia estandar (recomendado para la mayoria de casos)</span>
+builder.Services.AddHttpClient(<span class="tk-s">&quot;BannerApi&quot;</span>, client =&gt;
+{
+    client.BaseAddress = <span class="tk-k">new</span> Uri(builder.Configuration[<span class="tk-s">&quot;BannerApi:BaseUrl&quot;</span>]!);
+    client.DefaultRequestHeaders.Add(<span class="tk-s">&quot;Accept&quot;</span>, <span class="tk-s">&quot;application/json&quot;</span>);
+})
+.AddStandardResilienceHandler();
+<span class="tk-c">// ^ Incluye: Retry (3), Circuit Breaker, Timeout (30s), Bulkhead, Total Timeout</span></code></pre>
+<h4 id="32-resiliencia-personalizada-por-servicio">3.2 Resiliencia personalizada por servicio</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Configuracion personalizada para un servicio critico</span>
+builder.Services.AddHttpClient(<span class="tk-s">&quot;OracleHCM&quot;</span>, client =&gt;
+{
+    client.BaseAddress = <span class="tk-k">new</span> Uri(builder.Configuration[<span class="tk-s">&quot;OracleHCM:BaseUrl&quot;</span>]!);
+})
+.AddResilienceHandler(<span class="tk-s">&quot;oracle-resilience&quot;</span>, builder =&gt;
+{
+    <span class="tk-c">// Timeout total mas largo para Oracle</span>
+    builder.AddTimeout(<span class="tk-k">new</span> TimeoutStrategyOptions
+    {
+        Timeout = TimeSpan.FromSeconds(<span class="tk-n">90</span>)
+    });
+
+    builder.AddRetry(<span class="tk-k">new</span> HttpRetryStrategyOptions
+    {
+        MaxRetryAttempts = <span class="tk-n">2</span>,
+        BackoffType = DelayBackoffType.Exponential,
+        Delay = TimeSpan.FromSeconds(<span class="tk-n">2</span>),
+        UseJitter = <span class="tk-k">true</span>
+    });
+
+    builder.AddCircuitBreaker(<span class="tk-k">new</span> HttpCircuitBreakerStrategyOptions
+    {
+        FailureRatio = <span class="tk-n">0.3</span>,           <span class="tk-c">// Oracle es mas sensible</span>
+        SamplingDuration = TimeSpan.FromSeconds(<span class="tk-n">60</span>),
+        MinimumThroughput = <span class="tk-n">5</span>,
+        BreakDuration = TimeSpan.FromSeconds(<span class="tk-n">60</span>)
+    });
+
+    builder.AddTimeout(<span class="tk-k">new</span> TimeoutStrategyOptions
+    {
+        Timeout = TimeSpan.FromSeconds(<span class="tk-n">30</span>)
+    });
+});</code></pre>
+<h4 id="33-configuracion-via-appsettingsjson">3.3 Configuracion via appsettings.json</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;Resilience&quot;</span>: {
+    <span class="tk-s">&quot;BannerApi&quot;</span>: {
+      <span class="tk-s">&quot;Retry&quot;</span>: {
+        <span class="tk-s">&quot;MaxRetryAttempts&quot;</span>: <span class="tk-n">3</span>,
+        <span class="tk-s">&quot;BackoffType&quot;</span>: <span class="tk-s">&quot;Exponential&quot;</span>,
+        <span class="tk-s">&quot;DelaySeconds&quot;</span>: <span class="tk-n">1</span>,
+        <span class="tk-s">&quot;UseJitter&quot;</span>: true
+      },
+      <span class="tk-s">&quot;CircuitBreaker&quot;</span>: {
+        <span class="tk-s">&quot;FailureRatio&quot;</span>: <span class="tk-n">0.5</span>,
+        <span class="tk-s">&quot;SamplingDurationSeconds&quot;</span>: <span class="tk-n">30</span>,
+        <span class="tk-s">&quot;MinimumThroughput&quot;</span>: <span class="tk-n">10</span>,
+        <span class="tk-s">&quot;BreakDurationSeconds&quot;</span>: <span class="tk-n">30</span>
+      },
+      <span class="tk-s">&quot;Timeout&quot;</span>: {
+        <span class="tk-s">&quot;TimeoutSeconds&quot;</span>: <span class="tk-n">10</span>
+      },
+      <span class="tk-s">&quot;TotalTimeout&quot;</span>: {
+        <span class="tk-s">&quot;TimeoutSeconds&quot;</span>: <span class="tk-n">60</span>
+      }
+    }
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-health-checks">
+<h3 id="4-health-checks">4. Health Checks</h3>
+<h4 id="41-tres-endpoints-obligatorios">4.1 Tres endpoints obligatorios</h4>
+<div class="tbl"><table><thead><tr><th>Endpoint</th><th>Proposito</th><th>Que valida</th><th>Usado por</th></tr></thead><tbody><tr><td><code>/health</code></td><td>Estado general</td><td>Todo</td><td>Dashboards, monitoreo</td></tr><tr><td><code>/health/ready</code></td><td>Listo para recibir trafico</td><td>BD, dependencias externas</td><td>Load balancer, Kubernetes readiness</td></tr><tr><td><code>/health/live</code></td><td>La aplicacion esta viva</td><td>Self-check basico</td><td>Kubernetes liveness, supervisor</td></tr></tbody></table></div>
+<h4 id="42-diferencia-entre-liveness-y-readiness">4.2 Diferencia entre liveness y readiness</h4>
+<ul>
+<li><strong>Liveness</strong>: &quot;Esta el proceso vivo?&quot;. Si falla, reiniciar la instancia.</li>
+<li><strong>Readiness</strong>: &quot;Puede recibir trafico?&quot;. Si falla, sacar del balanceador (no reiniciar).</li>
+</ul>
+<p>Ejemplo: la aplicacion esta viva (liveness=OK) pero SQL Server esta caido (readiness=FAIL). El balanceador deja de enviar trafico pero no reinicia la instancia.</p>
+<h4 id="43-configuracion-completa">4.3 Configuracion completa</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+
+<span class="tk-c">// =============================================</span>
+<span class="tk-c">// Registrar health checks</span>
+<span class="tk-c">// =============================================</span>
+builder.Services.AddHealthChecks()
+    <span class="tk-c">// OBLIGATORIO: SQL Server (readiness)</span>
+    .AddSqlServer(
+        connectionString: builder.Configuration.GetConnectionString(<span class="tk-s">&quot;DefaultConnection&quot;</span>)!,
+        healthQuery: <span class="tk-s">&quot;SELECT 1&quot;</span>,
+        name: <span class="tk-s">&quot;sqlserver&quot;</span>,
+        failureStatus: HealthStatus.Unhealthy,
+        tags: [<span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;db&quot;</span>])
+
+    <span class="tk-c">// OBLIGATORIO: Self check (liveness)</span>
+    .AddCheck(<span class="tk-s">&quot;self&quot;</span>, () =&gt; HealthCheckResult.Healthy(<span class="tk-s">&quot;Aplicacion activa&quot;</span>),
+        tags: [<span class="tk-s">&quot;live&quot;</span>])
+
+    <span class="tk-c">// OPCIONAL: Redis (si se usa)</span>
+    .AddRedis(
+        redisConnectionString: builder.Configuration.GetConnectionString(<span class="tk-s">&quot;Redis&quot;</span>)!,
+        name: <span class="tk-s">&quot;redis&quot;</span>,
+        failureStatus: HealthStatus.Degraded,
+        tags: [<span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;cache&quot;</span>])
+
+    <span class="tk-c">// OPCIONAL: Azure Blob Storage (si se usa)</span>
+    .AddAzureBlobStorage(
+        connectionString: builder.Configuration.GetConnectionString(<span class="tk-s">&quot;AzureStorage&quot;</span>)!,
+        name: <span class="tk-s">&quot;azure-blob&quot;</span>,
+        failureStatus: HealthStatus.Degraded,
+        tags: [<span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;storage&quot;</span>])
+
+    <span class="tk-c">// OPCIONAL: API externa</span>
+    .AddUrlGroup(
+        <span class="tk-k">new</span> Uri(builder.Configuration[<span class="tk-s">&quot;BannerApi:HealthUrl&quot;</span>]!),
+        name: <span class="tk-s">&quot;banner-api&quot;</span>,
+        failureStatus: HealthStatus.Degraded,
+        tags: [<span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;external&quot;</span>]);
+
+<span class="tk-c">// =============================================</span>
+<span class="tk-c">// Mapear endpoints</span>
+<span class="tk-c">// =============================================</span>
+<span class="tk-k">var</span> app = builder.Build();
+
+<span class="tk-c">// Endpoint general</span>
+app.MapHealthChecks(<span class="tk-s">&quot;/health&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+
+<span class="tk-c">// Readiness: solo checks con tag &quot;ready&quot;</span>
+app.MapHealthChecks(<span class="tk-s">&quot;/health/ready&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+{
+    Predicate = check =&gt; check.Tags.Contains(<span class="tk-s">&quot;ready&quot;</span>),
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+
+<span class="tk-c">// Liveness: solo checks con tag &quot;live&quot;</span>
+app.MapHealthChecks(<span class="tk-s">&quot;/health/live&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+{
+    Predicate = check =&gt; check.Tags.Contains(<span class="tk-s">&quot;live&quot;</span>),
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});</code></pre>
+<h4 id="44-custom-health-check">4.4 Custom health check</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> BannerApiHealthCheck : IHealthCheck
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IHttpClientFactory _httpClientFactory;
+
+    <span class="tk-k">public</span> BannerApiHealthCheck(IHttpClientFactory httpClientFactory)
+    {
+        _httpClientFactory = httpClientFactory;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;HealthCheckResult&gt; CheckHealthAsync(
+        HealthCheckContext context,
+        CancellationToken cancellationToken = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-k">var</span> client = _httpClientFactory.CreateClient(<span class="tk-s">&quot;BannerApi&quot;</span>);
+            <span class="tk-k">var</span> response = <span class="tk-k">await</span> client.GetAsync(<span class="tk-s">&quot;/health&quot;</span>,
+                cancellationToken);
+
+            <span class="tk-k">if</span> (response.IsSuccessStatusCode)
+            {
+                <span class="tk-k">return</span> HealthCheckResult.Healthy(<span class="tk-s">&quot;Banner API disponible&quot;</span>);
+            }
+
+            <span class="tk-k">return</span> HealthCheckResult.Degraded(
+                <span class="tk-s">$&quot;Banner API responde con {response.StatusCode}&quot;</span>);
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            <span class="tk-k">return</span> HealthCheckResult.Unhealthy(
+                <span class="tk-s">&quot;Banner API no disponible&quot;</span>,
+                exception: ex);
+        }
+    }
+}
+
+<span class="tk-c">// Registrar</span>
+builder.Services.AddHealthChecks()
+    .AddCheck&lt;BannerApiHealthCheck&gt;(<span class="tk-s">&quot;banner-api&quot;</span>, tags: [<span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;external&quot;</span>]);</code></pre>
+<h4 id="45-seguridad-de-los-health-checks">4.5 Seguridad de los health checks</h4>
+<p>Los health checks NO deben exponer informacion sensible:</p>
+<pre data-lang="csharp"><code><span class="tk-c">// En produccion, limitar la informacion</span>
+app.MapHealthChecks(<span class="tk-s">&quot;/health&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+{
+    <span class="tk-c">// No mostrar detalles en produccion</span>
+    ResponseWriter = <span class="tk-k">async</span> (context, report) =&gt;
+    {
+        context.Response.ContentType = <span class="tk-s">&quot;application/json&quot;</span>;
+
+        <span class="tk-k">var</span> result = <span class="tk-k">new</span>
+        {
+            status = report.Status.ToString(),
+            <span class="tk-c">// Solo mostrar nombres de checks, no detalles</span>
+            checks = report.Entries.Select(e =&gt; <span class="tk-k">new</span>
+            {
+                name = e.Key,
+                status = e.Value.Status.ToString()
+                <span class="tk-c">// NO incluir: e.Value.Description, e.Value.Exception</span>
+            })
+        };
+
+        <span class="tk-k">await</span> context.Response.WriteAsJsonAsync(result);
+    }
+})
+.RequireAuthorization(); <span class="tk-c">// Proteger con autenticacion en produccion</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-graceful-shutdown">
+<h3 id="5-graceful-shutdown">5. Graceful Shutdown</h3>
+<h4 id="51-ihostapplicationlifetime">5.1 IHostApplicationLifetime</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - Configurar graceful shutdown</span>
+<span class="tk-k">var</span> app = builder.Build();
+
+<span class="tk-k">var</span> lifetime = app.Services.GetRequiredService&lt;IHostApplicationLifetime&gt;();
+
+lifetime.ApplicationStarted.Register(() =&gt;
+{
+    Log.Information(<span class="tk-s">&quot;Aplicacion iniciada&quot;</span>);
+});
+
+lifetime.ApplicationStopping.Register(() =&gt;
+{
+    Log.Warning(<span class="tk-s">&quot;Aplicacion deteniendose... Drenando peticiones&quot;</span>);
+});
+
+lifetime.ApplicationStopped.Register(() =&gt;
+{
+    Log.Information(<span class="tk-s">&quot;Aplicacion detenida correctamente&quot;</span>);
+});
+
+<span class="tk-c">// Configurar timeout de shutdown</span>
+builder.WebHost.ConfigureKestrel(options =&gt;
+{
+    <span class="tk-c">// Timeout para cerrar conexiones existentes</span>
+    options.Limits.KeepAliveTimeout = TimeSpan.FromSeconds(<span class="tk-n">30</span>);
+});
+
+<span class="tk-c">// Timeout global de shutdown</span>
+builder.Host.ConfigureHostOptions(options =&gt;
+{
+    options.ShutdownTimeout = TimeSpan.FromSeconds(<span class="tk-n">30</span>);
+});</code></pre>
+<h4 id="52-drain-requests-en-backgroundservice">5.2 Drain requests en BackgroundService</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> OrderProcessorWorker : BackgroundService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;OrderProcessorWorker&gt; _logger;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IServiceScopeFactory _scopeFactory;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ConcurrentDictionary&lt;Guid, Task&gt; _activeTasks = <span class="tk-k">new</span>();
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">async</span> Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        <span class="tk-k">while</span> (!stoppingToken.IsCancellationRequested)
+        {
+            <span class="tk-k">try</span>
+            {
+                <span class="tk-k">var</span> taskId = Guid.NewGuid();
+                <span class="tk-k">var</span> task = ProcessNextItemAsync(stoppingToken);
+                _activeTasks.TryAdd(taskId, task);
+
+                _ = task.ContinueWith(_ =&gt; _activeTasks.TryRemove(taskId, <span class="tk-k">out</span> _));
+
+                <span class="tk-k">await</span> Task.Delay(<span class="tk-n">1000</span>, stoppingToken);
+            }
+            <span class="tk-k">catch</span> (OperationCanceledException) when (stoppingToken.IsCancellationRequested)
+            {
+                <span class="tk-k">break</span>;
+            }
+        }
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">override</span> <span class="tk-k">async</span> Task StopAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogWarning(<span class="tk-s">&quot;Shutdown solicitado. Esperando {Count} tasks activas...&quot;</span>,
+            _activeTasks.Count);
+
+        <span class="tk-c">// Esperar a que terminen las tasks activas (con timeout)</span>
+        <span class="tk-k">if</span> (_activeTasks.Any())
+        {
+            <span class="tk-k">var</span> pendingTasks = _activeTasks.Values.ToArray();
+            <span class="tk-k">var</span> timeoutTask = Task.Delay(TimeSpan.FromSeconds(<span class="tk-n">30</span>), cancellationToken);
+
+            <span class="tk-k">await</span> Task.WhenAny(Task.WhenAll(pendingTasks), timeoutTask);
+
+            <span class="tk-k">var</span> remaining = _activeTasks.Count;
+            <span class="tk-k">if</span> (remaining &gt; <span class="tk-n">0</span>)
+            {
+                _logger.LogError(<span class="tk-s">&quot;Timeout de shutdown. {Count} tasks no completed&quot;</span>, remaining);
+            }
+        }
+
+        _logger.LogInformation(<span class="tk-s">&quot;Worker detenido correctamente&quot;</span>);
+        <span class="tk-k">await</span> <span class="tk-k">base</span>.StopAsync(cancellationToken);
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">async</span> Task ProcessNextItemAsync(CancellationToken ct)
+    {
+        <span class="tk-c">// Procesar item...</span>
+    }
+}</code></pre>
+<h4 id="53-signal-handling">5.3 Signal handling</h4>
+<p>.NET maneja automaticamente las senales de sistema cuando se usa el host generico:</p>
+<div class="tbl"><table><thead><tr><th>Senal</th><th>Plataforma</th><th>Accion .NET</th></tr></thead><tbody><tr><td><code>SIGTERM</code></td><td>Linux / Docker / Kubernetes</td><td>Dispara <code>ApplicationStopping</code>, inicia shutdown</td></tr><tr><td><code>SIGINT</code> (Ctrl+C)</td><td>Todas</td><td>Dispara <code>ApplicationStopping</code>, inicia shutdown</td></tr><tr><td>Windows Service Stop</td><td>Windows</td><td>Dispara <code>ApplicationStopping</code>, inicia shutdown</td></tr></tbody></table></div>
+<h4 id="54-deregistracion-del-load-balancer">5.4 Deregistracion del load balancer</h4>
+<p>El proceso recomendado de shutdown:</p>
+<pre><code>1. Load balancer envia SIGTERM
+2. Aplicacion marca /health/ready como Unhealthy
+3. Load balancer deja de enviar nuevas peticiones
+4. Aplicacion drena peticiones existentes (max 30s)
+5. Aplicacion cierra conexiones y libera recursos
+6. Proceso termina</code></pre>
+<pre data-lang="csharp"><code><span class="tk-c">// Marcar como no-ready durante shutdown</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ReadinessHealthCheck : IHealthCheck
+{
+    <span class="tk-k">private</span> <span class="tk-k">static</span> volatile <span class="tk-k">bool</span> _isReady = <span class="tk-k">true</span>;
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">void</span> SetNotReady() =&gt; _isReady = <span class="tk-k">false</span>;
+
+    <span class="tk-k">public</span> Task&lt;HealthCheckResult&gt; CheckHealthAsync(
+        HealthCheckContext context,
+        CancellationToken cancellationToken = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">return</span> Task.FromResult(_isReady
+            ? HealthCheckResult.Healthy(<span class="tk-s">&quot;Listo&quot;</span>)
+            : HealthCheckResult.Unhealthy(<span class="tk-s">&quot;Apagandose&quot;</span>));
+    }
+}
+
+<span class="tk-c">// En Program.cs</span>
+lifetime.ApplicationStopping.Register(() =&gt;
+{
+    ReadinessHealthCheck.SetNotReady();
+    <span class="tk-c">// Dar tiempo al load balancer para detectar el cambio</span>
+    Thread.Sleep(<span class="tk-n">5000</span>);
+});</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-6-estrategias-de-retry">
+<h3 id="6-estrategias-de-retry">6. Estrategias de Retry</h3>
+<h4 id="61-comparativa-de-estrategias">6.1 Comparativa de estrategias</h4>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>Delay entre reintentos</th><th>Cuando usar</th><th>Riesgo</th></tr></thead><tbody><tr><td><strong>Inmediato</strong></td><td>0, 0, 0</td><td>Nunca en produccion</td><td>Sobrecarga el servicio</td></tr><tr><td><strong>Intervalo fijo</strong></td><td>2s, 2s, 2s</td><td>Rara vez</td><td>Thundering herd</td></tr><tr><td><strong>Exponencial</strong></td><td>1s, 2s, 4s</td><td>Aceptable</td><td>Reintentos sincronizados</td></tr><tr><td><strong>Exponencial + jitter</strong></td><td>1.2s, 2.7s, 3.9s</td><td><strong>RECOMENDADO</strong></td><td>Bajo riesgo</td></tr></tbody></table></div>
+<blockquote><p><strong>Jitter</strong> anade una variacion aleatoria al delay para evitar que multiples instancias reintenten al mismo tiempo (thundering herd problem).</p></blockquote>
+<h4 id="62-cuando-reintentar">6.2 Cuando reintentar</h4>
+<p><strong>Reintentar (fallos transitorios):</strong></p>
+<div class="tbl"><table><thead><tr><th>Codigo HTTP</th><th>Descripcion</th><th>Reintentable</th></tr></thead><tbody><tr><td>408</td><td>Request Timeout</td><td>Si</td></tr><tr><td>429</td><td>Too Many Requests</td><td>Si (respetar Retry-After header)</td></tr><tr><td>500</td><td>Internal Server Error</td><td>Si</td></tr><tr><td>502</td><td>Bad Gateway</td><td>Si</td></tr><tr><td>503</td><td>Service Unavailable</td><td>Si</td></tr><tr><td>504</td><td>Gateway Timeout</td><td>Si</td></tr></tbody></table></div>
+<p><strong>NO reintentar (fallos permanentes):</strong></p>
+<div class="tbl"><table><thead><tr><th>Codigo HTTP</th><th>Descripcion</th><th>Por que no reintentar</th></tr></thead><tbody><tr><td>400</td><td>Bad Request</td><td>Los datos enviados son incorrectos</td></tr><tr><td>401</td><td>Unauthorized</td><td>Credenciales invalidas</td></tr><tr><td>403</td><td>Forbidden</td><td>Sin permisos</td></tr><tr><td>404</td><td>Not Found</td><td>El recurso no existe</td></tr><tr><td>409</td><td>Conflict</td><td>Conflicto de estado</td></tr><tr><td>422</td><td>Unprocessable Entity</td><td>Validacion fallida</td></tr></tbody></table></div>
+<h4 id="63-idempotencia">6.3 Idempotencia</h4>
+<p>Antes de reintentar una operacion de escritura, asegurar que es <strong>idempotente</strong> (ejecutarla multiples veces produce el mismo resultado):</p>
+<pre data-lang="csharp"><code><span class="tk-c">// IDEMPOTENTE: Usar un IdempotencyKey unico por operacion</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> CreateScholarshipCommand
+{
+    <span class="tk-c">// Si el retry reenvia el mismo comando, el servidor detecta el duplicado</span>
+    <span class="tk-k">public</span> Guid IdempotencyKey { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = Guid.NewGuid();
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Name { <span class="tk-k">get</span>; <span class="tk-k">init</span>; } = <span class="tk-k">string</span>.Empty;
+    <span class="tk-k">public</span> <span class="tk-k">decimal</span> Amount { <span class="tk-k">get</span>; <span class="tk-k">init</span>; }
+}
+
+<span class="tk-c">// En el handler</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto&gt; Handle(CreateScholarshipCommand request, CancellationToken ct)
+{
+    <span class="tk-c">// Verificar si ya se proceso esta operacion</span>
+    <span class="tk-k">var</span> existing = <span class="tk-k">await</span> _repository.GetByIdempotencyKeyAsync(request.IdempotencyKey, ct);
+    <span class="tk-k">if</span> (existing <span class="tk-k">is</span> not <span class="tk-k">null</span>)
+    {
+        <span class="tk-k">return</span> existing.ToDto(); <span class="tk-c">// Retornar resultado anterior sin duplicar</span>
+    }
+
+    <span class="tk-c">// Procesar normalmente...</span>
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-7-checklist-de-resiliencia">
+<h3 id="7-checklist-de-resiliencia">7. Checklist de Resiliencia</h3>
+<h4 id="antes-de-ir-a-produccion">Antes de ir a produccion</h4>
+<ul>
+<li><input type="checkbox" disabled> Health checks configurados: <code>/health</code>, <code>/health/ready</code>, <code>/health/live</code></li>
+<li><input type="checkbox" disabled> SQL Server health check registrado como obligatorio</li>
+<li><input type="checkbox" disabled> Polly resilience pipelines para todos los <code>HttpClient</code> que llaman a servicios externos</li>
+<li><input type="checkbox" disabled> Circuit breaker configurado para cada servicio externo (Banner, Oracle HCM, Sigma)</li>
+<li><input type="checkbox" disabled> Timeout configurado en todas las llamadas HTTP (30s default, ajustar por servicio)</li>
+<li><input type="checkbox" disabled> Retry con backoff exponencial + jitter (3 intentos maximo)</li>
+<li><input type="checkbox" disabled> Graceful shutdown implementado con timeout de 30 segundos</li>
+<li><input type="checkbox" disabled> Logs de resiliencia: cada retry, cada apertura/cierre de circuit breaker</li>
+<li><input type="checkbox" disabled> Operaciones de escritura con retry son idempotentes</li>
+<li><input type="checkbox" disabled> Health check UI habilitado solo en desarrollo (no exponer en produccion)</li>
+<li><input type="checkbox" disabled> Health checks de produccion protegidos con autenticacion o IP whitelist</li>
+<li><input type="checkbox" disabled> <code>AddStandardResilienceHandler()</code> como minimo para HttpClients sin configuracion especifica</li>
+<li><input type="checkbox" disabled> Alertas configuradas para circuit breakers abiertos prolongadamente</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-8-paquetes-nuget">
+<h3 id="8-paquetes-nuget">8. Paquetes NuGet</h3>
+<div class="tbl"><table><thead><tr><th>Paquete</th><th>Version</th><th>Proposito</th></tr></thead><tbody><tr><td><code>Microsoft.Extensions.Http.Resilience</code></td><td>10.*</td><td>Integracion Polly + HttpClientFactory (.NET 10)</td></tr><tr><td><code>Polly.Core</code></td><td>8.*</td><td>Core de Polly v8 (ResiliencePipeline)</td></tr><tr><td><code>Polly.Extensions</code></td><td>8.*</td><td>Extensiones para DI y telemetria</td></tr><tr><td><code>Microsoft.Extensions.Http.Polly</code></td><td>8.*</td><td>Polly + HttpClientFactory (alternativa legacy)</td></tr><tr><td><code>AspNetCore.HealthChecks.SqlServer</code></td><td>8.*</td><td>Health check para SQL Server</td></tr><tr><td><code>AspNetCore.HealthChecks.Redis</code></td><td>8.*</td><td>Health check para Redis</td></tr><tr><td><code>AspNetCore.HealthChecks.AzureBlobStorage</code></td><td>8.*</td><td>Health check para Azure Blob Storage</td></tr><tr><td><code>AspNetCore.HealthChecks.Uris</code></td><td>8.*</td><td>Health check para URLs externas</td></tr><tr><td><code>AspNetCore.HealthChecks.UI</code></td><td>8.*</td><td>UI para visualizar health checks (solo dev)</td></tr><tr><td><code>AspNetCore.HealthChecks.UI.Client</code></td><td>8.*</td><td>Serializer para respuestas detalladas</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-9-referencias">
+<h3 id="9-referencias">9. Referencias</h3>
+<h4 id="archivos-relacionados-en-la-plantilla">Archivos relacionados en la plantilla</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Contenido</th></tr></thead><tbody><tr><td><code>.claude/skills/resilience-patterns/</code></td><td>Skill de patrones de resiliencia</td></tr><tr><td><code>.claude/skills/console/SKILL.md</code></td><td>Graceful shutdown en Worker Services</td></tr><tr><td><code>_patron/01_Estructura_Tecnica/ESTRUCTURA_TECNICA.md</code></td><td>Infraestructura balanceada (seccion 4)</td></tr><tr><td><code>_patron/06_Observabilidad/GUIA_OBSERVABILIDAD.md</code></td><td>Logging y metricas de resiliencia</td></tr></tbody></table></div>
+<h4 id="documentacion-externa">Documentacion externa</h4>
+<div class="tbl"><table><thead><tr><th>Recurso</th><th>URL</th></tr></thead><tbody><tr><td>Polly v8 Documentation</td><td>github.com/App-vNext/Polly</td></tr><tr><td>Microsoft Resilience Extensions</td><td>learn.microsoft.com/dotnet/core/resilience</td></tr><tr><td>Health Checks in ASP.NET Core</td><td>learn.microsoft.com/aspnet/core/host-and-deploy/health-checks</td></tr><tr><td>Cloud Design Patterns - Retry</td><td>learn.microsoft.com/azure/architecture/patterns/retry</td></tr><tr><td>Cloud Design Patterns - Circuit Breaker</td><td>learn.microsoft.com/azure/architecture/patterns/circuit-breaker</td></tr></tbody></table></div>
+<hr>
+<p><em>Documento generado: 2026-02-10</em> <em>la organización</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/07_Resiliencia/GUIA_RESILIENCIA.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/application.html">application</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/resilience-patterns.html">resilience-patterns</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/07_Resiliencia/GUIA_RESILIENCIA.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#indice">Indice</a></li><li class="l2"><a href="#1-introduccion">1. Introduccion</a></li><li class="l3"><a href="#11-que-es-la-resiliencia">1.1 Que es la resiliencia</a></li><li class="l3"><a href="#12-por-que-importa-en-la-organización">1.2 Por que importa en la organización</a></li><li class="l3"><a href="#13-patrones-clave-de-resiliencia">1.3 Patrones clave de resiliencia</a></li><li class="l2"><a href="#2-polly-v8">2. Polly v8+</a></li><li class="l3"><a href="#21-api-de-resilience-pipeline-v8">2.1 API de Resilience Pipeline (v8+)</a></li><li class="l3"><a href="#22-retry-reintentos-con-backoff-exponencial-y-jitter">2.2 Retry: reintentos con backoff exponencial y jitter</a></li><li class="l3"><a href="#23-circuit-breaker-cortar-llamadas-a-servicios-que-fallan">2.3 Circuit Breaker: cortar llamadas a servicios que fallan</a></li><li class="l3"><a href="#24-timeout-limitar-tiempo-de-espera">2.4 Timeout: limitar tiempo de espera</a></li><li class="l3"><a href="#25-bulkhead-limitar-peticiones-concurrentes">2.5 Bulkhead: limitar peticiones concurrentes</a></li><li class="l3"><a href="#26-pipeline-combinado-recomendado">2.6 Pipeline combinado (recomendado)</a></li><li class="l3"><a href="#27-nota-sobre-polly-v8-vs-v7">2.7 Nota sobre Polly v8 vs v7</a></li><li class="l2"><a href="#3-httpclientfactory--resilience">3. HttpClientFactory + Resilience</a></li><li class="l3"><a href="#31-standard-resilience-handler">3.1 Standard Resilience Handler</a></li><li class="l3"><a href="#32-resiliencia-personalizada-por-servicio">3.2 Resiliencia personalizada por servicio</a></li><li class="l3"><a href="#33-configuracion-via-appsettingsjson">3.3 Configuracion via appsettings.json</a></li><li class="l2"><a href="#4-health-checks">4. Health Checks</a></li><li class="l3"><a href="#41-tres-endpoints-obligatorios">4.1 Tres endpoints obligatorios</a></li><li class="l3"><a href="#42-diferencia-entre-liveness-y-readiness">4.2 Diferencia entre liveness y readiness</a></li><li class="l3"><a href="#43-configuracion-completa">4.3 Configuracion completa</a></li><li class="l3"><a href="#44-custom-health-check">4.4 Custom health check</a></li><li class="l3"><a href="#45-seguridad-de-los-health-checks">4.5 Seguridad de los health checks</a></li><li class="l2"><a href="#5-graceful-shutdown">5. Graceful Shutdown</a></li><li class="l3"><a href="#51-ihostapplicationlifetime">5.1 IHostApplicationLifetime</a></li><li class="l3"><a href="#52-drain-requests-en-backgroundservice">5.2 Drain requests en BackgroundService</a></li><li class="l3"><a href="#53-signal-handling">5.3 Signal handling</a></li><li class="l3"><a href="#54-deregistracion-del-load-balancer">5.4 Deregistracion del load balancer</a></li><li class="l2"><a href="#6-estrategias-de-retry">6. Estrategias de Retry</a></li><li class="l3"><a href="#61-comparativa-de-estrategias">6.1 Comparativa de estrategias</a></li><li class="l3"><a href="#62-cuando-reintentar">6.2 Cuando reintentar</a></li><li class="l3"><a href="#63-idempotencia">6.3 Idempotencia</a></li><li class="l2"><a href="#7-checklist-de-resiliencia">7. Checklist de Resiliencia</a></li><li class="l3"><a href="#antes-de-ir-a-produccion">Antes de ir a produccion</a></li><li class="l2"><a href="#8-paquetes-nuget">8. Paquetes NuGet</a></li><li class="l2"><a href="#9-referencias">9. Referencias</a></li><li class="l3"><a href="#archivos-relacionados-en-la-plantilla">Archivos relacionados en la plantilla</a></li><li class="l3"><a href="#documentacion-externa">Documentacion externa</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

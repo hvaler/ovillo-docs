@@ -1,0 +1,290 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · references/test-templates.md · Ovillo</title><meta name="description" content="Fichero references/test-templates.md de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · references/test-templates.md · Ovillo"><meta property="og:description" content="Fichero references/test-templates.md de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/references/test-templates.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/references/test-templates.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/references/test-templates.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (16)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html" class="cur">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>references</span><span>test-templates.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>references/</span></div><h1>test-templates.md</h1><p class="lede">Referencia que <code>testing-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>7951 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Plantillas completas de tests para diferentes capas y patrones. Incluye: test unitario de service, test de entidad, test de value object, test de integración.</p></blockquote>
+<hr>
+<section class="sec" id="sec-test-unitario---service">
+<h3 id="test-unitario---service">Test Unitario - Service</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipServiceTests
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;IScholarshipRepository&gt; _repositoryMock;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;ILogger&lt;ScholarshipService&gt;&gt; _loggerMock;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ScholarshipService _sut; <span class="tk-c">// System Under Test</span>
+
+    <span class="tk-k">public</span> ScholarshipServiceTests()
+    {
+        _repositoryMock = <span class="tk-k">new</span> Mock&lt;IScholarshipRepository&gt;();
+        _loggerMock = <span class="tk-k">new</span> Mock&lt;ILogger&lt;ScholarshipService&gt;&gt;();
+        _sut = <span class="tk-k">new</span> ScholarshipService(_repositoryMock.Object, _loggerMock.Object);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetById_ScholarshipExists_ReturnsScholarshipDto()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> scholarshipId = <span class="tk-n">1</span>;
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">new</span> Scholarship { Id = scholarshipId, Name = <span class="tk-s">&quot;Test&quot;</span>, Amount = 5000m };
+
+        _repositoryMock
+            .Setup(r =&gt; r.GetByIdAsync(scholarshipId, It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync(scholarship);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.GetByIdAsync(scholarshipId);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().NotBeNull();
+        result!.Id.Should().Be(scholarshipId);
+        result.Name.Should().Be(<span class="tk-s">&quot;Test&quot;</span>);
+
+        _repositoryMock.Verify(
+            r =&gt; r.GetByIdAsync(scholarshipId, It.IsAny&lt;CancellationToken&gt;()),
+            Times.Once);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetById_ScholarshipDoesNotExist_ReturnsNull()
+    {
+        <span class="tk-c">// Arrange</span>
+        _repositoryMock
+            .Setup(r =&gt; r.GetByIdAsync(It.IsAny&lt;<span class="tk-k">int</span>&gt;(), It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync((Scholarship?)<span class="tk-k">null</span>);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.GetByIdAsync(<span class="tk-n">999</span>);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().BeNull();
+    }
+
+    [Theory]
+    [InlineData(<span class="tk-s">&quot;&quot;</span>)]
+    [InlineData(<span class="tk-k">null</span>)]
+    [InlineData(<span class="tk-s">&quot;   &quot;</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_InvalidName_ThrowsValidationException(<span class="tk-k">string</span>? name)
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> CreateScholarshipRequest { Name = name!, Amount = 1000m };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> act = () =&gt; _sut.CreateAsync(request);
+
+        <span class="tk-c">// Assert</span>
+        <span class="tk-k">await</span> act.Should().ThrowAsync&lt;ValidationException&gt;()
+            .WithMessage(<span class="tk-s">&quot;*name*&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-test-de-entidad-domain">
+<h3 id="test-de-entidad-domain">Test de Entidad (Domain)</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipTests
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Crear_ValidData_CreatesScholarshipEnDraft()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> period = <span class="tk-k">new</span> Period(
+            DateTime.Today.AddDays(<span class="tk-n">1</span>),
+            DateTime.Today.AddMonths(<span class="tk-n">6</span>));
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> scholarship = Scholarship.Create(<span class="tk-s">&quot;BECA-001&quot;</span>, <span class="tk-s">&quot;Test&quot;</span>, 5000m, period);
+
+        <span class="tk-c">// Assert</span>
+        scholarship.Should().NotBeNull();
+        scholarship.Status.Should().Be(ScholarshipStatus.Draft);
+        scholarship.DomainEvents.Should().ContainSingle()
+            .Which.Should().BeOfType&lt;ScholarshipCreatedEvent&gt;();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Publicar_EstadoDraft_CambiaAPublished()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> scholarship = CreateScholarshipValida();
+
+        <span class="tk-c">// Act</span>
+        scholarship.Publish();
+
+        <span class="tk-c">// Assert</span>
+        scholarship.Status.Should().Be(ScholarshipStatus.Published);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Publicar_YaPublished_ThrowsExcepcion()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> scholarship = CreateScholarshipValida();
+        scholarship.Publish();
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> act = () =&gt; scholarship.Publish();
+
+        <span class="tk-c">// Assert</span>
+        act.Should().Throw&lt;DomainException&gt;()
+            .WithMessage(<span class="tk-s">&quot;*borrador*&quot;</span>);
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">static</span> Scholarship CreateScholarshipValida()
+    {
+        <span class="tk-k">var</span> period = <span class="tk-k">new</span> Period(
+            DateTime.Today.AddDays(<span class="tk-n">1</span>),
+            DateTime.Today.AddMonths(<span class="tk-n">6</span>));
+        <span class="tk-k">return</span> Scholarship.Create(<span class="tk-s">&quot;BECA-001&quot;</span>, <span class="tk-s">&quot;Test&quot;</span>, 5000m, period);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-test-de-value-object">
+<h3 id="test-de-value-object">Test de Value Object</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> PeriodTests
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Constructor_ValidDates_CreatesPeriod()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> start = DateTime.Today;
+        <span class="tk-k">var</span> end = DateTime.Today.AddMonths(<span class="tk-n">6</span>);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> period = <span class="tk-k">new</span> Period(start, end);
+
+        <span class="tk-c">// Assert</span>
+        period.StartDate.Should().Be(start);
+        period.EndDate.Should().Be(end);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Constructor_EndDateAnterior_ThrowsExcepcion()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> start = DateTime.Today;
+        <span class="tk-k">var</span> end = DateTime.Today.AddDays(-1);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> act = () =&gt; <span class="tk-k">new</span> Period(start, end);
+
+        <span class="tk-c">// Assert</span>
+        act.Should().Throw&lt;DomainException&gt;()
+            .WithMessage(<span class="tk-s">&quot;*posterior*&quot;</span>);
+    }
+
+    [Theory]
+    [InlineData(<span class="tk-n">0</span>, <span class="tk-k">true</span>)]   <span class="tk-c">// Hoy, dentro</span>
+    [InlineData(<span class="tk-n">90</span>, <span class="tk-k">true</span>)]  <span class="tk-c">// Dentro</span>
+    [InlineData(-1, <span class="tk-k">false</span>)] <span class="tk-c">// Antes</span>
+    [InlineData(<span class="tk-n">200</span>, <span class="tk-k">false</span>)] <span class="tk-c">// Después</span>
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Contiene_VariasFechas_ReturnsEsperado(<span class="tk-k">int</span> diasDesdeInicio, <span class="tk-k">bool</span> expected)
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> start = DateTime.Today;
+        <span class="tk-k">var</span> end = DateTime.Today.AddMonths(<span class="tk-n">6</span>);
+        <span class="tk-k">var</span> period = <span class="tk-k">new</span> Period(start, end);
+        <span class="tk-k">var</span> date = start.AddDays(diasDesdeInicio);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = period.Contains(date);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().Be(expected);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Equals_MismoValor_SonIguales()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> start = DateTime.Today;
+        <span class="tk-k">var</span> end = DateTime.Today.AddMonths(<span class="tk-n">6</span>);
+        <span class="tk-k">var</span> periodo1 = <span class="tk-k">new</span> Period(start, end);
+        <span class="tk-k">var</span> periodo2 = <span class="tk-k">new</span> Period(start, end);
+
+        <span class="tk-c">// Act &amp; Assert</span>
+        periodo1.Should().Be(periodo2);
+        (periodo1 == periodo2).Should().BeTrue();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-test-de-integración">
+<h3 id="test-de-integración">Test de Integración</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> WebApplicationFixture : WebApplicationFactory&lt;Program&gt;, IAsyncLifetime
+{
+    <span class="tk-k">private</span> MsSqlContainer _sqlContainer = <span class="tk-k">null</span>!;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task InitializeAsync()
+    {
+        _sqlContainer = <span class="tk-k">new</span> MsSqlBuilder()
+            .WithImage(<span class="tk-s">&quot;mcr.microsoft.com/mssql/server:2022-latest&quot;</span>)
+            .Build();
+
+        <span class="tk-k">await</span> _sqlContainer.StartAsync();
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">void</span> ConfigureWebHost(IWebHostBuilder builder)
+    {
+        builder.ConfigureServices(services =&gt;
+        {
+            <span class="tk-c">// Reemplazar DbContext</span>
+            <span class="tk-k">var</span> descriptor = services.SingleOrDefault(
+                d =&gt; d.ServiceType == <span class="tk-k">typeof</span>(DbContextOptions&lt;ApplicationDbContext&gt;));
+
+            <span class="tk-k">if</span> (descriptor != <span class="tk-k">null</span>)
+                services.Remove(descriptor);
+
+            services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+                options.UseSqlServer(_sqlContainer.GetConnectionString()));
+        });
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">new</span> <span class="tk-k">async</span> Task DisposeAsync()
+    {
+        <span class="tk-k">await</span> _sqlContainer.DisposeAsync();
+    }
+}
+
+[Collection(<span class="tk-s">&quot;Integration&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsControllerTests : IClassFixture&lt;WebApplicationFixture&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> HttpClient _client;
+
+    <span class="tk-k">public</span> ScholarshipsControllerTests(WebApplicationFixture factory)
+    {
+        _client = factory.CreateClient();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetAll_ReturnsOk()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_ValidRequest_ReturnsCreated()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> { Name = <span class="tk-s">&quot;Test&quot;</span>, Amount = 5000m };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.PostAsJsonAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>, request);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.Created);
+        response.Headers.Location.Should().NotBeNull();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_InvalidRequest_ReturnsBadRequest()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> { Name = <span class="tk-s">&quot;&quot;</span>, Amount = -100m };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.PostAsJsonAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>, request);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+}</code></pre>
+</section><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/references/test-helpers.html"><small>Anterior</small>references/test-helpers.md</a><a class="next" href="../../../skills/testing-patterns/references/workflow-test.html"><small>Siguiente</small>references/workflow-test.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/references/test-templates.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#test-unitario---service">Test Unitario - Service</a></li><li class="l2"><a href="#test-de-entidad-domain">Test de Entidad (Domain)</a></li><li class="l2"><a href="#test-de-value-object">Test de Value Object</a></li><li class="l2"><a href="#test-de-integración">Test de Integración</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

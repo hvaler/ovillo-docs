@@ -1,0 +1,94 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>postman-collection · patterns/azure-ad-auth.md · Ovillo</title><meta name="description" content="Fichero patterns/azure-ad-auth.md de la skill postman-collection"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="postman-collection · patterns/azure-ad-auth.md · Ovillo"><meta property="og:description" content="Fichero patterns/azure-ad-auth.md de la skill postman-collection"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/postman-collection/patterns/azure-ad-auth.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/postman-collection/patterns/azure-ad-auth.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/postman-collection/patterns/azure-ad-auth.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de postman-collection (16)</h4><ul class="sibs"><li><a href="../../../skills/postman-collection/checklists/auth-configuration-checklist.html">checklists/auth-configuration-checklist.md</a></li><li><a href="../../../skills/postman-collection/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/postman-collection/patterns/auth-detection.html">patterns/auth-detection.md</a></li><li><a href="../../../skills/postman-collection/patterns/azure-ad-auth.html" class="cur">patterns/azure-ad-auth.md</a></li><li><a href="../../../skills/postman-collection/patterns/http-signature-mtls.html">patterns/http-signature-mtls.md</a></li><li><a href="../../../skills/postman-collection/patterns/oauth2-token-lifecycle.html">patterns/oauth2-token-lifecycle.md</a></li><li><a href="../../../skills/postman-collection/references/auth-examples.html">references/auth-examples.md</a></li><li><a href="../../../skills/postman-collection/references/test-assertions.html">references/test-assertions.md</a></li><li><a href="../../../skills/postman-collection/references/workflow-postman.html">references/workflow-postman.md</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-apikey.js.html">templates/auth-prerequest-apikey.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-azuread.js.html">templates/auth-prerequest-azuread.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-basic.js.html">templates/auth-prerequest-basic.js.template</a></li><li><a href="../../../skills/postman-collection/templates/collection.json.html">templates/collection.json.template</a></li><li><a href="../../../skills/postman-collection/templates/environment.json.html">templates/environment.json.template</a></li><li><a href="../../../skills/postman-collection/templates/request.json.html">templates/request.json.template</a></li><li><a href="../../../skills/postman-collection/templates/tests.js.html">templates/tests.js.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/postman-collection.html">postman-collection</a></span><span>patterns</span><span>azure-ad-auth.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>postman-collection</span><span>patterns/</span></div><h1>azure-ad-auth.md</h1><p class="lede">Referencia que <code>postman-collection</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/postman-collection.html">postman-collection</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>4376 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Purpose</strong>: Configure Postman collections for APIs protected by Azure AD. <strong>Version</strong>: 1.0.0</p></blockquote>
+<hr>
+<section class="sec" id="sec-environment-variables-per-environment">
+<h3 id="environment-variables-per-environment">Environment Variables per Environment</h3>
+<h4 id="development">Development</h4>
+<div class="tbl"><table><thead><tr><th>Variable</th><th>Value</th><th>Type</th></tr></thead><tbody><tr><td><code>tenantId</code></td><td><code>{dev-tenant-id}</code></td><td>default</td></tr><tr><td><code>clientId</code></td><td><code>{dev-client-id}</code></td><td>default</td></tr><tr><td><code>clientSecret</code></td><td><code>{dev-client-secret}</code></td><td><strong>secret</strong></td></tr><tr><td><code>scope</code></td><td><code>api://{dev-client-id}/.default</code></td><td>default</td></tr><tr><td><code>azureAdTokenUrl</code></td><td><code>https://login.microsoftonline.com/{dev-tenant-id}/oauth2/v2.0/token</code></td><td>default</td></tr></tbody></table></div>
+<h4 id="pre-production--production">Pre-production / Production</h4>
+<p>Same structure, different values per App Registration. Each environment has its own App Registration in Azure portal.</p>
+<blockquote><p><strong>Important</strong>: Never share client secrets between environments. Each environment should use its own App Registration with appropriate permissions.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-pre-request-script-collection-level">
+<h3 id="pre-request-script-collection-level">Pre-Request Script (Collection Level)</h3>
+<p>Use <code>auth-prerequest-azuread.js.template</code> at the collection level. It handles:</p>
+<ol>
+<li><strong>Token caching</strong> - Stores token in environment variable</li>
+<li><strong>Expiry check</strong> - 60-second buffer before requesting new token</li>
+<li><strong>Error handling</strong> - Console error with descriptive messages</li>
+<li><strong>Automatic refresh</strong> - Requests new token when expired</li>
+</ol>
+<h4 id="client-credentials-flow-machine-to-machine">Client Credentials Flow (Machine-to-Machine)</h4>
+<pre data-lang="javascript"><code><span class="tk-c">// This is the most common flow for API testing at the organization</span>
+<span class="tk-c">// App Registration → API Permissions → Application permissions</span>
+grant_type: <span class="tk-s">&quot;client_credentials&quot;</span>
+scope: <span class="tk-s">&quot;api://{clientId}/.default&quot;</span></code></pre>
+<h4 id="on-behalf-of-flow-user-delegation">On-Behalf-Of Flow (User Delegation)</h4>
+<p>For APIs that require user context (e.g., accessing downstream APIs on behalf of the user):</p>
+<pre data-lang="javascript"><code><span class="tk-c">// Requires user token first (from login or Azure AD auth code flow)</span>
+pm.sendRequest({
+    url: pm.environment.get(<span class="tk-s">&quot;azureAdTokenUrl&quot;</span>),
+    method: <span class="tk-s">&quot;POST&quot;</span>,
+    header: { <span class="tk-s">&quot;Content-Type&quot;</span>: <span class="tk-s">&quot;application/x-www-form-urlencoded&quot;</span> },
+    body: {
+        mode: <span class="tk-s">&quot;urlencoded&quot;</span>,
+        urlencoded: [
+            { key: <span class="tk-s">&quot;grant_type&quot;</span>, value: <span class="tk-s">&quot;urn:ietf:params:oauth:grant-type:jwt-bearer&quot;</span> },
+            { key: <span class="tk-s">&quot;client_id&quot;</span>, value: pm.environment.get(<span class="tk-s">&quot;clientId&quot;</span>) },
+            { key: <span class="tk-s">&quot;client_secret&quot;</span>, value: pm.environment.get(<span class="tk-s">&quot;clientSecret&quot;</span>) },
+            { key: <span class="tk-s">&quot;assertion&quot;</span>, value: pm.environment.get(<span class="tk-s">&quot;userToken&quot;</span>) },
+            { key: <span class="tk-s">&quot;scope&quot;</span>, value: pm.environment.get(<span class="tk-s">&quot;downstreamScope&quot;</span>) },
+            { key: <span class="tk-s">&quot;requested_token_use&quot;</span>, value: <span class="tk-s">&quot;on_behalf_of&quot;</span> }
+        ]
+    }
+}, <span class="tk-k">function</span> (err, res) {
+    <span class="tk-k">if</span> (!err &amp;&amp; res.code === <span class="tk-n">200</span>) {
+        pm.environment.set(<span class="tk-s">&quot;downstreamToken&quot;</span>, res.json().access_token);
+    }
+});</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-collection-auth-object">
+<h3 id="collection-auth-object">Collection Auth Object</h3>
+<pre data-lang="json"><code>{
+    <span class="tk-s">&quot;auth&quot;</span>: {
+        <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;bearer&quot;</span>,
+        <span class="tk-s">&quot;bearer&quot;</span>: [
+            {
+                <span class="tk-s">&quot;key&quot;</span>: <span class="tk-s">&quot;token&quot;</span>,
+                <span class="tk-s">&quot;value&quot;</span>: <span class="tk-s">&quot;{{token}}&quot;</span>,
+                <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;string&quot;</span>
+            }
+        ]
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-app-registration-differences-per-environment">
+<h3 id="app-registration-differences-per-environment">App Registration Differences per Environment</h3>
+<div class="tbl"><table><thead><tr><th>Setting</th><th>Dev</th><th>Pre</th><th>Pro</th></tr></thead><tbody><tr><td>Tenant</td><td>Same or separate</td><td>Staging tenant</td><td>Production tenant</td></tr><tr><td>Redirect URIs</td><td><code>https://localhost:*</code></td><td><code>https://pre.example.org</code></td><td><code>https://api.example.org</code></td></tr><tr><td>API Permissions</td><td>All scopes</td><td>Restricted</td><td>Minimal required</td></tr><tr><td>Token Lifetime</td><td>Default (1h)</td><td>Default (1h)</td><td>May be shorter</td></tr><tr><td>Secret Expiry</td><td>2 years</td><td>1 year</td><td>6 months</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-newman-cicd-integration">
+<h3 id="newman-cicd-integration">Newman CI/CD Integration</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Pass Azure AD credentials via CLI environment variables</span>
+newman run collection.json \
+    -e environment_dev.json \
+    --env-var <span class="tk-s">&quot;clientSecret=$AZURE_CLIENT_SECRET&quot;</span> \
+    --env-var <span class="tk-s">&quot;tenantId=$AZURE_TENANT_ID&quot;</span> \
+    --env-var <span class="tk-s">&quot;clientId=$AZURE_CLIENT_ID&quot;</span></code></pre>
+<p>For Azure DevOps pipelines:</p>
+<pre data-lang="yaml"><code>- script: |
+    newman run collection.json \
+      -e environment_dev.json \
+      --env-var <span class="tk-s">&quot;clientSecret=$(AzureClientSecret)&quot;</span> \
+      --env-var <span class="tk-s">&quot;tenantId=$(AzureTenantId)&quot;</span>
+  displayName: <span class="tk-s">&quot;Run Postman Collection with Azure AD&quot;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-troubleshooting">
+<h3 id="troubleshooting">Troubleshooting</h3>
+<div class="tbl"><table><thead><tr><th>Error</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>AADSTS700016</code></td><td>Wrong clientId</td><td>Verify App Registration</td></tr><tr><td><code>AADSTS7000218</code></td><td>Missing client_secret</td><td>Check secret not expired</td></tr><tr><td><code>AADSTS65001</code></td><td>Missing API permission</td><td>Add permission + admin consent</td></tr><tr><td><code>AADSTS50011</code></td><td>Wrong redirect URI</td><td>Not applicable for client_credentials</td></tr><tr><td><code>AADSTS700024</code></td><td>Wrong grant type</td><td>Use <code>client_credentials</code> for M2M</td></tr></tbody></table></div>
+<hr>
+<p><em>Pattern v1.0.0 - Azure AD Authentication for Postman</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/postman-collection.html#ficheros">← Volver a la ficha de postman-collection</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/postman-collection/patterns/auth-detection.html"><small>Anterior</small>patterns/auth-detection.md</a><a class="next" href="../../../skills/postman-collection/patterns/http-signature-mtls.html"><small>Siguiente</small>patterns/http-signature-mtls.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/postman-collection/patterns/azure-ad-auth.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#environment-variables-per-environment">Environment Variables per Environment</a></li><li class="l3"><a href="#development">Development</a></li><li class="l3"><a href="#pre-production--production">Pre-production / Production</a></li><li class="l2"><a href="#pre-request-script-collection-level">Pre-Request Script (Collection Level)</a></li><li class="l3"><a href="#client-credentials-flow-machine-to-machine">Client Credentials Flow (Machine-to-Machine)</a></li><li class="l3"><a href="#on-behalf-of-flow-user-delegation">On-Behalf-Of Flow (User Delegation)</a></li><li class="l2"><a href="#collection-auth-object">Collection Auth Object</a></li><li class="l2"><a href="#app-registration-differences-per-environment">App Registration Differences per Environment</a></li><li class="l2"><a href="#newman-cicd-integration">Newman CI/CD Integration</a></li><li class="l2"><a href="#troubleshooting">Troubleshooting</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

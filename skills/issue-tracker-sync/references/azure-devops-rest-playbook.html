@@ -1,0 +1,104 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>issue-tracker-sync · references/azure-devops-rest-playbook.md · Ovillo</title><meta name="description" content="Fichero references/azure-devops-rest-playbook.md de la skill issue-tracker-sync"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="issue-tracker-sync · references/azure-devops-rest-playbook.md · Ovillo"><meta property="og:description" content="Fichero references/azure-devops-rest-playbook.md de la skill issue-tracker-sync"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/issue-tracker-sync/references/azure-devops-rest-playbook.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/issue-tracker-sync/references/azure-devops-rest-playbook.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/issue-tracker-sync/references/azure-devops-rest-playbook.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de issue-tracker-sync (5)</h4><ul class="sibs"><li><a href="../../../skills/issue-tracker-sync/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/issue-tracker-sync/references/azure-devops-rest-playbook.html" class="cur">references/azure-devops-rest-playbook.md</a></li><li><a href="../../../skills/issue-tracker-sync/references/github-playbook.html">references/github-playbook.md</a></li><li><a href="../../../skills/issue-tracker-sync/references/workflow-devops-sync.html">references/workflow-devops-sync.md</a></li><li><a href="../../../skills/issue-tracker-sync/references/workflow-github-sync.html">references/workflow-github-sync.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/issue-tracker-sync.html">issue-tracker-sync</a></span><span>references</span><span>azure-devops-rest-playbook.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>issue-tracker-sync</span><span>references/</span></div><h1>azure-devops-rest-playbook.md</h1><p class="lede">Referencia que <code>issue-tracker-sync</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/issue-tracker-sync.html">issue-tracker-sync</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>7201 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Referencia tecnica del <strong>modo activo</strong> de la regla <code>.claude/rules/devops-awareness.md</code> (payloads REST, estados por proceso, gotchas Azure DevOps Server). La regla siempre-cargada solo lleva el resumen; este archivo se lee bajo demanda cuando <code>autoSync=true</code> y hay que crear/transicionar work items. Extraido de la regla en la dieta de contexto.</p></blockquote>
+<hr>
+<section class="sec" id="sec-prerequisitos-del-modo-activo">
+<h3 id="prerequisitos-del-modo-activo">Prerequisitos del modo activo</h3>
+<p><code>azureDevOps.autoSync = true</code> <strong>Y</strong> <code>azureDevOps.epicId != null</code> en <code>_hilo/ESTADO_PROYECTO.json.infraestructura</code>. Si falta alguno, caer al modo pasivo.</p>
+</section>
+<section class="sec" id="sec-deteccion-de-proceso-critico">
+<h3 id="deteccion-de-proceso-critico">Deteccion de proceso (CRITICO)</h3>
+<p>Leer <code>azureDevOps.proceso</code>. Si no existe: <code>GET /_apis/projects/{project}?api-version=6.0</code> → <code>capabilities.processTemplate.templateName</code>.</p>
+<div class="tbl"><table><thead><tr><th>Proceso</th><th>Jerarquia</th><th>Work item</th><th>Estados</th></tr></thead><tbody><tr><td><strong>Scrum</strong></td><td>Epic → Feature → PBI</td><td>Product Backlog Item</td><td>New → Approved → <strong>Committed</strong> → Done</td></tr><tr><td><strong>Basic</strong></td><td>Epic → Issue → Task</td><td>Issue</td><td><strong>To Do</strong> → <strong>Doing</strong> → <strong>Done</strong></td></tr></tbody></table></div>
+<blockquote><p><strong>NUNCA &quot;In Progress&quot;</strong> — no existe en ningun proceso Azure DevOps (HTTP 400).</p></blockquote>
+</section>
+<section class="sec" id="sec-crear-work-items-automaticamente">
+<h3 id="crear-work-items-automaticamente">Crear work items automaticamente</h3>
+<p><strong>Scrum:</strong></p>
+<div class="tbl"><table><thead><tr><th>Evento</th><th>Accion en Boards</th></tr></thead><tbody><tr><td><code>/hv:nuevo-evolutivo</code> (HV-*)</td><td>Crear PBI <code>{codigo}: {titulo}</code>, estado <strong>Committed</strong></td></tr><tr><td>Nueva DT en DEUDA_TECNICA.md</td><td>Crear PBI, estado <strong>New</strong></td></tr><tr><td>DT que se empieza a trabajar</td><td>Transicionar PBI a <strong>Committed</strong></td></tr></tbody></table></div>
+<p><strong>Basic:</strong> igual pero con Issue y estados <strong>Doing</strong> / <strong>To Do</strong> / <strong>Doing</strong>.</p>
+<p><strong>Mapeo area → agrupacion</strong> (Scrum agrupa bajo Features; Basic con tags):</p>
+<div class="tbl"><table><thead><tr><th>Area detectada</th><th>Scrum: Feature padre</th><th>Basic: Tag</th></tr></thead><tbody><tr><td>Endpoints, datos, CRUD</td><td><code>features.endpoints</code></td><td><code>API-Endpoints</code></td></tr><tr><td>APIs externas, HttpClient</td><td><code>features.integraciones</code></td><td><code>Integraciones</code></td></tr><tr><td>Auth, headers, CORS, seguridad</td><td><code>features.seguridad</code></td><td><code>Seguridad</code></td></tr><tr><td>Logging, health checks, telemetria</td><td><code>features.observabilidad</code></td><td><code>Observabilidad</code></td></tr><tr><td>Tests, refactor, DTs</td><td><code>features.calidad</code></td><td><code>Calidad</code></td></tr></tbody></table></div>
+<p><strong>Prioridad automatica:</strong> HV-<em> → 1 · DT-</em> Alta → 1 · DT-<em> Media → 2 · DT-</em> Baja → 3.</p>
+<p><strong>Ejecucion</strong> (REST via curl o MCP):</p>
+<pre data-lang="bash"><code><span class="tk-c"># Leer config</span>
+URL=$(jq -r <span class="tk-s">'.infraestructura.azureDevOps.url'</span> _hilo/ESTADO_PROYECTO.json)
+FEATURE_ID=$(jq -r <span class="tk-s">'.infraestructura.azureDevOps.features.{area}'</span> _hilo/ESTADO_PROYECTO.json)
+
+<span class="tk-c"># Lookup displayName del asignado (CRITICO en Azure DevOps Server)</span>
+<span class="tk-c"># System.AssignedTo REQUIERE displayName, NO acepta email/UPN en on-premises.</span>
+ASIGNADO_ALIAS=$(jq -r <span class="tk-s">'.evolutivos.enProgreso[] | select(.codigo==&quot;{CODIGO}&quot;) | .asignadoA'</span> _hilo/ESTADO_PROYECTO.json)
+ASIGNADO_DISPLAY=$(jq -r --arg a <span class="tk-s">&quot;$ASIGNADO_ALIAS&quot;</span> <span class="tk-s">'.equipo.miembros[] | select(.usuario==$a) | .nombre'</span> _hilo/ESTADO_PROYECTO.json)
+
+<span class="tk-c"># Crear PBI con parent link + assignee</span>
+<span class="tk-c"># Si ASIGNADO_DISPLAY esta vacio, OMITIR System.AssignedTo (NO pasar email/alias)</span>
+<span class="tk-k">curl</span> -s --negotiate -u : \
+  <span class="tk-s">&quot;${URL}/_apis/wit/workitems/\$${WORK_ITEM_TYPE}?api-version=6.0&quot;</span> \
+  -X POST -H <span class="tk-s">&quot;Content-Type: application/json-patch+json&quot;</span> \
+  -d <span class="tk-s">'[
+    {&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/fields/System.Title&quot;,&quot;value&quot;:&quot;{CODIGO}: {titulo}&quot;},
+    {&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/fields/System.Description&quot;,&quot;value&quot;:&quot;{descripcion}&quot;},
+    {&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/fields/Microsoft.VSTS.Common.Priority&quot;,&quot;value&quot;:{prioridad}},
+    {&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/fields/System.AssignedTo&quot;,&quot;value&quot;:&quot;'</span><span class="tk-s">&quot;$ASIGNADO_DISPLAY&quot;</span><span class="tk-s">'&quot;},
+    {&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/relations/-&quot;,&quot;value&quot;:{
+      &quot;rel&quot;:&quot;System.LinkTypes.Hierarchy-Reverse&quot;,
+      &quot;url&quot;:&quot;${URL}/_apis/wit/workitems/${PARENT_ID}&quot;
+    }}
+  ]'</span>
+<span class="tk-c"># WORK_ITEM_TYPE: &quot;Product%20Backlog%20Item&quot; (Scrum) o &quot;Issue&quot; (Basic)</span>
+<span class="tk-c"># PARENT_ID: Feature ID (Scrum) o Epic ID (Basic, no hay Features)</span></code></pre>
+</section>
+<section class="sec" id="sec-transicionar-a-done">
+<h3 id="transicionar-a-done">Transicionar a Done</h3>
+<div class="tbl"><table><thead><tr><th>Evento</th><th>Scrum / Basic</th></tr></thead><tbody><tr><td><code>/hv:finalizar-evolutivo</code></td><td>PBI/Issue → <strong>Done</strong></td></tr><tr><td>DT ✅ Completado</td><td>→ <strong>Done</strong></td></tr><tr><td>DT ❌ Descartada</td><td>→ <strong>Done</strong> + nota</td></tr></tbody></table></div>
+<pre data-lang="bash"><code><span class="tk-c"># Buscar work item por titulo (WIQL)</span>
+<span class="tk-k">curl</span> -s --negotiate -u : <span class="tk-s">&quot;${URL}/_apis/wit/wiql?api-version=6.0&quot;</span> \
+  -X POST -H <span class="tk-s">&quot;Content-Type: application/json&quot;</span> \
+  -d <span class="tk-s">'{&quot;query&quot;:&quot;SELECT [System.Id] FROM WorkItems WHERE [System.Title] CONTAINS '</span>\<span class="tk-s">''</span>{CODIGO}<span class="tk-s">'\'</span><span class="tk-s">' AND [System.WorkItemType] = '</span>\<span class="tk-s">''</span>Product Backlog Item<span class="tk-s">'\'</span><span class="tk-s">'&quot;}'</span>
+
+<span class="tk-c"># Transicionar</span>
+<span class="tk-k">curl</span> -s --negotiate -u : <span class="tk-s">&quot;${URL}/_apis/wit/workitems/{PBI_ID}?api-version=6.0&quot;</span> \
+  -X PATCH -H <span class="tk-s">&quot;Content-Type: application/json-patch+json&quot;</span> \
+  -d <span class="tk-s">'[{&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/fields/System.State&quot;,&quot;value&quot;:&quot;Done&quot;}]'</span></code></pre>
+<p><strong>Coherencia de Features</strong> tras crear/cerrar: Feature con PBIs pendientes → <strong>Committed</strong>; todos Done → Feature puede pasar a <strong>Done</strong>.</p>
+</section>
+<section class="sec" id="sec-error-de-conectividad--graceful-degradation">
+<h3 id="error-de-conectividad--graceful-degradation">Error de conectividad — graceful degradation</h3>
+<p><strong>NO bloquear el trabajo.</strong> Warning + continuar, y encolar la operacion en <code>_hilo/devops_pending_ops.json</code> (se reintenta en la proxima operacion o con <code>/issue-tracker-sync --retry</code>):</p>
+<pre data-lang="json"><code>[
+  { <span class="tk-s">&quot;tipo&quot;</span>: <span class="tk-s">&quot;crear_pbi&quot;</span>, <span class="tk-s">&quot;codigo&quot;</span>: <span class="tk-s">&quot;HV-19&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Filtro de scholarships por estado&quot;</span>,
+    <span class="tk-s">&quot;featureArea&quot;</span>: <span class="tk-s">&quot;endpoints&quot;</span>, <span class="tk-s">&quot;prioridad&quot;</span>: <span class="tk-n">1</span>, <span class="tk-s">&quot;fecha&quot;</span>: <span class="tk-s">&quot;2026-04-16&quot;</span>, <span class="tk-s">&quot;reintentos&quot;</span>: <span class="tk-n">0</span> }
+]</code></pre>
+<p>Tras cada sincronizacion, resumen: <code>✅ Azure DevOps actualizado: PBI #1234 &quot;...&quot; → Committed</code>.</p>
+</section>
+<section class="sec" id="sec-configuracion-en-estado_proyectojson">
+<h3 id="configuracion-en-estado_proyectojson">Configuracion en ESTADO_PROYECTO.json</h3>
+<pre data-lang="json"><code><span class="tk-s">&quot;infraestructura&quot;</span>: {
+  <span class="tk-s">&quot;azureDevOps&quot;</span>: {
+    <span class="tk-s">&quot;url&quot;</span>: <span class="tk-s">&quot;https://devops.example.org/COLECCION/PROYECTO&quot;</span>,
+    <span class="tk-s">&quot;teamName&quot;</span>: <span class="tk-s">&quot;Equipo Principal&quot;</span>,
+    <span class="tk-s">&quot;epicId&quot;</span>: <span class="tk-n">1234</span>,
+    <span class="tk-s">&quot;features&quot;</span>: { <span class="tk-s">&quot;endpoints&quot;</span>: <span class="tk-n">1235</span>, <span class="tk-s">&quot;integraciones&quot;</span>: <span class="tk-n">1236</span>, <span class="tk-s">&quot;seguridad&quot;</span>: <span class="tk-n">1237</span>,
+                  <span class="tk-s">&quot;observabilidad&quot;</span>: <span class="tk-n">1238</span>, <span class="tk-s">&quot;calidad&quot;</span>: <span class="tk-n">1239</span> },
+    <span class="tk-s">&quot;proceso&quot;</span>: <span class="tk-s">&quot;Scrum&quot;</span>,
+    <span class="tk-s">&quot;autoSync&quot;</span>: false,
+    <span class="tk-s">&quot;ultimaSync&quot;</span>: null,
+    <span class="tk-s">&quot;pendingOps&quot;</span>: <span class="tk-s">&quot;_hilo/devops_pending_ops.json&quot;</span>
+  }
+}</code></pre>
+<p>Opciones de <code>proceso</code>: <code>Scrum</code> | <code>Basic</code> | <code>Agile</code> | <code>CMMI</code>. Si <code>azureDevOps</code> no existe → sin recordatorios. Si <code>epicId=null</code> → sugerir <code>/issue-tracker-sync</code>. Si <code>autoSync=true</code> pero <code>epicId=null</code> → modo pasivo con warning.</p>
+<hr>
+</section>
+<section class="sec" id="sec-notas-tecnicas-azure-devops-server-critico">
+<h3 id="notas-tecnicas-azure-devops-server-critico">Notas tecnicas Azure DevOps Server (CRITICO)</h3>
+<h4 id="systemassignedto-requiere-displayname-no-email">System.AssignedTo requiere displayName, NO email</h4>
+<p>Azure DevOps Server <strong>no resuelve</strong> email/UPN. Solo acepta el displayName exacto de AD:</p>
+<pre><code>OK:  {&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/fields/System.AssignedTo&quot;,&quot;value&quot;:&quot;Francisco Javier Gonzalez Criado&quot;}
+KO:  &quot;fjgonzalez@example.com&quot; / &quot;fgonzalez&quot;   → HTTP 400 &quot;unknown identity&quot;</code></pre>
+<p>Fuente: <code>equipo.miembros[x].nombre</code> (donde <code>usuario == alias_git</code>). Sin match → <strong>omitir el campo</strong> (sin asignar es mejor que 400). Descubrir en runtime: <code>GET /_apis/identities?searchFilter=General&amp;filterValue={alias}&amp;api-version=6.0</code>.</p>
+<h4 id="api-version">api-version</h4>
+<p><code>6.0</code> para casi todo (Azure DevOps Server 2020; NUNCA 7.0). Excepciones que exigen <code>-preview</code>:</p>
+<div class="tbl"><table><thead><tr><th>Endpoint</th><th>api-version</th></tr></thead><tbody><tr><td><code>/_apis/work/backlogs</code> (+<code>/workItems</code>)</td><td><strong>5.1-preview</strong></td></tr><tr><td>Otros <code>/_apis/work/*</code> con HTTP 400</td><td>probar <code>5.1-preview</code> o <code>6.0-preview.1</code></td></tr></tbody></table></div>
+<h4 id="widgets-markdown-en-dashboard">Widgets Markdown en Dashboard</h4>
+<p>El campo <code>settings</code> lleva <strong>markdown crudo directamente</strong>, NO envuelto en <code>{&quot;content&quot;:&quot;...&quot;}</code> (Azure DevOps Server 2020 no parsea el wrapper — mostraria el JSON como texto plano). ContributionId: <code>ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.MarkdownWidget</code>. Para actualizar widgets existentes: PUT del dashboard completo (no widget individual) con eTag.</p>
+<hr>
+<p><em>Referencia issue-tracker-sync — Azure DevOps Server on-premise.</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/issue-tracker-sync.html#ficheros">← Volver a la ficha de issue-tracker-sync</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/issue-tracker-sync/eval-set.html"><small>Anterior</small>eval-set.json</a><a class="next" href="../../../skills/issue-tracker-sync/references/github-playbook.html"><small>Siguiente</small>references/github-playbook.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/issue-tracker-sync/references/azure-devops-rest-playbook.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#prerequisitos-del-modo-activo">Prerequisitos del modo activo</a></li><li class="l2"><a href="#deteccion-de-proceso-critico">Deteccion de proceso (CRITICO)</a></li><li class="l2"><a href="#crear-work-items-automaticamente">Crear work items automaticamente</a></li><li class="l2"><a href="#transicionar-a-done">Transicionar a Done</a></li><li class="l2"><a href="#error-de-conectividad--graceful-degradation">Error de conectividad — graceful degradation</a></li><li class="l2"><a href="#configuracion-en-estado_proyectojson">Configuracion en ESTADO_PROYECTO.json</a></li><li class="l2"><a href="#notas-tecnicas-azure-devops-server-critico">Notas tecnicas Azure DevOps Server (CRITICO)</a></li><li class="l3"><a href="#systemassignedto-requiere-displayname-no-email">System.AssignedTo requiere displayName, NO email</a></li><li class="l3"><a href="#api-version">api-version</a></li><li class="l3"><a href="#widgets-markdown-en-dashboard">Widgets Markdown en Dashboard</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

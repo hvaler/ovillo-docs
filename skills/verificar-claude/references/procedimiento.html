@@ -1,0 +1,367 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>verificar-claude · references/procedimiento.md · Ovillo</title><meta name="description" content="Fichero references/procedimiento.md de la skill verificar-claude"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="verificar-claude · references/procedimiento.md · Ovillo"><meta property="og:description" content="Fichero references/procedimiento.md de la skill verificar-claude"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/verificar-claude/references/procedimiento.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/verificar-claude/references/procedimiento.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/verificar-claude/references/procedimiento.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de verificar-claude (1)</h4><ul class="sibs"><li><a href="../../../skills/verificar-claude/references/procedimiento.html" class="cur">references/procedimiento.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/verificar-claude.html">verificar-claude</a></span><span>references</span><span>procedimiento.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>verificar-claude</span><span>references/</span></div><h1>procedimiento.md</h1><p class="lede">Referencia que <code>verificar-claude</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/verificar-claude.html">verificar-claude</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>24.208 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Se lee bajo demanda al invocar la skill. Vive aparte para no pasar del techo de 400 lineas del <code>SKILL.md</code>.</p></blockquote>
+<hr>
+<p class="lede">Analiza el archivo CLAUDE.md del proyecto para detectar problemas de estructura y compatibilidad con la plantilla Ovillo, y ofrece correccion automatica.</p>
+<blockquote><p><strong>USE FOR</strong>: verificar/corregir el <strong>archivo CLAUDE.md</strong> (estructura, @imports, secciones, compatibilidad con la plantilla). <strong>DO NOT USE FOR</strong>: verificar el <strong>CÓDIGO</strong> antes de commit/PR (build+tests+lint) → usar <strong><code>/hv:verify</code></strong>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-cuando-usar">
+<h3 id="cuando-usar">Cuando usar</h3>
+<ul>
+<li>Despues de actualizar la plantilla con <code>install.ps1</code></li>
+<li>Cuando sospechas que el CLAUDE.md tiene problemas</li>
+<li>Para verificar que el proyecto aprovecha todas las funcionalidades del ecosistema</li>
+<li>Antes de compartir el proyecto con otro desarrollador</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-instrucciones-para-claude">
+<h3 id="instrucciones-para-claude">Instrucciones para Claude</h3>
+<p>Al ejecutar <code>/hv:verificar-claude</code>, Claude debe:</p>
+<h4 id="1-leer-y-analizar-claudemd">1. Leer y analizar CLAUDE.md</h4>
+<pre><code>Leer: CLAUDE.md</code></pre>
+<h4 id="2-verificar-estructura-obligatoria">2. Verificar estructura obligatoria</h4>
+<p>Comprobar que existen las siguientes secciones/elementos:</p>
+<h5 id="imports-critico">@imports (CRITICO)</h5>
+<p>Son <strong>dos</strong>, y son los que declara la plantilla del ecosistema:</p>
+<pre data-lang="markdown"><code>## @imports (Contexto Automatico)
+
+@_hilo/ESTADO_PROYECTO.json
+@_hilo/SESION_ACTUAL.md</code></pre>
+<p><strong>Problemas comunes:</strong></p>
+<ul>
+<li>@imports duplicados (aparecen 2 veces)</li>
+<li>@imports en posicion incorrecta (deben estar al principio)</li>
+<li>@imports incompletos (falta alguno de los dos)</li>
+<li>@imports RETIRADOS. Si aparecen, proponer quitarlos y <strong>NO re-anadirlos nunca</strong>:</li>
+<ul>
+<li><code>@.claude/CLAUDE_BASE.md</code> (ADR-025): son ~14 KB de estandares que dejaron de estar siempre cargados. Los recuerda la regla por ruta <code>estandares-base</code> al tocar <code>src/</code>, <code>*.csproj</code> o <code>*.sln</code>. Re-anadirlo se come el presupuesto de contexto del proyecto.</li>
+<li><code>@_hilo/DEPENDENCIAS.md</code> y <code>@_hilo/FUNCIONALIDADES.md</code>: se leen bajo demanda.</li>
+</ul>
+</ul>
+<blockquote><p>Un CLAUDE.md con exactamente esos dos imports esta <strong>correcto</strong>: no es un aviso.</p></blockquote>
+<h5 id="secciones-recomendadas">Secciones recomendadas</h5>
+<ul>
+<li><code>## Informacion del Proyecto</code> o <code>## Project Overview</code></li>
+<li><code>## Glosario del Dominio</code> o <code>## Domain Glossary</code></li>
+<li><code>## Estandares de Codigo</code></li>
+<li><code>## Reglas Criticas</code> o <code>## Critical Rules</code></li>
+</ul>
+<h5 id="secciones-que-no-se-echan-en-falta-adr-025">Secciones que NO se echan en falta (ADR-025)</h5>
+<p>La dieta de contexto las saco de la plantilla a proposito. <strong>No proponer anadirlas</strong>, y si estan, decir lo que cuestan:</p>
+<div class="tbl"><table><thead><tr><th>Seccion</th><th>Quien la cubre ahora</th></tr></thead><tbody><tr><td><code>## Comandos Personalizados</code> / tabla de <code>/hv:*</code></td><td>el plugin autodescubre las skills; una tabla es contexto duplicado</td></tr><tr><td><code>## Workflows</code></td><td>cada skill lleva su procedimiento</td></tr><tr><td><code>## Integraciones MCP</code> y las convenciones del Hub</td><td>la regla por ruta <code>mcp-config</code></td></tr><tr><td>Estandares .NET completos</td><td><code>.claude/CLAUDE_BASE.md</code> + la regla <code>estandares-base</code>, bajo demanda</td></tr></tbody></table></div>
+<h4 id="3-detectar-problemas">3. Detectar problemas</h4>
+<div class="tbl"><table><thead><tr><th>Problema</th><th>Severidad</th><th>Descripcion</th></tr></thead><tbody><tr><td>@imports duplicados</td><td>ALTA</td><td>Los @imports aparecen mas de una vez</td></tr><tr><td>@imports incompletos</td><td>ALTA</td><td>Falta <code>@_hilo/ESTADO_PROYECTO.json</code> o <code>@_hilo/SESION_ACTUAL.md</code></td></tr><tr><td>@import retirado presente</td><td>MEDIA</td><td><code>@.claude/CLAUDE_BASE.md</code>, <code>@_hilo/DEPENDENCIAS.md</code> o <code>@_hilo/FUNCIONALIDADES.md</code> en los imports: gasto de contexto que ADR-025 retiro</td></tr><tr><td>@imports mal ubicados</td><td>MEDIA</td><td>No estan al principio del archivo</td></tr><tr><td>Tabla cortada</td><td>MEDIA</td><td>Tabla markdown incompleta (falta cierre)</td></tr><tr><td>Seccion del ecosistema duplicada</td><td>BAJA</td><td>La misma seccion del ecosistema aparece 2 veces</td></tr><tr><td>Sin Glosario</td><td>BAJA</td><td>No tiene seccion de glosario del dominio</td></tr><tr><td>SQL sin referencia a §8.1</td><td>MEDIA</td><td><strong>Solo si el proyecto tiene base de datos</strong>: CLAUDE.md no menciona ni apunta a CLAUDE_BASE.md §8.1 (nomenclatura SQL)</td></tr><tr><td>SQL version no declarada</td><td>BAJA</td><td>No hay campo <code>baseDatos.versionSqlServer</code> en ESTADO_PROYECTO.json (se asume default 2017)</td></tr><tr><td>database.md desactualizada</td><td>MEDIA</td><td><code>.claude/skills/database/SKILL.md</code> existe pero no tiene bloque &quot;ERRORES COMUNES A EVITAR&quot;</td></tr><tr><td>hook sql-nomenclatura-guard ausente</td><td>MEDIA</td><td><code>.claude/hooks/sql-nomenclatura-guard.js</code> no existe o no esta registrado en settings.json</td></tr><tr><td>Glosario SQL legacy sin marcar</td><td>BAJA</td><td>Si el proyecto tiene SPs <code>usp_*</code> o <code>_Listar</code>, deberia tener anotacion de legacy en CLAUDE.md</td></tr><tr><td>regla mcp-config ausente</td><td>MEDIA</td><td><code>.claude/skills/mcp-config/SKILL.md</code> no existe: es la que lleva las convenciones del Hub por ruta desde ADR-025, y sin ella otro Claude podria anadir <code>telemetryOptIn</code> en el lugar equivocado</td></tr><tr><td>telemetryOptIn en lugar equivocado</td><td>ALTA</td><td><code>_hilo/ESTADO_PROYECTO.json.mcpSync.telemetryOptIn</code> NO debe existir — es per-dev, vive en <code>_hilo/.mcp-credentials.json</code> (gitignored)</td></tr><tr><td>regla mcp-config.md ausente</td><td>BAJA</td><td><code>.claude/skills/mcp-config/SKILL.md</code> no existe (defensa C contra bug telemetryOptIn)</td></tr></tbody></table></div>
+<h4 id="4-mostrar-informe">4. Mostrar informe</h4>
+<pre><code>╔═══════════════════════════════════════════════════════════════╗
+║  📋 VERIFICACION CLAUDE.md                                     ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Proyecto: [Nombre del proyecto]
+Archivo: CLAUDE.md
+Tamaño: [X] lineas
+
+┌─────────────────────────────────────────────────────────────┐
+│ ESTRUCTURA                                                   │
+├─────────────────────────────────────────────────────────────┤
+│ ✅ @imports completos (2/2)                                  │
+│ ✅ Informacion del proyecto                                  │
+│ ✅ Glosario del dominio                                      │
+│ ✅ Estandares de codigo                                       │
+│ ✅ Sin imports retirados (CLAUDE_BASE / DEPENDENCIAS)        │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│ ESTANDARES SQL                                               │
+├─────────────────────────────────────────────────────────────┤
+│ ✅ Referencia a CLAUDE_BASE.md 8.1 presente                 │
+│ ⚠️  Campo baseDatos.versionSqlServer no declarado (asume 2017)│
+│ ✅ .claude/skills/database/SKILL.md con &quot;ERRORES COMUNES A EVITAR&quot;  │
+│ ✅ Hook sql-nomenclatura-guard.js registrado                │
+│ ⚠️  Detectados 3 SPs con nomenclatura legacy (usp_*, _Listar)│
+│    → considera anotarlos en sección legacy de CLAUDE.md      │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│ HUB Ovillo                              │
+├─────────────────────────────────────────────────────────────┤
+│ ✅ _hilo/.mcp-project.json presente (commiteable)           │
+│ ✅ _hilo/.mcp-credentials.json presente (gitignored)        │
+│ ✅ mcpSync.habilitado=true en ESTADO_PROYECTO.json           │
+│ ❌ telemetryOptIn detectado en mcpSync (DEBE eliminarse)     │
+│ ✅ .claude/skills/mcp-config/SKILL.md presente                      │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│ PROBLEMAS DETECTADOS                                         │
+├─────────────────────────────────────────────────────────────┤
+│ 🔴 [ALTA] @imports duplicados en linea 237                   │
+│ 🟡 [MEDIA] @.claude/CLAUDE_BASE.md en los imports (ADR-025)  │
+│ 🟡 [MEDIA] CLAUDE.md sin referencia a 8.1 (SQL nomenclatura) │
+└─────────────────────────────────────────────────────────────┘
+
+¿Deseas que corrija estos problemas automaticamente? (S/N)</code></pre>
+<h4 id="5-corregir-automaticamente-si-el-usuario-acepta">5. Corregir automaticamente (si el usuario acepta)</h4>
+<p><strong>Para @imports duplicados:</strong></p>
+<ol>
+<li>Identificar la seccion @imports correcta (la primera, al principio)</li>
+<li>Eliminar las secciones duplicadas</li>
+<li>Verificar que los 5 @imports obligatorios estan presentes</li>
+</ol>
+<p><strong>Para tablas cortadas:</strong></p>
+<ol>
+<li>Detectar tablas markdown incompletas</li>
+<li>Cerrar la tabla correctamente o eliminar la linea incompleta</li>
+</ol>
+<p><strong>Para secciones duplicadas:</strong></p>
+<ol>
+<li>Mantener solo una seccion de cada tipo</li>
+<li>Eliminar duplicados preservando el contenido mas completo</li>
+</ol>
+<p><strong>Para @imports incompletos:</strong></p>
+<ol>
+<li>Añadir los @imports faltantes</li>
+<li>Ordenarlos correctamente</li>
+</ol>
+<p><strong>Para estandares SQL:</strong></p>
+<p>Los problemas SQL tienen dos rutas de fix distintas:</p>
+<div class="tbl"><table><thead><tr><th>Problema</th><th>Fix aplicable</th><th>Por que</th></tr></thead><tbody><tr><td>CLAUDE.md raiz sin referencia a §8.1</td><td>✅ <code>/hv:verificar-claude --fix</code> lo corrige</td><td>El CLAUDE.md raiz del proyecto lo conserva el usuario (install.ps1 NO lo pisa). Anadir un puntero corto a <code>CLAUDE_BASE.md §8.1</code></td></tr><tr><td><code>baseDatos.versionSqlServer</code> ausente en ESTADO_PROYECTO.json</td><td>✅ <code>/hv:verificar-claude --fix</code> pregunta version y la escribe</td><td>Default: ecosystem.config.database.version (null = sin gating)</td></tr><tr><td><code>.claude/skills/database/SKILL.md</code> desactualizada</td><td>❌ fix NO copia archivos al <code>.claude/</code></td><td>Los artefactos del ecosistema los propaga <code>claude plugin update hv@ovillo</code> (o el instalador, que refresca lo del manifiesto). Se sugiere al usuario</td></tr><tr><td>Hook <code>sql-nomenclatura-guard.js</code> ausente</td><td>❌ fix NO copia archivos al <code>.claude/</code></td><td>Mismo motivo — se sugiere update del ecosistema</td></tr><tr><td>SPs legacy detectados (<code>usp_*</code>, <code>_Listar</code>)</td><td>❌ fix NO renombra SPs</td><td>Sugerir al usuario ejecutar <code>/hv:clean --sql</code> en el futuro (cuando exista) o renombrar manualmente con <code>sp_rename</code></td></tr><tr><td>Convenciones del Hub ausentes del CLAUDE.md</td><td>❌ el fix NO las inserta</td><td>Desde ADR-025 viven en la regla por ruta <code>mcp-config</code>, no en el CLAUDE.md. Insertarlas seria contexto siempre cargado que la dieta retiro</td></tr><tr><td><code>telemetryOptIn</code> presente en <code>mcpSync</code> de ESTADO_PROYECTO.json</td><td>✅ <code>/hv:verificar-claude --fix</code> lo elimina</td><td>Bug: ese campo es per-dev (vive en <code>.mcp-credentials.json</code>), no per-proyecto. Si esta aqui es un residuo de versiones anteriores</td></tr><tr><td><code>.claude/skills/mcp-config/SKILL.md</code> ausente</td><td>❌ fix NO copia archivos al <code>.claude/</code></td><td>Sugerir <code>claude plugin update hv@ovillo</code>: es la regla que lleva las convenciones del Hub</td></tr></tbody></table></div>
+<p><strong>Snippet que <code>--fix</code> inserta en CLAUDE.md raiz</strong> (tras el glosario), <strong>solo si el proyecto tiene base de datos</strong>:</p>
+<pre data-lang="markdown"><code>---
+
+## Estandares SQL
+
+&gt; La nomenclatura SQL configurada, la version de SQL Server y las features permitidas/prohibidas estan en `.claude/CLAUDE_BASE.md` §8.1, que **no** esta siempre cargado (ADR-025): lo recuerda la regla por ruta `estandares-base`. No duplicar aqui — solo apuntar.
+
+- **Version SQL Server**: ver campo `baseDatos.versionSqlServer` en `_hilo/ESTADO_PROYECTO.json` (default: 2017).
+- **Nomenclatura SPs**: `{schema}.{Action}{Entity}` · ejemplo: `ewp.GetNomination`.
+- **Legacy**: SPs `usp_*`, `_Listar`, etc. se mantienen en archivos bajo `Legacy/`, `Obsoleto/` o con `-- LEGACY: no renombrar`.
+
+Auditoria rapida: `/hv:verificar-claude --sql`</code></pre>
+<p><strong>Snippet que <code>--fix</code> añade a ESTADO_PROYECTO.json</strong> si falta el campo:</p>
+<pre data-lang="json"><code><span class="tk-s">&quot;baseDatos&quot;</span>: {
+  <span class="tk-s">&quot;_comentario&quot;</span>: <span class="tk-s">&quot;Configuracion de base de datos del proyecto&quot;</span>,
+  <span class="tk-s">&quot;versionSqlServer&quot;</span>: <span class="tk-s">&quot;2017&quot;</span>,
+  <span class="tk-s">&quot;_versionSqlServer_opciones&quot;</span>: [<span class="tk-s">&quot;2016&quot;</span>, <span class="tk-s">&quot;2017&quot;</span>, <span class="tk-s">&quot;2019&quot;</span>, <span class="tk-s">&quot;2022&quot;</span>, <span class="tk-s">&quot;AzureSQL&quot;</span>],
+  <span class="tk-s">&quot;_notas&quot;</span>: <span class="tk-s">&quot;Si se fija version (ej. 2017), aplicar gating de features posteriores. null = sin gating.&quot;</span>
+}</code></pre>
+<blockquote><p><strong>Ya no hay snippet del Hub que insertar.</strong> Las convenciones <code>per-PROYECTO</code> vs <code>per-DEV</code> (<code>_hilo/.mcp-project.json</code> commiteable · <code>_hilo/ESTADO_PROYECTO.json.mcpSync</code> commiteable · <code>_hilo/.mcp-credentials.json</code> gitignored, con <code>apiKey</code>, <code>devAlias</code>, <code>devEmail</code> y <code>telemetryOptIn</code>) viven en la skill <code>mcp-config</code>, que se activa por la ruta del fichero (ADR-025). Lo que este comando sigue haciendo es lo unico que hace falta: <strong>eliminar</strong> <code>telemetryOptIn</code> de <code>mcpSync</code> si alguien lo puso ahi.</p></blockquote>
+<p><strong>Fix para <code>telemetryOptIn</code> residual en ESTADO_PROYECTO.json</strong>: eliminar la propiedad del objeto <code>mcpSync</code>. Ejemplo PowerShell:</p>
+<pre data-lang="powershell"><code><span class="tk-v">$path</span> = <span class="tk-s">&quot;_hilo/ESTADO_PROYECTO.json&quot;</span>
+<span class="tk-v">$estado</span> = Get-Content <span class="tk-v">$path</span> -Raw | ConvertFrom-Json
+<span class="tk-k">if</span> (<span class="tk-v">$estado</span>.mcpSync.PSObject.Properties[<span class="tk-s">'telemetryOptIn'</span>]) {
+    <span class="tk-v">$estado</span>.mcpSync.PSObject.Properties.Remove(<span class="tk-s">'telemetryOptIn'</span>)
+    <span class="tk-v">$utf8</span> = New-Object System.Text.UTF8Encoding(<span class="tk-v">$false</span>)
+    [System.IO.File]::WriteAllText(<span class="tk-v">$path</span>, (<span class="tk-v">$estado</span> | ConvertTo-Json -Depth <span class="tk-n">12</span>), <span class="tk-v">$utf8</span>)
+}</code></pre>
+<h4 id="6-crear-backup-antes-de-modificar">6. Crear backup antes de modificar</h4>
+<pre><code>Creando backup: CLAUDE.md.bak.20260204_143022</code></pre>
+<h4 id="6b-version-ovillo-correcta">6b. Version Ovillo correcta</h4>
+<p>La version instalada del ecosistema sale de <strong><code>VERSION.json</code> de la raiz del proyecto</strong> (campo <code>version</code>), que es el que traen el zip y el plugin. Los pies de los documentos <strong>no</strong> la repiten (ADR-022): si un CLAUDE.md antiguo lleva <code>vX.X.X</code> en la firma, no es la fuente de verdad.</p>
+<pre><code>Prioridad para determinar version:
+1. VERSION.json de la raiz -&gt; version            (lo instala el zip / lo trae el plugin)
+2. _hilo/ESTADO_PROYECTO.json -&gt; ecosistema.version  (lo escribe el instalador; puede quedar atras)</code></pre>
+<p>Si las dos difieren, decirlo como hallazgo BAJA: lo instalado manda.</p>
+<h4 id="7-mostrar-resumen-de-cambios">7. Mostrar resumen de cambios</h4>
+<pre><code>╔═══════════════════════════════════════════════════════════════╗
+║  ✅ CLAUDE.md CORREGIDO                                        ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Cambios realizados:
+- Eliminados @imports duplicados (lineas 237-244)
+- Completada tabla de comandos personalizados
+- Backup guardado: CLAUDE.md.bak.20260204_143022
+
+El archivo CLAUDE.md ahora cumple con la estructura Ovillo</code></pre>
+<h4 id="8-mostrar-flags-disponibles-al-final">8. Mostrar flags disponibles al final</h4>
+<p>Siempre incluir al final del informe los flags disponibles:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│ FLAGS DISPONIBLES                                           │
+├─────────────────────────────────────────────────────────────┤
+│ /hv:verificar-claude          Analisis completo (este modo) │
+│ /hv:verificar-claude --fix    Corregir sin preguntar        │
+│ /hv:verificar-claude --check  Solo verificar, no corregir   │
+│ /hv:verificar-claude --verbose Detalle de cada check        │
+│ /hv:verificar-claude --sql    Solo checks de estandares SQL │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+<p>Si al terminar quedan problemas SQL detectados (legacy SPs, artefactos del <code>.claude/</code> desactualizados), mostrar tambien este mensaje:</p>
+<pre><code>+---------------------------------------------------------------+
+| Para proyectos donde Claude ha generado SPs con nomenclatura  |
+| incorrecta (ej: _Listar, usp_), considera:                    |
+|                                                               |
+|   1. Ejecutar claude plugin update hv@ovillo                |
+|      -&gt; actualiza rules/database.md + hook SQL                |
+|                                                               |
+|   2. Anotar SPs legacy en seccion &quot;## Estandares SQL&quot; de      |
+|      CLAUDE.md con marcador &quot;-- LEGACY: no renombrar&quot; en los  |
+|      archivos .sql correspondientes                           |
+|                                                               |
+|   3. Los objetos ya desplegados en BD deben renombrarse con   |
+|      sp_rename manualmente (no automatizable desde Claude)    |
++---------------------------------------------------------------+</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parametros-opcionales">
+<h3 id="parametros-opcionales">Parametros opcionales</h3>
+<ul>
+<li><code>/hv:verificar-claude</code> - Analisis completo con opcion de correccion</li>
+<li><code>/hv:verificar-claude --fix</code> - Corregir automaticamente sin preguntar</li>
+<li><code>/hv:verificar-claude --check</code> - Solo verificar, no corregir</li>
+<li><code>/hv:verificar-claude --verbose</code> - Mostrar detalles de cada verificacion</li>
+<li><code>/hv:verificar-claude --sql</code> - Solo ejecuta los 5 checks de estandares SQL (rapido)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-de-verificacion">
+<h3 id="checklist-de-verificacion">Checklist de verificacion</h3>
+<h4 id="imports-2-obligatorios">@imports (2 obligatorios)</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>@_hilo/ESTADO_PROYECTO.json</code></li>
+<li><input type="checkbox" disabled> <code>@_hilo/SESION_ACTUAL.md</code></li>
+<li><input type="checkbox" disabled> Sin retirados: <code>@.claude/CLAUDE_BASE.md</code> (ADR-025), <code>@_hilo/DEPENDENCIAS.md</code> ni <code>@_hilo/FUNCIONALIDADES.md</code></li>
+</ul>
+<h4 id="secciones-del-proyecto">Secciones del proyecto</h4>
+<ul>
+<li><input type="checkbox" disabled> Informacion/Overview del proyecto</li>
+<li><input type="checkbox" disabled> Glosario del dominio</li>
+<li><input type="checkbox" disabled> Arquitectura o estructura</li>
+</ul>
+<h4 id="secciones-del-ecosistema">Secciones del ecosistema</h4>
+<ul>
+<li><input type="checkbox" disabled> Estandares de codigo (C#, Tests, Commits)</li>
+<li><input type="checkbox" disabled> Reglas criticas</li>
+<li><input type="checkbox" disabled> Puntero al Hilo y al Patron</li>
+</ul>
+<h4 id="verificacion-tras-salto-de-version">Verificacion tras salto de version</h4>
+<p>Si el CLAUDE.md fue generado por una version anterior, verificar:</p>
+<ul>
+<li><input type="checkbox" disabled> <strong>No hay tabla de comandos</strong>: el plugin autodescubre las skills, y una tabla escrita a mano queda desfasada en cada release. Si esta, proponer quitarla.</li>
+<li><input type="checkbox" disabled> <strong>No hay <code>@.claude/CLAUDE_BASE.md</code></strong> en los imports (ADR-025)</li>
+<li><input type="checkbox" disabled> Seccion de Orquestacion del Trabajo existe</li>
+<li><input type="checkbox" disabled> Seccion Ecosistema Ovillo (Ovillo + Hilo + Patron) existe</li>
+</ul>
+<blockquote><p>El pie del fichero <strong>no</strong> lleva version: desde ADR-022 los documentos no repiten el numero del ecosistema, que vive solo en <code>VERSION.json</code>. Si el pie trae una, no es la fuente de verdad.</p></blockquote>
+<h4 id="formato">Formato</h4>
+<ul>
+<li><input type="checkbox" disabled> No hay tablas cortadas</li>
+<li><input type="checkbox" disabled> No hay secciones duplicadas</li>
+<li><input type="checkbox" disabled> Separadores <code>---</code> correctos</li>
+<li><input type="checkbox" disabled> Ultima actualizacion al final</li>
+</ul>
+<h4 id="estandares-sql-solo-si-el-proyecto-tiene-base-de-datos">Estandares SQL (solo si el proyecto tiene base de datos)</h4>
+<ul>
+<li><input type="checkbox" disabled> CLAUDE.md raiz tiene seccion <code>## Estandares SQL</code> con referencia a <code>CLAUDE_BASE.md §8.1</code> (no contenido duplicado, solo puntero)</li>
+<li><input type="checkbox" disabled> <code>_hilo/ESTADO_PROYECTO.json</code> tiene campo <code>baseDatos.versionSqlServer</code> (default: &quot;2017&quot;)</li>
+<li><input type="checkbox" disabled> <code>.claude/skills/database/SKILL.md</code> contiene bloque &quot;ERRORES COMUNES A EVITAR&quot; al inicio</li>
+<li><input type="checkbox" disabled> <code>.claude/hooks/sql-nomenclatura-guard.js</code> existe y esta registrado en <code>.claude/settings.json</code> (PostToolUse[Write|Edit])</li>
+<li><input type="checkbox" disabled> Si hay SPs legacy (<code>usp_*</code>, <code>sp_*</code>, <code>_Listar</code>, <code>_Guardar</code>): estan bajo <code>Legacy/</code>, <code>Obsoleto/</code> o con comentario <code>-- LEGACY: no renombrar</code></li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-ejemplo-de-claudemd-correcto">
+<h3 id="ejemplo-de-claudemd-correcto">Ejemplo de CLAUDE.md correcto</h3>
+<pre data-lang="markdown"><code># CLAUDE.md
+
+This file provides guidance to Claude Code...
+
+---
+
+## @imports (Contexto Automatico)
+
+@_hilo/ESTADO_PROYECTO.json
+@_hilo/SESION_ACTUAL.md
+
+&gt; Dieta de contexto: solo el estado y la sesion. Los estandares de la organizacion viven en
+&gt; `.claude/CLAUDE_BASE.md` y los recuerda la regla `estandares-base` al tocar codigo.
+
+---
+
+## Informacion del Proyecto
+
+| Campo | Valor |
+|-------|-------|
+| **Nombre** | MiProyecto |
+| **Framework** | .NET 10.0 |
+...
+
+---
+
+## Glosario del Dominio
+
+| Termino | Definicion |
+|---------|------------|
+| ... | ... |
+
+---
+
+## Estandares de Code
+...
+
+---
+
+## Reglas Criticas
+...
+
+---
+
+*Archivo generado por Ovillo - Ejecuta /hv:init para personalizar*</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-errores-comunes-y-soluciones">
+<h3 id="errores-comunes-y-soluciones">Errores comunes y soluciones</h3>
+<div class="tbl"><table><thead><tr><th>Error</th><th>Causa</th><th>Solucion</th></tr></thead><tbody><tr><td>@imports no funcionan</td><td>Estan duplicados o mal ubicados</td><td>Ejecutar <code>/hv:verificar-claude --fix</code></td></tr><tr><td>Contexto incompleto</td><td>Falta uno de los 2 @imports</td><td>Añadir <code>@_hilo/ESTADO_PROYECTO.json</code> y <code>@_hilo/SESION_ACTUAL.md</code>, y solo esos</td></tr><tr><td>Contexto desbordado</td><td>Alguien re-anadio <code>@.claude/CLAUDE_BASE.md</code></td><td>Quitarlo: la regla <code>estandares-base</code> lo cubre por ruta (ADR-025)</td></tr><tr><td>Secciones duplicadas</td><td>Un update anterior las anadio sin comprobar</td><td>Eliminar duplicados manualmente o con este comando</td></tr><tr><td>Tabla rota</td><td>Edicion manual incorrecta</td><td>Completar o eliminar la tabla incompleta</td></tr></tbody></table></div>
+<hr>
+<hr>
+</section>
+<section class="sec" id="sec-algoritmo-de-deteccion-checks-sql">
+<h3 id="algoritmo-de-deteccion-checks-sql">Algoritmo de deteccion (checks SQL)</h3>
+<p>Los 5 checks SQL se ejecutan en este orden. Cada uno imprime <code>OK</code>, <code>WARN</code> o <code>FAIL</code>:</p>
+<h4 id="sql-1-referencia-a-81-en-claudemd-raiz">SQL-1: referencia a §8.1 en CLAUDE.md raiz</h4>
+<pre><code>1. Leer CLAUDE.md (raiz del proyecto, no el de .claude/).
+2. Buscar una de estas keywords (case-insensitive):
+     - &quot;## Estandares SQL&quot;
+     - &quot;SQL Nomenclatura&quot;
+     - &quot;CLAUDE_BASE.md §8.1&quot;
+     - &quot;CLAUDE_BASE.md seccion 8.1&quot;
+3. Si NO encuentra ninguna -&gt; WARN [MEDIA]
+4. Si encuentra pero no menciona version ni nomenclatura -&gt; WARN [BAJA]</code></pre>
+<h4 id="sql-2-version-sql-server-declarada">SQL-2: version SQL Server declarada</h4>
+<pre><code>1. Leer _hilo/ESTADO_PROYECTO.json.
+2. Buscar baseDatos.versionSqlServer.
+3. Si no existe -&gt; WARN [BAJA] + sugerir default 2017.
+4. Si existe y es &quot;2017&quot; -&gt; OK.
+5. Si es &quot;2019&quot;, &quot;2022&quot;, &quot;AzureSQL&quot;, &quot;2016&quot; -&gt; OK (pero mencionar en el output que las features permitidas cambian).
+6. Valor no reconocido -&gt; WARN [MEDIA].</code></pre>
+<h4 id="sql-3-claudeskillsdatabaseskillmd-actualizada">SQL-3: <code>.claude/skills/database/SKILL.md</code> actualizada</h4>
+<pre><code>1. Verificar que existe .claude/skills/database/SKILL.md.
+2. Si no existe -&gt; FAIL [ALTA] (claude plugin update hv@ovillo falta).
+3. Si existe: grep por &quot;ERRORES COMUNES A EVITAR&quot; (case-insensitive).
+4. Si NO encuentra -&gt; WARN [MEDIA] (version anterior del ecosistema).
+5. Si encuentra + tiene paths: de Repositorios/*.cs -&gt; OK (el campo es paths:, no globs:).</code></pre>
+<h4 id="sql-4-hook-sql-nomenclatura-guardjs-registrado">SQL-4: hook <code>sql-nomenclatura-guard.js</code> registrado</h4>
+<pre><code>1. Verificar que existe .claude/hooks/sql-nomenclatura-guard.js.
+2. Leer .claude/settings.json.
+3. Buscar en hooks.PostToolUse[Write|Edit] una entrada que contenga &quot;sql-nomenclatura-guard.js&quot;.
+4. Si archivo existe + esta registrado -&gt; OK.
+5. Si archivo existe pero NO registrado -&gt; WARN [MEDIA].
+6. Si archivo NO existe -&gt; WARN [MEDIA] (claude plugin update hv@ovillo falta).</code></pre>
+<h4 id="sql-5-sps-legacy-detectados">SQL-5: SPs legacy detectados</h4>
+<pre><code>1. grep en **/*.sql + **/Repositorio*.cs:
+     - CREATE PROCEDURE con prefijo usp_, sp_, pr_, proc_, pa_
+     - CREATE PROCEDURE con sufijo _Listar, _Guardar, _Eliminar, _Leer, _L, _G
+2. Cargar .claude/sql-legacy-baseline.txt si existe (lista de rutas relativas).
+3. Para cada match:
+     a. Verificar si la ruta relativa esta en sql-legacy-baseline.txt.
+     b. Verificar si el archivo esta bajo Legacy/, Obsoleto/, MigracionPending/.
+     c. Verificar si tiene el comentario &quot;-- LEGACY: no renombrar&quot;.
+     d. Si cumple alguna -&gt; OK (legacy marcado correctamente).
+     e. Si NO cumple -&gt; WARN [BAJA]: &quot;SP legacy sin marcar&quot;.
+4. Si hay N SPs legacy sin marcar, sugerir:
+     a. Generar baseline masivo: `node .claude/hooks/sql-baseline-generate.js`
+     b. O anotar individualmente con comentario inline `-- LEGACY: no renombrar`.</code></pre>
+<h4 id="con---sql">Con <code>--sql</code></h4>
+<p>Solo ejecuta SQL-1 a SQL-5. Salta @imports, tablas cortadas, glosario, etc. Util para verificacion rapida tras <code>claude plugin update hv@ovillo</code>:</p>
+<pre data-lang="bash"><code>/hv:verificar-claude --sql
+<span class="tk-c"># tiempo: ~5 seg</span>
+<span class="tk-c"># output: solo bloque &quot;ESTANDARES SQL&quot;</span></code></pre>
+<hr>
+<p><em>Skill verificar-claude · procedimiento · valida la plantilla vigente (ADR-025, ADR-038)</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/verificar-claude.html#ficheros">← Volver a la ficha de verificar-claude</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/verificar-claude.html"><small>Anterior</small>Ficha de verificar-claude</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/verificar-claude/references/procedimiento.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando-usar">Cuando usar</a></li><li class="l2"><a href="#instrucciones-para-claude">Instrucciones para Claude</a></li><li class="l3"><a href="#1-leer-y-analizar-claudemd">1. Leer y analizar CLAUDE.md</a></li><li class="l3"><a href="#2-verificar-estructura-obligatoria">2. Verificar estructura obligatoria</a></li><li class="l3"><a href="#3-detectar-problemas">3. Detectar problemas</a></li><li class="l3"><a href="#4-mostrar-informe">4. Mostrar informe</a></li><li class="l3"><a href="#5-corregir-automaticamente-si-el-usuario-acepta">5. Corregir automaticamente (si el usuario acepta)</a></li><li class="l3"><a href="#6-crear-backup-antes-de-modificar">6. Crear backup antes de modificar</a></li><li class="l3"><a href="#6b-version-ovillo-correcta">6b. Version Ovillo correcta</a></li><li class="l3"><a href="#7-mostrar-resumen-de-cambios">7. Mostrar resumen de cambios</a></li><li class="l3"><a href="#8-mostrar-flags-disponibles-al-final">8. Mostrar flags disponibles al final</a></li><li class="l2"><a href="#parametros-opcionales">Parametros opcionales</a></li><li class="l2"><a href="#checklist-de-verificacion">Checklist de verificacion</a></li><li class="l3"><a href="#imports-2-obligatorios">@imports (2 obligatorios)</a></li><li class="l3"><a href="#secciones-del-proyecto">Secciones del proyecto</a></li><li class="l3"><a href="#secciones-del-ecosistema">Secciones del ecosistema</a></li><li class="l3"><a href="#verificacion-tras-salto-de-version">Verificacion tras salto de version</a></li><li class="l3"><a href="#formato">Formato</a></li><li class="l3"><a href="#estandares-sql-solo-si-el-proyecto-tiene-base-de-datos">Estandares SQL (solo si el proyecto tiene base de datos)</a></li><li class="l2"><a href="#ejemplo-de-claudemd-correcto">Ejemplo de CLAUDE.md correcto</a></li><li class="l2"><a href="#errores-comunes-y-soluciones">Errores comunes y soluciones</a></li><li class="l2"><a href="#algoritmo-de-deteccion-checks-sql">Algoritmo de deteccion (checks SQL)</a></li><li class="l3"><a href="#sql-1-referencia-a-81-en-claudemd-raiz">SQL-1: referencia a §8.1 en CLAUDE.md raiz</a></li><li class="l3"><a href="#sql-2-version-sql-server-declarada">SQL-2: version SQL Server declarada</a></li><li class="l3"><a href="#sql-3-claudeskillsdatabaseskillmd-actualizada">SQL-3: .claude/skills/database/SKILL.md actualizada</a></li><li class="l3"><a href="#sql-4-hook-sql-nomenclatura-guardjs-registrado">SQL-4: hook sql-nomenclatura-guard.js registrado</a></li><li class="l3"><a href="#sql-5-sps-legacy-detectados">SQL-5: SPs legacy detectados</a></li><li class="l3"><a href="#con---sql">Con --sql</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,105 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>security-audit · attacks/xss-in-depth.md · Ovillo</title><meta name="description" content="Fichero attacks/xss-in-depth.md de la skill security-audit"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="security-audit · attacks/xss-in-depth.md · Ovillo"><meta property="og:description" content="Fichero attacks/xss-in-depth.md de la skill security-audit"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/security-audit/attacks/xss-in-depth.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/security-audit/attacks/xss-in-depth.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/security-audit/attacks/xss-in-depth.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de security-audit (33)</h4><ul class="sibs"><li><a href="../../../skills/security-audit/ai-security/llm-security.html">ai-security/llm-security.md</a></li><li><a href="../../../skills/security-audit/attacks/clickjacking.html">attacks/clickjacking.md</a></li><li><a href="../../../skills/security-audit/attacks/csrf-attacks.html">attacks/csrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/jwt-security.html">attacks/jwt-security.md</a></li><li><a href="../../../skills/security-audit/attacks/mass-assignment.html">attacks/mass-assignment.md</a></li><li><a href="../../../skills/security-audit/attacks/path-traversal.html">attacks/path-traversal.md</a></li><li><a href="../../../skills/security-audit/attacks/ssrf-attacks.html">attacks/ssrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/xss-in-depth.html" class="cur">attacks/xss-in-depth.md</a></li><li><a href="../../../skills/security-audit/attacks/xxe-attacks.html">attacks/xxe-attacks.md</a></li><li><a href="../../../skills/security-audit/checklists/api-security.html">checklists/api-security.md</a></li><li><a href="../../../skills/security-audit/checklists/code-review-security.html">checklists/code-review-security.md</a></li><li><a href="../../../skills/security-audit/checklists/http-methods-security.html">checklists/http-methods-security.md</a></li><li><a href="../../../skills/security-audit/checklists/post-remediation.html">checklists/post-remediation.md</a></li><li><a href="../../../skills/security-audit/checklists/pre-deployment.html">checklists/pre-deployment.md</a></li><li><a href="../../../skills/security-audit/checklists/wstg-checklist.html">checklists/wstg-checklist.md</a></li><li><a href="../../../skills/security-audit/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/security-audit/mobile/owasp-mastg.html">mobile/owasp-mastg.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-dotnet.html">owasp/owasp-dotnet.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-frameworks.html">owasp/owasp-frameworks.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-top10-2025.html">owasp/owasp-top10-2025.md</a></li><li><a href="../../../skills/security-audit/patterns/attack-surface-mapping.html">patterns/attack-surface-mapping.md</a></li><li><a href="../../../skills/security-audit/patterns/authentication-patterns.html">patterns/authentication-patterns.md</a></li><li><a href="../../../skills/security-audit/patterns/secret-detection.html">patterns/secret-detection.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-coding-checklist.html">patterns/secure-coding-checklist.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-headers.html">patterns/secure-headers.md</a></li><li><a href="../../../skills/security-audit/reports/cwe-references.html">reports/cwe-references.md</a></li><li><a href="../../../skills/security-audit/reports/mitigation-plan.html">reports/mitigation-plan.md</a></li><li><a href="../../../skills/security-audit/reports/report-format.html">reports/report-format.md</a></li><li><a href="../../../skills/security-audit/templates/AttackSimulation.html">templates/AttackSimulation.md</a></li><li><a href="../../../skills/security-audit/templates/SecureStartup.cs.html">templates/SecureStartup.cs.template</a></li><li><a href="../../../skills/security-audit/templates/SecurityHeaders.cs.html">templates/SecurityHeaders.cs.template</a></li><li><a href="../../../skills/security-audit/tools/context7-security.html">tools/context7-security.md</a></li><li><a href="../../../skills/security-audit/tools/sast-integration.html">tools/sast-integration.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/security-audit.html">security-audit</a></span><span>attacks</span><span>xss-in-depth.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>security-audit</span><span>attacks/</span></div><h1>xss-in-depth.md</h1><p class="lede">Referencia que <code>security-audit</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/security-audit.html">security-audit</a></b><span>skill</span></div><div><b>attacks</b><span>carpeta</span></div><div><b>3879 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: security-audit</p></blockquote>
+<p class="lede">3 tipos de XSS, 20+ vectores de ataque, prevencion por framework.</p>
+<blockquote><p>Ver tambien: <code>owasp/owasp-top10-2025.md</code> (A05), <code>owasp/owasp-frameworks.md</code></p></blockquote>
+<hr>
+<section class="sec" id="sec-tipos-de-xss">
+<h3 id="tipos-de-xss">Tipos de XSS</h3>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Descripcion</th><th>Persistencia</th></tr></thead><tbody><tr><td><strong>XSS Reflejado</strong></td><td>Payload en URL/solicitud, reflejado en la respuesta</td><td>No</td></tr><tr><td><strong>XSS Almacenado</strong></td><td>Payload almacenado en BD, servido a otros usuarios</td><td>Si</td></tr><tr><td><strong>XSS basado en DOM</strong></td><td>Payload ejecutado via JavaScript del lado del cliente</td><td>No</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-vectores-de-ataque-comunes">
+<h3 id="vectores-de-ataque-comunes">Vectores de Ataque Comunes</h3>
+<pre data-lang="html"><code><span class="tk-c">&lt;!-- Basico --&gt;</span>
+<span class="tk-t">&lt;script</span><span class="tk-t">&gt;</span>alert(document.cookie)<span class="tk-t">&lt;/script</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- Manejadores de eventos --&gt;</span>
+<span class="tk-t">&lt;img</span> src=x onerror=alert(<span class="tk-n">1</span>)<span class="tk-t">&gt;</span>
+<span class="tk-s">&quot; onfocus=&quot;</span>alert(document.cookie)
+<span class="tk-t">&lt;a</span> href=<span class="tk-s">&quot;javascript:alert(1)&quot;</span><span class="tk-t">&gt;</span>clic aqui<span class="tk-t">&lt;/a</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- Tecnicas de evasion de filtros --&gt;</span>
+<span class="tk-t">&lt;ScRiPt</span><span class="tk-t">&gt;</span>alert(<span class="tk-n">1</span>)<span class="tk-t">&lt;/ScRiPt</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;script</span> <span class="tk-t">&gt;</span>alert(<span class="tk-n">1</span>)<span class="tk-t">&lt;/script</span> <span class="tk-t">&gt;</span>
+%3cscript%3ealert(<span class="tk-n">1</span>)%3c/script%3e
+<span class="tk-t">&lt;SCRIPT</span> a=<span class="tk-s">&quot;&gt;&quot;</span><span class="tk-t">&gt;</span>SRC=<span class="tk-s">&quot;https://atacante/xss.js&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/SCRIPT</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- Evasion por HPP (Contaminacion de Parametros HTTP) --&gt;</span>
+param=<span class="tk-t">&lt;script</span>&amp;param=<span class="tk-t">&gt;</span>[...]&lt;/&amp;param=script<span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- Basado en DOM --&gt;</span>
+document.write(<span class="tk-s">&quot;NO CONFIABLE: &quot;</span> + document.location.hash)
+element.innerHTML = userInput</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-prevencion-por-lenguaje">
+<h3 id="prevencion-por-lenguaje">Prevencion por Lenguaje</h3>
+<h4 id="c--aspnet">C# / ASP.NET</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ASP.NET Core - Auto-escapado en Razor por defecto</span>
+<span class="tk-c">// SEGURO - @Model.Name ya esta escapado</span>
+
+<span class="tk-c">// INSEGURO - Html.Raw con entrada del user</span>
+@Html.Raw(Model.Description)  <span class="tk-c">// NUNCA con datos del user</span>
+
+<span class="tk-c">// Sanitizacion con HtmlSanitizer (NuGet)</span>
+<span class="tk-k">var</span> sanitizer = <span class="tk-k">new</span> HtmlSanitizer();
+<span class="tk-k">var</span> htmlSeguro = sanitizer.Sanitize(htmlDelUser);
+
+<span class="tk-c">// CSP header en middleware</span>
+app.Use(<span class="tk-k">async</span> (context, next) =&gt;
+{
+    context.Response.Headers.Append(
+        <span class="tk-s">&quot;Content-Security-Policy&quot;</span>,
+        <span class="tk-s">&quot;default-src 'self'; script-src 'self'&quot;</span>);
+    <span class="tk-k">await</span> next();
+});</code></pre>
+<h4 id="javascript--react">JavaScript / React</h4>
+<pre data-lang="javascript"><code><span class="tk-c">// INSEGURO - innerHTML con entrada del usuario</span>
+document.getElementById(<span class="tk-s">'content'</span>).innerHTML = userInput;
+
+<span class="tk-c">// SEGURO - textContent (sin interpretacion HTML)</span>
+document.getElementById(<span class="tk-s">'content'</span>).textContent = userInput;
+
+<span class="tk-c">// SEGURO - Sanitizacion con DOMPurify</span>
+<span class="tk-k">import</span> DOMPurify from <span class="tk-s">'dompurify'</span>;
+document.getElementById(<span class="tk-s">'content'</span>).innerHTML = DOMPurify.sanitize(userInput);
+
+<span class="tk-c">// React - auto-escapado por defecto</span>
+<span class="tk-c">// INSEGURO</span>
+&lt;div dangerouslySetInnerHTML={{__html: userInput}} /&gt;
+<span class="tk-c">// SEGURO</span>
+&lt;div&gt;{userInput}&lt;/div&gt;
+
+<span class="tk-c">// SEGURO - Parseo JSON (nunca eval)</span>
+<span class="tk-k">const</span> data = JSON.parse(receivedData);  <span class="tk-c">// Seguro</span>
+<span class="tk-c">// const data = eval('(' + receivedData + ')');  // PELIGROSO</span></code></pre>
+<h4 id="python--django">Python / Django</h4>
+<pre data-lang="python"><code><span class="tk-c"># Django - auto-escapado habilitado por defecto</span>
+<span class="tk-c"># SEGURO - Las plantillas Django auto-escapan</span>
+{{ user_input }}
+
+<span class="tk-c"># INSEGURO - marcar como seguro</span>
+{{ user_input|safe }}</code></pre>
+<h4 id="ruby--rails">Ruby / Rails</h4>
+<pre data-lang="ruby"><code># Rails - NUNCA usar raw o html_safe con entrada del usuario
+&lt;%= raw @product.name %&gt;         # INSEGURO
+&lt;%== @product.name %&gt;            # INSEGURO
+&lt;%= @product.name.html_safe %&gt;   # INSEGURO
+&lt;%= @product.name %&gt;             # SEGURO (auto-escapado)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-cabecera-csp-content-security-policy">
+<h3 id="cabecera-csp-content-security-policy">Cabecera CSP (Content Security Policy)</h3>
+<pre data-lang="html"><code><span class="tk-c">&lt;!-- CSP estricta --&gt;</span>
+<span class="tk-t">&lt;meta</span> http-equiv=<span class="tk-s">&quot;Content-Security-Policy&quot;</span>
+      content=<span class="tk-s">&quot;default-src 'self'; script-src 'self' https://cdn.confiable.com;&quot;</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- CSP con nonce (mas segura) --&gt;</span>
+Content-Security-Policy: script-src 'nonce-r4nd0m' 'strict-dynamic'; object-src 'none'; base-uri 'none';</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-tabla-de-proteccion-por-framework">
+<h3 id="tabla-de-proteccion-por-framework">Tabla de Proteccion por Framework</h3>
+<div class="tbl"><table><thead><tr><th>Framework</th><th>Auto-escapado</th><th>Funcion insegura</th><th>Sanitizacion</th></tr></thead><tbody><tr><td><strong>ASP.NET Razor</strong></td><td>Si (<code>@</code>)</td><td><code>Html.Raw()</code></td><td>HtmlSanitizer NuGet</td></tr><tr><td><strong>React</strong></td><td>Si (<code>{}</code>)</td><td><code>dangerouslySetInnerHTML</code></td><td>DOMPurify</td></tr><tr><td><strong>Django</strong></td><td>Si (<code>{{ }}</code>)</td><td>`</td><td>safe` filter</td><td>bleach</td></tr><tr><td><strong>Rails</strong></td><td>Si (<code>&lt;%= %&gt;</code>)</td><td><code>raw</code>, <code>html_safe</code></td><td>sanitize helper</td></tr><tr><td><strong>Angular</strong></td><td>Si (binding)</td><td><code>bypassSecurityTrust*</code></td><td>DomSanitizer</td></tr></tbody></table></div>
+<hr>
+<p><em>Pattern 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/security-audit.html#ficheros">← Volver a la ficha de security-audit</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/security-audit/attacks/ssrf-attacks.html"><small>Anterior</small>attacks/ssrf-attacks.md</a><a class="next" href="../../../skills/security-audit/attacks/xxe-attacks.html"><small>Siguiente</small>attacks/xxe-attacks.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/security-audit/attacks/xss-in-depth.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#tipos-de-xss">Tipos de XSS</a></li><li class="l2"><a href="#vectores-de-ataque-comunes">Vectores de Ataque Comunes</a></li><li class="l2"><a href="#prevencion-por-lenguaje">Prevencion por Lenguaje</a></li><li class="l3"><a href="#c--aspnet">C# / ASP.NET</a></li><li class="l3"><a href="#javascript--react">JavaScript / React</a></li><li class="l3"><a href="#python--django">Python / Django</a></li><li class="l3"><a href="#ruby--rails">Ruby / Rails</a></li><li class="l2"><a href="#cabecera-csp-content-security-policy">Cabecera CSP (Content Security Policy)</a></li><li class="l2"><a href="#tabla-de-proteccion-por-framework">Tabla de Proteccion por Framework</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

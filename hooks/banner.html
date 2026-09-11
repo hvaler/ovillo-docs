@@ -1,0 +1,310 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>banner · Ovillo</title><meta name="description" content="Contexto de inicio de sesion Ovillo para Claude Code"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="banner · Ovillo"><meta property="og:description" content="Contexto de inicio de sesion Ovillo para Claude Code"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/banner.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/banner.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/banner.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html" class="cur">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>banner</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>SessionStart[*]</span><span class="kind kind-ok">informa</span></div><h1>banner</h1><p class="lede">Contexto de inicio de sesion Ovillo para Claude Code</p><div class="meta-grid"><div><b><code>SessionStart</code></b><span>evento</span></div><div><b><code>*</code></b><span>matcher</span></div><div><b><span class="kind kind-ok">informa</span></b><span>política</span></div><div><b>1.1.0</b><span>versión</span></div><div><b>30 s</b><span>timeout</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p>Hook SessionStart que inyecta contexto del proyecto en Claude. Lee ESTADO_PROYECTO.json y emite informacion relevante a stdout, que Claude Code captura como contexto inicial de la sesion. Tambien detecta complementos faltantes y actualiza el announcement. stdout -&gt; contexto para Claude (no visible al usuario) stderr -&gt; visible al usuario en terminal Parametrizacion FASE 2: - El announcement se escribe en .claude/settings.json companyAnnouncements (como el .ps1), ahora de forma ATOMICA via writeHiloJson (FB-004/FB-007). - El check de update usa ecosystem.config -&gt; distribution.baseUrl (+ /VERSION.json). baseUrl vacio (y sin serverUrl en _hilo/VERSION.json) -&gt; check saltado silenciosamente; el cache de 24h (_hilo/.update-check.json) se conserva para el statusline. - distribution.updateCheck=false tambien desactiva la consulta remota.</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>0</code></td><td>siempre (emite el contexto del proyecto a stdout; nunca bloquea)</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>Informa: nunca bloquea.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>banner.js · 310 líneas</summary><pre data-lang="javascript"><code>#!/usr/bin/env node
+<span class="tk-c">// banner.js - Contexto de inicio de sesion Ovillo para Claude Code</span>
+<span class="tk-c">// Evento: SessionStart</span>
+<span class="tk-c">// Exit 0 = siempre (emite el contexto del proyecto a stdout; nunca bloquea)</span>
+<span class="tk-c">// Version: 1.1.0</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Hook SessionStart que inyecta contexto del proyecto en Claude.</span>
+<span class="tk-c">// Lee ESTADO_PROYECTO.json y emite informacion relevante a stdout,</span>
+<span class="tk-c">// que Claude Code captura como contexto inicial de la sesion.</span>
+<span class="tk-c">// Tambien detecta complementos faltantes y actualiza el announcement.</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// stdout -&gt; contexto para Claude (no visible al usuario)</span>
+<span class="tk-c">// stderr -&gt; visible al usuario en terminal</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Parametrizacion FASE 2:</span>
+<span class="tk-c">//   - El announcement se escribe en .claude/settings.json companyAnnouncements (como el .ps1),</span>
+<span class="tk-c">//     ahora de forma ATOMICA via writeHiloJson (FB-004/FB-007).</span>
+<span class="tk-c">//   - El check de update usa ecosystem.config -&gt; distribution.baseUrl (+ /VERSION.json).</span>
+<span class="tk-c">//     baseUrl vacio (y sin serverUrl en _hilo/VERSION.json) -&gt; check saltado silenciosamente;</span>
+<span class="tk-c">//     el cache de 24h (_hilo/.update-check.json) se conserva para el statusline.</span>
+<span class="tk-c">//   - distribution.updateCheck=false tambien desactiva la consulta remota.</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> fs = <span class="tk-k">require</span>(<span class="tk-s">'fs'</span>);
+<span class="tk-k">const</span> path = <span class="tk-k">require</span>(<span class="tk-s">'path'</span>);
+<span class="tk-k">const</span> { spawnSync } = <span class="tk-k">require</span>(<span class="tk-s">'child_process'</span>);
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(path.join(__dirname, <span class="tk-s">'lib'</span>, <span class="tk-s">'helpers'</span>));
+<span class="tk-k">const</span> configLib = <span class="tk-k">require</span>(path.join(__dirname, <span class="tk-s">'lib'</span>, <span class="tk-s">'config'</span>));
+
+<span class="tk-k">function</span> runCli(commandLine) {
+  <span class="tk-c">// Equivalente a `&amp; cmd ... 2&gt;&amp;1 | Out-String` con degradacion silenciosa.</span>
+  <span class="tk-c">// shell:true (comando como string unico, args estaticos) para resolver</span>
+  <span class="tk-c">// shims .cmd/.ps1 en Windows (claude, dotnet).</span>
+  <span class="tk-k">try</span> {
+    <span class="tk-k">const</span> r = spawnSync(commandLine, { encoding: <span class="tk-s">'utf8'</span>, shell: <span class="tk-k">true</span>, timeout: <span class="tk-n">10000</span>, windowsHide: <span class="tk-k">true</span> });
+    <span class="tk-k">return</span> <span class="tk-s">`${r.stdout || ''}${r.stderr || ''}`</span>;
+  } <span class="tk-k">catch</span> {
+    <span class="tk-k">return</span> <span class="tk-s">''</span>;
+  }
+}
+
+<span class="tk-k">async</span> <span class="tk-k">function</span> main() {
+  <span class="tk-k">const</span> projectDir = h.projectDir();
+  <span class="tk-k">const</span> cfg = configLib.load(projectDir);
+  <span class="tk-k">const</span> baseUrl = String(configLib.get(cfg, <span class="tk-s">'distribution.baseUrl'</span>, <span class="tk-s">''</span>) || <span class="tk-s">''</span>).trim().replace(/\/+$/, <span class="tk-s">''</span>);
+  <span class="tk-k">const</span> updateCheckEnabled = configLib.get(cfg, <span class="tk-s">'distribution.updateCheck'</span>, <span class="tk-k">true</span>) !== <span class="tk-k">false</span>;
+  <span class="tk-c">// Sin distribution.baseUrl no hay URL que ofrecer: se remite a la configuracion en vez de imprimir un</span>
+  <span class="tk-c">// placeholder literal como si fuera un comando ejecutable (ADR-035).</span>
+  <span class="tk-k">const</span> comoInstalar = baseUrl
+    ? <span class="tk-s">'irm '</span> + baseUrl + <span class="tk-s">'/install.ps1 | iex'</span>
+    : <span class="tk-s">'pide la URL de distribucion a tu organizacion y ponla en ecosystem.config.json -&gt; distribution.baseUrl'</span>;
+
+  <span class="tk-k">const</span> duranDir = path.join(projectDir, <span class="tk-s">'_hilo'</span>);
+  <span class="tk-k">const</span> estadoFile = path.join(duranDir, <span class="tk-s">'ESTADO_PROYECTO.json'</span>);
+  <span class="tk-c">// VERSION.json de la RAIZ es el que traen el zip y el plugin (clave &quot;version&quot;).</span>
+  <span class="tk-c">// _hilo/VERSION.json (clave &quot;installedVersion&quot;) es legado de instalaciones antiguas: se</span>
+  <span class="tk-c">// consulta despues, no antes, para que la version que se anuncia sea la instalada de verdad.</span>
+  <span class="tk-k">const</span> versionFile = path.join(projectDir, <span class="tk-s">'VERSION.json'</span>);
+  <span class="tk-k">const</span> versionFileLegado = path.join(duranDir, <span class="tk-s">'VERSION.json'</span>);
+
+  <span class="tk-c">// Valores por defecto</span>
+  <span class="tk-k">let</span> Version = <span class="tk-s">'?.?.?'</span>;
+  <span class="tk-k">let</span> Idioma = <span class="tk-s">'es-ES'</span>;
+  <span class="tk-k">let</span> Modo = <span class="tk-s">''</span>;
+  <span class="tk-k">let</span> Proyecto = <span class="tk-s">''</span>;
+  <span class="tk-k">let</span> Evolutivo = <span class="tk-s">''</span>;
+  <span class="tk-k">let</span> Fase = <span class="tk-s">''</span>;
+  <span class="tk-k">let</span> Alertas = [];
+
+  <span class="tk-k">const</span> estado = h.readJsonSafe(estadoFile);
+  <span class="tk-k">if</span> (estado) {
+    <span class="tk-k">if</span> (estado.ecosistema &amp;&amp; estado.ecosistema.version) Version = estado.ecosistema.version;
+    <span class="tk-k">if</span> (estado.configuracion &amp;&amp; estado.configuracion.idioma) Idioma = estado.configuracion.idioma;
+    <span class="tk-k">if</span> (estado.estado &amp;&amp; estado.estado.modo) Modo = estado.estado.modo;
+    <span class="tk-k">if</span> (estado.estado &amp;&amp; estado.estado.fase_actual) Fase = estado.estado.fase_actual;
+    <span class="tk-k">if</span> (estado.proyecto &amp;&amp; estado.proyecto.nombre &amp;&amp; estado.proyecto.nombre !== <span class="tk-s">'[NOMBRE_PROYECTO]'</span>) {
+      Proyecto = estado.proyecto.nombre;
+    }
+    <span class="tk-k">if</span> (estado.evolutivoActivo) Evolutivo = estado.evolutivoActivo;
+    <span class="tk-k">if</span> (estado.alertas &amp;&amp; Array.isArray(estado.alertas.activas) &amp;&amp; estado.alertas.activas.length &gt; <span class="tk-n">0</span>) {
+      Alertas = estado.alertas.activas;
+    }
+  }
+
+  <span class="tk-c">// Fallback: leer version de VERSION.json si no se obtuvo de ESTADO_PROYECTO.json</span>
+  <span class="tk-k">if</span> (Version === <span class="tk-s">'?.?.?'</span>) {
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> f <span class="tk-k">of</span> [versionFile, versionFileLegado]) {
+      <span class="tk-k">const</span> vData = h.readJsonSafe(f);
+      <span class="tk-k">const</span> v = vData &amp;&amp; (vData.version || vData.installedVersion);
+      <span class="tk-k">if</span> (v) { Version = String(v); <span class="tk-k">break</span>; }
+    }
+  }
+
+  <span class="tk-c">// === DETECTAR ESTADO DE COMPLEMENTOS ===</span>
+  <span class="tk-k">let</span> roslynTool = <span class="tk-k">false</span>;
+  <span class="tk-k">let</span> roslynMcp = <span class="tk-k">false</span>;
+  <span class="tk-k">let</span> context7Mcp = <span class="tk-k">false</span>;
+  <span class="tk-k">let</span> dotnetSkills = <span class="tk-k">false</span>;
+
+  <span class="tk-k">const</span> tools = runCli(<span class="tk-s">'dotnet tool list -g'</span>);
+  <span class="tk-k">if</span> (/cwm\.roslynnavigator|cwm-roslyn-navigator/i.test(tools)) roslynTool = <span class="tk-k">true</span>;
+
+  <span class="tk-c">// Un MCP puede llegar por dos vias: configurado (claude mcp list) o dentro de un plugin instalado</span>
+  <span class="tk-c">// (claude plugin list), que 'claude mcp list' no muestra. Se miran las dos (ADR-035).</span>
+  <span class="tk-k">const</span> mcpList = runCli(<span class="tk-s">'claude mcp list'</span>);
+  <span class="tk-k">const</span> pluginList = runCli(<span class="tk-s">'claude plugin list'</span>);
+  <span class="tk-k">const</span> instalado = (re) =&gt; re.test(mcpList) || (re.test(pluginList) &amp;&amp; !/No plugins installed/i.test(pluginList));
+  <span class="tk-k">if</span> (instalado(/cwm-roslyn-navigator/i)) roslynMcp = <span class="tk-k">true</span>;
+  <span class="tk-k">if</span> (instalado(/context7/i)) context7Mcp = <span class="tk-k">true</span>;
+  <span class="tk-k">if</span> (/dotnet/i.test(pluginList) &amp;&amp; !/No plugins installed/i.test(pluginList)) dotnetSkills = <span class="tk-k">true</span>;
+
+  <span class="tk-c">// === ACTUALIZAR companyAnnouncements DINAMICAMENTE ===</span>
+  <span class="tk-k">try</span> {
+    <span class="tk-k">const</span> settingsFile = path.join(projectDir, <span class="tk-s">'.claude'</span>, <span class="tk-s">'settings.json'</span>);
+    <span class="tk-k">if</span> (fs.existsSync(settingsFile)) {
+      <span class="tk-c">// Construir banner dinamico</span>
+      <span class="tk-k">const</span> bannerParts = [<span class="tk-s">`Ovillo v${Version}`</span>];
+      <span class="tk-k">if</span> (Proyecto) bannerParts.push(Proyecto);
+
+      <span class="tk-c">// Rama Git (sin crear lock para no colisionar con IDE: GIT_OPTIONAL_LOCKS=0)</span>
+      <span class="tk-k">const</span> branchRes = h.gitReadOnly([<span class="tk-s">'rev-parse'</span>, <span class="tk-s">'--abbrev-ref'</span>, <span class="tk-s">'HEAD'</span>], projectDir);
+      <span class="tk-k">const</span> branch = (branchRes.stdOut || <span class="tk-s">''</span>).trim();
+      <span class="tk-k">if</span> (branchRes.exitCode === <span class="tk-n">0</span> &amp;&amp; branch) bannerParts.push(<span class="tk-s">`rama: ${branch}`</span>);
+
+      <span class="tk-k">if</span> (Evolutivo) bannerParts.push(<span class="tk-s">`evolutivo: ${Evolutivo}`</span>);
+      <span class="tk-k">if</span> (Modo) bannerParts.push(<span class="tk-s">`modo: ${Modo}`</span>);
+
+      <span class="tk-k">const</span> line1 = bannerParts.join(<span class="tk-s">' | '</span>);
+
+      <span class="tk-c">// Linea 2: complementos</span>
+      <span class="tk-k">const</span> compParts = [];
+      <span class="tk-k">if</span> (roslynTool &amp;&amp; roslynMcp) compParts.push(<span class="tk-s">'Roslyn'</span>);
+      <span class="tk-k">if</span> (context7Mcp) compParts.push(<span class="tk-s">'Context7'</span>);
+      <span class="tk-k">if</span> (dotnetSkills) compParts.push(<span class="tk-s">'dotnet/skills'</span>);
+      <span class="tk-k">const</span> missingParts = [];
+      <span class="tk-k">if</span> (!roslynTool || !roslynMcp) missingParts.push(<span class="tk-s">'Roslyn'</span>);
+      <span class="tk-k">if</span> (!context7Mcp) missingParts.push(<span class="tk-s">'Context7'</span>);
+      <span class="tk-k">if</span> (!dotnetSkills) missingParts.push(<span class="tk-s">'dotnet/skills'</span>);
+
+      <span class="tk-k">let</span> line2 = <span class="tk-s">''</span>;
+      <span class="tk-k">if</span> (compParts.length &gt; <span class="tk-n">0</span>) line2 += <span class="tk-s">`MCPs: ${compParts.join(', ')}`</span>;
+      <span class="tk-k">if</span> (missingParts.length &gt; <span class="tk-n">0</span>) {
+        <span class="tk-k">if</span> (line2) line2 += <span class="tk-s">' | '</span>;
+        line2 += <span class="tk-s">`Falta: ${missingParts.join(', ')}`</span>;
+      }
+
+      <span class="tk-k">let</span> bannerText = line1;
+      <span class="tk-k">if</span> (line2) bannerText += <span class="tk-s">`\n${line2}`</span>;
+      bannerText += <span class="tk-s">'\n/sos para ayuda rapida'</span>;
+
+      <span class="tk-c">// Leer settings, actualizar solo companyAnnouncements, escribir (atomico, UTF-8 sin BOM)</span>
+      <span class="tk-k">const</span> settings = JSON.parse(fs.readFileSync(settingsFile, <span class="tk-s">'utf8'</span>));
+      settings.companyAnnouncements = [bannerText];
+      h.writeHiloJson(settings, settingsFile);
+    }
+  } <span class="tk-k">catch</span> {
+    <span class="tk-c">// Silenciar - no bloquear sesion por error en banner</span>
+  }
+
+  <span class="tk-c">// === CHECK UPDATE DISPONIBLE (silencioso si falla) ===</span>
+  <span class="tk-c">// Consulta VERSION.json del servidor de distribucion y cachea en</span>
+  <span class="tk-c">// _hilo/.update-check.json (TTL 24h). El statusline lee el cache sin red.</span>
+  <span class="tk-k">let</span> updateInfo = <span class="tk-k">null</span>;
+  <span class="tk-k">const</span> cacheFile = path.join(duranDir, <span class="tk-s">'.update-check.json'</span>);
+  <span class="tk-k">let</span> cacheValid = <span class="tk-k">false</span>;
+
+  <span class="tk-k">const</span> cache = h.readJsonSafe(cacheFile);
+  <span class="tk-k">if</span> (cache &amp;&amp; cache.checkedAt) {
+    <span class="tk-k">try</span> {
+      <span class="tk-k">const</span> checkedAt = <span class="tk-k">new</span> Date(cache.checkedAt);
+      <span class="tk-k">const</span> ageHours = (Date.now() - checkedAt.getTime()) / <span class="tk-n">3600000</span>;
+
+      <span class="tk-c">// Invalidar cache si el localVersion cacheado no coincide con la version actual</span>
+      <span class="tk-c">// (previene que tras /actualizar el cache siga marcando updateAvailable=true).</span>
+      <span class="tk-k">const</span> cacheLocalVer = Object.prototype.hasOwnProperty.call(cache, <span class="tk-s">'localVersion'</span>) ? cache.localVersion : <span class="tk-k">null</span>;
+      <span class="tk-k">const</span> cacheLocalStale = Boolean(cacheLocalVer &amp;&amp; Version !== <span class="tk-s">'?.?.?'</span> &amp;&amp; cacheLocalVer !== Version);
+
+      <span class="tk-k">if</span> (!Number.isNaN(ageHours) &amp;&amp; ageHours &lt; <span class="tk-n">24</span> &amp;&amp; !cacheLocalStale) {
+        updateInfo = cache;
+        cacheValid = <span class="tk-k">true</span>;
+      }
+    } <span class="tk-k">catch</span> { <span class="tk-c">/* cache ilegible -&gt; re-consultar */</span> }
+  }
+
+  <span class="tk-k">if</span> (!cacheValid &amp;&amp; updateCheckEnabled) {
+    <span class="tk-k">try</span> {
+      <span class="tk-k">let</span> localVer = <span class="tk-k">null</span>;
+      <span class="tk-k">let</span> localHash = <span class="tk-k">null</span>;
+      <span class="tk-k">let</span> serverUrl = baseUrl; <span class="tk-c">// FASE 2: antes '&lt;distribution.baseUrl&gt;' hardcoded</span>
+
+      <span class="tk-k">const</span> lv = h.readJsonSafe(versionFile) || h.readJsonSafe(versionFileLegado);
+      <span class="tk-k">if</span> (lv) {
+        <span class="tk-k">if</span> (lv.version || lv.installedVersion) localVer = String(lv.version || lv.installedVersion);
+        <span class="tk-k">if</span> (Object.prototype.hasOwnProperty.call(lv, <span class="tk-s">'installedZipSha256'</span>)) localHash = lv.installedZipSha256;
+        <span class="tk-k">if</span> (Object.prototype.hasOwnProperty.call(lv, <span class="tk-s">'serverUrl'</span>) &amp;&amp; lv.serverUrl) serverUrl = String(lv.serverUrl).replace(/\/+$/, <span class="tk-s">''</span>);
+      }
+
+      <span class="tk-k">if</span> (serverUrl) {
+        <span class="tk-c">// Consulta al servidor con timeout corto (no bloquear sesion)</span>
+        <span class="tk-k">const</span> ctrl = <span class="tk-k">new</span> AbortController();
+        <span class="tk-k">const</span> timer = setTimeout(() =&gt; ctrl.abort(), <span class="tk-n">3000</span>);
+        <span class="tk-k">let</span> remote;
+        <span class="tk-k">try</span> {
+          <span class="tk-k">const</span> resp = <span class="tk-k">await</span> fetch(<span class="tk-s">`${serverUrl}/VERSION.json`</span>, { signal: ctrl.signal });
+          <span class="tk-k">if</span> (!resp.ok) <span class="tk-k">throw</span> <span class="tk-k">new</span> Error(<span class="tk-s">`HTTP ${resp.status}`</span>);
+          remote = <span class="tk-k">await</span> resp.json();
+        } <span class="tk-k">finally</span> {
+          clearTimeout(timer);
+        }
+
+        <span class="tk-k">let</span> updateAvailable = <span class="tk-k">false</span>;
+        <span class="tk-k">let</span> updateType = <span class="tk-s">'none'</span>;
+        <span class="tk-k">if</span> (localVer &amp;&amp; remote &amp;&amp; remote.version) {
+          <span class="tk-k">if</span> (localVer !== remote.version) {
+            updateAvailable = <span class="tk-k">true</span>;
+            updateType = <span class="tk-s">'minor'</span>;
+          } <span class="tk-k">else</span> <span class="tk-k">if</span> (localHash &amp;&amp; remote.zipSha256 &amp;&amp; localHash !== remote.zipSha256) {
+            updateAvailable = <span class="tk-k">true</span>;
+            updateType = <span class="tk-s">'hotfix'</span>;
+          }
+        }
+
+        updateInfo = {
+          checkedAt: <span class="tk-k">new</span> Date().toISOString().replace(/\.\d{<span class="tk-n">3</span>}Z$/, <span class="tk-s">'Z'</span>),
+          localVersion: localVer,
+          localZipSha256: localHash,
+          serverVersion: remote ? (remote.version ?? <span class="tk-k">null</span>) : <span class="tk-k">null</span>,
+          serverZipSha256: remote ? (remote.zipSha256 ?? <span class="tk-k">null</span>) : <span class="tk-k">null</span>,
+          updateAvailable,
+          updateType,
+          serverUrl,
+        };
+
+        <span class="tk-c">// Escribir cache (atomico, UTF-8 sin BOM, RFC 8259 - FB-004/FB-007)</span>
+        h.writeHiloJson(updateInfo, cacheFile);
+      }
+      <span class="tk-c">// serverUrl vacio (distribution.baseUrl sin configurar) -&gt; saltar check silenciosamente.</span>
+      <span class="tk-c">// El cache anterior, si existe, se conserva para el statusline.</span>
+    } <span class="tk-k">catch</span> {
+      <span class="tk-c">// Sin conectividad / servidor no responde / timeout. Silencioso.</span>
+      <span class="tk-c">// El cache anterior (si existe pero &gt; 24h) sigue siendo legible por el statusline.</span>
+    }
+  }
+
+  <span class="tk-c">// === EMITIR CONTEXTO A STDOUT (para Claude) ===</span>
+  <span class="tk-k">const</span> output = [];
+  output.push(<span class="tk-s">'[Ovillo SessionStart Context]'</span>);
+  output.push(<span class="tk-s">`Ecosistema: Ovillo v${Version} (Hilo + Patrón)`</span>);
+  <span class="tk-k">if</span> (Proyecto) output.push(<span class="tk-s">`Proyecto: ${Proyecto}`</span>);
+  <span class="tk-k">if</span> (Modo) output.push(<span class="tk-s">`Modo: ${Modo}`</span>);
+  <span class="tk-k">if</span> (Fase) output.push(<span class="tk-s">`Fase: ${Fase}`</span>);
+  output.push(<span class="tk-s">`Idioma: ${Idioma}`</span>);
+  <span class="tk-k">if</span> (Evolutivo) output.push(<span class="tk-s">`Evolutivo activo: ${Evolutivo}`</span>);
+  <span class="tk-k">if</span> (Alertas.length &gt; <span class="tk-n">0</span>) {
+    output.push(<span class="tk-s">'ALERTAS:'</span>);
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> alerta <span class="tk-k">of</span> Alertas) output.push(<span class="tk-s">`  - ${alerta}`</span>);
+  }
+
+  <span class="tk-c">// Estado de complementos (siempre mostrar)</span>
+  <span class="tk-k">const</span> roslynStatus = roslynTool &amp;&amp; roslynMcp ? <span class="tk-s">'instalado'</span> : <span class="tk-s">'NO instalado'</span>;
+  <span class="tk-k">const</span> context7Status = context7Mcp ? <span class="tk-s">'instalado'</span> : <span class="tk-s">'NO instalado'</span>;
+  <span class="tk-k">const</span> dotnetStatus = dotnetSkills ? <span class="tk-s">'instalado'</span> : <span class="tk-s">'NO instalado'</span>;
+  output.push(<span class="tk-s">'Complementos:'</span>);
+  output.push(<span class="tk-s">`  - MCP Roslyn (analisis semantico C#): ${roslynStatus}`</span>);
+  output.push(<span class="tk-s">`  - MCP Context7 (documentacion librerias): ${context7Status}`</span>);
+  output.push(<span class="tk-s">`  - dotnet/skills (68 skills Microsoft): ${dotnetStatus}`</span>);
+
+  <span class="tk-k">const</span> missingCritical = [];
+  <span class="tk-k">const</span> missingOptional = [];
+  <span class="tk-k">if</span> (!roslynTool || !roslynMcp) missingCritical.push(<span class="tk-s">'MCP Roslyn'</span>);
+  <span class="tk-k">if</span> (!context7Mcp) missingCritical.push(<span class="tk-s">'MCP Context7'</span>);
+  <span class="tk-k">if</span> (!dotnetSkills) missingOptional.push(<span class="tk-s">'dotnet/skills'</span>);
+
+  <span class="tk-k">if</span> (missingCritical.length &gt; <span class="tk-n">0</span>) {
+    output.push(<span class="tk-s">`ACCION REQUERIDA: Faltan complementos (${missingCritical.join(', ')}). ${baseUrl ? 'Indicar al usuario que ejecute: ' : ''}${comoInstalar}`</span>);
+  }
+  <span class="tk-k">if</span> (missingOptional.length &gt; <span class="tk-n">0</span>) {
+    output.push(<span class="tk-s">`OPCIONAL: Complementos disponibles no instalados (${missingOptional.join(', ')}). ${baseUrl ? 'Instalar con: ' : ''}${comoInstalar}`</span>);
+  }
+
+  <span class="tk-c">// Update Ovillo disponible</span>
+  <span class="tk-k">if</span> (updateInfo &amp;&amp; updateInfo.updateAvailable) {
+    <span class="tk-k">if</span> (updateInfo.updateType === <span class="tk-s">'minor'</span>) {
+      output.push(<span class="tk-s">`UPDATE Ovillo DISPONIBLE: v${updateInfo.serverVersion} (local v${updateInfo.localVersion}). Sugerir al usuario ejecutar /actualizar.`</span>);
+    } <span class="tk-k">else</span> <span class="tk-k">if</span> (updateInfo.updateType === <span class="tk-s">'hotfix'</span>) {
+      output.push(<span class="tk-s">`HOTFIX Ovillo DISPONIBLE: v${updateInfo.localVersion} (zipSha256 distinto en servidor). Sugerir al usuario ejecutar /actualizar para aplicar retro-fix.`</span>);
+    }
+  }
+
+  <span class="tk-c">// Coherencia de la configuracion del proyecto (ADR-023): aviso, una vez por sesion, maximo 3 hallazgos.</span>
+  <span class="tk-k">try</span> {
+    <span class="tk-k">const</span> findings = configLib.validate(projectDir).filter((f) =&gt; f.level === <span class="tk-s">'warn'</span> || f.code === <span class="tk-s">'CLAVE_DEPRECADA'</span>);
+    <span class="tk-k">if</span> (findings.length) {
+      output.push(<span class="tk-s">'[hv] config: '</span> + findings.length + <span class="tk-s">' hallazgo(s) en _hilo/ESTADO_PROYECTO.json ('</span> + h.cmdEcosistema(<span class="tk-s">'hooks/config-check.js'</span>, <span class="tk-s">'--validate'</span>) + <span class="tk-s">'):'</span>);
+      <span class="tk-k">for</span> (<span class="tk-k">const</span> f <span class="tk-k">of</span> findings.slice(<span class="tk-n">0</span>, <span class="tk-n">3</span>)) output.push(<span class="tk-s">'[hv]   - '</span> + f.code + <span class="tk-s">' '</span> + f.path + <span class="tk-s">': '</span> + f.fix);
+    }
+  } <span class="tk-k">catch</span> { <span class="tk-c">/* nunca romper el banner por esto */</span> }
+
+  console.log(output.join(<span class="tk-s">'\n'</span>));
+  <span class="tk-k">return</span> <span class="tk-n">0</span>;
+}
+
+main()
+  .then((code) =&gt; process.exit(code ?? <span class="tk-n">0</span>))
+  .<span class="tk-k">catch</span>((e) =&gt; {
+    console.error(<span class="tk-s">`[banner] error no fatal: ${e.message}`</span>);
+    process.exit(<span class="tk-n">0</span>);
+  });
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>6 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>fix: el verificador validaba la plantilla que la dieta habia retirado (ADR-038)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/console.html">console</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/sos.html">sos</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/banner.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

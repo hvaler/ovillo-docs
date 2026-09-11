@@ -1,0 +1,294 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>documentacion-tecnica · references/workflow-documentar.md · Ovillo</title><meta name="description" content="Fichero references/workflow-documentar.md de la skill documentacion-tecnica"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="documentacion-tecnica · references/workflow-documentar.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-documentar.md de la skill documentacion-tecnica"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/documentacion-tecnica/references/workflow-documentar.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/documentacion-tecnica/references/workflow-documentar.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/documentacion-tecnica/references/workflow-documentar.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de documentacion-tecnica (12)</h4><ul class="sibs"><li><a href="../../../skills/documentacion-tecnica/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/documentacion-tecnica/patterns/diagrams-mermaid.html">patterns/diagrams-mermaid.md</a></li><li><a href="../../../skills/documentacion-tecnica/patterns/documentation-standards.html">patterns/documentation-standards.md</a></li><li><a href="../../../skills/documentacion-tecnica/references/workflow-documentar.html" class="cur">references/workflow-documentar.md</a></li><li><a href="../../../skills/documentacion-tecnica/templates/ADR.md.html">templates/ADR.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/API-REFERENCE.md.html">templates/API-REFERENCE.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/ARCHITECTURE.md.html">templates/ARCHITECTURE.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/CHANGELOG.md.html">templates/CHANGELOG.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/CONTRIBUTING.md.html">templates/CONTRIBUTING.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/DEPLOYMENT.md.html">templates/DEPLOYMENT.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/SECURITY.md.html">templates/SECURITY.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/TROUBLESHOOTING.md.html">templates/TROUBLESHOOTING.md.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/documentacion-tecnica.html">documentacion-tecnica</a></span><span>references</span><span>workflow-documentar.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>documentacion-tecnica</span><span>references/</span></div><h1>workflow-documentar.md</h1><p class="lede">Referencia que <code>documentacion-tecnica</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/documentacion-tecnica.html">documentacion-tecnica</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>9818 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>documentacion-tecnica</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para.</p></blockquote>
+<hr>
+<p class="lede">Genera documentación técnica del código fuente ubicado en <code>src/</code>.</p>
+<blockquote><p><strong>USE FOR</strong>: documentación <strong>TÉCNICA</strong> del código (arquitectura, APIs, clases) para desarrolladores. <strong>DO NOT USE FOR</strong>: manuales <strong>FUNCIONALES</strong> para usuarios finales, QA o Product Owners → usar <strong><code>/user-documentation</code></strong>.</p></blockquote>
+<section class="sec" id="sec-extended-thinking-mode">
+<h3 id="extended-thinking-mode">🧠 Extended Thinking Mode</h3>
+<p><strong>think hard</strong> - Analiza el código en profundidad para generar documentación precisa y útil.</p>
+<hr>
+</section>
+<section class="sec" id="sec-importante-estructura-de-carpetas">
+<h3 id="importante-estructura-de-carpetas">IMPORTANTE: Estructura de Carpetas</h3>
+<pre><code>MiProyecto/
+├── _hilo/                  ← Contexto del proyecto
+│   ├── FUNCIONALIDADES.md
+│   └── DEPENDENCIAS.md
+├── src/              ← CÓDIGO FUENTE A DOCUMENTAR ⭐
+│   ├── MiSolucion.sln|.slnx    ← .slnx solo .NET 8+
+│   ├── MiProyecto.API/
+│   └── ...
+└── docs/           ← DOCUMENTACIÓN GENERADA ⭐
+    ├── API/
+    │   └── README_API.md
+    ├── Arquitectura/
+    │   └── ARQUITECTURA.md
+    ├── Code/
+    │   └── [Proyecto]/
+    └── README.md</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parámetros">
+<h3 id="parámetros">Parámetros</h3>
+<div class="tbl"><table><thead><tr><th>Parámetro</th><th>Descripción</th></tr></thead><tbody><tr><td><code>--api</code></td><td>Documentar endpoints de la API</td></tr><tr><td><code>--code</code></td><td>Documentar clases y métodos principales</td></tr><tr><td><code>--readme</code></td><td>Generar README.md del proyecto</td></tr><tr><td><code>--full</code></td><td>Documentación completa (default)</td></tr><tr><td><code>[ruta]</code></td><td>Archivo o carpeta específica a documentar</td></tr></tbody></table></div>
+</section>
+<section class="sec" id="sec-ejemplos-de-uso">
+<h3 id="ejemplos-de-uso">Ejemplos de Uso</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Documentación completa</span>
+/documentar
+
+<span class="tk-c"># Solo documentar API</span>
+/documentar --api
+
+<span class="tk-c"># Documentar un archivo específico</span>
+/documentar src/MiProyecto.Domain/Services/ScholarshipService.cs
+
+<span class="tk-c"># Documentar un proyecto completo</span>
+/documentar src/MiProyecto.Domain/</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-tareas-a-ejecutar">
+<h3 id="tareas-a-ejecutar">Tareas a Ejecutar</h3>
+<h4 id="1-analizar-código-fuente">1. Analizar Código Fuente</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Detectar proyectos en src/</span>
+<span class="tk-v">$projects</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.csproj&quot;</span> -Recurse
+
+<span class="tk-c"># Contar archivos por tipo</span>
+<span class="tk-v">$csFiles</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.cs&quot;</span> -Recurse |
+    Where-Object { <span class="tk-v">$_</span>.FullName -notmatch <span class="tk-s">&quot;\\(bin|obj)\\&quot;</span> }</code></pre>
+<h4 id="2-generar-documentación-de-api---api">2. Generar Documentación de API (--api)</h4>
+<p><strong>Buscar Controllers en <code>src/</code>:</strong></p>
+<pre data-lang="powershell"><code><span class="tk-v">$controllers</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*Controller.cs&quot;</span> -Recurse</code></pre>
+<p><strong>Crear <code>docs/api/README_API.md</code>:</strong></p>
+<pre data-lang="markdown"><code># Documentación de API
+
+## Resumen
+- **Versión**: [detectada]
+- **Base URL**: [detectada de launchSettings.json]
+- **Autenticación**: [JWT/Azure AD/etc.]
+
+## Endpoints
+
+### 📋 ScholarshipsController
+Base: `/api/scholarships`
+
+| Método | Ruta | Descripción | Auth |
+|--------|------|-------------|------|
+| GET | `/` | Lista todas las scholarships | 🔒 |
+| GET | `/{id}` | Obtiene scholarship por ID | 🔒 |
+| POST | `/` | Crea nueva scholarship | 🔒 Admin |
+| PUT | `/{id}` | Actualiza scholarship | 🔒 Admin |
+| DELETE | `/{id}` | Elimina scholarship | 🔒 Admin |
+
+#### GET /api/scholarships
+**Descripción**: Obtiene listado paginado de scholarships.
+
+**Parámetros Query**:
+| Parámetro | Tipo | Requerido | Descripción |
+|-----------|------|-----------|-------------|
+| page | int | No | Página (default: 1) |
+| pageSize | int | No | Tamaño (default: 10) |
+| estado | string | No | Filtro por estado |
+
+**Respuesta 200**:</code></pre>
+<p>{   &quot;data&quot;: [...],   &quot;total&quot;: 100,   &quot;page&quot;: 1,   &quot;pageSize&quot;: 10 }</p>
+<pre><code>
+**Códigos de Error**:
+| Código | Descripción |
+|--------|-------------|
+| 401 | No autenticado |
+| 403 | Sin permisos |
+| 500 | Error interno |
+
+---
+
+### 📋 [OtroController]
+...</code></pre>
+<h4 id="3-generar-documentación-de-código---code">3. Generar Documentación de Código (--code)</h4>
+<p><strong>Analizar clases principales en <code>src/</code>:</strong></p>
+<pre data-lang="powershell"><code><span class="tk-c"># Buscar servicios, repositorios, entidades</span>
+<span class="tk-v">$services</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*Service.cs&quot;</span> -Recurse
+<span class="tk-v">$repositories</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*Repository.cs&quot;</span> -Recurse
+<span class="tk-v">$entities</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.cs&quot;</span> -Recurse |
+    Where-Object { <span class="tk-v">$_</span>.Directory.Name -eq <span class="tk-s">&quot;Entities&quot;</span> -or <span class="tk-v">$_</span>.Directory.Name -eq <span class="tk-s">&quot;Models&quot;</span> }</code></pre>
+<p><strong>Crear <code>docs/code/[Proyecto]/README.md</code>:</strong></p>
+<pre data-lang="markdown"><code># MiProyecto.Domain
+
+## Descripción
+Capa de dominio con entidades y lógica de negocio.
+
+## Estructura</code></pre>
+<p>MiProyecto.Domain/ ├── Entities/ │   ├── Scholarship.cs │   └── Usuario.cs ├── Services/ │   └── ScholarshipService.cs ├── Interfaces/ │   └── IScholarshipRepository.cs └── Exceptions/     └── ScholarshipNotFoundException.cs</p>
+<pre><code>
+## Entidades
+
+### Scholarship
+**Ubicación**: `src/MiProyecto.Domain/Entities/Scholarship.cs`
+
+| Propiedad | Tipo | Descripción |
+|-----------|------|-------------|
+| Id | int | Identificador único |
+| Nombre | string | Scholarship name |
+| Estado | ScholarshipStatus | Estado actual |
+| CreatedAt | DateTime | Fecha de creación |
+
+### Usuario
+...
+
+## Servicios
+
+### ScholarshipService
+**Ubicación**: `src/MiProyecto.Domain/Services/ScholarshipService.cs`
+
+**Responsabilidad**: Gestión de scholarships y validaciones de negocio.
+
+**Métodos**:
+| Método | Parámetro | Retorno | Descripción |
+|--------|------------|---------|-------------|
+| GetByIdAsync | int id | Task&lt;Scholarship&gt; | Obtiene scholarship por ID |
+| CreateAsync | ScholarshipDto dto | Task&lt;Scholarship&gt; | Crea nueva scholarship |
+| ApproveAsync | int id | Task&lt;bool&gt; | Aprueba una scholarship |
+
+**Dependencias**:
+- `IScholarshipRepository`
+- `ILogger&lt;ScholarshipService&gt;`
+- `IValidator&lt;ScholarshipDto&gt;`</code></pre>
+<h4 id="4-generar-readme-principal---readme">4. Generar README Principal (--readme)</h4>
+<p><strong>Crear <code>docs/README.md</code>:</strong></p>
+<pre data-lang="markdown"><code># [Nombre del Proyecto]
+
+## Descripción
+[Extraído de _hilo/FUNCIONALIDADES.md]
+
+## Requisitos
+- .NET [versión]
+- SQL Server [versión]
+- [Otros requisitos]
+
+## Estructura del Proyecto
+</code></pre>
+<p>MiProyecto/ ├── src/              ← Código fuente │   ├── MiProyecto.sln|.slnx    ← .slnx solo .NET 8+ │   ├── MiProyecto.API/         ← Web API │   ├── MiProyecto.Domain/      ← Dominio │   ├── MiProyecto.Infrastructure/ ← Infraestructura │   └── MiProyecto.Tests/       ← Tests ├── _hilo/                  ← Documentación de contexto ├── docs/architecture/                  ← Diagramas └── docs/           ← Esta documentación</p>
+<pre><code>
+## Instalación
+</code></pre>
+<h2 id="clonar-repositorio">Clonar repositorio</h2>
+<p>git clone [url]</p>
+<h2 id="restaurar-dependencias">Restaurar dependencias</h2>
+<p>cd src dotnet restore</p>
+<h2 id="configurar-base-de-datos">Configurar base de datos</h2>
+<h2 id="instrucciones">[instrucciones]</h2>
+<h2 id="ejecutar">Ejecutar</h2>
+<p>dotnet run --project MiProyecto.API</p>
+<pre><code>
+## Configuración
+
+### appsettings.json</code></pre>
+<p>{   &quot;ConnectionStrings&quot;: {     &quot;DefaultConnection&quot;: &quot;...&quot;   },   &quot;Jwt&quot;: {     &quot;Key&quot;: &quot;...&quot;,     &quot;Issuer&quot;: &quot;...&quot;   } }</p>
+<pre><code>
+## API
+Ver [documentación de API](./API/README_API.md)
+
+## Arquitectura
+Ver [documentación de arquitectura](./Arquitectura/ARQUITECTURA.md)
+
+## Tests
+</code></pre>
+<p>cd src dotnet test</p>
+<pre><code>
+## Equipo
+[Extraído de _hilo/ESTADO_PROYECTO.json]
+
+## Enlaces
+- [Funcionalidades](_hilo/FUNCIONALIDADES.md)
+- [Decisiones técnicas](_hilo/DECISIONES.md)
+- [Diagramas](docs/architecture/)</code></pre>
+<h4 id="5-documentación-completa---full">5. Documentación Completa (--full)</h4>
+<p>Ejecutar todos los anteriores:</p>
+<ol>
+<li>Documentación de API</li>
+<li>Documentación de código por proyecto</li>
+<li>README principal</li>
+<li>Generar índice</li>
+</ol>
+<p><strong>Crear <code>docs/INDEX.md</code>:</strong></p>
+<pre data-lang="markdown"><code># Índice de Documentación
+
+## 📚 Documentación General
+- [README Principal](./README.md)
+- [Arquitectura](./Arquitectura/ARQUITECTURA.md)
+
+## 📌 API
+- [Documentación de Endpoints](./API/README_API.md)
+- [Autenticación](./API/AUTH.md)
+- [Códigos de Error](./API/ERRORS.md)
+
+## 💻 Código
+- [MiProyecto.API](./Code/MiProyecto.API/README.md)
+- [MiProyecto.Domain](./Code/MiProyecto.Domain/README.md)
+- [MiProyecto.Infrastructure](./Code/MiProyecto.Infrastructure/README.md)
+
+## 📊 Contexto del Proyecto
+- [Funcionalidades](../_hilo/FUNCIONALIDADES.md)
+- [Dependencias](../_hilo/DEPENDENCIAS.md)
+- [Decisiones técnicas](../_hilo/DECISIONES.md)
+- [Deuda Técnica](../_hilo/DEUDA_TECNICA.md)
+
+## 📈 Diagramas
+- [Componentes](../docs/architecture/DIAGRAMA_COMPONENTES.md)
+- [Dependencias](../docs/architecture/DIAGRAMA_DEPENDENCIAS.md)
+- [Entidades](../docs/architecture/DIAGRAMA_ENTIDADES.md)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-6-6-actualizar-contexto">
+<h3 id="6-6-actualizar-contexto">6. 6. Actualizar Contexto</h3>
+<p><strong>Actualizar <code>_hilo/ESTADO_PROYECTO.json</code>:</strong></p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;documentacion&quot;</span>: {
+    <span class="tk-s">&quot;ultimaGeneracion&quot;</span>: <span class="tk-s">&quot;[FECHA]&quot;</span>,
+    <span class="tk-s">&quot;archivosGenerados&quot;</span>: [N],
+    <span class="tk-s">&quot;ubicacion&quot;</span>: <span class="tk-s">&quot;docs&quot;</span>,
+    <span class="tk-s">&quot;tiposGenerados&quot;</span>: [<span class="tk-s">&quot;api&quot;</span>, <span class="tk-s">&quot;code&quot;</span>, <span class="tk-s">&quot;readme&quot;</span>]
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-output-final">
+<h3 id="output-final">Output Final</h3>
+<pre><code>📚 DOCUMENTACIÓN GENERADA
+═══════════════════════
+
+📂 Ubicación: docs/
+
+✅ Archivos creados:
+   • README.md - Documentación principal
+   • INDEX.md - Índice de navegación
+   • API/README_API.md - [N] endpoints documentados
+   • Code/MiProyecto.Domain/README.md
+   • Code/MiProyecto.API/README.md
+   • Arquitectura/ARQUITECTURA.md
+
+📊 Estadísticas:
+   • endpoints documentados: [N]
+   • Clases documentadas: [N]
+   • Proyectos cubiertos: [N]
+
+💡 Próximos pasos:
+   • Revisar documentación generada
+   • /commit -m &quot;docs: Actualizar documentación técnica&quot;
+   • Añadir ejemplos de uso donde falten</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-actualizar-visual-studio">
+<h3 id="actualizar-visual-studio">Actualizar Visual Studio</h3>
+<p><strong>Después de crear la documentación, ejecutar:</strong></p>
+<pre data-lang="powershell"><code>.\.claude\commands\integracion-vs.ps1</code></pre>
+<p>Solo si <code>organization.ide</code> es <code>visual-studio</code> en <code>ecosystem.config.json</code>; con otro IDE el script sale sin hacer nada. Esto añadirá los nuevos archivos de documentación a los Solution Folders de Visual Studio.</p>
+<hr>
+</section>
+<section class="sec" id="sec-relacionados">
+<h3 id="relacionados">Relacionados</h3>
+<ul>
+<li>/analizar - Análisis de código (genera diagramas)</li>
+<li>/nuevo-evolutivo - Crear evolutivo de documentación</li>
+<li>/commit - Guardar documentación generada</li>
+</ul>
+</section><p style="margin-top:32px"><a href="../../../skills/documentacion-tecnica.html#ficheros">← Volver a la ficha de documentacion-tecnica</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/documentacion-tecnica/patterns/documentation-standards.html"><small>Anterior</small>patterns/documentation-standards.md</a><a class="next" href="../../../skills/documentacion-tecnica/templates/ADR.md.html"><small>Siguiente</small>templates/ADR.md.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/documentacion-tecnica/references/workflow-documentar.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#extended-thinking-mode">🧠 Extended Thinking Mode</a></li><li class="l2"><a href="#importante-estructura-de-carpetas">IMPORTANTE: Estructura de Carpetas</a></li><li class="l2"><a href="#parámetros">Parámetros</a></li><li class="l2"><a href="#ejemplos-de-uso">Ejemplos de Uso</a></li><li class="l2"><a href="#tareas-a-ejecutar">Tareas a Ejecutar</a></li><li class="l3"><a href="#1-analizar-código-fuente">1. Analizar Código Fuente</a></li><li class="l3"><a href="#2-generar-documentación-de-api---api">2. Generar Documentación de API (--api)</a></li><li class="l3"><a href="#3-generar-documentación-de-código---code">3. Generar Documentación de Código (--code)</a></li><li class="l3"><a href="#4-generar-readme-principal---readme">4. Generar README Principal (--readme)</a></li><li class="l1"><a href="#clonar-repositorio">Clonar repositorio</a></li><li class="l1"><a href="#restaurar-dependencias">Restaurar dependencias</a></li><li class="l1"><a href="#configurar-base-de-datos">Configurar base de datos</a></li><li class="l1"><a href="#instrucciones">[instrucciones]</a></li><li class="l1"><a href="#ejecutar">Ejecutar</a></li><li class="l3"><a href="#5-documentación-completa---full">5. Documentación Completa (--full)</a></li><li class="l2"><a href="#6-6-actualizar-contexto">6. 6. Actualizar Contexto</a></li><li class="l2"><a href="#output-final">Output Final</a></li><li class="l2"><a href="#actualizar-visual-studio">Actualizar Visual Studio</a></li><li class="l2"><a href="#relacionados">Relacionados</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

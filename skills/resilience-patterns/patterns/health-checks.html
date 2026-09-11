@@ -1,0 +1,125 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>resilience-patterns · patterns/health-checks.md · Ovillo</title><meta name="description" content="Fichero patterns/health-checks.md de la skill resilience-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="resilience-patterns · patterns/health-checks.md · Ovillo"><meta property="og:description" content="Fichero patterns/health-checks.md de la skill resilience-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/resilience-patterns/patterns/health-checks.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/resilience-patterns/patterns/health-checks.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/resilience-patterns/patterns/health-checks.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de resilience-patterns (8)</h4><ul class="sibs"><li><a href="../../../skills/resilience-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/resilience-patterns/patterns/graceful-shutdown.html">patterns/graceful-shutdown.md</a></li><li><a href="../../../skills/resilience-patterns/patterns/health-checks.html" class="cur">patterns/health-checks.md</a></li><li><a href="../../../skills/resilience-patterns/patterns/polly-policies.html">patterns/polly-policies.md</a></li><li><a href="../../../skills/resilience-patterns/references/workflow-add-resilience.html">references/workflow-add-resilience.md</a></li><li><a href="../../../skills/resilience-patterns/references/workflow-health-check.html">references/workflow-health-check.md</a></li><li><a href="../../../skills/resilience-patterns/templates/HealthChecksConfig.cs.html">templates/HealthChecksConfig.cs.template</a></li><li><a href="../../../skills/resilience-patterns/templates/ResiliencePolicies.cs.html">templates/ResiliencePolicies.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/resilience-patterns.html">resilience-patterns</a></span><span>patterns</span><span>health-checks.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>resilience-patterns</span><span>patterns/</span></div><h1>health-checks.md</h1><p class="lede">Referencia que <code>resilience-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/resilience-patterns.html">resilience-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>4128 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Todo proyecto en produccion debe tener health checks configurados.</p></blockquote>
+<hr>
+<section class="sec" id="sec-paquetes-nuget">
+<h3 id="paquetes-nuget">Paquetes NuGet</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;AspNetCore.HealthChecks.SqlServer&quot;</span> Version=<span class="tk-s">&quot;8.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;AspNetCore.HealthChecks.Redis&quot;</span> Version=<span class="tk-s">&quot;8.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;AspNetCore.HealthChecks.UI&quot;</span> Version=<span class="tk-s">&quot;8.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;AspNetCore.HealthChecks.UI.Client&quot;</span> Version=<span class="tk-s">&quot;8.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;AspNetCore.HealthChecks.UI.InMemory.Storage&quot;</span> Version=<span class="tk-s">&quot;8.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-endpoints">
+<h3 id="endpoints">Endpoints</h3>
+<div class="tbl"><table><thead><tr><th>Endpoint</th><th>Proposito</th><th>Checks</th><th>Uso</th></tr></thead><tbody><tr><td><code>/health</code></td><td>Estado general</td><td>Todos</td><td>Dashboards</td></tr><tr><td><code>/health/ready</code></td><td>Readiness</td><td>DB, Redis, Storage</td><td>K8s readinessProbe</td></tr><tr><td><code>/health/live</code></td><td>Liveness</td><td>Self check</td><td>K8s livenessProbe</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-checks-obligatorios">
+<h3 id="checks-obligatorios">Checks Obligatorios</h3>
+<h4 id="sql-server">SQL Server</h4>
+<pre data-lang="csharp"><code>services.AddHealthChecks()
+    .AddSqlServer(
+        connectionString: configuration.GetConnectionString(<span class="tk-s">&quot;DefaultConnection&quot;</span>)!,
+        name: <span class="tk-s">&quot;sqlserver&quot;</span>,
+        failureStatus: HealthStatus.Unhealthy,
+        tags: <span class="tk-k">new</span>[] { <span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;db&quot;</span> });</code></pre>
+<h4 id="self-check">Self Check</h4>
+<pre data-lang="csharp"><code>services.AddHealthChecks()
+    .AddCheck(<span class="tk-s">&quot;self&quot;</span>, () =&gt; HealthCheckResult.Healthy(<span class="tk-s">&quot;OK&quot;</span>),
+        tags: <span class="tk-k">new</span>[] { <span class="tk-s">&quot;live&quot;</span> });</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checks-opcionales">
+<h3 id="checks-opcionales">Checks Opcionales</h3>
+<h4 id="redis">Redis</h4>
+<pre data-lang="csharp"><code>.AddRedis(configuration.GetConnectionString(<span class="tk-s">&quot;Redis&quot;</span>)!,
+    name: <span class="tk-s">&quot;redis&quot;</span>, failureStatus: HealthStatus.Degraded,
+    tags: <span class="tk-k">new</span>[] { <span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;cache&quot;</span> })</code></pre>
+<h4 id="azure-blob-storage">Azure Blob Storage</h4>
+<pre data-lang="csharp"><code>.AddAzureBlobStorage(configuration[<span class="tk-s">&quot;AzureStorage:ConnectionString&quot;</span>]!,
+    name: <span class="tk-s">&quot;azure-blob&quot;</span>, failureStatus: HealthStatus.Degraded,
+    tags: <span class="tk-k">new</span>[] { <span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;storage&quot;</span> })</code></pre>
+<h4 id="custom-health-check">Custom Health Check</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> CriticalTableHealthCheck : IHealthCheck
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ApplicationDbContext _context;
+
+    <span class="tk-k">public</span> CriticalTableHealthCheck(ApplicationDbContext context)
+        =&gt; _context = context;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;HealthCheckResult&gt; CheckHealthAsync(
+        HealthCheckContext context, CancellationToken ct = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-k">var</span> count = <span class="tk-k">await</span> _context.Configuraciones.CountAsync(ct);
+            <span class="tk-k">return</span> count == <span class="tk-n">0</span>
+                ? HealthCheckResult.Degraded(<span class="tk-s">&quot;Tabla vacia&quot;</span>)
+                : HealthCheckResult.Healthy(<span class="tk-s">$&quot;OK - {count} registros&quot;</span>);
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            <span class="tk-k">return</span> HealthCheckResult.Unhealthy(<span class="tk-s">&quot;Error accediendo tabla critica&quot;</span>, ex);
+        }
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion-en-programcs">
+<h3 id="configuracion-en-programcs">Configuracion en Program.cs</h3>
+<pre data-lang="csharp"><code>builder.Services.AddHealthChecks()
+    .AddSqlServer(builder.Configuration.GetConnectionString(<span class="tk-s">&quot;DefaultConnection&quot;</span>)!,
+        name: <span class="tk-s">&quot;sqlserver&quot;</span>, failureStatus: HealthStatus.Unhealthy,
+        tags: <span class="tk-k">new</span>[] { <span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;db&quot;</span> })
+    .AddCheck(<span class="tk-s">&quot;self&quot;</span>, () =&gt; HealthCheckResult.Healthy(<span class="tk-s">&quot;OK&quot;</span>),
+        tags: <span class="tk-k">new</span>[] { <span class="tk-s">&quot;live&quot;</span> });
+
+app.MapHealthChecks(<span class="tk-s">&quot;/health&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+{ ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse });
+
+app.MapHealthChecks(<span class="tk-s">&quot;/health/ready&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+{
+    Predicate = check =&gt; check.Tags.Contains(<span class="tk-s">&quot;ready&quot;</span>),
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+
+app.MapHealthChecks(<span class="tk-s">&quot;/health/live&quot;</span>, <span class="tk-k">new</span> HealthCheckOptions
+{
+    Predicate = check =&gt; check.Tags.Contains(<span class="tk-s">&quot;live&quot;</span>),
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-respuesta-json">
+<h3 id="respuesta-json">Respuesta JSON</h3>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;status&quot;</span>: <span class="tk-s">&quot;Healthy&quot;</span>,
+  <span class="tk-s">&quot;totalDuration&quot;</span>: <span class="tk-s">&quot;00:00:00.123&quot;</span>,
+  <span class="tk-s">&quot;entries&quot;</span>: {
+    <span class="tk-s">&quot;sqlserver&quot;</span>: { <span class="tk-s">&quot;status&quot;</span>: <span class="tk-s">&quot;Healthy&quot;</span>, <span class="tk-s">&quot;tags&quot;</span>: [<span class="tk-s">&quot;ready&quot;</span>, <span class="tk-s">&quot;db&quot;</span>] },
+    <span class="tk-s">&quot;self&quot;</span>: { <span class="tk-s">&quot;status&quot;</span>: <span class="tk-s">&quot;Healthy&quot;</span>, <span class="tk-s">&quot;description&quot;</span>: <span class="tk-s">&quot;OK&quot;</span>, <span class="tk-s">&quot;tags&quot;</span>: [<span class="tk-s">&quot;live&quot;</span>] }
+  }
+}</code></pre>
+<div class="tbl"><table><thead><tr><th>Estado</th><th>HTTP</th></tr></thead><tbody><tr><td>Healthy</td><td>200</td></tr><tr><td>Degraded</td><td>200</td></tr><tr><td>Unhealthy</td><td>503</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-kubernetes--docker">
+<h3 id="kubernetes--docker">Kubernetes / Docker</h3>
+<pre data-lang="yaml"><code>livenessProbe:
+  httpGet: { path: /health/live, port: <span class="tk-n">8080</span> }
+  initialDelaySeconds: <span class="tk-n">10</span>
+  periodSeconds: <span class="tk-n">15</span>
+readinessProbe:
+  httpGet: { path: /health/ready, port: <span class="tk-n">8080</span> }
+  initialDelaySeconds: <span class="tk-n">5</span>
+  periodSeconds: <span class="tk-n">10</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-seguridad">
+<h3 id="seguridad">Seguridad</h3>
+<p>Health endpoints NO deben exponer info sensible en produccion.</p>
+<hr>
+<p><em>Skill resilience-patterns - Health Checks</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/resilience-patterns.html#ficheros">← Volver a la ficha de resilience-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/resilience-patterns/patterns/graceful-shutdown.html"><small>Anterior</small>patterns/graceful-shutdown.md</a><a class="next" href="../../../skills/resilience-patterns/patterns/polly-policies.html"><small>Siguiente</small>patterns/polly-policies.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/resilience-patterns/patterns/health-checks.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#paquetes-nuget">Paquetes NuGet</a></li><li class="l2"><a href="#endpoints">Endpoints</a></li><li class="l2"><a href="#checks-obligatorios">Checks Obligatorios</a></li><li class="l3"><a href="#sql-server">SQL Server</a></li><li class="l3"><a href="#self-check">Self Check</a></li><li class="l2"><a href="#checks-opcionales">Checks Opcionales</a></li><li class="l3"><a href="#redis">Redis</a></li><li class="l3"><a href="#azure-blob-storage">Azure Blob Storage</a></li><li class="l3"><a href="#custom-health-check">Custom Health Check</a></li><li class="l2"><a href="#configuracion-en-programcs">Configuracion en Program.cs</a></li><li class="l2"><a href="#respuesta-json">Respuesta JSON</a></li><li class="l2"><a href="#kubernetes--docker">Kubernetes / Docker</a></li><li class="l2"><a href="#seguridad">Seguridad</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

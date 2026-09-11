@@ -1,0 +1,183 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tomar · Ovillo</title><meta name="description" content="Permite autoasignarse un evolutivo pendiente (sin asignar)"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="tomar · Ovillo"><meta property="og:description" content="Permite autoasignarse un evolutivo pendiente (sin asignar)"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/tomar.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/tomar.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/tomar.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html" class="cur">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>tomar</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:tomar</span><span>solo usuario</span></div><h1>tomar</h1><p class="lede">Permite autoasignarse un evolutivo pendiente (sin asignar)</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:tomar</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>222</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:tomar</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:tomar</code>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-descripción">
+<h3 id="descripción">Descripción</h3>
+<p>Permite a un desarrollador autoasignarse un evolutivo que está pendiente (sin asignar).</p>
+</section>
+<section class="sec" id="sec-uso">
+<h3 id="uso">Uso</h3>
+<pre><code>/tomar EV-XX
+/tomar HV-05</code></pre>
+</section>
+<section class="sec" id="sec-instrucciones-para-claude">
+<h3 id="instrucciones-para-claude">Instrucciones para Claude</h3>
+<p>Al recibir /tomar {codigo}, debes:</p>
+<hr>
+</section>
+<section class="sec" id="sec-detect-context-title">
+<h3 id="detect-context-title">Detect context title</h3>
+<pre><code>1. Leer ESTADO_PROYECTO.json
+2. Detectar usuario actual (git config)
+3. Verificar que el usuario está en el equipo
+4. Buscar el evolutivo pendiente</code></pre>
+<h4 id="case-atitle">Case atitle</h4>
+<pre><code>Case aexample
+
+- Case averify spec
+- Case averify json
+- Case averify assigned</code></pre>
+<h4 id="case-btitle">Case btitle</h4>
+<pre><code>Si 1 pendiente: Case bsingle
+Si múltiples: Case bmultiple</code></pre>
+<h4 id="case-ctitle">Case ctitle</h4>
+<pre><code>Case cmessage</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-read-spec-title">
+<h3 id="read-spec-title">Read spec title</h3>
+<pre><code>Read spec path</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-actualizar-estado_proyectojson">
+<h3 id="actualizar-estado_proyectojson">Actualizar ESTADO_PROYECTO.json</h3>
+<pre><code>- Update json assignment
+- Update json move to in progress</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-git-branch-title">
+<h3 id="git-branch-title">Git branch title</h3>
+<h4 id="git-level-basic">Git level basic</h4>
+<pre><code>✅ Confirm assigned to: {usuario}
+✅ Confirm saved in: ESTADO_PROYECTO.json
+
+💡 SUGERENCIA:
+┌──────────────────────────────────────────────────┐
+│ Ejecuta manualmente:   │
+│   git checkout -b feature/HV-05                  │
+└──────────────────────────────────────────────────┘</code></pre>
+<h4 id="git-level-medium-default">Git level medium (Default)</h4>
+<pre><code>¿Crear rama feature/{0}? (s/n)</code></pre>
+<h4 id="git-level-high">Git level high</h4>
+<pre><code>✅ Rama {0} creada automáticamente</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-show-summary-title">
+<h3 id="show-summary-title">Show summary title</h3>
+<pre><code>╔══════════════════════════════════════════════════╗
+║  📋 TOMAR EVOLUTIVO: {0}       ║
+╚══════════════════════════════════════════════════╝
+
+📌 Show summary evolutivo: [CODE]
+🔤 Show summary title2: [Título]
+⚡ Show summary priority: [alta/media/baja]
+📅 Show summary deadline: [Fecha]
+🌿 Show summary branch: [feature/CODE]
+
+┌──────────────────────────────────────────────────┐
+│ 📝 Show summary description           │
+├──────────────────────────────────────────────────┤
+│ [Descripción del evolutivo]                      │
+└──────────────────────────────────────────────────┘
+
+✅ Show summary acceptance criteria:
+- [ ] Criterio 1
+- [ ] Criterio 2
+- [ ] Criterio 3
+
+🔧 Show summary technical specs:
+[Detalles técnicos si existen]
+
+🎯 Show summary next step:
+&quot;[Próximo paso a ejecutar]&quot;
+
+💡 Show summary quick commands:
+   /pausar    - Pausar Sesión de Trabajo
+   /continuar - Continuación de Trabajo
+   /estado    - Estado del Proyecto</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-confirm-title">
+<h3 id="confirm-title">Confirm title</h3>
+<pre><code>╔══════════════════════════════════════════════════╗
+║  ✅ EVOLUTIVO ASIGNADO            ║
+╚══════════════════════════════════════════════════╝
+
+👤 Confirm assigned to: {usuario}
+📁 Confirm saved in: _hilo/ESTADO_PROYECTO.json
+🌿 Confirm branch: feature/[CODE]
+
+Confirm you can start</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-casos-de-error">
+<h3 id="casos-de-error">Casos de Error</h3>
+<h4 id="no-hay-evolutivos-disponibles">NO HAY EVOLUTIVOS DISPONIBLES</h4>
+<pre><code>❌ NO HAY EVOLUTIVOS DISPONIBLES
+
+Todos los evolutivos están asignados o no hay pendientes.
+
+SUGERENCIA: Usa /nuevo-evolutivo para crear un nuevo evolutivo</code></pre>
+<h4 id="evolutivo-ya-asignado">EVOLUTIVO YA ASIGNADO</h4>
+<pre><code>⚠️ EVOLUTIVO YA ASIGNADO
+
+El evolutivo {0} está asignado a: {1} ({2})
+
+Error already assigned question
+1. Contactar usuario
+2. Reasignar
+3. Elegir otro
+
+Opción (1/2/3):</code></pre>
+<h4 id="spec-no-encontrado">SPEC NO ENCONTRADO</h4>
+<pre><code>❌ SPEC NO ENCONTRADO
+
+Archivo no encontrado: _hilo/specs/{0}.md
+
+Créalo primero con: /nuevo-evolutivo</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-reminders-title">
+<h3 id="reminders-title">Reminders title</h3>
+<h4 id="reminders-always">Reminders always</h4>
+<ul>
+<li>Reminders always1</li>
+<li>Reminders always2</li>
+<li>Reminders always3</li>
+<li>Reminders always4</li>
+</ul>
+<h4 id="reminders-never">Reminders never</h4>
+<ul>
+<li>Reminders never1</li>
+<li>Reminders never2</li>
+<li>Reminders never3</li>
+<li>Reminders never4</li>
+</ul>
+<h4 id="reminders-other">Reminders other</h4>
+<ul>
+<li>Reminders other if multiple</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-archivos-relacionados">
+<h3 id="archivos-relacionados">Archivos Relacionados</h3>
+<ul>
+<li><code>_hilo/ESTADO_PROYECTO.json</code> - Se actualiza con /tomar</li>
+<li><code>_hilo/specs/[CODE].md</code> - Spec del evolutivo</li>
+<li><code>/hv:equipo</code> - Ver estado del equipo</li>
+<li><code>/hv:liberar</code> - Liberar evolutivo</li>
+<li><code>/hv:continuar</code> - Continuar evolutivo</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-notas">
+<h3 id="notas">Notas</h3>
+<ul>
+<li>Solo se pueden tomar evolutivos en estado &quot;pendiente&quot;</li>
+<li>El evolutivo se mueve de <code>pendientes</code> a <code>enProgreso</code></li>
+<li>Se registra la fecha de inicio</li>
+<li>Se actualiza <code>evolutivoActivo</code> con el código tomado</li>
+<li>La integración Git depende del nivel configurado</li>
+</ul>
+<hr>
+<p><em>Skill tomar · kind: workflow</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>58</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 222 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>4 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(fuentes): Lote A de la auditoria externa — prosa fosil, dato personal, frases rotas, /hv: canonico y correctivos del generador (ADR-022)</em> (<code>ff4b4fb</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/pausar.html">pausar</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/tomar/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#descripción">Descripción</a></li><li class="l3"><a href="#uso">Uso</a></li><li class="l3"><a href="#instrucciones-para-claude">Instrucciones para Claude</a></li><li class="l3"><a href="#detect-context-title">Detect context title</a></li><li class="l3"><a href="#read-spec-title">Read spec title</a></li><li class="l3"><a href="#actualizar-estado_proyectojson">Actualizar ESTADO_PROYECTO.json</a></li><li class="l3"><a href="#git-branch-title">Git branch title</a></li><li class="l3"><a href="#show-summary-title">Show summary title</a></li><li class="l3"><a href="#confirm-title">Confirm title</a></li><li class="l3"><a href="#casos-de-error">Casos de Error</a></li><li class="l3"><a href="#reminders-title">Reminders title</a></li><li class="l3"><a href="#archivos-relacionados">Archivos Relacionados</a></li><li class="l3"><a href="#notas">Notas</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

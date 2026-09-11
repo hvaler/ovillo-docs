@@ -1,0 +1,188 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-runtime · Ovillo</title><meta name="description" content="Invariantes G1-G19 del pipeline: modelos de deploy, gates, rollback, secretos, retencion, idempotencia;"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-runtime · Ovillo"><meta property="og:description" content="Invariantes G1-G19 del pipeline: modelos de deploy, gates, rollback, secretos, retencion, idempotencia;"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-runtime.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-runtime.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/cicd-runtime.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>regla por ruta (13)</h4><ul class="sibs"><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/blazor.html">blazor</a></li><li><a href="../skills/cicd-runtime.html" class="cur">cicd-runtime</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/domain-api-docs.html">domain-api-docs</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/mcp-config.html">mcp-config</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/webapp.html">webapp</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>cicd-runtime</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>/hv:cicd-runtime</span></div><h1>cicd-runtime</h1><p class="lede">Invariantes G1-G19 del pipeline: modelos de deploy, gates, rollback, secretos, retencion, idempotencia; y para GitHub Actions permisos minimos, pin por SHA, pull_request_target, OIDC y concurrency.</p><div class="meta-grid"><div><b>regla por ruta</b><span>clase</span></div><div><b><code>/hv:cicd-runtime</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>2385</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>user-invocable</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Se carga sola al tocar ficheros que casan con sus rutas (<code>paths:</code>). No entra en el listado de skills.</p><pre data-lang="yaml"><code>paths:
+  - &quot;azure-pipelines.yml&quot;
+  - &quot;**/azure-pipelines*.yml&quot;
+  - &quot;**/.azure-pipelines/**/*.yml&quot;
+  - &quot;.github/workflows/*.yml&quot;
+  - &quot;.github/workflows/*.yaml&quot;
+  - &quot;.gitlab-ci.yml&quot;
+  - &quot;**/Jenkinsfile&quot;</code></pre></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Se carga por ruta, no por invocacion</strong>: el campo <code>paths:</code> la activa cuando Claude trabaja con ficheros que casan con esos patrones. No aparece en el menu (<code>user-invocable: false</code>) y <strong>no ocupa contexto</strong> mientras no case ningun fichero.</p>
+<p>Procede de <code>.claude/skills/cicd-runtime/SKILL.md</code>. Se convirtio en skill porque un plugin no distribuye <code>rules/</code>.</p></blockquote>
+<hr>
+<h2 id="reglas-runtime-cicd-g1-g19">Reglas runtime CI/CD (G1-G19)</h2>
+<blockquote><p>Este archivo aplica cuando Claude edita pipelines de CI/CD. La plataforma concreta se lee de <code>ecosystem.config.json</code> → <code>cicd.platform</code> (<code>github-actions | gitlab-ci | azure-pipelines | jenkins | none</code>), su <code>cicd.variant</code>, el inventario <code>cicd.environments[]</code> y el modelo <code>cicd.deployModel</code>; el proyecto puede sobrescribir en <code>_hilo/ESTADO_PROYECTO.json.infraestructura</code>. Si <code>cicd.platform</code> es <code>none</code> y el proyecto no define plataforma: avisar y no generar pipelines.</p>
+<p>Estas reglas son los <strong>invariantes portables</strong> del pipeline (validados empíricamente en pilotos reales); los specifics de plataforma e instancia viven en <code>ecosystem.config.cicd</code>. Los agents <code>cicd-pipeline-reviewer</code> (Azure Pipelines) y <code>github-actions-reviewer</code> (GitHub Actions) auditan los pipelines contra estas reglas. G15-G19 son especificos de GitHub Actions; en G1, G2, G5, G8 y G10 la nota «GitHub Actions» dice como se cumple alli el mismo invariante.</p></blockquote>
+<hr>
+<section class="sec" id="sec-g1--build--deploy-respetar-el-modelo-de-deploy-configurado">
+<h3 id="g1--build--deploy-respetar-el-modelo-de-deploy-configurado">G1 — Build ≠ Deploy: respetar el modelo de deploy configurado 🔴</h3>
+<p>Tres modelos (<code>cicd.deployModel</code>, wizard <code>/hv:cicd-init</code>):</p>
+<div class="tbl"><table><thead><tr><th>Modelo</th><th>Gate del deploy</th><th>Cuándo</th></tr></thead><tbody><tr><td><strong>auto</strong></td><td>ninguno en DEV; aprobación en PRE/PROD</td><td>CD continuo a DEV, una sola rama</td></tr><tr><td><strong>on-demand</strong> (default)</td><td>variable de despliegue explícita (ej. <code>DeployEnv</code>) settable al encolar; <strong>el push construye pero NUNCA despliega</strong></td><td>deploy 100% bajo demanda (<code>/hv:cicd-deploy</code>)</td></tr><tr><td><strong>branch-gated</strong></td><td>variable explícita <strong>+</strong> rama origen correcta</td><td>bajo demanda CON ramas por entorno (gitlab-flow, gitflow)</td></tr></tbody></table></div>
+<ul>
+<li>En on-demand: push normal → variable vacía → ningún stage de deploy corre (solo Build). El deploy se dispara encolando con la variable (<code>/hv:cicd-deploy --env &lt;env&gt;</code>); <code>/hv:cicd-release</code> solo crea tag (NUNCA despliega).</li>
+<li>En branch-gated: cada stage de deploy exige ADEMÁS la rama origen correcta (un build de <code>develop</code> no puede ir a PROD). Derivar el mapeo entorno→rama de <code>configuracion.branching</code>, NUNCA hardcodear la rama base.</li>
+<li>❌ NUNCA mezclar modelos: si el proyecto eligió on-demand, no dejar ningún deploy con trigger automático.</li>
+<li><strong>GitHub Actions</strong>: el gate es <code>environment:</code> con <em>deployment protection rules</em> (reviewers, ramas permitidas) y, en on-demand, <code>workflow_dispatch</code> con <code>inputs.environment</code>. Un job que despliega a PRE o PROD en <code>push</code> sin <code>environment</code> ni <code>workflow_dispatch</code> es 🔴. <code>cancel-in-progress</code> nunca en deploy.</li>
+</ul>
+</section>
+<section class="sec" id="sec-g2--trigger-ci--branch-policies-alineados-con-la-estrategia-de-branching">
+<h3 id="g2--trigger-ci--branch-policies-alineados-con-la-estrategia-de-branching">G2 — Trigger CI + branch policies alineados con la estrategia de branching 🟡</h3>
+<p>Leer <code>configuracion.branching.estrategia</code> (ESTADO_PROYECTO) antes de generar triggers:</p>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>Ramas del trigger CI</th><th>Policy/protección de build en PR</th></tr></thead><tbody><tr><td>push directo (<code>github-flow-simplificado</code>, <code>trunk-based</code>, <code>developer-branch</code>)</td><td><code>[ramaBase]</code></td><td><strong>NO</strong> (bloquearía el push directo)</td></tr><tr><td><code>github-flow</code></td><td><code>[main]</code></td><td>SÍ</td></tr><tr><td><code>gitflow</code></td><td><code>[main, develop, release/*]</code></td><td>SÍ</td></tr><tr><td><code>release-flow</code> / <code>oneflow</code></td><td><code>[main, release/*]</code></td><td>SÍ</td></tr><tr><td><code>gitlab-flow</code></td><td>ramas de entorno</td><td>SÍ + modelo branch-gated (G1)</td></tr></tbody></table></div>
+<p>Las protecciones de rama son <strong>gobierno</strong>: recomendarlas, NUNCA activarlas silenciosamente. Para estrategias de push directo, avisar EXPLÍCITAMENTE de no activar build-validation en PR.</p>
+<ul>
+<li><strong>GitHub Actions</strong>: las protecciones son <em>rulesets</em> (<code>git-best-practices/tools/github-rulesets.md</code>), versionados en <code>.github/rulesets/</code> y aplicados por API. Los <code>required_status_checks</code> son los <code>name:</code> de los jobs; con merge queue el workflow lleva <code>merge_group:</code>. La rama base sale de <code>configuracion.branching.ramaBase</code>, no de un <code>refs/heads/main</code> hardcodeado en <code>if:</code>.</li>
+</ul>
+</section>
+<section class="sec" id="sec-g3--un-pipeline-por-entrypoint-desplegable--routing-por-tipo-de-destino">
+<h3 id="g3--un-pipeline-por-entrypoint-desplegable--routing-por-tipo-de-destino">G3 — Un pipeline por entrypoint desplegable + routing por tipo de destino 🟡</h3>
+<p>1 repo = 1 solución con N entrypoints ⇒ <strong>un pipeline por entrypoint desplegable</strong> (web, api, console/worker), NO uno por solución con jobs mezclados.</p>
+<ul>
+<li>Trigger de paths acotado al subárbol del entrypoint (un cambio no dispara los demás).</li>
+<li>El destino se enruta por <code>cicd.environments[].kind</code> (<code>app</code> = servidores de aplicaciones, <code>svc</code> = servidores de servicios) y la etiqueta <code>deployTarget</code> del inventario: web/API pública → <code>app</code>; API privada (default) → <code>svc</code>; console/worker → mecanismo según patrón de ejecución (tarea programada para sync periódico, servicio del SO para always-on).</li>
+<li>❌ El valor de routing se deriva del inventario configurado, NUNCA se hardcodea un hostname.</li>
+</ul>
+</section>
+<section class="sec" id="sec-g4--jobs-de-deploy-sin-checkout">
+<h3 id="g4--jobs-de-deploy-sin-checkout">G4 — Jobs de deploy sin checkout 🟡</h3>
+<p>Un stage de deploy solo necesita el artefacto, no el código: <code>checkout: none</code> (Azure Pipelines) / omitir <code>actions/checkout</code> (GitHub Actions) / <code>GIT_STRATEGY: none</code> (GitLab). Menos overhead y sin exponer credenciales Git en agentes de deploy.</p>
+</section>
+<section class="sec" id="sec-g5--secretos-solo-en-el-secret-store-de-la-plataforma--fail-fast">
+<h3 id="g5--secretos-solo-en-el-secret-store-de-la-plataforma--fail-fast">G5 — Secretos SOLO en el secret store de la plataforma + fail-fast 🔴</h3>
+<ul>
+<li>❌ NUNCA valores secretos inline en el YAML/Jenkinsfile commiteado.</li>
+<li>✅ Variable Groups (AzDO) / Secrets (GitHub) / CI Variables enmascaradas (GitLab) / Credentials (Jenkins) — o el servicio de <code>cloud.secrets</code>.</li>
+<li>✅ <strong>Fail-fast pre-build</strong>: primer step valida que los secretos requeridos existen y no están vacíos; si falta alguno, abortar con mensaje accionable (caso típico: store recién creado sin rellenar).</li>
+<li><strong>GitHub Actions</strong>: Secrets de repositorio u organizacion para CI, Secrets de <em>environment</em> para deploy. Nunca interpolar <code>${{ github.event.* }}</code> ni <code>github.head_ref</code> directamente en <code>run:</code> (inyeccion de shell, G17): pasar por <code>env:</code> y usar <code>&quot;$VAR&quot;</code>. Credenciales cloud por OIDC (G18).</li>
+</ul>
+</section>
+<section class="sec" id="sec-g6--configuración-por-entorno-nunca-hornear-la-config-de-un-entorno-para-todos">
+<h3 id="g6--configuración-por-entorno-nunca-hornear-la-config-de-un-entorno-para-todos">G6 — Configuración por entorno: nunca hornear la config de UN entorno para todos 🟡</h3>
+<p>Si hay &gt;1 entorno, el mismo paquete no puede llevar la config de uno solo:</p>
+<ul>
+<li><strong>Con servicio de secretos/config cloud</strong>: la app lee su config al arrancar; el deploy no inyecta nada (preferido).</li>
+<li><strong>Sin él</strong>: inyección en el stage de deploy ANTES de publicar, con fail-fast si falta un valor; o build-por-configuración (transforms) cuando el stack lo requiere (netfx).</li>
+<li>❌ NUNCA dejar que el deploy machaque la config por-entorno que vive en el servidor destino (excluirla del borrado/sync).</li>
+</ul>
+</section>
+<section class="sec" id="sec-g7--gate-de-cobertura-warn-first">
+<h3 id="g7--gate-de-cobertura-warn-first">G7 — Gate de cobertura WARN-first 🟡</h3>
+<p>Stage Build: publicar cobertura y evaluar umbrales configurables (<code>coverageLineThreshold</code>, <code>coverageBranchThreshold</code>). <strong>WARN-first por defecto</strong> (avisa sin tumbar el build); el equipo sube a BLOCK cuando su cobertura supera el umbral de forma estable — coherente con <code>hooks.policy</code> del ecosistema.</p>
+<p>⚠️ En agentes self-hosted el directorio temporal <strong>persiste entre builds</strong>: nunca localizar el XML de cobertura con un glob global + &quot;primer resultado&quot; (coge uno obsoleto → cobertura falsa). Limpiar antes de <code>test</code> y/o ordenar por fecha de modificación descendente.</p>
+</section>
+<section class="sec" id="sec-g8--gate-de-ciberseguridad-multi-capa-patrón-verdict-file">
+<h3 id="g8--gate-de-ciberseguridad-multi-capa-patrón-verdict-file">G8 — Gate de ciberseguridad multi-capa (patrón verdict-file) 🟡</h3>
+<p>El análisis corre <strong>una sola vez</strong> en Build (<code>continueOnError</code>) y publica un artefacto <code>security-report</code> (json+md); cada stage de deploy decide según ese verdict:</p>
+<ul>
+<li><strong>DEV</strong> → WARN: vuelca findings y despliega igual.</li>
+<li><strong>PRE/PROD</strong> → BLOCK: aborta antes del deploy si severidad ≥ umbral configurado o hay secretos.</li>
+</ul>
+<p>4 checks: deps vulnerables (<code>dotnet list package --vulnerable</code> / <code>npm audit</code>; sin red → <code>inconclusive</code>, NUNCA un falso <code>ok</code>) · secretos en config versionada (ignorando placeholders) · hardening (<code>AllowedHosts='*'</code>, CORS abierto, bypass de certs) · SAST del compilador.</p>
+<ul>
+<li>Excepciones con <code>owner</code> + <code>target_date</code> en un archivo versionado, descontadas del cómputo.</li>
+<li><strong>Brownfield</strong>: si hay secretos preexistentes (deuda conocida), generar el gate en WARN también para PRE/PROD + registrar <code>SEC-XXX</code> + plan de subida a BLOCK.</li>
+<li>❌ NUNCA emitir un verdict sintético &quot;0 findings&quot; cuando el scan falló; si un deploy de PRE/PROD no encuentra verdict real → <strong>bloquear</strong>.</li>
+<li><strong>GitHub Actions</strong>: CodeQL, Dependabot alerts y secret scanning cubren tres de los cuatro checks (SAST, deps, secretos) si el plan lo permite (GHAS en repos privados); el verdict-file los complementa con el hardening. Un step de seguridad con <code>continue-on-error: true</code> anula el gate: el ruleset debe exigir el job <code>Security</code> como check obligatorio.</li>
+</ul>
+</section>
+<section class="sec" id="sec-g9--triple-rollback-en-entornos-críticos-nunca-en-dev">
+<h3 id="g9--triple-rollback-en-entornos-críticos-nunca-en-dev">G9 — Triple rollback en entornos críticos (NUNCA en DEV) 🟡</h3>
+<ol>
+<li><strong>Backup pre-deploy</strong> del destino (etiquetado con el id del build).</li>
+<li><strong>Deploy no destructivo</strong> cuando la herramienta lo soporte (no borrar lo no gestionado).</li>
+<li><strong>Step de rollback automático</strong> condicionado a fallo del smoke post-deploy, que restaura el backup (excluyendo la config por-entorno, G6).</li>
+</ol>
+<p>Si el rollback automático falla, seguir el procedimiento manual del RUNBOOK (G11).</p>
+</section>
+<section class="sec" id="sec-g10--retention-rules-obligatorias">
+<h3 id="g10--retention-rules-obligatorias">G10 — Retention rules obligatorias 🟡</h3>
+<p>Sin retención, el almacenamiento de artefactos crece sin límite. Defaults: rama principal 30 días / mínimo 5 builds / conservar registro (auditoría); otras ramas 7 días / mínimo 1 / borrar todo.</p>
+<ul>
+<li><strong>GitHub Actions</strong>: <code>retention-days</code> en cada <code>actions/upload-artifact</code> (14 en CI, 30 en publish); sin el, aplica el default del repositorio (normalmente 90). Nombres unicos por commit (<code>publish-${{ github.sha }}</code>).</li>
+</ul>
+</section>
+<section class="sec" id="sec-g11--runbook-obligatorio-con-6-secciones">
+<h3 id="g11--runbook-obligatorio-con-6-secciones">G11 — Runbook obligatorio con 6 secciones 🟡</h3>
+<p>Generar <code>ops/cicd/RUNBOOK.md</code> adaptado al proyecto (legible bajo presión, ≤1 página por sección):</p>
+<ol>
+<li>Build falla en CI · 2. Deploy a PRE falla · 3. Deploy a PROD falla (incl. rollback manual) ·</li>
+<li>App caída tras deploy verde · 5. Contactos y escalado (de <code>cicd.environments[].approvers</code> +</li>
+</ol>
+<p><code>organization.supportEmail</code>) · 6. Backups (ubicación, retención, restauración). NUNCA dejarlo con placeholders sin rellenar.</p>
+</section>
+<section class="sec" id="sec-g12--anti-patterns-de-código-que-rompen-el-build-warning-only">
+<h3 id="g12--anti-patterns-de-código-que-rompen-el-build-warning-only">G12 — Anti-patterns de código que rompen el build (warning-only)</h3>
+<ol>
+<li>Paths absolutos en build configs (<code>vite.config</code>, etc.) — falla en CI silenciosamente.</li>
+<li><code>.csproj</code> con <code>HintPath</code> absoluto — no portable.</li>
+<li>Credenciales reales en <code>appsettings.json</code> commiteado 🔴.</li>
+<li>Tests con <code>localhost:puerto</code> hardcoded — usar <code>WebApplicationFactory</code>.</li>
+<li>Env vars sin default en tests.</li>
+<li><code>TargetFramework</code> no instalado en el agente — coordinar antes de bumpear.</li>
+<li>Tests contra BD/Redis reales 🔴 — Testcontainers para integración, mocks para unit.</li>
+</ol>
+</section>
+<section class="sec" id="sec-g13--idempotencia-de-hvcicd-init-garantías">
+<h3 id="g13--idempotencia-de-hvcicd-init-garantías">G13 — Idempotencia de <code>/hv:cicd-init</code> (garantías) 🔴</h3>
+<p>Re-invocarlo en un proyecto con CI/CD existente no debe romper nada: detección de instalación previa · backup automático del pipeline actual · diff visible · confirmación explícita · preservación de bloques <code># CUSTOM:</code>…<code># /CUSTOM</code> y de variables custom · preservación de la fase de adopción · modo edición · re-registro idempotente (UPSERT) en el Hub si está habilitado. Si una garantía falla, ABORTAR con mensaje claro.</p>
+</section>
+<section class="sec" id="sec-g14--smoke-post-deploy-estricto-para-apis-best-effort-para-spas">
+<h3 id="g14--smoke-post-deploy-estricto-para-apis-best-effort-para-spas">G14 — Smoke post-deploy: estricto para APIs, best-effort para SPAs 🟡</h3>
+<ul>
+<li><strong>API .NET</strong>: smoke estricto contra el endpoint de health local del destino; fallo → rollback (G9).</li>
+<li><strong>SPA estática</strong>: smoke <strong>best-effort</strong> (warning + diagnóstico, sin fallar el job) — el smoke desde el propio servidor destino es frágil (hairpin NAT, SNI); el deploy real ya lo verificó la herramienta de publicación. NUNCA <code>throw</code> en smoke de SPA.</li>
+</ul>
+</section>
+<section class="sec" id="sec-g15--permisos-mínimos-del-github_token-github-actions">
+<h3 id="g15--permisos-mínimos-del-github_token-github-actions">G15 — Permisos mínimos del <code>GITHUB_TOKEN</code> (GitHub Actions) 🔴</h3>
+<p>El token nace con permisos de escritura si el repositorio no dice lo contrario. Todo workflow declara <code>permissions: contents: read</code> en la raíz y cada job eleva <strong>solo</strong> lo que usa: <code>id-token: write</code> (OIDC), <code>pull-requests: write</code> (comentar), <code>security-events: write</code> (SARIF), <code>packages: write</code> (publicar).</p>
+<ul>
+<li>❌ Sin <code>permissions:</code> en el workflow ni en todos los jobs.</li>
+<li>❌ <code>permissions: write-all</code>, o <code>contents: write</code> a nivel de workflow.</li>
+<li>🟡 Un job eleva permisos que no usa.</li>
+</ul>
+</section>
+<section class="sec" id="sec-g16--acciones-pinneadas-por-sha-de-commit-github-actions">
+<h3 id="g16--acciones-pinneadas-por-sha-de-commit-github-actions">G16 — Acciones pinneadas por SHA de commit (GitHub Actions) 🔴</h3>
+<p><code>uses: owner/action@&lt;sha40&gt; # vX.Y.Z</code>. Un tag (<code>@v4</code>) o una rama (<code>@main</code>) pueden moverse a otro commit sin que nadie lo vea: es el vector clásico de compromiso de la cadena de suministro. El comentario con la versión mantiene la legibilidad; Dependabot (<code>package-ecosystem: github-actions</code>) actualiza SHA y comentario a la vez.</p>
+<ul>
+<li>❌ Tag o rama en un workflow con acceso a secretos o environments.</li>
+<li>🟡 Tag o rama en un workflow sin secretos.</li>
+<li>🟡 Acción de un publicador desconocido sin revisar su código.</li>
+</ul>
+</section>
+<section class="sec" id="sec-g17--triggers-peligrosos-e-inyección-de-expresiones-github-actions">
+<h3 id="g17--triggers-peligrosos-e-inyección-de-expresiones-github-actions">G17 — Triggers peligrosos e inyección de expresiones (GitHub Actions) 🔴</h3>
+<ul>
+<li>❌ <code>pull_request_target</code> combinado con <code>actions/checkout</code> de <code>github.event.pull_request.head.*</code>: ejecuta el código del fork con los secretos del repositorio. Usar <code>pull_request</code>.</li>
+<li>❌ Interpolar en <code>run:</code> entradas que controla un tercero: <code>github.event.pull_request.title|body</code>, <code>github.event.comment.body</code>, <code>github.event.issue.*</code>, <code>github.head_ref</code>. Se inyecta shell. Pasarlas por <code>env:</code> y usarlas como <code>&quot;$VAR&quot;</code>.</li>
+<li>🟡 <code>workflow_run</code> que ejecuta artefactos de un PR sin validarlos; <code>issue_comment</code> que dispara jobs con secretos.</li>
+</ul>
+</section>
+<section class="sec" id="sec-g18--identidad-hacia-la-nube-por-oidc-no-por-credenciales-de-larga-vida-github-actions">
+<h3 id="g18--identidad-hacia-la-nube-por-oidc-no-por-credenciales-de-larga-vida-github-actions">G18 — Identidad hacia la nube por OIDC, no por credenciales de larga vida (GitHub Actions) 🟡</h3>
+<p>Un job que despliega se autentica con <code>permissions: id-token: write</code> y una <em>federated credential</em> en el proveedor (<code>azure/login</code> con client-id/tenant-id/subscription-id, <code>aws-actions/configure-aws-credentials</code> con <code>role-to-assume</code>). Un <code>AZURE_CREDENTIALS</code>, <code>AWS_SECRET_ACCESS_KEY</code> o <code>GCP_SA_KEY</code> en Secrets funciona, pero es una llave que no caduca y que hay que rotar a mano: 🟡, con plan de migración.</p>
+</section>
+<section class="sec" id="sec-g19--concurrency-en-todo-workflow-github-actions">
+<h3 id="g19--concurrency-en-todo-workflow-github-actions">G19 — <code>concurrency</code> en todo workflow (GitHub Actions) 🟡</h3>
+<p><code>concurrency: { group: ${{ github.workflow }}-${{ github.ref }}, cancel-in-progress: true }</code> en CI: un push nuevo cancela el run anterior de la misma rama. En jobs de deploy, <code>cancel-in-progress: false</code>: un deploy cancelado a medias deja el entorno roto (G9 existe para eso).</p>
+<hr>
+</section>
+<section class="sec" id="sec-política-para-el-llm-al-editar-pipelines">
+<h3 id="política-para-el-llm-al-editar-pipelines">Política para el LLM al editar pipelines</h3>
+<ol>
+<li><strong>NUNCA emitir</strong> patrones marcados ❌/🔴. Si el usuario lo pide, RECHAZAR citando la regla y proponer la alternativa.</li>
+<li><strong>AVISAR</strong> en los 🟡 (validar empíricamente en la plataforma configurada).</li>
+<li><strong>CITAR la regla</strong> (G1-G19) en warnings y sugerencias.</li>
+<li><strong>DETECTAR DRIFT</strong>: si hay violaciones previas, proponer fix en el próximo cambio relacionado — NO refactorizar masivamente sin que lo pidan.</li>
+<li>Con <code>cicd.variant</code> definido (ej. instancias on-premise antiguas), esperar limitaciones adicionales de la instancia: verificar features no estándar antes de emitirlas y documentar las limitaciones en un módulo de reglas propio de la organización.</li>
+</ol>
+<hr>
+<p><em>Skill por ruta — Ovillo — invariantes portables del pipeline; plataforma e inventario de entornos en <code>ecosystem.config.cicd</code>.</em></p>
+<hr>
+</section>
+<section class="sec" id="sec-equivalencia-con-la-numeracion-historica-r">
+<h3 id="equivalencia-con-la-numeracion-historica-r">Equivalencia con la numeracion historica <code>R&lt;n&gt;</code></h3>
+<p>La numeracion <strong>vigente es <code>G&lt;n&gt;</code></strong>, la de esta regla, que es la que se autocarga al editar un pipeline. El cheatsheet <code>cicd-architect/references/invariantes-resumen.md</code> y los comentarios de los templates ya desplegados conservan la numeracion historica <code>R&lt;n&gt;</code>: no se renumeran porque viven en proyectos consumidores. Cuando las dos aparezcan en el mismo texto, manda G (ADR-028).</p>
+<div class="tbl"><table><thead><tr><th>Historica</th><th>Vigente</th><th>Invariante</th></tr></thead><tbody><tr><td>R20 · R24</td><td><strong>G1</strong></td><td>modelo de deploy: on-demand con <code>DeployEnv</code>, y branch-gated por <code>Build.SourceBranch</code></td></tr><tr><td>R7 · R21</td><td><strong>G2</strong></td><td>trigger de CI y politicas de rama alineados con la estrategia de branching</td></tr><tr><td>R25</td><td><strong>G3</strong></td><td>un pipeline por entrypoint desplegable + routing por tipo de destino</td></tr><tr><td>R8</td><td><strong>G4</strong></td><td>jobs de deploy sin checkout</td></tr><tr><td>R16</td><td><strong>G5</strong></td><td>secretos solo en el secret store de la plataforma, con fail-fast pre-build</td></tr><tr><td>R23</td><td><strong>G6</strong></td><td>configuracion por entorno: nunca hornear la de uno para todos</td></tr><tr><td>R18</td><td><strong>G7</strong></td><td>gate de cobertura WARN-first</td></tr><tr><td>R22</td><td><strong>G8</strong></td><td>gate de ciberseguridad multi-capa (patron verdict-file)</td></tr><tr><td>R15</td><td><strong>G9</strong></td><td>triple rollback en entornos criticos, nunca en DEV</td></tr><tr><td>R17</td><td><strong>G10</strong></td><td>retention rules obligatorias</td></tr><tr><td>R19</td><td><strong>G11</strong></td><td>runbook obligatorio con seis secciones</td></tr><tr><td>R12</td><td><strong>G12</strong></td><td>anti-patterns de codigo (warning-only)</td></tr><tr><td>R14</td><td><strong>G13</strong></td><td>idempotencia de <code>/hv:cicd-init</code></td></tr><tr><td>R11</td><td><strong>G14</strong></td><td>smoke post-deploy: estricto para APIs, best-effort para SPAs</td></tr></tbody></table></div>
+<p><strong>Sin equivalente en G</strong>, porque son detalles de la plataforma Azure DevOps que G no separa como invariante propio: R1 (pool a nivel raiz y capability), R2 (TLS 1.2+ en steps de PowerShell), R3 (descarga de artifacts por REST API), R4 (versiones canonicas de task), R5 (nunca <code>Cache@2</code>), R6 (cuenta del agente), R9 (bypass de SSL solo contra localhost), R10 (<code>TakeAppOfflineFlag</code> por stack) y R13 (<code>Out-File -Encoding UTF8</code>). Se consultan en el cheatsheet.</p>
+<p><strong>Sin equivalente en R</strong>: G15 a G19 son de GitHub Actions y nacieron despues de esa numeracion.</p>
+</section><section class="sec" id="sec-reglas"><h2 id="reglas">Reglas</h2><div class="two"><div><h3>Siempre</h3></div><div><h3>Nunca</h3><ul><li>hardcodear la rama base.</li><li>dejarlo con placeholders sin rellenar.</li><li>emitir** patrones marcados ❌/🔴. Si el usuario lo pide, RECHAZAR citando la regla y</li></ul></div></div></section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>197</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 2385 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>8 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(medida): Lote H - los instrumentos miden de verdad y la cobertura se declara (ADR-028)</em> (<code>fa757ef</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-runtime/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#g1--build--deploy-respetar-el-modelo-de-deploy-configurado">G1 — Build ≠ Deploy: respetar el modelo de deploy configurado 🔴</a></li><li class="l3"><a href="#g2--trigger-ci--branch-policies-alineados-con-la-estrategia-de-branching">G2 — Trigger CI + branch policies alineados con la estrategia de branching 🟡</a></li><li class="l3"><a href="#g3--un-pipeline-por-entrypoint-desplegable--routing-por-tipo-de-destino">G3 — Un pipeline por entrypoint desplegable + routing por tipo de destino 🟡</a></li><li class="l3"><a href="#g4--jobs-de-deploy-sin-checkout">G4 — Jobs de deploy sin checkout 🟡</a></li><li class="l3"><a href="#g5--secretos-solo-en-el-secret-store-de-la-plataforma--fail-fast">G5 — Secretos SOLO en el secret store de la plataforma + fail-fast 🔴</a></li><li class="l3"><a href="#g6--configuración-por-entorno-nunca-hornear-la-config-de-un-entorno-para-todos">G6 — Configuración por entorno: nunca hornear la config de UN entorno para todos 🟡</a></li><li class="l3"><a href="#g7--gate-de-cobertura-warn-first">G7 — Gate de cobertura WARN-first 🟡</a></li><li class="l3"><a href="#g8--gate-de-ciberseguridad-multi-capa-patrón-verdict-file">G8 — Gate de ciberseguridad multi-capa (patrón verdict-file) 🟡</a></li><li class="l3"><a href="#g9--triple-rollback-en-entornos-críticos-nunca-en-dev">G9 — Triple rollback en entornos críticos (NUNCA en DEV) 🟡</a></li><li class="l3"><a href="#g10--retention-rules-obligatorias">G10 — Retention rules obligatorias 🟡</a></li><li class="l3"><a href="#g11--runbook-obligatorio-con-6-secciones">G11 — Runbook obligatorio con 6 secciones 🟡</a></li><li class="l3"><a href="#g12--anti-patterns-de-código-que-rompen-el-build-warning-only">G12 — Anti-patterns de código que rompen el build (warning-only)</a></li><li class="l3"><a href="#g13--idempotencia-de-hvcicd-init-garantías">G13 — Idempotencia de /hv:cicd-init (garantías) 🔴</a></li><li class="l3"><a href="#g14--smoke-post-deploy-estricto-para-apis-best-effort-para-spas">G14 — Smoke post-deploy: estricto para APIs, best-effort para SPAs 🟡</a></li><li class="l3"><a href="#g15--permisos-mínimos-del-github_token-github-actions">G15 — Permisos mínimos del GITHUB_TOKEN (GitHub Actions) 🔴</a></li><li class="l3"><a href="#g16--acciones-pinneadas-por-sha-de-commit-github-actions">G16 — Acciones pinneadas por SHA de commit (GitHub Actions) 🔴</a></li><li class="l3"><a href="#g17--triggers-peligrosos-e-inyección-de-expresiones-github-actions">G17 — Triggers peligrosos e inyección de expresiones (GitHub Actions) 🔴</a></li><li class="l3"><a href="#g18--identidad-hacia-la-nube-por-oidc-no-por-credenciales-de-larga-vida-github-actions">G18 — Identidad hacia la nube por OIDC, no por credenciales de larga vida (GitHub Actions) 🟡</a></li><li class="l3"><a href="#g19--concurrency-en-todo-workflow-github-actions">G19 — concurrency en todo workflow (GitHub Actions) 🟡</a></li><li class="l3"><a href="#política-para-el-llm-al-editar-pipelines">Política para el LLM al editar pipelines</a></li><li class="l3"><a href="#equivalencia-con-la-numeracion-historica-r">Equivalencia con la numeracion historica R&lt;n&gt;</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,545 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>issue-tracker-sync · references/workflow-devops-sync.md · Ovillo</title><meta name="description" content="Fichero references/workflow-devops-sync.md de la skill issue-tracker-sync"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="issue-tracker-sync · references/workflow-devops-sync.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-devops-sync.md de la skill issue-tracker-sync"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/issue-tracker-sync/references/workflow-devops-sync.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/issue-tracker-sync/references/workflow-devops-sync.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/issue-tracker-sync/references/workflow-devops-sync.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de issue-tracker-sync (5)</h4><ul class="sibs"><li><a href="../../../skills/issue-tracker-sync/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/issue-tracker-sync/references/azure-devops-rest-playbook.html">references/azure-devops-rest-playbook.md</a></li><li><a href="../../../skills/issue-tracker-sync/references/github-playbook.html">references/github-playbook.md</a></li><li><a href="../../../skills/issue-tracker-sync/references/workflow-devops-sync.html" class="cur">references/workflow-devops-sync.md</a></li><li><a href="../../../skills/issue-tracker-sync/references/workflow-github-sync.html">references/workflow-github-sync.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/issue-tracker-sync.html">issue-tracker-sync</a></span><span>references</span><span>workflow-devops-sync.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>issue-tracker-sync</span><span>references/</span></div><h1>workflow-devops-sync.md</h1><p class="lede">Referencia que <code>issue-tracker-sync</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/issue-tracker-sync.html">issue-tracker-sync</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>25.921 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>issue-tracker-sync</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para. Este es el workflow de <strong>Azure DevOps</strong>; el de GitHub es <code>workflow-github-sync.md</code>.</p></blockquote>
+<hr>
+<blockquote><p>Analiza el codigo fuente y sincroniza con Azure DevOps: Epic, Features, PBIs, Wiki. <strong>DRY-RUN por defecto</strong> — muestra todo antes de ejecutar cambios reales.</p></blockquote>
+<hr>
+<section class="sec" id="sec-reglas-criticas">
+<h3 id="reglas-criticas">REGLAS CRITICAS</h3>
+<ul>
+<li><strong>DRY-RUN obligatorio</strong> en primera ejecucion (mostrar, no ejecutar)</li>
+<li><strong>NO crear work items</strong> sin confirmacion explicita del usuario</li>
+<li><strong>NO sobrescribir</strong> wiki existente sin preguntar (opciones: sobrescribir/versionar/omitir)</li>
+<li><strong>Verificar duplicados</strong> SIEMPRE antes de crear (buscar Epic/Feature existente)</li>
+<li><strong>Trazabilidad obligatoria</strong> en cada PBI: endpoint + archivo + commit + tipo</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-parametros">
+<h3 id="parametros">Parametros</h3>
+<div class="tbl"><table><thead><tr><th>Parametro</th><th>Descripcion</th></tr></thead><tbody><tr><td>(sin parametro)</td><td>Sincronizacion completa (5 fases, DRY-RUN)</td></tr><tr><td><code>--live</code></td><td>Ejecutar cambios reales en Azure DevOps</td></tr><tr><td><code>--wiki-only</code></td><td>Solo generar/actualizar wiki</td></tr><tr><td><code>--boards-only</code></td><td>Solo generar work items (Epic/Feature/PBI)</td></tr><tr><td><code>--update-pbi [codigo]</code></td><td>Actualizar estado de un PBI especifico</td></tr><tr><td><code>--enable-auto</code></td><td>Activar modo activo en regla devops-awareness (autoSync=true)</td></tr><tr><td><code>--disable-auto</code></td><td>Desactivar modo activo (volver a solo sugerencias)</td></tr><tr><td><code>--retry</code></td><td>Reintentar operaciones pendientes por error de conectividad</td></tr><tr><td><code>--verify</code></td><td>Ejecutar tests de regresion (teamfieldvalues, WIQL count, backlog levels)</td></tr><tr><td><code>--status</code></td><td>Mostrar estado de sincronizacion actual</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-fase-0-verificar-pre-requisitos">
+<h3 id="fase-0-verificar-pre-requisitos">Fase 0: Verificar pre-requisitos</h3>
+<pre><code>================================================================
+         VERIFICANDO PRE-REQUISITOS
+================================================================
+
+  Azure DevOps accesible    [devops.example.org]
+  ESTADO_PROYECTO.json      [Leer configuracion AzDO]
+  Code fuente             [src/ detectado]
+  Git log accesible         [git log disponible]
+================================================================</code></pre>
+<p>Verificar:</p>
+<ol>
+<li>Que <code>_hilo/ESTADO_PROYECTO.json</code> tiene seccion <code>infraestructura</code></li>
+<li>Que existe codigo en <code>src/</code> (o ruta detectada)</li>
+<li>Que <code>git log</code> es accesible</li>
+</ol>
+<p><strong>Detectar proceso del proyecto</strong> (CRITICO):</p>
+<pre data-lang="bash"><code><span class="tk-c"># Obtener proceso template del proyecto</span>
+<span class="tk-k">curl</span> --negotiate -u : <span class="tk-s">&quot;${URL}/_apis/projects/${PROJECT}?api-version=6.0&quot;</span>
+<span class="tk-c"># → capabilities.processTemplate.templateName = &quot;Scrum&quot; | &quot;Basic&quot; | &quot;Agile&quot; | &quot;CMMI&quot;</span></code></pre>
+<p>Adaptar segun proceso detectado:</p>
+<div class="tbl"><table><thead><tr><th>Proceso</th><th>Work item</th><th>Jerarquia</th><th>Estado activo</th><th>Estado pendiente</th></tr></thead><tbody><tr><td><strong>Scrum</strong></td><td>Product Backlog Item</td><td>Epic → Feature → PBI</td><td>Committed</td><td>New</td></tr><tr><td><strong>Basic</strong></td><td>Issue</td><td>Epic → Issue (tags)</td><td>Doing</td><td>To Do</td></tr><tr><td><strong>Agile</strong></td><td>User Story</td><td>Epic → Feature → Story</td><td>Active</td><td>New</td></tr></tbody></table></div>
+<p>Si es primera vez (no hay <code>azureDevOps</code> en ESTADO_PROYECTO.json):</p>
+<pre><code>Primera sincronizacion detectada.
+
+Necesito:
+1. URL del proyecto en Azure DevOps (ej: https://devops.example.org/COLECCION/PROYECTO)
+2. Nombre del equipo (Team)</code></pre>
+<p>Guardar en ESTADO_PROYECTO.json → <code>infraestructura.azureDevOps</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-fase-1-analisis-automatico-del-codigo">
+<h3 id="fase-1-analisis-automatico-del-codigo">Fase 1: Analisis automatico del codigo</h3>
+<p>Analizar (sin preguntar, automatico):</p>
+<ul>
+<li><strong>Framework</strong>: leer .csproj → TargetFramework</li>
+<li><strong>Arquitectura</strong>: detectar Clean Architecture, MVC, N-Capas</li>
+<li><strong>Endpoints</strong>: Controllers, Minimal APIs → listar rutas</li>
+<li><strong>Seguridad</strong>: Auth (Azure AD, JWT), CORS, Headers</li>
+<li><strong>Tests</strong>: detectar proyectos de tests, cobertura estimada</li>
+<li><strong>Integraciones</strong>: HttpClient, servicios externos</li>
+<li><strong>ORM</strong>: EF Core, Dapper, ADO.NET</li>
+<li><strong>Observabilidad</strong>: Serilog, OpenTelemetry, Health Checks</li>
+<li><strong>Resiliencia</strong>: Polly policies</li>
+</ul>
+<p><strong>Git log</strong> (ultimos 200 commits):</p>
+<pre data-lang="bash"><code><span class="tk-k">git</span> log --pretty=format:<span class="tk-s">&quot;%h|%an|%s&quot;</span> -n <span class="tk-n">200</span></code></pre>
+<p>Clasificar por conventional commits:</p>
+<ul>
+<li><code>feat:</code> → Funcionalidad (Feature/PBI)</li>
+<li><code>fix:</code> → Bug (PBI tipo Bug)</li>
+<li><code>refactor:</code> → Deuda tecnica (PBI tipo Tech Debt)</li>
+<li><code>docs:</code> → Documentacion (PBI tipo Documentation)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-fase-2-generar-estructura-dry-run">
+<h3 id="fase-2-generar-estructura-dry-run">Fase 2: Generar estructura (DRY-RUN)</h3>
+<p>Construir jerarquia propuesta segun proceso detectado:</p>
+<p><strong>Si proceso = Scrum:</strong></p>
+<pre><code>Epic: [Nombre del proyecto]
+├── Feature: Seguridad
+│   ├── PBI: Configurar Azure AD SSO          [Done]
+│   ├── PBI: Implementar CORS policy          [Done]
+│   └── PBI: Añadir rate limiting             [New]
+├── Feature: API Endpoints
+│   ├── PBI: GET /api/scholarships                   [Done]
+│   └── PBI: POST /api/scholarships                  [Committed]
+└── Feature: Calidad
+    └── PBI: Tests unitarios                  [New]</code></pre>
+<p><strong>Si proceso = Basic:</strong></p>
+<pre><code>Epic: [Nombre del proyecto]
+├── Issue: Configurar Azure AD SSO          [Done]    tag:Seguridad
+├── Issue: Implementar CORS policy          [Done]    tag:Seguridad
+├── Issue: GET /api/scholarships                   [Done]    tag:API-Endpoints
+├── Issue: POST /api/scholarships                  [Doing]   tag:API-Endpoints
+└── Issue: Tests unitarios                  [To Do]   tag:Calidad</code></pre>
+<blockquote><p>En Basic NO hay Features. Los Issues se agrupan por <strong>tags</strong> bajo el Epic.</p></blockquote>
+<p>Priorizacion automatica:</p>
+<ol>
+<li>Seguridad (critica)</li>
+<li>Bugs (critica)</li>
+<li>Endpoints (alta)</li>
+<li>Observabilidad (media)</li>
+<li>Refactor / Deuda tecnica (baja)</li>
+</ol>
+<p>================================================================ Total: 1 Epic, 5 Features, 11 PBIs (6 Done, 1 Committed, 4 New) ================================================================</p>
+<pre><code>
+**Trazabilidad en cada PBI:**</code></pre>
+<p>Origen:</p>
+<ul>
+<li>Endpoint: POST /api/becas</li>
+<li>Archivo: src/MyCompany.Scholarships.Web/Controllers/ScholarshipsController.cs:45</li>
+<li>Commit: abc123 &quot;feat(scholarships): crear endpoint POST&quot;</li>
+<li>Tipo: feat</li>
+</ul>
+<pre><code>
+---
+
+## Fase 2.5: Validacion obligatoria
+</code></pre>
+<p>¿Confirmas esta estructura? [S/N] ¿Quieres modificar algo? (añadir/eliminar Features o PBIs)</p>
+<pre><code>
+**NO continuar sin confirmacion.**
+
+---
+
+## Fase 2.6: Control de duplicados
+
+Si el proyecto ya tiene `azureDevOps.epicId` en ESTADO_PROYECTO.json:
+</code></pre>
+<p>Se ha detectado contenido existente en Azure DevOps:</p>
+<p>Epic: #1234 &quot;LicenseManager&quot; (existente) Features: 3 de 5 ya existen PBIs: 7 de 11 ya existen</p>
+<p>Opciones:</p>
+<ol>
+<li>Reutilizar existentes + crear solo los nuevos</li>
+<li>Crear todo como nuevos (duplicados)</li>
+<li>Cancelar</li>
+</ol>
+<p>Selecciona:</p>
+<pre><code>
+---
+
+## Fase 3: Ejecutar (solo si --live)
+
+### DRY-RUN (default)
+- Mostrar TODO en pantalla con formato visual
+- NO ejecutar nada en Azure DevOps
+- Guardar propuesta en `_hilo/devops_sync_proposal.json`
+
+### LIVE (--live)
+
+**3a. Resumen del proyecto (About)**
+
+Actualizar la descripcion del proyecto en Azure DevOps:
+</code></pre>
+<p>curl -s --negotiate -u : &quot;${URL}/_apis/projects/${PROJECT_ID}?api-version=6.0&quot; \   -X PATCH -H &quot;Content-Type: application/json&quot; \   -d '{&quot;description&quot;: &quot;{descripcion_generada}&quot;}'</p>
+<pre><code>
+La descripcion debe incluir (formato Markdown, max ~4000 chars):
+- Que hace el proyecto (1-2 frases)
+- Stack tecnologico (.NET version, DB, auth)
+- Endpoints principales (top 5-10)
+- Estado de seguridad (auth configurada, CORS, etc.)
+- Equipo (JP, lider tecnico, developers)
+- Enlace a Wiki para detalles
+
+**3b. Dashboard (Paneles)**
+
+Crear o actualizar dashboard con widgets Markdown informativos:
+</code></pre>
+<h2 id="1-obtener-dashboard-existente-o-crear-uno-nuevo">1. Obtener dashboard existente (o crear uno nuevo)</h2>
+<p>curl -s --negotiate -u : &quot;${URL}/${TEAM}/_apis/dashboard/dashboards?api-version=6.1-preview.2&quot;</p>
+<h2 id="2-crear-widgets-importante-settings--markdown-raw-no-json-wrapper">2. Crear widgets (IMPORTANTE: settings = markdown RAW, no JSON wrapper)</h2>
+<pre><code>
+Widgets a crear (4 widgets Markdown):
+
+**Widget 1: Arquitectura** (size 2x2)</code></pre>
+</section>
+<section class="sec" id="sec-arquitectura">
+<h3 id="arquitectura">🏗️ Arquitectura</h3>
+<div class="tbl"><table><thead><tr><th>Capa</th><th>Proyecto</th><th>Responsabilidad</th></tr></thead><tbody><tr><td>Web</td><td>MyCompany.X.Web</td><td>Controllers, Views</td></tr><tr><td>Application</td><td>MyCompany.X.App</td><td>Services, DTOs</td></tr><tr><td>Domain</td><td>MyCompany.X.Domain</td><td>Entidades, reglas</td></tr><tr><td>Infrastructure</td><td>MyCompany.X.Infra</td><td>EF Core, repos</td></tr></tbody></table></div>
+<p><strong>Framework</strong>: .NET 10 | <strong>ORM</strong>: EF Core 10 <strong>Patron</strong>: Clean Architecture</p>
+<pre><code>
+**Widget 2: Seguridad** (size 2x1)</code></pre>
+</section>
+<section class="sec" id="sec-seguridad">
+<h3 id="seguridad">🔒 Seguridad</h3>
+<ul>
+<li><strong>Auth</strong>: Azure AD SSO ✅</li>
+<li><strong>CORS</strong>: Configurado ✅</li>
+<li><strong>Key Vault</strong>: Produccion ✅</li>
+<li><strong>HTTPS</strong>: Obligatorio ✅</li>
+<li><strong>Rate Limiting</strong>: ⚠️ Pendiente</li>
+</ul>
+<pre><code>
+**Widget 3: Equipo** (size 1x1)</code></pre>
+</section>
+<section class="sec" id="sec-equipo">
+<h3 id="equipo">👥 Equipo</h3>
+<div class="tbl"><table><thead><tr><th>Rol</th><th>Nombre</th></tr></thead><tbody><tr><td>JP</td><td>{nombre}</td></tr><tr><td>Lead</td><td>{nombre}</td></tr><tr><td>Dev</td><td>{nombres}</td></tr></tbody></table></div>
+<p>📧 {email_equipo}</p>
+<pre><code>
+**Widget 4: Estado del Proyecto** (size 2x1)</code></pre>
+</section>
+<section class="sec" id="sec-estado">
+<h3 id="estado">📊 Estado</h3>
+<div class="tbl"><table><thead><tr><th>Metrica</th><th>Valor</th></tr></thead><tbody><tr><td>Issues</td><td>{total} ({done} done)</td></tr><tr><td>Cobertura</td><td>{cobertura}%</td></tr><tr><td>Build</td><td>✅ Passing</td></tr><tr><td>Version</td><td>{version}</td></tr></tbody></table></div>
+<p>Ultima sync: {fecha}</p>
+<pre><code>
+&gt; **CRITICO Azure DevOps**: El campo `settings` del widget debe contener markdown crudo directamente.
+&gt; NO usar `{&quot;content&quot;:&quot;...&quot;}` — Azure DevOps Server no parsea JSON wrappers.
+&gt; ContributionId: `ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.MarkdownWidget`
+
+**3c. Work Items (Boards)**
+
+- Crear Epic, Issues/PBIs segun proceso detectado (ver Fase 0)
+- En Basic: Issues con tags. En Scrum: Features + PBIs
+
+**3d. Wiki (9 paginas)**
+
+- Generar Wiki (9 paginas):
+  1. Home (resumen del proyecto)
+  2. Arquitectura (diagrama + capas)
+  3. Endpoints (tabla completa)
+  4. Seguridad (auth, CORS, headers)
+  5. Resiliencia (Polly policies)
+  6. Observabilidad (logging, health checks)
+  7. Configuracion (appsettings, variables)
+  8. Desarrollo (como compilar, ejecutar, testear)
+  9. Equipo (miembros, roles)
+- Si wiki existente: preguntar sobrescribir/versionar/omitir por page
+
+**3e. Asignaciones (Assigned To)**
+
+Asignar work items a miembros del equipo correlacionando git log con el area de cada work item.
+
+**3e.1 Detectar developers** (soporta multi-rol):
+</code></pre>
+<p>developers = [] for m in equipo.miembros:     roles = m.roles if m.roles else ([m.rol] if m.rol else [])     if &quot;desarrollador&quot; in roles:         developers.append(m)</p>
+<pre><code>
+Nota: un miembro con `roles: [&quot;jefe_proyecto&quot;, &quot;desarrollador&quot;]` cuenta como developer. El campo legacy `rol` (string) sigue soportado como `[rol]`.
+
+**3e.2 Tabla ampliada de areas a carpetas** (usar para todos los proyectos):
+
+| Tag/Area del work item | Carpetas/patrones a inspeccionar en git log |
+|---|---|
+| API-Endpoints / Endpoints | `**/Controllers/`, `**/Endpoints/`, `**/MinimalApi*/` |
+| Seguridad | `**/Auth/`, `**/Security/`, `**/Middleware/`, `**/*Auth*`, `**/*Security*` |
+| Integraciones / Portal | `**/Portal/`, `**/ewp/`, `**/Integrations/`, `**/HttpClients/` |
+| Observabilidad | `**/Logging/`, `**/Observability/`, `**/HealthChecks/`, `**/Telemetry/` |
+| Calidad / Tests | `tests/`, `**/*Test*.cs`, `**/*Spec*.cs`, `**/*.Tests/` |
+| DevOps / CI-CD | `.azuredevops/`, `azure-pipelines*.yml`, `Dockerfile`, `docker-compose*`, `pipelines/` |
+| Configuracion | `**/Config*/`, `**/configuracion/`, `**/Configuracion/`, `appsettings*.json`, `web.config` |
+| BaseDatos / SQL | `**/BaseDatos/`, `**/Database/`, `**/StoredProcedures/**`, `**/*.sql`, `**/*.sqlproj` |
+| UI / Views | `**/Views/`, `**/Pages/`, `**/wwwroot/`, `**/*.cshtml`, `**/*.razor` |
+| EPIC{N} | paths que contengan `EPIC{N}` literal (ej. `Scripts/EPIC01_*.sql`, `Features/EPIC01/`) |
+| Deuda tecnica (DT-*) | top contributor del commit original que introdujo la deuda (ver DEUDA_TECNICA.md) |
+
+**3e.3 Algoritmo de asignacion por work item**:
+</code></pre>
+<p>para cada work_item creado en fases anteriores:</p>
+<ol>
+<li>paths_candidatos = []</li>
+<ul>
+<li>si tiene tag conocido → paths_candidatos += tabla 3e.2[tag]</li>
+<li>si titulo/descripcion menciona entidad (ej. &quot;CursoActivo&quot;, &quot;GrupoRanking&quot;) → paths_candidatos += glob(&quot;**/<em>{entidad}</em>&quot;)</li>
+<li>si titulo incluye EPIC{N} → paths_candidatos += glob(&quot;**/<em>EPIC{N}</em>&quot;)</li>
+</ul>
+</ol>
+<ol>
+<li>top_contributor = <code>git log --pretty=format:&quot;%an&quot; -- {paths_candidatos} | sort | uniq -c | sort -rn | head -1</code></li>
+</ol>
+<ol>
+<li>resolver developer:</li>
+<ul>
+<li>buscar m en developers donde m.git_author_name == top_contributor o m.nombre == top_contributor</li>
+<li>si match → assignee = m.nombre (displayName AD para AssignedTo)</li>
+<li>si NO match → assignee = null (omitir AssignedTo, dejar sin asignar + warning)</li>
+</ul>
+</ol>
+<pre><code>
+**Casos criticos a cubrir**:
+- No filtrar por `responsable_tecnico` ni &quot;1 solo developer&quot; sin mirar git log. En proyectos con JP que tambien desarrolla, eso causa asignacion monopolizada (bug real detectado 2026-04-21).
+- Si ningun path candidato da commits → fallback: buscar en titulo/descripcion la palabra clave y usar `git log --all --pretty=format:&quot;%an&quot; --grep={palabra}`.
+- Si hay empate entre 2 developers, elegir el que tenga mas commits totales en ese area (segundo `head` no queda ambiguedad).
+
+**3e.4 Re-sync de asignaciones** (proyecto ya sincronizado):
+
+Si la Fase 2.6 detecta duplicados (proyecto ya sincronizado), ofrecer re-calcular asignaciones:
+</code></pre>
+<p>DRY-RUN:</p>
+<ul>
+<li>Leer todos los work items existentes via WIQL</li>
+<li>Aplicar algoritmo 3e.3 a cada uno usando git log actual</li>
+<li>Generar tabla de cambios: ID | titulo | assignee_actual | assignee_propuesto</li>
+<li>Preguntar al usuario: aplicar solo cambios (patch individual) vs mantener estado actual</li>
+</ul>
+<p>LIVE (tras confirmacion):</p>
+<ul>
+<li>Para cada item con cambio, PATCH System.AssignedTo con nuevo displayName</li>
+<li>Escribir _hilo/devops_execution_log.json con lista de reasignaciones</li>
+</ul>
+<pre><code>
+**3e.5 PATCH final** (sintaxis):
+</code></pre>
+<h2 id="importante-value--displayname-exacto-tal-cual-figura-en-ad">IMPORTANTE: value = displayName exacto tal cual figura en AD.</h2>
+<h2 id="en-azure-devops-server-no-se-acepta-emailupn---devuelve-http-400-unknown-identity">En Azure DevOps Server NO se acepta email/UPN - devuelve HTTP 400 &quot;unknown identity&quot;.</h2>
+<h2 id="fuente-del-displayname-equipomiembrosxnombre-en-estado_proyectojson">Fuente del displayName: equipo.miembros[x].nombre en ESTADO_PROYECTO.json.</h2>
+<p>curl -s --negotiate -u : &quot;${URL}/_apis/wit/workitems/{ID}?api-version=6.0&quot; \   -X PATCH -H &quot;Content-Type: application/json-patch+json&quot; \   -d '[{&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/fields/System.AssignedTo&quot;,&quot;value&quot;:&quot;{displayName_exacto}&quot;}]'</p>
+<pre><code>
+&gt; **Nota Azure DevOps Server**: `System.AssignedTo` acepta **solo displayName** (ej. `Ana Perez Gomez`), NO email ni UPN. Pasar `aperez@example.com` devuelve 400 `unknown identity`. Si no hay match en `equipo.miembros`, **omitir el campo** (sin asignar) antes que enviar alias/email invalido. En Azure DevOps cloud si se acepta email.
+
+**3f. Area Paths**
+
+Crear areas que reflejen la estructura del codigo:
+</code></pre>
+<h2 id="crear-area-path">Crear area path</h2>
+<p>curl -s --negotiate -u : &quot;${URL}/_apis/wit/classificationnodes/areas?api-version=6.0&quot; \   -X POST -H &quot;Content-Type: application/json&quot; \   -d '{&quot;name&quot;: &quot;{area_name}&quot;}'</p>
+<pre><code>
+Areas estandar a crear:
+- `API` — Controllers, Endpoints, Minimal APIs
+- `Seguridad` — Auth, CORS, Headers, Secrets
+- `Infraestructura` — EF Core, Repos, External Services
+- `Testing` — Tests, Mocks, Fixtures
+- `DevOps` — Pipelines, Deploy, Config
+
+Asignar cada work item a su area:</code></pre>
+<p>curl -s --negotiate -u : &quot;${URL}/_apis/wit/workitems/{ID}?api-version=6.0&quot; \   -X PATCH -H &quot;Content-Type: application/json-patch+json&quot; \   -d '[{&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/fields/System.AreaPath&quot;,&quot;value&quot;:&quot;{PROJECT}\\{AREA}&quot;}]'</p>
+<pre><code>
+**3f.1. Configurar Team para incluir sub-areas (CRITICO — ejecutar SIEMPRE tras crear Area Paths)**
+
+&gt; **BUG CRITICO**: Si el Team tiene `includeChildren: false` en su AreaPath raiz, los work items
+&gt; asignados a sub-areas (EUPeace\API, EUPeace\Seguridad) NO apareceran en Kanban ni Backlog
+&gt; aunque existan. Sintoma: &quot;Elementos de trabajo&quot; muestra todos, pero &quot;Panel&quot; y &quot;Trabajo pendiente&quot; vacios.
+
+Actualizar configuracion del Team para incluir descendientes del AreaPath raiz:
+</code></pre>
+<h2 id="1-diagnosticar-configuracion-actual">1. Diagnosticar configuracion actual</h2>
+<p>curl -s --negotiate -u : \   &quot;${URL}/${TEAM}/_apis/work/teamsettings/teamfieldvalues?api-version=6.0&quot;</p>
+<h2 id="si-la-respuesta-es--values-value-project-includechildren-false">Si la respuesta es: { &quot;values&quot;: [{&quot;value&quot;: &quot;${PROJECT}&quot;, &quot;includeChildren&quot;: false}] }</h2>
+<h2 id="hay-que-aplicar-el-fix">→ hay que aplicar el fix</h2>
+<h2 id="2-aplicar-fix-includechildren-true">2. Aplicar fix (includeChildren: true)</h2>
+<p>curl -s --negotiate -u : \   &quot;${URL}/${TEAM}/_apis/work/teamsettings/teamfieldvalues?api-version=6.0&quot; \   -X PATCH -H &quot;Content-Type: application/json&quot; \   -d '{     &quot;defaultValue&quot;: &quot;${PROJECT}&quot;,     &quot;values&quot;: [{&quot;value&quot;: &quot;${PROJECT}&quot;, &quot;includeChildren&quot;: true}]   }'</p>
+<pre><code>
+Notas:
+- **Siempre ejecutar** tras 3f (no es opcional)
+- Si falla (permisos de admin), loguear WARN y continuar — el usuario puede aplicarlo manualmente
+- `${PROJECT}` es el nombre del proyecto (raiz del AreaPath) — leer de `azureDevOps.url` o config
+- `${TEAM}` es el nombre del equipo — leer de `azureDevOps.teamName`
+
+Output esperado tras ejecucion exitosa:</code></pre>
+<p>✓ Team configurado: ${PROJECT} (includeChildren: true)   Ahora Kanban y Backlog mostraran work items de todas las sub-areas</p>
+<pre><code>
+**3g. Queries guardadas (Shared Queries)**
+
+Crear queries WIQL utiles para el equipo:
+</code></pre>
+<h2 id="crear-query-en-shared-queries">Crear query en Shared Queries</h2>
+<p>curl -s --negotiate -u : &quot;${URL}/_apis/wit/queries/Shared%20Queries?api-version=6.0&quot; \   -X POST -H &quot;Content-Type: application/json&quot; \   -d '{&quot;name&quot;: &quot;{query_name}&quot;, &quot;wiql&quot;: &quot;{wiql_query}&quot;, &quot;isFolder&quot;: false}'</p>
+<pre><code>
+Queries a crear:
+1. **Mi trabajo** — Items asignados al usuario actual</code></pre>
+<p>   SELECT [System.Id], [System.Title], [System.State]    FROM WorkItems    WHERE [System.AssignedTo] = @Me    AND [System.State] &lt;&gt; 'Done'    ORDER BY [Microsoft.VSTS.Common.Priority]</p>
+<pre><code>
+2. **Bugs abiertos** — Bugs/Issues sin cerrar</code></pre>
+<p>   SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]    FROM WorkItems    WHERE [System.WorkItemType] IN ('Bug', 'Issue')    AND [System.State] &lt;&gt; 'Done'    ORDER BY [Microsoft.VSTS.Common.Priority]</p>
+<pre><code>
+3. **Deuda tecnica** — Items con tag DT-*</code></pre>
+<p>   SELECT [System.Id], [System.Title], [System.State]    FROM WorkItems    WHERE [System.Tags] CONTAINS 'DT-'    ORDER BY [Microsoft.VSTS.Common.Priority]</p>
+<pre><code>
+4. **Completados esta semana** — Done en los ultimos 7 dias</code></pre>
+<p>   SELECT [System.Id], [System.Title], [System.ChangedDate]    FROM WorkItems    WHERE [System.State] = 'Done'    AND [System.ChangedDate] &gt;= @Today - 7    ORDER BY [System.ChangedDate] DESC</p>
+<pre><code>
+**3h. Iteraciones/Sprints**
+
+Crear iteraciones segun `calendario.release_cycle` de ESTADO_PROYECTO.json:
+</code></pre>
+<h2 id="crear-iteracion">Crear iteracion</h2>
+<p>curl -s --negotiate -u : &quot;${URL}/_apis/wit/classificationnodes/iterations?api-version=6.0&quot; \   -X POST -H &quot;Content-Type: application/json&quot; \   -d '{&quot;name&quot;: &quot;{sprint_name}&quot;, &quot;attributes&quot;: {&quot;startDate&quot;: &quot;{start}&quot;, &quot;finishDate&quot;: &quot;{end}&quot;}}'</p>
+<pre><code>
+| release_cycle | Iteraciones a crear |
+|---------------|-------------------|
+| `continuo` | No crear (flujo libre) |
+| `semanal` | 4 sprints de 1 semana |
+| `quincenal` | 4 sprints de 2 semanas |
+| `mensual` | 3 sprints de 1 mes |
+| `por_sprint` | Preguntar duracion al usuario |
+| null | No crear (configurar en /onboarding) |
+
+**3i. Branch Policies (si pipeline existe)**
+
+Si `infraestructura.cicd.pipeline_existente = true`, configurar branch policies:
+</code></pre>
+<h2 id="leer-config-de-branching">Leer config de branching</h2>
+<p>RAMA_BASE = configuracion.branching.ramaBase REVIEWERS = configuracion.branching.branchPolicies.reviewersMinimo BUILD_VAL = configuracion.branching.branchPolicies.buildValidation</p>
+<pre><code>
+Policies a configurar:
+- **Minimum reviewers**: `reviewersMinimo` (default 1)
+- **Build validation**: si `buildValidation = true`
+- **Comment resolution**: si `commentResolution = true`
+- **Linked work items**: si `linkedWorkItems = true`
+
+&gt; Nota: Branch policies requieren permisos especiales. Si falla, mostrar warning y continuar.
+
+**3j. Notificaciones del equipo**
+
+Crear suscripciones de notificacion para el equipo:
+
+| Evento | Destinatario | Condicion |
+|--------|-------------|-----------|
+| Build failure | Todo el equipo | Rama base |
+| Work item asignado | Developer asignado | AssignedTo changed |
+| PR creada | Reviewers | Target = rama base |
+
+&gt; Nota: La API de notificaciones puede requerir permisos de admin. Si falla, documentar y continuar.
+
+---
+
+## Fase 4: Persistencia Hilo
+
+Guardar en `_hilo/ESTADO_PROYECTO.json`:
+</code></pre>
+<p>{   &quot;infraestructura&quot;: {     &quot;azureDevOps&quot;: {       &quot;url&quot;: &quot;https://devops.example.org/COLECCION/PROYECTO&quot;,       &quot;teamName&quot;: &quot;Equipo Principal&quot;,       &quot;epicId&quot;: 1234,       &quot;features&quot;: {         &quot;seguridad&quot;: 1235,         &quot;endpoints&quot;: 1236,         &quot;observabilidad&quot;: 1237       },       &quot;wikiCreada&quot;: true,       &quot;ultimaSync&quot;: &quot;2026-04-16&quot;,       &quot;syncMode&quot;: &quot;DRY-RUN&quot;     }   } }</p>
+<pre><code>
+Guardar log en `_hilo/devops_execution_log.json`:
+</code></pre>
+<p>{   &quot;fecha&quot;: &quot;2026-04-16&quot;,   &quot;usuario&quot;: &quot;HV&quot;,   &quot;modo&quot;: &quot;DRY-RUN&quot;,   &quot;cambios&quot;: [],   &quot;errores&quot;: [] }</p>
+<pre><code>
+---
+
+## Fase Opcional: `--verify` (Tests de Regresion)
+
+Si el usuario pasa `--verify`, ejecutar estos 3 checks tras la sincronizacion:
+
+### Check 1: Team configuration (includeChildren)
+</code></pre>
+<p>curl -s --negotiate -u : \   &quot;${URL}/${TEAM}/_apis/work/teamsettings/teamfieldvalues?api-version=6.0&quot; \</p>
+<p>  | jq '.values[0].includeChildren'</p>
+<h2 id="resultado-esperado-true">Resultado esperado: true</h2>
+<pre><code>
+### Check 2: WIQL devuelve work items creados
+</code></pre>
+<p>curl -s --negotiate -u : &quot;${URL}/_apis/wit/wiql?api-version=6.0&quot; \   -X POST -H &quot;Content-Type: application/json&quot; \   -d '{&quot;query&quot;:&quot;SELECT [System.Id] FROM WorkItems WHERE [System.TeamProject] = '\''${PROJECT}'\''&quot;}'</p>
+<h2 id="resultado-esperado-workitemslength--0">Resultado esperado: workItems.length &gt; 0</h2>
+<pre><code>
+### Check 3: Backlogs devuelven count &gt; 0 por nivel
+</code></pre>
+<h2 id="basic-nivel-issues">Basic: nivel Issues</h2>
+<p>curl -s --negotiate -u : &quot;${URL}/${TEAM}/_apis/work/backlogs/Microsoft.RequirementCategory/workItems?api-version=6.0&quot;</p>
+<h2 id="basic-nivel-epics">Basic: nivel Epics</h2>
+<p>curl -s --negotiate -u : &quot;${URL}/${TEAM}/_apis/work/backlogs/Microsoft.EpicCategory/workItems?api-version=6.0&quot;</p>
+<h2 id="scrum-nivel-pbis">Scrum: nivel PBIs</h2>
+<p>curl -s --negotiate -u : &quot;${URL}/${TEAM}/_apis/work/backlogs/Microsoft.RequirementCategory/workItems?api-version=6.0&quot;</p>
+<pre><code>
+Output:
+</code></pre>
+<p>🧪 VERIFY RESULTS:   ✓ Team includeChildren:  true          [OK]   ✓ WIQL work items:       26 items      [OK]   ✓ Backlog Issues/PBIs:   20 items      [OK]   ✓ Backlog Epics:         1 item        [OK]</p>
+<p>  Todo OK — sincronizacion verificada.</p>
+<pre><code>
+Si algun check falla:
+</code></pre>
+<p>🧪 VERIFY RESULTS:   ✗ Team includeChildren:  false         [FAIL] → Ejecutar Fase 3f.1   ✓ WIQL work items:       26 items      [OK]   ✗ Backlog Issues/PBIs:   0 items       [FAIL] → Kanban vacio, revisar Team</p>
+<p>  Problemas detectados. Revisar logs y volver a ejecutar /issue-tracker-sync --live.</p>
+<pre><code>
+---
+
+## Fase Final: Resumen
+</code></pre>
+<p>================================================================          AZURE DEVOPS SINCRONIZADO ================================================================</p>
+<p>  Resumen:      OK (descripcion actualizada)   Dashboard:    4 widgets (Arquitectura, Seguridad, Equipo, Estado)   Boards:       1 Epic, X Features/Issues, Y asignados   Wiki:         9 paginas   Areas:        5 (API, Seguridad, Infraestructura, Testing, DevOps)   Team fix:     OK (includeChildren=true aplicado)   Queries:      4 (Mi trabajo, Bugs, Deuda tecnica, Completados)   Iteraciones:  X sprints creados   Policies:     X configuradas (o N/A si no hay pipeline)   Asignaciones: Y work items asignados a Z miembros</p>
+<p>  Modo:         DRY-RUN / LIVE   Siguiente:    /issue-tracker-sync --live  (para ejecutar cambios reales)</p>
+<p>  Links:   🔗 Boards (Issues):    ${URL}/${TEAM}/_boards/board/${TEAM}/Issues   🔗 Backlog (Epics):    ${URL}/${TEAM}/_backlogs/backlog/${TEAM}/Epics   🔗 Wiki:               ${URL}/${TEAM}/_wiki   🔗 Dashboard:          ${URL}/${TEAM}/_dashboards   🔗 Shared Queries:     ${URL}/${TEAM}/_queries/shared</p>
+<p>  NOTA: Kanban por defecto muestra Issues (Basic) o PBIs (Scrum).         Epics se visualizan en el backlog de Epics, no en el Kanban. ================================================================</p>
+<pre><code>
+---
+
+## Integracion con otros comandos
+
+| Comando | Relacion |
+|---------|----------|
+| `/hv:analizar` | Usa el mismo analisis de codigo (no duplicar) |
+| `/hv:jira` | Complementario: /jira para Jira Cloud; este workflow para Azure DevOps (GitHub: `workflow-github-sync.md`) |
+| `/hv:finalizar-evolutivo` | La regla devops-awareness sugiere actualizar PBI tras finalizar |
+| `/hv:commit` | La regla sugiere incluir #PBI-ID en mensaje |
+| `/hv:onboarding` | Fase 5b detecta infraestructura AzDO |
+
+---
+
+## NOTAS TECNICAS — AZURE DEVOPS SERVER (CRITICO)
+
+### Estados PBI (proceso Scrum)
+
+**NO usar &quot;In Progress&quot;** — no existe en proceso Scrum de Azure DevOps.
+
+| Estado | Uso |
+|--------|-----|
+| **New** | Pending |
+| **Approved** | Aprobado en backlog |
+| **Committed** | En desarrollo activo |
+| **Done** | Completado |
+
+### Widgets Markdown en Dashboard
+
+El campo `settings` debe contener **markdown crudo**, NO `{&quot;content&quot;:&quot;...&quot;}`:
+</code></pre>
+<h2 id="correcto">CORRECTO:</h2>
+<p>&quot;settings&quot;: &quot;## Titulo\n\n| Col | Val |\n|---|---|\n| A | B |&quot;</p>
+<h2 id="incorrecto-muestra-json-como-texto">INCORRECTO (muestra JSON como texto):</h2>
+<p>&quot;settings&quot;: json.dumps({&quot;content&quot;: &quot;## Titulo\n\n...&quot;})</p>
+<pre><code>
+### API version
+
+Usar `api-version=6.0` (compatible Azure DevOps Server 2020). NO usar `7.0` (solo Azure DevOps cloud).
+
+### Area Paths y visibilidad en Kanban/Backlog (CRITICO)
+
+Al crear sub-areas y asignar work items a ellas, el Team DEBE tener
+`includeChildren: true` en su AreaPath raiz, o los Kanban/Backlog
+quedaran vacios aunque los items existan.
+
+Sintomas del bug:
+- &quot;Elementos de trabajo&quot; muestra todos los items correctamente
+- &quot;Panel&quot; (Kanban) aparece vacio (0 en todas las columnas)
+- &quot;Trabajo pendiente&quot; (Backlog) aparece vacio
+
+Fix: PATCH teamfieldvalues con includeChildren:true tras crear areas (Fase 3f.1).
+
+### Visibilidad de Epics en Kanban (proceso Basic y Scrum)
+
+El Kanban por defecto muestra SOLO un nivel:
+- Basic → muestra Issues (no Epics)
+- Scrum → muestra PBIs (no Features ni Epics)
+
+Para ver Epics usar el backlog de Epics:</code></pre>
+<p>${URL}/${TEAM}/_backlogs/backlog/${TEAM}/Epics</p>
+<pre><code>
+Esto NO es un bug — es el comportamiento estandar de Azure DevOps.
+El output final del comando debe documentar esto para evitar confusion.
+
+---
+
+*Workflow issue-tracker-sync (Azure DevOps) - Sincronizacion completa (10 features + Team fix + --verify). Fix Kanban/Backlog vacios: Fase 3f.1 aplica includeChildren=true tras crear sub-areas.*
+</code></pre>
+</section><p style="margin-top:32px"><a href="../../../skills/issue-tracker-sync.html#ficheros">← Volver a la ficha de issue-tracker-sync</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/issue-tracker-sync/references/github-playbook.html"><small>Anterior</small>references/github-playbook.md</a><a class="next" href="../../../skills/issue-tracker-sync/references/workflow-github-sync.html"><small>Siguiente</small>references/workflow-github-sync.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/issue-tracker-sync/references/workflow-devops-sync.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#reglas-criticas">REGLAS CRITICAS</a></li><li class="l2"><a href="#parametros">Parametros</a></li><li class="l2"><a href="#fase-0-verificar-pre-requisitos">Fase 0: Verificar pre-requisitos</a></li><li class="l2"><a href="#fase-1-analisis-automatico-del-codigo">Fase 1: Analisis automatico del codigo</a></li><li class="l2"><a href="#fase-2-generar-estructura-dry-run">Fase 2: Generar estructura (DRY-RUN)</a></li><li class="l1"><a href="#1-obtener-dashboard-existente-o-crear-uno-nuevo">1. Obtener dashboard existente (o crear uno nuevo)</a></li><li class="l1"><a href="#2-crear-widgets-importante-settings--markdown-raw-no-json-wrapper">2. Crear widgets (IMPORTANTE: settings = markdown RAW, no JSON wrapper)</a></li><li class="l2"><a href="#arquitectura">🏗️ Arquitectura</a></li><li class="l2"><a href="#seguridad">🔒 Seguridad</a></li><li class="l2"><a href="#equipo">👥 Equipo</a></li><li class="l2"><a href="#estado">📊 Estado</a></li><li class="l1"><a href="#importante-value--displayname-exacto-tal-cual-figura-en-ad">IMPORTANTE: value = displayName exacto tal cual figura en AD.</a></li><li class="l1"><a href="#en-azure-devops-server-no-se-acepta-emailupn---devuelve-http-400-unknown-identity">En Azure DevOps Server NO se acepta email/UPN - devuelve HTTP 400 &quot;unknown identity&quot;.</a></li><li class="l1"><a href="#fuente-del-displayname-equipomiembrosxnombre-en-estado_proyectojson">Fuente del displayName: equipo.miembros[x].nombre en ESTADO_PROYECTO.json.</a></li><li class="l1"><a href="#crear-area-path">Crear area path</a></li><li class="l1"><a href="#1-diagnosticar-configuracion-actual">1. Diagnosticar configuracion actual</a></li><li class="l1"><a href="#si-la-respuesta-es--values-value-project-includechildren-false">Si la respuesta es: { &quot;values&quot;: [{&quot;value&quot;: &quot;${PROJECT}&quot;, &quot;includeChildren&quot;: false}] }</a></li><li class="l1"><a href="#hay-que-aplicar-el-fix">→ hay que aplicar el fix</a></li><li class="l1"><a href="#2-aplicar-fix-includechildren-true">2. Aplicar fix (includeChildren: true)</a></li><li class="l1"><a href="#crear-query-en-shared-queries">Crear query en Shared Queries</a></li><li class="l1"><a href="#crear-iteracion">Crear iteracion</a></li><li class="l1"><a href="#leer-config-de-branching">Leer config de branching</a></li><li class="l1"><a href="#resultado-esperado-true">Resultado esperado: true</a></li><li class="l1"><a href="#resultado-esperado-workitemslength--0">Resultado esperado: workItems.length &gt; 0</a></li><li class="l1"><a href="#basic-nivel-issues">Basic: nivel Issues</a></li><li class="l1"><a href="#basic-nivel-epics">Basic: nivel Epics</a></li><li class="l1"><a href="#scrum-nivel-pbis">Scrum: nivel PBIs</a></li><li class="l1"><a href="#correcto">CORRECTO:</a></li><li class="l1"><a href="#incorrecto-muestra-json-como-texto">INCORRECTO (muestra JSON como texto):</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

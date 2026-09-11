@@ -1,0 +1,139 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · templates/coverage-gate.ps1 · Ovillo</title><meta name="description" content="Fichero templates/coverage-gate.ps1 de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · templates/coverage-gate.ps1 · Ovillo"><meta property="og:description" content="Fichero templates/coverage-gate.ps1 de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/coverage-gate.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/coverage-gate.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/templates/coverage-gate.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/coverage-gate.html" class="cur">templates/coverage-gate.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/cicd-architect.html">cicd-architect</a></span><span>templates</span><span>coverage-gate.ps1</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>templates/</span><span>7516 B</span></div><h1>coverage-gate.ps1</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>7516 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="powershell"><code><span class="tk-c">#Requires -Version 5.1</span>
+<span class="tk-c">&lt;#
+.SYNOPSIS
+    Gate de cobertura de Ovillo (G7 / R18): lee Cobertura u OpenCover y compara con umbrales de linea y rama.
+
+.DESCRIPTION
+    Sustituye a cualquier herramienta externa de gate: cero dependencias (solo PowerShell 5.1+ o pwsh), ASCII puro,
+    corre igual en un agente Windows de Azure DevOps y en un runner Linux de GitHub Actions.
+      - Busca ficheros *cobertura*.xml y *opencover*.xml bajo -Path (o usa el fichero indicado).
+      - Con -Latest toma solo el mas reciente (agentes self-hosted cuyo temp persiste entre builds).
+        Sin -Latest agrega todos los encontrados (varios proyectos de test = una sola cifra).
+      - Compara linea y rama con -ThresholdLine / -ThresholdBranch.
+      - -Mode warn (default, WARN-first): avisa y sale 0. -Mode block: sale 3 si algun umbral no se cumple.
+      - Sin ficheros: aviso &quot;gate OMITIDO&quot; y exit 0 (nunca tumba un build por falta de cobertura).
+      - Emite anotaciones nativas: ##vso[task.logissue] en Azure DevOps (TF_BUILD), ::warning::/::error:: y
+        GITHUB_STEP_SUMMARY en GitHub Actions. Con -SummaryJson escribe un resumen para otros pasos.
+    Lo materializa /cicd-init en ops/cicd/scripts/coverage-gate.ps1; lo invocan steps/coverage-gate.yml (Azure)
+    y la composite action .github/actions/coverage-gate (GitHub). Ovillo cicd-architect coverage-gate.
+
+.PARAMETER Path             Fichero XML o directorio donde buscar (recursivo). Default: directorio actual.
+.PARAMETER ThresholdLine    Cobertura de lineas minima en %. Default 70.
+.PARAMETER ThresholdBranch  Cobertura de ramas minima en %. Default 60.
+.PARAMETER Mode             warn (avisa, exit 0) | block (exit 3 si incumple). Default warn.
+.PARAMETER Latest           Usar solo el fichero mas reciente en vez de agregar todos.
+.PARAMETER SummaryJson      Ruta donde escribir el resumen JSON (opcional).
+
+.OUTPUTS
+    exit 0 = cumple, o incumple en modo warn, o sin ficheros (omitido) | exit 3 = incumple en modo block | exit 2 = XML ilegible
+#&gt;</span>
+[CmdletBinding()]
+<span class="tk-k">param</span>(
+    [string] <span class="tk-v">$Path</span> = <span class="tk-s">'.'</span>,
+    [double] <span class="tk-v">$ThresholdLine</span> = <span class="tk-n">70</span>,
+    [double] <span class="tk-v">$ThresholdBranch</span> = <span class="tk-n">60</span>,
+    [ValidateSet(<span class="tk-s">'warn'</span>, <span class="tk-s">'block'</span>)] [string] <span class="tk-v">$Mode</span> = <span class="tk-s">'warn'</span>,
+    [<span class="tk-k">switch</span>] <span class="tk-v">$Latest</span>,
+    [string] <span class="tk-v">$SummaryJson</span> = <span class="tk-s">''</span>
+)
+
+<span class="tk-v">$ErrorActionPreference</span> = <span class="tk-s">'Stop'</span>
+<span class="tk-v">$isAzure</span>  = [bool]<span class="tk-v">$env:TF_BUILD</span>
+<span class="tk-v">$isGitHub</span> = [bool]<span class="tk-v">$env:GITHUB_ACTIONS</span>
+
+<span class="tk-k">function</span> Write-Note([string] <span class="tk-v">$Level</span>, [string] <span class="tk-v">$Msg</span>) {
+    <span class="tk-c"># Anotacion nativa de la plataforma + linea normal (los logs se leen igual en ambas)</span>
+    <span class="tk-k">if</span> (<span class="tk-v">$isAzure</span>) {
+        <span class="tk-v">$t</span> = <span class="tk-k">if</span> (<span class="tk-v">$Level</span> -eq <span class="tk-s">'error'</span>) { <span class="tk-s">'error'</span> } <span class="tk-k">else</span> { <span class="tk-s">'warning'</span> }
+        Write-Host <span class="tk-s">&quot;##vso[task.logissue type=$t]$Msg&quot;</span>
+    } <span class="tk-k">elseif</span> (<span class="tk-v">$isGitHub</span>) {
+        Write-Host <span class="tk-s">&quot;::$Level::$Msg&quot;</span>
+    }
+    Write-Host <span class="tk-s">&quot;G7: $Msg&quot;</span>
+}
+
+<span class="tk-c"># --- 1. Localizar ficheros ---</span>
+<span class="tk-v">$files</span> = @()
+<span class="tk-k">if</span> (Test-Path -LiteralPath <span class="tk-v">$Path</span> -PathType Leaf) {
+    <span class="tk-v">$files</span> = @(Get-Item -LiteralPath <span class="tk-v">$Path</span>)
+} <span class="tk-k">elseif</span> (Test-Path -LiteralPath <span class="tk-v">$Path</span> -PathType Container) {
+    <span class="tk-v">$files</span> = @(Get-ChildItem -LiteralPath <span class="tk-v">$Path</span> -Recurse -File -ErrorAction SilentlyContinue |
+        Where-Object { <span class="tk-v">$_</span>.Name -match <span class="tk-s">'cobertura.*\.xml$|opencover.*\.xml$'</span> } |
+        Sort-Object LastWriteTime -Descending)
+    <span class="tk-k">if</span> (<span class="tk-v">$Latest</span> -and <span class="tk-v">$files</span>.Count -gt <span class="tk-n">1</span>) { <span class="tk-v">$files</span> = @(<span class="tk-v">$files</span>[<span class="tk-n">0</span>]) }
+}
+<span class="tk-k">if</span> (<span class="tk-v">$files</span>.Count -eq <span class="tk-n">0</span>) {
+    Write-Note <span class="tk-s">'warning'</span> <span class="tk-s">&quot;no se encontro XML de cobertura (Cobertura/OpenCover) en '$Path' -&gt; gate OMITIDO (no bloquea).&quot;</span>
+    <span class="tk-k">exit</span> <span class="tk-n">0</span>
+}
+
+<span class="tk-c"># --- 2. Agregar contadores ---</span>
+<span class="tk-v">$inv</span> = [System.Globalization.CultureInfo]::InvariantCulture
+<span class="tk-v">$linesCovered</span> = <span class="tk-n">0.0</span>; <span class="tk-v">$linesValid</span> = <span class="tk-n">0.0</span>; <span class="tk-v">$branchesCovered</span> = <span class="tk-n">0.0</span>; <span class="tk-v">$branchesValid</span> = <span class="tk-n">0.0</span>
+<span class="tk-v">$rateLine</span> = @(); <span class="tk-v">$rateBranch</span> = @(); <span class="tk-v">$used</span> = @()
+<span class="tk-k">foreach</span> (<span class="tk-v">$f</span> <span class="tk-k">in</span> <span class="tk-v">$files</span>) {
+    <span class="tk-k">try</span> { [xml] <span class="tk-v">$doc</span> = Get-Content -LiteralPath <span class="tk-v">$f</span>.FullName -Raw } <span class="tk-k">catch</span> { Write-Note <span class="tk-s">'error'</span> <span class="tk-s">&quot;XML ilegible: $($f.FullName)&quot;</span>; <span class="tk-k">exit</span> <span class="tk-n">2</span> }
+    <span class="tk-k">if</span> (<span class="tk-v">$doc</span>.coverage) {
+        <span class="tk-c"># Cobertura (coverlet): line-rate/branch-rate son ratios 0..1; los contadores absolutos pueden faltar</span>
+        <span class="tk-v">$c</span> = <span class="tk-v">$doc</span>.coverage
+        <span class="tk-v">$lc</span> = <span class="tk-v">$c</span>.GetAttribute(<span class="tk-s">'lines-covered'</span>); <span class="tk-v">$lv</span> = <span class="tk-v">$c</span>.GetAttribute(<span class="tk-s">'lines-valid'</span>)
+        <span class="tk-v">$bc</span> = <span class="tk-v">$c</span>.GetAttribute(<span class="tk-s">'branches-covered'</span>); <span class="tk-v">$bv</span> = <span class="tk-v">$c</span>.GetAttribute(<span class="tk-s">'branches-valid'</span>)
+        <span class="tk-k">if</span> (<span class="tk-v">$lv</span> -and [double]::Parse(<span class="tk-v">$lv</span>, <span class="tk-v">$inv</span>) -gt <span class="tk-n">0</span>) {
+            <span class="tk-v">$linesCovered</span> += [double]::Parse(<span class="tk-v">$lc</span>, <span class="tk-v">$inv</span>); <span class="tk-v">$linesValid</span> += [double]::Parse(<span class="tk-v">$lv</span>, <span class="tk-v">$inv</span>)
+            <span class="tk-k">if</span> (<span class="tk-v">$bv</span>) { <span class="tk-v">$branchesCovered</span> += [double]::Parse(<span class="tk-v">$bc</span>, <span class="tk-v">$inv</span>); <span class="tk-v">$branchesValid</span> += [double]::Parse(<span class="tk-v">$bv</span>, <span class="tk-v">$inv</span>) }
+        } <span class="tk-k">else</span> {
+            <span class="tk-v">$rateLine</span> += [double]::Parse(<span class="tk-v">$c</span>.GetAttribute(<span class="tk-s">'line-rate'</span>), <span class="tk-v">$inv</span>)
+            <span class="tk-v">$br</span> = <span class="tk-v">$c</span>.GetAttribute(<span class="tk-s">'branch-rate'</span>); <span class="tk-k">if</span> (<span class="tk-v">$br</span>) { <span class="tk-v">$rateBranch</span> += [double]::Parse(<span class="tk-v">$br</span>, <span class="tk-v">$inv</span>) }
+        }
+        <span class="tk-v">$used</span> += <span class="tk-s">&quot;$($f.Name) (cobertura)&quot;</span>
+    } <span class="tk-k">elseif</span> (<span class="tk-v">$doc</span>.CoverageSession) {
+        <span class="tk-c"># OpenCover: Summary con puntos de secuencia y de rama</span>
+        <span class="tk-v">$s</span> = <span class="tk-v">$doc</span>.CoverageSession.Summary
+        <span class="tk-v">$linesCovered</span> += [double]::Parse(<span class="tk-v">$s</span>.GetAttribute(<span class="tk-s">'visitedSequencePoints'</span>), <span class="tk-v">$inv</span>)
+        <span class="tk-v">$linesValid</span>   += [double]::Parse(<span class="tk-v">$s</span>.GetAttribute(<span class="tk-s">'numSequencePoints'</span>), <span class="tk-v">$inv</span>)
+        <span class="tk-v">$branchesCovered</span> += [double]::Parse(<span class="tk-v">$s</span>.GetAttribute(<span class="tk-s">'visitedBranchPoints'</span>), <span class="tk-v">$inv</span>)
+        <span class="tk-v">$branchesValid</span>   += [double]::Parse(<span class="tk-v">$s</span>.GetAttribute(<span class="tk-s">'numBranchPoints'</span>), <span class="tk-v">$inv</span>)
+        <span class="tk-v">$used</span> += <span class="tk-s">&quot;$($f.Name) (opencover)&quot;</span>
+    } <span class="tk-k">else</span> {
+        Write-Note <span class="tk-s">'warning'</span> <span class="tk-s">&quot;formato no reconocido, se ignora: $($f.FullName)&quot;</span>
+    }
+}
+<span class="tk-k">if</span> (<span class="tk-v">$used</span>.Count -eq <span class="tk-n">0</span>) { Write-Note <span class="tk-s">'warning'</span> <span class="tk-s">&quot;ningun fichero con formato Cobertura/OpenCover -&gt; gate OMITIDO.&quot;</span>; <span class="tk-k">exit</span> <span class="tk-n">0</span> }
+
+<span class="tk-k">function</span> Pct([double] <span class="tk-v">$num</span>, [double] <span class="tk-v">$den</span>, [double[]] <span class="tk-v">$rates</span>) {
+    <span class="tk-k">if</span> (<span class="tk-v">$den</span> -gt <span class="tk-n">0</span>) { <span class="tk-k">return</span> [math]::Round(<span class="tk-n">100.0</span> * <span class="tk-v">$num</span> / <span class="tk-v">$den</span>, <span class="tk-n">1</span>) }
+    <span class="tk-k">if</span> (<span class="tk-v">$rates</span>.Count -gt <span class="tk-n">0</span>) { <span class="tk-k">return</span> [math]::Round(<span class="tk-n">100.0</span> * ((<span class="tk-v">$rates</span> | Measure-Object -Average).Average), <span class="tk-n">1</span>) }
+    <span class="tk-k">return</span> <span class="tk-v">$null</span>
+}
+<span class="tk-v">$line</span>   = Pct <span class="tk-v">$linesCovered</span> <span class="tk-v">$linesValid</span> <span class="tk-v">$rateLine</span>
+<span class="tk-v">$branch</span> = Pct <span class="tk-v">$branchesCovered</span> <span class="tk-v">$branchesValid</span> <span class="tk-v">$rateBranch</span>
+
+<span class="tk-c"># --- 3. Evaluar ---</span>
+<span class="tk-v">$fails</span> = @()
+<span class="tk-k">if</span> (<span class="tk-v">$null</span> -ne <span class="tk-v">$line</span>   -and <span class="tk-v">$line</span>   -lt <span class="tk-v">$ThresholdLine</span>)   { <span class="tk-v">$fails</span> += <span class="tk-s">&quot;linea $line% &lt; $ThresholdLine%&quot;</span> }
+<span class="tk-k">if</span> (<span class="tk-v">$null</span> -ne <span class="tk-v">$branch</span> -and <span class="tk-v">$branch</span> -lt <span class="tk-v">$ThresholdBranch</span>) { <span class="tk-v">$fails</span> += <span class="tk-s">&quot;rama $branch% &lt; $ThresholdBranch%&quot;</span> }
+<span class="tk-v">$lineTxt</span>   = <span class="tk-k">if</span> (<span class="tk-v">$null</span> -ne <span class="tk-v">$line</span>)   { <span class="tk-s">&quot;$line%&quot;</span> }   <span class="tk-k">else</span> { <span class="tk-s">'n/d'</span> }
+<span class="tk-v">$branchTxt</span> = <span class="tk-k">if</span> (<span class="tk-v">$null</span> -ne <span class="tk-v">$branch</span>) { <span class="tk-s">&quot;$branch%&quot;</span> } <span class="tk-k">else</span> { <span class="tk-s">'n/d'</span> }
+<span class="tk-v">$resumen</span> = <span class="tk-s">&quot;cobertura linea=$lineTxt rama=$branchTxt | umbral linea&gt;=$ThresholdLine% rama&gt;=$ThresholdBranch% | ficheros: $($used.Count) ($($used -join ', '))&quot;</span>
+Write-Host <span class="tk-s">&quot;G7: $resumen&quot;</span>
+
+<span class="tk-k">if</span> (<span class="tk-v">$isGitHub</span> -and <span class="tk-v">$env:GITHUB_STEP_SUMMARY</span>) {
+    <span class="tk-v">$estado</span> = <span class="tk-k">if</span> (<span class="tk-v">$fails</span>.Count -eq <span class="tk-n">0</span>) { <span class="tk-s">'OK'</span> } <span class="tk-k">elseif</span> (<span class="tk-v">$Mode</span> -eq <span class="tk-s">'block'</span>) { <span class="tk-s">'BLOQUEA'</span> } <span class="tk-k">else</span> { <span class="tk-s">'AVISO'</span> }
+    @(<span class="tk-s">&quot;### Coverage gate (G7): $estado&quot;</span>, <span class="tk-s">''</span>, <span class="tk-s">'| Metrica | Valor | Umbral |'</span>, <span class="tk-s">'|---|---|---|'</span>,
+      <span class="tk-s">&quot;| Lineas | $lineTxt | &gt;= $ThresholdLine% |&quot;</span>, <span class="tk-s">&quot;| Ramas | $branchTxt | &gt;= $ThresholdBranch% |&quot;</span>, <span class="tk-s">''</span>,
+      <span class="tk-s">&quot;Ficheros: $($used -join ', ')&quot;</span>) | Out-File -FilePath <span class="tk-v">$env:GITHUB_STEP_SUMMARY</span> -Append -Encoding utf8
+}
+<span class="tk-k">if</span> (<span class="tk-v">$SummaryJson</span>) {
+    <span class="tk-v">$obj</span> = [ordered]@{ line = <span class="tk-v">$line</span>; branch = <span class="tk-v">$branch</span>; thresholdLine = <span class="tk-v">$ThresholdLine</span>; thresholdBranch = <span class="tk-v">$ThresholdBranch</span>
+                       passed = (<span class="tk-v">$fails</span>.Count -eq <span class="tk-n">0</span>); mode = <span class="tk-v">$Mode</span>; files = <span class="tk-v">$used</span> }
+    [System.IO.File]::WriteAllText(<span class="tk-v">$SummaryJson</span>, (<span class="tk-v">$obj</span> | ConvertTo-Json -Depth <span class="tk-n">4</span>), (New-Object System.Text.UTF8Encoding(<span class="tk-v">$false</span>)))
+}
+
+<span class="tk-k">if</span> (<span class="tk-v">$fails</span>.Count -eq <span class="tk-n">0</span>) { Write-Host <span class="tk-s">&quot;G7: cobertura dentro del umbral.&quot;</span>; <span class="tk-k">exit</span> <span class="tk-n">0</span> }
+<span class="tk-k">if</span> (<span class="tk-v">$Mode</span> -eq <span class="tk-s">'block'</span>) {
+    Write-Note <span class="tk-s">'error'</span> <span class="tk-s">&quot;cobertura por debajo del umbral ($($fails -join '; ')). BLOQUEA (mode=block).&quot;</span>
+    <span class="tk-k">exit</span> <span class="tk-n">3</span>
+}
+Write-Note <span class="tk-s">'warning'</span> <span class="tk-s">&quot;cobertura por debajo del umbral ($($fails -join '; ')) -&gt; AVISO (WARN-first, no bloquea; politica hooks.policy).&quot;</span>
+<span class="tk-k">exit</span> <span class="tk-n">0</span>
+</code></pre><p style="margin-top:32px"><a href="../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html"><small>Anterior</small>templates/azure-pipelines.nettool.yml.template</a><a class="next" href="../../../skills/cicd-architect/templates/Get-TemplateStamp.html"><small>Siguiente</small>templates/Get-TemplateStamp.ps1</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/templates/coverage-gate.ps1</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

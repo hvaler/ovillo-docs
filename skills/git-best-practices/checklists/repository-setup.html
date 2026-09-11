@@ -1,0 +1,99 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · checklists/repository-setup.md · Ovillo</title><meta name="description" content="Fichero checklists/repository-setup.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · checklists/repository-setup.md · Ovillo"><meta property="og:description" content="Fichero checklists/repository-setup.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/checklists/repository-setup.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/checklists/repository-setup.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/checklists/repository-setup.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html" class="cur">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>checklists</span><span>repository-setup.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>checklists/</span></div><h1>repository-setup.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>checklists</b><span>carpeta</span></div><div><b>3095 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: git-best-practices</p></blockquote>
+<p class="lede">Checklist para configurar correctamente un repositorio Git nuevo.</p>
+<hr>
+<section class="sec" id="sec-1-inicializacion">
+<h3 id="1-inicializacion">1. Inicializacion</h3>
+<ul>
+<li><input type="checkbox" disabled> <code>git init</code> con <code>--initial-branch=main</code></li>
+<li><input type="checkbox" disabled> <code>.gitignore</code> apropiado para el stack (ver <code>patterns/gitignore-patterns.md</code>)</li>
+<li><input type="checkbox" disabled> <code>.gitattributes</code> con line endings y LFS (ver <code>patterns/gitattributes-config.md</code>)</li>
+<li><input type="checkbox" disabled> <code>.editorconfig</code> para consistencia entre editores</li>
+<li><input type="checkbox" disabled> <code>README.md</code> con descripcion, setup, contribucion</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-2-configuracion-de-firmado">
+<h3 id="2-configuracion-de-firmado">2. Configuracion de Firmado</h3>
+<ul>
+<li><input type="checkbox" disabled> SSH signing configurado (ver <code>patterns/ssh-signing.md</code>)</li>
+<li><input type="checkbox" disabled> <code>commit.gpgsign = true</code> (global o local)</li>
+<li><input type="checkbox" disabled> <code>tag.gpgsign = true</code></li>
+<li><input type="checkbox" disabled> Clave publica registrada en GitHub/GitLab como &quot;Signing Key&quot;</li>
+<li><input type="checkbox" disabled> <code>allowed_signers</code> configurado para verificacion local</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-3-branch-protection-github">
+<h3 id="3-branch-protection-github">3. Branch Protection (GitHub)</h3>
+<ul>
+<li><input type="checkbox" disabled> Branch <code>main</code> protegida</li>
+<li><input type="checkbox" disabled> Require pull request antes de merge</li>
+<li><input type="checkbox" disabled> Require al menos 1 aprobacion</li>
+<li><input type="checkbox" disabled> Dismiss stale reviews al push nuevo</li>
+<li><input type="checkbox" disabled> Require status checks (CI) antes de merge</li>
+<li><input type="checkbox" disabled> Require branches up to date antes de merge</li>
+<li><input type="checkbox" disabled> No permitir force push a main</li>
+<li><input type="checkbox" disabled> No permitir delete de main</li>
+<li><input type="checkbox" disabled> Preferir GitHub Rulesets sobre Branch Protection Rules legacy</li>
+</ul>
+<h4 id="github-rulesets-recomendado-2025">GitHub Rulesets (Recomendado 2025+)</h4>
+<pre><code>Repository Settings &gt; Rules &gt; Rulesets &gt; New ruleset
+
+Nombre: Proteccion Main
+Target: main
+Rules:
+  [x] Restrict deletions
+  [x] Require a pull request before merging
+      - Required approvals: 1
+      - Dismiss stale reviews
+  [x] Require status checks to pass
+      - build
+      - test
+  [x] Block force pushes
+  [x] Require signed commits (opcional)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-templates">
+<h3 id="4-templates">4. Templates</h3>
+<p>Todas salen de <code>templates/</code> de esta skill: copiar, sustituir <code>{{...}}</code> y commitear.</p>
+<ul>
+<li><input type="checkbox" disabled> <code>.github/pull_request_template.md</code> ← <code>templates/pull_request_template.md.template</code></li>
+<li><input type="checkbox" disabled> <code>.github/ISSUE_TEMPLATE/{bug_report,feature_request,config}.yml</code> ← <code>templates/ISSUE_TEMPLATE/</code></li>
+<li><input type="checkbox" disabled> <code>.github/CODEOWNERS</code> ← <code>templates/CODEOWNERS.template</code> (obligatorio si el ruleset lleva <code>require_code_owner_review</code>); validar con <code>gh api repos/{org}/{repo}/codeowners/errors</code></li>
+<li><input type="checkbox" disabled> <code>.github/dependabot.yml</code> ← <code>templates/dependabot.yml.template</code></li>
+<li><input type="checkbox" disabled> <code>.github/rulesets/{branch-main,tags-release}.json</code> ← <code>templates/*-ruleset.json.template</code>, aplicados con <code>tools/github-rulesets.md</code></li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-5-cicd">
+<h3 id="5-cicd">5. CI/CD</h3>
+<ul>
+<li><input type="checkbox" disabled> Workflow de build + test en PR</li>
+<li><input type="checkbox" disabled> Workflow de deploy en merge a main (o manual)</li>
+<li><input type="checkbox" disabled> Secretos en GitHub Secrets (no en codigo)</li>
+<li><input type="checkbox" disabled> Branch-specific workflows con path filters</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-6-git-hooks-opcional">
+<h3 id="6-git-hooks-opcional">6. Git Hooks (Opcional)</h3>
+<ul>
+<li><input type="checkbox" disabled> <code>commit-msg</code>: Validar Conventional Commits</li>
+<li><input type="checkbox" disabled> <code>pre-commit</code>: Build rapido o lint</li>
+<li><input type="checkbox" disabled> <code>pre-push</code>: Tests</li>
+<li><input type="checkbox" disabled> Usar Husky (Node) o scripts PS para instalacion automatica</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-7-configuracion-de-equipo">
+<h3 id="7-configuracion-de-equipo">7. Configuracion de Equipo</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Cada desarrollador debe ejecutar:</span>
+<span class="tk-k">git</span> config --global user.name <span class="tk-s">&quot;Nombre Apellido&quot;</span>
+<span class="tk-k">git</span> config --global user.email <span class="tk-s">&quot;usuario@example.com&quot;</span>
+<span class="tk-k">git</span> config --global init.defaultBranch main
+<span class="tk-k">git</span> config --global pull.rebase true
+<span class="tk-k">git</span> config --global fetch.prune true
+<span class="tk-k">git</span> config --global diff.colorMoved zebra</code></pre>
+<hr>
+<p><em>Checklist 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/checklists/pre-merge.html"><small>Anterior</small>checklists/pre-merge.md</a><a class="next" href="../../../skills/git-best-practices/eval-set.html"><small>Siguiente</small>eval-set.json</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/checklists/repository-setup.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-inicializacion">1. Inicializacion</a></li><li class="l2"><a href="#2-configuracion-de-firmado">2. Configuracion de Firmado</a></li><li class="l2"><a href="#3-branch-protection-github">3. Branch Protection (GitHub)</a></li><li class="l3"><a href="#github-rulesets-recomendado-2025">GitHub Rulesets (Recomendado 2025+)</a></li><li class="l2"><a href="#4-templates">4. Templates</a></li><li class="l2"><a href="#5-cicd">5. CI/CD</a></li><li class="l2"><a href="#6-git-hooks-opcional">6. Git Hooks (Opcional)</a></li><li class="l2"><a href="#7-configuracion-de-equipo">7. Configuracion de Equipo</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

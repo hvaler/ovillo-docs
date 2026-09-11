@@ -1,0 +1,204 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manual de Usuario - [Nombre del Proyecto] · Ovillo</title><meta name="description" content="Manual de Usuario - [Nombre del Proyecto]"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Manual de Usuario - [Nombre del Proyecto] · Ovillo"><meta property="og:description" content="Manual de Usuario - [Nombre del Proyecto]"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/plantilla_doc_funcional.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/plantilla_doc_funcional.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/plantilla_doc_funcional.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 04_Plantillas_Documentacion (3)</h4><ul class="sibs"><li><a href="../guias/plantilla_doc_funcional.html" class="cur">Manual de Usuario - [Nombre del Proyecto]</a></li><li><a href="../guias/plantilla_doc_tecnica.html">Documentacion Tecnica - [Nombre del Proyecto]</a></li><li><a href="../guias/plantillas_documentacion-readme.html">04_Plantillas_Documentacion</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 04_Plantillas_Documentacion</span><span>Manual de Usuario - [Nombre del Proyecto]</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 04_Plantillas_Documentacion</span><span>español</span><span><a href="../guias/plantilla_doc_funcional.en.html">English version</a></span></div><h1>Manual de Usuario - [Nombre del Proyecto]</h1><div class="meta-grid"><div><b>3 min</b><span>lectura</span></div><div><b>740</b><span>palabras</span></div><div><b>14</b><span>secciones</span></div><div><b>2026-09-07</b><span>última edición</span></div><div><b>1</b><span>cambios</span></div></div><blockquote><p><strong>Instrucciones</strong>: Esta plantilla define la estructura de documentacion funcional. Orientada al usuario final, debe ser clara y con ejemplos visuales. Eliminar las instrucciones antes de publicar.</p></blockquote>
+<hr>
+<section class="sec" id="sec-informacion-del-documento">
+<h3 id="informacion-del-documento">Informacion del Documento</h3>
+<div class="tbl"><table><thead><tr><th>Campo</th><th>Valor</th></tr></thead><tbody><tr><td><strong>Aplicacion</strong></td><td>[Nombre]</td></tr><tr><td><strong>Version</strong></td><td>[X.Y.Z]</td></tr><tr><td><strong>Fecha</strong></td><td>[YYYY-MM-DD]</td></tr><tr><td><strong>Autor</strong></td><td>[Nombre]</td></tr><tr><td><strong>Audiencia</strong></td><td>[Usuarios finales / Administradores / etc.]</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-control-de-versiones">
+<h3 id="control-de-versiones">Control de Versiones</h3>
+<div class="tbl"><table><thead><tr><th>Version</th><th>Fecha</th><th>Cambios</th></tr></thead><tbody><tr><td>1.0</td><td>[YYYY-MM-DD]</td><td>Version inicial</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-1-introduccion">
+<h3 id="1-introduccion">1. Introduccion</h3>
+<h4 id="11-que-es-nombre-de-la-aplicacion">1.1 ¿Que es [Nombre de la Aplicacion]?</h4>
+<p><em>Descripcion sencilla de que hace la aplicacion y para que sirve.</em></p>
+<p>[Texto orientado al usuario, sin tecnicismos]</p>
+<h4 id="12-a-quien-va-dirigida">1.2 ¿A quien va dirigida?</h4>
+<p><em>Describir los perfiles de usuario que usaran la aplicacion.</em></p>
+<div class="tbl"><table><thead><tr><th>Perfil</th><th>Descripcion</th></tr></thead><tbody><tr><td>[Usuario]</td><td>[Descripcion de lo que hace]</td></tr><tr><td>[Gestor]</td><td>[Descripcion de lo que hace]</td></tr><tr><td>[Administrador]</td><td>[Descripcion de lo que hace]</td></tr></tbody></table></div>
+<h4 id="13-requisitos-previos">1.3 Requisitos Previos</h4>
+<p><em>Lo que necesita el usuario para usar la aplicacion.</em></p>
+<ul>
+<li>Navegador web: [Chrome, Edge, Firefox]</li>
+<li>Cuenta de usuario de la University</li>
+<li>Permisos asignados por [quien]</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-2-acceso-a-la-aplicacion">
+<h3 id="2-acceso-a-la-aplicacion">2. Acceso a la Aplicacion</h3>
+<h4 id="21-url-de-acceso">2.1 URL de Acceso</h4>
+<div class="tbl"><table><thead><tr><th>Entorno</th><th>URL</th></tr></thead><tbody><tr><td>Produccion</td><td>[URL]</td></tr><tr><td>Pruebas</td><td>[URL]</td></tr></tbody></table></div>
+<h4 id="22-inicio-de-sesion">2.2 Inicio de Sesion</h4>
+<p><em>Describir el proceso de login paso a paso.</em></p>
+<ol>
+<li>Acceder a [URL]</li>
+<li>Hacer clic en &quot;Iniciar sesion&quot;</li>
+<li>Introducir credenciales de la University</li>
+<li>[Otros pasos si aplica]</li>
+</ol>
+<blockquote class="callout note"><p><strong>Nota</strong>: Si tiene problemas de acceso, contacte con [contacto].</p></blockquote>
+<h4 id="23-primer-acceso">2.3 Primer Acceso</h4>
+<p><em>Si hay configuracion inicial requerida.</em></p>
+<p>[Pasos para el primer acceso]</p>
+<hr>
+</section>
+<section class="sec" id="sec-3-pantalla-principal">
+<h3 id="3-pantalla-principal">3. Pantalla Principal</h3>
+<h4 id="31-vista-general">3.1 Vista General</h4>
+<p><em>Descripcion de la pantalla principal con imagen.</em></p>
+<pre><code>[Insertar captura de pantalla]</code></pre>
+<h4 id="32-elementos-de-la-interfaz">3.2 Elementos de la Interfaz</h4>
+<div class="tbl"><table><thead><tr><th>Elemento</th><th>Descripcion</th></tr></thead><tbody><tr><td>Menu lateral</td><td>Acceso a las diferentes secciones</td></tr><tr><td>Barra superior</td><td>Notificaciones, perfil, cerrar sesion</td></tr><tr><td>Area de trabajo</td><td>Contenido principal</td></tr><tr><td>[Otro]</td><td>[Descripcion]</td></tr></tbody></table></div>
+<h4 id="33-navegacion">3.3 Navegacion</h4>
+<p><em>Como moverse por la aplicacion.</em></p>
+<p>[Descripcion de la navegacion]</p>
+<hr>
+</section>
+<section class="sec" id="sec-4-funcionalidades">
+<h3 id="4-funcionalidades">4. Funcionalidades</h3>
+<h4 id="41-nombre-de-la-funcionalidad-1">4.1 [Nombre de la Funcionalidad 1]</h4>
+<h5 id="para-que-sirve">¿Para que sirve?</h5>
+<p><em>Descripcion del proposito de esta funcionalidad.</em></p>
+<p>[Texto]</p>
+<h5 id="como-se-usa">¿Como se usa?</h5>
+<p><em>Pasos detallados con capturas.</em></p>
+<p><strong>Paso 1</strong>: [Descripcion]</p>
+<pre><code>[Captura de pantalla]</code></pre>
+<p><strong>Paso 2</strong>: [Descripcion]</p>
+<pre><code>[Captura de pantalla]</code></pre>
+<p><strong>Paso 3</strong>: [Descripcion]</p>
+<pre><code>[Captura de pantalla]</code></pre>
+<h5 id="ejemplo-practico">Ejemplo Practico</h5>
+<p><em>Un caso de uso real.</em></p>
+<blockquote><p><strong>Ejemplo</strong>: [Descripcion del caso de uso con datos de ejemplo]</p></blockquote>
+<h5 id="errores-comunes">Errores Comunes</h5>
+<div class="tbl"><table><thead><tr><th>Problema</th><th>Solucion</th></tr></thead><tbody><tr><td>[Error/Problema]</td><td>[Como solucionarlo]</td></tr></tbody></table></div>
+<hr>
+<h4 id="42-nombre-de-la-funcionalidad-2">4.2 [Nombre de la Funcionalidad 2]</h4>
+<p><em>Repetir estructura de la funcionalidad anterior</em></p>
+<hr>
+</section>
+<section class="sec" id="sec-5-operaciones-frecuentes">
+<h3 id="5-operaciones-frecuentes">5. Operaciones Frecuentes</h3>
+<h4 id="51-operacion-frecuente-1">5.1 [Operacion Frecuente 1]</h4>
+<p><strong>Objetivo</strong>: [Que se quiere conseguir]</p>
+<p><strong>Pasos</strong>:</p>
+<ol>
+<li>[Paso 1]</li>
+<li>[Paso 2]</li>
+<li>[Paso 3]</li>
+</ol>
+<p><strong>Resultado esperado</strong>: [Descripcion]</p>
+<hr>
+<h4 id="52-operacion-frecuente-2">5.2 [Operacion Frecuente 2]</h4>
+<p><em>Repetir estructura</em></p>
+<hr>
+</section>
+<section class="sec" id="sec-6-informes-y-exportacion">
+<h3 id="6-informes-y-exportacion">6. Informes y Exportacion</h3>
+<h4 id="61-informes-disponibles">6.1 Informes Disponibles</h4>
+<div class="tbl"><table><thead><tr><th>Informe</th><th>Descripcion</th><th>Como acceder</th></tr></thead><tbody><tr><td>[Nombre]</td><td>[Descripcion]</td><td>[Ruta de menu]</td></tr></tbody></table></div>
+<h4 id="62-exportar-datos">6.2 Exportar Datos</h4>
+<p><em>Como exportar informacion de la aplicacion.</em></p>
+<ol>
+<li>Ir a [seccion]</li>
+<li>Hacer clic en &quot;Exportar&quot;</li>
+<li>Seleccionar formato (Excel, PDF, CSV)</li>
+<li>[Otros pasos]</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-7-configuracion-administradores">
+<h3 id="7-configuracion-administradores">7. Configuracion (Administradores)</h3>
+<p><em>Seccion solo para administradores.</em></p>
+<h4 id="71-gestion-de-usuarios">7.1 Gestion de Usuarios</h4>
+<p><em>Como gestionar usuarios y permisos.</em></p>
+<p>[Pasos]</p>
+<h4 id="72-configuracion-del-sistema">7.2 Configuracion del Sistema</h4>
+<p><em>Parametros configurables.</em></p>
+<div class="tbl"><table><thead><tr><th>Parametro</th><th>Descripcion</th><th>Valores</th></tr></thead><tbody><tr><td>[Param]</td><td>[Descripcion]</td><td>[Opciones]</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-8-preguntas-frecuentes-faq">
+<h3 id="8-preguntas-frecuentes-faq">8. Preguntas Frecuentes (FAQ)</h3>
+<h4 id="como-puedo-pregunta-frecuente-1">¿Como puedo [pregunta frecuente 1]?</h4>
+<p>[Respuesta]</p>
+<h4 id="por-que-aparece-el-error-x">¿Por que aparece el error [X]?</h4>
+<p>[Respuesta y solucion]</p>
+<h4 id="quien-puede-accion">¿Quien puede [accion]?</h4>
+<p>[Respuesta sobre permisos]</p>
+<hr>
+</section>
+<section class="sec" id="sec-9-solucion-de-problemas">
+<h3 id="9-solucion-de-problemas">9. Solucion de Problemas</h3>
+<h4 id="91-la-pagina-no-carga">9.1 La pagina no carga</h4>
+<p><strong>Posibles causas</strong>:</p>
+<ul>
+<li>Problema de conexion a internet</li>
+<li>Navegador no compatible</li>
+<li>Sesion expirada</li>
+</ul>
+<p><strong>Soluciones</strong>:</p>
+<ol>
+<li>Verificar conexion a internet</li>
+<li>Probar con otro navegador</li>
+<li>Cerrar y volver a abrir el navegador</li>
+<li>Contactar soporte si persiste</li>
+</ol>
+<h4 id="92-no-tengo-acceso-a-funcionalidad">9.2 No tengo acceso a [funcionalidad]</h4>
+<p><strong>Posibles causas</strong>:</p>
+<ul>
+<li>No tiene los permisos necesarios</li>
+<li>Su perfil no incluye esta funcionalidad</li>
+</ul>
+<p><strong>Solucion</strong>: Contactar con [responsable] para solicitar acceso.</p>
+<h4 id="93-otro-problema-comun">9.3 [Otro problema comun]</h4>
+<p>[Descripcion y solucion]</p>
+<hr>
+</section>
+<section class="sec" id="sec-10-soporte-y-contacto">
+<h3 id="10-soporte-y-contacto">10. Soporte y Contacto</h3>
+<h4 id="101-canales-de-soporte">10.1 Canales de Soporte</h4>
+<div class="tbl"><table><thead><tr><th>Canal</th><th>Contacto</th><th>Horario</th></tr></thead><tbody><tr><td>Email</td><td>[email]</td><td>L-V 9:00-18:00</td></tr><tr><td>Telefono</td><td>[telefono]</td><td>L-V 9:00-14:00</td></tr><tr><td>Portal</td><td>[URL portal soporte]</td><td>24/7</td></tr></tbody></table></div>
+<h4 id="102-informacion-a-proporcionar">10.2 Informacion a Proporcionar</h4>
+<p>Cuando contacte con soporte, tenga preparado:</p>
+<ul>
+<li>Su nombre de usuario</li>
+<li>Descripcion del problema</li>
+<li>Capturas de pantalla si es posible</li>
+<li>Pasos que realizo antes del problema</li>
+</ul>
+<h4 id="103-tiempo-de-respuesta">10.3 Tiempo de Respuesta</h4>
+<div class="tbl"><table><thead><tr><th>Severidad</th><th>Descripcion</th><th>Tiempo respuesta</th></tr></thead><tbody><tr><td>Critica</td><td>No puedo trabajar</td><td>4 horas</td></tr><tr><td>Alta</td><td>Funcionalidad importante</td><td>8 horas</td></tr><tr><td>Media</td><td>Problema menor</td><td>24 horas</td></tr><tr><td>Baja</td><td>Consulta/Sugerencia</td><td>48 horas</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-anexos">
+<h3 id="anexos">Anexos</h3>
+<h4 id="a-atajos-de-teclado">A. Atajos de Teclado</h4>
+<div class="tbl"><table><thead><tr><th>Atajo</th><th>Accion</th></tr></thead><tbody><tr><td>Ctrl + S</td><td>Guardar</td></tr><tr><td>Ctrl + F</td><td>Buscar</td></tr><tr><td>[Otro]</td><td>[Accion]</td></tr></tbody></table></div>
+<h4 id="b-glosario">B. Glosario</h4>
+<div class="tbl"><table><thead><tr><th>Termino</th><th>Significado</th></tr></thead><tbody><tr><td>[Termino]</td><td>[Explicacion sencilla]</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-historial-de-cambios-de-la-aplicacion">
+<h3 id="historial-de-cambios-de-la-aplicacion">Historial de Cambios de la Aplicacion</h3>
+<p><em>Cambios recientes que afectan al usuario.</em></p>
+<h4 id="version-xyz---fecha">Version [X.Y.Z] - [Fecha]</h4>
+<p><strong>Novedades</strong>:</p>
+<ul>
+<li>[Nueva funcionalidad]</li>
+</ul>
+<p><strong>Mejoras</strong>:</p>
+<ul>
+<li>[Mejora]</li>
+</ul>
+<p><strong>Correcciones</strong>:</p>
+<ul>
+<li>[Bug corregido]</li>
+</ul>
+<hr>
+<p><strong>Fin del documento</strong></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/04_Plantillas_Documentacion/PLANTILLA_DOC_FUNCIONAL.md</code></span></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a><a class="next" href="../guias/plantilla_doc_tecnica.html"><small>Siguiente</small>Documentacion Tecnica - [Nombre del Proyecto]</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/04_Plantillas_Documentacion/PLANTILLA_DOC_FUNCIONAL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#informacion-del-documento">Informacion del Documento</a></li><li class="l2"><a href="#control-de-versiones">Control de Versiones</a></li><li class="l2"><a href="#1-introduccion">1. Introduccion</a></li><li class="l3"><a href="#11-que-es-nombre-de-la-aplicacion">1.1 ¿Que es [Nombre de la Aplicacion]?</a></li><li class="l3"><a href="#12-a-quien-va-dirigida">1.2 ¿A quien va dirigida?</a></li><li class="l3"><a href="#13-requisitos-previos">1.3 Requisitos Previos</a></li><li class="l2"><a href="#2-acceso-a-la-aplicacion">2. Acceso a la Aplicacion</a></li><li class="l3"><a href="#21-url-de-acceso">2.1 URL de Acceso</a></li><li class="l3"><a href="#22-inicio-de-sesion">2.2 Inicio de Sesion</a></li><li class="l3"><a href="#23-primer-acceso">2.3 Primer Acceso</a></li><li class="l2"><a href="#3-pantalla-principal">3. Pantalla Principal</a></li><li class="l3"><a href="#31-vista-general">3.1 Vista General</a></li><li class="l3"><a href="#32-elementos-de-la-interfaz">3.2 Elementos de la Interfaz</a></li><li class="l3"><a href="#33-navegacion">3.3 Navegacion</a></li><li class="l2"><a href="#4-funcionalidades">4. Funcionalidades</a></li><li class="l3"><a href="#41-nombre-de-la-funcionalidad-1">4.1 [Nombre de la Funcionalidad 1]</a></li><li class="l3"><a href="#42-nombre-de-la-funcionalidad-2">4.2 [Nombre de la Funcionalidad 2]</a></li><li class="l2"><a href="#5-operaciones-frecuentes">5. Operaciones Frecuentes</a></li><li class="l3"><a href="#51-operacion-frecuente-1">5.1 [Operacion Frecuente 1]</a></li><li class="l3"><a href="#52-operacion-frecuente-2">5.2 [Operacion Frecuente 2]</a></li><li class="l2"><a href="#6-informes-y-exportacion">6. Informes y Exportacion</a></li><li class="l3"><a href="#61-informes-disponibles">6.1 Informes Disponibles</a></li><li class="l3"><a href="#62-exportar-datos">6.2 Exportar Datos</a></li><li class="l2"><a href="#7-configuracion-administradores">7. Configuracion (Administradores)</a></li><li class="l3"><a href="#71-gestion-de-usuarios">7.1 Gestion de Usuarios</a></li><li class="l3"><a href="#72-configuracion-del-sistema">7.2 Configuracion del Sistema</a></li><li class="l2"><a href="#8-preguntas-frecuentes-faq">8. Preguntas Frecuentes (FAQ)</a></li><li class="l3"><a href="#como-puedo-pregunta-frecuente-1">¿Como puedo [pregunta frecuente 1]?</a></li><li class="l3"><a href="#por-que-aparece-el-error-x">¿Por que aparece el error [X]?</a></li><li class="l3"><a href="#quien-puede-accion">¿Quien puede [accion]?</a></li><li class="l2"><a href="#9-solucion-de-problemas">9. Solucion de Problemas</a></li><li class="l3"><a href="#91-la-pagina-no-carga">9.1 La pagina no carga</a></li><li class="l3"><a href="#92-no-tengo-acceso-a-funcionalidad">9.2 No tengo acceso a [funcionalidad]</a></li><li class="l3"><a href="#93-otro-problema-comun">9.3 [Otro problema comun]</a></li><li class="l2"><a href="#10-soporte-y-contacto">10. Soporte y Contacto</a></li><li class="l3"><a href="#101-canales-de-soporte">10.1 Canales de Soporte</a></li><li class="l3"><a href="#102-informacion-a-proporcionar">10.2 Informacion a Proporcionar</a></li><li class="l3"><a href="#103-tiempo-de-respuesta">10.3 Tiempo de Respuesta</a></li><li class="l2"><a href="#anexos">Anexos</a></li><li class="l3"><a href="#a-atajos-de-teclado">A. Atajos de Teclado</a></li><li class="l3"><a href="#b-glosario">B. Glosario</a></li><li class="l2"><a href="#historial-de-cambios-de-la-aplicacion">Historial de Cambios de la Aplicacion</a></li><li class="l3"><a href="#version-xyz---fecha">Version [X.Y.Z] - [Fecha]</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

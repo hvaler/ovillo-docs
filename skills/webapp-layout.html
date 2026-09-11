@@ -1,0 +1,120 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>webapp-layout · Ovillo</title><meta name="description" content="Generates web layouts following configurable corporate design standards (theme tokens): institutional colors (#33475B), responsive layout,…"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="webapp-layout · Ovillo"><meta property="og:description" content="Generates web layouts following configurable corporate design standards (theme tokens): institutional colors (#33475B), responsive layout,…"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/webapp-layout.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/webapp-layout.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/webapp-layout.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>conocimiento (20)</h4><ul class="sibs"><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/api-integration-patterns.html">api-integration-patterns</a></li><li><a href="../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></li><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cloud-config.html">cloud-config</a></li><li><a href="../skills/docs-agente-sync.html">docs-agente-sync</a></li><li><a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../skills/hub-client.html">hub-client</a></li><li><a href="../skills/issue-tracker-sync.html">issue-tracker-sync</a></li><li><a href="../skills/nugets-management.html">nugets-management</a></li><li><a href="../skills/observability-patterns.html">observability-patterns</a></li><li><a href="../skills/postman-collection.html">postman-collection</a></li><li><a href="../skills/resilience-patterns.html">resilience-patterns</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li><li><a href="../skills/user-documentation.html">user-documentation</a></li><li><a href="../skills/webapp-dashboard.html">webapp-dashboard</a></li><li><a href="../skills/webapp-layout.html" class="cur">webapp-layout</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>webapp-layout</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>/hv:webapp-layout</span></div><h1>webapp-layout</h1><p class="lede">Generates web layouts following configurable corporate design standards (theme tokens): institutional colors (#33475B), responsive layout, header/footer/sidebar components, dark mode, print styles, and WCAG 2.1 AA accessibility.</p><div class="meta-grid"><div><b>conocimiento</b><span>clase</span></div><div><b><code>/hv:webapp-layout</code></b><span>invocación</span></div><div><b>16</b><span>ficheros</span></div><div><b>357</b><span>palabras</span></div><div><b>1.00</b><span>F1 de disparo</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo se activa</h2><ul><li>generating web layouts</li><li>configurable corporate design</li><li>institutional colors</li><li>responsive UI</li><li>Bootstrap components</li><li>crear layout</li><li>diseño web</li><li>interfaz usuario</li><li>pagina web</li></ul></section><section class="sec" id="sec-cuando-no"><h2 id="cuando-no">Cuándo no</h2><ul><li>API endpoints (use <a href="../skills/api-integration-patterns.html">api-integration-patterns</a>)</li><li>business logic</li><li>backend services (use <a href="../skills/generador-crud.html">generador-crud</a>)</li><li>un grafo de dependencias entre capas (<a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a>)</li></ul></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><div class="kpi"><div><b>1.00</b><span>F1</span></div><div><b>1.00</b><span>precisión</span></div><div><b>1.00</b><span>recall</span></div><div><b>6 / 6</b><span>consultas correctas</span></div></div><p class="muted">Todas las consultas del eval-set se resuelven bien.</p><p class="muted">Motor: <code>run_eval.py</code> deriva el vocabulario de la description real; baseline en <a href="../evaluaciones.html">Evaluaciones</a>.</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">15</span></h2><div class="tree"><ul><li><span class="dir">patterns/</span><ul><li><a href="../skills/webapp-layout/patterns/accesibilidad.html">accesibilidad.md</a> <span class="muted">8884 B</span></li><li><a href="../skills/webapp-layout/patterns/colores-corporativos.html">colores-corporativos.md</a> <span class="muted">4969 B</span></li><li><a href="../skills/webapp-layout/patterns/dark-mode.html">dark-mode.md</a> <span class="muted">1409 B</span></li><li><a href="../skills/webapp-layout/patterns/layout-estandar.html">layout-estandar.md</a> <span class="muted">6675 B</span></li><li><a href="../skills/webapp-layout/patterns/print-styles.html">print-styles.md</a> <span class="muted">1160 B</span></li><li><a href="../skills/webapp-layout/patterns/responsive.html">responsive.md</a> <span class="muted">6771 B</span></li></ul></li><li><span class="dir">templates/</span><ul><li><a href="../skills/webapp-layout/templates/_ErrorPage.html">_ErrorPage.cshtml</a> <span class="muted">1116 B</span></li><li><a href="../skills/webapp-layout/templates/_Footer.html">_Footer.cshtml</a> <span class="muted">1459 B</span></li><li><a href="../skills/webapp-layout/templates/_Header.html">_Header.cshtml</a> <span class="muted">4976 B</span></li><li><a href="../skills/webapp-layout/templates/_Layout.html">_Layout.cshtml</a> <span class="muted">9265 B</span></li><li><a href="../skills/webapp-layout/templates/_Loading.html">_Loading.cshtml</a> <span class="muted">939 B</span></li><li><a href="../skills/webapp-layout/templates/_Sidebar.html">_Sidebar.cshtml</a> <span class="muted">8357 B</span></li><li><a href="../skills/webapp-layout/templates/forms.html">forms.css</a> <span class="muted">1931 B</span></li><li><a href="../skills/webapp-layout/templates/site.html">site.css</a> <span class="muted">24.533 B</span></li></ul></li><li><a href="../skills/webapp-layout/eval-set.html">eval-set.json</a> <span class="muted">1704 B</span></li></ul></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><p class="lede">Este skill contiene los estándares de diseño web de la organización. Usar estos patrones garantiza consistencia visual y cumplimiento de normativas de accesibilidad.</p>
+<hr>
+<section class="sec" id="sec-cuándo-usar-este-skill">
+<h3 id="cuándo-usar-este-skill">Cuándo Usar Este Skill</h3>
+<ol>
+<li><strong>Crear nuevo layout</strong> - Usar templates de <code>templates/_Layout.cshtml</code></li>
+<li><strong>Modificar header/footer</strong> - Seguir patrones en <code>patterns/layout-estandar.md</code></li>
+<li><strong>Aplicar colores</strong> - Consultar <code>patterns/colores-corporativos.md</code></li>
+<li><strong>Hacer responsive</strong> - Seguir <code>patterns/responsive.md</code></li>
+<li><strong>Verificar accesibilidad</strong> - Aplicar <code>patterns/accesibilidad.md</code></li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-archivos-de-referencia">
+<h3 id="archivos-de-referencia">Archivos de Referencia</h3>
+<h4 id="patterns-guías-de-diseño">Patterns (Guías de diseño)</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Descripción</th></tr></thead><tbody><tr><td><code>patterns/colores-corporativos.md</code></td><td>Paleta de colores del tema (theme.*)</td></tr><tr><td><code>patterns/layout-estandar.md</code></td><td>Estructura de layout (header, sidebar, footer)</td></tr><tr><td><code>patterns/responsive.md</code></td><td>Breakpoints y adaptación móvil</td></tr><tr><td><code>patterns/accesibilidad.md</code></td><td>Guía WCAG 2.1 AA</td></tr></tbody></table></div>
+<h4 id="templates-código-listo-para-usar">Templates (Código listo para usar)</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Descripción</th></tr></thead><tbody><tr><td><code>templates/_Layout.cshtml</code></td><td>Layout principal con estructura completa</td></tr><tr><td><code>templates/_Header.cshtml</code></td><td>Header con logo y menú usuario</td></tr><tr><td><code>templates/_Footer.cshtml</code></td><td>Footer con información legal</td></tr><tr><td><code>templates/_Sidebar.cshtml</code></td><td>Sidebar colapsable con navegación</td></tr><tr><td><code>templates/site.css</code></td><td>Estilos CSS completos</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-estructura-del-layout">
+<h3 id="estructura-del-layout">Estructura del Layout</h3>
+<pre><code>+------------------------------------------------------------------+
+|  HEADER (60px)                                                    |
+|  [Logo] [Título App]              [Usuario] [Cerrar]     |
++------------------------------------------------------------------+
+|         |                                                         |
+| SIDEBAR |  CONTENIDO PRINCIPAL                                    |
+| (250px) |                                                         |
+|         |  [Breadcrumbs: Inicio &gt; Módulo &gt; Página]               |
+| [Menu]  |                                                         |
+| [Items] |  &lt;main&gt;                                                 |
+|         |    @RenderBody()                                        |
+|         |  &lt;/main&gt;                                                |
+|         |                                                         |
++---------+---------------------------------------------------------+
+|  FOOTER (40px)                                                    |
+|  la organización | v1.0.0 | Política Privacidad   |
++------------------------------------------------------------------+</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-colores-rápidos">
+<h3 id="colores-rápidos">Colores Rápidos</h3>
+<pre data-lang="css"><code>/* Colores principales */
+--brand-primary:        #33475B;  /* Principal */
+--brand-primary-light:  #0066CC;  /* Enlaces, acentos */
+--brand-neutral-dark: #333333;  /* Texto principal */
+--brand-neutral-light:  #F5F5F5;  /* Fondos secundarios */
+--brand-white:      #FFFFFF;  /* Fondos principales */
+--brand-error:       #CC0000;  /* Errores, alertas críticas */
+--brand-exito:       #28A745;  /* Éxito, confirmaciones */
+--brand-warning:     #FFC107;  /* Advertencias */</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-instrucciones-para-claude">
+<h3 id="instrucciones-para-claude">Instrucciones para Claude</h3>
+<h4 id="al-crear-un-nuevo-layout">Al crear un nuevo layout:</h4>
+<ol>
+<li><strong>Leer</strong> <code>templates/_Layout.cshtml</code> como base</li>
+<li><strong>Incluir</strong> <code>templates/site.css</code> en wwwroot/css/</li>
+<li><strong>Adaptar</strong> el menú del sidebar según módulos del proyecto</li>
+<li><strong>Verificar</strong> contraste de colores (mínimo 4.5:1)</li>
+<li><strong>Probar</strong> responsive en los 3 breakpoints</li>
+</ol>
+<h4 id="al-modificar-estilos">Al modificar estilos:</h4>
+<ol>
+<li><strong>Consultar</strong> <code>patterns/colores-corporativos.md</code> antes de usar colores</li>
+<li><strong>Usar</strong> variables CSS definidas, no valores hardcodeados</li>
+<li><strong>Mantener</strong> consistencia con el resto de la aplicación</li>
+<li><strong>Verificar</strong> accesibilidad después de cambios</li>
+</ol>
+<h4 id="al-añadir-componentes">Al añadir componentes:</h4>
+<ol>
+<li><strong>Seguir</strong> la estructura HTML semántica (header, nav, main, footer)</li>
+<li><strong>Incluir</strong> atributos ARIA donde corresponda</li>
+<li><strong>Asegurar</strong> navegación por teclado</li>
+<li><strong>Añadir</strong> estados de focus visibles</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-ejemplo-de-uso">
+<h3 id="ejemplo-de-uso">Ejemplo de Uso</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// En _ViewImports.cshtml</span>
+@<span class="tk-k">using</span> MiProyecto.Web
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<span class="tk-c">// En _ViewStart.cshtml</span>
+@{
+    Layout = <span class="tk-s">&quot;_Layout&quot;</span>;
+}</code></pre>
+<pre data-lang="html"><code><span class="tk-c">&lt;!-- En cualquier vista --&gt;</span>
+@{
+    ViewData[<span class="tk-s">&quot;Title&quot;</span>] = <span class="tk-s">&quot;Mi Página&quot;</span>;
+    ViewData[<span class="tk-s">&quot;Breadcrumb&quot;</span>] = new[] { <span class="tk-s">&quot;Inicio&quot;</span>, <span class="tk-s">&quot;Módulo&quot;</span>, <span class="tk-s">&quot;Mi Página&quot;</span> };
+}
+
+<span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;page-content&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;h1</span><span class="tk-t">&gt;</span>@ViewData[<span class="tk-s">&quot;Title&quot;</span>]<span class="tk-t">&lt;/h1</span><span class="tk-t">&gt;</span>
+    <span class="tk-c">&lt;!-- Contenido --&gt;</span>
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-de-verificación">
+<h3 id="checklist-de-verificación">Checklist de Verificación</h3>
+<p>Antes de dar por terminado un layout, verificar:</p>
+<ul>
+<li><input type="checkbox" disabled> Logo (theme.logoUrl) en header</li>
+<li><input type="checkbox" disabled> Colores corporativos aplicados</li>
+<li><input type="checkbox" disabled> Sidebar funcional (colapsa en tablet/móvil)</li>
+<li><input type="checkbox" disabled> Footer con versión e información legal</li>
+<li><input type="checkbox" disabled> Responsive en 3 breakpoints (&gt;1200, 768-1200, &lt;768)</li>
+<li><input type="checkbox" disabled> Contraste de colores 4.5:1 mínimo</li>
+<li><input type="checkbox" disabled> Navegación por teclado funcional</li>
+<li><input type="checkbox" disabled> Skip to content link presente</li>
+<li><input type="checkbox" disabled> Roles ARIA en landmarks (banner, navigation, main, contentinfo)</li>
+</ul>
+<hr>
+<p><em>Skill webapp-layout - Estándares de diseño web (tema configurable)</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>586</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 357 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>8 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(medida): Lote H - los instrumentos miden de verdad y la cobertura se declara (ADR-028)</em> (<code>fa757ef</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/api-integration-patterns.html">api-integration-patterns</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/webapp-layout/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo se activa</a></li><li class="l2"><a href="#cuando-no">Cuándo no</a></li><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#cuándo-usar-este-skill">Cuándo Usar Este Skill</a></li><li class="l3"><a href="#archivos-de-referencia">Archivos de Referencia</a></li><li class="l3"><a href="#estructura-del-layout">Estructura del Layout</a></li><li class="l3"><a href="#colores-rápidos">Colores Rápidos</a></li><li class="l3"><a href="#instrucciones-para-claude">Instrucciones para Claude</a></li><li class="l3"><a href="#ejemplo-de-uso">Ejemplo de Uso</a></li><li class="l3"><a href="#checklist-de-verificación">Checklist de Verificación</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

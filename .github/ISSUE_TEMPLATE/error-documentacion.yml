@@ -1,0 +1,32 @@
+name: Error en la documentación
+description: Un dato que no cuadra, un enlace roto, una explicación confusa o desactualizada.
+title: "[doc] "
+labels: ["documentacion"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: URL de la página
+      description: La dirección completa de la página del portal donde está el problema.
+      placeholder: https://hvaler.github.io/ovillo-docs/skills/cicd-init.html
+    validations:
+      required: true
+  - type: textarea
+    id: problema
+    attributes:
+      label: Qué está mal
+      description: Cita el texto o describe el enlace, la cifra o la sección afectada.
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Qué esperabas encontrar
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Versión de Ovillo
+      description: La que muestra el pie de la página (v1.0.0) o `claude plugin list`.
+      placeholder: "1.0.0"

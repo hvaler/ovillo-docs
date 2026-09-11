@@ -1,0 +1,57 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ovillo en 10 diapositivas · Ovillo</title><meta name="description" content="Presentación: Ovillo en 10 diapositivas"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Ovillo en 10 diapositivas · Ovillo"><meta property="og:description" content="Presentación: Ovillo en 10 diapositivas"><meta property="og:locale" content="es_ES"><meta name="twitter:card" content="summary"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body class="deck"><header class="deck-bar"><span class="deck-title">Ovillo en 10 diapositivas</span><span class="deck-counter" data-counter>1 / 11</span><progress class="deck-progress" data-progress max="11" value="1"></progress></header><main class="slides" data-slides><section class="slide cover" id="s1" data-n="1"><div class="slide-body"><p class="eyebrow">Ovillo · v1.2.3</p><h1>Ovillo en 10 diapositivas</h1><p class="lede">Ecosistema Claude Code para .NET. Una primitiva, tres clases; hooks que avisan antes de bloquear; memoria del proyecto que sobrevive a la sesión.</p></div></section>
+<section class="slide" id="s2" data-n="2"><h2>1 · Qué es</h2><div class="slide-body"><ul>
+<li>Un <strong>plugin de Claude Code</strong>: <code>hv@ovillo</code>, instalado desde el marketplace <code>ovillo</code></li>
+<li>68 skills, 19 agents, 22 hooks y 3 reglas incondicionales</li>
+<li><strong>Hilo</strong> (memoria del proyecto) y <strong>Patrón</strong> (base de conocimiento de la organización)</li>
+<li><strong>Ovillo.Hub</strong> opcional: MCP + REST para el equipo</li>
+</ul></div><aside class="notes"><p>Las cifras salen del inventario en cada build. Si esta slide dice otra cosa que el repo, la release no sale.</p></aside></section>
+<section class="slide" id="s3" data-n="3"><h2>2 · Una primitiva, tres clases</h2><div class="slide-body"><div class="tbl"><table><thead><tr><th>Clase</th><th>Cuántas</th><th>Quién la activa</th></tr></thead><tbody><tr><td>conocimiento</td><td>20</td><td>el modelo, por la descripción</td></tr><tr><td>workflow</td><td>35</td><td>solo el usuario, con <code>/hv:</code></td></tr><tr><td>regla por ruta</td><td>13</td><td>los ficheros que casan con <code>paths:</code></td></tr></tbody></table></div>
+<div class="fragment"><p>Un workflow <strong>nunca</strong> se dispara solo: lleva <code>disable-model-invocation: true</code> y no cuesta contexto hasta que lo lanzas.</p></div></div></section>
+<section class="slide" id="s4" data-n="4"><h2>3 · Instalar en tres líneas</h2><div class="slide-body"><pre data-lang="shell"><code><span class="tk-k">claude</span> plugin marketplace add hvaler/ovillo
+<span class="tk-k">claude</span> plugin install hv@ovillo
+/hv:init</code></pre>
+<p><code>/hv:init</code> escribe <code>CLAUDE.md</code>, las reglas, <code>_hilo/</code> y <code>_patron/</code>; es idempotente: volver a ejecutarlo solo añade lo que falte.</p></div></section>
+<section class="slide" id="s5" data-n="5"><h2>4 · Hooks: avisan antes de bloquear</h2><div class="slide-body"><ul>
+<li>22 hooks en Node, política <strong>WARN-first</strong></li>
+<li>Bloquean siempre: <strong>3</strong> (<code>bash-guard</code>, <code>hilo-json-guard</code>, <code>protect-files</code>)</li>
+<li>Configurables (avisan por defecto): <strong>7</strong></li>
+<li>Solo informan: <strong>11</strong> · bloquean en un caso concreto: <strong>1</strong></li>
+</ul></div><aside class="notes"><p>Los tres bloqueos intrínsecos evitan daño irreversible: git destructivo, el JSON del Hilo y los ficheros protegidos.</p></aside></section>
+<section class="slide" id="s6" data-n="6"><h2>5 · Agents</h2><div class="slide-body"><ul>
+<li>19 subagentes <code>hv:*</code>, cada uno con su contexto y sus herramientas</li>
+<li>Los que más skills delegan en ellos:</li>
+<ul>
+<li><code>build-fixer</code> · 2 skills</li>
+<li><code>cicd-pipeline-reviewer</code> · 2 skills</li>
+<li><code>code-reviewer</code> · 2 skills</li>
+<li><code>github-actions-reviewer</code> · 2 skills</li>
+<li><code>identity-auditor</code> · 2 skills</li>
+</ul>
+</ul></div></section>
+<section class="slide" id="s7" data-n="7"><h2>6 · Hilo y Patrón</h2><div class="slide-body"><ul>
+<li><strong>Hilo</strong> (<code>_hilo/</code>): estado del proyecto, sesión actual, decisiones, lecciones, historial</li>
+<li><strong>Patrón</strong> (<code>_patron/</code>): los estándares de la organización como documentos, sin índice; en update se añade sin pisar</li>
+<li>Layout fijo del consumidor: <code>src/ docs/ ops/ _hilo/ _patron/</code></li>
+</ul></div></section>
+<section class="slide" id="s8" data-n="8"><h2>7 · Ovillo.Hub (opcional)</h2><div class="slide-body"><ul>
+<li>15 tools MCP · 4 resources <code>ovillo://</code> · 3 prompts · 48 rutas REST v2</li>
+<li>SQLite o SQL Server, Docker, <strong>opt-in</strong>: nadie se registra sin pedirlo</li>
+<li>Auth por <code>X-Hub-Api-Key</code>; cliente de referencia: skill <code>hub-client</code></li>
+</ul></div></section>
+<section class="slide" id="s9" data-n="9"><h2>8 · Calidad medida</h2><div class="slide-body"><ul>
+<li>Disparo de skills: <strong>F1 0.96</strong> sobre 220 consultas (20 skills de conocimiento)</li>
+<li>Contexto siempre cargado medido en cada release (<code>measure-context.js</code>)</li>
+<li>Puertas de release: inventario, portal, plugin y zip con <code>--check</code>, mas la medida de contexto</li>
+</ul></div><aside class="notes"><p>Las cifras son las del último run; están en Evaluaciones y Contexto.</p></aside></section>
+<section class="slide" id="s10" data-n="10"><h2>9 · Últimas decisiones</h2><div class="slide-body"><ul>
+<li><strong>ADR-040</strong> · Medir la ejecución de una skill, y el consumidor que la quinta puerta no medía <em>(2026-09-10)</em></li>
+<li><strong>ADR-039</strong> · La fuente de los estándares se describía a sí misma mal, y quién la versiona <em>(2026-09-10)</em></li>
+<li><strong>ADR-038</strong> · El verificador validaba la plantilla que la dieta de contexto había retirado <em>(2026-09-09)</em></li>
+</ul>
+<p>Cada decisión estructural es un ADR; leídos en orden son el changelog de verdad.</p></div></section>
+<section class="slide" id="s11" data-n="11"><h2>10 · Empezar</h2><div class="slide-body"><ol>
+<li>Instalar el plugin y ejecutar <code>/hv:init</code></li>
+<li>Leer <strong>Inicio rápido</strong> o seguir el <strong>curso</strong></li>
+<li>Tener a mano la <strong>chuleta de comandos</strong></li>
+<li>Ver qué avisa cada hook antes de subir <code>hooks.policy</code> a <code>block</code></li>
+</ol></div></section></main><footer class="deck-foot"><span>← → espacio · <kbd>O</kbd>/<kbd>Esc</kbd> vista general · <kbd>N</kbd> notas · <kbd>F</kbd> pantalla completa · <kbd>?</kbd> ayuda</span><a href="../presentaciones/index.html">salir</a></footer><script src="../recursos/portal.js" defer></script></body></html>

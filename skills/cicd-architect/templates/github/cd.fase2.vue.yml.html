@@ -1,0 +1,215 @@
+<!doctype html><html lang="es" data-rel="../../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · templates/github/cd.fase2.vue.yml.template · Ovillo</title><meta name="description" content="Fichero templates/github/cd.fase2.vue.yml.template de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · templates/github/cd.fase2.vue.yml.template · Ovillo"><meta property="og:description" content="Fichero templates/github/cd.fase2.vue.yml.template de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/github/cd.fase2.vue.yml.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/github/cd.fase2.vue.yml.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/templates/github/cd.fase2.vue.yml.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../../index.html">Inicio</a></li><li><a href="../../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../../curso/index.html">Curso</a></li><li><a href="../../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../../patron.html">Patrón</a></li><li><a href="../../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../../referencia-config.html">Configuración</a></li><li><a href="../../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../../changelog.html">Versiones</a></li><li><a href="../../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../../buscar.html">Buscar</a></li><li><a href="../../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html" class="cur">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../../index.html">Inicio</a></span><span><a href="../../../../skills/index.html">Skills</a></span><span><a href="../../../../skills/cicd-architect.html">cicd-architect</a></span><span>templates</span><span>cd.fase2.vue.yml.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>templates/</span><span>8012 B</span></div><h1>cd.fase2.vue.yml.template</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>8012 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code><span class="tk-c"># =============================================================================</span>
+<span class="tk-c"># {{PROYECTO_NOMBRE}} — Workflow CD {{PIPELINE_NAME}} (Fase 2, stack Vue 3 + Vite + TypeScript)</span>
+<span class="tk-c"># Ovillo cicd-architect github-vue @ {{TEMPLATE_STAMP}}   (sello de plantilla; /cicd-status detecta drift)</span>
+<span class="tk-c"># Reglas: cicd-runtime G1-G19. Smoke BEST-EFFORT (G14: una SPA no expone /health; el deploy real ya lo verifico</span>
+<span class="tk-c"># la herramienta de publicacion). Sin Hub/QR (G7 solo aplica a .NET).</span>
+<span class="tk-c"># Materializado por /cicd-init en .github/workflows/cd-{{SLUG}}.yml. Para Fase 1 (CI-only) /cicd-init deja solo</span>
+<span class="tk-c"># el job `build` y lo llama ci.yml.</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># MODELO DE DEPLOY: ON-DEMAND (ver cd.fase2.dotnet.yml.template para AUTO y BRANCH-GATED).</span>
+<span class="tk-c"># RAMAS CONDICIONALES: sin `lint` en package.json -&gt; quitar el step Lint; sin @vitest/coverage-v8 -&gt; Test sin --coverage.</span>
+<span class="tk-c"># =============================================================================</span>
+name: CD <span class="tk-v">{{PIPELINE_NAME}}</span>
+
+<span class="tk-k">on</span>:
+  push:
+    branches:
+      - <span class="tk-s">'{{RAMA_BASE}}'</span>
+      <span class="tk-c"># {{TRIGGER_BRANCHES_EXTRA}}  &lt;- /cicd-init anade aqui &quot;- 'develop'&quot; en el modelo branch-gated</span>
+    paths:
+      - <span class="tk-s">'{{ENTRYPOINT_PATH}}/**'</span>
+      - <span class="tk-s">'.github/workflows/cd-{{SLUG}}.yml'</span>
+      - <span class="tk-s">'.github/actions/**'</span>
+  pull_request:
+    branches: [<span class="tk-s">'{{RAMA_BASE}}'</span>]
+    paths:
+      - <span class="tk-s">'{{ENTRYPOINT_PATH}}/**'</span>
+  merge_group:
+    branches: [<span class="tk-s">'{{RAMA_BASE}}'</span>]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: <span class="tk-s">'Entorno a desplegar (G1 on-demand: el push solo construye)'</span>
+        type: choice
+        required: <span class="tk-k">true</span>
+        options: [dev, pre, pro]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cd-<span class="tk-v">{{SLUG}}</span>-<span class="tk-v">${{ github.ref }}</span>
+  cancel-in-progress: <span class="tk-k">false</span>
+
+defaults:
+  run:
+    working-directory: <span class="tk-s">'{{ENTRYPOINT_PATH}}'</span>
+
+jobs:
+  build:
+    name: Build
+    runs-on: <span class="tk-s">'{{RUNNER}}'</span>
+    timeout-minutes: <span class="tk-n">15</span>
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 <span class="tk-c"># v7.0.0</span>
+        with:
+          node-version: <span class="tk-s">'{{NODE_VERSION}}'</span>
+          cache: npm
+          cache-dependency-path: <span class="tk-s">'{{ENTRYPOINT_PATH}}/package-lock.json'</span>
+
+      - name: Install (lockfile)
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint --if-present
+
+      - name: Test
+        run: npm test -- --run --coverage
+
+      - name: Build
+        run: npm run build
+
+      - name: Security scan (G8, npm audit; <span class="tk-k">no</span> tumba el build)
+        if: always()
+        uses: ./.github/actions/security-scan
+        with:
+          stack: spa
+          working-dir: <span class="tk-s">'{{ENTRYPOINT_PATH}}'</span>
+
+      - name: Upload dist
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a <span class="tk-c"># v7.0.1</span>
+        with:
+          name: dist-<span class="tk-v">{{SLUG}}</span>-<span class="tk-v">${{ github.sha }}</span>
+          path: <span class="tk-s">'{{ENTRYPOINT_PATH}}/dist'</span>
+          retention-days: <span class="tk-n">30</span>
+
+  deploy-dev:
+    name: Deploy dev
+    runs-on: <span class="tk-s">'{{RUNNER}}'</span>
+    needs: build
+    if: github.event_name == <span class="tk-s">'workflow_dispatch'</span> &amp;&amp; inputs.environment == <span class="tk-s">'dev'</span>
+    timeout-minutes: <span class="tk-n">15</span>
+    environment:
+      name: dev
+      url: <span class="tk-s">'{{DEV_URL}}'</span>
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout (solo .github/actions)
+        <span class="tk-c"># Las composite actions locales exigen el repo en disco; sparse checkout de .github/actions para no romper G4:</span>
+        <span class="tk-c"># el codigo NO se despliega desde el checkout, la unica fuente del deploy es el artefacto descargado.</span>
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+        with:
+          sparse-checkout: .github/actions
+      - name: Download dist
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c <span class="tk-c"># v8.0.1</span>
+        with:
+          name: dist-<span class="tk-v">{{SLUG}}</span>-<span class="tk-v">${{ github.sha }}</span>
+          path: ./dist
+      - name: Security gate (G8, warn)
+        uses: ./.github/actions/security-gate
+        with:
+          mode: warn
+          gate-severity: High
+      <span class="tk-c"># {{DEPLOY_STEP}}</span>
+      - name: Deploy
+        working-directory: .
+        run: |
+          echo <span class="tk-s">&quot;::error::Paso de despliegue sin configurar para dev (sustituir {{DEPLOY_STEP}} en /cicd-init)&quot;</span>
+          exit <span class="tk-n">1</span>
+      - name: Smoke test (G14, best-effort)
+        working-directory: .
+        shell: bash
+        run: |
+          code=<span class="tk-v">$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 &quot;{{DEV_URL}}/&quot; || true)</span>
+          if [ <span class="tk-s">&quot;$code&quot;</span> = <span class="tk-s">&quot;200&quot;</span> ]; then echo <span class="tk-s">&quot;GET / OK&quot;</span>; else echo <span class="tk-s">&quot;::warning::Smoke best-effort: HTTP $code contra {{DEV_URL}}/ (hairpin NAT o SNI); el deploy ya lo verifico la herramienta de publicacion&quot;</span>; fi
+
+  deploy-pre:
+    name: Deploy pre
+    runs-on: <span class="tk-s">'{{RUNNER}}'</span>
+    needs: build
+    if: github.event_name == <span class="tk-s">'workflow_dispatch'</span> &amp;&amp; inputs.environment == <span class="tk-s">'pre'</span>
+    timeout-minutes: <span class="tk-n">15</span>
+    environment:
+      name: pre
+      url: <span class="tk-s">'{{DEMO_URL}}'</span>
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout (solo .github/actions)
+        <span class="tk-c"># Las composite actions locales exigen el repo en disco; sparse checkout de .github/actions para no romper G4:</span>
+        <span class="tk-c"># el codigo NO se despliega desde el checkout, la unica fuente del deploy es el artefacto descargado.</span>
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+        with:
+          sparse-checkout: .github/actions
+      - name: Download dist
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c <span class="tk-c"># v8.0.1</span>
+        with:
+          name: dist-<span class="tk-v">{{SLUG}}</span>-<span class="tk-v">${{ github.sha }}</span>
+          path: ./dist
+      - name: Security gate (G8, block)
+        uses: ./.github/actions/security-gate
+        with:
+          mode: block
+          gate-severity: High
+      <span class="tk-c"># {{DEPLOY_STEP}}</span>
+      - name: Deploy
+        working-directory: .
+        run: |
+          echo <span class="tk-s">&quot;::error::Paso de despliegue sin configurar para pre (sustituir {{DEPLOY_STEP}} en /cicd-init)&quot;</span>
+          exit <span class="tk-n">1</span>
+      - name: Smoke test (G14, best-effort)
+        working-directory: .
+        shell: bash
+        run: |
+          code=<span class="tk-v">$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 &quot;{{DEMO_URL}}/&quot; || true)</span>
+          if [ <span class="tk-s">&quot;$code&quot;</span> = <span class="tk-s">&quot;200&quot;</span> ]; then echo <span class="tk-s">&quot;GET / OK&quot;</span>; else echo <span class="tk-s">&quot;::warning::Smoke best-effort: HTTP $code contra {{DEMO_URL}}/&quot;</span>; fi
+
+  deploy-pro:
+    name: Deploy pro
+    runs-on: <span class="tk-s">'{{RUNNER}}'</span>
+    needs: build
+    if: github.event_name == <span class="tk-s">'workflow_dispatch'</span> &amp;&amp; inputs.environment == <span class="tk-s">'pro'</span>
+    timeout-minutes: <span class="tk-n">20</span>
+    environment:
+      name: pro
+      url: <span class="tk-s">'{{PROD_URL}}'</span>
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout (solo .github/actions)
+        <span class="tk-c"># Las composite actions locales exigen el repo en disco; sparse checkout de .github/actions para no romper G4:</span>
+        <span class="tk-c"># el codigo NO se despliega desde el checkout, la unica fuente del deploy es el artefacto descargado.</span>
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 <span class="tk-c"># v7.0.1</span>
+        with:
+          sparse-checkout: .github/actions
+      - name: Download dist
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c <span class="tk-c"># v8.0.1</span>
+        with:
+          name: dist-<span class="tk-v">{{SLUG}}</span>-<span class="tk-v">${{ github.sha }}</span>
+          path: ./dist
+      - name: Security gate (G8, block)
+        uses: ./.github/actions/security-gate
+        with:
+          mode: block
+          gate-severity: High
+      <span class="tk-c"># {{DEPLOY_STEP}} — con backup previo del directorio publicado (G9 capa 1)</span>
+      - name: Deploy
+        working-directory: .
+        run: |
+          echo <span class="tk-s">&quot;::error::Paso de despliegue sin configurar para pro (sustituir {{DEPLOY_STEP}} en /cicd-init)&quot;</span>
+          exit <span class="tk-n">1</span>
+      - name: Smoke test (G14, best-effort)
+        working-directory: .
+        shell: bash
+        run: |
+          code=<span class="tk-v">$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 &quot;{{PROD_URL}}/&quot; || true)</span>
+          if [ <span class="tk-s">&quot;$code&quot;</span> = <span class="tk-s">&quot;200&quot;</span> ]; then echo <span class="tk-s">&quot;GET / OK&quot;</span>; else echo <span class="tk-s">&quot;::warning::Smoke best-effort: HTTP $code contra {{PROD_URL}}/. Si la app no responde, rollback: gh workflow run cd-{{SLUG}}.yml --ref &lt;sha_anterior&gt; -f environment=pro&quot;</span>; fi
+</code></pre><p style="margin-top:32px"><a href="../../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html"><small>Anterior</small>templates/github/cd.fase2.dotnet.yml.template</a><a class="next" href="../../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html"><small>Siguiente</small>templates/github/ci.fase1.dotnet.yml.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/templates/github/cd.fase2.vue.yml.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../../recursos/search-index.js" defer></script><script src="../../../../recursos/portal.js" defer></script></body></html>

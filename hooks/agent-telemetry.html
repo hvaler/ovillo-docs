@@ -1,0 +1,208 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>agent-telemetry · Ovillo</title><meta name="description" content="telemetria local + batch upload al Hub Ovillo v2"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="agent-telemetry · Ovillo"><meta property="og:description" content="telemetria local + batch upload al Hub Ovillo v2"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/agent-telemetry.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/agent-telemetry.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/agent-telemetry.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html" class="cur">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>agent-telemetry</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>PostToolUse[Task]</span><span class="kind kind-ok">informa</span></div><h1>agent-telemetry</h1><p class="lede">telemetria local + batch upload al Hub Ovillo v2</p><div class="meta-grid"><div><b><code>PostToolUse</code></b><span>evento</span></div><div><b><code>Task</code></b><span>matcher</span></div><div><b><span class="kind kind-ok">informa</span></b><span>política</span></div><div><b>1.0.0-node</b><span>versión</span></div><div><b>10 s</b><span>timeout</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p>Comportamiento: 1. Append-only local: _hilo/agent-telemetry.jsonl (siempre, sin requerir red) 2. Batch upload diario al Hub SI: - ecosystem.config -&gt; hub.enabled == true Y hub.url no vacia (FASE 2; antes host hardcodeado) - mcpSync.habilitado == true (ESTADO_PROYECTO.json) - _hilo/.mcp-credentials.json existe con projectId+apiKey - telemetryOptIn == true en .mcp-credentials.json (per-DEV; el server tambien lo re-valida) - Ultimo upload &gt; 24h (cooldown, <a href="../skills/estado.html">estado</a> en _hilo/.mcp-telemetry-state.json) 3. Best-effort SIEMPRE: si la red falla, NO bloquea (exit 0); reintenta manana 4. Header de auth configurable: hub.apiKeyHeader (default X-Hub-Api-Key) Output: stdout va a contexto Claude (silent si todo OK). Exit 0 siempre. Nota TLS: Node negocia TLS 1.2+ por defecto (equivalente al fix h9/R2 de PS 5.1).</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>0</code></td><td>siempre (registra en _hilo/agent-telemetry.jsonl y sube el lote al Hub si esta habilitado; nunca bloquea)</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>Informa: nunca bloquea.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>agent-telemetry.js · 208 líneas</summary><pre data-lang="javascript"><code>#!/usr/bin/env node
+<span class="tk-c">// agent-telemetry.js - telemetria local + batch upload al Hub Ovillo v2</span>
+<span class="tk-c">// Evento: PostToolUse[Task]</span>
+<span class="tk-c">// Exit 0 = siempre (registra en _hilo/agent-telemetry.jsonl y sube el lote al Hub si esta habilitado; nunca bloquea)</span>
+<span class="tk-c">// Version: 1.0.0-node</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Comportamiento:</span>
+<span class="tk-c">//   1. Append-only local: _hilo/agent-telemetry.jsonl (siempre, sin requerir red)</span>
+<span class="tk-c">//   2. Batch upload diario al Hub SI:</span>
+<span class="tk-c">//      - ecosystem.config -&gt; hub.enabled == true Y hub.url no vacia (FASE 2; antes host hardcodeado)</span>
+<span class="tk-c">//      - mcpSync.habilitado == true (ESTADO_PROYECTO.json)</span>
+<span class="tk-c">//      - _hilo/.mcp-credentials.json existe con projectId+apiKey</span>
+<span class="tk-c">//      - telemetryOptIn == true en .mcp-credentials.json (per-DEV; el server</span>
+<span class="tk-c">//        tambien lo re-valida)</span>
+<span class="tk-c">//      - Ultimo upload &gt; 24h (cooldown, estado en _hilo/.mcp-telemetry-state.json)</span>
+<span class="tk-c">//   3. Best-effort SIEMPRE: si la red falla, NO bloquea (exit 0); reintenta manana</span>
+<span class="tk-c">//   4. Header de auth configurable: hub.apiKeyHeader (default X-Hub-Api-Key)</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Output: stdout va a contexto Claude (silent si todo OK). Exit 0 siempre.</span>
+<span class="tk-c">// Nota TLS: Node negocia TLS 1.2+ por defecto (equivalente al fix h9/R2 de PS 5.1).</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> fs = <span class="tk-k">require</span>(<span class="tk-s">'fs'</span>);
+<span class="tk-k">const</span> os = <span class="tk-k">require</span>(<span class="tk-s">'os'</span>);
+<span class="tk-k">const</span> crypto = <span class="tk-k">require</span>(<span class="tk-s">'crypto'</span>);
+<span class="tk-k">const</span> path = <span class="tk-k">require</span>(<span class="tk-s">'path'</span>);
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(path.join(__dirname, <span class="tk-s">'lib'</span>, <span class="tk-s">'helpers'</span>));
+<span class="tk-k">const</span> configLib = <span class="tk-k">require</span>(path.join(__dirname, <span class="tk-s">'lib'</span>, <span class="tk-s">'config'</span>));
+
+<span class="tk-k">async</span> <span class="tk-k">function</span> tryBatchUpload(projectRoot, hiloDir, jsonlPath, credsPath, statePath) {
+  <span class="tk-c">// Gate de organizacion (FASE 2): sin Hub habilitado/URL -&gt; silencio total</span>
+  <span class="tk-k">const</span> cfg = configLib.load(projectRoot);
+  <span class="tk-k">const</span> hubEnabled = configLib.get(cfg, <span class="tk-s">'hub.enabled'</span>, <span class="tk-k">false</span>) === <span class="tk-k">true</span>;
+  <span class="tk-k">const</span> hubUrl = String(configLib.get(cfg, <span class="tk-s">'hub.url'</span>, <span class="tk-s">''</span>) || <span class="tk-s">''</span>).trim().replace(/\/+$/, <span class="tk-s">''</span>);
+  <span class="tk-k">if</span> (!hubEnabled || !hubUrl) <span class="tk-k">return</span>;
+  <span class="tk-k">const</span> apiKeyHeader =
+    String(configLib.get(cfg, <span class="tk-s">'hub.apiKeyHeader'</span>, <span class="tk-s">'X-Hub-Api-Key'</span>) || <span class="tk-s">''</span>).trim() || <span class="tk-s">'X-Hub-Api-Key'</span>;
+
+  <span class="tk-c">// Pre-checks rapidos: credentials + estado proyecto</span>
+  <span class="tk-k">if</span> (!fs.existsSync(credsPath)) <span class="tk-k">return</span>;
+  <span class="tk-k">const</span> estadoPath = path.join(hiloDir, <span class="tk-s">'ESTADO_PROYECTO.json'</span>);
+  <span class="tk-k">if</span> (!fs.existsSync(estadoPath)) <span class="tk-k">return</span>;
+
+  <span class="tk-k">const</span> estado = h.readJsonSafe(estadoPath);
+  <span class="tk-k">if</span> (!estado || !estado.mcpSync || !estado.mcpSync.habilitado) <span class="tk-k">return</span>;
+
+  <span class="tk-k">const</span> creds = h.readJsonSafe(credsPath);
+  <span class="tk-k">if</span> (!creds || !creds.projectId || !creds.apiKey) <span class="tk-k">return</span>;
+
+  <span class="tk-c">// Opt-in per-dev: solo subir si el dev dio consentimiento explicito</span>
+  <span class="tk-k">if</span> (creds.telemetryOptIn !== <span class="tk-k">true</span>) <span class="tk-k">return</span>;
+
+  <span class="tk-c">// Cooldown: 24h desde ultimo upload (estado en .mcp-telemetry-state.json)</span>
+  <span class="tk-k">const</span> state = h.readJsonSafe(statePath);
+  <span class="tk-k">let</span> lastUpload = <span class="tk-k">null</span>;
+  <span class="tk-k">if</span> (state &amp;&amp; state.lastUpload) {
+    <span class="tk-k">const</span> d = <span class="tk-k">new</span> Date(state.lastUpload);
+    <span class="tk-k">if</span> (!Number.isNaN(d.getTime())) lastUpload = d;
+  }
+  <span class="tk-k">if</span> (lastUpload &amp;&amp; (Date.now() - lastUpload.getTime()) / <span class="tk-n">3600000</span> &lt; <span class="tk-n">24</span>) <span class="tk-k">return</span>;
+
+  <span class="tk-c">// Recolectar eventos NO subidos: leer offset desde state</span>
+  <span class="tk-k">let</span> startOffset = <span class="tk-n">0</span>;
+  <span class="tk-k">if</span> (lastUpload &amp;&amp; state &amp;&amp; state.bytesRead) {
+    startOffset = Number(state.bytesRead) || <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-k">let</span> fileLen = <span class="tk-n">0</span>;
+  <span class="tk-k">try</span> {
+    fileLen = fs.statSync(jsonlPath).size;
+  } <span class="tk-k">catch</span> {
+    <span class="tk-k">return</span>;
+  }
+  <span class="tk-k">if</span> (!fileLen || fileLen &lt;= startOffset) <span class="tk-k">return</span>;
+
+  <span class="tk-c">// Leer eventos nuevos</span>
+  <span class="tk-k">const</span> pending = [];
+  <span class="tk-k">try</span> {
+    <span class="tk-k">const</span> fd = fs.openSync(jsonlPath, <span class="tk-s">'r'</span>);
+    <span class="tk-k">try</span> {
+      <span class="tk-k">const</span> buf = Buffer.alloc(fileLen - startOffset);
+      <span class="tk-k">const</span> bytesRead = fs.readSync(fd, buf, <span class="tk-n">0</span>, buf.length, startOffset);
+      <span class="tk-k">const</span> text = buf.subarray(<span class="tk-n">0</span>, bytesRead).toString(<span class="tk-s">'utf8'</span>);
+      <span class="tk-k">for</span> (<span class="tk-k">const</span> l <span class="tk-k">of</span> text.split(/\r?\n/)) {
+        <span class="tk-k">if</span> (!l.trim()) <span class="tk-k">continue</span>;
+        <span class="tk-k">try</span> {
+          <span class="tk-k">const</span> e = JSON.parse(l);
+          <span class="tk-c">// ADR-024: al Hub va el SHA-256 de la description, calculado aqui. El prompt en claro NUNCA sale del equipo</span>
+          <span class="tk-c">// (queda en el .jsonl local, que esta en .gitignore).</span>
+          pending.push({
+            ts: e.ts,
+            agent: e.subagent_type,
+            success: Boolean(e.success),
+            descriptionHash: e.description ? crypto.createHash(<span class="tk-s">'sha256'</span>).update(String(e.description), <span class="tk-s">'utf8'</span>).digest(<span class="tk-s">'hex'</span>) : <span class="tk-k">null</span>,
+          });
+        } <span class="tk-k">catch</span> { <span class="tk-c">/* linea corrupta - skip */</span> }
+      }
+    } <span class="tk-k">finally</span> {
+      fs.closeSync(fd);
+    }
+  } <span class="tk-k">catch</span> {
+    <span class="tk-k">return</span>;
+  }
+
+  <span class="tk-k">if</span> (pending.length === <span class="tk-n">0</span>) <span class="tk-k">return</span>;
+
+  <span class="tk-c">// Upload en lotes de 100. URL: mcpSync.serverUrl del proyecto gana sobre hub.url (precedencia).</span>
+  <span class="tk-k">const</span> serverUrl = String(estado.mcpSync.serverUrl || hubUrl).trim().replace(/\/+$/, <span class="tk-s">''</span>);
+  <span class="tk-k">const</span> headers = { [apiKeyHeader]: creds.apiKey, <span class="tk-s">'Content-Type'</span>: <span class="tk-s">'application/json'</span> };
+  <span class="tk-k">let</span> uploadOk = <span class="tk-k">true</span>;
+
+  <span class="tk-k">for</span> (<span class="tk-k">let</span> i = <span class="tk-n">0</span>; i &lt; pending.length; i += <span class="tk-n">100</span>) {
+    <span class="tk-k">const</span> slice = pending.slice(i, i + <span class="tk-n">100</span>);
+    <span class="tk-k">const</span> body = JSON.stringify({ projectId: creds.projectId, events: slice });
+    <span class="tk-k">try</span> {
+      <span class="tk-k">const</span> ctrl = <span class="tk-k">new</span> AbortController();
+      <span class="tk-k">const</span> timer = setTimeout(() =&gt; ctrl.abort(), <span class="tk-n">10000</span>);
+      <span class="tk-k">try</span> {
+        <span class="tk-k">const</span> resp = <span class="tk-k">await</span> fetch(<span class="tk-s">`${serverUrl}/v2/telemetry`</span>, {
+          method: <span class="tk-s">'POST'</span>,
+          headers,
+          body,
+          signal: ctrl.signal,
+        });
+        <span class="tk-k">if</span> (!resp.ok) <span class="tk-k">throw</span> <span class="tk-k">new</span> Error(<span class="tk-s">`HTTP ${resp.status}`</span>);
+      } <span class="tk-k">finally</span> {
+        clearTimeout(timer);
+      }
+    } <span class="tk-k">catch</span> {
+      uploadOk = <span class="tk-k">false</span>;
+      <span class="tk-k">break</span>;
+    }
+  }
+
+  <span class="tk-k">if</span> (uploadOk) {
+    <span class="tk-c">// Actualizar estado: ultimo upload + bytes leidos (atomico, UTF-8 sin BOM - FB-004/FB-007)</span>
+    <span class="tk-k">const</span> newState = {
+      lastUpload: <span class="tk-k">new</span> Date().toISOString(),
+      bytesRead: fileLen,
+      uploaded: pending.length,
+    };
+    h.writeHiloJson(newState, statePath, { compress: <span class="tk-k">true</span> });
+  }
+}
+
+<span class="tk-k">async</span> <span class="tk-k">function</span> main() {
+  <span class="tk-c">// Leer evento PostToolUse desde stdin</span>
+  <span class="tk-k">let</span> raw = <span class="tk-s">''</span>;
+  <span class="tk-k">try</span> {
+    <span class="tk-k">if</span> (!process.stdin.isTTY) raw = fs.readFileSync(<span class="tk-n">0</span>, <span class="tk-s">'utf8'</span>);
+  } <span class="tk-k">catch</span> {
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+  <span class="tk-k">if</span> (!raw || !raw.trim()) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-k">let</span> evt;
+  <span class="tk-k">try</span> {
+    evt = JSON.parse(raw);
+  } <span class="tk-k">catch</span> {
+    <span class="tk-k">return</span> <span class="tk-n">0</span>;
+  }
+
+  <span class="tk-c">// Solo procesar Task tool</span>
+  <span class="tk-k">if</span> (!evt || evt.tool_name !== <span class="tk-s">'Task'</span>) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-c">// Resolver paths</span>
+  <span class="tk-k">const</span> projectRoot = process.env.CLAUDE_PROJECT_DIR || path.resolve(__dirname, <span class="tk-s">'..'</span>, <span class="tk-s">'..'</span>);
+  <span class="tk-k">const</span> hiloDir = path.join(projectRoot, <span class="tk-s">'_hilo'</span>);
+  <span class="tk-k">if</span> (!fs.existsSync(hiloDir)) <span class="tk-k">return</span> <span class="tk-n">0</span>;
+
+  <span class="tk-k">const</span> jsonlPath = path.join(hiloDir, <span class="tk-s">'agent-telemetry.jsonl'</span>);
+  <span class="tk-k">const</span> credsPath = path.join(hiloDir, <span class="tk-s">'.mcp-credentials.json'</span>);
+  <span class="tk-k">const</span> statePath = path.join(hiloDir, <span class="tk-s">'.mcp-telemetry-state.json'</span>);
+
+  <span class="tk-c">// Construir entry local</span>
+  <span class="tk-k">const</span> ti = evt.tool_input &amp;&amp; <span class="tk-k">typeof</span> evt.tool_input === <span class="tk-s">'object'</span> ? evt.tool_input : {};
+  <span class="tk-k">const</span> tr = evt.tool_response &amp;&amp; <span class="tk-k">typeof</span> evt.tool_response === <span class="tk-s">'object'</span> ? evt.tool_response : {};
+  <span class="tk-k">const</span> entry = {
+    ts: <span class="tk-k">new</span> Date().toISOString(),
+    tool: <span class="tk-s">'Task'</span>,
+    subagent_type: ti.subagent_type ? String(ti.subagent_type) : <span class="tk-s">'general-purpose'</span>,
+    description: ti.description ? String(ti.description) : <span class="tk-k">null</span>,
+    model: ti.model ? String(ti.model) : <span class="tk-k">null</span>,
+    success: tr.is_error !== <span class="tk-k">null</span> &amp;&amp; tr.is_error !== <span class="tk-k">undefined</span> ? !tr.is_error : <span class="tk-k">true</span>,
+    session_id: evt.session_id ? String(evt.session_id) : <span class="tk-k">null</span>,
+  };
+
+  <span class="tk-c">// 1. APPEND-ONLY LOCAL (siempre; UTF-8 sin BOM - default de Node)</span>
+  <span class="tk-k">try</span> {
+    fs.appendFileSync(jsonlPath, JSON.stringify(entry) + os.EOL, <span class="tk-s">'utf8'</span>);
+  } <span class="tk-k">catch</span> { <span class="tk-c">/* best-effort */</span> }
+
+  <span class="tk-c">// 2. BATCH UPLOAD AL HUB (best-effort, una vez al dia)</span>
+  <span class="tk-k">try</span> {
+    <span class="tk-k">await</span> tryBatchUpload(projectRoot, hiloDir, jsonlPath, credsPath, statePath);
+  } <span class="tk-k">catch</span> { <span class="tk-c">/* best-effort: nunca bloquear */</span> }
+
+  <span class="tk-k">return</span> <span class="tk-n">0</span>;
+}
+
+main()
+  .then((code) =&gt; process.exit(code ?? <span class="tk-n">0</span>))
+  .<span class="tk-k">catch</span>((e) =&gt; {
+    console.error(<span class="tk-s">`[agent-telemetry] error no fatal: ${e.message}`</span>);
+    process.exit(<span class="tk-n">0</span>);
+  });
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>5 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(privacidad): Lote D - politica de datos, hash del prompt en el cliente y retencion efectiva (ADR-024, ADR-007 enmendado)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/application.html">application</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/agent-telemetry.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

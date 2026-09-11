@@ -1,0 +1,210 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · Ovillo</title><meta name="description" content="CI/CD architect for the configured platform (cicd.platform, cicd.variant, cicd.environments): azure-pipelines, with its on-premise server-2020 variant, and…"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · Ovillo"><meta property="og:description" content="CI/CD architect for the configured platform (cicd.platform, cicd.variant, cicd.environments): azure-pipelines, with its on-premise server-2020 variant, and…"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/cicd-architect.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>conocimiento (20)</h4><ul class="sibs"><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/api-integration-patterns.html">api-integration-patterns</a></li><li><a href="../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></li><li><a href="../skills/cicd-architect.html" class="cur">cicd-architect</a></li><li><a href="../skills/cloud-config.html">cloud-config</a></li><li><a href="../skills/docs-agente-sync.html">docs-agente-sync</a></li><li><a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../skills/hub-client.html">hub-client</a></li><li><a href="../skills/issue-tracker-sync.html">issue-tracker-sync</a></li><li><a href="../skills/nugets-management.html">nugets-management</a></li><li><a href="../skills/observability-patterns.html">observability-patterns</a></li><li><a href="../skills/postman-collection.html">postman-collection</a></li><li><a href="../skills/resilience-patterns.html">resilience-patterns</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li><li><a href="../skills/user-documentation.html">user-documentation</a></li><li><a href="../skills/webapp-dashboard.html">webapp-dashboard</a></li><li><a href="../skills/webapp-layout.html">webapp-layout</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>cicd-architect</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>/hv:cicd-architect</span></div><h1>cicd-architect</h1><p class="lede">CI/CD architect for the configured platform (cicd.platform, cicd.variant, cicd.environments): azure-pipelines, with its on-premise server-2020 variant, and github-actions.</p><div class="meta-grid"><div><b>conocimiento</b><span>clase</span></div><div><b><code>/hv:cicd-architect</code></b><span>invocación</span></div><div><b>44</b><span>ficheros</span></div><div><b>805</b><span>palabras</span></div><div><b>0.98</b><span>F1 de disparo</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo se activa</h2><ul><li>editar azure-pipelines.yml o un workflow de GitHub Actions</li><li>stages Build y Deploy</li><li>step de smoke test post-deploy con timeout o hairpin NAT</li><li>pool configurado (<code>cicd.buildPool</code>) con capability DeployTarget</li><li>step PowerShell con underlying connection closed</li><li>Cache@2</li><li>descargar el artefacto drop por REST API sin DownloadBuildArtifacts@0</li><li>TakeAppOfflineFlag en una SPA Vue</li><li>triple rollback</li><li>Variable Group con fail-fast</li><li>retention rules</li><li>coverage gate con umbrales line y branch (G7)</li><li>el trigger no dispara tras un push a master</li><li>trigger.branches segun la estrategia de branching</li><li>despliegue on-demand con DeployEnv para que el push NO despliegue</li><li>branch-gated por Build.SourceBranch (dev y demo desde develop, produccion solo desde main)</li><li>gate que bloquee PROD por CVE o secretos con security-scan.ps1 y verdict-file</li><li>composite action del verdict</li><li>environments dev pre pro con workflow_dispatch</li><li>y dotnet pack del nupkg al feed interno con tag</li></ul></section><section class="sec" id="sec-cuando-no"><h2 id="cuando-no">Cuándo no</h2><ul><li>un reporte de auditoria con severidad por hallazgo (agents <a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a> y <a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a>)</li><li>el wizard <a href="../skills/cicd-init.html">cicd-init</a> paso a paso</li><li>lanza ahora mismo</li><li>ni .gitlab-ci.yml</li><li>una coleccion Postman de los endpoints (<a href="../skills/postman-collection.html">postman-collection</a>)</li></ul></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>allowed-tools</th><td><code>Read, Grep, Glob</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><div class="kpi"><div><b>0.98</b><span>F1</span></div><div><b>1.00</b><span>precisión</span></div><div><b>0.96</b><span>recall</span></div><div><b>32 / 33</b><span>consultas correctas</span></div></div><details><summary>1 consultas que fallan (falsos positivos y negativos)</summary><div class="tbl"><table><thead><tr><th>Consulta</th><th>Idioma</th><th>Resultado</th><th>Nota</th></tr></thead><tbody><tr><td>Como migro mi pipeline TFS Classic .xaml a YAML</td><td>es</td><td>esperada esta, disparó <a href="../skills/docs-agente-sync.html">docs-agente-sync</a></td><td><span class="muted">cicd-architect absorbe la migracion Classic (manual guiada, references/classic-migration.md) tras retirar cicd-classic-migrator</span></td></tr></tbody></table></div></details><p class="muted">Motor: <code>run_eval.py</code> deriva el vocabulario de la description real; baseline en <a href="../evaluaciones.html">Evaluaciones</a>.</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">43</span></h2><div class="tree"><ul><li><span class="dir">references/</span><ul><li><a href="../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">azure-devops-server-2020-quick-ref.md</a> <span class="muted">3708 B</span></li><li><a href="../skills/cicd-architect/references/classic-migration.html">classic-migration.md</a> <span class="muted">2752 B</span></li><li><a href="../skills/cicd-architect/references/diseno-stages.html">diseno-stages.md</a> <span class="muted">11.416 B</span></li><li><a href="../skills/cicd-architect/references/fases-adopcion.html">fases-adopcion.md</a> <span class="muted">3811 B</span></li><li><a href="../skills/cicd-architect/references/invariantes-resumen.html">invariantes-resumen.md</a> <span class="muted">6503 B</span></li><li><a href="../skills/cicd-architect/references/troubleshooting-frecuente.html">troubleshooting-frecuente.md</a> <span class="muted">7528 B</span></li></ul></li><li><span class="dir">templates/</span><ul><li><span class="dir">github/</span><ul><li><span class="dir">actions/</span><ul><li><span class="dir">coverage-gate/</span><ul><li><a href="../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">action.yml.template</a> <span class="muted">1825 B</span></li></ul></li><li><span class="dir">quality-sync/</span><ul><li><a href="../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">action.yml.template</a> <span class="muted">3345 B</span></li></ul></li><li><span class="dir">security-gate/</span><ul><li><a href="../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">action.yml.template</a> <span class="muted">3348 B</span></li></ul></li><li><span class="dir">security-scan/</span><ul><li><a href="../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">action.yml.template</a> <span class="muted">4063 B</span></li></ul></li></ul></li><li><a href="../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">_reusable-dotnet-build.yml.template</a> <span class="muted">4901 B</span></li><li><a href="../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">cd.fase2.dotnet.yml.template</a> <span class="muted">9891 B</span></li><li><a href="../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">cd.fase2.vue.yml.template</a> <span class="muted">8012 B</span></li><li><a href="../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">ci.fase1.dotnet.yml.template</a> <span class="muted">4378 B</span></li><li><a href="../skills/cicd-architect/templates/github/ci.nettool.yml.html">ci.nettool.yml.template</a> <span class="muted">3440 B</span></li><li><a href="../skills/cicd-architect/templates/github/README.html">README.md</a> <span class="muted">5008 B</span></li><li><a href="../skills/cicd-architect/templates/github/security.yml.html">security.yml.template</a> <span class="muted">3920 B</span></li></ul></li><li><span class="dir">steps/</span><ul><li><a href="../skills/cicd-architect/templates/steps/backup-pre-deploy.html">backup-pre-deploy.yml</a> <span class="muted">1727 B</span></li><li><a href="../skills/cicd-architect/templates/steps/coverage-gate.html">coverage-gate.yml</a> <span class="muted">1557 B</span></li><li><a href="../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">deploy-scheduled-task.yml</a> <span class="muted">5276 B</span></li><li><a href="../skills/cicd-architect/templates/steps/download-artifact-rest.html">download-artifact-rest.yml</a> <span class="muted">2190 B</span></li><li><a href="../skills/cicd-architect/templates/steps/quality-sync.html">quality-sync.yml</a> <span class="muted">3492 B</span></li><li><a href="../skills/cicd-architect/templates/steps/rollback-on-fail.html">rollback-on-fail.yml</a> <span class="muted">2019 B</span></li><li><a href="../skills/cicd-architect/templates/steps/security-scan-build.html">security-scan-build.yml</a> <span class="muted">3764 B</span></li><li><a href="../skills/cicd-architect/templates/steps/security-verdict-gate.html">security-verdict-gate.yml</a> <span class="muted">3711 B</span></li><li><a href="../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">smoke-besteffort-spa.yml</a> <span class="muted">1780 B</span></li><li><a href="../skills/cicd-architect/templates/steps/smoke-besteffort.html">smoke-besteffort.yml</a> <span class="muted">1673 B</span></li><li><a href="../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">smoke-strict-dotnet.yml</a> <span class="muted">1690 B</span></li></ul></li><li><a href="../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">azure-pipelines.fase1.netfx.yml.template</a> <span class="muted">5344 B</span></li><li><a href="../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">azure-pipelines.fase2.console.yml.template</a> <span class="muted">12.947 B</span></li><li><a href="../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">azure-pipelines.fase2.dotnet.yml.template</a> <span class="muted">27.108 B</span></li><li><a href="../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">azure-pipelines.fase2.netfx.branch-gated.yml.template</a> <span class="muted">15.136 B</span></li><li><a href="../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">azure-pipelines.fase2.netfx.yml.template</a> <span class="muted">12.913 B</span></li><li><a href="../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">azure-pipelines.fase2.vue.yml.template</a> <span class="muted">9282 B</span></li><li><a href="../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">azure-pipelines.nettool.yml.template</a> <span class="muted">6787 B</span></li><li><a href="../skills/cicd-architect/templates/coverage-gate.html">coverage-gate.ps1</a> <span class="muted">7516 B</span></li><li><a href="../skills/cicd-architect/templates/Get-TemplateStamp.html">Get-TemplateStamp.ps1</a> <span class="muted">5797 B</span></li><li><a href="../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">Provision-QualityCiKey.github.ps1.template</a> <span class="muted">8205 B</span></li><li><a href="../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">Provision-QualityCiKey.ps1.template</a> <span class="muted">10.314 B</span></li><li><a href="../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">registrar-pipeline-azure-devops.ps1.template</a> <span class="muted">4971 B</span></li><li><a href="../skills/cicd-architect/templates/security-scan.html">security-scan.ps1</a> <span class="muted">13.828 B</span></li><li><a href="../skills/cicd-architect/templates/validate-pipeline-complete.html">validate-pipeline-complete.ps1</a> <span class="muted">9681 B</span></li></ul></li><li><a href="../skills/cicd-architect/eval-set.html">eval-set.json</a> <span class="muted">8290 B</span></li></ul></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><p class="lede">Arquitecto CI/CD para proyectos de la organización sobre Azure DevOps (Server 2020 on-premise o Services) y GitHub Actions. Sirve para validar/generar steps de <code>azure-pipelines.yml</code> o de <code>.github/workflows/*.yml</code> siguiendo los invariantes G1-G19 de <code>cicd-runtime</code> (+ conocimiento profundo del provider azure-pipelines, incl. variant server-2020) y las 3 fases de adopcion.</p>
+<section class="sec" id="sec-cuando-se-activa">
+<h3 id="cuando-se-activa">Cuando se activa</h3>
+<p>Auto-invocacion cuando Claude edita o lee:</p>
+<ul>
+<li><code>azure-pipelines.yml</code> en raiz del repo</li>
+<li><code>**/azure-pipelines*.yml</code></li>
+<li><code>**/.azure-pipelines/**/*.yml</code></li>
+<li><code>**/.pipelines/**/*.yml</code></li>
+<li><code>.github/workflows/*.yml</code> y <code>.github/actions/**/action.yml</code> (GitHub Actions: <code>templates/github/</code> + G15-G19)</li>
+</ul>
+<p>Tambien al detectar keywords del usuario: &quot;configurar pipeline&quot;, &quot;azure devops yaml&quot;, &quot;deploy IIS on-premise&quot;, &quot;smoke test hairpin NAT&quot;, &quot;triple rollback PROD&quot;, &quot;Azure DevOps Server 2020 limitations&quot;.</p>
+</section>
+<section class="sec" id="sec-cuando-no-activarse">
+<h3 id="cuando-no-activarse">Cuando NO activarse</h3>
+<ul>
+<li>Si el archivo es <code>.github/workflows/*.yml</code> → SÍ activarse (ver arriba); la auditoria completa es del agent <code>github-actions-reviewer</code> y los rulesets, CODEOWNERS y Dependabot de <code>git-best-practices</code></li>
+<li>Si el archivo es <code>.gitlab-ci.yml</code> → GitLab CI → responder con los invariantes G1-G19 (provider sin referencia profunda)</li>
+<li>Si el usuario pide &quot;migrar pipeline Classic (XAML) .xaml a YAML&quot; → SÍ activarse, con <code>references/classic-migration.md</code></li>
+<li>Si el usuario pide &quot;ejecutar el wizard /cicd-init&quot; → no auto-invocar (el comando ya orquesta)</li>
+<li>Si el usuario pide &quot;auditar YAML existente con reporte severidad&quot; → delegar a agent <code>cicd-pipeline-reviewer</code></li>
+</ul>
+</section>
+<section class="sec" id="sec-estructura-de-la-skill">
+<h3 id="estructura-de-la-skill">Estructura de la skill</h3>
+<pre><code>cicd-architect/
+├── SKILL.md                                        ← este archivo
+├── eval-set.json                                   ← queries positivas/adversariales
+├── references/
+│   ├── invariantes-resumen.md                        ← G1-G19 condensadas
+│   ├── azure-devops-server-2020-quick-ref.md                       ← variante server-2020: features no soportadas
+│   ├── troubleshooting-frecuente.md                ← 30+ sintomas → causa → fix
+│   ├── diseno-stages.md                            ← patron Build/DeployDev/Demo/Prod completo
+│   └── fases-adopcion.md                           ← Fase 0/1/2: que genera cada una
+├── templates/
+│   ├── azure-pipelines.fase1.netfx.yml.template    ← build+test .NET Framework (sin CD)
+│   ├── azure-pipelines.fase2.dotnet.yml.template   ← pipeline completo .NET con CD
+│   ├── azure-pipelines.fase2.vue.yml.template      ← pipeline completo Vue+Vite con CD
+│   ├── azure-pipelines.fase2.netfx.yml.template    ← pipeline completo .NET Framework con CD
+│   ├── azure-pipelines.fase2.netfx.branch-gated.yml.template ← netfx branch-gated R24 (3 VSBuild por rama → drop-dev/pre/pro)
+│   ├── azure-pipelines.fase2.console.yml.template  ← Console/Worker con CD por Tarea Programada (R25)
+│   ├── azure-pipelines.nettool.yml.template        ← stack .NET-tool/libreria → feed NuGet (1 stage, tag v*)
+│   ├── security-scan.ps1                            ← gate de ciberseguridad verdict-file (R22, ASCII puro)
+│   ├── coverage-gate.ps1                            ← gate de cobertura G7/R18 (Cobertura/OpenCover, WARN-first, ASCII puro; sin herramientas externas)
+│   ├── validate-pipeline-complete.ps1               ← self-check de completitud del YAML vs template (ASCII puro)
+│   ├── Get-TemplateStamp.ps1                         ← hash de contenido del template del stack para el sello/drift
+│   ├── Provision-QualityCiKey.ps1.template           ← zero-touch HUB_SERVICE_KEY del QR: emite via Hub + VG isSecret + autoriza
+│   ├── Provision-QualityCiKey.github.ps1.template    ← idem para GitHub: emite via Hub + gh secret set (stdin) + gh variable set
+│   ├── registrar-pipeline-azure-devops.ps1.template  ← registra la definicion YAML en Azure DevOps Server (cola, autorizacion, retention)
+│   ├── github/                                      ← GitHub Actions (cicd.platform = github-actions)
+│   │   ├── security.yml.template                    ← opt-in: CodeQL + dependency review (GHAS en repos privados)
+│   │   ├── ci.fase1.dotnet.yml.template             ← Fase 1: build + test + coverage, sin CD
+│   │   ├── cd.fase2.dotnet.yml.template             ← Fase 2: build (reusable) + deploy dev/pre/pro por environments, on-demand
+│   │   ├── cd.fase2.vue.yml.template                ← Fase 2 Vue+Vite: build + deploy con smoke best-effort
+│   │   ├── ci.nettool.yml.template                  ← .NET-tool/libreria: pack + push a GitHub Packages/NuGet en tag v*
+│   │   ├── _reusable-dotnet-build.yml.template      ← workflow_call: restore/build/test/coverage/security-scan/publish
+│   │   ├── actions/security-scan/action.yml.template     ← composite: security-scan.ps1 o npm audit -&gt; artefacto security-report (G8)
+│   │   ├── actions/security-gate/action.yml.template     ← composite: lee el verdict y bloquea/avisa antes del deploy (G8)
+│   │   ├── actions/quality-sync/action.yml.template      ← composite: publica el QR en el Hub (calidad-codigo-sync)
+│   │   └── README.md                                ← placeholders, ramas condicionales y equivalencias con Azure
+│   └── steps/                                       ← steps YAML reutilizables (`- template: steps/&lt;x&gt;.yml`)
+│       ├── backup-pre-deploy.yml                    ← backup wwwroot (R15 capa 1)
+│       ├── deploy-scheduled-task.yml                ← CD Console/Worker por Tarea Programada (R25)
+│       ├── download-artifact-rest.yml               ← descarga artifact por REST (R3)
+│       ├── quality-sync.yml                         ← publica el QR en el Hub (calidad-codigo-sync)
+│       ├── rollback-on-fail.yml                     ← rollback (R15 capa 3)
+│       ├── security-scan-build.yml                  ← ejecuta security-scan.ps1 en Build (R22)
+│       ├── security-verdict-gate.yml                ← gate por verdict-file en Deploy (R22)
+│       ├── smoke-besteffort.yml                     ← smoke best-effort generico
+│       ├── smoke-besteffort-spa.yml                 ← smoke best-effort SPA (R11)
+│       └── smoke-strict-dotnet.yml                  ← smoke estricto 6 endpoints .NET</code></pre>
+</section>
+<section class="sec" id="sec-flujo-de-uso-tipico">
+<h3 id="flujo-de-uso-tipico">Flujo de uso tipico</h3>
+<h4 id="1-validar-step-manual-del-dev">1. Validar step manual del dev</h4>
+<p>Si el usuario escribe un step en YAML que viola G1-G19:</p>
+<pre data-lang="yaml"><code>- task: DownloadBuildArtifacts@<span class="tk-n">0</span>     <span class="tk-c"># ❌ R3 HARD: bug SSL Node.js</span>
+  inputs:
+    artifactName: drop</code></pre>
+<p>Claude detecta la violacion, cita la regla, propone fix:</p>
+<blockquote><p>⚠️ R3 (descarga artifacts REST API): <code>DownloadBuildArtifacts@0</code> sufre bug SSL Node.js contra <code>devops.example.org</code> (<code>unable to get local issuer certificate</code>). Usa PowerShell + REST API en su lugar — ver template <code>steps/02-rest-api-artifact-download.ps1.snippet</code>.</p></blockquote>
+<h4 id="2-generar-fragment-canonico">2. Generar fragment canonico</h4>
+<p>Si el usuario pide &quot;necesito un step de smoke test para mi API .NET&quot;:</p>
+<p>Claude lee <code>references/diseno-stages.md</code> + <code>templates/steps/03-smoke-strict-dotnet.ps1.snippet</code> y emite el step completo con TLS 1.2+, 6 endpoints (<code>/health/live</code>, <code>/health/ready</code>, <code>/health</code>, 3 endpoints protegidos 401), retry logic, throw si falla.</p>
+<h4 id="3-decidir-entre-fase-012">3. Decidir entre Fase 0/1/2</h4>
+<p>Si el usuario pregunta &quot;¿que fase me toca?&quot;:</p>
+<p>Claude lee <code>references/fases-adopcion.md</code> y aplica el arbol de decision:</p>
+<pre><code>¿Tienes acceso a Azure DevOps y el pool configurado autorizado?
+├── NO  → Fase 0
+└── SI  → ¿Tienes agentes &lt;ENV&gt;_DEPLOY online?
+         ├── NO  → Fase 1
+         └── SI  → ¿Grupo aprobadores de Azure DevOps con ≥2 miembros?
+                  ├── NO  → Fase 1 (crear grupo en paralelo)
+                  └── SI  → Fase 2</code></pre>
+<h4 id="4-sugerir-adaptacion-stack">4. Sugerir adaptacion stack</h4>
+<p>Si el stack es Vue+Vite+TS y el dev propone <code>TakeAppOfflineFlag: true</code>:</p>
+<blockquote><p>⚠️ R10: <code>TakeAppOfflineFlag: true</code> es para .NET ASP.NET Core in-process (libera locks de DLLs). En SPA estatica como Vue+Vite, si esta <code>true</code> y el deploy se interrumpe queda <code>app_offline.htm</code> residual sirviendo 503 indefinidamente. Cambia a <code>false</code>.</p></blockquote>
+</section>
+<section class="sec" id="sec-patrones-de-uso-recomendados">
+<h3 id="patrones-de-uso-recomendados">Patrones de uso recomendados</h3>
+<h4 id="patron-a-generar-stage-build-desde-cero">Patron A: Generar stage Build desde cero</h4>
+<pre><code>Usuario: &quot;necesito el stage Build para mi proyecto .NET 10&quot;
+
+Claude:
+  1. Lee templates/azure-pipelines.fase1.dotnet.yml.template
+  2. Adapta:
+     - &lt;PROYECTO_NOMBRE&gt; ← del package.json o .csproj
+     - &lt;RAMA_BASE&gt; ← git symbolic-ref refs/remotes/origin/HEAD
+     - .NET version ← 10 (default del ecosistema)
+     - Coverage thresholds ← line 70% / branch 60% (G7/R18, steps/coverage-gate.yml → coverage-gate.ps1; NO CRAP)
+  3. Emite el stage Build completo con:
+     - pool configurado (`cicd.buildPool`) + Agent.ComputerName={{BUILD_AGENT}} (R1; `cicd.buildAgent`)
+     - UseDotNet@2 (R4)
+     - dotnet restore/build/test/publish (R4)
+     - PublishCodeCoverageResults@1 con Cobertura (R4)
+     - Linter anti-patterns warning-only (R12, R18)
+     - PublishBuildArtifacts@1 (R4)</code></pre>
+<h4 id="patron-b-adaptar-stage-deploy-a-entorno-especifico">Patron B: Adaptar stage Deploy a entorno especifico</h4>
+<pre><code>Usuario: &quot;anade DeployDemo a mi pipeline&quot;
+
+Claude:
+  1. Verifica que existe stage Build (depende de el)
+  2. Pregunta: ¿manual gate (ManualValidation@0) o environment con group approval?
+     - Por defecto DEMO usa ManualValidation@0 (mas simple)
+     - PROD obligatorio environment + group approval
+  3. Genera stage con:
+     - dependsOn: Build + condition: succeeded()
+     - job WaitForApproval (pool: server) con ManualValidation@0
+     - job DeployToDemo (pool configurado (`cicd.buildPool`) + DeployTarget=pre-&lt;app|svc&gt; segun routing del entrypoint, R1/R25)
+     - checkout: none (R8)
+     - Descarga artifact via REST API (R3)
+     - IISWebAppDeploymentOnMachineGroup@0 con TakeAppOfflineFlag segun stack (R10)
+     - Smoke best-effort si SPA / estricto si .NET (R11)</code></pre>
+<blockquote><p><strong>Modelo multi-entrypoint + routing (R25)</strong>: 1 repo = 1 solución, pero la solución puede tener varios entrypoints (Web/API/Console). Se genera <strong>un pipeline por entrypoint</strong> (Web/API con CD, Console CI-only). El <code>DeployTarget=&lt;env&gt;-&lt;app|svc&gt;</code> y la URL de smoke salen del <strong>tipo+público</strong> del entrypoint: Web→<code>app</code>, API privada (default)→<code>svc</code>, API pública→<code>app</code>. PROD por <code>Agent.Name</code> (APPNODE<em> apps / STORM</em> svc). Inventario de entornos: <code>ecosystem.config.cicd.environments[]</code> (override por proyecto en <code>ESTADO_PROYECTO.infraestructura</code>).</p></blockquote>
+<h4 id="patron-d-stack-net-tool--libreria-nuget-variante-c">Patron D: Stack .NET-tool / libreria NuGet (Variante C)</h4>
+<pre><code>Usuario: &quot;mi proyecto es una CLI/libreria que publica NuGet, no una web&quot;
+
+Claude:
+  1. Detecta el stack: .csproj con &lt;PackAsTool&gt;true&lt;/PackAsTool&gt; o &lt;IsPackable&gt;true&lt;/IsPackable&gt;
+     y NINGUN proyecto web host.
+  2. Lee templates/azure-pipelines.nettool.yml.template
+  3. Adapta placeholders (SLN, packProject, nupkgOutputDir, SDK_VERSION, RAMA_BASE)
+  4. Emite UN solo stage BuildTestPublish:
+     - trigger: push a {ramaBase} (CI) + tag v* (publica)
+     - build + test + gate de cobertura (coverage-gate.ps1)
+     - dotnet pack + Copy-Item del .nupkg al feed \\&lt;fileserver&gt;\PaquetesNuget (solo en tags v*)
+     - version inmutable: si el .nupkg ya existe en la share, falla pidiendo subir &lt;Version&gt;
+  5. Avisa del prerrequisito de infra: escritura NTFS del agente sobre la share del feed
+     (pedir al equipo de infraestructura 1 vez, analogo al permiso Use del pool - TEC-003).
+  6. R22 (gate seguridad) NO aplica: no hay deploy a IIS que bloquear.</code></pre>
+<h4 id="patron-c-detectar-drift-y-proponer-fix-masivo">Patron C: Detectar drift y proponer fix masivo</h4>
+<pre><code>Usuario: &quot;revisa mi azure-pipelines.yml&quot;
+
+Claude (NO auto-invocar agent cicd-pipeline-reviewer):
+  1. Lee azure-pipelines.yml
+  2. Para cada step, contrasta contra G1-G19
+  3. Lista violaciones con severidad y referencia a regla
+  4. Para cambios masivos, sugiere: &quot;Esto es trabajo del agent cicd-pipeline-reviewer
+     que produce reporte estructurado. Quieres invocarlo?&quot;</code></pre>
+<h4 id="patron-e-self-check-de-completitud--sello-de-plantilla-h13">Patron E: Self-check de completitud + sello de plantilla (h13)</h4>
+<pre><code>Contexto: tras generar/re-renderizar azure-pipelines.yml (FASE 2 de /cicd-init, o su Opcion 4 de
+edicion), hay que VERIFICAR que la salida contiene todos los steps canonicos del template.
+
+Por que: en flujos copia+genera (Azure DevOps Server 2020 no permite 'extends' fiable, tabla B) un edit-mode parcial
+puede dejar fuera steps nuevos del template sin que nadie lo note (por ejemplo el step R18, el
+reporte HTML CoverageReport o la limpieza opencover). La defensa = verificar la salida.
+
+Dos artefactos:
+  1. SELLO de plantilla en la cabecera del YAML: '# Ovillo cicd-architect &lt;stack&gt; @ vX.Y.Z (tpl &lt;hash12&gt;) gen &lt;fecha&gt;'.
+     /cicd-init FASE 2.8 rellena {{TEMPLATE_STAMP}}: version de _hilo/VERSION.json + hash de contenido del
+     .yml.template del stack via Get-TemplateStamp.ps1 -Stack &lt;stack&gt;. /cicd-status §1.5 recomputa
+     ese hash con el MISMO helper y compara -&gt; drift REAL (el template del stack cambio), no cosmetico por
+     bump de ecosistema. Sello antiguo 'zip &lt;sha12&gt;' (sello de una version anterior) -&gt; re-render para migrar.
+  2. SELF-CHECK determinista: templates/validate-pipeline-complete.ps1 -Yaml &lt;yaml&gt; -Template &lt;template-del-stack&gt;.
+     Deriva los markers (displayName/ArtifactName/- template:) DEL PROPIO template (cero lista a mantener),
+     ignora bloques '# CUSTOM:'. exit 0 = completo; exit 1 = faltan steps -&gt; NO cerrar /cicd-init.
+     -Allow &quot;&lt;substr&gt;,...&quot; exime bloques opcionales dropeados a proposito (sin tests / sin /health).</code></pre>
+</section>
+<section class="sec" id="sec-troubleshooting-comun">
+<h3 id="troubleshooting-comun">Troubleshooting comun</h3>
+<p>Ver <code>references/troubleshooting-frecuente.md</code> para tabla completa de 30+ sintomas. Atajos:</p>
+<div class="tbl"><table><thead><tr><th>Sintoma</th><th>Refer</th></tr></thead><tbody><tr><td><code>The underlying connection was closed</code></td><td>R2 — TLS 1.2+ bootstrap</td></tr><tr><td><code>Unexpected value 'deploymentGroup'</code></td><td>R1 — el pool configurado + capability</td></tr><tr><td><code>One or more files locked</code> en MSDeploy</td><td>R10 — TakeAppOfflineFlag</td></tr><tr><td>Trigger no dispara tras push</td><td>R7 — doble patron <code>**</code> Y <code>**/*</code></td></tr><tr><td>Smoke fail timeout / SNI</td><td>R9/R11 — bypass localhost o best-effort</td></tr><tr><td>Cache@2 falla en runtime</td><td>R5 — servicio no existe Azure DevOps Server 2020</td></tr><tr><td><code>unable to get local issuer certificate</code></td><td>R3 — REST API + PowerShell</td></tr></tbody></table></div>
+</section>
+<section class="sec" id="sec-anti-patrones-no-hacer">
+<h3 id="anti-patrones-no-hacer">Anti-patrones (NO hacer)</h3>
+<ul>
+<li>❌ Recomendar <code>Cache@2</code>, <code>DownloadBuildArtifacts@0</code>, <code>IISWebAppDeployment@1</code>, <code>deploymentGroup:</code> — todas HARD 🔴 en Azure DevOps Server 2020</li>
+<li>❌ Usar <code>https://localhost/...</code> callback <code>{$true}</code> GLOBAL (R9 solo aplica a smoke local)</li>
+<li>❌ Recomendar <code>TakeAppOfflineFlag: true</code> para SPA (R10)</li>
+<li>❌ Generar step PS sin bloque TLS 1.2+ inicial (R2)</li>
+<li>❌ Generar pipeline Fase 2 sin verificar que existen agentes <code>&lt;ENV&gt;_DEPLOY</code> + grupo aprobadores (D1-D6 de pre-flight)</li>
+<li>❌ Saltar la idempotencia FASE 0.5 al editar YAML pre-existente (R14)</li>
+</ul>
+</section>
+<section class="sec" id="sec-sinergia-con-otros-componentes">
+<h3 id="sinergia-con-otros-componentes">Sinergia con otros componentes</h3>
+<div class="tbl"><table><thead><tr><th>Componente</th><th>Relacion</th></tr></thead><tbody><tr><td>Comando <code>/hv:cicd-init</code></td><td>Orquesta el wizard completo. Auto-invoca esta skill al generar steps.</td></tr><tr><td>Comando <code>/hv:cicd-status</code></td><td>CLI local que consume tool MCP <code>get_cicd_status</code>. Skill no involucrada.</td></tr><tr><td>Agent <code>cicd-pipeline-reviewer</code></td><td>Audit estructurado de YAML existente. La skill es interactiva/asistencial; el agent es batch/auditor.</td></tr><tr><td><code>references/classic-migration.md</code></td><td>Migración manual Classic (.xaml/.xoml) → YAML con side-by-side. Absorbe a la skill <code>cicd-classic-migrator</code> retirada.</td></tr><tr><td>Skill <code>hub-client</code></td><td>Si <code>/hv:cicd-init</code> invoca <code>register_pipeline</code> tool del Hub, esta skill puede consultarla.</td></tr><tr><td>Skill <code>issue-tracker-sync</code></td><td>Boards/Wiki/work items. Ortogonal a pipelines runtime.</td></tr></tbody></table></div>
+</section>
+<section class="sec" id="sec-referencias">
+<h3 id="referencias">Referencias</h3>
+<ul>
+<li>Reglas runtime: <code>.claude/skills/cicd-runtime/SKILL.md</code> (G1-G19; G8 = gate de seguridad verdict-file; G15-G19 = GitHub Actions)</li>
+<li>Restricciones de plataforma: <code>ecosystem.config.json</code> -&gt; <code>cicd.platform</code> + <code>cicd.variant</code>. Para <code>variant: &quot;server-2020&quot;</code>, <code>references/azure-devops-server-2020-quick-ref.md</code></li>
+<li>Guia fases: <code>_patron/08_CICD/GUIA_FASES_ADOPCION.md</code></li>
+<li>Runbook Fase 2: <code>_patron/08_CICD/RUNBOOK_TEMPLATE.md</code></li>
+<li>Runbook Fase 0: <code>_patron/08_CICD/RUNBOOK_DEPLOY_MANUAL.md</code></li>
+</ul>
+<hr>
+<p><em>Skill condicional Ovillo — Arquitecto CI/CD (variant azure-pipelines/server-2020).</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>1493</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 805 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>18 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>feat: el objetivo de compilacion lo resuelve una sola funcion (ADR-037)</em> (<code>f30140e</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../skills/hub-client.html">hub-client</a></li><li><a href="../skills/issue-tracker-sync.html">issue-tracker-sync</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/postman-collection.html">postman-collection</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo se activa</a></li><li class="l2"><a href="#cuando-no">Cuándo no</a></li><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#cuando-se-activa">Cuando se activa</a></li><li class="l3"><a href="#cuando-no-activarse">Cuando NO activarse</a></li><li class="l3"><a href="#estructura-de-la-skill">Estructura de la skill</a></li><li class="l3"><a href="#flujo-de-uso-tipico">Flujo de uso tipico</a></li><li class="l3"><a href="#patrones-de-uso-recomendados">Patrones de uso recomendados</a></li><li class="l3"><a href="#troubleshooting-comun">Troubleshooting comun</a></li><li class="l3"><a href="#anti-patrones-no-hacer">Anti-patrones (NO hacer)</a></li><li class="l3"><a href="#sinergia-con-otros-componentes">Sinergia con otros componentes</a></li><li class="l3"><a href="#referencias">Referencias</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

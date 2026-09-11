@@ -1,0 +1,417 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>database · Ovillo</title><meta name="description" content="Convenciones de base de datos: nomenclatura SQL, procedimientos almacenados, vistas, migraciones y repositorios."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="database · Ovillo"><meta property="og:description" content="Convenciones de base de datos: nomenclatura SQL, procedimientos almacenados, vistas, migraciones y repositorios."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/database.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/database.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/database.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>regla por ruta (13)</h4><ul class="sibs"><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/blazor.html">blazor</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html" class="cur">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/domain-api-docs.html">domain-api-docs</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/mcp-config.html">mcp-config</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/webapp.html">webapp</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>database</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>/hv:database</span></div><h1>database</h1><p class="lede">Convenciones de base de datos: nomenclatura SQL, procedimientos almacenados, vistas, migraciones y repositorios.</p><div class="meta-grid"><div><b>regla por ruta</b><span>clase</span></div><div><b><code>/hv:database</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>1227</b><span>palabras</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>user-invocable</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Se carga sola al tocar ficheros que casan con sus rutas (<code>paths:</code>). No entra en el listado de skills.</p><pre data-lang="yaml"><code>paths:
+  - &quot;**/*.sql&quot;
+  - &quot;**/Scripts/**/*.sql&quot;
+  - &quot;**/Migrations/**/*.sql&quot;
+  - &quot;**/StoredProcedures/**/*.sql&quot;
+  - &quot;**/Procedures/**/*.sql&quot;
+  - &quot;**/Views/**/*.sql&quot;
+  - &quot;**/Functions/**/*.sql&quot;
+  - &quot;**/Triggers/**/*.sql&quot;
+  - &quot;**/Tables/**/*.sql&quot;
+  - &quot;**/Indexes/**/*.sql&quot;
+  - &quot;**/Seeds/**/*.sql&quot;
+  - &quot;**/Data/**/*.sql&quot;
+  - &quot;**/*_Create.sql&quot;
+  - &quot;**/*_Alter.sql&quot;
+  - &quot;**/*_Drop.sql&quot;
+  - &quot;**/*_Insert.sql&quot;
+  - &quot;**/*_Update.sql&quot;
+  - &quot;**/*_Migration.sql&quot;
+  - &quot;**/Repositorios/**/*.cs&quot;
+  - &quot;**/Repositories/**/*.cs&quot;
+  - &quot;**/*Repository.cs&quot;
+  - &quot;**/*Repositorio.cs&quot;
+  - &quot;**/ProcedimientoAlmacenado.cs&quot;
+  - &quot;**/StoredProcedures/**/*.cs&quot;
+  - &quot;**/DbContext.cs&quot;
+  - &quot;**/*DbContext.cs&quot;</code></pre></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Se carga por ruta, no por invocacion</strong>: el campo <code>paths:</code> la activa cuando Claude trabaja con ficheros que casan con esos patrones. No aparece en el menu (<code>user-invocable: false</code>) y <strong>no ocupa contexto</strong> mientras no case ningun fichero.</p>
+<p>Procede de <code>.claude/skills/database/SKILL.md</code>. Se convirtio en skill porque un plugin no distribuye <code>rules/</code>.</p></blockquote>
+<hr>
+<h2 id="reglas-para-base-de-datos---sql-server--azure-sql">Reglas para Base de Datos - SQL Server / Azure SQL</h2>
+<blockquote><p>Este archivo aplica cuando Claude trabaja con scripts T-SQL, stored procedures, vistas, funciones y objetos de base de datos <strong>o con repositorios C# que invocan SPs</strong>. <strong>Entorno:</strong> motor y versión según <code>ecosystem.config.database</code> (<code>engine</code> default <code>sqlserver</code>, <code>version</code> default <code>null</code> = sin gating de features); el proyecto puede sobrescribir en <code>_hilo/ESTADO_PROYECTO.json.baseDatos</code>. Las tablas de features por versión de abajo aplican SOLO si la versión está fijada.</p></blockquote>
+<hr>
+<section class="sec" id="sec-errores-comunes-a-evitar-lee-esto-primero">
+<h3 id="errores-comunes-a-evitar-lee-esto-primero">ERRORES COMUNES A EVITAR (lee esto PRIMERO)</h3>
+<p>Antes de crear CUALQUIER objeto SQL, verificar la nomenclatura configurada (<code>ecosystem.config.database.naming</code>; los ejemplos usan los defaults). Estas son las violaciones más frecuentes:</p>
+<div class="tbl"><table><thead><tr><th>❌ KO</th><th>✅ OK</th><th>Razón</th></tr></thead><tbody><tr><td><code>CREATE PROCEDURE [dbo].[int_ListaCarreras_leer]</code> (en SP <strong>nuevo</strong>)</td><td><code>CREATE PROCEDURE academic.ListDegrees</code></td><td><strong>Trampa BD cross-schema</strong>: SP nuevo en BD con SPs legacy → seguir §8.1, NO imitar vecinos</td></tr><tr><td><code>CREATE PROCEDURE usp_GetNomination</code></td><td><code>CREATE PROCEDURE scholarships.GetNomination</code></td><td>Prohibidos los prefijos <code>usp_</code>, <code>sp_</code>, <code>pr_</code>, <code>proc_</code>, <code>pa_</code></td></tr><tr><td><code>CREATE PROCEDURE sales.Aliases_List</code></td><td><code>CREATE PROCEDURE sales.ListAliases</code></td><td>Sufijos prohibidos si <code>naming.forbiddenSuffixes</code> los define (ej. <code>_Listar</code>, <code>_Guardar</code>, <code>_L</code>, <code>_G</code>)</td></tr><tr><td><code>CREATE PROCEDURE scholarships.Get_Nomination</code></td><td><code>CREATE PROCEDURE scholarships.GetNomination</code></td><td>Verbo + entidad <strong>pegados</strong> PascalCase, sin <code>_</code></td></tr><tr><td><code>CREATE PROCEDURE GetNomination</code></td><td><code>CREATE PROCEDURE scholarships.GetNomination</code></td><td>Siempre con schema (incluso <code>dbo</code>)</td></tr><tr><td><code>CREATE FUNCTION scholarships.CalculateRate(...)</code></td><td><code>CREATE FUNCTION scholarships.fn_CalculateRate(...)</code></td><td>Funciones escalares con prefijo <code>fn_</code></td></tr><tr><td><code>CREATE FUNCTION scholarships.fn_ScholarshipsByYear() RETURNS TABLE</code></td><td><code>CREATE FUNCTION scholarships.fnt_ScholarshipsByYear() RETURNS TABLE</code></td><td>TVFs con prefijo <code>fnt_</code>, no <code>fn_</code></td></tr><tr><td><code>CREATE VIEW scholarships.Active</code></td><td><code>CREATE VIEW scholarships.vw_Active</code></td><td>Vistas con prefijo <code>vw_</code></td></tr><tr><td><code>CREATE TRIGGER trg_Student_Ins</code></td><td><code>CREATE TRIGGER academic.tr_Student_AfterInsert</code></td><td>Triggers con prefijo <code>tr_</code> + <code>{Table}_{Event}</code></td></tr><tr><td><code>SELECT STRING_AGG(... ORDINAL)</code></td><td><code>STRING_AGG(...)</code></td><td><code>ORDINAL</code> es 2022+; en 2017 no existe</td></tr><tr><td><code>SELECT * FROM GENERATE_SERIES(1, 10)</code></td><td>CTE recursivo o tabla de números</td><td><code>GENERATE_SERIES</code> es 2022+</td></tr><tr><td><code>a IS NOT DISTINCT FROM b</code></td><td><code>((a = b) OR (a IS NULL AND b IS NULL))</code></td><td><code>IS [NOT] DISTINCT FROM</code> es 2022+</td></tr><tr><td><code>GREATEST(a, b, c)</code></td><td><code>CASE WHEN …</code> o <code>(SELECT MAX(v) FROM (VALUES (a),(b),(c)) x(v))</code></td><td><code>GREATEST</code> / <code>LEAST</code> son 2022+</td></tr><tr><td>Collation <code>*_UTF8</code></td><td>Collation clásica <code>SQL_Latin1_General_CP1_CI_AI</code></td><td>UTF-8 collations son 2019+</td></tr></tbody></table></div>
+<p><strong>Excepción legacy</strong>: si el archivo está en <code>Legacy/</code>, <code>Obsoleto/</code>, <code>MigracionPendiente/</code> o tiene el comentario <code>-- LEGACY: no renombrar</code> al inicio, mantener la nomenclatura existente — NO corregir.</p>
+<p><strong>Excepción schemas históricos</strong>: los schemas listados en <code>database.naming.legacySchemas</code> se mantienen tal cual, NO normalizar (ejemplo de organización: <code>GesInter</code>, <code>PlazasIntercambio</code>). El resto de schemas nuevos siguen <code>database.naming.schemaCase</code> (default lowercase: <code>academic</code>, <code>finance</code>, <code>scholarships</code>).</p>
+<blockquote><p>⚠️ <strong>Trampa común — BD cross-schema con muchos SPs legacy</strong></p>
+<p>Si creas un SP <strong>nuevo</strong> en una BD que ya tiene SPs con patrón antiguo (ej. <code>SecreBD</code> con <code>int_ListaTitulaciones_leer</code>, <code>int_ListaSemestres_leer</code>), <strong>NO replicar ese patrón</strong>. La regla &quot;respetar legacy&quot; SOLO aplica al <strong>MODIFICAR</strong> SPs existentes. Los SPs nuevos siempre siguen §8.1, incluso siendo el único moderno en su BD.</p>
+<p>Razonamiento defectuoso a evitar: &quot;esta BD está llena de <code>int_*_leer</code> → coherencia → mi SP también&quot;. El estándar configurado prevalece sobre la inferencia visual de archivos vecinos.</p>
+<p>Antes de cualquier <code>CREATE PROCEDURE</code> en archivo nuevo: verificar contra la tabla §8.1. El hook <code>sql-nomenclatura-guard.js</code> detecta prefijos legacy en SPs nuevos según <code>database.naming.legacyPrefixes</code> (ej. <code>int_</code>, <code>aud_</code>, <code>tmp_</code>, <code>migr_</code>, <code>old_</code>, <code>bak_</code>).</p></blockquote>
+<blockquote><p>Ver también: <code>CLAUDE_BASE.md</code> §8.1 con la tabla de nomenclatura configurable. <strong>No</strong> esta siempre cargado (ADR-025): lo recuerda la regla por ruta <code>estandares-base</code>, o se lee bajo demanda.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-versiones-soportadas">
+<h3 id="versiones-soportadas">VERSIONES SOPORTADAS</h3>
+<p><strong>La versión objetivo la fija <code>ecosystem.config.database.version</code></strong> (o <code>baseDatos.versionSqlServer</code> en <code>_hilo/ESTADO_PROYECTO.json</code>, que gana). Si está fijada (ej. <code>&quot;2017&quot;</code>): NO usar features posteriores — ver tablas de abajo. Si es <code>null</code> (default): sin gating, usar las features actuales del motor.</p>
+<div class="tbl"><table><thead><tr><th>Versión</th><th>Estado</th><th>Notas</th></tr></thead><tbody><tr><td><strong>SQL Server 2017</strong></td><td>✅ Soportado</td><td>Ejemplo típico de parque on-premise que fija <code>version: &quot;2017&quot;</code> — aplican las tablas de gating</td></tr><tr><td>SQL Server 2019</td><td>✅ Soportado</td><td>Solo si el proyecto lo indica</td></tr><tr><td>SQL Server 2022</td><td>✅ Soportado</td><td>Solo si el proyecto lo indica</td></tr><tr><td>Azure SQL</td><td>✅ Soportado</td><td>Consideraciones especiales</td></tr><tr><td>SQL Server 2016</td><td>⚠️ Limitado</td><td>Evitar nuevos desarrollos; mantenimiento solamente</td></tr></tbody></table></div>
+<h4 id="features-post-2017-a-no-usar-por-defecto">Features POST-2017 a NO usar por defecto</h4>
+<div class="tbl"><table><thead><tr><th>Feature</th><th>Versión mínima</th><th>Alternativa en 2017</th></tr></thead><tbody><tr><td><code>STRING_SPLIT</code> con <code>ordinal</code></td><td>2022</td><td>Sólo <code>value</code> disponible en 2017</td></tr><tr><td><code>GENERATE_SERIES</code></td><td>2022</td><td>Tabla de números o CTE recursivo</td></tr><tr><td><code>DATE_BUCKET</code></td><td>2022</td><td>Aritmética con <code>DATEADD</code> / <code>DATEDIFF</code></td></tr><tr><td><code>IS [NOT] DISTINCT FROM</code></td><td>2022</td><td><code>((a = b) OR (a IS NULL AND b IS NULL))</code></td></tr><tr><td><code>GREATEST</code> / <code>LEAST</code></td><td>2022</td><td><code>CASE</code> o subquery con <code>VALUES</code></td></tr><tr><td><code>BIT_COUNT</code>, <code>LEFT_SHIFT</code>, <code>RIGHT_SHIFT</code></td><td>2022</td><td>Funciones bitwise manuales</td></tr><tr><td><code>APPROX_PERCENTILE_CONT</code></td><td>2022</td><td><code>PERCENTILE_CONT</code> dentro de CTE</td></tr><tr><td><code>OPENJSON WITH PATH strict</code></td><td>2022</td><td><code>PATH</code> sin <code>strict</code></td></tr><tr><td>UTF-8 collations (<code>*_UTF8</code>)</td><td>2019</td><td>Collations clásicas <code>SQL_Latin1_General_*</code></td></tr><tr><td>Inline TVF optimizaciones avanzadas</td><td>2019</td><td>Reescribir como Table Variable o temp table</td></tr><tr><td>Always Encrypted con enclaves</td><td>2019</td><td>Always Encrypted básico</td></tr></tbody></table></div>
+<h4 id="features-sí-disponibles-en-2017-usar-con-confianza">Features SÍ disponibles en 2017 (usar con confianza)</h4>
+<p><code>STRING_AGG</code>, <code>TRIM</code>, <code>TRANSLATE</code>, <code>CONCAT_WS</code>, <code>OPENJSON</code> básico, temporal tables system-versioned, columnstore actualizable, Graph tables, Adaptive Query Processing básico, Resumable online index rebuild.</p>
+<hr>
+</section>
+<section class="sec" id="sec-parte-1-convenciones-de-nombrado-configurables-en-ecosystemconfigdatabasenaming">
+<h3 id="parte-1-convenciones-de-nombrado-configurables-en-ecosystemconfigdatabasenaming">PARTE 1: CONVENCIONES DE NOMBRADO (configurables en <code>ecosystem.config.database.naming</code>)</h3>
+<h4 id="11-reglas-generales">1.1 Reglas Generales</h4>
+<div class="tbl"><table><thead><tr><th>Elemento</th><th>Convención</th><th>Ejemplo</th><th>❌ Evitar</th></tr></thead><tbody><tr><td><strong>Tablas</strong></td><td>PascalCase, singular</td><td><code>Student</code>, <code>ScholarshipApplication</code></td><td><code>estudiantes</code>, <code>tbl_Student</code></td></tr><tr><td><strong>Columnas</strong></td><td>PascalCase</td><td><code>BirthDate</code>, <code>DocumentNumber</code></td><td><code>fecha_nacimiento</code>, <code>fNac</code></td></tr><tr><td><strong>Primary Key</strong></td><td><code>Id</code> o <code>{Table}Id</code></td><td><code>Id</code>, <code>StudentId</code></td><td><code>ID</code>, <code>id_student</code></td></tr><tr><td><strong>Foreign Key</strong></td><td><code>{ReferencedTable}Id</code></td><td><code>StudentId</code>, <code>ScholarshipId</code></td><td><code>FK_Est</code>, <code>idStudent</code></td></tr><tr><td><strong>Stored Procedures</strong></td><td><code>{schema}.{Action}{Entity}</code></td><td><code>scholarships.GetNomination</code></td><td><code>usp_</code>, <code>sp_</code>, <code>pr_</code></td></tr><tr><td><strong>Vistas</strong></td><td><code>{schema}.vw_{Description}</code></td><td><code>scholarships.vw_ActiveNominations</code></td><td><code>Vista_</code>, <code>v_</code></td></tr><tr><td><strong>Funciones Escalares</strong></td><td><code>{schema}.fn_{Description}</code></td><td><code>scholarships.fn_CalculateRate</code></td><td><code>func_</code>, <code>f_</code></td></tr><tr><td><strong>Funciones Tabla</strong></td><td><code>{schema}.fnt_{Description}</code></td><td><code>scholarships.fnt_GetScholarshipsByYear</code></td><td><code>fn_tabla_</code></td></tr><tr><td><strong>Triggers</strong></td><td><code>{schema}.tr_{Table}_{Event}</code></td><td><code>academic.tr_Student_AfterInsert</code></td><td><code>trigger_</code>, <code>trg_</code></td></tr><tr><td><strong>Índices</strong></td><td><code>IX_{Table}_{Columns}</code></td><td><code>IX_Student_Email</code></td><td><code>idx1</code>, <code>index_email</code></td></tr><tr><td><strong>Índices Únicos</strong></td><td><code>UX_{Table}_{Columns}</code></td><td><code>UX_Student_DocumentNumber</code></td><td><code>unique_doc</code></td></tr><tr><td><strong>Constraints PK</strong></td><td><code>PK_{Table}</code></td><td><code>PK_Student</code></td><td><code>PrimaryKey_1</code></td></tr><tr><td><strong>Constraints FK</strong></td><td><code>FK_{ChildTable}_{ParentTable}</code></td><td><code>FK_ScholarshipApplication_Student</code></td><td><code>FK_1</code>, <code>fk_sol_est</code></td></tr><tr><td><strong>Constraints Check</strong></td><td><code>CK_{Table}_{Column}</code></td><td><code>CK_Student_Age</code></td><td><code>check_1</code></td></tr><tr><td><strong>Constraints Default</strong></td><td><code>DF_{Table}_{Column}</code></td><td><code>DF_Student_RegisteredAt</code></td><td><code>default_fecha</code></td></tr><tr><td><strong>Schemas</strong></td><td>lowercase</td><td><code>academic</code>, <code>finance</code>, <code>scholarships</code></td><td><code>Academic</code>, <code>FINANCE</code></td></tr></tbody></table></div>
+<h4 id="12-nomenclatura-de-stored-procedures-sin-prefijo">1.2 Nomenclatura de Stored Procedures (SIN prefijo)</h4>
+<blockquote><p>⚠️ <strong>IMPORTANTE</strong>: por defecto NO se usan prefijos <code>usp_</code>, <code>sp_</code>, <code>pr_</code> en procedimientos almacenados. Los procedimientos usan el formato: <code>{schema}.{Action}{Entity}</code></p></blockquote>
+<pre data-lang="sql"><code><span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- CONVENCIÓN (default): {schema}.{Action}{Entity}</span>
+<span class="tk-c">-- ❌ NO usar prefijos usp_, sp_, pr_</span>
+<span class="tk-c">-- =============================================</span>
+
+<span class="tk-c">-- CRUD Básico</span>
+{schema}.<span class="tk-k">Insert</span>{Entity}        <span class="tk-c">-- scholarships.InsertNomination</span>
+{schema}.<span class="tk-k">Update</span>{Entity}      <span class="tk-c">-- scholarships.UpdateNomination  </span>
+{schema}.<span class="tk-k">Delete</span>{Entity}        <span class="tk-c">-- scholarships.DeleteNomination</span>
+{schema}.Deactivate{Entity}      <span class="tk-c">-- scholarships.DeactivateNomination (borrado lógico)</span>
+
+<span class="tk-c">-- Consultas</span>
+{schema}.Get{Entity}         <span class="tk-c">-- scholarships.GetNomination (por ID)</span>
+{schema}.Get{Entities}       <span class="tk-c">-- scholarships.GetNominations (listado)</span>
+{schema}.Search{Entities}        <span class="tk-c">-- scholarships.SearchNominations (con filtros)</span>
+{schema}.<span class="tk-k">Exists</span>{Entity}          <span class="tk-c">-- scholarships.ExistsNomination</span>
+
+<span class="tk-c">-- Operaciones de Negocio  </span>
+{schema}.{Action}{Entity}        <span class="tk-c">-- scholarships.ApproveNomination</span>
+{schema}.Process{Process}        <span class="tk-c">-- scholarships.ProcessExchange</span>
+
+<span class="tk-c">-- Reportes</span>
+{schema}.Rpt{ReportName}       <span class="tk-c">-- scholarships.RptNominationsByCountry</span></code></pre>
+<h4 id="13-nomenclatura-de-funciones-con-prefijo-fn_">1.3 Nomenclatura de Funciones (CON prefijo fn_)</h4>
+<blockquote><p>✅ Las funciones SÍ llevan prefijo <code>fn_</code> o <code>fnt_</code></p></blockquote>
+<pre data-lang="sql"><code><span class="tk-c">-- Funciones Escalares (devuelven un valor)</span>
+{schema}.fn_{Description}         <span class="tk-c">-- scholarships.fn_CalculateRate</span>
+                                  <span class="tk-c">-- academic.fn_CalculateAge</span>
+
+<span class="tk-c">-- Funciones con Valor de Tabla (TVF)</span>
+{schema}.fnt_{Description}        <span class="tk-c">-- scholarships.fnt_GetScholarshipsByYear</span></code></pre>
+<h4 id="14-nomenclatura-de-vistas-con-prefijo-vw_">1.4 Nomenclatura de Vistas (CON prefijo vw_)</h4>
+<blockquote><p>✅ Las vistas SÍ llevan prefijo <code>vw_</code></p></blockquote>
+<pre data-lang="sql"><code>{schema}.vw_{Description}         <span class="tk-c">-- scholarships.vw_ActiveNominations</span>
+                                  <span class="tk-c">-- academic.vw_ActiveStudents</span></code></pre>
+<h4 id="15-ejemplos-completos-por-schema">1.5 Ejemplos Completos por Schema</h4>
+<pre data-lang="sql"><code><span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- SCHEMA: scholarships</span>
+<span class="tk-c">-- =============================================</span>
+scholarships.GetNomination             <span class="tk-c">-- SP: Obtener nominación por ID</span>
+scholarships.GetNominations           <span class="tk-c">-- SP: Listar nominations</span>
+scholarships.InsertNomination            <span class="tk-c">-- SP: Crear nueva nominación</span>
+scholarships.UpdateNomination          <span class="tk-c">-- SP: Actualizar nominación</span>
+scholarships.ApproveNomination             <span class="tk-c">-- SP: Operación de negocio</span>
+scholarships.fn_CalculateRate               <span class="tk-c">-- Función: Calcular tasa</span>
+scholarships.fn_GetExchangeStatus   <span class="tk-c">-- Función: Obtener status</span>
+scholarships.fnt_GetScholarshipsByYear       <span class="tk-c">-- TVF: Scholarships por año</span>
+scholarships.vw_ActiveNominations        <span class="tk-c">-- Vista: Nominations activas</span>
+
+<span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- SCHEMA: academic</span>
+<span class="tk-c">-- =============================================</span>
+academic.GetStudent       <span class="tk-c">-- SP: Obtener student</span>
+academic.InsertEnrollment       <span class="tk-c">-- SP: Crear matrícula</span>
+academic.fn_CalculateAge         <span class="tk-c">-- Función: Calcular edad</span>
+academic.vw_ActiveStudents   <span class="tk-c">-- Vista: Students activos</span>
+
+<span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- SCHEMA: finance</span>
+<span class="tk-c">-- =============================================</span>
+finance.ProcessPayment           <span class="tk-c">-- SP: Procesar pago</span>
+finance.fn_CalculateDiscount   <span class="tk-c">-- Función: Calcular descuento</span>
+finance.vw_OverduePayments       <span class="tk-c">-- Vista: Payments vencidos</span></code></pre>
+<h4 id="16-tipos-de-datos-recomendados">1.6 Tipos de Datos Recomendados</h4>
+<div class="tbl"><table><thead><tr><th>Uso</th><th>Tipo Recomendado</th><th>❌ Evitar</th><th>Notas</th></tr></thead><tbody><tr><td>Identificadores</td><td><code>INT IDENTITY</code> o <code>BIGINT</code></td><td><code>UNIQUEIDENTIFIER</code> como PK clustered</td><td>GUID como PK causa fragmentación</td></tr><tr><td>GUIDs</td><td><code>UNIQUEIDENTIFIER</code></td><td>-</td><td>Solo cuando se requiere unicidad global</td></tr><tr><td>Texto corto (&lt;100)</td><td><code>NVARCHAR(n)</code></td><td><code>VARCHAR</code>, <code>CHAR</code></td><td>Soporte Unicode</td></tr><tr><td>Texto largo</td><td><code>NVARCHAR(MAX)</code></td><td><code>TEXT</code></td><td>TEXT está deprecado</td></tr><tr><td>Fechas</td><td><code>DATETIME2(3)</code></td><td><code>DATETIME</code></td><td>Mayor precisión, menor espacio</td></tr><tr><td>Solo fecha</td><td><code>DATE</code></td><td><code>DATETIME</code></td><td>Sin componente de hora</td></tr><tr><td>Solo hora</td><td><code>TIME(0)</code></td><td><code>DATETIME</code></td><td>Sin componente de fecha</td></tr><tr><td>Money</td><td><code>DECIMAL(18,2)</code></td><td><code>MONEY</code>, <code>FLOAT</code></td><td>Evita errores de redondeo</td></tr><tr><td>Booleanos</td><td><code>BIT</code></td><td><code>INT</code>, <code>CHAR(1)</code></td><td>Valores 0/1</td></tr><tr><td>Porcentajes</td><td><code>DECIMAL(5,2)</code></td><td><code>FLOAT</code></td><td>Ej: 99.99%</td></tr><tr><td>JSON</td><td><code>NVARCHAR(MAX)</code> con CHECK</td><td>-</td><td>SQL 2016+: <code>ISJSON()</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-parte-2-plantilla-de-stored-procedures">
+<h3 id="parte-2-plantilla-de-stored-procedures">PARTE 2: PLANTILLA DE STORED PROCEDURES</h3>
+<h4 id="21-plantilla-estándar-completa">2.1 Plantilla Estándar Completa</h4>
+<pre data-lang="sql"><code><span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- Author:           {AuthorName}</span>
+<span class="tk-c">-- Created:          {CreationDate}</span>
+<span class="tk-c">-- Description:     {ShortDescription}</span>
+<span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- Change History:</span>
+<span class="tk-c">-- Date $1| Author $2| Description</span>
+<span class="tk-c">-- -------------|----------------|------------------------------------------</span>
+<span class="tk-c">-- {Date} $1| {Author} $2| Initial creation</span>
+<span class="tk-c">-- =============================================</span>
+<span class="tk-k">CREATE</span> <span class="tk-k">OR</span> <span class="tk-k">ALTER</span> <span class="tk-k">PROCEDURE</span> [{schema}].[{Action}{Entity}]
+    <span class="tk-c">-- Parámetros de entrada</span>
+    <span class="tk-v">@Id</span> <span class="tk-k">INT</span>,
+    <span class="tk-v">@Parametro1</span> <span class="tk-k">NVARCHAR</span>(<span class="tk-n">100</span>),
+    <span class="tk-v">@Parametro2</span> <span class="tk-k">INT</span> = <span class="tk-k">NULL</span>,              <span class="tk-c">-- Parámetro opcional con default</span>
+    
+    <span class="tk-c">-- Parámetros de salida</span>
+    <span class="tk-v">@RowsAffected</span> <span class="tk-k">INT</span> = <span class="tk-n">0</span> OUTPUT,
+    <span class="tk-v">@ErrorMessage</span> <span class="tk-k">NVARCHAR</span>(<span class="tk-n">500</span>) = <span class="tk-k">NULL</span> OUTPUT
+<span class="tk-k">AS</span>
+<span class="tk-k">BEGIN</span>
+    <span class="tk-k">SET</span> NOCOUNT <span class="tk-k">ON</span>;
+    <span class="tk-k">SET</span> XACT_ABORT <span class="tk-k">ON</span>;  <span class="tk-c">-- Rollback automático en errores</span>
+    
+    <span class="tk-c">-- Variables locales</span>
+    <span class="tk-k">DECLARE</span> <span class="tk-v">@Result</span> <span class="tk-k">INT</span> = <span class="tk-n">0</span>;
+    <span class="tk-k">DECLARE</span> <span class="tk-v">@TransactionStarted</span> <span class="tk-k">BIT</span> = <span class="tk-n">0</span>;
+    
+    <span class="tk-k">BEGIN</span> <span class="tk-k">TRY</span>
+        <span class="tk-c">-- Iniciar transacción si no hay una activa</span>
+        <span class="tk-k">IF</span> @<span class="tk-v">@TRANCOUNT</span> = <span class="tk-n">0</span>
+        <span class="tk-k">BEGIN</span>
+            <span class="tk-k">BEGIN</span> <span class="tk-k">TRANSACTION</span>;
+            <span class="tk-k">SET</span> <span class="tk-v">@TransactionStarted</span> = <span class="tk-n">1</span>;
+        <span class="tk-k">END</span>
+        
+        <span class="tk-c">-- =============================================</span>
+        <span class="tk-c">-- VALIDACIONES</span>
+        <span class="tk-c">-- =============================================</span>
+        <span class="tk-k">IF</span> <span class="tk-v">@Id</span> <span class="tk-k">IS</span> <span class="tk-k">NULL</span>
+        <span class="tk-k">BEGIN</span>
+            <span class="tk-k">SET</span> <span class="tk-v">@ErrorMessage</span> = <span class="tk-s">'El parámetro @Id es requerido'</span>;
+            <span class="tk-k">RAISERROR</span>(<span class="tk-v">@ErrorMessage</span>, <span class="tk-n">16</span>, <span class="tk-n">1</span>);
+            <span class="tk-k">RETURN</span> -1;
+        <span class="tk-k">END</span>
+        
+        <span class="tk-c">-- =============================================</span>
+        <span class="tk-c">-- LÓGICA PRINCIPAL</span>
+        <span class="tk-c">-- =============================================</span>
+        
+        <span class="tk-c">-- Tu código aquí...</span>
+        
+        <span class="tk-c">-- =============================================</span>
+        <span class="tk-c">-- COMMIT Y RETORNO</span>
+        <span class="tk-c">-- =============================================</span>
+        <span class="tk-k">IF</span> <span class="tk-v">@TransactionStarted</span> = <span class="tk-n">1</span>
+            <span class="tk-k">COMMIT</span> <span class="tk-k">TRANSACTION</span>;
+            
+        <span class="tk-k">SET</span> <span class="tk-v">@RowsAffected</span> = @<span class="tk-v">@ROWCOUNT</span>;
+        <span class="tk-k">RETURN</span> <span class="tk-n">0</span>;
+        
+    <span class="tk-k">END</span> <span class="tk-k">TRY</span>
+    <span class="tk-k">BEGIN</span> <span class="tk-k">CATCH</span>
+        <span class="tk-c">-- Rollback si iniciamos la transacción</span>
+        <span class="tk-k">IF</span> <span class="tk-v">@TransactionStarted</span> = <span class="tk-n">1</span> <span class="tk-k">AND</span> @<span class="tk-v">@TRANCOUNT</span> &gt; <span class="tk-n">0</span>
+            <span class="tk-k">ROLLBACK</span> <span class="tk-k">TRANSACTION</span>;
+            
+        <span class="tk-c">-- Capturar información del error</span>
+        <span class="tk-k">SET</span> <span class="tk-v">@ErrorMessage</span> = ERROR_MESSAGE();
+        
+        <span class="tk-c">-- Re-lanzar el error</span>
+        <span class="tk-k">THROW</span>;
+    <span class="tk-k">END</span> <span class="tk-k">CATCH</span>
+<span class="tk-k">END</span>
+<span class="tk-k">GO</span></code></pre>
+<h4 id="22-ejemplo-stored-procedure-de-consulta">2.2 Ejemplo: Stored Procedure de Consulta</h4>
+<pre data-lang="sql"><code><span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- Author:           {team}</span>
+<span class="tk-c">-- Created:  2026-01-24</span>
+<span class="tk-c">-- Description:     Obtiene nominations con paginación y filtros</span>
+<span class="tk-c">-- =============================================</span>
+<span class="tk-k">CREATE</span> <span class="tk-k">OR</span> <span class="tk-k">ALTER</span> <span class="tk-k">PROCEDURE</span> [scholarships].[GetNominations]
+    <span class="tk-v">@Status</span> <span class="tk-k">NVARCHAR</span>(<span class="tk-n">50</span>) = <span class="tk-k">NULL</span>,
+    <span class="tk-v">@FromDate</span> DATE = <span class="tk-k">NULL</span>,
+    <span class="tk-v">@ToDate</span> DATE = <span class="tk-k">NULL</span>,
+    <span class="tk-v">@PageNumber</span> <span class="tk-k">INT</span> = <span class="tk-n">1</span>,
+    <span class="tk-v">@PageSize</span> <span class="tk-k">INT</span> = <span class="tk-n">20</span>,
+    <span class="tk-v">@TotalCount</span> <span class="tk-k">INT</span> OUTPUT
+<span class="tk-k">AS</span>
+<span class="tk-k">BEGIN</span>
+    <span class="tk-k">SET</span> NOCOUNT <span class="tk-k">ON</span>;
+    
+    <span class="tk-c">-- Calcular total</span>
+    <span class="tk-k">SELECT</span> <span class="tk-v">@TotalCount</span> = COUNT(*)
+    <span class="tk-k">FROM</span> scholarships.Nomination n
+    <span class="tk-k">WHERE</span> (<span class="tk-v">@Status</span> <span class="tk-k">IS</span> <span class="tk-k">NULL</span> <span class="tk-k">OR</span> n.Status = <span class="tk-v">@Status</span>)
+      <span class="tk-k">AND</span> (<span class="tk-v">@FromDate</span> <span class="tk-k">IS</span> <span class="tk-k">NULL</span> <span class="tk-k">OR</span> n.CreatedAt &gt;= <span class="tk-v">@FromDate</span>)
+      <span class="tk-k">AND</span> (<span class="tk-v">@ToDate</span> <span class="tk-k">IS</span> <span class="tk-k">NULL</span> <span class="tk-k">OR</span> n.CreatedAt &lt;= <span class="tk-v">@ToDate</span>);
+    
+    <span class="tk-c">-- Obtener página</span>
+    <span class="tk-k">SELECT</span> 
+        n.Id,
+        n.StudentId,
+        e.Name <span class="tk-k">AS</span> StudentName,
+        n.Status,
+        n.CreatedAt,
+        n.ModifiedAt
+    <span class="tk-k">FROM</span> scholarships.Nomination n
+    <span class="tk-k">INNER</span> <span class="tk-k">JOIN</span> academic.Student e <span class="tk-k">ON</span> n.StudentId = e.Id
+    <span class="tk-k">WHERE</span> (<span class="tk-v">@Status</span> <span class="tk-k">IS</span> <span class="tk-k">NULL</span> <span class="tk-k">OR</span> n.Status = <span class="tk-v">@Status</span>)
+      <span class="tk-k">AND</span> (<span class="tk-v">@FromDate</span> <span class="tk-k">IS</span> <span class="tk-k">NULL</span> <span class="tk-k">OR</span> n.CreatedAt &gt;= <span class="tk-v">@FromDate</span>)
+      <span class="tk-k">AND</span> (<span class="tk-v">@ToDate</span> <span class="tk-k">IS</span> <span class="tk-k">NULL</span> <span class="tk-k">OR</span> n.CreatedAt &lt;= <span class="tk-v">@ToDate</span>)
+    <span class="tk-k">ORDER</span> <span class="tk-k">BY</span> n.CreatedAt DESC
+    OFFSET (<span class="tk-v">@PageNumber</span> - <span class="tk-n">1</span>) * <span class="tk-v">@PageSize</span> ROWS
+    FETCH NEXT <span class="tk-v">@PageSize</span> ROWS ONLY;
+<span class="tk-k">END</span>
+<span class="tk-k">GO</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-3-plantilla-de-funciones">
+<h3 id="parte-3-plantilla-de-funciones">PARTE 3: PLANTILLA DE FUNCIONES</h3>
+<h4 id="31-función-escalar">3.1 Función Escalar</h4>
+<pre data-lang="sql"><code><span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- Author:           {team}</span>
+<span class="tk-c">-- Created:  2026-01-24</span>
+<span class="tk-c">-- Description:     Calcula la tasa aplicable</span>
+<span class="tk-c">-- =============================================</span>
+<span class="tk-k">CREATE</span> <span class="tk-k">OR</span> <span class="tk-k">ALTER</span> <span class="tk-k">FUNCTION</span> [scholarships].[fn_CalculateRate]
+(
+    <span class="tk-v">@ExchangeType</span> <span class="tk-k">NVARCHAR</span>(<span class="tk-n">50</span>),
+    <span class="tk-v">@Duration</span> <span class="tk-k">INT</span>
+)
+RETURNS DECIMAL(<span class="tk-n">18</span>,<span class="tk-n">2</span>)
+<span class="tk-k">AS</span>
+<span class="tk-k">BEGIN</span>
+    <span class="tk-k">DECLARE</span> <span class="tk-v">@Rate</span> DECIMAL(<span class="tk-n">18</span>,<span class="tk-n">2</span>);
+    
+    <span class="tk-k">SELECT</span> <span class="tk-v">@Rate</span> = <span class="tk-k">CASE</span> 
+        <span class="tk-k">WHEN</span> <span class="tk-v">@ExchangeType</span> = <span class="tk-s">'ERASMUS'</span> <span class="tk-k">AND</span> <span class="tk-v">@Duration</span> &lt;= <span class="tk-n">3</span> <span class="tk-k">THEN</span> <span class="tk-n">250.00</span>
+        <span class="tk-k">WHEN</span> <span class="tk-v">@ExchangeType</span> = <span class="tk-s">'ERASMUS'</span> <span class="tk-k">AND</span> <span class="tk-v">@Duration</span> &lt;= <span class="tk-n">6</span> <span class="tk-k">THEN</span> <span class="tk-n">200.00</span>
+        <span class="tk-k">WHEN</span> <span class="tk-v">@ExchangeType</span> = <span class="tk-s">'ERASMUS'</span> <span class="tk-k">THEN</span> <span class="tk-n">150.00</span>
+        <span class="tk-k">WHEN</span> <span class="tk-v">@ExchangeType</span> = <span class="tk-s">'BILATERAL'</span> <span class="tk-k">THEN</span> <span class="tk-n">300.00</span>
+        <span class="tk-k">ELSE</span> <span class="tk-n">0.00</span>
+    <span class="tk-k">END</span>;
+    
+    <span class="tk-k">RETURN</span> <span class="tk-v">@Rate</span>;
+<span class="tk-k">END</span>
+<span class="tk-k">GO</span></code></pre>
+<h4 id="32-función-con-valor-de-tabla-tvf">3.2 Función con Valor de Tabla (TVF)</h4>
+<pre data-lang="sql"><code><span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- Author:           {team}</span>
+<span class="tk-c">-- Created:  2026-01-24</span>
+<span class="tk-c">-- Description:     Obtiene scholarships por año académico</span>
+<span class="tk-c">-- =============================================</span>
+<span class="tk-k">CREATE</span> <span class="tk-k">OR</span> <span class="tk-k">ALTER</span> <span class="tk-k">FUNCTION</span> [scholarships].[fnt_GetScholarshipsByYear]
+(
+    <span class="tk-v">@AcademicYear</span> <span class="tk-k">INT</span>
+)
+RETURNS <span class="tk-k">TABLE</span>
+<span class="tk-k">AS</span>
+<span class="tk-k">RETURN</span>
+(
+    <span class="tk-k">SELECT</span> 
+        b.Id,
+        b.StudentId,
+        e.Name <span class="tk-k">AS</span> StudentName,
+        b.Amount,
+        b.Status
+    <span class="tk-k">FROM</span> scholarships.Scholarship b
+    <span class="tk-k">INNER</span> <span class="tk-k">JOIN</span> academic.Student e <span class="tk-k">ON</span> b.StudentId = e.Id
+    <span class="tk-k">WHERE</span> b.AcademicYear = <span class="tk-v">@AcademicYear</span>
+);
+<span class="tk-k">GO</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-4-plantilla-de-vistas">
+<h3 id="parte-4-plantilla-de-vistas">PARTE 4: PLANTILLA DE VISTAS</h3>
+<pre data-lang="sql"><code><span class="tk-c">-- =============================================</span>
+<span class="tk-c">-- Author:           {team}</span>
+<span class="tk-c">-- Created:  2026-01-24</span>
+<span class="tk-c">-- Description:     Vista de nominations activas con información completa</span>
+<span class="tk-c">-- =============================================</span>
+<span class="tk-k">CREATE</span> <span class="tk-k">OR</span> <span class="tk-k">ALTER</span> <span class="tk-k">VIEW</span> [scholarships].[vw_ActiveNominations]
+<span class="tk-k">AS</span>
+<span class="tk-k">SELECT</span> 
+    n.Id,
+    n.StudentId,
+    e.Name <span class="tk-k">AS</span> StudentName,
+    e.Email <span class="tk-k">AS</span> StudentEmail,
+    n.DestinationUniversityId,
+    u.Name <span class="tk-k">AS</span> DestinationUniversity,
+    n.Status,
+    n.CreatedAt,
+    n.ModifiedAt,
+    scholarships.fn_CalculateRate(n.ExchangeType, n.DurationMonths) <span class="tk-k">AS</span> ApplicableRate
+<span class="tk-k">FROM</span> scholarships.Nomination n
+<span class="tk-k">INNER</span> <span class="tk-k">JOIN</span> academic.Student e <span class="tk-k">ON</span> n.StudentId = e.Id
+<span class="tk-k">INNER</span> <span class="tk-k">JOIN</span> scholarships.University u <span class="tk-k">ON</span> n.DestinationUniversityId = u.Id
+<span class="tk-k">WHERE</span> n.Status <span class="tk-k">IN</span> (<span class="tk-s">'Pending'</span>, <span class="tk-s">'InProgress'</span>, <span class="tk-s">'Approved'</span>);
+<span class="tk-k">GO</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-5-palabras-clave-t-sql">
+<h3 id="parte-5-palabras-clave-t-sql">PARTE 5: PALABRAS CLAVE T-SQL</h3>
+<h4 id="51-convención-mayúsculas">5.1 Convención: MAYÚSCULAS</h4>
+<blockquote><p>✅ Las palabras clave de T-SQL deben escribirse en <strong>MAYÚSCULAS</strong></p></blockquote>
+<pre data-lang="sql"><code><span class="tk-c">-- ✅ CORRECTO</span>
+<span class="tk-k">SELECT</span> Id, Name, CreatedAt
+<span class="tk-k">FROM</span> scholarships.Nomination
+<span class="tk-k">WHERE</span> Status = <span class="tk-s">'Activo'</span>
+<span class="tk-k">ORDER</span> <span class="tk-k">BY</span> CreatedAt DESC;
+
+<span class="tk-c">-- ❌ INCORRECTO</span>
+<span class="tk-k">select</span> id, name, fechacreacion
+<span class="tk-k">from</span> scholarships.nomination
+<span class="tk-k">where</span> status = <span class="tk-s">'Activo'</span>
+<span class="tk-k">order</span> <span class="tk-k">by</span> fechacreacion desc;</code></pre>
+<h4 id="52-lista-de-palabras-clave-principales">5.2 Lista de Palabras Clave Principales</h4>
+<pre data-lang="sql"><code><span class="tk-c">-- DDL (Data Definition Language)</span>
+<span class="tk-k">CREATE</span>, <span class="tk-k">ALTER</span>, <span class="tk-k">DROP</span>, TRUNCATE, RENAME
+
+<span class="tk-c">-- DML (Data Manipulation Language)  </span>
+<span class="tk-k">SELECT</span>, <span class="tk-k">INSERT</span>, <span class="tk-k">UPDATE</span>, <span class="tk-k">DELETE</span>, MERGE
+
+<span class="tk-c">-- Cláusulas</span>
+<span class="tk-k">FROM</span>, <span class="tk-k">WHERE</span>, <span class="tk-k">JOIN</span>, <span class="tk-k">INNER</span>, <span class="tk-k">LEFT</span>, <span class="tk-k">RIGHT</span>, <span class="tk-k">OUTER</span>, FULL
+<span class="tk-k">ON</span>, <span class="tk-k">AND</span>, <span class="tk-k">OR</span>, <span class="tk-k">NOT</span>, <span class="tk-k">IN</span>, <span class="tk-k">EXISTS</span>, BETWEEN, LIKE
+<span class="tk-k">GROUP</span> <span class="tk-k">BY</span>, <span class="tk-k">HAVING</span>, <span class="tk-k">ORDER</span> <span class="tk-k">BY</span>, ASC, DESC
+<span class="tk-k">UNION</span>, INTERSECT, EXCEPT
+
+<span class="tk-c">-- Funciones de agregación</span>
+COUNT, SUM, AVG, MIN, MAX, STRING_AGG
+
+<span class="tk-c">-- Control de flujo</span>
+<span class="tk-k">IF</span>, <span class="tk-k">ELSE</span>, <span class="tk-k">BEGIN</span>, <span class="tk-k">END</span>, <span class="tk-k">WHILE</span>, BREAK, CONTINUE
+<span class="tk-k">CASE</span>, <span class="tk-k">WHEN</span>, <span class="tk-k">THEN</span>, <span class="tk-k">ELSE</span>, <span class="tk-k">END</span>
+<span class="tk-k">TRY</span>, <span class="tk-k">CATCH</span>, <span class="tk-k">THROW</span>, <span class="tk-k">RAISERROR</span>
+
+<span class="tk-c">-- Transacciones</span>
+<span class="tk-k">BEGIN</span> <span class="tk-k">TRANSACTION</span>, <span class="tk-k">COMMIT</span>, <span class="tk-k">ROLLBACK</span>, SAVE <span class="tk-k">TRANSACTION</span>
+
+<span class="tk-c">-- Otros</span>
+<span class="tk-k">DECLARE</span>, <span class="tk-k">SET</span>, PRINT, <span class="tk-k">RETURN</span>
+<span class="tk-k">NULL</span>, <span class="tk-k">IS</span> <span class="tk-k">NULL</span>, <span class="tk-k">IS</span> <span class="tk-k">NOT</span> <span class="tk-k">NULL</span>, COALESCE, ISNULL
+<span class="tk-k">TOP</span>, OFFSET, FETCH, NEXT, ROWS, ONLY
+<span class="tk-k">WITH</span>, <span class="tk-k">AS</span>, OVER, PARTITION <span class="tk-k">BY</span>, ROW_NUMBER</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-6-buenas-prácticas">
+<h3 id="parte-6-buenas-prácticas">PARTE 6: BUENAS PRÁCTICAS</h3>
+<h4 id="61-rendimiento">6.1 Rendimiento</h4>
+<pre data-lang="sql"><code><span class="tk-c">-- ✅ Usar EXISTS en lugar de IN para subconsultas</span>
+<span class="tk-k">SELECT</span> * <span class="tk-k">FROM</span> scholarships.Nomination n
+<span class="tk-k">WHERE</span> <span class="tk-k">EXISTS</span> (<span class="tk-k">SELECT</span> <span class="tk-n">1</span> <span class="tk-k">FROM</span> academic.Student e <span class="tk-k">WHERE</span> e.Id = n.StudentId <span class="tk-k">AND</span> e.Active = <span class="tk-n">1</span>);
+
+<span class="tk-c">-- ✅ Evitar SELECT *</span>
+<span class="tk-k">SELECT</span> Id, Name, Status <span class="tk-k">FROM</span> scholarships.Nomination;
+
+<span class="tk-c">-- ✅ Usar índices apropiados</span>
+<span class="tk-k">CREATE</span> NONCLUSTERED <span class="tk-k">INDEX</span> IX_Nomination_Status 
+<span class="tk-k">ON</span> scholarships.Nomination(Status) INCLUDE (StudentId, CreatedAt);</code></pre>
+<h4 id="62-seguridad">6.2 Seguridad</h4>
+<pre data-lang="sql"><code><span class="tk-c">-- ✅ Usar parámetros, nunca concatenar strings</span>
+<span class="tk-k">EXEC</span> scholarships.GetNomination <span class="tk-v">@Id</span> = <span class="tk-v">@InputId</span>;
+
+<span class="tk-c">-- ❌ NUNCA hacer esto (SQL Injection)</span>
+<span class="tk-k">EXEC</span>(<span class="tk-s">'SELECT * FROM Nomination WHERE Id = '</span> + <span class="tk-v">@InputId</span>);</code></pre>
+<h4 id="63-manejo-de-null">6.3 Manejo de NULL</h4>
+<pre data-lang="sql"><code><span class="tk-c">-- ✅ Usar COALESCE o ISNULL</span>
+<span class="tk-k">SELECT</span> COALESCE(n.Notes, <span class="tk-s">'No notes'</span>) <span class="tk-k">AS</span> Notes
+<span class="tk-k">FROM</span> scholarships.Nomination n;
+
+<span class="tk-c">-- ✅ Comparar NULL correctamente</span>
+<span class="tk-k">WHERE</span> Campo <span class="tk-k">IS</span> <span class="tk-k">NULL</span>
+<span class="tk-k">WHERE</span> Campo <span class="tk-k">IS</span> <span class="tk-k">NOT</span> <span class="tk-k">NULL</span></code></pre>
+</section>
+<section class="sec" id="sec-delegacion-en-agents">
+<h3 id="delegacion-en-agents">DELEGACION EN AGENTS</h3>
+<p>Estos agents trabajan en su propio contexto: devuelven un resumen y no gastan el de la sesion (ADR-028). Se invocan con la herramienta Task.</p>
+<h4 id="database-reviewer"><code>database-reviewer</code></h4>
+<p>Cuando auditar acceso a datos o rendimiento SQL de codigo que ya existe:</p>
+<pre><code>Task tool con:
+  subagent_type: database-reviewer
+  prompt: &quot;Auditar {path}: patrones EF Core, migraciones, N+1, indices y nomenclatura de procedimientos.
+              Devolver hallazgos con fichero, linea y fix propuesto.&quot;</code></pre>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>112</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 1227 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>7 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>fix: el verificador validaba la plantilla que la dieta habia retirado (ADR-038)</em> (<code>60e6e0d</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/database/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#errores-comunes-a-evitar-lee-esto-primero">ERRORES COMUNES A EVITAR (lee esto PRIMERO)</a></li><li class="l3"><a href="#versiones-soportadas">VERSIONES SOPORTADAS</a></li><li class="l3"><a href="#parte-1-convenciones-de-nombrado-configurables-en-ecosystemconfigdatabasenaming">PARTE 1: CONVENCIONES DE NOMBRADO (configurables en ecosystem.config.database.naming)</a></li><li class="l3"><a href="#parte-2-plantilla-de-stored-procedures">PARTE 2: PLANTILLA DE STORED PROCEDURES</a></li><li class="l3"><a href="#parte-3-plantilla-de-funciones">PARTE 3: PLANTILLA DE FUNCIONES</a></li><li class="l3"><a href="#parte-4-plantilla-de-vistas">PARTE 4: PLANTILLA DE VISTAS</a></li><li class="l3"><a href="#parte-5-palabras-clave-t-sql">PARTE 5: PALABRAS CLAVE T-SQL</a></li><li class="l3"><a href="#parte-6-buenas-prácticas">PARTE 6: BUENAS PRÁCTICAS</a></li><li class="l3"><a href="#delegacion-en-agents">DELEGACION EN AGENTS</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

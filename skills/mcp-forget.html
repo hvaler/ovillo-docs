@@ -1,0 +1,106 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>mcp-forget · Ovillo</title><meta name="description" content="Desregistra el proyecto del Hub Ovillo y borra todos sus datos del servidor (derecho de supresion, RGPD art. 17). Accion inmediata e irreversible."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="mcp-forget · Ovillo"><meta property="og:description" content="Desregistra el proyecto del Hub Ovillo y borra todos sus datos del servidor (derecho de supresion, RGPD art. 17). Accion inmediata e irreversible."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/mcp-forget.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/mcp-forget.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/mcp-forget.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html" class="cur">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>mcp-forget</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:mcp-forget</span><span>solo usuario</span></div><h1>mcp-forget</h1><p class="lede">Desregistra el proyecto del Hub Ovillo y borra todos sus datos del servidor (derecho de supresion, RGPD art. 17). Accion inmediata e irreversible.</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:mcp-forget</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>173</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:mcp-forget</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:mcp-forget</code>.</p></blockquote>
+<hr>
+<p class="lede">Desregistra este proyecto del MCP Server Ovillo y borra TODOS sus datos del servidor.</p>
+<blockquote><p><strong>RGPD Art. 17 (right to be forgotten)</strong> - Accion inmediata e irreversible.</p></blockquote>
+<hr>
+<section class="sec" id="sec-cuando-ejecutar">
+<h3 id="cuando-ejecutar">Cuando ejecutar</h3>
+<ul>
+<li>El usuario quiere ejercer derecho de supresion RGPD</li>
+<li>Se va a cerrar el proyecto definitivamente</li>
+<li>Se quiere re-registrar con configuracion distinta (forget + register)</li>
+<li>Sospecha de compromiso de la apiKey (rotacion)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-flujo">
+<h3 id="flujo">Flujo</h3>
+<h4 id="paso-1-confirmacion-explicita">Paso 1: Confirmacion EXPLICITA</h4>
+<p>Mostrar al usuario:</p>
+<pre><code>================================================================
+  ATENCION: Right to be forgotten (RGPD Art. 17)
+================================================================
+
+Vas a BORRAR del MCP Server Ovillo:
+  - Registro del proyecto (mcp.Proyectos)
+  - TODOS los heartbeats historicos (mcp.Heartbeats)
+  - TODAS las invocaciones de agents (mcp.AgentInvocations)
+  - Snapshots Hilo sincronizados (mcp.HiloSnapshots)
+
+Esta accion es INMEDIATA e IRREVERSIBLE en el servidor.
+NO afecta a tus datos LOCALES (_hilo/agent-telemetry.jsonl se mantiene).
+
+Tras forget:
+  - El proyecto desaparece del dashboard
+  - Se libera el nombre+owner (puedes re-registrar con /mcp-register)
+  - _hilo/.mcp-credentials.json local se borra
+  - ESTADO_PROYECTO.json.mcpSync se desactiva
+
+¿Confirmas el borrado? Escribe exactamente: FORGET
+================================================================</code></pre>
+<p>Si el usuario NO escribe <code>FORGET</code> literalmente: abortar sin tocar nada.</p>
+<h4 id="paso-2-leer-credenciales-locales">Paso 2: Leer credenciales locales</h4>
+<pre data-lang="powershell"><code><span class="tk-v">$credsPath</span> = <span class="tk-s">'_hilo/.mcp-credentials.json'</span>
+<span class="tk-k">if</span> (-not (Test-Path <span class="tk-v">$credsPath</span>)) {
+    Write-Output <span class="tk-s">&quot;Este proyecto no esta registrado (sin credenciales locales).&quot;</span>
+    Write-Output <span class="tk-s">&quot;Si crees que SI esta en el servidor pero perdiste la apiKey,&quot;</span>
+    Write-Output <span class="tk-s">&quot;contacta soporte@example.com indicando nombre+owner.&quot;</span>
+    <span class="tk-k">return</span>
+}
+<span class="tk-v">$creds</span> = Get-Content <span class="tk-v">$credsPath</span> -Raw | ConvertFrom-Json</code></pre>
+<h4 id="paso-3-post-v2forget">Paso 3: POST /v2/forget</h4>
+<pre data-lang="powershell"><code><span class="tk-v">$serverUrl</span> = <span class="tk-v">$creds</span>.serverUrl  <span class="tk-c"># o leer de ESTADO_PROYECTO.json.mcpSync.serverUrl</span>
+<span class="tk-v">$body</span> = @{ projectId = <span class="tk-v">$creds</span>.projectId } | ConvertTo-Json
+Invoke-RestMethod -Uri <span class="tk-s">&quot;$serverUrl/v2/forget&quot;</span> -Method Post `
+    -Headers @{ <span class="tk-s">'X-Hub-Api-Key'</span> = <span class="tk-v">$creds</span>.apiKey } `
+    -Body <span class="tk-v">$body</span> -ContentType <span class="tk-s">'application/json'</span></code></pre>
+<h4 id="paso-4-limpiar-artefactos-locales">Paso 4: Limpiar artefactos locales</h4>
+<pre data-lang="powershell"><code>Remove-Item <span class="tk-v">$credsPath</span> -Force                              <span class="tk-c"># credenciales</span>
+Remove-Item <span class="tk-s">'_hilo/.mcp-telemetry-state.json'</span> -Force      <span class="tk-c"># estado upload telemetria</span>
+<span class="tk-c"># NO borrar _hilo/agent-telemetry.jsonl (es del usuario, no del servidor)</span></code></pre>
+<h4 id="paso-5-actualizar-estado_proyectojson">Paso 5: Actualizar ESTADO_PROYECTO.json</h4>
+<pre data-lang="json"><code><span class="tk-s">&quot;mcpSync&quot;</span>: {
+  <span class="tk-s">&quot;habilitado&quot;</span>: false,
+  <span class="tk-s">&quot;serverUrl&quot;</span>: null,
+  <span class="tk-s">&quot;projectId&quot;</span>: null,
+  <span class="tk-s">&quot;ultimaSync&quot;</span>: null
+}</code></pre>
+<h4 id="paso-6-resumen">Paso 6: Resumen</h4>
+<pre><code>================================================================
+  Forget completado (RGPD Art. 17)
+================================================================
+
+Proyecto borrado del servidor Ovillo:  {projectId}
+Credenciales locales eliminadas:        SI
+ESTADO_PROYECTO.json.mcpSync:            desactivado
+
+Datos LOCALES preservados:
+  - _hilo/agent-telemetry.jsonl  (telemetria local)
+  - Todo lo demas
+
+Para re-registrar este proyecto en el futuro: /mcp-register
+Soporte: soporte@example.com</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-si-falla-la-llamada-al-servidor">
+<h3 id="si-falla-la-llamada-al-servidor">Si falla la llamada al servidor</h3>
+<pre><code>⚠️ El servidor no respondio (red caida, etc).
+   El registro PUEDE seguir en el servidor.
+
+Opciones:
+  [1] Reintentar
+  [2] Borrar credenciales locales de todos modos (el proyecto seguira
+      registrado en el servidor pero ya no podras gestionarlo desde aqui)
+  [3] Cancelar</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patrones">
+<h3 id="anti-patrones">Anti-patrones</h3>
+<ul>
+<li>NUNCA borrar sin confirmacion FORGET literal</li>
+<li>NUNCA borrar <code>_hilo/agent-telemetry.jsonl</code> (es del usuario, no del servidor)</li>
+<li>NUNCA exportar/loggear la apiKey antes de borrarla</li>
+</ul>
+<hr>
+<p><em>Skill mcp-forget · kind: workflow</em></p>
+</section><section class="sec" id="sec-reglas"><h2 id="reglas">Reglas</h2><div class="two"><div><h3>Siempre</h3></div><div><h3>Nunca</h3><ul><li>borrar sin confirmacion FORGET literal</li><li>borrar _hilo/agent-telemetry.jsonl (es del usuario, no del servidor)</li><li>exportar/loggear la apiKey antes de borrarla</li></ul></div></div></section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>146</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 173 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>6 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(privacidad): Lote D - politica de datos, hash del prompt en el cliente y retencion efectiva (ADR-024, ADR-007 enmendado)</em> (<code>0c476ff</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/mcp-forget/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#cuando-ejecutar">Cuando ejecutar</a></li><li class="l3"><a href="#flujo">Flujo</a></li><li class="l3"><a href="#si-falla-la-llamada-al-servidor">Si falla la llamada al servidor</a></li><li class="l3"><a href="#anti-patrones">Anti-patrones</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

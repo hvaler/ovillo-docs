@@ -1,0 +1,93 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>security-audit · attacks/ssrf-attacks.md · Ovillo</title><meta name="description" content="Fichero attacks/ssrf-attacks.md de la skill security-audit"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="security-audit · attacks/ssrf-attacks.md · Ovillo"><meta property="og:description" content="Fichero attacks/ssrf-attacks.md de la skill security-audit"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/security-audit/attacks/ssrf-attacks.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/security-audit/attacks/ssrf-attacks.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/security-audit/attacks/ssrf-attacks.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de security-audit (33)</h4><ul class="sibs"><li><a href="../../../skills/security-audit/ai-security/llm-security.html">ai-security/llm-security.md</a></li><li><a href="../../../skills/security-audit/attacks/clickjacking.html">attacks/clickjacking.md</a></li><li><a href="../../../skills/security-audit/attacks/csrf-attacks.html">attacks/csrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/jwt-security.html">attacks/jwt-security.md</a></li><li><a href="../../../skills/security-audit/attacks/mass-assignment.html">attacks/mass-assignment.md</a></li><li><a href="../../../skills/security-audit/attacks/path-traversal.html">attacks/path-traversal.md</a></li><li><a href="../../../skills/security-audit/attacks/ssrf-attacks.html" class="cur">attacks/ssrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/xss-in-depth.html">attacks/xss-in-depth.md</a></li><li><a href="../../../skills/security-audit/attacks/xxe-attacks.html">attacks/xxe-attacks.md</a></li><li><a href="../../../skills/security-audit/checklists/api-security.html">checklists/api-security.md</a></li><li><a href="../../../skills/security-audit/checklists/code-review-security.html">checklists/code-review-security.md</a></li><li><a href="../../../skills/security-audit/checklists/http-methods-security.html">checklists/http-methods-security.md</a></li><li><a href="../../../skills/security-audit/checklists/post-remediation.html">checklists/post-remediation.md</a></li><li><a href="../../../skills/security-audit/checklists/pre-deployment.html">checklists/pre-deployment.md</a></li><li><a href="../../../skills/security-audit/checklists/wstg-checklist.html">checklists/wstg-checklist.md</a></li><li><a href="../../../skills/security-audit/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/security-audit/mobile/owasp-mastg.html">mobile/owasp-mastg.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-dotnet.html">owasp/owasp-dotnet.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-frameworks.html">owasp/owasp-frameworks.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-top10-2025.html">owasp/owasp-top10-2025.md</a></li><li><a href="../../../skills/security-audit/patterns/attack-surface-mapping.html">patterns/attack-surface-mapping.md</a></li><li><a href="../../../skills/security-audit/patterns/authentication-patterns.html">patterns/authentication-patterns.md</a></li><li><a href="../../../skills/security-audit/patterns/secret-detection.html">patterns/secret-detection.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-coding-checklist.html">patterns/secure-coding-checklist.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-headers.html">patterns/secure-headers.md</a></li><li><a href="../../../skills/security-audit/reports/cwe-references.html">reports/cwe-references.md</a></li><li><a href="../../../skills/security-audit/reports/mitigation-plan.html">reports/mitigation-plan.md</a></li><li><a href="../../../skills/security-audit/reports/report-format.html">reports/report-format.md</a></li><li><a href="../../../skills/security-audit/templates/AttackSimulation.html">templates/AttackSimulation.md</a></li><li><a href="../../../skills/security-audit/templates/SecureStartup.cs.html">templates/SecureStartup.cs.template</a></li><li><a href="../../../skills/security-audit/templates/SecurityHeaders.cs.html">templates/SecurityHeaders.cs.template</a></li><li><a href="../../../skills/security-audit/tools/context7-security.html">tools/context7-security.md</a></li><li><a href="../../../skills/security-audit/tools/sast-integration.html">tools/sast-integration.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/security-audit.html">security-audit</a></span><span>attacks</span><span>ssrf-attacks.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>security-audit</span><span>attacks/</span></div><h1>ssrf-attacks.md</h1><p class="lede">Referencia que <code>security-audit</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/security-audit.html">security-audit</a></b><span>skill</span></div><div><b>attacks</b><span>carpeta</span></div><div><b>2724 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: security-audit</p></blockquote>
+<p class="lede">Falsificacion de solicitudes del lado del servidor: el atacante hace que el servidor realice peticiones a recursos internos.</p>
+<blockquote><p>Ver tambien: <code>owasp/owasp-top10-2025.md</code> (A10), <code>patterns/secure-coding-checklist.md</code></p></blockquote>
+<hr>
+<section class="sec" id="sec-vectores-de-ataque">
+<h3 id="vectores-de-ataque">Vectores de Ataque</h3>
+<pre><code># Escaneo de red interna
+http://192.168.1.1/admin
+http://10.0.0.1:8080/api-interna
+http://localhost:6379/    (Redis)
+
+# Metadatos cloud
+http://169.254.169.254/latest/meta-data/    (AWS)
+http://169.254.169.254/metadata/instance    (Azure)
+http://metadata.google.internal/            (GCP)
+
+# Acceso a archivos via generadores PDF
+&lt;iframe src=&quot;file:///etc/passwd&quot; width=&quot;400&quot; height=&quot;400&quot;&gt;
+&lt;iframe src=&quot;file:///c:/windows/win.ini&quot; width=&quot;400&quot; height=&quot;400&quot;&gt;
+
+# Contrabando de protocolos
+gopher://servidor-interno:25/
+dict://servidor-interno:11211/</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-prevencion">
+<h3 id="prevencion">Prevencion</h3>
+<h4 id="c--net-10">C# / .NET 10</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// INSEGURO - URL del user sin validar</span>
+<span class="tk-k">var</span> url = request.QueryString[<span class="tk-s">&quot;url&quot;</span>];
+<span class="tk-k">var</span> response = <span class="tk-k">await</span> _httpClient.GetAsync(url);
+
+<span class="tk-c">// SEGURO - Whitelist de dominios permitidos</span>
+<span class="tk-k">var</span> allowedDomains = <span class="tk-k">new</span>[] { <span class="tk-s">&quot;api.example.org&quot;</span>, <span class="tk-s">&quot;services.example.org&quot;</span> };
+<span class="tk-k">var</span> uri = <span class="tk-k">new</span> Uri(request.QueryString[<span class="tk-s">&quot;url&quot;</span>]!);
+
+<span class="tk-k">if</span> (!allowedDomains.Contains(uri.Host))
+    <span class="tk-k">return</span> BadRequest(<span class="tk-s">&quot;Dominio no permitido&quot;</span>);
+
+<span class="tk-c">// Validar que no sea IP interna</span>
+<span class="tk-k">if</span> (IPAddress.TryParse(uri.Host, <span class="tk-k">out</span> <span class="tk-k">var</span> ip))
+{
+    <span class="tk-k">if</span> (IsPrivateIP(ip))
+        <span class="tk-k">return</span> BadRequest(<span class="tk-s">&quot;Acceso a IP interna no permitido&quot;</span>);
+}
+
+<span class="tk-k">var</span> response = <span class="tk-k">await</span> _httpClient.GetAsync(uri);
+
+<span class="tk-k">static</span> <span class="tk-k">bool</span> IsPrivateIP(IPAddress ip)
+{
+    byte[] bytes = ip.GetAddressBytes();
+    <span class="tk-k">return</span> bytes[<span class="tk-n">0</span>] <span class="tk-k">switch</span>
+    {
+        <span class="tk-n">10</span> =&gt; <span class="tk-k">true</span>,
+        <span class="tk-n">172</span> =&gt; bytes[<span class="tk-n">1</span>] &gt;= <span class="tk-n">16</span> &amp;&amp; bytes[<span class="tk-n">1</span>] &lt;= <span class="tk-n">31</span>,
+        <span class="tk-n">192</span> =&gt; bytes[<span class="tk-n">1</span>] == <span class="tk-n">168</span>,
+        <span class="tk-n">127</span> =&gt; <span class="tk-k">true</span>,
+        <span class="tk-n">169</span> =&gt; bytes[<span class="tk-n">1</span>] == <span class="tk-n">254</span>,
+        _ =&gt; <span class="tk-k">false</span>
+    };
+}</code></pre>
+<h4 id="python">Python</h4>
+<pre data-lang="python"><code><span class="tk-c"># SEGURO - Validar URL antes de fetch</span>
+<span class="tk-k">from</span> urllib.parse <span class="tk-k">import</span> urlparse
+<span class="tk-k">import</span> ipaddress
+
+ALLOWED_HOSTS = {<span class="tk-s">&quot;api.example.org&quot;</span>, <span class="tk-s">&quot;services.example.org&quot;</span>}
+
+<span class="tk-k">def</span> safe_fetch(url: str):
+    parsed = urlparse(url)
+    <span class="tk-k">if</span> parsed.hostname <span class="tk-k">not</span> <span class="tk-k">in</span> ALLOWED_HOSTS:
+        <span class="tk-k">raise</span> ValueError(<span class="tk-s">&quot;Dominio no permitido&quot;</span>)
+    <span class="tk-k">try</span>:
+        ip = ipaddress.ip_address(parsed.hostname)
+        <span class="tk-k">if</span> ip.is_private:
+            <span class="tk-k">raise</span> ValueError(<span class="tk-s">&quot;IP interna no permitida&quot;</span>)
+    <span class="tk-k">except</span> ValueError:
+        <span class="tk-k">pass</span>  <span class="tk-c"># Es hostname, no IP</span>
+    <span class="tk-k">return</span> requests.get(url, timeout=<span class="tk-n">10</span>)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist">
+<h3 id="checklist">Checklist</h3>
+<ul>
+<li><input type="checkbox" disabled> Whitelist de dominios permitidos para peticiones salientes</li>
+<li><input type="checkbox" disabled> Bloquear acceso a IPs privadas (10.x, 172.16-31.x, 192.168.x)</li>
+<li><input type="checkbox" disabled> Bloquear acceso a metadatos cloud (169.254.169.254)</li>
+<li><input type="checkbox" disabled> No pasar URLs del usuario directamente a generadores PDF/imagen</li>
+<li><input type="checkbox" disabled> Timeout corto en peticiones salientes</li>
+</ul>
+<hr>
+<p><em>Pattern 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/security-audit.html#ficheros">← Volver a la ficha de security-audit</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/security-audit/attacks/path-traversal.html"><small>Anterior</small>attacks/path-traversal.md</a><a class="next" href="../../../skills/security-audit/attacks/xss-in-depth.html"><small>Siguiente</small>attacks/xss-in-depth.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/security-audit/attacks/ssrf-attacks.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#vectores-de-ataque">Vectores de Ataque</a></li><li class="l2"><a href="#prevencion">Prevencion</a></li><li class="l3"><a href="#c--net-10">C# / .NET 10</a></li><li class="l3"><a href="#python">Python</a></li><li class="l2"><a href="#checklist">Checklist</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

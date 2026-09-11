@@ -1,0 +1,155 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Smoke 03 · Convenciones locales del proyecto · Ovillo</title><meta name="description" content="Smoke 03 · Convenciones locales del proyecto"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Smoke 03 · Convenciones locales del proyecto · Ovillo"><meta property="og:description" content="Smoke 03 · Convenciones locales del proyecto"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/03-conventions.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/03-conventions.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/03-conventions.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Verificación (5)</h4><ul class="sibs"><li><a href="../guias/01-activation.html">Smoke 01 · Activacion de skills</a></li><li><a href="../guias/02-compilation.html">Smoke 02 · Compilacion</a></li><li><a href="../guias/03-conventions.html" class="cur">Smoke 03 · Convenciones locales del proyecto</a></li><li><a href="../guias/eval-gap-template.html">Plantilla · Work Item «Eval gap»</a></li><li><a href="../guias/smoke-tests-readme.html">Ovillo · Smoke Tests del proyecto consumidor</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Verificación</span><span>Smoke 03 · Convenciones locales del proyecto</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Verificación</span><span>español</span></div><h1>Smoke 03 · Convenciones locales del proyecto</h1><div class="meta-grid"><div><b>3 min</b><span>lectura</span></div><div><b>686</b><span>palabras</span></div><div><b>6</b><span>secciones</span></div><div><b>2026-09-07</b><span>última edición</span></div><div><b>3</b><span>cambios</span></div></div><blockquote><p>Verifica que el codigo generado por skills <strong>respeta las particularidades de este proyecto</strong> aunque compile. Una skill puede generar codigo valido en general pero que rompa la nomenclatura de la organización, use el schema equivocado, introduzca dependencias que violen pins de NuGet o mezcle estilos.</p></blockquote>
+<hr>
+<section class="sec" id="sec-pre-requisitos">
+<h3 id="pre-requisitos">Pre-requisitos</h3>
+<ul>
+<li>Tests 01-activation y 02-compilation en <strong>PASS</strong>.</li>
+<li>Working tree limpio (<code>git status</code>).</li>
+<li><code>ESTADO_PROYECTO.json</code> con la configuracion del proyecto actualizada.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-generico-todos-los-proyectos-de-la-organización">
+<h3 id="checklist-generico-todos-los-proyectos-de-la-organización">Checklist generico (todos los proyectos de la organización)</h3>
+<p>Ejecutar tras generar codigo con alguna skill. Cada <code>[ ]</code> es un check manual o con <code>grep</code>:</p>
+<ul>
+<li><input type="checkbox" disabled> Namespace respeta el patron <code>{namespacePrefix}.&lt;Area&gt;.&lt;Proyecto&gt;.&lt;Capa&gt;</code>.</li>
+<li><input type="checkbox" disabled> No se introducen <code>using System.Threading.Tasks.Extensions</code> innecesarios.</li>
+<li><input type="checkbox" disabled> Ningun <code>catch (Exception ex) { }</code> vacio (siempre loggear o re-lanzar).</li>
+<li><input type="checkbox" disabled> Ningun hardcoded secret (<code>password</code>, <code>api_key</code>, <code>connection string</code> con credenciales).</li>
+<li><input type="checkbox" disabled> No se usa <code>Console.WriteLine</code> en codigo de produccion.</li>
+<li><input type="checkbox" disabled> Campos privados con prefijo <code>_camelCase</code>, propiedades <code>PascalCase</code>.</li>
+<li><input type="checkbox" disabled> Metodos <code>async</code> tienen sufijo <code>Async</code>.</li>
+<li><input type="checkbox" disabled> Tests siguen <code>&lt;Metodo&gt;_&lt;Condicion&gt;_&lt;ResultadoEsperado&gt;</code>.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-por-perfil-de-proyecto">
+<h3 id="checklist-por-perfil-de-proyecto">Checklist por perfil de proyecto</h3>
+<p>Selecciona el bloque que aplica a este proyecto y recorre sus checks. Si el proyecto es mixto, aplica varios.</p>
+<h4 id="perfil-a--net-48--dapper--schema-propio-licensemanager-billing">Perfil A · <code>.NET 4.8</code> + Dapper + schema propio (LicenseManager, Billing)</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>TargetFramework</code> sigue siendo <code>net48</code> tras la generacion (no <code>net10.0</code>).</li>
+<li><input type="checkbox" disabled> Ningun <code>using Microsoft.EntityFrameworkCore;</code> introducido.</li>
+<li><input type="checkbox" disabled> SPs generados usan el schema correcto (<code>lic.</code>, <code>ewp.</code>, no <code>dbo.</code> por defecto).</li>
+<li><input type="checkbox" disabled> Los nombres de SPs siguen el patron del ecosistema <strong>sin prefijo</strong> <code>usp_</code>/<code>sp_</code>/<code>pr_</code>.</li>
+<li><input type="checkbox" disabled> <code>SET NOCOUNT ON;</code> como primera instruccion en cada SP.</li>
+<li><input type="checkbox" disabled> Parametros tipados (no <code>sql_variant</code>), sin <code>SELECT *</code>.</li>
+<li><input type="checkbox" disabled> Funciones SI llevan prefijo <code>fn_</code> / <code>fnt_</code>, vistas <code>vw_</code>.</li>
+<li><input type="checkbox" disabled> No se introducen NuGets v10+ incompatibles (<code>Azure.Core &gt; 1.50</code>, <code>Microsoft.Extensions.* &gt; 10.0.x</code>).</li>
+</ul>
+<h4 id="perfil-b--net-10--ef-core--clean-architecture-mycompanyexchange-proyectos-nuevos">Perfil B · <code>.NET 10</code> + EF Core + Clean Architecture (MyCompany.Exchange, proyectos nuevos)</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>TargetFramework</code> = <code>net10.0</code>.</li>
+<li><input type="checkbox" disabled> Entidades en <code>Domain/</code>, servicios en <code>Application/</code>, repos en <code>Infrastructure/</code>.</li>
+<li><input type="checkbox" disabled> DbContext usa <code>Set&lt;T&gt;()</code> (no campos <code>DbSet</code> con autoproperties simples).</li>
+<li><input type="checkbox" disabled> Consultas de lectura con <code>AsNoTracking()</code>.</li>
+<li><input type="checkbox" disabled> Valida con FluentValidation, no con DataAnnotations solas.</li>
+<li><input type="checkbox" disabled> Minimal API o Controller segun convencion del proyecto (no mezclar ambas).</li>
+<li><input type="checkbox" disabled> Nullable reference types activado en proyectos nuevos.</li>
+</ul>
+<h4 id="perfil-c--integraciones-externas-portal-banner-oracle-hcm-sigma">Perfil C · Integraciones externas (Portal, Banner, Oracle HCM, Sigma)</h4>
+<ul>
+<li><input type="checkbox" disabled> El endpoint integrado mantiene compatibilidad con la version API declarada.</li>
+<li><input type="checkbox" disabled> Credenciales desde Azure Key Vault, nunca en <code>appsettings</code>.</li>
+<li><input type="checkbox" disabled> <code>HttpClient</code> via <code>IHttpClientFactory</code> con politica Polly.</li>
+<li><input type="checkbox" disabled> Retry con backoff, no blind retries.</li>
+<li><input type="checkbox" disabled> Logs estructurados (Serilog) con el EndpointId + StatusCode.</li>
+<li><input type="checkbox" disabled> Compatible con Factsheet API v1.2.0 (caso Exchange).</li>
+<li><input type="checkbox" disabled> Compatible con <code>FOR JSON PATH</code> (caso Billing).</li>
+<li><input type="checkbox" disabled> Manifest XML no se corrompe al editar endpoints (caso Exchange).</li>
+</ul>
+<h4 id="perfil-d--proyectos-con-azure-devops-devopsexampleorg">Perfil D · Proyectos con Azure DevOps (devops.example.org)</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>api-version=6.0</code> en llamadas REST (no <code>7.0</code>, que es solo cloud).</li>
+<li><input type="checkbox" disabled> Autenticacion NTLM <code>--negotiate -u :</code> (no PAT ni OAuth).</li>
+<li><input type="checkbox" disabled> Estados de work items correctos segun proceso (Scrum: <code>Committed</code>, Basic: <code>Doing</code>, Agile: <code>Active</code>). <strong>Nunca <code>In Progress</code></strong>.</li>
+<li><input type="checkbox" disabled> Widgets Markdown: <code>settings</code> es markdown crudo, NO <code>{&quot;content&quot;:&quot;...&quot;}</code>.</li>
+<li><input type="checkbox" disabled> <code>contributionId</code> correcto: <code>ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.MarkdownWidget</code>.</li>
+<li><input type="checkbox" disabled> Team tiene <code>includeChildren: true</code> tras crear sub-areas (fix Fase 3f.1).</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-verificacion-automatizada-grep-post-generacion">
+<h3 id="verificacion-automatizada-grep-post-generacion">Verificacion automatizada (grep post-generacion)</h3>
+<p>Guardar el siguiente script en <code>scripts/check-conventions.ps1</code> y ejecutarlo tras generar codigo con una skill:</p>
+<pre data-lang="powershell"><code><span class="tk-c">#Requires -Version 5.1</span>
+<span class="tk-c"># Corre grep sobre el diff y reporta violaciones. Exit 1 si encuentra alguna.</span>
+
+<span class="tk-k">param</span>(
+    [string]<span class="tk-v">$Profile</span> = <span class="tk-s">'A'</span>,     <span class="tk-c"># A=.NET4.8 Dapper, B=.NET10 EF, C=Integraciones, D=AzDO</span>
+    [string]<span class="tk-v">$BaselineSha</span> = <span class="tk-s">'HEAD~1'</span>
+)
+
+<span class="tk-v">$violations</span> = @()
+<span class="tk-v">$changed</span> = git diff --name-only <span class="tk-v">$BaselineSha</span> HEAD
+
+<span class="tk-k">foreach</span> (<span class="tk-v">$f</span> <span class="tk-k">in</span> <span class="tk-v">$changed</span>) {
+    <span class="tk-k">if</span> (-not (Test-Path <span class="tk-v">$f</span>)) { <span class="tk-k">continue</span> }
+
+    <span class="tk-v">$content</span> = Get-Content <span class="tk-v">$f</span> -Raw -ErrorAction SilentlyContinue
+    <span class="tk-k">if</span> (-not <span class="tk-v">$content</span>) { <span class="tk-k">continue</span> }
+
+    <span class="tk-c"># Checks universales</span>
+    <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'catch\s*\(\s*Exception\s+\w+\s*\)\s*\{\s*\}'</span>) {
+        <span class="tk-v">$violations</span> += <span class="tk-s">&quot;  [UNIV] catch vacio en $f&quot;</span>
+    }
+    <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'Console\.WriteLine'</span>) {
+        <span class="tk-v">$violations</span> += <span class="tk-s">&quot;  [UNIV] Console.WriteLine en $f&quot;</span>
+    }
+    <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'(password|apiKey|api_key)\s*=\s*[&quot;'</span><span class="tk-s">'][^&quot;'</span><span class="tk-s">'$\{]+[&quot;'</span><span class="tk-s">']'</span>) {
+        <span class="tk-v">$violations</span> += <span class="tk-s">&quot;  [UNIV] posible secret hardcoded en $f&quot;</span>
+    }
+
+    <span class="tk-c"># Checks por perfil</span>
+    <span class="tk-k">switch</span> (<span class="tk-v">$Profile</span>) {
+        <span class="tk-s">'A'</span> {
+            <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'using Microsoft\.EntityFrameworkCore'</span>) {
+                <span class="tk-v">$violations</span> += <span class="tk-s">&quot;  [A] EF Core en proyecto Dapper: $f&quot;</span>
+            }
+            <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'CREATE PROCEDURE\s+(usp_|sp_|pr_)'</span>) {
+                <span class="tk-v">$violations</span> += <span class="tk-s">&quot;  [A] SP con prefijo usp_/sp_/pr_ en $f&quot;</span>
+            }
+            <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'SELECT\s+\*'</span> -and <span class="tk-v">$f</span> -match <span class="tk-s">'\.sql$'</span>) {
+                <span class="tk-v">$violations</span> += <span class="tk-s">&quot;  [A] SELECT * en $f&quot;</span>
+            }
+        }
+        <span class="tk-s">'B'</span> {
+            <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'&lt;TargetFramework&gt;net48&lt;/TargetFramework&gt;'</span> -and <span class="tk-v">$f</span> -match <span class="tk-s">'\.csproj$'</span>) {
+                <span class="tk-v">$violations</span> += <span class="tk-s">&quot;  [B] Proyecto nuevo con TFM net48: $f&quot;</span>
+            }
+        }
+        <span class="tk-s">'D'</span> {
+            <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'api-version=7\.'</span>) {
+                <span class="tk-v">$violations</span> += <span class="tk-s">&quot;  [D] api-version 7.x en Azure DevOps Server: $f&quot;</span>
+            }
+            <span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'&quot;In Progress&quot;'</span>) {
+                <span class="tk-v">$violations</span> += <span class="tk-s">&quot;  [D] Estado 'In Progress' en work item: $f&quot;</span>
+            }
+        }
+    }
+}
+
+<span class="tk-k">if</span> (<span class="tk-v">$violations</span>.Count -eq <span class="tk-n">0</span>) {
+    Write-Host <span class="tk-s">&quot;Conventions smoke: PASS&quot;</span>
+    <span class="tk-k">exit</span> <span class="tk-n">0</span>
+} <span class="tk-k">else</span> {
+    Write-Host <span class="tk-s">&quot;Conventions smoke: FAIL&quot;</span>
+    <span class="tk-v">$violations</span> | ForEach-Object { Write-Host <span class="tk-v">$_</span> }
+    <span class="tk-k">exit</span> <span class="tk-n">1</span>
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-criterios-de-aceptacion">
+<h3 id="criterios-de-aceptacion">Criterios de aceptacion</h3>
+<ul>
+<li><strong>PASS</strong>: cero violaciones del checklist aplicable al perfil.</li>
+<li><strong>WARN</strong>: 1-2 violaciones menores (estilo) → corregir a mano, seguir.</li>
+<li><strong>FAIL</strong>: violacion critica (EF en Dapper, <code>In Progress</code>, secret hardcoded) → revertir cambios y abrir Work Item «Eval gap».</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-mantener-este-checklist-vivo">
+<h3 id="mantener-este-checklist-vivo">Mantener este checklist vivo</h3>
+<p>Cuando aparezca una nueva convencion en este proyecto (ej. nueva integracion, nuevo ORM), <strong>anadela aqui</strong> en el bloque de perfil correspondiente. El smoke es especifico de este proyecto; el constructor no sabe cuales son vuestras particularidades hasta que las documentais.</p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/.claude/smoke-tests/03-conventions.md</code></span></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/02-compilation.html"><small>Anterior</small>Smoke 02 · Compilacion</a><a class="next" href="../guias/eval-gap-template.html"><small>Siguiente</small>Plantilla · Work Item «Eval gap»</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/smoke-tests/03-conventions.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#pre-requisitos">Pre-requisitos</a></li><li class="l2"><a href="#checklist-generico-todos-los-proyectos-de-la-organización">Checklist generico (todos los proyectos de la organización)</a></li><li class="l2"><a href="#checklist-por-perfil-de-proyecto">Checklist por perfil de proyecto</a></li><li class="l3"><a href="#perfil-a--net-48--dapper--schema-propio-licensemanager-billing">Perfil A · .NET 4.8 + Dapper + schema propio (LicenseManager, Billing)</a></li><li class="l3"><a href="#perfil-b--net-10--ef-core--clean-architecture-mycompanyexchange-proyectos-nuevos">Perfil B · .NET 10 + EF Core + Clean Architecture (MyCompany.Exchange, proyectos nuevos)</a></li><li class="l3"><a href="#perfil-c--integraciones-externas-portal-banner-oracle-hcm-sigma">Perfil C · Integraciones externas (Portal, Banner, Oracle HCM, Sigma)</a></li><li class="l3"><a href="#perfil-d--proyectos-con-azure-devops-devopsexampleorg">Perfil D · Proyectos con Azure DevOps (devops.example.org)</a></li><li class="l2"><a href="#verificacion-automatizada-grep-post-generacion">Verificacion automatizada (grep post-generacion)</a></li><li class="l2"><a href="#criterios-de-aceptacion">Criterios de aceptacion</a></li><li class="l2"><a href="#mantener-este-checklist-vivo">Mantener este checklist vivo</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

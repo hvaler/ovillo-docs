@@ -1,0 +1,141 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · templates/Provision-QualityCiKey.github.ps1.template · Ovillo</title><meta name="description" content="Fichero templates/Provision-QualityCiKey.github.ps1.template de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · templates/Provision-QualityCiKey.github.ps1.template · Ovillo"><meta property="og:description" content="Fichero templates/Provision-QualityCiKey.github.ps1.template de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html" class="cur">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/cicd-architect.html">cicd-architect</a></span><span>templates</span><span>Provision-QualityCiKey.github.ps1.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>templates/</span><span>8205 B</span></div><h1>Provision-QualityCiKey.github.ps1.template</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>8205 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code><span class="tk-c">#Requires -Version 5.1</span>
+&lt;<span class="tk-c">#</span>
+.SYNOPSIS
+    Zero-touch de la HUB_SERVICE_KEY del QR de calidad en un repositorio de GitHub.
+
+.DESCRIPTION
+    Homologo de Provision-QualityCiKey.ps1.template para cicd.platform = github-actions.
+    Aprovisiona la service-key del dashboard de calidad SIN intervencion manual:
+      <span class="tk-n">1</span>. Resuelve la apiKey per-dev del consumidor (_hilo/.mcp-credentials.json).
+      <span class="tk-n">2</span>. Pide al Hub que EMITA/ROTE la service-key del proyecto (POST /v2/sync/emit-service-key).
+         La key viaja en memoria; NUNCA se imprime ni se pasa por linea de comandos.
+      <span class="tk-n">3</span>. La guarda como secret de GitHub Actions (HUB_SERVICE_KEY) con `gh secret set` leyendo de STDIN
+         (nunca con --body: quedaria en el historial de la shell). Secret de repositorio por defecto;
+         con -Env, secret del environment indicado.
+      <span class="tk-n">4</span>. Publica HUB_PROJECT_ID como variable (<span class="tk-k">no</span> secreta) con `gh variable set`.
+    Lo invoca /cicd-init FASE <span class="tk-n">2.7</span> (opcion Auto) en proyectos GitHub. Degrada con elegancia: si falla,
+    /cicd-init cae al flujo manual (admin emite por SQL + `gh secret set HUB_SERVICE_KEY &lt; key.txt`) y la
+    composite action quality-sync sigue siendo best-effort (sin key -&gt; avisa, <span class="tk-k">no</span> rompe el workflow).
+
+    <span class="tk-k">No</span> hay <span class="tk-s">&quot;autorizacion del Variable Group&quot;</span>: los secrets de repositorio los lee cualquier workflow del repo;
+    los de environment, solo los jobs con ese `environment:`. Requiere `gh` autenticado con scope `repo` y
+    permiso de administracion sobre el repositorio (secrets). Rotacion: -Rotate.
+
+    NUNCA imprime la service-key (stdout solo [OK]/[WARN] + nombres).
+
+.PARAMETER ProjectId   GUID del proyecto en el Hub (default: el de .mcp-credentials.json).
+.PARAMETER ServerUrl   Base del Hub (default: el de .mcp-credentials.json; se normaliza /mcp -&gt; /hub).
+.PARAMETER Repo        owner/repo de GitHub (default: el del remoto, via `gh repo view`).
+.PARAMETER Env         Environment de GitHub donde guardar el secret (vacio = secret de repositorio).
+.PARAMETER Label       Etiqueta de la service-key (default ci-quality).
+.PARAMETER Rotate      Fuerza nueva emision aunque el secret ya exista.
+.PARAMETER WhatIf      Muestra lo que haria sin emitir ni escribir nada.
+
+.OUTPUTS
+    exit <span class="tk-n">0</span> = OK                                   | <span class="tk-n">3</span> = sin apiKey (-&gt; manual)
+    exit <span class="tk-n">4</span> = <span class="tk-n">401</span> del Hub (apiKey rotada)          | <span class="tk-n">5</span> = <span class="tk-n">404</span> del Hub (&lt; <span class="tk-n">1.7</span>.<span class="tk-n">0</span> -&gt; manual)
+    exit <span class="tk-n">6</span> = gh <span class="tk-k">no</span> autenticado / sin permiso / fallo al escribir el secret (-&gt; manual)
+<span class="tk-c">#&gt;</span>
+[CmdletBinding()]
+param(
+    [string] $ProjectId = <span class="tk-s">'{{HUB_PROJECT_ID}}'</span>,
+    [string] $ServerUrl = <span class="tk-s">'{{HUB_SERVER_URL}}'</span>,
+    [string] $Repo      = <span class="tk-s">'{{GITHUB_REPO}}'</span>,
+    [string] $Env       = <span class="tk-s">''</span>,
+    [string] $Label     = <span class="tk-s">'ci-quality'</span>,
+    [switch] $Rotate,
+    [switch] $WhatIf
+)
+
+$ErrorActionPreference = <span class="tk-s">'Stop'</span>
+try {
+    [Net.ServicePointManager]::SecurityProtocol =
+        [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13
+} catch { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 }
+
+function Get-HttpStatus($err) {
+    try { return [int]$err.Exception.Response.StatusCode } catch { return <span class="tk-n">0</span> }
+}
+
+<span class="tk-c"># --- 0. gh autenticado y repo resuelto ---</span>
+if (-not (Get-Command gh -ErrorAction SilentlyContinue)) { Write-Host <span class="tk-s">&quot;[ERR] gh (GitHub CLI) no esta instalado (https://cli.github.com). -&gt; manual&quot;</span>; exit <span class="tk-n">6</span> }
+$auth = (&amp; gh auth status <span class="tk-n">2</span>&gt;&amp;<span class="tk-n">1</span> | Out-String)
+if ($auth -notmatch <span class="tk-s">'Logged in'</span>) { Write-Host <span class="tk-s">&quot;[ERR] gh sin sesion. Ejecuta 'gh auth login'. -&gt; manual&quot;</span>; exit <span class="tk-n">6</span> }
+if ([string]::IsNullOrWhiteSpace($Repo) -or $Repo -like <span class="tk-s">'{{*}}'</span>) {
+    try { $Repo = (&amp; gh repo view --json nameWithOwner --jq .nameWithOwner <span class="tk-n">2</span>&gt;$<span class="tk-k">null</span> | Out-String).Trim() } catch { $Repo = <span class="tk-s">''</span> }
+}
+if ([string]::IsNullOrWhiteSpace($Repo)) { Write-Host <span class="tk-s">&quot;[ERR] No se pudo resolver owner/repo (pasa -Repo). -&gt; manual&quot;</span>; exit <span class="tk-n">6</span> }
+
+<span class="tk-c"># --- 1. Resolver apiKey per-dev + serverUrl + projectId (NO imprimir la apiKey) ---</span>
+$credPath = Join-Path (Get-Location) <span class="tk-s">'_hilo/.mcp-credentials.json'</span>
+if (-not (Test-Path $credPath)) {
+    Write-Host <span class="tk-s">&quot;[ERR] No existe _hilo/.mcp-credentials.json. Ejecuta /hv:mcp-register en este repo, o usa el flujo manual (FASE 2.7).&quot;</span>
+    exit <span class="tk-n">3</span>
+}
+$cred = Get-Content $credPath -Raw | ConvertFrom-Json
+$apiKey = $cred.apiKey
+if ([string]::IsNullOrWhiteSpace($apiKey)) { Write-Host <span class="tk-s">&quot;[ERR] .mcp-credentials.json sin apiKey -&gt; flujo manual.&quot;</span>; exit <span class="tk-n">3</span> }
+if ([string]::IsNullOrWhiteSpace($ProjectId) -or $ProjectId -like <span class="tk-s">'{{*}}'</span>) { $ProjectId = $cred.projectId }
+if ([string]::IsNullOrWhiteSpace($ServerUrl) -or $ServerUrl -like <span class="tk-s">'{{*}}'</span>) { $ServerUrl = $cred.serverUrl }
+if ($cred.projectId -and $ProjectId -and ($cred.projectId -ne $ProjectId)) {
+    Write-Host <span class="tk-s">&quot;[ERR] El projectId pedido ($ProjectId) no coincide con el de tus credenciales ($($cred.projectId)). Abortando por seguridad.&quot;</span>
+    exit <span class="tk-n">3</span>
+}
+$hub = ($ServerUrl -replace <span class="tk-s">'/+$'</span>,<span class="tk-s">''</span>) -replace <span class="tk-s">'/mcp$'</span>,<span class="tk-s">'/hub'</span>
+
+<span class="tk-c"># --- 2. Ya existe el secret? (sin -Rotate, no re-emitir) ---</span>
+$secretArgs = @(<span class="tk-s">'secret'</span>, <span class="tk-s">'list'</span>, <span class="tk-s">'-R'</span>, $Repo, <span class="tk-s">'--json'</span>, <span class="tk-s">'name'</span>, <span class="tk-s">'--jq'</span>, <span class="tk-s">'.[].name'</span>)
+if ($Env) { $secretArgs += @(<span class="tk-s">'-e'</span>, $Env) }
+$existing = @()
+try { $existing = @((&amp; gh @secretArgs <span class="tk-n">2</span>&gt;$<span class="tk-k">null</span> | Out-String) -split <span class="tk-s">&quot;`r?`n&quot;</span> | Where-Object { $_ }) } catch { $existing = @() }
+$yaExiste = $existing -contains <span class="tk-s">'HUB_SERVICE_KEY'</span>
+if ($yaExiste -and -not $Rotate) {
+    Write-Host <span class="tk-s">&quot;[OK] HUB_SERVICE_KEY ya existe en $Repo$(if ($Env) { &quot;</span> (environment $Env)<span class="tk-s">&quot; }). Nada que hacer (usa -Rotate para reemitir).&quot;</span>
+    exit <span class="tk-n">0</span>
+}
+
+<span class="tk-c"># --- 3. Emitir/rotar la service-key via Hub (en memoria) ---</span>
+$svcKey = $<span class="tk-k">null</span>; $revoked = <span class="tk-n">0</span>
+if ($WhatIf) {
+    Write-Host <span class="tk-s">&quot;[WHATIF] Emitiria service-key (label '$Label') para $ProjectId via $hub/v2/sync/emit-service-key&quot;</span>
+    Write-Host <span class="tk-s">&quot;[WHATIF] gh secret set HUB_SERVICE_KEY -R $Repo$(if ($Env) { &quot;</span> -e $Env<span class="tk-s">&quot; }) (valor por STDIN) | gh variable set HUB_PROJECT_ID -R $Repo --body &lt;GUID&gt;&quot;</span>
+    exit <span class="tk-n">0</span>
+}
+$emitBody = @{ projectId = $ProjectId; label = $Label } | ConvertTo-Json
+try {
+    $resp = Invoke-RestMethod <span class="tk-s">&quot;$hub/v2/sync/emit-service-key&quot;</span> -Method POST `
+              -Headers @{ <span class="tk-s">'X-Hub-Api-Key'</span> = $apiKey; <span class="tk-s">'Content-Type'</span> = <span class="tk-s">'application/json'</span> } `
+              -Body $emitBody -TimeoutSec <span class="tk-n">30</span>
+    $svcKey = $resp.serviceKey
+    $revoked = [int]$resp.revokedPrevious
+} catch {
+    $code = Get-HttpStatus $_
+    if ($code -eq <span class="tk-n">401</span>) { Write-Host <span class="tk-s">&quot;[ERR] Hub 401: tu apiKey per-dev no autentica (rotada?). Re-ejecuta /hv:mcp-register. -&gt; manual&quot;</span>; exit <span class="tk-n">4</span> }
+    if ($code -eq <span class="tk-n">404</span>) { Write-Host <span class="tk-s">&quot;[ERR] Hub 404: el endpoint emit-service-key no existe (Hub &lt; 1.7.0). -&gt; manual&quot;</span>; exit <span class="tk-n">5</span> }
+    Write-Host <span class="tk-s">&quot;[ERR] Hub emit-service-key fallo (HTTP $code): $($_.Exception.Message) -&gt; manual&quot;</span>; exit <span class="tk-n">5</span>
+}
+if ([string]::IsNullOrWhiteSpace($svcKey)) { Write-Host <span class="tk-s">&quot;[ERR] El Hub no devolvio service-key. -&gt; manual&quot;</span>; exit <span class="tk-n">5</span> }
+
+<span class="tk-c"># --- 4. Guardar el secret por STDIN (gh recorta el salto de linea final) ---</span>
+$setArgs = @(<span class="tk-s">'secret'</span>, <span class="tk-s">'set'</span>, <span class="tk-s">'HUB_SERVICE_KEY'</span>, <span class="tk-s">'-R'</span>, $Repo)
+if ($Env) { $setArgs += @(<span class="tk-s">'-e'</span>, $Env) }
+try {
+    $out = ($svcKey | &amp; gh @setArgs <span class="tk-n">2</span>&gt;&amp;<span class="tk-n">1</span> | Out-String)
+    if ($LASTEXITCODE -ne <span class="tk-n">0</span>) { throw <span class="tk-s">&quot;gh secret set exit ${LASTEXITCODE}: $out&quot;</span> }
+} catch {
+    Write-Host <span class="tk-s">&quot;[ERR] No se pudo escribir el secret en GitHub: $($_.Exception.Message -replace [regex]::Escape($svcKey), '***'). Comprueba permisos de admin sobre $Repo. -&gt; manual&quot;</span>
+    Write-Host <span class="tk-s">&quot;      La service-key YA fue emitida en el Hub ($revoked anteriores revocadas); reintenta este script con -Rotate o pega la key a mano: gh secret set HUB_SERVICE_KEY -R $Repo &lt; key.txt&quot;</span>
+    exit <span class="tk-n">6</span>
+}
+$svcKey = $<span class="tk-k">null</span>   <span class="tk-c"># soltar la referencia cuanto antes</span>
+
+<span class="tk-c"># --- 5. Variable no secreta con el projectId ---</span>
+try {
+    &amp; gh variable set HUB_PROJECT_ID -R $Repo --body $ProjectId <span class="tk-n">2</span>&gt;&amp;<span class="tk-n">1</span> | Out-Null
+    if ($LASTEXITCODE -ne <span class="tk-n">0</span>) { Write-Host <span class="tk-s">&quot;[WARN] gh variable set HUB_PROJECT_ID fallo; la composite action quality-sync avisara hasta que exista.&quot;</span> }
+} catch { Write-Host <span class="tk-s">&quot;[WARN] gh variable set HUB_PROJECT_ID fallo: $($_.Exception.Message)&quot;</span> }
+
+Write-Host <span class="tk-s">&quot;[OK] HUB_SERVICE_KEY guardada en $Repo$(if ($Env) { &quot;</span> (environment $Env)<span class="tk-s">&quot; }) (label '$Label'; $revoked key(s) anteriores revocadas). HUB_PROJECT_ID publicada como variable.&quot;</span>
+Write-Host <span class="tk-s">&quot;     Verifica: gh secret list -R $Repo | gh variable list -R $Repo. La proxima run del workflow ya publica el QR.&quot;</span>
+exit <span class="tk-n">0</span>
+</code></pre><p style="margin-top:32px"><a href="../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/cicd-architect/templates/github/security.yml.html"><small>Anterior</small>templates/github/security.yml.template</a><a class="next" href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html"><small>Siguiente</small>templates/Provision-QualityCiKey.ps1.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,443 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>analizar · references/formato-salida.md · Ovillo</title><meta name="description" content="Fichero references/formato-salida.md de la skill analizar"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="analizar · references/formato-salida.md · Ovillo"><meta property="og:description" content="Fichero references/formato-salida.md de la skill analizar"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/analizar/references/formato-salida.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/analizar/references/formato-salida.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/analizar/references/formato-salida.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de analizar (2)</h4><ul class="sibs"><li><a href="../../../skills/analizar/references/formato-salida.html" class="cur">references/formato-salida.md</a></li><li><a href="../../../skills/analizar/references/recordatorios-y-ejemplo.html">references/recordatorios-y-ejemplo.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/analizar.html">analizar</a></span><span>references</span><span>formato-salida.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>analizar</span><span>references/</span></div><h1>formato-salida.md</h1><p class="lede">Referencia que <code>analizar</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/analizar.html">analizar</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>30.595 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Referencia del workflow <code>analizar</code>. Se lee <strong>bajo demanda</strong> desde su <code>SKILL.md</code>, no al invocar la skill: la dieta de contexto obliga a no cargar el monolito entero.</p></blockquote>
+<hr>
+<section class="sec" id="sec-output-format-mandatory">
+<h3 id="output-format-mandatory">OUTPUT FORMAT (MANDATORY)</h3>
+<h4 id="durante-la-ejecución---mostrar-progreso-de-fases">Durante la ejecución - Mostrar progreso de fases:</h4>
+<pre><code>═══════════════════════════════════════════════════════════════════
+                      📊 ANALIZANDO PROYECTO
+═══════════════════════════════════════════════════════════════════
+
+▶ FASE 1/13: Reconocimiento General...
+  ✅ Solución encontrada: src/MiProyecto.sln (o .slnx)
+  ✅ Proyectos detectados: 5
+  ✅ Docker: Dockerfile detectado (multi-stage)
+
+▶ FASE 2/13: Inventario de Exclusiones...
+  ✅ 45 archivos JS excluidos (librerías)
+  ✅ 12 archivos CSS excluidos
+  ✅ A analizar: 127 archivos propios
+
+▶ FASE 3/13: Análisis de Seguridad 🔒...
+  ⚠️ 2 issues críticos encontrados
+  🔴 1 secret detectado en historial Git
+  ✅ Completado
+
+▶ FASE 4/13: Análisis Backend...
+  ✅ 127 archivos .cs analizados
+  ⚠️ 3 async antipatterns (.Result)
+  ⚠️ 5 queries sin AsNoTracking
+  ✅ Middleware pipeline: orden correcto
+  ✅ Completado
+
+▶ FASE 5/13: Análisis Frontend...
+  ⏭️ SKIP - No se detectaron archivos frontend propios
+
+▶ FASE 6/13: Evaluación de Conformidad...
+  ✅ Conformidad: 72%
+  ⚠️ API: Falta ProblemDetails en 3 controllers
+  ✅ Completado
+
+▶ FASE 7/13: Análisis de Dependencias...
+  ✅ 24 paquetes NuGet detectados
+  ✅ CPM: Directory.Packages.props detectado
+  ⚠️ 2 vulnerabilidades CVE encontradas
+  ✅ Completado
+
+▶ FASE 8/13: Observabilidad y Resiliencia...
+  ✅ Serilog: configurado
+  ⚠️ OpenTelemetry: no detectado
+  ✅ Health checks: /health + /ready
+  ⚠️ Polly: no configurado
+  ✅ Completado
+
+▶ FASE 9/13: CI/CD Pipeline...
+  ✅ azure-pipelines.yml detectado
+  ✅ Build + Test stages
+  ⚠️ Sin security scan
+  ✅ Completado
+
+▶ FASE 10/13: Tests y Cobertura...
+  ✅ 3 proyectos test, 45 tests
+  ✅ Cobertura: 68% global
+  ✅ Completado
+
+▶ FASE 11/13: Generando Diagramas...
+  ✅ DIAGRAMA_COMPONENTES.md
+  ✅ DIAGRAMA_DEPENDENCIAS.md
+  ✅ DIAGRAMA_ENTIDADES.md
+  ✅ DIAGRAMA_SECUENCIAS.md
+  ✅ DIAGRAMA_CLASES.md
+  ✅ DIAGRAMA_FLUJO.md
+  ✅ DIAGRAMA_DESPLIEGUE.md (con datos reales)
+  ✅ DIAGRAMA_OBSERVABILIDAD.md
+
+▶ FASE 12/13: Documentando Resultados...
+  ✅ Completado
+
+▶ FASE 13/13: Historial de Análisis...
+  ✅ HISTORIAL_ANALISIS.json actualizado (análisis #3)
+
+═══════════════════════════════════════════════════════════════════</code></pre>
+<h4 id="al-finalizar---resumen-completo">Al finalizar - Resumen completo:</h4>
+<pre><code>╔══════════════════════════════════════════════════════════════════╗
+║                    ANÁLISIS COMPLETADO                            ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📋 Proyecto: [NOMBRE]
+📅 Fecha: [FECHA_HORA]
+⏱️ Duración: [X] minutos
+📁 Código: src/
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 🚦 SEMÁFORO DE SALUD DEL PROYECTO (J1)                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  🔒 Seguridad:       [🟢/🟡/🔴]  [0 críticos = 🟢, 1-2 = 🟡, 3+ = 🔴] │
+│  🧹 Deuda Técnica:   [🟢/🟡/🔴]  [&lt;5 total = 🟢, 5-15 = 🟡, 15+ = 🔴] │
+│  📐 Conformidad:     [🟢/🟡/🔴]  [&gt;80% = 🟢, 50-80% = 🟡, &lt;50% = 🔴] │
+│  🏗️ Infraestructura: [🟢/🟡/🔴]  [CI/CD+Health+Obs = 🟢, parcial = 🟡, nada = 🔴] │
+│  🧪 Tests:           [🟢/🟡/🔴]  [&gt;70% cob = 🟢, 40-70% = 🟡, &lt;40% = 🔴] │
+│                                                                 │
+│  SALUD GLOBAL: [🟢 SALUDABLE / 🟡 REQUIERE ATENCIÓN / 🔴 CRÍTICO] │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 🚀 INDICADOR DE RIESGO DE DEPLOY (J2)                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ¿Es seguro desplegar?  [🟢 SÍ / 🟡 CON PRECAUCIÓN / 🔴 NO]    │
+│                                                                 │
+│  Factores evaluados:                                            │
+│  [✅/❌] Sin secrets expuestos en código                         │
+│  [✅/❌] Sin CVEs críticos en dependencias                       │
+│  [✅/❌] Tests pasan (cobertura &gt; 60%)                           │
+│  [✅/❌] Health checks configurados                              │
+│  [✅/❌] Pipeline CI/CD con stages                               │
+│  [✅/❌] Sin async antipatterns críticos (.Result/.Wait)          │
+│                                                                 │
+│  Riesgo: [X/6 factores OK]                                     │
+│  6/6 = 🟢 Seguro | 4-5/6 = 🟡 Precaución | &lt;4/6 = 🔴 No deploy │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 📋 FASES EJECUTADAS                                             │
+├─────────────────────────────────────────────────────────────────┤
+│ ✅ Fase 1:  Reconocimiento       → 5 proyectos detectados       │
+│ ✅ Fase 2:  Exclusiones          → 57 archivos excluidos        │
+│ ✅ Fase 3:  Seguridad            → 2 críticos, 3 importantes    │
+│ ✅ Fase 4:  Backend              → 127 archivos, 3 async issues │
+│ ⏭️ Fase 5:  Frontend             → SKIP (no detectado)          │
+│ ✅ Fase 6:  Conformidad          → 72%                          │
+│ ✅ Fase 7:  Dependencias         → 24 NuGet, 2 CVEs, CPM ✅     │
+│ ✅ Fase 8:  Observabilidad       → Serilog ✅, OTel ❌, Polly ❌ │
+│ ✅ Fase 9:  CI/CD                → Azure Pipelines, 3 stages    │
+│ ✅ Fase 10: Tests                → 68% cobertura                │
+│ ✅ Fase 11: Diagramas            → 8 generados                  │
+│ ✅ Fase 12: Documentación        → 12 archivos actualizados     │
+│ ✅ Fase 13: Historial            → Análisis #3 registrado       │
+└─────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────┐
+│ 📊 RESUMEN EJECUTIVO                                              │
+├───────────────────────┬───────────────────────────────────────────┤
+│        Métrica        │ Valor                                     │
+├───────────────────────┼───────────────────────────────────────────┤
+│ Proyectos             │ [N]                                       │
+├───────────────────────┼───────────────────────────────────────────┤
+│ Archivos .cs          │ [N]                                       │
+├───────────────────────┼───────────────────────────────────────────┤
+│ Controllers           │ [N]                                       │
+├───────────────────────┼───────────────────────────────────────────┤
+│ Servicios             │ [N]                                       │
+├───────────────────────┼───────────────────────────────────────────┤
+│ Repositorios          │ [N]                                       │
+├───────────────────────┼───────────────────────────────────────────┤
+│ Paquetes NuGet        │ [N]                                       │
+├───────────────────────┼───────────────────────────────────────────┤
+│ Tests                 │ [N] ([X]% cobertura)                      │
+├───────────────────────┼───────────────────────────────────────────┤
+│ Conformidad Plantilla │ [X]%                                      │
+└───────────────────────┴───────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────┐
+│ 📈 MÉTRICAS COMPARATIVAS (vs último análisis)                     │
+├─────────────────┬─────────┬─────────┬─────────────────────────────┤
+│ Métrica         │ Antes   │ Después │ Cambio                      │
+├─────────────────┼─────────┼─────────┼─────────────────────────────┤
+│ Conformidad     │ [X]%    │ [Y]%    │ [+/-Z]% [✅/⚠️]             │
+├─────────────────┼─────────┼─────────┼─────────────────────────────┤
+│ Deuda crítica   │ [N]     │ [M]     │ [+/-K] [✅/⚠️]              │
+├─────────────────┼─────────┼─────────┼─────────────────────────────┤
+│ Deuda importante│ [N]     │ [M]     │ [+/-K] [✅/⚠️]              │
+├─────────────────┼─────────┼─────────┼─────────────────────────────┤
+│ Deuda menor     │ [N]     │ [M]     │ [+/-K] [✅/⚠️]              │
+├─────────────────┼─────────┼─────────┼─────────────────────────────┤
+│ Total deuda     │ [N]     │ [M]     │ [+/-K] [✅/⚠️]              │
+├─────────────────┼─────────┼─────────┼─────────────────────────────┤
+│ Secrets expuest.│ [N]     │ [M]     │ [+/-K] [✅/⚠️]              │
+└─────────────────┴─────────┴─────────┴─────────────────────────────┘
+
+Nota: Si es el primer análisis, mostrar &quot;N/A&quot; en columna &quot;Antes&quot;
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 🔒 SEGURIDAD (por área)                                         │
+├─────────────────────────────────────────────────────────────────┤
+│ Backend:   🔴 [N]   🟠 [M]   🟡 [K]                             │
+│ Frontend:  🔴 [N]   🟠 [M]   🟡 [K]                             │
+│ Config:    🔴 [N]   🟠 [M]   🟡 [K]                             │
+│ ─────────────────────────────────────                           │
+│ Total:     🔴 [X]   🟠 [Y]   🟡 [Z]                             │
+│                                                                 │
+│ Vulnerabilidades CVE:                                           │
+│   🔴 Newtonsoft.Json &lt; 13.0.1 - CVE-2024-XXXX                   │
+│   🟠 System.Text.Json &lt; 6.0.0 - CVE-2023-XXXX                   │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 🧹 DEUDA TÉCNICA (por área)                                     │
+├─────────────────────────────────────────────────────────────────┤
+│ Backend:   🔴 [N]   🟠 [M]   🟡 [K]                             │
+│ Frontend:  🔴 [N]   🟠 [M]   🟡 [K]                             │
+│ ─────────────────────────────────────                           │
+│ Total:     🔴 [X]   🟠 [Y]   🟡 [Z]                             │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ⏱️ ESTIMACIÓN DE DEUDA TOTAL (J5)                                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│ Deuda técnica estimada:                                         │
+│   🔴 Crítica:     [N] issues × ~[X]h = [Y] horas               │
+│   🟠 Importante:  [N] issues × ~[X]h = [Y] horas               │
+│   🟡 Menor:       [N] issues × ~[X]h = [Y] horas               │
+│   ─────────────────────────────────────                         │
+│   TOTAL:          [N] issues = ~[X] horas ([Y] sprints*)       │
+│                                                                 │
+│   * Sprint de 2 semanas, 6h/día efectivas                      │
+│                                                                 │
+│ Distribución por área:                                          │
+│   Seguridad:      ~[X]h  ████████░░ [Y]%                       │
+│   Código:         ~[X]h  ██████░░░░ [Y]%                       │
+│   Infraestructura:~[X]h  ████░░░░░░ [Y]%                       │
+│   Tests:          ~[X]h  ██░░░░░░░░ [Y]%                       │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 📦 CÓDIGO ANALIZADO vs EXCLUIDO                                 │
+├─────────────────────────────────────────────────────────────────┤
+│ ✅ Analizado:                                                   │
+│    • [N] archivos .cs (backend)                                 │
+│    • [M] archivos .js propios                                   │
+│    • [K] archivos .css propios                                  │
+│    • [X] vistas .cshtml                                         │
+│                                                                 │
+│ ⏭️ Excluido (librerías externas):                               │
+│    • [Y] archivos JavaScript                                    │
+│    • [Z] archivos CSS                                           │
+│    • [W] carpetas de vendors                                    │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 📚 STACK TECNOLÓGICO                                            │
+├─────────────────────────────────────────────────────────────────┤
+│ Framework:      .NET [X.X]                                      │
+│ Tipo:           [WebAPI | MVC | Blazor | Console]               │
+│ Acceso datos:   [Dapper | EF Core | ADO.NET]                    │
+│ Base datos:     [SQL Server | Oracle | PostgreSQL]              │
+│ Auth:           [Azure AD | JWT | Identity]                     │
+│ Cache:          [Redis | MemoryCache | None]                    │
+│ Logging:        [Serilog | NLog | Default]                      │
+│ Observabilidad: [OpenTelemetry | AppInsights | Ninguna]         │
+│ Resiliencia:    [Polly v8+ | Polly v7 | Ninguna]               │
+│ CI/CD:          [Azure Pipelines | GitHub Actions | Manual]     │
+│ Paquetes:       [CPM | Individual] ([N] NuGet)                  │
+│ Docker:         [✅ Multi-stage | ✅ Básico | ❌ Sin Docker]     │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 📊 OBSERVABILIDAD Y RESILIENCIA                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│ Observabilidad:                                                 │
+│   Logging:     [✅ Serilog / ⚠️ ILogger / ❌ Console]           │
+│   Telemetría:  [✅ OTel+AI / ⚠️ Solo AI / ❌ Ninguna]          │
+│   Health:      [✅ 3 endpoints / ⚠️ Solo /health / ❌ Ninguno] │
+│   Nivel:       [🟢 Avanzado / 🟡 Básico / 🔴 Insuficiente]    │
+│                                                                 │
+│ Resiliencia:                                                    │
+│   Polly:       [✅ v8+ / ⚠️ v7 / ❌ Sin políticas]             │
+│   Retry:       [✅ / ❌]                                        │
+│   Circuit:     [✅ / ❌]                                        │
+│   Shutdown:    [✅ Graceful / ❌ Sin graceful]                   │
+│   Nivel:       [🟢 Robusto / 🟡 Básico / 🔴 Frágil]           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ 📐 DIAGRAMAS GENERADOS (8+)                                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│ ✅ DIAGRAMA_COMPONENTES.md      - Arquitectura del sistema      │
+│ ✅ DIAGRAMA_DEPENDENCIAS.md     - Referencias entre proyectos   │
+│ ✅ DIAGRAMA_ENTIDADES.md        - Modelo de datos (si aplica)   │
+│ ✅ DIAGRAMA_SECUENCIAS.md       - Flujos principales            │
+│ ✅ DIAGRAMA_CLASES.md           - Clases del dominio            │
+│ ✅ DIAGRAMA_FLUJO.md            - Procesos de negocio           │
+│ ✅ DIAGRAMA_DESPLIEGUE.md       - Infraestructura (datos reales)│
+│ ✅ DIAGRAMA_OBSERVABILIDAD.md   - Telemetría (si aplica)        │
+│                                                                 │
+│    → Todos en docs/architecture/                           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<h4 id="top-5-acciones-prioritarias-j6---ajustado-por-criticidad-del-proyecto">TOP 5 Acciones Prioritarias (J6 - ajustado por criticidad del proyecto):</h4>
+<blockquote class="callout note"><p><strong>NOTA (J6)</strong>: Si <code>_hilo/ESTADO_PROYECTO.json</code> → <code>criticidad.nivel</code> está configurado:</p>
+<ul>
+<li><strong>Alta</strong>: Priorizar seguridad y estabilidad sobre deuda técnica</li>
+<li><strong>Media</strong>: Balance entre seguridad y mejoras</li>
+<li><strong>Baja</strong>: Puede priorizar mejoras de calidad y refactoring</li>
+</ul></blockquote>
+<pre><code>🎯 TOP 5 ACCIONES PRIORITARIAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Criticidad proyecto: ALTA → Foco en seguridad y estabilidad]
+
+1. 🔴 [CRÍTICO] Rotar password certificado BD
+   📁 src/appsettings.json
+   💡 Mover a Azure Key Vault o User Secrets
+   ⏱️ Esfuerzo: ~2h
+
+2. 🔴 [CRÍTICO] Eliminar .Result (deadlock potencial)
+   📁 src/Services/UserService.cs:45,78
+   💡 Cambiar a await, propagar async
+   ⏱️ Esfuerzo: ~3h
+
+3. 🔴 [CRÍTICO] Refactorizar God Class
+   📁 src/Services/UserService.cs (650 líneas)
+   💡 Dividir en UserAuthService, UserProfileService
+   ⏱️ Esfuerzo: ~4h
+
+4. 🟠 [IMPORTANTE] Actualizar Newtonsoft.Json vulnerable
+   📁 src/MyApp.API/MyApp.API.csproj
+   💡 Actualizar a versión &gt;= 13.0.1 (CVE-2024-XXXX)
+   ⏱️ Esfuerzo: ~1h
+
+5. 🟠 [IMPORTANTE] Configurar OpenTelemetry
+   📁 src/Program.cs
+   💡 Añadir AddOpenTelemetry + exporters (ver /add-telemetry)
+   ⏱️ Esfuerzo: ~3h</code></pre>
+<h4 id="archivos-actualizados">Archivos Actualizados:</h4>
+<pre><code>📁 ARCHIVOS ACTUALIZADOS:
+   ✅ _hilo/ESTADO_PROYECTO.json
+   ✅ _hilo/DEUDA_TECNICA.md
+   ✅ _hilo/DEPENDENCIAS.md
+   ✅ _hilo/HISTORIAL_ANALISIS.json    ← NUEVO (historial)
+
+📁 DIAGRAMAS GENERADOS:
+   ✅ docs/architecture/DIAGRAMA_COMPONENTES.md
+   ✅ docs/architecture/DIAGRAMA_DEPENDENCIAS.md
+   ✅ docs/architecture/DIAGRAMA_ENTIDADES.md
+   ✅ docs/architecture/DIAGRAMA_SECUENCIAS.md
+   ✅ docs/architecture/DIAGRAMA_CLASES.md
+   ✅ docs/architecture/DIAGRAMA_FLUJO.md
+   ✅ docs/architecture/DIAGRAMA_DESPLIEGUE.md
+   ✅ docs/architecture/DIAGRAMA_OBSERVABILIDAD.md  ← NUEVO
+   [Si --report] docs/architecture/INFORME_ANALISIS.md</code></pre>
+<h4 id="próximos-pasos">Próximos Pasos:</h4>
+<pre><code>💡 PRÓXIMOS PASOS SUGERIDOS:
+
+1. 🔴 Resolver issues CRÍTICOS (esta semana)
+   • Revisar _hilo/DEUDA_TECNICA.md
+
+2. 🔄 Planificar 🟠 IMPORTANTES en próximo sprint
+   • /nuevo-evolutivo &quot;Resolver deuda técnica Q1&quot;
+
+3. 📊 Ver dashboard actualizado
+   • /estado
+
+4. ✅ Si todo OK, hacer commit
+   • /commit &quot;Análisis completado - X issues identificados&quot;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-fase-final-obligatoria-actualizar-visual-studio">
+<h3 id="fase-final-obligatoria-actualizar-visual-studio">⚠️ FASE FINAL OBLIGATORIA: Actualizar Visual Studio ⚠️</h3>
+<p><strong>CLAUDE CODE: EJECUTAR SIEMPRE AL TERMINAR</strong></p>
+<p>Después de generar los diagramas, <strong>DEBES</strong> ejecutar este comando para añadirlos a la solución:</p>
+<pre data-lang="powershell"><code><span class="tk-c"># Solo si organization.ide = visual-studio (con otro IDE el script sale sin hacer nada)</span>
+./.claude/scripts/integracion-vs.ps1</code></pre>
+<p><strong>Si no ejecutas este comando:</strong></p>
+<ul>
+<li>❌ Los diagramas NO aparecerán en Visual Studio</li>
+<li>❌ El usuario no verá los archivos generados</li>
+<li>❌ El análisis estará INCOMPLETO</li>
+</ul>
+<p><strong>Output esperado:</strong></p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│ INTEGRACIÓN VISUAL STUDIO                                       │
+├─────────────────────────────────────────────────────────────────┤
+│ [OK] Contexto Claude      (7 archivos)                          │
+│ [OK] Especificaciones     (1 archivos)                          │
+│ [OK] Diagramas            (7 archivos)  ← Los nuevos diagramas  │
+│ [OK] Gestion              (3 archivos)                          │
+│ ...                                                             │
+└─────────────────────────────────────────────────────────────────┘
+✅ 8 Solution Folders añadidos/actualizados</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec---report-informe-exportable-j7">
+<h3 id="--report-informe-exportable-j7">⚠️ --report: Informe Exportable (J7) ⚠️</h3>
+<p>Si se usa el parámetro <code>--report</code>, generar adicionalmente:</p>
+<p><strong>Crear archivo:</strong> <code>docs/architecture/INFORME_ANALISIS.md</code></p>
+<pre data-lang="markdown"><code># Informe de Análisis - [NOMBRE_PROYECTO]
+
+**Fecha**: [YYYY-MM-DD HH:MM]
+**Versión Ovillo**: 1.0.0
+**Analizado por**: Claude Code
+**Parámetros**: [--full/--quick/--security/etc.]
+
+## Semáforo de Salud
+
+| Área | Estado | Detalle |
+|------|--------|---------|
+| Seguridad | [🟢/🟡/🔴] | [N] críticos, [M] importantes |
+| Deuda | [🟢/🟡/🔴] | [N] issues, ~[X]h estimadas |
+| Conformidad | [🟢/🟡/🔴] | [X]% |
+| Infraestructura | [🟢/🟡/🔴] | CI: [sí/no], Health: [sí/no] |
+| Tests | [🟢/🟡/🔴] | [X]% cobertura |
+
+## Riesgo de Deploy: [🟢/🟡/🔴]
+
+[Tabla de factores evaluados]
+
+## Stack Tecnológico
+
+[Tabla completa incluyendo Obs/Resiliencia/CI/Docker]
+
+## Issues Encontrados
+
+### Críticos (🔴)
+[Lista detallada con archivo, línea, esfuerzo]
+
+### Importantes (🟠)
+[Lista detallada con archivo, línea, esfuerzo]
+
+### Menores (🟡)
+[Lista detallada con archivo, línea, esfuerzo]
+
+## Estimación de Deuda Total
+[Tabla por área con horas y porcentaje]
+
+## Diagramas Generados
+[Enlaces relativos a los 8+ diagramas]
+
+## Tendencia (últimos análisis)
+[Tabla extraída de HISTORIAL_ANALISIS.json]
+
+## TOP 5 Acciones Recomendadas
+[Con prioridad, esfuerzo y justificación]
+
+---
+*Informe generado por Ovillo - /analizar --report*</code></pre>
+<hr>
+</section><p style="margin-top:32px"><a href="../../../skills/analizar.html#ficheros">← Volver a la ficha de analizar</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/analizar.html"><small>Anterior</small>Ficha de analizar</a><a class="next" href="../../../skills/analizar/references/recordatorios-y-ejemplo.html"><small>Siguiente</small>references/recordatorios-y-ejemplo.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/analizar/references/formato-salida.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#output-format-mandatory">OUTPUT FORMAT (MANDATORY)</a></li><li class="l3"><a href="#durante-la-ejecución---mostrar-progreso-de-fases">Durante la ejecución - Mostrar progreso de fases:</a></li><li class="l3"><a href="#al-finalizar---resumen-completo">Al finalizar - Resumen completo:</a></li><li class="l3"><a href="#top-5-acciones-prioritarias-j6---ajustado-por-criticidad-del-proyecto">TOP 5 Acciones Prioritarias (J6 - ajustado por criticidad del proyecto):</a></li><li class="l3"><a href="#archivos-actualizados">Archivos Actualizados:</a></li><li class="l3"><a href="#próximos-pasos">Próximos Pasos:</a></li><li class="l2"><a href="#fase-final-obligatoria-actualizar-visual-studio">⚠️ FASE FINAL OBLIGATORIA: Actualizar Visual Studio ⚠️</a></li><li class="l2"><a href="#--report-informe-exportable-j7">⚠️ --report: Informe Exportable (J7) ⚠️</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

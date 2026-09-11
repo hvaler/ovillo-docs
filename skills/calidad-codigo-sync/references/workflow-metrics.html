@@ -1,0 +1,297 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>calidad-codigo-sync · references/workflow-metrics.md · Ovillo</title><meta name="description" content="Fichero references/workflow-metrics.md de la skill calidad-codigo-sync"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="calidad-codigo-sync · references/workflow-metrics.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-metrics.md de la skill calidad-codigo-sync"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/calidad-codigo-sync/references/workflow-metrics.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/calidad-codigo-sync/references/workflow-metrics.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/calidad-codigo-sync/references/workflow-metrics.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de calidad-codigo-sync (6)</h4><ul class="sibs"><li><a href="../../../skills/calidad-codigo-sync/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/calidad-codigo-sync/references/ci-wiring.html">references/ci-wiring.md</a></li><li><a href="../../../skills/calidad-codigo-sync/references/workflow-calidad-sync.html">references/workflow-calidad-sync.md</a></li><li><a href="../../../skills/calidad-codigo-sync/references/workflow-metrics.html" class="cur">references/workflow-metrics.md</a></li><li><a href="../../../skills/calidad-codigo-sync/scripts/coverage.html">scripts/coverage.runsettings</a></li><li><a href="../../../skills/calidad-codigo-sync/scripts/Sync-QualityRecord.html">scripts/Sync-QualityRecord.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></span><span>references</span><span>workflow-metrics.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>calidad-codigo-sync</span><span>references/</span></div><h1>workflow-metrics.md</h1><p class="lede">Referencia que <code>calidad-codigo-sync</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>8507 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Informe local de calidad (cobertura, CRAP y hotspots) sin publicar en el Hub. Es un modo de esta skill, no una skill aparte: los datos son los mismos que <code>calidad-codigo-sync</code> publica.</p></blockquote>
+<hr>
+<p class="lede">Genera un reporte completo de metricas de calidad del proyecto.</p>
+<hr>
+<section class="sec" id="sec-uso">
+<h3 id="uso">Uso</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Reporte basico</span>
+<span class="tk-k">claude</span>&gt; /metrics
+
+<span class="tk-c"># Reporte con analisis de tendencias</span>
+<span class="tk-k">claude</span>&gt; /metrics --trend
+
+<span class="tk-c"># Exportar a JSON</span>
+<span class="tk-k">claude</span>&gt; /metrics --<span class="tk-k">export</span> json
+
+<span class="tk-c"># Exportar a HTML</span>
+<span class="tk-k">claude</span>&gt; /metrics --<span class="tk-k">export</span> html
+
+<span class="tk-c"># Solo NuGets</span>
+<span class="tk-k">claude</span>&gt; /metrics --nugets
+
+<span class="tk-c"># Solo complejidad</span>
+<span class="tk-k">claude</span>&gt; /metrics --complexity</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-descripcion">
+<h3 id="descripcion">Descripcion</h3>
+<p>El comando <code>/metrics</code> analiza el proyecto y genera un reporte completo de metricas de calidad:</p>
+<h4 id="metricas-generales">Metricas Generales</h4>
+<ul>
+<li>Numero de proyectos en solucion</li>
+<li>Archivos C# totales</li>
+<li>Lineas de codigo (LOC)</li>
+<li>Tests unitarios (cantidad y cobertura)</li>
+</ul>
+<h4 id="complejidad">Complejidad</h4>
+<ul>
+<li>Complejidad ciclomatica promedio</li>
+<li>Metodos &gt;20 lineas</li>
+<li>Clases &gt;500 lineas</li>
+<li>Profundidad de herencia</li>
+</ul>
+<h4 id="dependencias-nuget">Dependencias NuGet</h4>
+<ul>
+<li>Paquetes instalados</li>
+<li>Vulnerabilidades conocidas (CVEs)</li>
+<li>Paquetes desactualizados</li>
+<li>Licencias de paquetes</li>
+</ul>
+<h4 id="deuda-tecnica">Deuda Tecnica</h4>
+<ul>
+<li>TODOs en codigo</li>
+<li>FIXMEs pendientes</li>
+<li>Warnings de compilacion</li>
+<li>Code smells detectados</li>
+</ul>
+<h4 id="tendencias-si---trend">Tendencias (si --trend)</h4>
+<ul>
+<li>Comparacion con metricas previas</li>
+<li>Graficos de evolucion</li>
+<li>Mejoras/empeoramientos</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-implementacion">
+<h3 id="implementacion">Implementacion</h3>
+<p>Claude ejecuta los siguientes comandos automaticamente:</p>
+<pre data-lang="powershell"><code><span class="tk-c"># 1. Contar proyectos y archivos</span>
+Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Recurse -Filter <span class="tk-s">&quot;*.csproj&quot;</span> | Measure-Object
+Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Recurse -Filter <span class="tk-s">&quot;*.cs&quot;</span> | Measure-Object
+
+<span class="tk-c"># 2. Lineas de codigo</span>
+Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Recurse -Filter <span class="tk-s">&quot;*.cs&quot;</span> |
+    Get-Content | Measure-Object -Line
+
+<span class="tk-c"># 3. Tests y cobertura</span>
+dotnet test --collect:<span class="tk-s">&quot;Code Coverage&quot;</span> --no-build
+
+<span class="tk-c"># 4. Analisis de complejidad (via Roslyn)</span>
+dotnet build /p:RunAnalyzers=<span class="tk-k">true</span> /p:TreatWarningsAsErrors=<span class="tk-k">false</span>
+
+<span class="tk-c"># 5. Vulnerabilidades NuGet</span>
+dotnet list package --vulnerable --include-transitive
+
+<span class="tk-c"># 6. Paquetes desactualizados</span>
+dotnet list package --outdated
+
+<span class="tk-c"># 7. Deuda tecnica</span>
+Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Recurse -Filter <span class="tk-s">&quot;*.cs&quot;</span> |
+    Select-String -Pattern <span class="tk-s">&quot;TODO|FIXME|HACK&quot;</span> |
+    Group-Object Pattern |
+    Select-Object Count, Name
+
+<span class="tk-c"># 8. Warnings de compilacion</span>
+dotnet build <span class="tk-n">2</span>&gt;&amp;<span class="tk-n">1</span> | Select-String <span class="tk-s">&quot;warning&quot;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-ejemplo-de-output">
+<h3 id="ejemplo-de-output">Ejemplo de Output</h3>
+<pre><code>╔═══════════════════════════════════════════════════════════════════╗
+║  📊 METRICAS DE CALIDAD - MyCompany.MiProyecto                      ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+METRICAS GENERALES:
+  Proyectos:           15
+  Archivos C#:         487
+  Lineas de codigo:    45,230
+  Tests unitarios:     128
+  Cobertura tests:     67% ⬆️ (+4% vs mes anterior)
+
+COMPLEJIDAD:
+  Complejidad ciclomatica promedio: 3.2 (🟢 BUENO)
+  Metodos &gt;20 lineas:   45 (9% del total)
+  Clases &gt;500 lineas:   3 (⚠️ revisar)
+  Profundidad herencia: max 4 niveles
+
+DEPENDENCIAS NUGET:
+  Paquetes:            42
+  Vulnerabilidades:    🔴 1 CRITICA, 2 ALTAS
+    - System.Text.Json 6.0.0 → CVE-2024-12345 (upgrade a 8.0.5)
+    - Newtonsoft.Json 12.0.3 → CVE-2024-67890 (upgrade a 13.0.3)
+  Desactualizados:     5 paquetes
+  Licencias:           41 MIT, 1 Apache-2.0
+
+DEUDA TECNICA:
+  TODOs:               23
+  FIXMEs:              7
+  HACKs:               2 (⚠️ revisar urgente)
+  Warnings:            12
+
+TENDENCIAS (vs 2026-01-16):
+  Lineas codigo:       +2,450 (↑5.7%)
+  Cobertura tests:     +4% (↑6.3%)
+  Complejidad:         -0.3 (↓8.6% - MEJORA)
+  Vulnerabilidades:    +1 (⚠️ EMPEORADO)
+
+╔═══════════════════════════════════════════════════════════════════╗
+║  💡 RECOMENDACIONES                                                ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+1. 🔴 CRITICO: Actualizar System.Text.Json a 8.0.5 (CVE critico)
+2. ⚠️  ALTA: Revisar 3 clases &gt;500 lineas (refactorizar)
+3. ⚠️  ALTA: Resolver 2 HACKs en codigo
+4. 🟡 MEDIA: Aumentar cobertura tests al 75% (objetivo)
+5. 🟡 MEDIA: Reducir 23 TODOs pendientes
+
+Exportado a: _hilo/metrics/2026-02-16_metrics.json</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-exportar-metricas">
+<h3 id="exportar-metricas">Exportar Metricas</h3>
+<h4 id="JSON">JSON</h4>
+<pre data-lang="bash"><code><span class="tk-k">claude</span>&gt; /metrics --<span class="tk-k">export</span> json</code></pre>
+<p>Genera: <code>_hilo/metrics/2026-02-16_metrics.json</code></p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;fecha&quot;</span>: <span class="tk-s">&quot;2026-02-16T10:30:00Z&quot;</span>,
+  <span class="tk-s">&quot;proyecto&quot;</span>: <span class="tk-s">&quot;MyCompany.MiProyecto&quot;</span>,
+  <span class="tk-s">&quot;version&quot;</span>: <span class="tk-s">&quot;1.2.0&quot;</span>,
+  <span class="tk-s">&quot;metricas&quot;</span>: {
+    <span class="tk-s">&quot;generales&quot;</span>: {
+      <span class="tk-s">&quot;proyectos&quot;</span>: <span class="tk-n">15</span>,
+      <span class="tk-s">&quot;archivos_cs&quot;</span>: <span class="tk-n">487</span>,
+      <span class="tk-s">&quot;lineas_codigo&quot;</span>: <span class="tk-n">45230</span>,
+      <span class="tk-s">&quot;tests&quot;</span>: <span class="tk-n">128</span>,
+      <span class="tk-s">&quot;cobertura&quot;</span>: <span class="tk-n">67</span>
+    },
+    <span class="tk-s">&quot;complejidad&quot;</span>: {
+      <span class="tk-s">&quot;ciclomatica_promedio&quot;</span>: <span class="tk-n">3.2</span>,
+      <span class="tk-s">&quot;metodos_largos&quot;</span>: <span class="tk-n">45</span>,
+      <span class="tk-s">&quot;clases_grandes&quot;</span>: <span class="tk-n">3</span>
+    },
+    <span class="tk-s">&quot;nugets&quot;</span>: {
+      <span class="tk-s">&quot;total&quot;</span>: <span class="tk-n">42</span>,
+      <span class="tk-s">&quot;vulnerabilidades&quot;</span>: {
+        <span class="tk-s">&quot;criticas&quot;</span>: <span class="tk-n">1</span>,
+        <span class="tk-s">&quot;altas&quot;</span>: <span class="tk-n">2</span>,
+        <span class="tk-s">&quot;medias&quot;</span>: <span class="tk-n">0</span>,
+        <span class="tk-s">&quot;bajas&quot;</span>: <span class="tk-n">0</span>
+      },
+      <span class="tk-s">&quot;desactualizados&quot;</span>: <span class="tk-n">5</span>
+    },
+    <span class="tk-s">&quot;deuda_tecnica&quot;</span>: {
+      <span class="tk-s">&quot;todos&quot;</span>: <span class="tk-n">23</span>,
+      <span class="tk-s">&quot;fixmes&quot;</span>: <span class="tk-n">7</span>,
+      <span class="tk-s">&quot;hacks&quot;</span>: <span class="tk-n">2</span>,
+      <span class="tk-s">&quot;warnings&quot;</span>: <span class="tk-n">12</span>
+    }
+  }
+}</code></pre>
+<h4 id="HTML">HTML</h4>
+<pre data-lang="bash"><code><span class="tk-k">claude</span>&gt; /metrics --<span class="tk-k">export</span> html</code></pre>
+<p>Genera: <code>_hilo/metrics/2026-02-16_reporte.html</code></p>
+<p>Reporte visual con:</p>
+<ul>
+<li>Graficos de barras (Chart.js)</li>
+<li>Tabla interactiva</li>
+<li>Colores por severidad</li>
+<li>Exportable a PDF</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-tendencias">
+<h3 id="tendencias">Tendencias</h3>
+<p>Si existe historial de metricas previas en <code>_hilo/metrics/</code>, Claude compara:</p>
+<pre><code>EVOLUCION ULTIMOS 3 MESES:
+
+Lineas de Code:
+  Ene: 42,500 ━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+  Feb: 45,230 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 106%
+  Mar: 47,800 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 112%
+
+Cobertura Tests:
+  Ene: 63% ━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Feb: 67% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Mar: 71% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Vulnerabilidades:
+  Ene: 0 🟢
+  Feb: 3 🔴 (+3 - EMPEORADO)
+  Mar: 1 🟡 (-2 - MEJORA)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-integracion-con-sonarqube">
+<h3 id="integracion-con-sonarqube">Integracion con SonarQube</h3>
+<p>Si el proyecto tiene SonarQube configurado:</p>
+<pre data-lang="bash"><code><span class="tk-k">claude</span>&gt; /metrics --sonar</code></pre>
+<p>Claude consulta la API de SonarQube y añade metricas adicionales:</p>
+<ul>
+<li>Bugs detectados</li>
+<li>Code smells</li>
+<li>Security hotspots</li>
+<li>Technical debt (dias)</li>
+<li>Duplicacion de codigo</li>
+</ul>
+<p>Requiere: <code>sonar-scanner.properties</code> en raiz del proyecto</p>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion">
+<h3 id="configuracion">Configuracion</h3>
+<h4 id="umbrales-personalizados">Umbrales personalizados</h4>
+<p>Crear archivo <code>.claude/metrics-config.json</code>:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;umbrales&quot;</span>: {
+    <span class="tk-s">&quot;cobertura_minima&quot;</span>: <span class="tk-n">75</span>,
+    <span class="tk-s">&quot;complejidad_maxima&quot;</span>: <span class="tk-n">10</span>,
+    <span class="tk-s">&quot;metodo_max_lineas&quot;</span>: <span class="tk-n">20</span>,
+    <span class="tk-s">&quot;clase_max_lineas&quot;</span>: <span class="tk-n">500</span>,
+    <span class="tk-s">&quot;warnings_maximos&quot;</span>: <span class="tk-n">0</span>
+  },
+  <span class="tk-s">&quot;exports&quot;</span>: {
+    <span class="tk-s">&quot;auto_export_json&quot;</span>: true,
+    <span class="tk-s">&quot;carpeta&quot;</span>: <span class="tk-s">&quot;_hilo/metrics&quot;</span>
+  },
+  <span class="tk-s">&quot;nugets&quot;</span>: {
+    <span class="tk-s">&quot;ignorar_warnings&quot;</span>: [<span class="tk-s">&quot;NETSDK1138&quot;</span>],
+    <span class="tk-s">&quot;solo_vulnerabilidades_altas&quot;</span>: false
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-notas">
+<h3 id="notas">Notas</h3>
+<ul>
+<li><strong>Performance</strong>: El comando puede tardar 1-3 minutos en proyectos grandes (&gt;100 proyectos)</li>
+<li><strong>Privacidad</strong>: Los JSONs exportados NO contienen codigo fuente, solo metricas numericas</li>
+<li><strong>CI/CD</strong>: Puede ejecutarse en pipeline Azure DevOps/GitHub Actions</li>
+<li><strong>Historico</strong>: Se recomienda ejecutar <code>/metrics --export json</code> mensualmente para tracking</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-ejemplos-de-uso">
+<h3 id="ejemplos-de-uso">Ejemplos de Uso</h3>
+<h4 id="analisis-rapido">Analisis rapido</h4>
+<pre data-lang="bash"><code><span class="tk-k">claude</span>&gt; /metrics
+<span class="tk-c"># Output en consola, sin exportar</span></code></pre>
+<h4 id="reporte-mensual-completo">Reporte mensual completo</h4>
+<pre data-lang="bash"><code><span class="tk-k">claude</span>&gt; /metrics --trend --<span class="tk-k">export</span> html
+<span class="tk-c"># Genera HTML con tendencias</span>
+<span class="tk-c"># Guardar en: _hilo/metrics/2026-02-16_reporte.html</span></code></pre>
+<h4 id="solo-nugets-rapido">Solo NuGets (rapido)</h4>
+<pre data-lang="bash"><code><span class="tk-k">claude</span>&gt; /metrics --nugets
+<span class="tk-c"># Solo analiza dependencias, ignora resto</span>
+<span class="tk-c"># Util para auditorias de seguridad</span></code></pre>
+<h4 id="comparar-con-sonarqube">Comparar con SonarQube</h4>
+<pre data-lang="bash"><code><span class="tk-k">claude</span>&gt; /metrics --sonar --<span class="tk-k">export</span> json
+<span class="tk-c"># Combina metricas locales + SonarQube</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-ver-tambien">
+<h3 id="ver-tambien">Ver Tambien</h3>
+<ul>
+<li><code>/nugets-management</code> - Gestion avanzada de NuGets</li>
+<li><code>/testing-patterns</code> - Ejecutar tests con cobertura</li>
+<li><code>/hv:analizar</code> - Analisis de codigo especifico</li>
+<li>Skill: <code>security-audit</code> - Auditoria de seguridad OWASP</li>
+</ul>
+</section><p style="margin-top:32px"><a href="../../../skills/calidad-codigo-sync.html#ficheros">← Volver a la ficha de calidad-codigo-sync</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/calidad-codigo-sync/references/workflow-calidad-sync.html"><small>Anterior</small>references/workflow-calidad-sync.md</a><a class="next" href="../../../skills/calidad-codigo-sync/scripts/coverage.html"><small>Siguiente</small>scripts/coverage.runsettings</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/calidad-codigo-sync/references/workflow-metrics.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#uso">Uso</a></li><li class="l2"><a href="#descripcion">Descripcion</a></li><li class="l3"><a href="#metricas-generales">Metricas Generales</a></li><li class="l3"><a href="#complejidad">Complejidad</a></li><li class="l3"><a href="#dependencias-nuget">Dependencias NuGet</a></li><li class="l3"><a href="#deuda-tecnica">Deuda Tecnica</a></li><li class="l3"><a href="#tendencias-si---trend">Tendencias (si --trend)</a></li><li class="l2"><a href="#implementacion">Implementacion</a></li><li class="l2"><a href="#ejemplo-de-output">Ejemplo de Output</a></li><li class="l2"><a href="#exportar-metricas">Exportar Metricas</a></li><li class="l3"><a href="#JSON">JSON</a></li><li class="l3"><a href="#HTML">HTML</a></li><li class="l2"><a href="#tendencias">Tendencias</a></li><li class="l2"><a href="#integracion-con-sonarqube">Integracion con SonarQube</a></li><li class="l2"><a href="#configuracion">Configuracion</a></li><li class="l3"><a href="#umbrales-personalizados">Umbrales personalizados</a></li><li class="l2"><a href="#notas">Notas</a></li><li class="l2"><a href="#ejemplos-de-uso">Ejemplos de Uso</a></li><li class="l3"><a href="#analisis-rapido">Analisis rapido</a></li><li class="l3"><a href="#reporte-mensual-completo">Reporte mensual completo</a></li><li class="l3"><a href="#solo-nugets-rapido">Solo NuGets (rapido)</a></li><li class="l3"><a href="#comparar-con-sonarqube">Comparar con SonarQube</a></li><li class="l2"><a href="#ver-tambien">Ver Tambien</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

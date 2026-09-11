@@ -1,0 +1,101 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>analisis-arquitectura · patterns/design-pattern-catalog.md · Ovillo</title><meta name="description" content="Fichero patterns/design-pattern-catalog.md de la skill analisis-arquitectura"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="analisis-arquitectura · patterns/design-pattern-catalog.md · Ovillo"><meta property="og:description" content="Fichero patterns/design-pattern-catalog.md de la skill analisis-arquitectura"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/patterns/design-pattern-catalog.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/patterns/design-pattern-catalog.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/analisis-arquitectura/patterns/design-pattern-catalog.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de analisis-arquitectura (18)</h4><ul class="sibs"><li><a href="../../../skills/analisis-arquitectura/checklists/api-design-review.html">checklists/api-design-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/clean-architecture.html">checklists/clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/database-review.html">checklists/database-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/microservices-review.html">checklists/microservices-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/migration-viability.html">checklists/migration-viability.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/performance-review.html">checklists/performance-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/security-review.html">checklists/security-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/architecture-diagrams.html">patterns/architecture-diagrams.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/dependency-analysis.html">patterns/dependency-analysis.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/design-pattern-catalog.html" class="cur">patterns/design-pattern-catalog.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-clean-architecture.html">prompts/prompt-clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-contexto-agente.html">prompts/prompt-contexto-agente.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-general.html">prompts/prompt-general.md</a></li><li><a href="../../../skills/analisis-arquitectura/README.html">README.md</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html">templates/ANALISIS_ARQUITECTURA.html.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.md.html">templates/ANALISIS_ARQUITECTURA.md.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/CONTEXTO_AGENTE.md.html">templates/CONTEXTO_AGENTE.md.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></span><span>patterns</span><span>design-pattern-catalog.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>analisis-arquitectura</span><span>patterns/</span></div><h1>design-pattern-catalog.md</h1><p class="lede">Referencia que <code>analisis-arquitectura</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>6803 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: analisis-arquitectura</p></blockquote>
+<p class="lede">Guia de referencia para detectar patrones de diseno (correctos y anti-patrones) durante el analisis arquitectonico.</p>
+<hr>
+<section class="sec" id="sec-patrones-a-buscar">
+<h3 id="patrones-a-buscar">Patrones a Buscar</h3>
+<h4 id="patrones-estructurales">Patrones Estructurales</h4>
+<div class="tbl"><table><thead><tr><th>Patron</th><th>Donde buscar</th><th>Indicadores de correcta implementacion</th><th>Anti-patron comun</th></tr></thead><tbody><tr><td><strong>Repository</strong></td><td>Clases <code>*Repository</code>, interfaces <code>I*Repository</code></td><td>Interfaz en Domain/Application, implementacion en Infrastructure</td><td>Repositorio generico sin value, DbContext directo en services</td></tr><tr><td><strong>Unit of Work</strong></td><td><code>IUnitOfWork</code>, <code>SaveChangesAsync</code> centralizado</td><td>Una unica llamada a SaveChanges por operacion de negocio</td><td>Multiples SaveChanges dispersos, transacciones implicitas</td></tr><tr><td><strong>Factory</strong></td><td>Metodos <code>Create()</code>, <code>Build()</code> en entidades o clases Factory</td><td>Encapsula logica de creacion compleja, validacion en factory</td><td>Constructor publico sin validacion, <code>new()</code> disperso</td></tr><tr><td><strong>Facade</strong></td><td>Clases <code>*Service</code> que orquestan multiples dependencias</td><td>Simplifica interfaz compleja, no contiene logica de negocio</td><td>God class que hace todo, service con 10+ dependencias</td></tr><tr><td><strong>Adapter</strong></td><td>Clases que envuelven APIs externas</td><td>Traduce interfaz externa a interna, desacopla</td><td>Uso directo de SDK externo en logica de negocio</td></tr></tbody></table></div>
+<h4 id="patrones-de-comportamiento">Patrones de Comportamiento</h4>
+<div class="tbl"><table><thead><tr><th>Patron</th><th>Donde buscar</th><th>Indicadores</th><th>Anti-patron</th></tr></thead><tbody><tr><td><strong>Strategy</strong></td><td>Interfaces con multiples implementaciones, DI condicional</td><td>Comportamiento intercambiable, Open/Closed principle</td><td>switch/if largo en metodo, hardcoded decisions</td></tr><tr><td><strong>Observer/Event</strong></td><td><code>IDomainEvent</code>, <code>INotificationHandler</code>, EventHandlers</td><td>Desacoplamiento entre productor y consumidor</td><td>Llamadas directas entre modulos, acoplamiento temporal</td></tr><tr><td><strong>Template Method</strong></td><td>Clases base abstractas con metodos template</td><td>Hook methods para extensibilidad</td><td>Override completo de metodo base, copy-paste entre clases</td></tr><tr><td><strong>Mediator</strong></td><td><code>IMediator</code>, <code>IRequest</code>, <code>IRequestHandler</code></td><td>Desacoplamiento entre sender y handler</td><td>ServiceLocator, dependencia directa entre controllers y services</td></tr></tbody></table></div>
+<h4 id="patrones-cqrsddd">Patrones CQRS/DDD</h4>
+<div class="tbl"><table><thead><tr><th>Patron</th><th>Donde buscar</th><th>Indicadores</th><th>Anti-patron</th></tr></thead><tbody><tr><td><strong>CQRS</strong></td><td>Commands vs Queries separados, <code>ICommand</code>/<code>IQuery</code></td><td>Lectura optimizada (AsNoTracking), escritura con validacion</td><td>Mismo modelo para lectura y escritura, queries que mutan estado</td></tr><tr><td><strong>Specification</strong></td><td><code>ISpecification&lt;T&gt;</code>, clases <code>*Spec</code></td><td>Encapsula criterios de consulta, composable</td><td>WHERE clauses duplicadas en multiples repositorios</td></tr><tr><td><strong>Domain Event</strong></td><td>Eventos con <code>OccurredOn</code>, handlers reactivos</td><td>Comunicacion entre aggregates, side effects</td><td>Llamadas directas entre aggregates, logica en SaveChanges</td></tr><tr><td><strong>Value Object</strong></td><td>Records inmutables con <code>GetEqualityComponents</code></td><td>Igualdad por valor, validacion en constructor, sin ID</td><td>Primitive obsession (string para Email, int para Money)</td></tr></tbody></table></div>
+<h4 id="patrones-de-infraestructura">Patrones de Infraestructura</h4>
+<div class="tbl"><table><thead><tr><th>Patron</th><th>Donde buscar</th><th>Indicadores</th><th>Anti-patron</th></tr></thead><tbody><tr><td><strong>Options Pattern</strong></td><td><code>IOptions&lt;T&gt;</code>, <code>IOptionsMonitor&lt;T&gt;</code>, clases <code>*Settings</code></td><td>Configuracion tipada y validada</td><td><code>ConfigurationManager</code> directo, magic strings en config</td></tr><tr><td><strong>Decorator</strong></td><td>Pipeline behaviors, middleware, delegating handlers</td><td>Funcionalidad anadida sin modificar original</td><td>Herencia profunda, modificacion de clase base</td></tr><tr><td><strong>Singleton</strong></td><td><code>AddSingleton&lt;&gt;()</code>, static classes con estado</td><td>Recurso compartido thread-safe, lifetime explicito</td><td>Static mutable, global state, dificil de testear</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patrones-criticos">
+<h3 id="anti-patrones-criticos">Anti-Patrones Criticos</h3>
+<h4 id="god-class">God Class</h4>
+<ul>
+<li><strong>Deteccion</strong>: Clase con &gt;500 lineas, &gt;10 dependencias inyectadas, &gt;20 metodos publicos</li>
+<li><strong>Impacto</strong>: Imposible de testear, viola SRP, atrae cambios constantes</li>
+<li><strong>Solucion</strong>: Descomponer por responsabilidad, extraer a servicios especificos</li>
+</ul>
+<h4 id="service-locator">Service Locator</h4>
+<ul>
+<li><strong>Deteccion</strong>: <code>IServiceProvider.GetService&lt;T&gt;()</code> fuera de composition root, <code>HttpContext.RequestServices</code></li>
+<li><strong>Impacto</strong>: Dependencias ocultas, dificil de testear, viola DIP</li>
+<li><strong>Solucion</strong>: Constructor injection, registrar dependencias en DI</li>
+</ul>
+<h4 id="tight-coupling">Tight Coupling</h4>
+<ul>
+<li><strong>Deteccion</strong>: <code>new ConcreteService()</code> en lugar de interfaz, referencias directas entre capas</li>
+<li><strong>Impacto</strong>: Imposible mockear en tests, cambios en cascada</li>
+<li><strong>Solucion</strong>: Extraer interfaz, inyectar via constructor</li>
+</ul>
+<h4 id="circular-dependencies">Circular Dependencies</h4>
+<ul>
+<li><strong>Deteccion</strong>: A referencia B, B referencia A (en .csproj ProjectReference)</li>
+<li><strong>Impacto</strong>: Compilacion fragil, diseno confuso, imposible de desacoplar</li>
+<li><strong>Solucion</strong>: Extraer interfaz comun a un tercer proyecto, invertir dependencia</li>
+</ul>
+<h4 id="anemic-domain-model">Anemic Domain Model</h4>
+<ul>
+<li><strong>Deteccion</strong>: Entidades con solo propiedades publicas (getters/setters), toda la logica en servicios</li>
+<li><strong>Impacto</strong>: Logica de negocio dispersa, reglas duplicadas, dificil de mantener</li>
+<li><strong>Solucion</strong>: Mover logica a entidades, setters privados, factory methods</li>
+</ul>
+<h4 id="magic-stringsnumbers">Magic Strings/Numbers</h4>
+<ul>
+<li><strong>Deteccion</strong>: Strings literales en logica (<code>if (status == &quot;active&quot;)</code>), numeros sin nombre</li>
+<li><strong>Impacto</strong>: Errores silenciosos por typos, dificil de refactorizar</li>
+<li><strong>Solucion</strong>: Constantes, enums, configuration</li>
+</ul>
+<h4 id="primitive-obsession">Primitive Obsession</h4>
+<ul>
+<li><strong>Deteccion</strong>: <code>string email</code>, <code>decimal importe</code>, <code>int edad</code> en lugar de tipos especificos</li>
+<li><strong>Impacto</strong>: Validacion dispersa, semantica perdida, errores de tipo</li>
+<li><strong>Solucion</strong>: Value Objects (<code>Email</code>, <code>Money</code>, <code>Edad</code>)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-formato-de-reporte">
+<h3 id="formato-de-reporte">Formato de Reporte</h3>
+<p>Para cada patron detectado en el analisis, documentar:</p>
+<pre data-lang="markdown"><code>### [Nombre del Patron]
+
+| Campo | Detalle |
+|-------|---------|
+| **Tipo** | Patron / Anti-patron |
+| **Ubicacion** | Proyecto, namespace, clase |
+| **Implementacion** | Correcta / Incompleta / Incorrecta |
+| **Archivo ejemplo** | `ruta/al/archivo.cs:linea` |
+| **Notes** | Detalles especificos |</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-busqueda-automatica">
+<h3 id="busqueda-automatica">Busqueda Automatica</h3>
+<p>Comandos para detectar patrones en el codigo:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Repository pattern</span>
+grep -r <span class="tk-s">&quot;IRepository\|IXxxRepository&quot;</span> src/ --include=<span class="tk-s">&quot;*.cs&quot;</span>
+
+<span class="tk-c"># CQRS</span>
+grep -r <span class="tk-s">&quot;IRequest\|ICommand\|IQuery\|IRequestHandler&quot;</span> src/ --include=<span class="tk-s">&quot;*.cs&quot;</span>
+
+<span class="tk-c"># Domain Events</span>
+grep -r <span class="tk-s">&quot;IDomainEvent\|DomainEvent\|AddDomainEvent&quot;</span> src/ --include=<span class="tk-s">&quot;*.cs&quot;</span>
+
+<span class="tk-c"># Service Locator (anti-patron)</span>
+grep -r <span class="tk-s">&quot;GetService\|GetRequiredService\|RequestServices&quot;</span> src/ --include=<span class="tk-s">&quot;*.cs&quot;</span>
+
+<span class="tk-c"># God Classes (&gt;500 lineas)</span>
+find src/ -name <span class="tk-s">&quot;*.cs&quot;</span> -exec sh -c <span class="tk-s">'lines=$(wc -l &lt; &quot;$1&quot;); [ &quot;$lines&quot; -gt 500 ] &amp;&amp; echo &quot;$1: $lines lines&quot;'</span> _ {} \;
+
+<span class="tk-c"># Magic Strings</span>
+grep -rn <span class="tk-s">'&quot;active&quot;\|&quot;pending&quot;\|&quot;completed&quot;\|&quot;error&quot;'</span> src/ --include=<span class="tk-s">&quot;*.cs&quot;</span>
+
+<span class="tk-c"># Tight Coupling (new Service())</span>
+grep -rn <span class="tk-s">&quot;new.*Service\|new.*Repository\|new.*Handler&quot;</span> src/ --include=<span class="tk-s">&quot;*.cs&quot;</span></code></pre>
+<hr>
+<p><em>Catalogo 1.0.0 - Patrones de diseno para analisis arquitectonico</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/analisis-arquitectura.html#ficheros">← Volver a la ficha de analisis-arquitectura</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/analisis-arquitectura/patterns/dependency-analysis.html"><small>Anterior</small>patterns/dependency-analysis.md</a><a class="next" href="../../../skills/analisis-arquitectura/prompts/prompt-clean-architecture.html"><small>Siguiente</small>prompts/prompt-clean-architecture.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/analisis-arquitectura/patterns/design-pattern-catalog.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#patrones-a-buscar">Patrones a Buscar</a></li><li class="l3"><a href="#patrones-estructurales">Patrones Estructurales</a></li><li class="l3"><a href="#patrones-de-comportamiento">Patrones de Comportamiento</a></li><li class="l3"><a href="#patrones-cqrsddd">Patrones CQRS/DDD</a></li><li class="l3"><a href="#patrones-de-infraestructura">Patrones de Infraestructura</a></li><li class="l2"><a href="#anti-patrones-criticos">Anti-Patrones Criticos</a></li><li class="l3"><a href="#god-class">God Class</a></li><li class="l3"><a href="#service-locator">Service Locator</a></li><li class="l3"><a href="#tight-coupling">Tight Coupling</a></li><li class="l3"><a href="#circular-dependencies">Circular Dependencies</a></li><li class="l3"><a href="#anemic-domain-model">Anemic Domain Model</a></li><li class="l3"><a href="#magic-stringsnumbers">Magic Strings/Numbers</a></li><li class="l3"><a href="#primitive-obsession">Primitive Obsession</a></li><li class="l2"><a href="#formato-de-reporte">Formato de Reporte</a></li><li class="l2"><a href="#busqueda-automatica">Busqueda Automatica</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

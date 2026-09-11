@@ -1,0 +1,789 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>blazor · Ovillo</title><meta name="description" content="Convenciones de componentes Blazor: ciclo de vida, parametros, formularios, autenticacion e interoperabilidad con JS."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="blazor · Ovillo"><meta property="og:description" content="Convenciones de componentes Blazor: ciclo de vida, parametros, formularios, autenticacion e interoperabilidad con JS."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/blazor.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/blazor.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/blazor.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>regla por ruta (13)</h4><ul class="sibs"><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/blazor.html" class="cur">blazor</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/domain-api-docs.html">domain-api-docs</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/mcp-config.html">mcp-config</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/webapp.html">webapp</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>blazor</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>/hv:blazor</span></div><h1>blazor</h1><p class="lede">Convenciones de componentes Blazor: ciclo de vida, parametros, formularios, autenticacion e interoperabilidad con JS.</p><div class="meta-grid"><div><b>regla por ruta</b><span>clase</span></div><div><b><code>/hv:blazor</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>383</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>user-invocable</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Se carga sola al tocar ficheros que casan con sus rutas (<code>paths:</code>). No entra en el listado de skills.</p><pre data-lang="yaml"><code>paths:
+  - &quot;**/*.razor&quot;
+  - &quot;**/*.razor.cs&quot;
+  - &quot;**/*.razor.css&quot;
+  - &quot;**/Components/**/*.cs&quot;
+  - &quot;**/Pages/**/*.cshtml&quot;
+  - &quot;**/Areas/**/*.razor&quot;
+  - &quot;**/_Imports.razor&quot;
+  - &quot;**/App.razor&quot;
+  - &quot;**/Routes.razor&quot;
+  - &quot;**/BlazorWebAssembly*.csproj&quot;</code></pre></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Se carga por ruta, no por invocacion</strong>: el campo <code>paths:</code> la activa cuando Claude trabaja con ficheros que casan con esos patrones. No aparece en el menu (<code>user-invocable: false</code>) y <strong>no ocupa contexto</strong> mientras no case ningun fichero.</p>
+<p>Procede de <code>.claude/skills/blazor/SKILL.md</code>. Se convirtio en skill porque un plugin no distribuye <code>rules/</code>.</p></blockquote>
+<hr>
+<h2 id="reglas-para-blazor">Reglas para Blazor</h2>
+<blockquote><p>Este archivo aplica cuando Claude trabaja con proyectos Blazor. <strong>Detecta automáticamente</strong> el modo de renderizado del proyecto.</p></blockquote>
+<hr>
+<section class="sec" id="sec-detección-de-modo-blazor">
+<h3 id="detección-de-modo-blazor">DETECCIÓN DE MODO BLAZOR</h3>
+<pre data-lang="xml"><code><span class="tk-c">&lt;!-- En .csproj --&gt;</span>
+<span class="tk-t">&lt;Project</span> Sdk=<span class="tk-s">&quot;Microsoft.NET.Sdk.BlazorWebAssembly&quot;</span><span class="tk-t">&gt;</span>    <span class="tk-c">&lt;!-- Blazor WASM --&gt;</span>
+<span class="tk-t">&lt;Project</span> Sdk=<span class="tk-s">&quot;Microsoft.NET.Sdk.Web&quot;</span><span class="tk-t">&gt;</span>                  <span class="tk-c">&lt;!-- Blazor Server / SSR --&gt;</span>
+
+<span class="tk-c">&lt;!-- Paquetes que indican el modo --&gt;</span>
+<span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.AspNetCore.Components.WebAssembly&quot;</span> <span class="tk-t">/&gt;</span>  <span class="tk-c">&lt;!-- WASM --&gt;</span>
+<span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.AspNetCore.Components.Web&quot;</span> <span class="tk-t">/&gt;</span>           <span class="tk-c">&lt;!-- Server/SSR --&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-modos-de-renderizado-net-10">
+<h3 id="modos-de-renderizado-net-10">MODOS DE RENDERIZADO (.NET 10)</h3>
+<div class="tbl"><table><thead><tr><th>Modo</th><th>Descripción</th><th>Uso recomendado</th></tr></thead><tbody><tr><td><strong>Static SSR</strong></td><td>HTML estático sin interactividad</td><td>Contenido informativo, SEO</td></tr><tr><td><strong>Interactive Server</strong></td><td>WebSocket, estado en servidor</td><td>Apps internas, tiempo real</td></tr><tr><td><strong>Interactive WASM</strong></td><td>Ejecuta en navegador</td><td>Apps offline, cálculos cliente</td></tr><tr><td><strong>Interactive Auto</strong></td><td>Server primero, WASM después</td><td>Mejor de ambos mundos</td></tr></tbody></table></div>
+<h4 id="configuración-en-programcs-net-10">Configuración en Program.cs (.NET 10)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - Blazor Web App (.NET 10)</span>
+<span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+
+<span class="tk-c">// Añadir servicios Blazor</span>
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents()     <span class="tk-c">// Server-side</span>
+    .AddInteractiveWebAssemblyComponents(); <span class="tk-c">// WASM</span>
+
+<span class="tk-k">var</span> app = builder.Build();
+
+app.UseStaticFiles();
+app.UseAntiforgery();
+
+<span class="tk-c">// Mapear componentes con modos de renderizado</span>
+app.MapRazorComponents&lt;App&gt;()
+    .AddInteractiveServerRenderMode()
+    .AddInteractiveWebAssemblyRenderMode()
+    .AddAdditionalAssemblies(<span class="tk-k">typeof</span>(Client.Program).Assembly);
+
+app.Run();</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-1-estructura-de-proyecto">
+<h3 id="parte-1-estructura-de-proyecto">PARTE 1: ESTRUCTURA DE PROYECTO</h3>
+<h4 id="blazor-web-app-net-10---recomendado">Blazor Web App (.NET 10 - Recomendado)</h4>
+<pre><code>MyCompany.MyApp/
+├── MyCompany.MyApp/                 # Proyecto Server
+│   ├── Components/
+│   │   ├── App.razor
+│   │   ├── Routes.razor
+│   │   ├── Layout/
+│   │   │   ├── MainLayout.razor
+│   │   │   ├── NavMenu.razor
+│   │   │   └── MainLayout.razor.css
+│   │   └── Pages/
+│   │       ├── Home.razor
+│   │       ├── Scholarships/
+│   │       │   ├── Index.razor
+│   │       │   ├── Create.razor
+│   │       │   └── Edit.razor
+│   │       └── Error.razor
+│   ├── Services/
+│   │   └── ScholarshipService.cs
+│   └── Program.cs
+│
+├── MyCompany.MyApp.Client/          # Proyecto WASM (componentes interactivos)
+│   ├── Pages/
+│   │   └── Counter.razor
+│   ├── Services/
+│   │   └── ClientScholarshipService.cs
+│   └── Program.cs
+│
+└── MyCompany.MyApp.Shared/          # DTOs compartidos
+    ├── DTOs/
+    │   └── ScholarshipDto.cs
+    └── Validators/
+        └── CreateScholarshipValidator.cs</code></pre>
+<h4 id="blazor-server-tradicional">Blazor Server Tradicional</h4>
+<pre><code>MyCompany.MyApp.Server/
+├── Components/
+│   ├── App.razor
+│   └── Pages/
+│       └── Index.razor
+├── Data/
+│   └── ScholarshipService.cs
+└── Program.cs</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-2-componentes-blazor">
+<h3 id="parte-2-componentes-blazor">PARTE 2: COMPONENTES BLAZOR</h3>
+<h4 id="componente-con-render-mode-net-10">Componente con Render Mode (.NET 10)</h4>
+<pre data-lang="razor"><code>@* Scholarships/Index.razor *@
+@page <span class="tk-s">&quot;/scholarships&quot;</span>
+@rendermode InteractiveServer   @* Modo interactivo server-side *@
+@inject IScholarshipService ScholarshipService
+@inject NavigationManager Navigation
+
+<span class="tk-t">&lt;PageTitle</span><span class="tk-t">&gt;</span>Scholarship Management<span class="tk-t">&lt;/PageTitle</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;h1</span><span class="tk-t">&gt;</span>Listado de Scholarships<span class="tk-t">&lt;/h1</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;toolbar mb-3&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;button</span> class=<span class="tk-s">&quot;btn btn-brand-primary&quot;</span> @onclick=<span class="tk-s">&quot;CreateNew&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;i</span> class=<span class="tk-s">&quot;bi bi-plus&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/i</span><span class="tk-t">&gt;</span> Nueva Scholarship
+    <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;input</span> type=<span class="tk-s">&quot;search&quot;</span>
+           class=<span class="tk-s">&quot;form-control d-inline-block w-auto ms-2&quot;</span>
+           placeholder=<span class="tk-s">&quot;Buscar...&quot;</span>
+           @bind=<span class="tk-s">&quot;filter&quot;</span>
+           @bind:event=<span class="tk-s">&quot;oninput&quot;</span>
+           @bind:after=<span class="tk-s">&quot;FilterScholarships&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+@if (loading)
+{
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;spinner-border text-primary&quot;</span> role=<span class="tk-s">&quot;status&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;span</span> class=<span class="tk-s">&quot;visually-hidden&quot;</span><span class="tk-t">&gt;</span>Loading...<span class="tk-t">&lt;/span</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+}
+else if (scholarships is null || !scholarships.Any())
+{
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;alert alert-info&quot;</span><span class="tk-t">&gt;</span>
+        No scholarships found.
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+}
+else
+{
+    <span class="tk-t">&lt;QuickGrid</span> Items=<span class="tk-s">&quot;@filteredScholarships.AsQueryable()&quot;</span> Pagination=<span class="tk-s">&quot;@pagination&quot;</span> Class=<span class="tk-s">&quot;table&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;PropertyColumn</span> Property=<span class="tk-s">&quot;@(b =&gt; b.Code)&quot;</span> Title=<span class="tk-s">&quot;Code&quot;</span> Sortable=<span class="tk-s">&quot;true&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;PropertyColumn</span> Property=<span class="tk-s">&quot;@(b =&gt; b.Name)&quot;</span> Title=<span class="tk-s">&quot;Name&quot;</span> Sortable=<span class="tk-s">&quot;true&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;PropertyColumn</span> Property=<span class="tk-s">&quot;@(b =&gt; b.Amount)&quot;</span> Title=<span class="tk-s">&quot;Amount&quot;</span> Format=<span class="tk-s">&quot;C&quot;</span> Sortable=<span class="tk-s">&quot;true&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;PropertyColumn</span> Property=<span class="tk-s">&quot;@(b =&gt; b.Status)&quot;</span> Title=<span class="tk-s">&quot;Status&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;TemplateColumn</span> Title=<span class="tk-s">&quot;Actions&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;btn-group btn-group-sm&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;button</span> class=<span class="tk-s">&quot;btn btn-outline-primary&quot;</span> @onclick=<span class="tk-s">&quot;() =&gt; Edit(context.Id)&quot;</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;i</span> class=<span class="tk-s">&quot;bi bi-pencil&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/i</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;button</span> class=<span class="tk-s">&quot;btn btn-outline-danger&quot;</span> @onclick=<span class="tk-s">&quot;() =&gt; Delete(context)&quot;</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;i</span> class=<span class="tk-s">&quot;bi bi-trash&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/i</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/TemplateColumn</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/QuickGrid</span><span class="tk-t">&gt;</span>
+
+    <span class="tk-t">&lt;Paginator</span> State=<span class="tk-s">&quot;@pagination&quot;</span> <span class="tk-t">/&gt;</span>
+}
+
+@code {
+    private List<span class="tk-t">&lt;ScholarshipDto</span><span class="tk-t">&gt;</span>? scholarships;
+    private IEnumerable<span class="tk-t">&lt;ScholarshipDto</span><span class="tk-t">&gt;</span> filteredScholarships = [];
+    private string filter = string.Empty;
+    private bool loading = true;
+    private PaginationState pagination = new() { ItemsPerPage = <span class="tk-n">10</span> };
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadScholarships();
+    }
+
+    private async Task LoadScholarships()
+    {
+        loading = true;
+        try
+        {
+            scholarships = await ScholarshipService.GetAllAsync();
+            filteredScholarships = scholarships;
+        }
+        finally
+        {
+            loading = false;
+        }
+    }
+
+    private void FilterScholarships()
+    {
+        if (string.IsNullOrWhiteSpace(filter))
+        {
+            filteredScholarships = scholarships ?? [];
+        }
+        else
+        {
+            filteredScholarships = scholarships?.Where(b =<span class="tk-t">&gt;</span>
+                b.Name.Contains(filter, StringComparison.OrdinalIgnoreCase) ||
+                b.Code.Contains(filter, StringComparison.OrdinalIgnoreCase)) ?? [];
+        }
+    }
+
+    private void CreateNew() =<span class="tk-t">&gt;</span> Navigation.NavigateTo(<span class="tk-s">&quot;/scholarships/create&quot;</span>);
+
+    private void Edit(int id) =<span class="tk-t">&gt;</span> Navigation.NavigateTo($<span class="tk-s">&quot;/scholarships/edit/{id}&quot;</span>);
+
+    private async Task Delete(ScholarshipDto scholarship)
+    {
+        // Usar componente de confirmación
+        var confirmed = await ConfirmDelete(scholarship.Name);
+        if (confirmed)
+        {
+            await ScholarshipService.DeleteAsync(scholarship.Id);
+            await LoadScholarships();
+        }
+    }
+}</code></pre>
+<h4 id="componente-de-formulario-con-validación">Componente de Formulario con Validación</h4>
+<pre data-lang="razor"><code>@* Scholarships/Create.razor *@
+@page <span class="tk-s">&quot;/scholarships/create&quot;</span>
+@page <span class="tk-s">&quot;/scholarships/edit/{Id:int}&quot;</span>
+@rendermode InteractiveServer
+@inject IScholarshipService ScholarshipService
+@inject NavigationManager Navigation
+
+<span class="tk-t">&lt;PageTitle</span><span class="tk-t">&gt;</span>@(Id.HasValue ? <span class="tk-s">&quot;Edit&quot;</span> : <span class="tk-s">&quot;Create&quot;</span>) Scholarship<span class="tk-t">&lt;/PageTitle</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;h1</span><span class="tk-t">&gt;</span>@(Id.HasValue ? <span class="tk-s">&quot;Edit&quot;</span> : <span class="tk-s">&quot;New&quot;</span>) Scholarship<span class="tk-t">&lt;/h1</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;EditForm</span> Model=<span class="tk-s">&quot;@model&quot;</span> OnValidSubmit=<span class="tk-s">&quot;Save&quot;</span> FormName=<span class="tk-s">&quot;scholarshipForm&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;DataAnnotationsValidator</span> <span class="tk-t">/&gt;</span>
+    <span class="tk-t">&lt;FluentValidationValidator</span> <span class="tk-t">/&gt;</span>
+
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;row&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-6 mb-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;code&quot;</span> class=<span class="tk-s">&quot;form-label&quot;</span><span class="tk-t">&gt;</span>Código *<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;InputText</span> id=<span class="tk-s">&quot;code&quot;</span>
+                       @bind-Value=<span class="tk-s">&quot;model.Code&quot;</span>
+                       class=<span class="tk-s">&quot;form-control&quot;</span>
+                       disabled=<span class="tk-s">&quot;@Id.HasValue&quot;</span> <span class="tk-t">/&gt;</span>
+            <span class="tk-t">&lt;ValidationMessage</span> For=<span class="tk-s">&quot;@(() =&gt; model.Code)&quot;</span> class=<span class="tk-s">&quot;text-danger&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-6 mb-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;name&quot;</span> class=<span class="tk-s">&quot;form-label&quot;</span><span class="tk-t">&gt;</span>Name *<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;InputText</span> id=<span class="tk-s">&quot;name&quot;</span> @bind-Value=<span class="tk-s">&quot;model.Name&quot;</span> class=<span class="tk-s">&quot;form-control&quot;</span> <span class="tk-t">/&gt;</span>
+            <span class="tk-t">&lt;ValidationMessage</span> For=<span class="tk-s">&quot;@(() =&gt; model.Name)&quot;</span> class=<span class="tk-s">&quot;text-danger&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;row&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-6 mb-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;amount&quot;</span> class=<span class="tk-s">&quot;form-label&quot;</span><span class="tk-t">&gt;</span>Amount *<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;InputNumber</span> id=<span class="tk-s">&quot;amount&quot;</span>
+                         @bind-Value=<span class="tk-s">&quot;model.Amount&quot;</span>
+                         class=<span class="tk-s">&quot;form-control&quot;</span>
+                         step=<span class="tk-s">&quot;0.01&quot;</span> <span class="tk-t">/&gt;</span>
+            <span class="tk-t">&lt;ValidationMessage</span> For=<span class="tk-s">&quot;@(() =&gt; model.Amount)&quot;</span> class=<span class="tk-s">&quot;text-danger&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-6 mb-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;status&quot;</span> class=<span class="tk-s">&quot;form-label&quot;</span><span class="tk-t">&gt;</span>Status<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;InputSelect</span> id=<span class="tk-s">&quot;status&quot;</span> @bind-Value=<span class="tk-s">&quot;model.Status&quot;</span> class=<span class="tk-s">&quot;form-select&quot;</span><span class="tk-t">&gt;</span>
+                @foreach (var status in Enum.GetValues<span class="tk-t">&lt;ScholarshipStatus</span><span class="tk-t">&gt;</span>())
+                {
+                    <span class="tk-t">&lt;option</span> value=<span class="tk-s">&quot;@status&quot;</span><span class="tk-t">&gt;</span>@status<span class="tk-t">&lt;/option</span><span class="tk-t">&gt;</span>
+                }
+            <span class="tk-t">&lt;/InputSelect</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;row&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-6 mb-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;startDate&quot;</span> class=<span class="tk-s">&quot;form-label&quot;</span><span class="tk-t">&gt;</span>Fecha Inicio *<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;InputDate</span> id=<span class="tk-s">&quot;startDate&quot;</span> @bind-Value=<span class="tk-s">&quot;model.StartDate&quot;</span> class=<span class="tk-s">&quot;form-control&quot;</span> <span class="tk-t">/&gt;</span>
+            <span class="tk-t">&lt;ValidationMessage</span> For=<span class="tk-s">&quot;@(() =&gt; model.StartDate)&quot;</span> class=<span class="tk-s">&quot;text-danger&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-6 mb-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;endDate&quot;</span> class=<span class="tk-s">&quot;form-label&quot;</span><span class="tk-t">&gt;</span>Fecha Fin *<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;InputDate</span> id=<span class="tk-s">&quot;endDate&quot;</span> @bind-Value=<span class="tk-s">&quot;model.EndDate&quot;</span> class=<span class="tk-s">&quot;form-control&quot;</span> <span class="tk-t">/&gt;</span>
+            <span class="tk-t">&lt;ValidationMessage</span> For=<span class="tk-s">&quot;@(() =&gt; model.EndDate)&quot;</span> class=<span class="tk-s">&quot;text-danger&quot;</span> <span class="tk-t">/&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;mb-3&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;label</span> for=<span class="tk-s">&quot;descripcion&quot;</span> class=<span class="tk-s">&quot;form-label&quot;</span><span class="tk-t">&gt;</span>Descripción<span class="tk-t">&lt;/label</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;InputTextArea</span> id=<span class="tk-s">&quot;descripcion&quot;</span> @bind-Value=<span class="tk-s">&quot;model.Description&quot;</span> class=<span class="tk-s">&quot;form-control&quot;</span> rows=<span class="tk-s">&quot;3&quot;</span> <span class="tk-t">/&gt;</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;d-flex gap-2&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;button</span> type=<span class="tk-s">&quot;submit&quot;</span> class=<span class="tk-s">&quot;btn btn-brand-primary&quot;</span> disabled=<span class="tk-s">&quot;@saving&quot;</span><span class="tk-t">&gt;</span>
+            @if (saving)
+            {
+                <span class="tk-t">&lt;span</span> class=<span class="tk-s">&quot;spinner-border spinner-border-sm me-1&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/span</span><span class="tk-t">&gt;</span>
+            }
+            @(Id.HasValue ? <span class="tk-s">&quot;Save Changes&quot;</span> : <span class="tk-s">&quot;Create Scholarship&quot;</span>)
+        <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;button</span> type=<span class="tk-s">&quot;button&quot;</span> class=<span class="tk-s">&quot;btn btn-secondary&quot;</span> @onclick=<span class="tk-s">&quot;Cancel&quot;</span><span class="tk-t">&gt;</span>
+            Cancel
+        <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/EditForm</span><span class="tk-t">&gt;</span>
+
+@code {
+    [Parameter] public int? Id { get; set; }
+
+    private ScholarshipFormModel model = new();
+    private bool saving;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id.HasValue)
+        {
+            var scholarship = await ScholarshipService.GetByIdAsync(Id.Value);
+            if (scholarship is not null)
+            {
+                model = new ScholarshipFormModel
+                {
+                    Code = scholarship.Code,
+                    Name = scholarship.Name,
+                    Amount = scholarship.Amount,
+                    Status = scholarship.Status,
+                    StartDate = scholarship.StartDate,
+                    EndDate = scholarship.EndDate,
+                    Description = scholarship.Description
+                };
+            }
+        }
+    }
+
+    private async Task Save()
+    {
+        saving = true;
+        try
+        {
+            if (Id.HasValue)
+            {
+                await ScholarshipService.UpdateAsync(Id.Value, model);
+            }
+            else
+            {
+                await ScholarshipService.CreateAsync(model);
+            }
+            Navigation.NavigateTo(<span class="tk-s">&quot;/scholarships&quot;</span>);
+        }
+        finally
+        {
+            saving = false;
+        }
+    }
+
+    private void Cancel() =<span class="tk-t">&gt;</span> Navigation.NavigateTo(<span class="tk-s">&quot;/scholarships&quot;</span>);
+
+    // Modelo del formulario
+    public class ScholarshipFormModel
+    {
+        [Required(ErrorMessage = <span class="tk-s">&quot;Code is required&quot;</span>)]
+        [StringLength(<span class="tk-n">20</span>, MinimumLength = <span class="tk-n">3</span>)]
+        public string Code { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = <span class="tk-s">&quot;Name is required&quot;</span>)]
+        [StringLength(<span class="tk-n">200</span>, MinimumLength = <span class="tk-n">5</span>)]
+        public string Name { get; set; } = string.Empty;
+
+        [Required]
+        [Range(<span class="tk-n">0.01</span>, <span class="tk-n">100000</span>, ErrorMessage = <span class="tk-s">&quot;Amount must be between 0.01 and 100,000&quot;</span>)]
+        public decimal Amount { get; set; }
+
+        public ScholarshipStatus Status { get; set; } = ScholarshipStatus.Draft;
+
+        [Required]
+        public DateTime StartDate { get; set; } = DateTime.Today;
+
+        [Required]
+        public DateTime EndDate { get; set; } = DateTime.Today.AddMonths(<span class="tk-n">6</span>);
+
+        [StringLength(<span class="tk-n">2000</span>)]
+        public string? Description { get; set; }
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-3-componentes-reutilizables">
+<h3 id="parte-3-componentes-reutilizables">PARTE 3: COMPONENTES REUTILIZABLES</h3>
+<h4 id="componente-de-confirmación">Componente de Confirmación</h4>
+<pre data-lang="razor"><code>@* Shared/ConfirmDialog.razor *@
+<span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;modal @(visible ? &quot;</span>show d-block<span class="tk-s">&quot; : &quot;</span><span class="tk-s">&quot;)&quot;</span> tabindex=<span class="tk-s">&quot;-1&quot;</span> role=<span class="tk-s">&quot;dialog&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;modal-dialog&quot;</span> role=<span class="tk-s">&quot;document&quot;</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;modal-content&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;modal-header&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;h5</span> class=<span class="tk-s">&quot;modal-title&quot;</span><span class="tk-t">&gt;</span>@Title<span class="tk-t">&lt;/h5</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;button</span> type=<span class="tk-s">&quot;button&quot;</span> class=<span class="tk-s">&quot;btn-close&quot;</span> @onclick=<span class="tk-s">&quot;Cancel&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;modal-body&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;p</span><span class="tk-t">&gt;</span>@Message<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;modal-footer&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;button</span> type=<span class="tk-s">&quot;button&quot;</span> class=<span class="tk-s">&quot;btn btn-secondary&quot;</span> @onclick=<span class="tk-s">&quot;Cancel&quot;</span><span class="tk-t">&gt;</span>
+                    Cancel
+                <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;button</span> type=<span class="tk-s">&quot;button&quot;</span> class=<span class="tk-s">&quot;btn btn-@ButtonColor&quot;</span> @onclick=<span class="tk-s">&quot;Confirm&quot;</span><span class="tk-t">&gt;</span>
+                    @ConfirmText
+                <span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+@if (visible)
+{
+    <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;modal-backdrop fade show&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+}
+
+@code {
+    [Parameter] public string Title { get; set; } = <span class="tk-s">&quot;Confirm&quot;</span>;
+    [Parameter] public string Message { get; set; } = <span class="tk-s">&quot;Are you sure?&quot;</span>;
+    [Parameter] public string ConfirmText { get; set; } = <span class="tk-s">&quot;Confirm&quot;</span>;
+    [Parameter] public string ButtonColor { get; set; } = <span class="tk-s">&quot;danger&quot;</span>;
+    [Parameter] public EventCallback<span class="tk-t">&lt;bool</span><span class="tk-t">&gt;</span> OnClose { get; set; }
+
+    private bool visible;
+
+    public void Show() =<span class="tk-t">&gt;</span> visible = true;
+
+    private async Task Confirm()
+    {
+        visible = false;
+        await OnClose.InvokeAsync(true);
+    }
+
+    private async Task Cancel()
+    {
+        visible = false;
+        await OnClose.InvokeAsync(false);
+    }
+}</code></pre>
+<h4 id="componente-de-notificación-toast">Componente de Notificación Toast</h4>
+<pre data-lang="razor"><code>@* Shared/ToastContainer.razor *@
+@implements IDisposable
+@inject ToastService ToastService
+
+<span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;toast-container position-fixed bottom-0 end-0 p-3&quot;</span><span class="tk-t">&gt;</span>
+    @foreach (var toast in toasts)
+    {
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;toast show&quot;</span> role=<span class="tk-s">&quot;alert&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;toast-header bg-@toast.Type text-white&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;strong</span> class=<span class="tk-s">&quot;me-auto&quot;</span><span class="tk-t">&gt;</span>@toast.Title<span class="tk-t">&lt;/strong</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;button</span> type=<span class="tk-s">&quot;button&quot;</span> class=<span class="tk-s">&quot;btn-close btn-close-white&quot;</span>
+                        @onclick=<span class="tk-s">&quot;() =&gt; Close(toast)&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/button</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;toast-body&quot;</span><span class="tk-t">&gt;</span>
+                @toast.Message
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    }
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+@code {
+    private List<span class="tk-t">&lt;ToastMessage</span><span class="tk-t">&gt;</span> toasts = [];
+
+    protected override void OnInitialized()
+    {
+        ToastService.OnShow += ShowToast;
+    }
+
+    private async Task ShowToast(ToastMessage toast)
+    {
+        toasts.Add(toast);
+        StateHasChanged();
+
+        await Task.Delay(<span class="tk-n">5000</span>);
+        Close(toast);
+    }
+
+    private void Close(ToastMessage toast)
+    {
+        toasts.Remove(toast);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        ToastService.OnShow -= ShowToast;
+    }
+}</code></pre>
+<h4 id="servicio-de-toast">Servicio de Toast</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Services/ToastService.cs</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ToastService
+{
+    <span class="tk-k">public</span> <span class="tk-k">event</span> Func&lt;ToastMessage, Task&gt;? OnShow;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Success(<span class="tk-k">string</span> mensaje, <span class="tk-k">string</span> titulo = <span class="tk-s">&quot;Éxito&quot;</span>)
+        =&gt; <span class="tk-k">await</span> Show(<span class="tk-k">new</span> ToastMessage(titulo, mensaje, <span class="tk-s">&quot;success&quot;</span>));
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Error(<span class="tk-k">string</span> mensaje, <span class="tk-k">string</span> titulo = <span class="tk-s">&quot;Error&quot;</span>)
+        =&gt; <span class="tk-k">await</span> Show(<span class="tk-k">new</span> ToastMessage(titulo, mensaje, <span class="tk-s">&quot;danger&quot;</span>));
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Warning(<span class="tk-k">string</span> mensaje, <span class="tk-k">string</span> titulo = <span class="tk-s">&quot;Aviso&quot;</span>)
+        =&gt; <span class="tk-k">await</span> Show(<span class="tk-k">new</span> ToastMessage(titulo, mensaje, <span class="tk-s">&quot;warning&quot;</span>));
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Info(<span class="tk-k">string</span> mensaje, <span class="tk-k">string</span> titulo = <span class="tk-s">&quot;Información&quot;</span>)
+        =&gt; <span class="tk-k">await</span> Show(<span class="tk-k">new</span> ToastMessage(titulo, mensaje, <span class="tk-s">&quot;info&quot;</span>));
+
+    <span class="tk-k">private</span> <span class="tk-k">async</span> Task Show(ToastMessage toast)
+    {
+        <span class="tk-k">if</span> (OnShow <span class="tk-k">is</span> not <span class="tk-k">null</span>)
+            <span class="tk-k">await</span> OnShow.Invoke(toast);
+    }
+}
+
+<span class="tk-k">public</span> <span class="tk-k">record</span> ToastMessage(<span class="tk-k">string</span> Title, <span class="tk-k">string</span> Message, <span class="tk-k">string</span> Type);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-4-streaming-rendering-net-10">
+<h3 id="parte-4-streaming-rendering-net-10">PARTE 4: STREAMING RENDERING (.NET 10)</h3>
+<h4 id="componente-con-streaming">Componente con Streaming</h4>
+<pre data-lang="razor"><code>@* Scholarships/Dashboard.razor *@
+@page <span class="tk-s">&quot;/scholarships/dashboard&quot;</span>
+@attribute [StreamRendering]   @* Habilita streaming *@
+@inject IScholarshipService ScholarshipService
+
+<span class="tk-t">&lt;PageTitle</span><span class="tk-t">&gt;</span>Dashboard de Scholarships<span class="tk-t">&lt;/PageTitle</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;h1</span><span class="tk-t">&gt;</span>Dashboard<span class="tk-t">&lt;/h1</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;row&quot;</span><span class="tk-t">&gt;</span>
+    @if (stats is null)
+    {
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-12&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;p</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;em</span><span class="tk-t">&gt;</span>Loading stats...<span class="tk-t">&lt;/em</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    }
+    else
+    {
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card bg-primary text-white&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card-body&quot;</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;h5</span> class=<span class="tk-s">&quot;card-title&quot;</span><span class="tk-t">&gt;</span>Total Scholarships<span class="tk-t">&lt;/h5</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;p</span> class=<span class="tk-s">&quot;card-text display-4&quot;</span><span class="tk-t">&gt;</span>@stats.TotalScholarships<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card bg-success text-white&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card-body&quot;</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;h5</span> class=<span class="tk-s">&quot;card-title&quot;</span><span class="tk-t">&gt;</span>Active<span class="tk-t">&lt;/h5</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;p</span> class=<span class="tk-s">&quot;card-text display-4&quot;</span><span class="tk-t">&gt;</span>@stats.ActiveScholarships<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card bg-info text-white&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card-body&quot;</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;h5</span> class=<span class="tk-s">&quot;card-title&quot;</span><span class="tk-t">&gt;</span>Applications<span class="tk-t">&lt;/h5</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;p</span> class=<span class="tk-s">&quot;card-text display-4&quot;</span><span class="tk-t">&gt;</span>@stats.TotalApplications<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;col-md-3&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card bg-warning&quot;</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;card-body&quot;</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;h5</span> class=<span class="tk-s">&quot;card-title&quot;</span><span class="tk-t">&gt;</span>Amount Total<span class="tk-t">&lt;/h5</span><span class="tk-t">&gt;</span>
+                    <span class="tk-t">&lt;p</span> class=<span class="tk-s">&quot;card-text display-4&quot;</span><span class="tk-t">&gt;</span>@stats.AmountTotal.ToString(<span class="tk-s">&quot;C&quot;</span>)<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    }
+<span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+
+@code {
+    private DashboardStats? stats;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // El streaming mostrará <span class="tk-s">&quot;Loading...&quot;</span> mientras se obtienen los datos
+        stats = await ScholarshipService.GetStatsAsync();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-5-autenticación-y-autorización">
+<h3 id="parte-5-autenticación-y-autorización">PARTE 5: AUTENTICACIÓN Y AUTORIZACIÓN</h3>
+<h4 id="componente-protegido">Componente Protegido</h4>
+<pre data-lang="razor"><code>@page <span class="tk-s">&quot;/admin/scholarships&quot;</span>
+@attribute [Authorize(Roles = <span class="tk-s">&quot;Admin,Gestor&quot;</span>)]
+@inject AuthenticationStateProvider AuthProvider
+
+<span class="tk-t">&lt;AuthorizeView</span> Roles=<span class="tk-s">&quot;Admin,Gestor&quot;</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;Authorized</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;h1</span><span class="tk-t">&gt;</span>Administración de Scholarships<span class="tk-t">&lt;/h1</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;p</span><span class="tk-t">&gt;</span>Bienvenido, @context.User.Identity?.Name<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+
+        <span class="tk-t">&lt;AuthorizeView</span> Roles=<span class="tk-s">&quot;Admin&quot;</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;Authorized</span><span class="tk-t">&gt;</span>
+                <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;alert alert-info&quot;</span><span class="tk-t">&gt;</span>
+                    Tienes permisos de administrador.
+                <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+            <span class="tk-t">&lt;/Authorized</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;/AuthorizeView</span><span class="tk-t">&gt;</span>
+
+        @* Contenido para Admin y Gestor *@
+    <span class="tk-t">&lt;/Authorized</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;NotAuthorized</span><span class="tk-t">&gt;</span>
+        <span class="tk-t">&lt;div</span> class=<span class="tk-s">&quot;alert alert-danger&quot;</span><span class="tk-t">&gt;</span>
+            No tienes permisos para acceder a esta página.
+        <span class="tk-t">&lt;/div</span><span class="tk-t">&gt;</span>
+    <span class="tk-t">&lt;/NotAuthorized</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;/AuthorizeView</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="configuración-de-auth-net-10">Configuración de Auth (.NET 10)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddScoped&lt;AuthenticationStateProvider,
+    PersistingRevalidatingAuthenticationStateProvider&gt;();
+
+<span class="tk-c">// Microsoft Entra ID / Azure AD</span>
+builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection(<span class="tk-s">&quot;AzureAd&quot;</span>));</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-6-servicios-y-http">
+<h3 id="parte-6-servicios-y-http">PARTE 6: SERVICIOS Y HTTP</h3>
+<h4 id="servicio-para-blazor-server">Servicio para Blazor Server</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Services/ScholarshipService.cs (Server)</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipService : IScholarshipService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ApplicationDbContext _context;
+
+    <span class="tk-k">public</span> ScholarshipService(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;List&lt;ScholarshipDto&gt;&gt; GetAllAsync()
+    {
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _context.Scholarships
+            .AsNoTracking()
+            .Select(b =&gt; <span class="tk-k">new</span> ScholarshipDto
+            {
+                Id = b.Id,
+                Code = b.Code,
+                Name = b.Name,
+                Amount = b.Amount,
+                Status = b.Status.ToString()
+            })
+            .ToListAsync();
+    }
+}</code></pre>
+<h4 id="servicio-para-blazor-wasm-llamadas-http">Servicio para Blazor WASM (llamadas HTTP)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Services/ClientScholarshipService.cs (WASM)</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ClientScholarshipService : IScholarshipService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> HttpClient _http;
+
+    <span class="tk-k">public</span> ClientScholarshipService(HttpClient http)
+    {
+        _http = http;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;List&lt;ScholarshipDto&gt;&gt; GetAllAsync()
+    {
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _http.GetFromJsonAsync&lt;List&lt;ScholarshipDto&gt;&gt;(<span class="tk-s">&quot;api/scholarships&quot;</span>) ?? [];
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto?&gt; GetByIdAsync(<span class="tk-k">int</span> id)
+    {
+        <span class="tk-k">return</span> <span class="tk-k">await</span> _http.GetFromJsonAsync&lt;ScholarshipDto?&gt;(<span class="tk-s">$&quot;api/scholarships/{id}&quot;</span>);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task CreateAsync(CreateScholarshipRequest request)
+    {
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _http.PostAsJsonAsync(<span class="tk-s">&quot;api/scholarships&quot;</span>, request);
+        response.EnsureSuccessStatusCode();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-7-css-isolation">
+<h3 id="parte-7-css-isolation">PARTE 7: CSS ISOLATION</h3>
+<h4 id="estilos-de-componente">Estilos de Componente</h4>
+<pre data-lang="css"><code>/* Scholarships/Index.razor.css */
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+.toolbar input[type=&quot;search&quot;] {
+    max-width: 250px;
+}
+
+/* Usar ::deep para afectar hijos */
+::deep .table th {
+    background-color: var(--brand-primary);
+    color: white;
+}
+
+::deep .table tr:hover {
+    background-color: var(--brand-neutral-light);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-8-pruebas-de-componentes">
+<h3 id="parte-8-pruebas-de-componentes">PARTE 8: PRUEBAS DE COMPONENTES</h3>
+<h4 id="test-con-bunit">Test con bUnit</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Tests/Components/ScholarshipListTests.cs</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipListTests : TestContext
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> ShowsSpinner_WhenLoading()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> mockService = <span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;();
+        mockService.Setup(s =&gt; s.GetAllAsync())
+            .Returns(<span class="tk-k">new</span> TaskCompletionSource&lt;List&lt;ScholarshipDto&gt;&gt;().Task);
+
+        Services.AddSingleton(mockService.Object);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipList&gt;();
+
+        <span class="tk-c">// Assert</span>
+        cut.Find(<span class="tk-s">&quot;.spinner-border&quot;</span>).Should().NotBeNull();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> ShowsScholarships_WhenDataExists()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> scholarships = <span class="tk-k">new</span> List&lt;ScholarshipDto&gt;
+        {
+            <span class="tk-k">new</span>() { Id = <span class="tk-n">1</span>, Name = <span class="tk-s">&quot;Scholarship Test&quot;</span>, Amount = <span class="tk-n">5000</span> }
+        };
+
+        <span class="tk-k">var</span> mockService = <span class="tk-k">new</span> Mock&lt;IScholarshipService&gt;();
+        mockService.Setup(s =&gt; s.GetAllAsync()).ReturnsAsync(scholarships);
+
+        Services.AddSingleton(mockService.Object);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> cut = RenderComponent&lt;ScholarshipList&gt;();
+
+        <span class="tk-c">// Assert</span>
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;Scholarship Test&quot;</span>);
+        cut.Markup.Should().Contain(<span class="tk-s">&quot;5.000&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-CHECKLIST">
+<h3 id="CHECKLIST">CHECKLIST</h3>
+<h4 id="componentes">Componentes</h4>
+<ul>
+<li><input type="checkbox" disabled> Modo de renderizado apropiado (<code>@rendermode</code>)</li>
+<li><input type="checkbox" disabled> Streaming para datos lentos (<code>@attribute [StreamRendering]</code>)</li>
+<li><input type="checkbox" disabled> Validación con DataAnnotations o FluentValidation</li>
+<li><input type="checkbox" disabled> Manejo de estados (cargando, vacío, error)</li>
+<li><input type="checkbox" disabled> CSS isolation para estilos</li>
+</ul>
+<h4 id="seguridad">Seguridad</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>[Authorize]</code> en páginas protegidas</li>
+<li><input type="checkbox" disabled> <code>&lt;AuthorizeView&gt;</code> para UI condicional</li>
+<li><input type="checkbox" disabled> Validación en servidor (no confiar en cliente)</li>
+<li><input type="checkbox" disabled> CSRF con <code>[ValidateAntiForgeryToken]</code></li>
+</ul>
+<h4 id="rendimiento">Rendimiento</h4>
+<ul>
+<li><input type="checkbox" disabled> QuickGrid para tablas grandes</li>
+<li><input type="checkbox" disabled> Virtualización para listas largas</li>
+<li><input type="checkbox" disabled> Lazy loading de componentes</li>
+<li><input type="checkbox" disabled> Evitar re-renders innecesarios</li>
+</ul>
+<h4 id="accesibilidad">Accesibilidad</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>aria-label</code> en elementos interactivos</li>
+<li><input type="checkbox" disabled> <code>role=&quot;alert&quot;</code> en notificaciones</li>
+<li><input type="checkbox" disabled> Focus visible en formularios</li>
+<li><input type="checkbox" disabled> Contraste de colores WCAG 2.1 AA</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-paquetes-nuget-recomendados">
+<h3 id="paquetes-nuget-recomendados">PAQUETES NUGET RECOMENDADOS</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.AspNetCore.Components.QuickGrid&quot;</span> Version=<span class="tk-s">&quot;10.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Blazored.FluentValidation&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Blazored.LocalStorage&quot;</span> Version=<span class="tk-s">&quot;4.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Microsoft.AspNetCore.Components.WebAssembly.Authentication&quot;</span> Version=<span class="tk-s">&quot;10.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+<p><em>Regla incondicional — Blazor (.NET 10)</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>117</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 383 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>5 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(puertas): Lote B — metadata.kind declarativo y verificado, hook skill-guard, puertas semanticas del portal (ADR-022, ADR-003 enmendado)</em> (<code>55ad636</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/estado.html">estado</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/blazor/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#detección-de-modo-blazor">DETECCIÓN DE MODO BLAZOR</a></li><li class="l3"><a href="#modos-de-renderizado-net-10">MODOS DE RENDERIZADO (.NET 10)</a></li><li class="l3"><a href="#parte-1-estructura-de-proyecto">PARTE 1: ESTRUCTURA DE PROYECTO</a></li><li class="l3"><a href="#parte-2-componentes-blazor">PARTE 2: COMPONENTES BLAZOR</a></li><li class="l3"><a href="#parte-3-componentes-reutilizables">PARTE 3: COMPONENTES REUTILIZABLES</a></li><li class="l3"><a href="#parte-4-streaming-rendering-net-10">PARTE 4: STREAMING RENDERING (.NET 10)</a></li><li class="l3"><a href="#parte-5-autenticación-y-autorización">PARTE 5: AUTENTICACIÓN Y AUTORIZACIÓN</a></li><li class="l3"><a href="#parte-6-servicios-y-http">PARTE 6: SERVICIOS Y HTTP</a></li><li class="l3"><a href="#parte-7-css-isolation">PARTE 7: CSS ISOLATION</a></li><li class="l3"><a href="#parte-8-pruebas-de-componentes">PARTE 8: PRUEBAS DE COMPONENTES</a></li><li class="l3"><a href="#CHECKLIST">CHECKLIST</a></li><li class="l3"><a href="#paquetes-nuget-recomendados">PAQUETES NUGET RECOMENDADOS</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

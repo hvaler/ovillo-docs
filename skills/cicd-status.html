@@ -1,0 +1,255 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-status · Ovillo</title><meta name="description" content="Estado del pipeline registrado (ultimos builds, tiempos por stage o job, tendencia de cobertura, ultimo deploy por entorno y enlaces a Azure DevOps o GitHub…"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-status · Ovillo"><meta property="og:description" content="Estado del pipeline registrado (ultimos builds, tiempos por stage o job, tendencia de cobertura, ultimo deploy por entorno y enlaces a Azure DevOps o GitHub…"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-status.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-status.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/cicd-status.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html" class="cur">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>cicd-status</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:cicd-status</span><span>solo usuario</span></div><h1>cicd-status</h1><p class="lede">Estado del pipeline registrado (ultimos builds, tiempos por stage o job, tendencia de cobertura, ultimo deploy por entorno y enlaces a Azure DevOps o GitHub Actions segun cicd.platform).</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:cicd-status</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>815</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:cicd-status</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:cicd-status</code>.</p></blockquote>
+<hr>
+<blockquote><p>CLI local para ver el estado del pipeline registrado: últimos builds, tiempos por stage o job, cobertura trend, último deploy por entorno y enlaces a la plataforma (Azure DevOps o GitHub Actions, según <code>cicd.platform</code>). Para Fase 0 (sin pipeline): muestra recordatorio de deploy manual.</p></blockquote>
+<hr>
+<section class="sec" id="sec-reglas-críticas">
+<h3 id="reglas-críticas">REGLAS CRÍTICAS</h3>
+<ul>
+<li>Leer <code>_hilo/ESTADO_PROYECTO.json.infraestructura.cicd</code> PRIMERO (objeto <code>{ plataforma, pipelines[] }</code>). Sin <code>pipelines[]</code> → no hay pipeline configurado.</li>
+<li>Resolver la <strong>plataforma</strong> antes de consultar nada con <code>resolve('cicd.platform')</code> (<code>cicd.plataforma</code> del Hilo y, si falta, <code>ecosystem.config.json → cicd.platform</code>; <code>.claude/CONFIGURACION.md §Resolución</code>). Azure DevOps y GitHub se consultan con herramientas distintas; el formato de salida es el mismo.</li>
+<li>Si fase = 0: NO consultar Hub MCP. Solo recordar deploy manual.</li>
+<li>Si fase ≥ 1: intentar tool MCP <code>get_cicd_status</code>. Si el Hub no responde, fallback <strong>directo a la plataforma</strong>: <code>/_apis/build/builds</code> (Azure DevOps) o <code>gh run list</code> (GitHub).</li>
+<li>Modo <code>--watch</code> opcional para polling cada 30s (en GitHub, <code>gh run watch</code> sobre la run en curso).</li>
+<li>Solo lectura: este comando NUNCA encola, despacha ni aprueba nada.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-1-detectar-configuración-cicd-del-proyecto">
+<h3 id="1-detectar-configuración-cicd-del-proyecto">1. Detectar configuración CI/CD del proyecto</h3>
+<pre data-lang="powershell"><code><span class="tk-v">$estado</span>  = Get-Content <span class="tk-s">&quot;_hilo/ESTADO_PROYECTO.json&quot;</span> -Raw | ConvertFrom-Json
+<span class="tk-v">$cicdRaw</span> = <span class="tk-v">$estado</span>.infraestructura.cicd
+
+<span class="tk-c"># Forma canónica: OBJETO { plataforma, pipelines[] } (la escribe /cicd-init FASE 4). Compat: array suelto.</span>
+<span class="tk-v">$pipelines</span>  = <span class="tk-k">if</span> (<span class="tk-v">$cicdRaw</span> -is [array]) { @(<span class="tk-v">$cicdRaw</span>) } <span class="tk-k">elseif</span> (<span class="tk-v">$cicdRaw</span> -and <span class="tk-v">$cicdRaw</span>.pipelines) { @(<span class="tk-v">$cicdRaw</span>.pipelines) } <span class="tk-k">else</span> { @() }
+<span class="tk-v">$plataforma</span> = <span class="tk-k">if</span> (<span class="tk-v">$cicdRaw</span> -isnot [array] -and <span class="tk-v">$cicdRaw</span> -and <span class="tk-v">$cicdRaw</span>.plataforma) { <span class="tk-s">&quot;$($cicdRaw.plataforma)&quot;</span> } <span class="tk-k">else</span> { <span class="tk-v">$null</span> }
+<span class="tk-k">if</span> (-not <span class="tk-v">$plataforma</span> -and (Test-Path <span class="tk-s">&quot;ecosystem.config.json&quot;</span>)) {
+    <span class="tk-v">$plataforma</span> = (Get-Content <span class="tk-s">&quot;ecosystem.config.json&quot;</span> -Raw | ConvertFrom-Json).cicd.platform
+}
+<span class="tk-v">$esGitHub</span> = (<span class="tk-v">$plataforma</span> -eq <span class="tk-s">'github-actions'</span>)
+
+<span class="tk-k">if</span> (<span class="tk-v">$pipelines</span>.Count -eq <span class="tk-n">0</span>) {
+    Write-Host <span class="tk-s">&quot;ℹ️  No hay pipeline CI/CD configurado en este proyecto.&quot;</span>
+    Write-Host <span class="tk-s">&quot;   Ejecuta /cicd-init para configurar (Fase 0/1/2).&quot;</span>
+    <span class="tk-k">exit</span> <span class="tk-n">0</span>
+}
+
+<span class="tk-c"># R25: pipelines[] tiene una entrada por ENTRYPOINT (1 pipeline = 1 entrypoint). Por defecto mostrar TODOS;</span>
+<span class="tk-c"># con --entrypoint &lt;slug&gt; filtrar a uno. (NO usar Out-GridView: el comando corre headless.)</span>
+<span class="tk-k">if</span> (<span class="tk-v">$Entrypoint</span>) { <span class="tk-v">$pipelines</span> = @(<span class="tk-v">$pipelines</span> | Where-Object { <span class="tk-v">$_</span>.entrypoint -eq <span class="tk-v">$Entrypoint</span> -or <span class="tk-v">$_</span>.slug -eq <span class="tk-v">$Entrypoint</span> }) }
+<span class="tk-c"># Repetir las secciones 2-4 (builds, stages/jobs, drift) POR CADA $pipeline de $pipelines, encabezando con</span>
+<span class="tk-c"># su entrypoint + tipo + serverType (app/svc) para distinguir Web / API / Console en el output.</span></code></pre>
+<p>Campos de cada entrada que usa este comando: <code>entrypoint</code>, <code>slug</code>, <code>tipo</code>, <code>serverType</code>, <code>pipelineId</code> (id de definición en Azure DevOps · nombre del fichero del workflow en GitHub, ej. <code>cd-web.yml</code>), <code>yamlFile</code>, <code>url</code>, <code>fase</code>, <code>stages</code> (stages de Azure · jobs de GitHub), <code>stack</code>, <code>ultimoBuildStatus</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-15-drift-de-plantilla-sello-del-yaml-vs-versión-instalada">
+<h3 id="15-drift-de-plantilla-sello-del-yaml-vs-versión-instalada">1.5 Drift de plantilla (sello del YAML vs versión instalada)</h3>
+<p>Si existe el YAML del pipeline, comprobar si el <strong>template del stack</strong> cambió desde que se generó. El YAML lleva un sello en la cabecera (<code># Ovillo cicd-architect &lt;stack&gt; @ vX.Y.Z (tpl &lt;hash12&gt;) gen &lt;fecha&gt;</code>, puesto por <code>/hv:cicd-init</code> FASE 2.8). El token <code>tpl &lt;hash12&gt;</code> es el <strong>hash de contenido del <code>.yml.template</code> del stack</strong>, NO el zip-sha del ecosistema: así el drift solo salta cuando el template de TU stack cambió realmente, no en cada release. Se recomputa con el <strong>mismo helper</strong> que usó <code>/hv:cicd-init</code> (<code>Get-TemplateStamp.ps1</code>) y se compara. Los tokens de stack <code>github-*</code> (<code>github-dotnet</code>, <code>github-vue</code>, <code>github-nettool</code>, <code>github-reusable</code>, <code>github-dotnet-fase1</code>) los conoce el mismo helper.</p>
+<blockquote><p>Sellos en formato antiguo <code>zip &lt;sha12&gt;</code> (pipelines generados con una versión anterior de la plantilla): no se evalúa drift cosmético; se sugiere re-render (Opción 4) para migrarlos a <code>tpl &lt;hash&gt;</code>.</p></blockquote>
+<pre data-lang="powershell"><code><span class="tk-c"># R25: con &gt;1 entrypoint hay varios ficheros -&gt; comprobar drift en CADA uno</span>
+<span class="tk-v">$yamls</span> = <span class="tk-k">if</span> (<span class="tk-v">$esGitHub</span>) {
+    Get-ChildItem -File .github/workflows/*.yml -ErrorAction SilentlyContinue | Where-Object { (Get-Content <span class="tk-v">$_</span>.FullName -TotalCount <span class="tk-n">8</span>) -match <span class="tk-s">'Ovillo cicd-architect'</span> }
+} <span class="tk-k">else</span> {
+    Get-ChildItem -File azure-pipelines*.yml -ErrorAction SilentlyContinue
+}
+<span class="tk-k">foreach</span> (<span class="tk-v">$yf</span> <span class="tk-k">in</span> <span class="tk-v">$yamls</span>) {
+    <span class="tk-v">$yamlPath</span> = <span class="tk-v">$yf</span>.FullName
+    Write-Host <span class="tk-s">&quot;  -- $($yf.Name) --&quot;</span>
+    <span class="tk-v">$head</span> = Get-Content <span class="tk-v">$yamlPath</span> -TotalCount <span class="tk-n">8</span>
+    <span class="tk-v">$stampLine</span> = <span class="tk-v">$head</span> | Where-Object { <span class="tk-v">$_</span> -match <span class="tk-s">'Ovillo cicd-architect'</span> } | Select-Object -First <span class="tk-n">1</span>
+
+    <span class="tk-v">$instVer</span> = <span class="tk-v">$null</span>
+    <span class="tk-k">if</span> (Test-Path <span class="tk-s">&quot;_hilo/VERSION.json&quot;</span>) {
+        <span class="tk-v">$instVer</span> = (Get-Content <span class="tk-s">&quot;_hilo/VERSION.json&quot;</span> -Raw | ConvertFrom-Json).installedVersion
+    }
+    <span class="tk-v">$helper</span> = <span class="tk-s">&quot;$env:CLAUDE_PLUGIN_ROOT/skills/cicd-architect/templates/Get-TemplateStamp.ps1&quot;</span>   <span class="tk-c"># plugin hv@ovillo</span>
+
+    <span class="tk-k">if</span> (-not <span class="tk-v">$stampLine</span>) {
+        Write-Host <span class="tk-s">&quot;[!] El pipeline no tiene sello de plantilla (generado con una version anterior de /cicd-init).&quot;</span>
+        Write-Host <span class="tk-s">&quot;    Regenerar: /cicd-init -&gt; Opcion 4 (re-render + self-check).&quot;</span>
+    }
+    <span class="tk-k">elseif</span> (<span class="tk-v">$stampLine</span> -match <span class="tk-s">'tpl\s+inline'</span>) {
+        Write-Host <span class="tk-s">&quot;[i] Pipeline inline (Fase 1 minimal, sin .template): drift de plantilla no aplicable.&quot;</span>
+    }
+    <span class="tk-k">elseif</span> (<span class="tk-v">$stampLine</span> -match <span class="tk-s">'tpl\s+([0-9a-f]{6,64})'</span>) {
+        <span class="tk-v">$stampHash</span> = <span class="tk-v">$Matches</span>[<span class="tk-n">1</span>]
+        <span class="tk-v">$stack</span> = <span class="tk-k">if</span> (<span class="tk-v">$stampLine</span> -match <span class="tk-s">'cicd-architect\s+(\S+)\s+@'</span>) { <span class="tk-v">$Matches</span>[<span class="tk-n">1</span>] } <span class="tk-k">else</span> { <span class="tk-v">$null</span> }
+        <span class="tk-v">$curHash</span> = <span class="tk-v">$null</span>
+        <span class="tk-k">if</span> (<span class="tk-v">$stack</span> -and (Test-Path <span class="tk-v">$helper</span>)) {
+            <span class="tk-k">try</span> {
+                <span class="tk-v">$curHash</span> = (&amp; <span class="tk-v">$helper</span> -Stack <span class="tk-v">$stack</span> <span class="tk-n">2</span>&gt;<span class="tk-v">$null</span> | Select-Object -Last <span class="tk-n">1</span>)
+                <span class="tk-k">if</span> (<span class="tk-v">$LASTEXITCODE</span> -ne <span class="tk-n">0</span>) { <span class="tk-v">$curHash</span> = <span class="tk-v">$null</span> }
+            } <span class="tk-k">catch</span> { <span class="tk-v">$curHash</span> = <span class="tk-v">$null</span> }
+        }
+        <span class="tk-k">if</span> (-not <span class="tk-v">$curHash</span>) {
+            Write-Host <span class="tk-s">&quot;[i] Sello hash-de-template (tpl $stampHash) pero no se pudo recomputar (helper ausente o stack '$stack' desconocido).&quot;</span>
+            Write-Host <span class="tk-s">&quot;    Plantilla instalada: v$instVer. Ante la duda: /cicd-init -&gt; Opcion 4.&quot;</span>
+        }
+        <span class="tk-k">elseif</span> (<span class="tk-v">$curHash</span> -eq <span class="tk-v">$stampHash</span>) {
+            Write-Host <span class="tk-s">&quot;[OK] Pipeline al dia con la plantilla instalada (sin drift; tpl $stampHash).&quot;</span>
+        }
+        <span class="tk-k">else</span> {
+            Write-Host <span class="tk-s">&quot;[!] DRIFT de plantilla: el template del stack '$stack' cambio desde que se genero el YAML.&quot;</span>
+            Write-Host <span class="tk-s">&quot;      Sello del pipeline: tpl $stampHash&quot;</span>
+            Write-Host <span class="tk-s">&quot;      Template actual:    tpl $curHash  (v$instVer)&quot;</span>
+            Write-Host <span class="tk-s">&quot;    El pipeline puede no incluir lo ultimo (reglas/gates/steps nuevos).&quot;</span>
+            Write-Host <span class="tk-s">&quot;    Accion: /cicd-init -&gt; Opcion 4 (re-render COMPLETO) + self-check (FASE 2.8).&quot;</span>
+        }
+    }
+    <span class="tk-k">elseif</span> (<span class="tk-v">$stampLine</span> -match <span class="tk-s">'zip\s+[0-9a-f]{6,40}'</span>) {
+        Write-Host <span class="tk-s">&quot;[i] Sello en formato antiguo (zip-sha de una version anterior).&quot;</span>
+        Write-Host <span class="tk-s">&quot;    Re-render (/cicd-init -&gt; Opcion 4) para migrarlo a hash-por-template.&quot;</span>
+    }
+    <span class="tk-k">else</span> {
+        Write-Host <span class="tk-s">&quot;[i] Sello presente pero sin token de hash reconocible: $stampLine&quot;</span>
+    }
+}</code></pre>
+<p>Mostrar este aviso ANTES del listado de builds. Es informativo (no bloquea). Ver runbook <code>_patron/08_CICD/RUNBOOK_ACTUALIZAR_PIPELINE.md</code>. En GitHub, la composite action y el reusable workflow llevan su propio sello (<code>github-action-*</code>, <code>github-reusable</code>): comprobarlos también si existen.</p>
+<hr>
+</section>
+<section class="sec" id="sec-2-bifurcar-por-fase">
+<h3 id="2-bifurcar-por-fase">2. Bifurcar por fase</h3>
+<h4 id="si-fase--0">Si fase = 0</h4>
+<pre><code>═══════════════════════════════════════════════════════════════════════
+                      ESTADO CI/CD — &lt;PROYECTO_NOMBRE&gt;
+═══════════════════════════════════════════════════════════════════════
+
+Fase de adopción:   0 — Deploy manual
+
+Este proyecto NO tiene pipeline configurado en &lt;Azure DevOps | GitHub Actions&gt;. Los deploys
+se hacen manualmente siguiendo el runbook documentado.
+
+📖 Guía: ops/cicd/RUNBOOK_DEPLOY_MANUAL.md
+🔄 /verify  ← ejecutar ANTES de cada push (pre-flight 7 fases)
+
+Para promocionar a Fase 1 (build validation) → ejecutar /cicd-init
+  Azure DevOps: cuando el equipo de infraestructura autorice el pool de agentes al proyecto y haya un agente de build online.
+  GitHub:       basta con el repositorio en GitHub y `gh auth login` (runners hosted) o un runner self-hosted.
+═══════════════════════════════════════════════════════════════════════</code></pre>
+<h4 id="si-fase--1--invocar-tool-mcp-get_cicd_status">Si fase ≥ 1 — Invocar tool MCP <code>get_cicd_status</code></h4>
+<p>Intentar primero vía MCP (tool del Hub Ovillo; el servidor se llama <code>ovillo-hub</code> en <code>.mcp.json</code>):</p>
+<pre><code>Claude invoca: mcp__ovillo-hub__get_cicd_status({
+  projectId: &quot;&lt;projectId from _hilo/.mcp-project.json&gt;&quot;
+})</code></pre>
+<p>Si el Hub responde, parsear y mostrar tabla:</p>
+<pre><code>═══════════════════════════════════════════════════════════════════════
+                      ESTADO CI/CD — &lt;PROYECTO_NOMBRE&gt;
+═══════════════════════════════════════════════════════════════════════
+
+Pipeline:           &lt;PIPELINE_NAME&gt;            (GitHub: &lt;workflow file&gt;)
+Fase:               &lt;1|2&gt;
+Plataforma:         &lt;Azure DevOps | GitHub Actions&gt;
+URL:                &lt;URL en la plataforma&gt;
+Stack:              &lt;stack&gt;
+Última actualización (Hub): &lt;fecha&gt;
+
+─── ÚLTIMOS 10 BUILDS ───────────────────────────────────────────────────
+
+| # | Estado | Inicio              | Duración | Rama          | Commit  | Evento            |
+|---|--------|---------------------|----------|---------------|---------|-------------------|
+| 152 | ✅ OK | 2026-06-01 10:15:22 | 4m 12s   | main          | abc123f | push              |
+| 151 | ❌ FAIL | 2026-06-01 09:48:11 | 1m 33s   | feature/HV-19 | def456a | pull_request      |
+| 150 | ✅ OK | 2026-05-31 17:30:05 | 4m 28s   | main          | 789bcde | workflow_dispatch |
+| ... |       |                     |          |               |         |                   |
+
+(La columna Evento solo aplica a GitHub: `push`/`pull_request` = solo build; `workflow_dispatch` = build + deploy on-demand.)
+
+─── TIEMPO POR STAGE / JOB (último build OK) ────────────────────────────
+
+| Stage / Job   | Duración | % del total |
+|---------------|----------|-------------|
+| Build         | 2m 35s   | 61%         |
+| DeployDev     | 0m 42s   | 17%         |
+| DeployDemo    | 0m 50s   | 20% (incl. gate manual) |  [solo Fase 2]
+| DeployProd    | 1m 22s   | (no en último build OK)  |  [solo Fase 2]
+
+─── COBERTURA TREND (últimos 10 builds) ─────────────────────────────────
+
+Line:   72.4% → 73.1% → 73.0% → 71.8% ⚠️ → 72.9% → 73.5% → 73.8% → 74.2% ✅
+Branch: 64.2% → 64.8% → 64.7% → 63.5% ⚠️ → 64.6% → 65.1% → 65.4% → 65.9% ✅
+
+─── ÚLTIMO DEPLOY POR ENTORNO ───────────────────────────────────────────  [solo Fase 2]
+
+| Entorno | Build  | Fecha               | Estado |
+|---------|--------|---------------------|--------|
+| DEV     | #152   | 2026-06-01 10:20:05 | ✅ OK  |
+| DEMO    | #150   | 2026-05-31 17:35:12 | ✅ OK  |
+| PROD    | #145   | 2026-05-28 19:42:33 | ✅ OK  |
+
+─── PENDIENTE DE APROBACIÓN ─────────────────────────────────────────────  [solo GitHub, si hay]
+
+| Run  | Environment | Reviewers        | URL |
+|------|-------------|------------------|-----|
+| #153 | pro         | @lead, @ops-team | …   |
+
+═══════════════════════════════════════════════════════════════════════
+🔗 Abrir en la plataforma:  &lt;URL&gt;
+═══════════════════════════════════════════════════════════════════════</code></pre>
+<h4 id="fallback-si-el-hub-no-responde--azure-devops">Fallback si el Hub no responde — Azure DevOps</h4>
+<p>Si tool MCP falla (Hub offline, conectividad) y <code>plataforma = azure-pipelines</code>, consultar Azure DevOps directamente:</p>
+<pre data-lang="powershell"><code><span class="tk-c"># [bloque TLS 1.2+ R2]</span>
+<span class="tk-v">$builds</span> = Invoke-RestMethod -Uri <span class="tk-s">&quot;$adoUrl/$proj/_apis/build/builds?definitions=$pipelineId&amp;`$top=10&amp;api-version=6.0&quot;</span> -UseDefaultCredentials
+<span class="tk-c"># timeline del último build OK: GET .../_apis/build/builds/&lt;id&gt;/timeline?api-version=6.0 -&gt; records type=Stage (startTime/finishTime)</span>
+<span class="tk-c"># ... formatear tabla similar al output anterior</span></code></pre>
+<p>Mostrar al usuario: <code>⚠️  Hub MCP no responde — datos de Azure DevOps directo (limitados, sin cobertura trend agregada).</code></p>
+<h4 id="fallback-si-el-hub-no-responde--github-actions">Fallback si el Hub no responde — GitHub Actions</h4>
+<p>Con <code>plataforma = github-actions</code>, la fuente directa es <code>gh</code> (GitHub CLI autenticado; el pre-flight de <code>/hv:cicd-init</code> ya lo comprueba). <code>$wf</code> es el nombre del fichero del workflow (<code>pipelineId</code>, ej. <code>cd-web.yml</code>).</p>
+<pre data-lang="bash"><code>repo=$(<span class="tk-k">gh</span> repo view --json nameWithOwner --jq .nameWithOwner)
+
+<span class="tk-c"># Últimos N builds del workflow (una run por push / PR / dispatch). Duración = updatedAt - createdAt.</span>
+<span class="tk-k">gh</span> run list --workflow <span class="tk-s">&quot;$wf&quot;</span> --limit <span class="tk-n">10</span> \
+  --json databaseId,number,status,conclusion,event,headBranch,headSha,createdAt,updatedAt,url,displayTitle
+
+<span class="tk-c"># Tiempo por job del último build OK (los jobs son los &quot;stages&quot;: Build, Quality record, Deploy dev/pre/pro)</span>
+<span class="tk-k">gh</span> run view &lt;databaseId&gt; --json jobs --jq <span class="tk-s">'.jobs[] | [.name, .conclusion, .startedAt, .completedAt] | @tsv'</span>
+
+<span class="tk-c"># Último deploy por entorno: GitHub crea un deployment por cada job con `environment:`; su status enlaza la run</span>
+<span class="tk-k">for</span> env <span class="tk-k">in</span> dev pre pro; <span class="tk-k">do</span>
+  dep=$(<span class="tk-k">gh</span> api <span class="tk-s">&quot;repos/$repo/deployments?environment=$env&amp;per_page=1&quot;</span> --jq <span class="tk-s">'.[0] | &quot;\(.id)\t\(.sha[0:7])\t\(.created_at)\t\(.ref)&quot;'</span>)
+  [ -n <span class="tk-s">&quot;$dep&quot;</span> ] &amp;&amp; <span class="tk-k">gh</span> api <span class="tk-s">&quot;repos/$repo/deployments/${dep%%$'\t'*}/statuses&quot;</span> --jq <span class="tk-s">'.[0] | &quot;\(.state)\t\(.log_url)&quot;'</span>
+<span class="tk-k">done</span>
+
+<span class="tk-c"># Runs paradas esperando aprobación de environment (reviewers de pre/pro)</span>
+<span class="tk-k">gh</span> run list --workflow <span class="tk-s">&quot;$wf&quot;</span> --status waiting --json databaseId,url,displayTitle
+<span class="tk-k">gh</span> api <span class="tk-s">&quot;repos/$repo/actions/runs/&lt;databaseId&gt;/pending_deployments&quot;</span> \
+  --jq <span class="tk-s">'.[] | {env: .environment.name, reviewers: [.reviewers[].reviewer.login]}'</span></code></pre>
+<p>Mapeo de estados: <code>conclusion</code> <code>success</code> → ✅ OK · <code>failure</code> → ❌ FAIL · <code>cancelled</code> → ⚪ CANCEL · <code>status</code> <code>in_progress</code>/<code>queued</code> → ⏳ · <code>waiting</code> → ⏸ aprobación pendiente. Deployment <code>state</code>: <code>success</code> / <code>failure</code> / <code>in_progress</code> / <code>waiting</code> / <code>inactive</code> (sustituido por un deploy posterior).</p>
+<p>Mostrar al usuario: <code>⚠️  Hub MCP no responde — datos de GitHub directo (sin cobertura trend agregada; el Hub la calcula desde los QR).</code> Si <code>gh</code> no está autenticado: imprimir la URL <code>https://github.com/&lt;owner&gt;/&lt;repo&gt;/actions/workflows/&lt;wf&gt;</code> y salir con aviso.</p>
+<hr>
+</section>
+<section class="sec" id="sec-3-modo---watch">
+<h3 id="3-modo---watch">3. Modo --watch</h3>
+<p>Si el usuario invoca <code>/hv:cicd-status --watch</code>:</p>
+<pre data-lang="powershell"><code><span class="tk-k">while</span> (<span class="tk-v">$true</span>) {
+    Clear-Host
+    <span class="tk-c"># Re-ejecutar el flujo de mostrar estado</span>
+    &amp; <span class="tk-v">$estadoCicdScript</span>
+    Write-Host <span class="tk-s">&quot;&quot;</span>
+    Write-Host <span class="tk-s">&quot;🔄 Refresh cada 30s. Ctrl+C para salir.&quot;</span> -ForegroundColor DarkGray
+    Start-Sleep -Seconds <span class="tk-n">30</span>
+}</code></pre>
+<p>En GitHub, si hay una run <code>in_progress</code> o <code>waiting</code>, es más útil seguirla directamente:</p>
+<pre data-lang="bash"><code><span class="tk-k">gh</span> run watch &lt;databaseId&gt; --interval <span class="tk-n">30</span>        <span class="tk-c"># termina cuando la run acaba; muestra jobs y steps</span></code></pre>
+<p>Útil durante un deploy en curso para ver progreso sin recargar la UI de la plataforma.</p>
+<hr>
+</section>
+<section class="sec" id="sec-4-opciones-de-salida---format">
+<h3 id="4-opciones-de-salida---format">4. Opciones de salida (--format)</h3>
+<div class="tbl"><table><thead><tr><th>Flag</th><th>Output</th></tr></thead><tbody><tr><td>(default)</td><td>Tabla formato consola</td></tr><tr><td><code>--format json</code></td><td>JSON estructurado para parseo</td></tr><tr><td><code>--format csv</code></td><td>CSV para análisis batch</td></tr><tr><td><code>--watch</code></td><td>Polling cada 30s (GitHub: <code>gh run watch</code> si hay run en curso)</td></tr><tr><td><code>--last N</code></td><td>Últimos N builds (default 10)</td></tr><tr><td><code>--stage &lt;name&gt;</code></td><td>Solo info del stage (Azure) o job (GitHub) especificado</td></tr><tr><td><code>--entrypoint &lt;slug&gt;</code></td><td>Solo el pipeline de ese entrypoint (R25)</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-REFERENCIAS">
+<h3 id="REFERENCIAS">REFERENCIAS</h3>
+<ul>
+<li>Comando que crea el pipeline: <code>/hv:cicd-init</code></li>
+<li>Tool MCP consumido: <code>get_cicd_status</code> (Hub Ovillo)</li>
+<li>Datos persistidos en: <code>_hilo/ESTADO_PROYECTO.json.infraestructura.cicd.pipelines[]</code></li>
+<li>Skill complementaria: <code>hub-client</code> (para entender el catálogo MCP)</li>
+<li>Drift de plantilla (sección 1.5): sello puesto por <code>/hv:cicd-init</code> FASE 2.8 + self-check <code>validate-pipeline-complete.ps1</code> (con <code>-GitHub</code> para workflows)</li>
+<li>Runbook de actualización: <code>_patron/08_CICD/RUNBOOK_ACTUALIZAR_PIPELINE.md</code></li>
+<li>GitHub: <code>gh run list/view/watch</code>, <code>gh api repos/{owner}/{repo}/deployments</code>, <code>.../actions/runs/{id}/pending_deployments</code></li>
+<li>ADR: <code>_hilo/DECISIONES.md</code></li>
+</ul>
+<p><em>Comando Ovillo — CLI local de estado CI/CD.</em></p>
+<hr>
+<p><em>Skill cicd-status · kind: workflow</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>186</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 815 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>11 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(medida): Lote H - los instrumentos miden de verdad y la cobertura se declara (ADR-028)</em> (<code>fa757ef</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/hub-client.html">hub-client</a></li><li><a href="../skills/verify.html">verify</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-status/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#reglas-críticas">REGLAS CRÍTICAS</a></li><li class="l3"><a href="#1-detectar-configuración-cicd-del-proyecto">1. Detectar configuración CI/CD del proyecto</a></li><li class="l3"><a href="#15-drift-de-plantilla-sello-del-yaml-vs-versión-instalada">1.5 Drift de plantilla (sello del YAML vs versión instalada)</a></li><li class="l3"><a href="#2-bifurcar-por-fase">2. Bifurcar por fase</a></li><li class="l3"><a href="#3-modo---watch">3. Modo --watch</a></li><li class="l3"><a href="#4-opciones-de-salida---format">4. Opciones de salida (--format)</a></li><li class="l3"><a href="#REFERENCIAS">REFERENCIAS</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

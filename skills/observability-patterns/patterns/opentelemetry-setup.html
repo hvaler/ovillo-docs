@@ -1,0 +1,198 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>observability-patterns · patterns/opentelemetry-setup.md · Ovillo</title><meta name="description" content="Fichero patterns/opentelemetry-setup.md de la skill observability-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="observability-patterns · patterns/opentelemetry-setup.md · Ovillo"><meta property="og:description" content="Fichero patterns/opentelemetry-setup.md de la skill observability-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/observability-patterns/patterns/opentelemetry-setup.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/observability-patterns/patterns/opentelemetry-setup.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/observability-patterns/patterns/opentelemetry-setup.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de observability-patterns (7)</h4><ul class="sibs"><li><a href="../../../skills/observability-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/observability-patterns/patterns/opentelemetry-setup.html" class="cur">patterns/opentelemetry-setup.md</a></li><li><a href="../../../skills/observability-patterns/patterns/serilog-config.html">patterns/serilog-config.md</a></li><li><a href="../../../skills/observability-patterns/patterns/structured-logging.html">patterns/structured-logging.md</a></li><li><a href="../../../skills/observability-patterns/references/workflow-add-telemetry.html">references/workflow-add-telemetry.md</a></li><li><a href="../../../skills/observability-patterns/templates/SerilogConfig.cs.html">templates/SerilogConfig.cs.template</a></li><li><a href="../../../skills/observability-patterns/templates/TelemetryConfig.cs.html">templates/TelemetryConfig.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/observability-patterns.html">observability-patterns</a></span><span>patterns</span><span>opentelemetry-setup.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>observability-patterns</span><span>patterns/</span></div><h1>opentelemetry-setup.md</h1><p class="lede">Referencia que <code>observability-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/observability-patterns.html">observability-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>7226 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Guia completa para configurar OpenTelemetry en proyectos .NET 10 de la organización.</p></blockquote>
+<hr>
+<section class="sec" id="sec-conceptos-clave">
+<h3 id="conceptos-clave">Conceptos Clave</h3>
+<div class="tbl"><table><thead><tr><th>Concepto</th><th>Descripcion</th></tr></thead><tbody><tr><td><strong>Activity</strong></td><td>Equivalente a un Span en OpenTelemetry. Representa una operacion</td></tr><tr><td><strong>ActivitySource</strong></td><td>Crea Activities. Equivalente a un Tracer</td></tr><tr><td><strong>Meter</strong></td><td>Instrumento para crear metricas</td></tr><tr><td><strong>Exporter</strong></td><td>Envia telemetria a un backend (App Insights, Console, OTLP)</td></tr><tr><td><strong>Instrumentation</strong></td><td>Captura automatica de telemetria de librerias (ASP.NET, HTTP, SQL)</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion-en-programcs">
+<h3 id="configuracion-en-programcs">Configuracion en Program.cs</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - .NET 10</span>
+<span class="tk-k">using</span> OpenTelemetry;
+<span class="tk-k">using</span> OpenTelemetry.Metrics;
+<span class="tk-k">using</span> OpenTelemetry.Resources;
+<span class="tk-k">using</span> OpenTelemetry.Trace;
+
+<span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+
+<span class="tk-c">// Configurar OpenTelemetry</span>
+builder.Services.AddOpenTelemetry()
+    .ConfigureResource(resource =&gt; resource
+        .AddService(
+            serviceName: builder.Configuration[<span class="tk-s">&quot;OpenTelemetry:ServiceName&quot;</span>] ?? <span class="tk-s">&quot;MyCompany.MyApp&quot;</span>,
+            serviceVersion: builder.Configuration[<span class="tk-s">&quot;OpenTelemetry:ServiceVersion&quot;</span>] ?? <span class="tk-s">&quot;1.0.0&quot;</span>)
+        .AddAttributes(<span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">object</span>&gt;
+        {
+            [<span class="tk-s">&quot;deployment.environment&quot;</span>] = builder.Environment.EnvironmentName,
+            [<span class="tk-s">&quot;service.namespace&quot;</span>] = <span class="tk-s">&quot;MyCompany&quot;</span>
+        }))
+    .WithTracing(tracing =&gt; tracing
+        <span class="tk-c">// Instrumentacion automatica</span>
+        .AddAspNetCoreInstrumentation(options =&gt;
+        {
+            <span class="tk-c">// Filtrar health checks y assets estaticos</span>
+            options.Filter = httpContext =&gt;
+                !httpContext.Request.Path.StartsWithSegments(<span class="tk-s">&quot;/health&quot;</span>) &amp;&amp;
+                !httpContext.Request.Path.StartsWithSegments(<span class="tk-s">&quot;/favicon&quot;</span>);
+        })
+        .AddHttpClientInstrumentation(options =&gt;
+        {
+            <span class="tk-c">// No trazar llamadas a Application Insights</span>
+            options.FilterHttpRequestMessage = request =&gt;
+                request.RequestUri?.Host != <span class="tk-s">&quot;dc.services.visualstudio.com&quot;</span>;
+        })
+        .AddSqlClientInstrumentation(options =&gt;
+        {
+            options.SetDbStatementForText = builder.Environment.IsDevelopment();  <span class="tk-c">// RGPD: valores literales solo en desarrollo</span>
+            options.RecordException = <span class="tk-k">true</span>;
+        })
+        <span class="tk-c">// Activity Sources personalizados</span>
+        .AddSource(<span class="tk-s">&quot;MyCompany.*&quot;</span>))
+    .WithMetrics(metrics =&gt; metrics
+        .AddAspNetCoreInstrumentation()
+        .AddHttpClientInstrumentation()
+        .AddRuntimeInstrumentation()
+        <span class="tk-c">// Metricas personalizadas</span>
+        .AddMeter(<span class="tk-s">&quot;MyCompany.*&quot;</span>));
+
+<span class="tk-c">// Exporters (segun entorno)</span>
+<span class="tk-k">if</span> (builder.Environment.IsDevelopment())
+{
+    <span class="tk-c">// Console exporter para desarrollo</span>
+    builder.Services.AddOpenTelemetry()
+        .WithTracing(t =&gt; t.AddConsoleExporter())
+        .WithMetrics(m =&gt; m.AddConsoleExporter());
+}
+
+<span class="tk-c">// Application Insights (produccion y desarrollo)</span>
+<span class="tk-k">var</span> appInsightsCs = builder.Configuration[<span class="tk-s">&quot;ApplicationInsights:ConnectionString&quot;</span>];
+<span class="tk-k">if</span> (!<span class="tk-k">string</span>.IsNullOrEmpty(appInsightsCs))
+{
+    builder.Services.AddOpenTelemetry()
+        .UseAzureMonitor(options =&gt;
+        {
+            options.ConnectionString = appInsightsCs;
+        });
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-activity-sources-personalizados">
+<h3 id="activity-sources-personalizados">Activity Sources Personalizados</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Definir ActivitySource para trazas personalizadas</span>
+<span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> TelemetryConstants
+{
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> ActivitySource ScholarshipsActivitySource =
+        <span class="tk-k">new</span>(<span class="tk-s">&quot;MyCompany.MyApp.Scholarships&quot;</span>, <span class="tk-s">&quot;1.0.0&quot;</span>);
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> ActivitySource IntegracionesActivitySource =
+        <span class="tk-k">new</span>(<span class="tk-s">&quot;MyCompany.MyApp.Integraciones&quot;</span>, <span class="tk-s">&quot;1.0.0&quot;</span>);
+}
+
+<span class="tk-c">// Uso en servicios</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipService : IScholarshipService
+{
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto&gt; ProcessAsync(<span class="tk-k">int</span> scholarshipId, CancellationToken ct)
+    {
+        <span class="tk-k">using</span> <span class="tk-k">var</span> activity = TelemetryConstants.ScholarshipsActivitySource
+            .StartActivity(<span class="tk-s">&quot;ProcessScholarship&quot;</span>);
+
+        activity?.SetTag(<span class="tk-s">&quot;scholarship.id&quot;</span>, scholarshipId);
+
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-k">var</span> result = <span class="tk-k">await</span> _repository.GetByIdAsync(scholarshipId, ct);
+            activity?.SetTag(<span class="tk-s">&quot;scholarship.status&quot;</span>, resultado?.Status.ToString());
+            activity?.SetStatus(ActivityStatusCode.Ok);
+            <span class="tk-k">return</span> resultado;
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
+            activity?.RecordException(ex);
+            <span class="tk-k">throw</span>;
+        }
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-metricas-personalizadas">
+<h3 id="metricas-personalizadas">Metricas Personalizadas</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Definir metricas de negocio</span>
+<span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> ScholarshipsMetrics
+{
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> Meter Meter = <span class="tk-k">new</span>(<span class="tk-s">&quot;MyCompany.MyApp.Scholarships&quot;</span>, <span class="tk-s">&quot;1.0.0&quot;</span>);
+
+    <span class="tk-c">// Counter - numero total de operaciones</span>
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> Counter&lt;<span class="tk-k">long</span>&gt; ScholarshipsCreated =
+        Meter.CreateCounter&lt;<span class="tk-k">long</span>&gt;(<span class="tk-s">&quot;scholarships.creadas&quot;</span>, <span class="tk-s">&quot;scholarships&quot;</span>,
+            <span class="tk-s">&quot;Number total de scholarships creadas&quot;</span>);
+
+    <span class="tk-c">// Histogram - distribucion de importes</span>
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> Histogram&lt;<span class="tk-k">double</span>&gt; ScholarshipAmounts =
+        Meter.CreateHistogram&lt;<span class="tk-k">double</span>&gt;(<span class="tk-s">&quot;scholarships.amount&quot;</span>, <span class="tk-s">&quot;EUR&quot;</span>,
+            <span class="tk-s">&quot;Distribucion de importes de scholarships&quot;</span>);
+
+    <span class="tk-c">// UpDownCounter - scholarships activas en un momento dado</span>
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> UpDownCounter&lt;<span class="tk-k">long</span>&gt; ActiveScholarships =
+        Meter.CreateUpDownCounter&lt;<span class="tk-k">long</span>&gt;(<span class="tk-s">&quot;scholarships.activas&quot;</span>, <span class="tk-s">&quot;scholarships&quot;</span>,
+            <span class="tk-s">&quot;Number de scholarships activas actualmente&quot;</span>);
+}
+
+<span class="tk-c">// Uso</span>
+ScholarshipsMetrics.ScholarshipsCreated.Add(<span class="tk-n">1</span>, <span class="tk-k">new</span> KeyValuePair&lt;<span class="tk-k">string</span>, <span class="tk-k">object</span>?&gt;(<span class="tk-s">&quot;tipo&quot;</span>, <span class="tk-s">&quot;excelencia&quot;</span>));
+ScholarshipsMetrics.ScholarshipAmounts.Record(<span class="tk-n">5000.0</span>);
+ScholarshipsMetrics.ActiveScholarships.Add(<span class="tk-n">1</span>);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion-appsettingsjson">
+<h3 id="configuracion-appsettingsjson">Configuracion appsettings.json</h3>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;OpenTelemetry&quot;</span>: {
+    <span class="tk-s">&quot;ServiceName&quot;</span>: <span class="tk-s">&quot;MyCompany.MyApp&quot;</span>,
+    <span class="tk-s">&quot;ServiceVersion&quot;</span>: <span class="tk-s">&quot;1.0.0&quot;</span>
+  },
+  <span class="tk-s">&quot;ApplicationInsights&quot;</span>: {
+    <span class="tk-s">&quot;ConnectionString&quot;</span>: <span class="tk-s">&quot;PLACEHOLDER_USAR_KEY_VAULT_EN_PRODUCCION&quot;</span>
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-nugets-necesarios">
+<h3 id="nugets-necesarios">NuGets Necesarios</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-c">&lt;!-- OpenTelemetry Core --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;OpenTelemetry&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;OpenTelemetry.Extensions.Hosting&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- Instrumentacion automatica --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;OpenTelemetry.Instrumentation.AspNetCore&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;OpenTelemetry.Instrumentation.Http&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;OpenTelemetry.Instrumentation.SqlClient&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;OpenTelemetry.Instrumentation.Runtime&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+
+  <span class="tk-c">&lt;!-- Exporters --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Azure.Monitor.OpenTelemetry.AspNetCore&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;OpenTelemetry.Exporter.Console&quot;</span> Version=<span class="tk-s">&quot;1.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-c">&lt;!-- Opcional: OTLP para Grafana/Jaeger --&gt;</span>
+  <span class="tk-c">&lt;!-- &lt;PackageReference Include=&quot;OpenTelemetry.Exporter.OpenTelemetryProtocol&quot; Version=&quot;1.*&quot; /&gt; --&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-filtrado-de-trazas">
+<h3 id="filtrado-de-trazas">Filtrado de Trazas</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// No trazar endpoints de health o assets estaticos</span>
+.AddAspNetCoreInstrumentation(options =&gt;
+{
+    options.Filter = httpContext =&gt;
+    {
+        <span class="tk-k">var</span> path = httpContext.Request.Path.Value ?? <span class="tk-s">&quot;&quot;</span>;
+        <span class="tk-k">return</span> !path.StartsWith(<span class="tk-s">&quot;/health&quot;</span>) &amp;&amp;
+               !path.StartsWith(<span class="tk-s">&quot;/favicon&quot;</span>) &amp;&amp;
+               !path.StartsWith(<span class="tk-s">&quot;/_framework&quot;</span>) &amp;&amp;
+               !path.EndsWith(<span class="tk-s">&quot;.css&quot;</span>) &amp;&amp;
+               !path.EndsWith(<span class="tk-s">&quot;.js&quot;</span>);
+    };
+})</code></pre>
+<hr>
+<p><em>Pattern opentelemetry-setup</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/observability-patterns.html#ficheros">← Volver a la ficha de observability-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/observability-patterns/eval-set.html"><small>Anterior</small>eval-set.json</a><a class="next" href="../../../skills/observability-patterns/patterns/serilog-config.html"><small>Siguiente</small>patterns/serilog-config.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/observability-patterns/patterns/opentelemetry-setup.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#conceptos-clave">Conceptos Clave</a></li><li class="l2"><a href="#configuracion-en-programcs">Configuracion en Program.cs</a></li><li class="l2"><a href="#activity-sources-personalizados">Activity Sources Personalizados</a></li><li class="l2"><a href="#metricas-personalizadas">Metricas Personalizadas</a></li><li class="l2"><a href="#configuracion-appsettingsjson">Configuracion appsettings.json</a></li><li class="l2"><a href="#nugets-necesarios">NuGets Necesarios</a></li><li class="l2"><a href="#filtrado-de-trazas">Filtrado de Trazas</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

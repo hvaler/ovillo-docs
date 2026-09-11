@@ -1,0 +1,182 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>observability-patterns · patterns/serilog-config.md · Ovillo</title><meta name="description" content="Fichero patterns/serilog-config.md de la skill observability-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="observability-patterns · patterns/serilog-config.md · Ovillo"><meta property="og:description" content="Fichero patterns/serilog-config.md de la skill observability-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/observability-patterns/patterns/serilog-config.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/observability-patterns/patterns/serilog-config.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/observability-patterns/patterns/serilog-config.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de observability-patterns (7)</h4><ul class="sibs"><li><a href="../../../skills/observability-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/observability-patterns/patterns/opentelemetry-setup.html">patterns/opentelemetry-setup.md</a></li><li><a href="../../../skills/observability-patterns/patterns/serilog-config.html" class="cur">patterns/serilog-config.md</a></li><li><a href="../../../skills/observability-patterns/patterns/structured-logging.html">patterns/structured-logging.md</a></li><li><a href="../../../skills/observability-patterns/references/workflow-add-telemetry.html">references/workflow-add-telemetry.md</a></li><li><a href="../../../skills/observability-patterns/templates/SerilogConfig.cs.html">templates/SerilogConfig.cs.template</a></li><li><a href="../../../skills/observability-patterns/templates/TelemetryConfig.cs.html">templates/TelemetryConfig.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/observability-patterns.html">observability-patterns</a></span><span>patterns</span><span>serilog-config.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>observability-patterns</span><span>patterns/</span></div><h1>serilog-config.md</h1><p class="lede">Referencia que <code>observability-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/observability-patterns.html">observability-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>6394 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Guia completa para configurar Serilog en proyectos .NET 10 de la organización.</p></blockquote>
+<hr>
+<section class="sec" id="sec-configuracion-basica-en-programcs">
+<h3 id="configuracion-basica-en-programcs">Configuracion Basica en Program.cs</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - Configuracion temprana (antes de builder)</span>
+<span class="tk-k">using</span> Serilog;
+
+Log.Logger = <span class="tk-k">new</span> LoggerConfiguration()
+    .ReadFrom.Configuration(<span class="tk-k">new</span> ConfigurationBuilder()
+        .AddJsonFile(<span class="tk-s">&quot;appsettings.json&quot;</span>)
+        .AddJsonFile(<span class="tk-s">$&quot;appsettings.{Environment.GetEnvironmentVariable(&quot;</span>ASPNETCORE_ENVIRONMENT<span class="tk-s">&quot;) ?? &quot;</span>Production<span class="tk-s">&quot;}.json&quot;</span>, optional: <span class="tk-k">true</span>)
+        .Build())
+    .CreateLogger();
+
+<span class="tk-k">try</span>
+{
+    Log.Information(<span class="tk-s">&quot;Iniciando aplicacion {ApplicationName}&quot;</span>, <span class="tk-s">&quot;MyCompany.MyApp&quot;</span>);
+
+    <span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+    builder.Host.UseSerilog();
+
+    <span class="tk-c">// ... resto de configuracion ...</span>
+
+    <span class="tk-k">var</span> app = builder.Build();
+
+    <span class="tk-c">// Middleware de logging de requests</span>
+    app.UseSerilogRequestLogging(options =&gt;
+    {
+        options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =&gt;
+        {
+            diagnosticContext.Set(<span class="tk-s">&quot;RequestHost&quot;</span>, httpContext.Request.Host.Value);
+            diagnosticContext.Set(<span class="tk-s">&quot;UserAgent&quot;</span>, httpContext.Request.Headers.UserAgent.ToString());
+            diagnosticContext.Set(<span class="tk-s">&quot;UserId&quot;</span>, httpContext.User?.Identity?.Name ?? <span class="tk-s">&quot;anonymous&quot;</span>);
+        };
+        <span class="tk-c">// No loguear health checks</span>
+        options.GetLevel = (httpContext, elapsed, ex) =&gt;
+        {
+            <span class="tk-k">if</span> (httpContext.Request.Path.StartsWithSegments(<span class="tk-s">&quot;/health&quot;</span>))
+                <span class="tk-k">return</span> Serilog.Events.LogEventLevel.Verbose;
+            <span class="tk-k">if</span> (ex != <span class="tk-k">null</span>)
+                <span class="tk-k">return</span> Serilog.Events.LogEventLevel.Error;
+            <span class="tk-k">if</span> (elapsed &gt; <span class="tk-n">5000</span>)
+                <span class="tk-k">return</span> Serilog.Events.LogEventLevel.Warning;
+            <span class="tk-k">return</span> Serilog.Events.LogEventLevel.Information;
+        };
+    });
+
+    <span class="tk-c">// ... pipeline HTTP ...</span>
+
+    app.Run();
+}
+<span class="tk-k">catch</span> (Exception ex)
+{
+    Log.Fatal(ex, <span class="tk-s">&quot;Error fatal al iniciar la aplicacion&quot;</span>);
+    <span class="tk-k">throw</span>;
+}
+<span class="tk-k">finally</span>
+{
+    <span class="tk-k">await</span> Log.CloseAndFlushAsync();
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion-en-appsettingsjson">
+<h3 id="configuracion-en-appsettingsjson">Configuracion en appsettings.json</h3>
+<h4 id="desarrollo-appsettingsdevelopmentjson">Desarrollo (appsettings.Development.json)</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;Serilog&quot;</span>: {
+    <span class="tk-s">&quot;Using&quot;</span>: [<span class="tk-s">&quot;Serilog.Sinks.Console&quot;</span>, <span class="tk-s">&quot;Serilog.Sinks.File&quot;</span>],
+    <span class="tk-s">&quot;MinimumLevel&quot;</span>: {
+      <span class="tk-s">&quot;Default&quot;</span>: <span class="tk-s">&quot;Debug&quot;</span>,
+      <span class="tk-s">&quot;Override&quot;</span>: {
+        <span class="tk-s">&quot;Microsoft&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.AspNetCore&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.EntityFrameworkCore&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.EntityFrameworkCore.Database.Command&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>,
+        <span class="tk-s">&quot;System&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>
+      }
+    },
+    <span class="tk-s">&quot;WriteTo&quot;</span>: [
+      {
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;Console&quot;</span>,
+        <span class="tk-s">&quot;Args&quot;</span>: {
+          <span class="tk-s">&quot;theme&quot;</span>: <span class="tk-s">&quot;Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme::Code, Serilog.Sinks.Console&quot;</span>,
+          <span class="tk-s">&quot;outputTemplate&quot;</span>: <span class="tk-s">&quot;[{Timestamp:HH:mm:ss} {Level:u3}] {SourceContext}{NewLine}  {Message:lj}{NewLine}{Exception}&quot;</span>
+        }
+      },
+      {
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;File&quot;</span>,
+        <span class="tk-s">&quot;Args&quot;</span>: {
+          <span class="tk-s">&quot;path&quot;</span>: <span class="tk-s">&quot;logs/log-.txt&quot;</span>,
+          <span class="tk-s">&quot;rollingInterval&quot;</span>: <span class="tk-s">&quot;Day&quot;</span>,
+          <span class="tk-s">&quot;retainedFileCountLimit&quot;</span>: <span class="tk-n">7</span>,
+          <span class="tk-s">&quot;outputTemplate&quot;</span>: <span class="tk-s">&quot;{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] ({SourceContext}) {Message:lj}{NewLine}{Exception}&quot;</span>
+        }
+      }
+    ],
+    <span class="tk-s">&quot;Enrich&quot;</span>: [<span class="tk-s">&quot;FromLogContext&quot;</span>, <span class="tk-s">&quot;WithMachineName&quot;</span>, <span class="tk-s">&quot;WithThreadId&quot;</span>]
+  }
+}</code></pre>
+<h4 id="produccion-appsettingsjson">Produccion (appsettings.json)</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;Serilog&quot;</span>: {
+    <span class="tk-s">&quot;Using&quot;</span>: [
+      <span class="tk-s">&quot;Serilog.Sinks.Console&quot;</span>,
+      <span class="tk-s">&quot;Serilog.Sinks.File&quot;</span>,
+      <span class="tk-s">&quot;Serilog.Sinks.ApplicationInsights&quot;</span>
+    ],
+    <span class="tk-s">&quot;MinimumLevel&quot;</span>: {
+      <span class="tk-s">&quot;Default&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>,
+      <span class="tk-s">&quot;Override&quot;</span>: {
+        <span class="tk-s">&quot;Microsoft&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.AspNetCore&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.EntityFrameworkCore&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.EntityFrameworkCore.Database.Command&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;System&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;MyCompany&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>
+      }
+    },
+    <span class="tk-s">&quot;WriteTo&quot;</span>: [
+      {
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;Console&quot;</span>,
+        <span class="tk-s">&quot;Args&quot;</span>: {
+          <span class="tk-s">&quot;outputTemplate&quot;</span>: <span class="tk-s">&quot;[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}&quot;</span>
+        }
+      },
+      {
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;File&quot;</span>,
+        <span class="tk-s">&quot;Args&quot;</span>: {
+          <span class="tk-s">&quot;path&quot;</span>: <span class="tk-s">&quot;logs/log-.txt&quot;</span>,
+          <span class="tk-s">&quot;rollingInterval&quot;</span>: <span class="tk-s">&quot;Day&quot;</span>,
+          <span class="tk-s">&quot;retainedFileCountLimit&quot;</span>: <span class="tk-n">30</span>,
+          <span class="tk-s">&quot;fileSizeLimitBytes&quot;</span>: <span class="tk-n">104857600</span>,
+          <span class="tk-s">&quot;rollOnFileSizeLimit&quot;</span>: true
+        }
+      },
+      {
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;ApplicationInsights&quot;</span>,
+        <span class="tk-s">&quot;Args&quot;</span>: {
+          <span class="tk-s">&quot;connectionString&quot;</span>: <span class="tk-s">&quot;&quot;</span>,
+          <span class="tk-s">&quot;telemetryConverter&quot;</span>: <span class="tk-s">&quot;Serilog.Sinks.ApplicationInsights.TelemetryConverters.TraceTelemetryConverter, Serilog.Sinks.ApplicationInsights&quot;</span>
+        }
+      }
+    ],
+    <span class="tk-s">&quot;Enrich&quot;</span>: [<span class="tk-s">&quot;FromLogContext&quot;</span>, <span class="tk-s">&quot;WithMachineName&quot;</span>, <span class="tk-s">&quot;WithThreadId&quot;</span>]
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-niveles-de-log-por-namespace">
+<h3 id="niveles-de-log-por-namespace">Niveles de Log por Namespace</h3>
+<div class="tbl"><table><thead><tr><th>Namespace</th><th>Desarrollo</th><th>Produccion</th><th>Motivo</th></tr></thead><tbody><tr><td>Default</td><td>Debug</td><td>Information</td><td>Todo lo de la aplicacion</td></tr><tr><td>Microsoft</td><td>Information</td><td>Warning</td><td>Framework, solo errores en prod</td></tr><tr><td>Microsoft.AspNetCore</td><td>Warning</td><td>Warning</td><td>Reduce ruido de middleware</td></tr><tr><td>Microsoft.EFCore.Database.Command</td><td>Information</td><td>Warning</td><td>Ver queries en dev, ocultar en prod</td></tr><tr><td>System</td><td>Warning</td><td>Warning</td><td>Sistema, solo errores</td></tr><tr><td>MyCompany.*</td><td>Debug</td><td>Information</td><td>Codigo propio, maximo detalle en dev</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-sinks-disponibles">
+<h3 id="sinks-disponibles">Sinks Disponibles</h3>
+<div class="tbl"><table><thead><tr><th>Sink</th><th>Uso</th><th>NuGet</th></tr></thead><tbody><tr><td>Console</td><td>Desarrollo, depuracion</td><td>Serilog.Sinks.Console</td></tr><tr><td>File</td><td>Logs persistentes rotativos</td><td>Serilog.Sinks.File</td></tr><tr><td>Application Insights</td><td>Produccion, Azure Monitor</td><td>Serilog.Sinks.ApplicationInsights</td></tr><tr><td>Seq</td><td>Servidor de logs centralizado</td><td>Serilog.Sinks.Seq</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-enrichers">
+<h3 id="enrichers">Enrichers</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Enrichers enriquecen cada evento con informacion contextual</span>
+.Enrich.FromLogContext()           <span class="tk-c">// Propiedades del scope</span>
+.Enrich.WithMachineName()          <span class="tk-c">// Name del servidor</span>
+.Enrich.WithThreadId()             <span class="tk-c">// ID del thread</span>
+.Enrich.WithProcessId()            <span class="tk-c">// ID del proceso</span>
+.Enrich.WithEnvironmentName()      <span class="tk-c">// Development/Production</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-nugets-necesarios">
+<h3 id="nugets-necesarios">NuGets Necesarios</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Serilog.AspNetCore&quot;</span> Version=<span class="tk-s">&quot;8.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Serilog.Sinks.Console&quot;</span> Version=<span class="tk-s">&quot;6.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Serilog.Sinks.File&quot;</span> Version=<span class="tk-s">&quot;6.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Serilog.Sinks.ApplicationInsights&quot;</span> Version=<span class="tk-s">&quot;4.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Serilog.Enrichers.Environment&quot;</span> Version=<span class="tk-s">&quot;3.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Serilog.Enrichers.Thread&quot;</span> Version=<span class="tk-s">&quot;4.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Serilog.Enrichers.Process&quot;</span> Version=<span class="tk-s">&quot;3.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+<p><em>Pattern serilog-config</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/observability-patterns.html#ficheros">← Volver a la ficha de observability-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/observability-patterns/patterns/opentelemetry-setup.html"><small>Anterior</small>patterns/opentelemetry-setup.md</a><a class="next" href="../../../skills/observability-patterns/patterns/structured-logging.html"><small>Siguiente</small>patterns/structured-logging.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/observability-patterns/patterns/serilog-config.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#configuracion-basica-en-programcs">Configuracion Basica en Program.cs</a></li><li class="l2"><a href="#configuracion-en-appsettingsjson">Configuracion en appsettings.json</a></li><li class="l3"><a href="#desarrollo-appsettingsdevelopmentjson">Desarrollo (appsettings.Development.json)</a></li><li class="l3"><a href="#produccion-appsettingsjson">Produccion (appsettings.json)</a></li><li class="l2"><a href="#niveles-de-log-por-namespace">Niveles de Log por Namespace</a></li><li class="l2"><a href="#sinks-disponibles">Sinks Disponibles</a></li><li class="l2"><a href="#enrichers">Enrichers</a></li><li class="l2"><a href="#nugets-necesarios">NuGets Necesarios</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

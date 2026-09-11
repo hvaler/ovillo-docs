@@ -1,0 +1,556 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guia de Observabilidad · Ovillo</title><meta name="description" content="Guia de Observabilidad"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Guia de Observabilidad · Ovillo"><meta property="og:description" content="Guia de Observabilidad"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/guia_observabilidad.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/guia_observabilidad.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/guia_observabilidad.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 06_Observabilidad (1)</h4><ul class="sibs"><li><a href="../guias/guia_observabilidad.html" class="cur">Guia de Observabilidad</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 06_Observabilidad</span><span>Guia de Observabilidad</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 06_Observabilidad</span><span>español</span><span><a href="../guias/guia_observabilidad.en.html">English version</a></span></div><h1>Guia de Observabilidad</h1><div class="meta-grid"><div><b>5 min</b><span>lectura</span></div><div><b>1116</b><span>palabras</span></div><div><b>10</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>3</b><span>cambios</span></div></div><blockquote><p><strong>Version</strong>: 1.0.0 <strong>Fecha</strong>: 2026-02-10 <strong>Autor</strong>: la organización <strong>Proposito</strong>: Guia completa de observabilidad para proyectos .NET 10</p></blockquote>
+<hr>
+<section class="sec" id="sec-indice">
+<h3 id="indice">Indice</h3>
+<ol>
+<li><a href="#1-introduccion">Introduccion</a></li>
+<li><a href="#2-opentelemetry-net-10">OpenTelemetry (.NET 10)</a></li>
+<li><a href="#3-serilog">Serilog</a></li>
+<li><a href="#4-application-insights">Application Insights</a></li>
+<li><a href="#5-metricas-de-negocio">Metricas de Negocio</a></li>
+<li><a href="#6-rgpd-y-datos-sensibles">RGPD y Datos Sensibles</a></li>
+<li><a href="#7-checklist-de-observabilidad">Checklist de Observabilidad</a></li>
+<li><a href="#8-paquetes-nuget">Paquetes NuGet</a></li>
+<li><a href="#9-referencias">Referencias</a></li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-1-introduccion">
+<h3 id="1-introduccion">1. Introduccion</h3>
+<h4 id="11-los-tres-pilares-de-la-observabilidad">1.1 Los tres pilares de la observabilidad</h4>
+<p>La observabilidad permite entender el estado interno de un sistema a partir de sus salidas externas. Se sustenta en tres pilares complementarios:</p>
+<div class="tbl"><table><thead><tr><th>Pilar</th><th>Descripcion</th><th>Herramientas de la organización</th><th>Pregunta que responde</th></tr></thead><tbody><tr><td><strong>Logs</strong></td><td>Registros textuales de eventos discretos con contexto estructurado</td><td>Serilog + Application Insights</td><td>&quot;Que ha pasado?&quot;</td></tr><tr><td><strong>Metricas</strong></td><td>Valores numericos agregables que representan el estado del sistema en el tiempo</td><td>OpenTelemetry Metrics + App Insights</td><td>&quot;Cuanto esta pasando?&quot;</td></tr><tr><td><strong>Trazas</strong></td><td>Seguimiento de una peticion a traves de multiples servicios y componentes</td><td>OpenTelemetry Traces + App Insights</td><td>&quot;Donde esta pasando?&quot;</td></tr></tbody></table></div>
+<h4 id="12-por-que-importa-la-observabilidad">1.2 Por que importa la observabilidad</h4>
+<ul>
+<li><strong>Detectar problemas antes que los usuarios</strong> - Las metricas y alertas permiten identificar degradaciones antes de que se conviertan en incidencias.</li>
+<li><strong>Entender el comportamiento del sistema</strong> - Las trazas distribuidas muestran el flujo real de las peticiones, incluyendo tiempos y dependencias.</li>
+<li><strong>Reducir tiempo de resolucion (MTTR)</strong> - Los logs estructurados y correlacionados permiten diagnosticar problemas en minutos en lugar de horas.</li>
+<li><strong>Tomar decisiones basadas en datos</strong> - Las metricas de negocio proporcionan visibilidad sobre el impacto real de los cambios.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-2-opentelemetry-net-10">
+<h3 id="2-opentelemetry-net-10">2. OpenTelemetry (.NET 10)</h3>
+<h4 id="21-que-es-opentelemetry">2.1 Que es OpenTelemetry</h4>
+<p>OpenTelemetry (OTel) es un estandar abierto y vendor-neutral para la generacion, recopilacion y exportacion de datos de telemetria. En .NET 10, la integracion es nativa y recomendada por Microsoft como la forma estandar de instrumentar aplicaciones.</p>
+<p><strong>Ventajas sobre soluciones propietarias:</strong></p>
+<ul>
+<li>Sin vendor lock-in: mismo codigo, diferentes backends</li>
+<li>Soporte nativo en .NET 10 (System.Diagnostics)</li>
+<li>Comunidad activa y estandar CNCF</li>
+<li>Auto-instrumentacion para librerias comunes</li>
+</ul>
+<h4 id="22-configuracion-en-programcs">2.2 Configuracion en Program.cs</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - Configuracion completa de OpenTelemetry en .NET 10</span>
+<span class="tk-k">using</span> OpenTelemetry.Logs;
+<span class="tk-k">using</span> OpenTelemetry.Metrics;
+<span class="tk-k">using</span> OpenTelemetry.Resources;
+<span class="tk-k">using</span> OpenTelemetry.Trace;
+
+<span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+
+<span class="tk-c">// =============================================</span>
+<span class="tk-c">// Recurso compartido (identifica el servicio)</span>
+<span class="tk-c">// =============================================</span>
+<span class="tk-k">var</span> resourceBuilder = ResourceBuilder.CreateDefault()
+    .AddService(
+        serviceName: <span class="tk-s">&quot;MyCompany.MyApp.Api&quot;</span>,
+        serviceVersion: <span class="tk-s">&quot;1.0.0&quot;</span>,
+        serviceInstanceId: Environment.MachineName);
+
+<span class="tk-c">// =============================================</span>
+<span class="tk-c">// TRAZAS (Traces)</span>
+<span class="tk-c">// =============================================</span>
+builder.Services.AddOpenTelemetry()
+    .WithTracing(tracing =&gt;
+    {
+        tracing
+            .SetResourceBuilder(resourceBuilder)
+            <span class="tk-c">// Auto-instrumentacion</span>
+            .AddAspNetCoreInstrumentation(options =&gt;
+            {
+                options.RecordException = <span class="tk-k">true</span>;
+                options.Filter = httpContext =&gt;
+                    !httpContext.Request.Path.StartsWithSegments(<span class="tk-s">&quot;/health&quot;</span>);
+            })
+            .AddHttpClientInstrumentation(options =&gt;
+            {
+                options.RecordException = <span class="tk-k">true</span>;
+            })
+            .AddSqlClientInstrumentation(options =&gt;
+            {
+                <span class="tk-c">// RGPD: el texto de la sentencia puede llevar valores literales. Solo en desarrollo.</span>
+        options.SetDbStatementForText = builder.Environment.IsDevelopment();
+                options.RecordException = <span class="tk-k">true</span>;
+            })
+            .AddEntityFrameworkCoreInstrumentation(options =&gt;
+            {
+                <span class="tk-c">// RGPD: el texto de la sentencia puede llevar valores literales. Solo en desarrollo.</span>
+        options.SetDbStatementForText = builder.Environment.IsDevelopment();
+            })
+            <span class="tk-c">// Fuentes personalizadas</span>
+            .AddSource(<span class="tk-s">&quot;MyCompany.MyApp.*&quot;</span>)
+            <span class="tk-c">// Exporters</span>
+            .AddConsoleExporter()                      <span class="tk-c">// Desarrollo</span>
+            .AddAzureMonitorTraceExporter(options =&gt;    <span class="tk-c">// Produccion</span>
+            {
+                options.ConnectionString = builder.Configuration
+                    .GetConnectionString(<span class="tk-s">&quot;ApplicationInsights&quot;</span>);
+            });
+    })
+    <span class="tk-c">// =============================================</span>
+    <span class="tk-c">// METRICAS (Metrics)</span>
+    <span class="tk-c">// =============================================</span>
+    .WithMetrics(metrics =&gt;
+    {
+        metrics
+            .SetResourceBuilder(resourceBuilder)
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddRuntimeInstrumentation()
+            <span class="tk-c">// Metricas personalizadas</span>
+            .AddMeter(<span class="tk-s">&quot;MyCompany.MyApp.Business&quot;</span>)
+            <span class="tk-c">// Exporters</span>
+            .AddConsoleExporter()
+            .AddAzureMonitorMetricExporter(options =&gt;
+            {
+                options.ConnectionString = builder.Configuration
+                    .GetConnectionString(<span class="tk-s">&quot;ApplicationInsights&quot;</span>);
+            });
+    });</code></pre>
+<h4 id="23-trazas-personalizadas-con-activitysource">2.3 Trazas personalizadas con ActivitySource</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> System.Diagnostics;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipService : IScholarshipService
+{
+    <span class="tk-c">// Definir una fuente de actividades por servicio</span>
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> ActivitySource ActivitySource =
+        <span class="tk-k">new</span>(<span class="tk-s">&quot;MyCompany.MyApp.ScholarshipService&quot;</span>, <span class="tk-s">&quot;1.0.0&quot;</span>);
+
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IScholarshipRepository _repository;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;ScholarshipService&gt; _logger;
+
+    <span class="tk-k">public</span> ScholarshipService(IScholarshipRepository repository, ILogger&lt;ScholarshipService&gt; logger)
+    {
+        _repository = repository;
+        _logger = logger;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto&gt; CreateAsync(CreateScholarshipRequest request, CancellationToken ct)
+    {
+        <span class="tk-c">// Crear una traza personalizada</span>
+        <span class="tk-k">using</span> <span class="tk-k">var</span> activity = ActivitySource.StartActivity(
+            <span class="tk-s">&quot;ScholarshipService.Create&quot;</span>,
+            ActivityKind.Internal);
+
+        <span class="tk-c">// Enriquecer con atributos</span>
+        activity?.SetTag(<span class="tk-s">&quot;scholarship.name&quot;</span>, request.Name);
+        activity?.SetTag(<span class="tk-s">&quot;scholarship.amount&quot;</span>, request.Amount);
+
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-k">var</span> scholarship = Scholarship.Create(request.Name, request.Amount);
+
+            <span class="tk-c">// Sub-actividad para persistencia</span>
+            <span class="tk-k">using</span> <span class="tk-k">var</span> dbActivity = ActivitySource.StartActivity(<span class="tk-s">&quot;ScholarshipService.Create.Persist&quot;</span>);
+            <span class="tk-k">await</span> _repository.AddAsync(scholarship, ct);
+
+            activity?.SetTag(<span class="tk-s">&quot;scholarship.id&quot;</span>, scholarship.Id);
+            activity?.SetStatus(ActivityStatusCode.Ok);
+
+            <span class="tk-k">return</span> scholarship.ToDto();
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
+            activity?.RecordException(ex);
+            <span class="tk-k">throw</span>;
+        }
+    }
+}</code></pre>
+<h4 id="24-metricas-personalizadas-con-meter">2.4 Metricas personalizadas con Meter</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> System.Diagnostics.Metrics;
+
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipMetrics
+{
+    <span class="tk-c">// Un Meter por modulo de negocio</span>
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> Meter Meter = <span class="tk-k">new</span>(<span class="tk-s">&quot;MyCompany.MyApp.Business&quot;</span>, <span class="tk-s">&quot;1.0.0&quot;</span>);
+
+    <span class="tk-c">// Contadores</span>
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> Counter&lt;<span class="tk-k">long</span>&gt; ScholarshipsCreated =
+        Meter.CreateCounter&lt;<span class="tk-k">long</span>&gt;(
+            <span class="tk-s">&quot;myapp.scholarships.creadas&quot;</span>,
+            unit: <span class="tk-s">&quot;{scholarship}&quot;</span>,
+            description: <span class="tk-s">&quot;Number total de scholarships creadas&quot;</span>);
+
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> Counter&lt;<span class="tk-k">long</span>&gt; ApplicationsReceived =
+        Meter.CreateCounter&lt;<span class="tk-k">long</span>&gt;(
+            <span class="tk-s">&quot;myapp.applications.recibidas&quot;</span>,
+            unit: <span class="tk-s">&quot;{application}&quot;</span>,
+            description: <span class="tk-s">&quot;Applications de scholarship recibidas&quot;</span>);
+
+    <span class="tk-c">// Histogramas</span>
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> Histogram&lt;<span class="tk-k">double</span>&gt; TiempoProcesamiento =
+        Meter.CreateHistogram&lt;<span class="tk-k">double</span>&gt;(
+            <span class="tk-s">&quot;myapp.scholarships.procesamiento.duracion&quot;</span>,
+            unit: <span class="tk-s">&quot;ms&quot;</span>,
+            description: <span class="tk-s">&quot;Duration del procesamiento de scholarships&quot;</span>);
+
+    <span class="tk-c">// Gauge (valor puntual)</span>
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> ObservableGauge&lt;<span class="tk-k">int</span>&gt; ActiveScholarships =
+        Meter.CreateObservableGauge(
+            <span class="tk-s">&quot;myapp.scholarships.activas&quot;</span>,
+            () =&gt; GetActiveScholarships(),
+            unit: <span class="tk-s">&quot;{scholarship}&quot;</span>,
+            description: <span class="tk-s">&quot;Number de scholarships activas actualmente&quot;</span>);
+
+    <span class="tk-c">// Metodos publicos para registrar metricas</span>
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">void</span> RegistrarScholarshipCreated(<span class="tk-k">string</span> tipo)
+    {
+        ScholarshipsCreated.Add(<span class="tk-n">1</span>, <span class="tk-k">new</span> KeyValuePair&lt;<span class="tk-k">string</span>, <span class="tk-k">object</span>?&gt;(<span class="tk-s">&quot;tipo&quot;</span>, tipo));
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">void</span> RegistrarScholarshipApplication(<span class="tk-k">string</span> status)
+    {
+        ApplicationsReceived.Add(<span class="tk-n">1</span>, <span class="tk-k">new</span> KeyValuePair&lt;<span class="tk-k">string</span>, <span class="tk-k">object</span>?&gt;(<span class="tk-s">&quot;status&quot;</span>, status));
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">void</span> RegistrarTiempoProcesamiento(<span class="tk-k">double</span> milliseconds)
+    {
+        TiempoProcesamiento.Record(milliseconds);
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">int</span> GetActiveScholarships() =&gt; <span class="tk-c">/* consulta a BD o cache */</span> <span class="tk-n">0</span>;
+}</code></pre>
+<h4 id="25-exporters">2.5 Exporters</h4>
+<div class="tbl"><table><thead><tr><th>Exporter</th><th>Entorno</th><th>Uso</th></tr></thead><tbody><tr><td><strong>Console</strong></td><td>Desarrollo</td><td>Visualizacion rapida en terminal</td></tr><tr><td><strong>Application Insights</strong></td><td>Produccion</td><td>Plataforma principal de la organización (Azure Monitor)</td></tr><tr><td><strong>OTLP</strong></td><td>Ambos</td><td>Protocolo estandar, compatible con Jaeger, Grafana, etc.</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-3-serilog">
+<h3 id="3-serilog">3. Serilog</h3>
+<h4 id="31-por-que-serilog">3.1 Por que Serilog</h4>
+<p>Serilog es el estandar de logging estructurado en .NET. A diferencia de <code>ILogger</code> basico, Serilog captura propiedades como datos estructurados en lugar de texto plano, lo que permite busquedas y filtrados avanzados.</p>
+<div class="tbl"><table><thead><tr><th>Caracteristica</th><th>Serilog</th><th>ILogger basico</th></tr></thead><tbody><tr><td>Logging estructurado</td><td>Nativo</td><td>Limitado</td></tr><tr><td>Sinks (destinos)</td><td>100+</td><td>Basicos</td></tr><tr><td>Enrichers (contexto)</td><td>Rico</td><td>Manual</td></tr><tr><td>Filtrado avanzado</td><td>Si</td><td>Limitado</td></tr><tr><td>Request logging</td><td>Middleware propio</td><td>Manual</td></tr></tbody></table></div>
+<h4 id="32-bootstrap-logger-pattern">3.2 Bootstrap Logger pattern</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - Patron recomendado con bootstrap logger</span>
+<span class="tk-k">using</span> Serilog;
+
+<span class="tk-c">// Bootstrap logger: captura errores ANTES de que la app este configurada</span>
+Log.Logger = <span class="tk-k">new</span> LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateBootstrapLogger();
+
+<span class="tk-k">try</span>
+{
+    Log.Information(<span class="tk-s">&quot;Iniciando aplicacion {ApplicationName}&quot;</span>, <span class="tk-s">&quot;MyCompany.MyApp&quot;</span>);
+
+    <span class="tk-k">var</span> builder = WebApplication.CreateBuilder(args);
+
+    <span class="tk-c">// Configuracion completa desde appsettings.json</span>
+    builder.Host.UseSerilog((context, services, configuration) =&gt;
+        configuration
+            .ReadFrom.Configuration(context.Configuration)
+            .ReadFrom.Services(services));
+
+    <span class="tk-c">// ... configurar servicios ...</span>
+
+    <span class="tk-k">var</span> app = builder.Build();
+
+    <span class="tk-c">// Middleware de request logging</span>
+    app.UseSerilogRequestLogging(options =&gt;
+    {
+        options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =&gt;
+        {
+            diagnosticContext.Set(<span class="tk-s">&quot;RequestHost&quot;</span>, httpContext.Request.Host.Value);
+            diagnosticContext.Set(<span class="tk-s">&quot;UserAgent&quot;</span>, httpContext.Request.Headers.UserAgent.ToString());
+            diagnosticContext.Set(<span class="tk-s">&quot;UserId&quot;</span>, httpContext.User?.Identity?.Name ?? <span class="tk-s">&quot;anonymous&quot;</span>);
+        };
+        <span class="tk-c">// No loguear health checks</span>
+        options.GetLevel = (httpContext, elapsed, ex) =&gt;
+            httpContext.Request.Path.StartsWithSegments(<span class="tk-s">&quot;/health&quot;</span>)
+                ? Serilog.Events.LogEventLevel.Verbose
+                : Serilog.Events.LogEventLevel.Information;
+    });
+
+    <span class="tk-c">// ... pipeline ...</span>
+
+    app.Run();
+}
+<span class="tk-k">catch</span> (Exception ex)
+{
+    Log.Fatal(ex, <span class="tk-s">&quot;La aplicacion termino inesperadamente&quot;</span>);
+    <span class="tk-k">throw</span>;
+}
+<span class="tk-k">finally</span>
+{
+    <span class="tk-k">await</span> Log.CloseAndFlushAsync();
+}</code></pre>
+<h4 id="33-configuracion-en-appsettingsjson">3.3 Configuracion en appsettings.json</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;Serilog&quot;</span>: {
+    <span class="tk-s">&quot;Using&quot;</span>: [
+      <span class="tk-s">&quot;Serilog.Sinks.Console&quot;</span>,
+      <span class="tk-s">&quot;Serilog.Sinks.File&quot;</span>,
+      <span class="tk-s">&quot;Serilog.Sinks.ApplicationInsights&quot;</span>
+    ],
+    <span class="tk-s">&quot;MinimumLevel&quot;</span>: {
+      <span class="tk-s">&quot;Default&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>,
+      <span class="tk-s">&quot;Override&quot;</span>: {
+        <span class="tk-s">&quot;Microsoft.AspNetCore&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.EntityFrameworkCore&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.EntityFrameworkCore.Database.Command&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;System.Net.Http.HttpClient&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.Hosting.Lifetime&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>
+      }
+    },
+    <span class="tk-s">&quot;WriteTo&quot;</span>: [
+      {
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;Console&quot;</span>,
+        <span class="tk-s">&quot;Args&quot;</span>: {
+          <span class="tk-s">&quot;outputTemplate&quot;</span>: <span class="tk-s">&quot;[{Timestamp:HH:mm:ss} {Level:u3}] {SourceContext}{NewLine}  {Message:lj}{NewLine}{Exception}&quot;</span>
+        }
+      },
+      {
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;File&quot;</span>,
+        <span class="tk-s">&quot;Args&quot;</span>: {
+          <span class="tk-s">&quot;path&quot;</span>: <span class="tk-s">&quot;logs/app-.log&quot;</span>,
+          <span class="tk-s">&quot;rollingInterval&quot;</span>: <span class="tk-s">&quot;Day&quot;</span>,
+          <span class="tk-s">&quot;retainedFileCountLimit&quot;</span>: <span class="tk-n">30</span>,
+          <span class="tk-s">&quot;fileSizeLimitBytes&quot;</span>: <span class="tk-n">52428800</span>,
+          <span class="tk-s">&quot;outputTemplate&quot;</span>: <span class="tk-s">&quot;{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] ({SourceContext}) {Message:lj}{NewLine}{Exception}&quot;</span>
+        }
+      },
+      {
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;ApplicationInsights&quot;</span>,
+        <span class="tk-s">&quot;Args&quot;</span>: {
+          <span class="tk-s">&quot;connectionString&quot;</span>: <span class="tk-s">&quot;[Desde Key Vault en produccion]&quot;</span>,
+          <span class="tk-s">&quot;telemetryConverter&quot;</span>: <span class="tk-s">&quot;Serilog.Sinks.ApplicationInsights.TelemetryConverters.TraceTelemetryConverter, Serilog.Sinks.ApplicationInsights&quot;</span>
+        }
+      }
+    ],
+    <span class="tk-s">&quot;Enrich&quot;</span>: [
+      <span class="tk-s">&quot;FromLogContext&quot;</span>,
+      <span class="tk-s">&quot;WithMachineName&quot;</span>,
+      <span class="tk-s">&quot;WithEnvironmentName&quot;</span>,
+      <span class="tk-s">&quot;WithThreadId&quot;</span>,
+      <span class="tk-s">&quot;WithCorrelationId&quot;</span>
+    ],
+    <span class="tk-s">&quot;Properties&quot;</span>: {
+      <span class="tk-s">&quot;Application&quot;</span>: <span class="tk-s">&quot;MyCompany.MyApp&quot;</span>,
+      <span class="tk-s">&quot;Environment&quot;</span>: <span class="tk-s">&quot;Development&quot;</span>
+    }
+  }
+}</code></pre>
+<h4 id="34-logging-estructurado-buenas-practicas">3.4 Logging estructurado: buenas practicas</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// =============================================</span>
+<span class="tk-c">// CORRECTO - Logging estructurado</span>
+<span class="tk-c">// =============================================</span>
+
+<span class="tk-c">// Usar placeholders con nombres descriptivos (NO interpolacion)</span>
+_logger.LogInformation(<span class="tk-s">&quot;Scholarship {ScholarshipId} creada por {User} con amount {Amount}&quot;</span>,
+    scholarship.Id, user, scholarship.Amount);
+
+<span class="tk-c">// Contexto con PushProperty para multiples logs</span>
+<span class="tk-k">using</span> (LogContext.PushProperty(<span class="tk-s">&quot;ScholarshipId&quot;</span>, scholarshipId))
+<span class="tk-k">using</span> (LogContext.PushProperty(<span class="tk-s">&quot;OperationId&quot;</span>, operacionId))
+{
+    _logger.LogInformation(<span class="tk-s">&quot;Iniciando procesamiento de scholarship&quot;</span>);
+    <span class="tk-c">// ... operacion ...</span>
+    _logger.LogInformation(<span class="tk-s">&quot;Procesamiento completado en {ElapsedMs}ms&quot;</span>, elapsed);
+}
+
+<span class="tk-c">// =============================================</span>
+<span class="tk-c">// INCORRECTO - Evitar</span>
+<span class="tk-c">// =============================================</span>
+
+<span class="tk-c">// Interpolacion de strings (pierde estructura)</span>
+_logger.LogInformation(<span class="tk-s">$&quot;Scholarship {scholarship.Id} creada&quot;</span>);  <span class="tk-c">// NO</span>
+
+<span class="tk-c">// Concatenacion</span>
+_logger.LogInformation(<span class="tk-s">&quot;Scholarship &quot;</span> + scholarship.Id + <span class="tk-s">&quot; creada&quot;</span>);  <span class="tk-c">// NO</span>
+
+<span class="tk-c">// Sin contexto</span>
+_logger.LogError(<span class="tk-s">&quot;Error al procesar&quot;</span>);  <span class="tk-c">// NO - falta contexto</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-application-insights">
+<h3 id="4-application-insights">4. Application Insights</h3>
+<h4 id="41-connection-string-desde-key-vault">4.1 Connection string (desde Key Vault)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddApplicationInsightsTelemetry(options =&gt;
+{
+    <span class="tk-c">// La connection string viene de Key Vault en produccion</span>
+    options.ConnectionString = builder.Configuration
+        .GetConnectionString(<span class="tk-s">&quot;ApplicationInsights&quot;</span>);
+});
+
+<span class="tk-c">// appsettings.json (desarrollo)</span>
+{
+  <span class="tk-s">&quot;ConnectionStrings&quot;</span>: {
+    <span class="tk-s">&quot;ApplicationInsights&quot;</span>: <span class="tk-s">&quot;InstrumentationKey=xxx;IngestionEndpoint=https://...&quot;</span>
+  }
+}</code></pre>
+<h4 id="42-telemetryclient-para-eventos-personalizados">4.2 TelemetryClient para eventos personalizados</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipService : IScholarshipService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> TelemetryClient _telemetry;
+
+    <span class="tk-k">public</span> ScholarshipService(TelemetryClient telemetry)
+    {
+        _telemetry = telemetry;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto&gt; CreateAsync(CreateScholarshipRequest request, CancellationToken ct)
+    {
+        <span class="tk-k">var</span> sw = Stopwatch.StartNew();
+
+        <span class="tk-k">var</span> scholarship = Scholarship.Create(request.Name, request.Amount);
+        <span class="tk-k">await</span> _repository.AddAsync(scholarship, ct);
+
+        sw.Stop();
+
+        <span class="tk-c">// Evento personalizado</span>
+        _telemetry.TrackEvent(<span class="tk-s">&quot;ScholarshipCreated&quot;</span>, <span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">string</span>&gt;
+        {
+            [<span class="tk-s">&quot;ScholarshipId&quot;</span>] = scholarship.Id.ToString(),
+            [<span class="tk-s">&quot;Tipo&quot;</span>] = request.Tipo ?? <span class="tk-s">&quot;general&quot;</span>,
+            [<span class="tk-s">&quot;CreadoPor&quot;</span>] = _currentUser.UserId ?? <span class="tk-s">&quot;system&quot;</span>
+        }, <span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">double</span>&gt;
+        {
+            [<span class="tk-s">&quot;Amount&quot;</span>] = (<span class="tk-k">double</span>)scholarship.Amount,
+            [<span class="tk-s">&quot;DurationMs&quot;</span>] = sw.ElapsedMilliseconds
+        });
+
+        <span class="tk-k">return</span> scholarship.ToDto();
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task ProcessLoteAsync(IEnumerable&lt;<span class="tk-k">int</span>&gt; becaIds, CancellationToken ct)
+    {
+        <span class="tk-c">// Metrica personalizada</span>
+        _telemetry.TrackMetric(<span class="tk-s">&quot;ScholarshipsProcesadasPorLote&quot;</span>, becaIds.Count());
+
+        <span class="tk-c">// Operacion con dependencia</span>
+        <span class="tk-k">using</span> <span class="tk-k">var</span> operation = _telemetry.StartOperation&lt;DependencyTelemetry&gt;(<span class="tk-s">&quot;ProcessLoteScholarships&quot;</span>);
+        operation.Telemetry.Type = <span class="tk-s">&quot;InternalBatch&quot;</span>;
+
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-k">foreach</span> (<span class="tk-k">var</span> id <span class="tk-k">in</span> becaIds)
+            {
+                <span class="tk-k">await</span> ProcessScholarshipAsync(id, ct);
+            }
+
+            operation.Telemetry.Success = <span class="tk-k">true</span>;
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            operation.Telemetry.Success = <span class="tk-k">false</span>;
+            _telemetry.TrackException(ex);
+            <span class="tk-k">throw</span>;
+        }
+    }
+}</code></pre>
+<h4 id="43-distributed-tracing-y-correlacion">4.3 Distributed tracing y correlacion</h4>
+<p>Application Insights correlaciona automaticamente todas las operaciones usando <code>TraceId</code> y <code>SpanId</code> cuando se usa OpenTelemetry. Esto permite:</p>
+<ul>
+<li><strong>End-to-end transaction search</strong>: Seguir una peticion HTTP desde el navegador hasta la base de datos</li>
+<li><strong>Application Map</strong>: Visualizar dependencias entre servicios</li>
+<li><strong>Live Metrics Stream</strong>: Metricas en tiempo real (requests/s, CPU, excepciones)</li>
+<li><strong>Failure analysis</strong>: Agrupar errores por causa raiz</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-5-metricas-de-negocio">
+<h3 id="5-metricas-de-negocio">5. Metricas de Negocio</h3>
+<h4 id="51-ejemplos-de-metricas-por-dominio">5.1 Ejemplos de metricas por dominio</h4>
+<div class="tbl"><table><thead><tr><th>Metrica</th><th>Tipo</th><th>Ejemplo de valor</th><th>Alerta sugerida</th></tr></thead><tbody><tr><td>Peticiones por segundo</td><td>Counter</td><td>150 req/s</td><td>&gt; 500 req/s (capacidad)</td></tr><tr><td>Applications de beca por hora</td><td>Counter</td><td>25/hora</td><td>&lt; 1/hora en periodo abierto</td></tr><tr><td>Tasa de errores (5xx)</td><td>Ratio</td><td>0.1%</td><td>&gt; 1%</td></tr><tr><td>Tiempo de respuesta P95</td><td>Histogram</td><td>250ms</td><td>&gt; 1000ms</td></tr><tr><td>Scholarships activas</td><td>Gauge</td><td>45</td><td>&lt; 1 (anomalia)</td></tr><tr><td>Tasa de aprobacion</td><td>Ratio</td><td>72%</td><td>&lt; 50% (revisar criterios)</td></tr></tbody></table></div>
+<h4 id="52-dashboards-recomendados">5.2 Dashboards recomendados</h4>
+<p>Se recomienda configurar dashboards en Azure Monitor / Application Insights con las siguientes secciones:</p>
+<ol>
+<li><strong>Overview</strong> - Requests/s, errores, latencia P50/P95/P99</li>
+<li><strong>Dependencias</strong> - SQL, HTTP externo, Redis (latencia y errores)</li>
+<li><strong>Negocio</strong> - Metricas de dominio (solicitudes, aprobaciones, importes)</li>
+<li><strong>Infraestructura</strong> - CPU, memoria, GC, hilos activos</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-6-rgpd-y-datos-sensibles">
+<h3 id="6-rgpd-y-datos-sensibles">6. RGPD y Datos Sensibles</h3>
+<h4 id="61-datos-que-nunca-se-deben-loguear">6.1 Datos que NUNCA se deben loguear</h4>
+<div class="tbl"><table><thead><tr><th>Dato</th><th>Motivo</th><th>Alternativa</th></tr></thead><tbody><tr><td><strong>Contrasenas</strong></td><td>Credenciales</td><td>No loguear bajo ningun concepto</td></tr><tr><td><strong>Tokens JWT / API Keys</strong></td><td>Credenciales de sesion</td><td>Loguear solo los ultimos 4 caracteres</td></tr><tr><td><strong>DNI / NIE</strong></td><td>Dato personal identificativo</td><td>Enmascarar: <code>***4567X</code></td></tr><tr><td><strong>Email completo</strong></td><td>Dato personal</td><td>Enmascarar: <code>j***@example.com</code></td></tr><tr><td><strong>Numeros de tarjeta</strong></td><td>Dato financiero (PCI-DSS)</td><td>No loguear bajo ningun concepto</td></tr><tr><td><strong>Datos medicos</strong></td><td>Categoria especial RGPD</td><td>No loguear bajo ningun concepto</td></tr><tr><td><strong>Direcciones IP</strong></td><td>Dato personal (anonimizar)</td><td>Truncar ultimo octeto: <code>192.168.1.xxx</code></td></tr><tr><td><strong>Numeros de cuenta bancaria</strong></td><td>Dato financiero</td><td>Enmascarar: <code>ES** **** **** **** **89</code></td></tr></tbody></table></div>
+<h4 id="62-filtrado-de-datos-sensibles-en-serilog">6.2 Filtrado de datos sensibles en Serilog</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Destructuring policy para enmascarar datos</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> SensitiveDataDestructuringPolicy : IDestructuringPolicy
+{
+    <span class="tk-k">public</span> <span class="tk-k">bool</span> TryDestructure(
+        <span class="tk-k">object</span> value, ILogEventPropertyValueFactory factory,
+        <span class="tk-k">out</span> LogEventPropertyValue? result)
+    {
+        <span class="tk-k">if</span> (value <span class="tk-k">is</span> CreateScholarshipRequest request)
+        {
+            result = factory.CreatePropertyValue(<span class="tk-k">new</span>
+            {
+                request.Name,
+                request.Amount,
+                Email = MaskEmail(request.Email),
+                <span class="tk-c">// Excluir campos sensibles</span>
+            }, destructureObjects: <span class="tk-k">true</span>);
+            <span class="tk-k">return</span> <span class="tk-k">true</span>;
+        }
+
+        result = <span class="tk-k">null</span>;
+        <span class="tk-k">return</span> <span class="tk-k">false</span>;
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">string</span> MaskEmail(<span class="tk-k">string</span>? email)
+    {
+        <span class="tk-k">if</span> (<span class="tk-k">string</span>.IsNullOrEmpty(email)) <span class="tk-k">return</span> <span class="tk-s">&quot;***&quot;</span>;
+        <span class="tk-k">var</span> parts = email.Split(<span class="tk-s">'@'</span>);
+        <span class="tk-k">if</span> (parts.Length != <span class="tk-n">2</span>) <span class="tk-k">return</span> <span class="tk-s">&quot;***&quot;</span>;
+        <span class="tk-k">return</span> <span class="tk-s">$&quot;{parts[0][0]}***@{parts[1]}&quot;</span>;
+    }
+}
+
+<span class="tk-c">// Registrar en Serilog</span>
+Log.Logger = <span class="tk-k">new</span> LoggerConfiguration()
+    .Destructure.With&lt;SensitiveDataDestructuringPolicy&gt;()
+    <span class="tk-c">// ...</span>
+    .CreateLogger();</code></pre>
+<h4 id="63-politicas-de-retencion-de-logs">6.3 Politicas de retencion de logs</h4>
+<div class="tbl"><table><thead><tr><th>Tipo de log</th><th>Retencion</th><th>Almacenamiento</th></tr></thead><tbody><tr><td>Logs de aplicacion (info/debug)</td><td>30 dias</td><td>Application Insights</td></tr><tr><td>Logs de errores</td><td>90 dias</td><td>Application Insights</td></tr><tr><td>Logs de auditoria (acceso datos)</td><td>2 anos</td><td>SQL Server / Blob Storage</td></tr><tr><td>Logs de seguridad (auth)</td><td>2 anos</td><td>SQL Server / Blob Storage</td></tr><tr><td>Metricas</td><td>90 dias</td><td>Application Insights</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-7-checklist-de-observabilidad">
+<h3 id="7-checklist-de-observabilidad">7. Checklist de Observabilidad</h3>
+<h4 id="antes-de-ir-a-produccion">Antes de ir a produccion</h4>
+<ul>
+<li><input type="checkbox" disabled> OpenTelemetry configurado con traces, metrics y logs</li>
+<li><input type="checkbox" disabled> Serilog configurado con Console + File (desarrollo) y Application Insights (produccion)</li>
+<li><input type="checkbox" disabled> Logging estructurado en todo el codigo (sin string interpolation en logs)</li>
+<li><input type="checkbox" disabled> Datos sensibles excluidos de los logs (RGPD)</li>
+<li><input type="checkbox" disabled> Application Insights conectado con connection string desde Key Vault</li>
+<li><input type="checkbox" disabled> Metricas de negocio definidas e instrumentadas</li>
+<li><input type="checkbox" disabled> TraceId/SpanId correlacionados entre servicios</li>
+<li><input type="checkbox" disabled> Log levels configurados por namespace (Microsoft=Warning, App=Information)</li>
+<li><input type="checkbox" disabled> Health checks con metricas (<code>/health</code>, <code>/health/ready</code>, <code>/health/live</code>)</li>
+<li><input type="checkbox" disabled> Request logging middleware de Serilog habilitado</li>
+<li><input type="checkbox" disabled> Alertas configuradas para errores criticos y degradacion de rendimiento</li>
+<li><input type="checkbox" disabled> Dashboards creados con metricas clave de negocio e infraestructura</li>
+<li><input type="checkbox" disabled> Retencion de logs configurada segun politica RGPD</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-8-paquetes-nuget">
+<h3 id="8-paquetes-nuget">8. Paquetes NuGet</h3>
+<div class="tbl"><table><thead><tr><th>Paquete</th><th>Version</th><th>Proposito</th></tr></thead><tbody><tr><td><code>OpenTelemetry</code></td><td>1.*</td><td>Core de OpenTelemetry</td></tr><tr><td><code>OpenTelemetry.Extensions.Hosting</code></td><td>1.*</td><td>Integracion con Host de .NET</td></tr><tr><td><code>OpenTelemetry.Instrumentation.AspNetCore</code></td><td>1.*</td><td>Auto-instrumentacion ASP.NET Core</td></tr><tr><td><code>OpenTelemetry.Instrumentation.Http</code></td><td>1.*</td><td>Auto-instrumentacion HttpClient</td></tr><tr><td><code>OpenTelemetry.Instrumentation.SqlClient</code></td><td>1.*</td><td>Auto-instrumentacion SQL Client</td></tr><tr><td><code>OpenTelemetry.Instrumentation.EntityFrameworkCore</code></td><td>1.*</td><td>Auto-instrumentacion EF Core</td></tr><tr><td><code>OpenTelemetry.Instrumentation.Runtime</code></td><td>1.*</td><td>Metricas de runtime (.NET GC, threads)</td></tr><tr><td><code>OpenTelemetry.Exporter.Console</code></td><td>1.*</td><td>Exporter para desarrollo</td></tr><tr><td><code>Azure.Monitor.OpenTelemetry.Exporter</code></td><td>1.*</td><td>Exporter para Application Insights</td></tr><tr><td><code>Serilog.AspNetCore</code></td><td>9.*</td><td>Integracion Serilog con ASP.NET Core</td></tr><tr><td><code>Serilog.Sinks.Console</code></td><td>6.*</td><td>Sink de consola</td></tr><tr><td><code>Serilog.Sinks.File</code></td><td>6.*</td><td>Sink de archivos</td></tr><tr><td><code>Serilog.Sinks.ApplicationInsights</code></td><td>4.*</td><td>Sink de Application Insights</td></tr><tr><td><code>Serilog.Enrichers.Environment</code></td><td>3.*</td><td>Enricher de entorno y maquina</td></tr><tr><td><code>Serilog.Enrichers.Thread</code></td><td>4.*</td><td>Enricher de thread</td></tr><tr><td><code>Serilog.Enrichers.CorrelationId</code></td><td>3.*</td><td>Enricher de correlacion</td></tr><tr><td><code>Microsoft.ApplicationInsights.AspNetCore</code></td><td>2.*</td><td>Application Insights SDK</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-9-referencias">
+<h3 id="9-referencias">9. Referencias</h3>
+<h4 id="archivos-relacionados-en-la-plantilla">Archivos relacionados en la plantilla</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Contenido</th></tr></thead><tbody><tr><td><code>.claude/skills/observability-patterns/</code></td><td>Skill de patrones de observabilidad</td></tr><tr><td><code>_patron/01_Estructura_Tecnica/ESTRUCTURA_TECNICA.md</code></td><td>Seccion 10 - Application Insights</td></tr><tr><td><code>_patron/03_Consideraciones_Comunes/CONSIDERACIONES.md</code></td><td>RGPD y datos sensibles</td></tr></tbody></table></div>
+<h4 id="documentacion-externa">Documentacion externa</h4>
+<div class="tbl"><table><thead><tr><th>Recurso</th><th>URL</th></tr></thead><tbody><tr><td>OpenTelemetry .NET</td><td>opentelemetry.io/docs/languages/dotnet</td></tr><tr><td>Serilog Wiki</td><td>github.com/serilog/serilog/wiki</td></tr><tr><td>Application Insights</td><td>learn.microsoft.com/azure/azure-monitor/app/app-insights-overview</td></tr><tr><td>OpenTelemetry + Azure Monitor</td><td>learn.microsoft.com/azure/azure-monitor/app/opentelemetry-enable</td></tr></tbody></table></div>
+<hr>
+<p><em>Documento generado: 2026-02-10</em> <em>la organización</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/06_Observabilidad/GUIA_OBSERVABILIDAD.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/application.html">application</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/observability-patterns.html">observability-patterns</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/06_Observabilidad/GUIA_OBSERVABILIDAD.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#indice">Indice</a></li><li class="l2"><a href="#1-introduccion">1. Introduccion</a></li><li class="l3"><a href="#11-los-tres-pilares-de-la-observabilidad">1.1 Los tres pilares de la observabilidad</a></li><li class="l3"><a href="#12-por-que-importa-la-observabilidad">1.2 Por que importa la observabilidad</a></li><li class="l2"><a href="#2-opentelemetry-net-10">2. OpenTelemetry (.NET 10)</a></li><li class="l3"><a href="#21-que-es-opentelemetry">2.1 Que es OpenTelemetry</a></li><li class="l3"><a href="#22-configuracion-en-programcs">2.2 Configuracion en Program.cs</a></li><li class="l3"><a href="#23-trazas-personalizadas-con-activitysource">2.3 Trazas personalizadas con ActivitySource</a></li><li class="l3"><a href="#24-metricas-personalizadas-con-meter">2.4 Metricas personalizadas con Meter</a></li><li class="l3"><a href="#25-exporters">2.5 Exporters</a></li><li class="l2"><a href="#3-serilog">3. Serilog</a></li><li class="l3"><a href="#31-por-que-serilog">3.1 Por que Serilog</a></li><li class="l3"><a href="#32-bootstrap-logger-pattern">3.2 Bootstrap Logger pattern</a></li><li class="l3"><a href="#33-configuracion-en-appsettingsjson">3.3 Configuracion en appsettings.json</a></li><li class="l3"><a href="#34-logging-estructurado-buenas-practicas">3.4 Logging estructurado: buenas practicas</a></li><li class="l2"><a href="#4-application-insights">4. Application Insights</a></li><li class="l3"><a href="#41-connection-string-desde-key-vault">4.1 Connection string (desde Key Vault)</a></li><li class="l3"><a href="#42-telemetryclient-para-eventos-personalizados">4.2 TelemetryClient para eventos personalizados</a></li><li class="l3"><a href="#43-distributed-tracing-y-correlacion">4.3 Distributed tracing y correlacion</a></li><li class="l2"><a href="#5-metricas-de-negocio">5. Metricas de Negocio</a></li><li class="l3"><a href="#51-ejemplos-de-metricas-por-dominio">5.1 Ejemplos de metricas por dominio</a></li><li class="l3"><a href="#52-dashboards-recomendados">5.2 Dashboards recomendados</a></li><li class="l2"><a href="#6-rgpd-y-datos-sensibles">6. RGPD y Datos Sensibles</a></li><li class="l3"><a href="#61-datos-que-nunca-se-deben-loguear">6.1 Datos que NUNCA se deben loguear</a></li><li class="l3"><a href="#62-filtrado-de-datos-sensibles-en-serilog">6.2 Filtrado de datos sensibles en Serilog</a></li><li class="l3"><a href="#63-politicas-de-retencion-de-logs">6.3 Politicas de retencion de logs</a></li><li class="l2"><a href="#7-checklist-de-observabilidad">7. Checklist de Observabilidad</a></li><li class="l3"><a href="#antes-de-ir-a-produccion">Antes de ir a produccion</a></li><li class="l2"><a href="#8-paquetes-nuget">8. Paquetes NuGet</a></li><li class="l2"><a href="#9-referencias">9. Referencias</a></li><li class="l3"><a href="#archivos-relacionados-en-la-plantilla">Archivos relacionados en la plantilla</a></li><li class="l3"><a href="#documentacion-externa">Documentacion externa</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

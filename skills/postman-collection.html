@@ -1,0 +1,206 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>postman-collection · Ovillo</title><meta name="description" content="Generates Postman collections for API testing with automatic authentication detection: scans Program.cs to detect Azure AD, OAuth2, API Key, Basic Auth, or…"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="postman-collection · Ovillo"><meta property="og:description" content="Generates Postman collections for API testing with automatic authentication detection: scans Program.cs to detect Azure AD, OAuth2, API Key, Basic Auth, or…"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/postman-collection.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/postman-collection.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/postman-collection.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>conocimiento (20)</h4><ul class="sibs"><li><a href="../skills/analisis-arquitectura.html">analisis-arquitectura</a></li><li><a href="../skills/api-integration-patterns.html">api-integration-patterns</a></li><li><a href="../skills/calidad-codigo-sync.html">calidad-codigo-sync</a></li><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cloud-config.html">cloud-config</a></li><li><a href="../skills/docs-agente-sync.html">docs-agente-sync</a></li><li><a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../skills/hub-client.html">hub-client</a></li><li><a href="../skills/issue-tracker-sync.html">issue-tracker-sync</a></li><li><a href="../skills/nugets-management.html">nugets-management</a></li><li><a href="../skills/observability-patterns.html">observability-patterns</a></li><li><a href="../skills/postman-collection.html" class="cur">postman-collection</a></li><li><a href="../skills/resilience-patterns.html">resilience-patterns</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li><li><a href="../skills/user-documentation.html">user-documentation</a></li><li><a href="../skills/webapp-dashboard.html">webapp-dashboard</a></li><li><a href="../skills/webapp-layout.html">webapp-layout</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>postman-collection</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>/hv:postman-collection</span></div><h1>postman-collection</h1><p class="lede">Generates Postman collections for API testing with automatic authentication detection: scans Program.cs to detect Azure AD, OAuth2, API Key, Basic Auth, or HttpSignature, then configures collection-level auth, pre-request scripts, environment variables per…</p><div class="meta-grid"><div><b>conocimiento</b><span>clase</span></div><div><b><code>/hv:postman-collection</code></b><span>invocación</span></div><div><b>17</b><span>ficheros</span></div><div><b>765</b><span>palabras</span></div><div><b>1.00</b><span>F1 de disparo</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo se activa</h2><ul><li>generating Postman collections</li><li>API testing environments</li><li>auth detection (Azure AD/OAuth2/API Key/Basic)</li><li>Newman CI/CD</li><li>crear coleccion Postman</li><li>tests API</li><li>environments</li></ul></section><section class="sec" id="sec-cuando-no"><h2 id="cuando-no">Cuándo no</h2><ul><li>implementing API endpoints (use <a href="../skills/generador-crud.html">generador-crud</a>)</li><li>implementing OAuth2 in C# (use <a href="../skills/api-integration-patterns.html">api-integration-patterns</a>)</li><li>auditing auth security (use <a href="../skills/security-audit.html">security-audit</a>)</li></ul></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><div class="kpi"><div><b>1.00</b><span>F1</span></div><div><b>1.00</b><span>precisión</span></div><div><b>1.00</b><span>recall</span></div><div><b>10 / 10</b><span>consultas correctas</span></div></div><p class="muted">Todas las consultas del eval-set se resuelven bien.</p><p class="muted">Motor: <code>run_eval.py</code> deriva el vocabulario de la description real; baseline en <a href="../evaluaciones.html">Evaluaciones</a>.</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">16</span></h2><div class="tree"><ul><li><span class="dir">checklists/</span><ul><li><a href="../skills/postman-collection/checklists/auth-configuration-checklist.html">auth-configuration-checklist.md</a> <span class="muted">2345 B</span></li></ul></li><li><span class="dir">patterns/</span><ul><li><a href="../skills/postman-collection/patterns/auth-detection.html">auth-detection.md</a> <span class="muted">4402 B</span></li><li><a href="../skills/postman-collection/patterns/azure-ad-auth.html">azure-ad-auth.md</a> <span class="muted">4376 B</span></li><li><a href="../skills/postman-collection/patterns/http-signature-mtls.html">http-signature-mtls.md</a> <span class="muted">5612 B</span></li><li><a href="../skills/postman-collection/patterns/oauth2-token-lifecycle.html">oauth2-token-lifecycle.md</a> <span class="muted">4697 B</span></li></ul></li><li><span class="dir">references/</span><ul><li><a href="../skills/postman-collection/references/auth-examples.html">auth-examples.md</a> <span class="muted">1543 B</span></li><li><a href="../skills/postman-collection/references/test-assertions.html">test-assertions.md</a> <span class="muted">2082 B</span></li><li><a href="../skills/postman-collection/references/workflow-postman.html">workflow-postman.md</a> <span class="muted">6124 B</span></li></ul></li><li><span class="dir">templates/</span><ul><li><a href="../skills/postman-collection/templates/auth-prerequest-apikey.js.html">auth-prerequest-apikey.js.template</a> <span class="muted">1640 B</span></li><li><a href="../skills/postman-collection/templates/auth-prerequest-azuread.js.html">auth-prerequest-azuread.js.template</a> <span class="muted">2973 B</span></li><li><a href="../skills/postman-collection/templates/auth-prerequest-basic.js.html">auth-prerequest-basic.js.template</a> <span class="muted">1302 B</span></li><li><a href="../skills/postman-collection/templates/collection.json.html">collection.json.template</a> <span class="muted">2654 B</span></li><li><a href="../skills/postman-collection/templates/environment.json.html">environment.json.template</a> <span class="muted">2680 B</span></li><li><a href="../skills/postman-collection/templates/request.json.html">request.json.template</a> <span class="muted">9188 B</span></li><li><a href="../skills/postman-collection/templates/tests.js.html">tests.js.template</a> <span class="muted">14.791 B</span></li></ul></li><li><a href="../skills/postman-collection/eval-set.html">eval-set.json</a> <span class="muted">3612 B</span></li></ul></div></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Auto-invocación</strong>: Claude activa este skill automáticamente cuando detecta necesidad de generar colecciones Postman, environments o tests para APIs.</p></blockquote>
+<hr>
+<section class="sec" id="sec-activación-automática">
+<h3 id="activación-automática">Activación Automática</h3>
+<p>Claude debe activar este skill cuando el usuario:</p>
+<ul>
+<li>Menciona &quot;Postman&quot;, &quot;colección&quot;, &quot;collection&quot;</li>
+<li>Pide &quot;generar tests de API&quot;</li>
+<li>Solicita &quot;documentar endpoints para Postman&quot;</li>
+<li>Menciona &quot;environments&quot; o &quot;variables de entorno&quot; para APIs</li>
+<li>Pide &quot;exportar API a Postman&quot;</li>
+</ul>
+<h4 id="comandos-de-activación">Comandos de activación</h4>
+<pre><code>/postman                    → Menú interactivo
+/postman collection         → Genera colección desde controllers
+/postman environment        → Genera environments (Dev/Pre/Pro)
+/postman tests              → Añade tests a colección existente
+/postman full               → Todo: colección + environments + tests
+/postman swagger            → Importa desde OpenAPI/Swagger</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-deteccion-de-autenticacion">
+<h3 id="deteccion-de-autenticacion">Deteccion de Autenticacion</h3>
+<p>Claude SIEMPRE debe detectar el modo de autenticacion del proyecto antes de generar colecciones Postman. El flujo es:</p>
+<h4 id="fase-1-escanear">Fase 1: Escanear</h4>
+<p>Buscar en <code>Program.cs</code> / <code>Startup.cs</code>:</p>
+<ul>
+<li><code>AddMicrosoftIdentityWebApi</code> + seccion <code>AzureAd</code> → <strong>Azure AD</strong></li>
+<li><code>AddAuthentication(JwtBearerDefaults)</code> sin Azure AD → <strong>OAuth2/JWT</strong></li>
+<li><code>ApiKeyMiddleware</code> / <code>X-API-Key</code> → <strong>API Key</strong></li>
+<li><code>BasicAuthenticationHandler</code> → <strong>Basic Auth</strong></li>
+<li><code>HmacAuthenticationHandler</code> / <code>HttpSignature</code> → <strong>HttpSignature</strong></li>
+<li><code>AddCertificateForwarding</code> → <strong>mTLS</strong></li>
+</ul>
+<h4 id="fase-2-configurar">Fase 2: Configurar</h4>
+<p>Segun el modo detectado:</p>
+<ul>
+<li>Seleccionar template de pre-request script (<code>auth-prerequest-*.js.template</code>)</li>
+<li>Configurar objeto <code>auth</code> en la coleccion</li>
+<li>Generar variables de entorno especificas del auth</li>
+</ul>
+<h4 id="fase-3-verificar">Fase 3: Verificar</h4>
+<p>Usar <code>checklists/auth-configuration-checklist.md</code> para validar la configuracion.</p>
+<blockquote><p>Ver: <code>patterns/auth-detection.md</code> para el algoritmo completo.</p></blockquote>
+<hr>
+</section>
+<section class="sec" id="sec-capacidades-del-skill">
+<h3 id="capacidades-del-skill">Capacidades del Skill</h3>
+<h4 id="1-generar-colección-desde-código">1. Generar Colección desde Código</h4>
+<p>Escanea <code>*Controller.cs</code> y genera <code>postman_collection.json</code>:</p>
+<ul>
+<li>Detecta rutas (<code>[Route]</code>, <code>[HttpGet]</code>, etc.)</li>
+<li>Extrae parámetros (query, body, path)</li>
+<li>Genera ejemplos de request/response</li>
+<li>Organiza por carpetas (un folder por controller)</li>
+<li>Incluye descripción de cada endpoint</li>
+</ul>
+<h4 id="2-generar-environments">2. Generar Environments</h4>
+<p>Crea archivos de environment para diferentes entornos:</p>
+<ul>
+<li><code>postman_environment_dev.json</code></li>
+<li><code>postman_environment_pre.json</code></li>
+<li><code>postman_environment_pro.json</code></li>
+</ul>
+<p>Variables comunes:</p>
+<ul>
+<li><code>{{baseUrl}}</code> - URL base del API</li>
+<li><code>{{token}}</code> - Token de autenticación</li>
+<li><code>{{apiKey}}</code> - API Key si aplica</li>
+<li>Variables específicas del proyecto</li>
+</ul>
+<h4 id="3-generar-tests-automáticos">3. Generar Tests Automáticos</h4>
+<p>Añade scripts de test a cada request:</p>
+<ul>
+<li>Validación de status code</li>
+<li>Validación de schema de respuesta</li>
+<li>Validación de tiempo de respuesta</li>
+<li>Tests de campos obligatorios</li>
+<li>Tests de autenticación</li>
+</ul>
+<h4 id="4-importar-desde-swaggeropenapi">4. Importar desde Swagger/OpenAPI</h4>
+<p>Si existe <code>swagger.json</code> o endpoint <code>/swagger/v1/swagger.json</code>:</p>
+<ul>
+<li>Parsea definición OpenAPI</li>
+<li>Genera colección compatible</li>
+<li>Mapea schemas a ejemplos</li>
+<li>Preserva documentación</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-estructura-de-salida">
+<h3 id="estructura-de-salida">Estructura de Salida</h3>
+<pre><code>docs/
+└── Postman/
+    ├── [Proyecto]_collection.json      ← Colección principal
+    ├── [Proyecto]_environment_dev.json ← Environment desarrollo
+    ├── [Proyecto]_environment_pre.json ← Environment preproducción
+    ├── [Proyecto]_environment_pro.json ← Environment producción
+    └── README.md                        ← Guía de uso</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-recursos-del-skill">
+<h3 id="recursos-del-skill">Recursos del Skill</h3>
+<h4 id="templates">Templates</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Descripcion</th></tr></thead><tbody><tr><td><code>templates/collection.json.template</code></td><td>Plantilla de coleccion con multi-auth (<code>{{AUTH_CONFIG}}</code>)</td></tr><tr><td><code>templates/environment.json.template</code></td><td>Variables de entorno con bloques por modo auth</td></tr><tr><td><code>templates/request.json.template</code></td><td>Plantilla de request individual</td></tr><tr><td><code>templates/tests.js.template</code></td><td>Tests + pre-request scripts (18 constantes)</td></tr><tr><td><code>templates/auth-prerequest-azuread.js.template</code></td><td>Pre-request Azure AD con token expiry</td></tr><tr><td><code>templates/auth-prerequest-apikey.js.template</code></td><td>Pre-request API Key (header/query)</td></tr><tr><td><code>templates/auth-prerequest-basic.js.template</code></td><td>Pre-request Basic Auth (Base64)</td></tr></tbody></table></div>
+<h4 id="patterns">Patterns</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Descripcion</th></tr></thead><tbody><tr><td><code>patterns/auth-detection.md</code></td><td>Algoritmo de deteccion de autenticacion (3 fases)</td></tr><tr><td><code>patterns/azure-ad-auth.md</code></td><td>Azure AD: variables, flujos, Newman CI/CD</td></tr><tr><td><code>patterns/oauth2-token-lifecycle.md</code></td><td>Gestion de tokens: expiry, refresh, cache</td></tr><tr><td><code>patterns/http-signature-mtls.md</code></td><td>HttpSignature (RSA) + mTLS (legacy)</td></tr></tbody></table></div>
+<h4 id="checklists">Checklists</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Descripcion</th></tr></thead><tbody><tr><td><code>checklists/auth-configuration-checklist.md</code></td><td>Verificacion configuracion auth (15 items)</td></tr></tbody></table></div>
+<h4 id="references">References</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Descripcion</th></tr></thead><tbody><tr><td><code>references/auth-examples.md</code></td><td>Ejemplos pre-request scripts: JWT Bearer, Azure AD</td></tr><tr><td><code>references/test-assertions.md</code></td><td>Tests por verbo HTTP: GET, POST, PUT, DELETE, errores</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-flujo-de-trabajo">
+<h3 id="flujo-de-trabajo">Flujo de Trabajo</h3>
+<h4 id="paso-1-análisis">Paso 1: Análisis</h4>
+<pre><code>Claude analiza:
+1. Buscar *Controller.cs en el proyecto
+2. Detectar framework (Minimal APIs vs Controllers)
+3. Identificar rutas y métodos HTTP
+4. Extraer DTOs de request/response
+5. Detectar autenticación configurada</code></pre>
+<h4 id="paso-2-generación">Paso 2: Generación</h4>
+<pre><code>Claude genera:
+1. Estructura de colección con folders
+2. Requests con ejemplos
+3. Variables de colección
+4. Pre-request scripts (auth)
+5. Tests por endpoint</code></pre>
+<h4 id="paso-3-environments">Paso 3: Environments</h4>
+<pre><code>Claude crea environments:
+1. Detectar URLs de appsettings.*.json
+2. Generar variables por entorno
+3. Incluir placeholders para secretos</code></pre>
+<h4 id="paso-4-documentación">Paso 4: Documentación</h4>
+<pre><code>Claude documenta:
+1. README con instrucciones de importación
+2. Descripción de cada endpoint
+3. Ejemplos de uso
+4. Notas sobre autenticación</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-variables-de-colección-recomendadas">
+<h3 id="variables-de-colección-recomendadas">Variables de Colección Recomendadas</h3>
+<div class="tbl"><table><thead><tr><th>Variable</th><th>Descripción</th><th>Ejemplo</th></tr></thead><tbody><tr><td><code>baseUrl</code></td><td>URL base del API</td><td><code>https://localhost:7001/api</code></td></tr><tr><td><code>token</code></td><td>JWT o access token</td><td><code>eyJhbG...</code></td></tr><tr><td><code>apiVersion</code></td><td>Versión del API</td><td><code>v1</code></td></tr><tr><td><code>lastCreatedId</code></td><td>ID del último recurso creado</td><td><code>123</code></td></tr><tr><td><code>testEmail</code></td><td>Email para pruebas</td><td><code>test@example.com</code></td></tr><tr><td><code>testUserId</code></td><td>ID de usuario de prueba</td><td><code>1</code></td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-integración-con-cicd">
+<h3 id="integración-con-cicd">Integración con CI/CD</h3>
+<h4 id="newman-cli-de-postman">Newman (CLI de Postman)</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Instalar Newman</span>
+<span class="tk-k">npm</span> install -g newman
+
+<span class="tk-c"># Ejecutar colección</span>
+newman run MyCompany.Scholarships_collection.json \
+    -e MyCompany.Scholarships_environment_dev.json \
+    --reporters cli,json \
+    --reporter-json-export results.json
+
+<span class="tk-c"># Con variables de entorno de CI</span>
+newman run collection.json \
+    --env-var <span class="tk-s">&quot;baseUrl=$API_URL&quot;</span> \
+    --env-var <span class="tk-s">&quot;token=$API_TOKEN&quot;</span></code></pre>
+<h4 id="pipeline-azure-devops">Pipeline Azure DevOps</h4>
+<pre data-lang="yaml"><code>- task: Npm@<span class="tk-n">1</span>
+  inputs:
+    command: <span class="tk-s">'custom'</span>
+    customCommand: <span class="tk-s">'install -g newman'</span>
+
+- script: |
+    newman run <span class="tk-v">$(Build.SourcesDirectory)</span>/docs/postman/*_collection.json \
+      -e <span class="tk-v">$(Build.SourcesDirectory)</span>/docs/postman/*_environment_dev.json \
+      --reporters cli,junit \
+      --reporter-junit-export <span class="tk-v">$(Build.SourcesDirectory)</span>/TestResults/postman-results.xml
+  displayName: <span class="tk-s">'Run Postman Tests'</span>
+
+- task: PublishTestResults@<span class="tk-n">2</span>
+  inputs:
+    testResultsFormat: <span class="tk-s">'JUnit'</span>
+    testResultsFiles: <span class="tk-s">'**/postman-results.xml'</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-notas-para-claude">
+<h3 id="notas-para-claude">Notas para Claude</h3>
+<ol>
+<li><strong>SIEMPRE escanear Program.cs primero</strong> - Detectar el modo de autenticacion antes de generar la coleccion. Ver <code>patterns/auth-detection.md</code></li>
+<li><strong>Detectar patron de rutas</strong>: el estandar del ecosistema es <code>/api/[controller]</code> generalmente</li>
+<li><strong>Respetar convenciones</strong>: Nombres en espanol si el proyecto los usa</li>
+<li><strong>Incluir ejemplos realistas</strong>: Usar datos que tengan sentido en el dominio</li>
+<li><strong>Configurar auth collection-level</strong>: No repetir auth en cada request (heredar de coleccion)</li>
+<li><strong>Health check sin auth</strong>: Primer request de la coleccion debe ser <code>/health</code> con <code>noauth</code></li>
+<li><strong>Secrets como type:secret</strong>: clientSecret, apiKey, basicPassword, httpSignaturePrivateKey</li>
+<li><strong>Generar tests progresivos</strong>: Los tests de DELETE deben ir al final</li>
+<li><strong>Considerar paginacion</strong>: Incluir parametros <code>page</code> y <code>pageSize</code> en GETs de listado</li>
+<li><strong>Token lifecycle</strong>: Usar pre-request script con caching y expiry check (60s buffer)</li>
+</ol>
+<hr>
+<hr>
+</section>
+<section class="sec" id="sec-workflow-solo-si-se-invoca-la-skill-o-se-pide-aplicar">
+<h3 id="workflow-solo-si-se-invoca-la-skill-o-se-pide-aplicar">Workflow (solo si se invoca la skill o se pide aplicar)</h3>
+<p><strong>Regla de oro</strong>: el disparo semantico responde con el conocimiento de arriba y para ahi. Nada de lo que sigue se ejecuta por haber mencionado el tema: hace falta invocacion explicita o una peticion de accion clara. El workflow <strong>nunca</strong> se alcanza por accidente.</p>
+<p>El procedimiento vive aparte para no cargarlo al consultar conocimiento: <strong><code>references/workflow-postman.md</code></strong>.</p>
+<div class="tbl"><table><thead><tr><th>Intencion del usuario</th><th>Que hacer</th></tr></thead><tbody><tr><td>&quot;como se estructura una coleccion Postman&quot;</td><td>Responder con el <code>SKILL.md</code>. <strong>No</strong> leer el workflow</td></tr><tr><td>&quot;genera la coleccion de la API&quot;, <code>/postman-collection</code></td><td>Leer el workflow y generarla</td></tr></tbody></table></div>
+<p><em>Skill v2.0.0 - Postman Collection Generator with Auth Detection</em></p>
+</section><section class="sec" id="sec-reglas"><h2 id="reglas">Reglas</h2><div class="two"><div><h3>Siempre</h3><ul><li>escanear Program.cs primero** - Detectar el modo de autenticacion antes de generar la coleccion. Ver patterns/auth-detection.md</li></ul></div><div><h3>Nunca</h3></div></div></section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>729</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 765 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>4 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(puertas): Lote B — metadata.kind declarativo y verificado, hook skill-guard, puertas semanticas del portal (ADR-022, ADR-003 enmendado)</em> (<code>55ad636</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/api-integration-patterns.html">api-integration-patterns</a></li><li><a href="../skills/generador-crud.html">generador-crud</a></li><li><a href="../skills/security-audit.html">security-audit</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/postman-collection/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo se activa</a></li><li class="l2"><a href="#cuando-no">Cuándo no</a></li><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#activación-automática">Activación Automática</a></li><li class="l3"><a href="#deteccion-de-autenticacion">Deteccion de Autenticacion</a></li><li class="l3"><a href="#capacidades-del-skill">Capacidades del Skill</a></li><li class="l3"><a href="#estructura-de-salida">Estructura de Salida</a></li><li class="l3"><a href="#recursos-del-skill">Recursos del Skill</a></li><li class="l3"><a href="#flujo-de-trabajo">Flujo de Trabajo</a></li><li class="l3"><a href="#variables-de-colección-recomendadas">Variables de Colección Recomendadas</a></li><li class="l3"><a href="#integración-con-cicd">Integración con CI/CD</a></li><li class="l3"><a href="#notas-para-claude">Notas para Claude</a></li><li class="l3"><a href="#workflow-solo-si-se-invoca-la-skill-o-se-pide-aplicar">Workflow (solo si se invoca la skill o se pide aplicar)</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

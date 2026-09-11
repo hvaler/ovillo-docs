@@ -1,0 +1,103 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · patterns/conventional-commits.md · Ovillo</title><meta name="description" content="Fichero patterns/conventional-commits.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · patterns/conventional-commits.md · Ovillo"><meta property="og:description" content="Fichero patterns/conventional-commits.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/patterns/conventional-commits.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/patterns/conventional-commits.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/patterns/conventional-commits.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html" class="cur">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>patterns</span><span>conventional-commits.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>patterns/</span></div><h1>conventional-commits.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>3749 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: git-best-practices</p></blockquote>
+<p class="lede">Estandar de mensajes de commit obligatorio para todos los proyectos de la organización.</p>
+<hr>
+<section class="sec" id="sec-formato">
+<h3 id="formato">Formato</h3>
+<pre><code>&lt;tipo&gt;(&lt;ambito&gt;): &lt;descripcion&gt;
+
+[cuerpo opcional]
+
+[notas al pie opcionales]</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-tipos">
+<h3 id="tipos">Tipos</h3>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Descripcion</th><th>Ejemplo</th><th>Changelog</th></tr></thead><tbody><tr><td><code>feat</code></td><td>Nueva funcionalidad</td><td><code>feat(scholarships): añadir filtro por estado</code></td><td>Si</td></tr><tr><td><code>fix</code></td><td>Correccion de bug</td><td><code>fix(auth): corregir expiracion de token</code></td><td>Si</td></tr><tr><td><code>docs</code></td><td>Solo documentacion</td><td><code>docs(readme): actualizar instrucciones</code></td><td>No</td></tr><tr><td><code>style</code></td><td>Formato (no cambia codigo)</td><td><code>style: aplicar formato dotnet-format</code></td><td>No</td></tr><tr><td><code>refactor</code></td><td>Reestructuracion sin cambio funcional</td><td><code>refactor(repo): extraer metodo comun</code></td><td>No</td></tr><tr><td><code>perf</code></td><td>Mejora de rendimiento</td><td><code>perf(query): optimizar consulta paginada</code></td><td>Si</td></tr><tr><td><code>test</code></td><td>Tests</td><td><code>test(becas): añadir tests de servicio</code></td><td>No</td></tr><tr><td><code>chore</code></td><td>Mantenimiento</td><td><code>chore(deps): actualizar EF Core a 10.0.1</code></td><td>No</td></tr><tr><td><code>ci</code></td><td>CI/CD</td><td><code>ci: añadir workflow de build .NET 10</code></td><td>No</td></tr><tr><td><code>build</code></td><td>Sistema de build</td><td><code>build: migrar a Central Package Management</code></td><td>No</td></tr><tr><td><code>revert</code></td><td>Reversion</td><td><code>revert: feat(scholarships): filtro por estado</code></td><td>Si</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-ambito-scope">
+<h3 id="ambito-scope">Ambito (Scope)</h3>
+<p>El ambito indica el modulo o area afectada:</p>
+<pre data-lang="bash"><code><span class="tk-c"># Modulos funcionales</span>
+feat(scholarships): ...
+fix(applications): ...
+feat(enrollments): ...
+
+<span class="tk-c"># Capas de arquitectura</span>
+refactor(domain): ...
+fix(infrastructure): ...
+test(application): ...
+
+<span class="tk-c"># Areas transversales</span>
+chore(deps): ...
+ci(pipeline): ...
+docs(api): ...</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-breaking-changes">
+<h3 id="breaking-changes">Breaking Changes</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Opcion 1: Con &quot;!&quot; despues del tipo</span>
+feat(api)!: cambiar formato de respuesta paginada
+
+<span class="tk-c"># Opcion 2: Con BREAKING CHANGE en el footer</span>
+feat(api): cambiar formato de respuesta paginada
+
+BREAKING CHANGE: PaginatedResult ahora usa TotalPages en lugar de TotalCount.
+Los clientes deben actualizar sus modelos de respuesta.</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-ejemplos">
+<h3 id="ejemplos">Ejemplos</h3>
+<h4 id="commit-simple">Commit simple</h4>
+<pre><code>feat(scholarships): añadir filter de scholarships por estado</code></pre>
+<h4 id="commit-con-cuerpo">Commit con cuerpo</h4>
+<pre><code>fix(applications): corregir validacion de fecha limite
+
+La fecha limite se comparaba sin tener en cuenta la zona horaria,
+lo que causaba rechazos incorrectos en applications del ultimo dia.
+
+Closes HV-23</code></pre>
+<h4 id="commit-con-breaking-change">Commit con breaking change</h4>
+<pre><code>feat(api)!: migrar respuestas paginadas a nuevo formato
+
+BREAKING CHANGE: El campo &quot;totalElements&quot; se renombra a &quot;totalItems&quot;
+y &quot;pageSize&quot; a &quot;itemsPerPage&quot; en todas las respuestas paginadas.
+
+Refs: HV-30</code></pre>
+<h4 id="commit-con-multiples-referencias">Commit con multiples referencias</h4>
+<pre><code>fix(auth): corregir refresh de token Azure AD
+
+El middleware de autenticacion no renovaba el token cuando expiraba
+durante una peticion larga (&gt;5min).
+
+Fixes: HV-25
+See also: HV-22, HV-24
+Co-authored-by: Juan Garcia &lt;jgarcia@example.com&gt;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-validacion-automatica">
+<h3 id="validacion-automatica">Validacion Automatica</h3>
+<h4 id="git-hook-commit-msg">Git Hook commit-msg</h4>
+<p>Ver <code>templates/commit-msg-hook.sh.template</code> para hook que valida el formato.</p>
+<h4 id="regex-de-validacion">Regex de Validacion</h4>
+<pre data-lang="regex"><code>^(feat|fix|docs|style|refactor|perf|test|chore|ci|build|revert)(\(.+\))?(!)?: .{1,100}$</code></pre>
+<h4 id="errores-comunes">Errores Comunes</h4>
+<div class="tbl"><table><thead><tr><th>Error</th><th>Correcto</th></tr></thead><tbody><tr><td><code>Fixed bug</code></td><td><code>fix(becas): corregir calculo de importe</code></td></tr><tr><td><code>feat: Added new feature</code></td><td><code>feat(scholarships): añadir filtro por estado</code></td></tr><tr><td><code>WIP</code></td><td>No hacer commit de trabajo en progreso</td></tr><tr><td><code>update</code></td><td><code>chore(deps): actualizar paquetes NuGet</code></td></tr><tr><td><code>misc changes</code></td><td>Dividir en commits especificos</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-integracion-con-jiraazure-devops">
+<h3 id="integracion-con-jiraazure-devops">Integracion con Jira/Azure DevOps</h3>
+<pre data-lang="bash"><code><span class="tk-c"># Referenciar ticket en el footer</span>
+feat(scholarships): implementar exportacion Excel
+
+Refs: PROJ-123
+<span class="tk-c"># o</span>
+Closes: HV-18
+
+<span class="tk-c"># Para Azure DevOps Work Items</span>
+feat(scholarships): implementar exportacion Excel
+
+AB<span class="tk-c">#1234</span></code></pre>
+<hr>
+<p><em>Pattern 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html"><small>Anterior</small>patterns/azure-devops-branching.md</a><a class="next" href="../../../skills/git-best-practices/patterns/gitattributes-config.html"><small>Siguiente</small>patterns/gitattributes-config.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/patterns/conventional-commits.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#formato">Formato</a></li><li class="l2"><a href="#tipos">Tipos</a></li><li class="l2"><a href="#ambito-scope">Ambito (Scope)</a></li><li class="l2"><a href="#breaking-changes">Breaking Changes</a></li><li class="l2"><a href="#ejemplos">Ejemplos</a></li><li class="l3"><a href="#commit-simple">Commit simple</a></li><li class="l3"><a href="#commit-con-cuerpo">Commit con cuerpo</a></li><li class="l3"><a href="#commit-con-breaking-change">Commit con breaking change</a></li><li class="l3"><a href="#commit-con-multiples-referencias">Commit con multiples referencias</a></li><li class="l2"><a href="#validacion-automatica">Validacion Automatica</a></li><li class="l3"><a href="#git-hook-commit-msg">Git Hook commit-msg</a></li><li class="l3"><a href="#regex-de-validacion">Regex de Validacion</a></li><li class="l3"><a href="#errores-comunes">Errores Comunes</a></li><li class="l2"><a href="#integracion-con-jiraazure-devops">Integracion con Jira/Azure DevOps</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

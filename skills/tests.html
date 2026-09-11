@@ -1,0 +1,417 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tests · Ovillo</title><meta name="description" content="Convenciones de pruebas: nomenclatura, estructura de carpetas y umbrales de cobertura por capa."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="tests · Ovillo"><meta property="og:description" content="Convenciones de pruebas: nomenclatura, estructura de carpetas y umbrales de cobertura por capa."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/tests.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/tests.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/tests.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>regla por ruta (13)</h4><ul class="sibs"><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/blazor.html">blazor</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/domain-api-docs.html">domain-api-docs</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/mcp-config.html">mcp-config</a></li><li><a href="../skills/tests.html" class="cur">tests</a></li><li><a href="../skills/webapp.html">webapp</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>tests</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>/hv:tests</span></div><h1>tests</h1><p class="lede">Convenciones de pruebas: nomenclatura, estructura de carpetas y umbrales de cobertura por capa.</p><div class="meta-grid"><div><b>regla por ruta</b><span>clase</span></div><div><b><code>/hv:tests</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>240</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>user-invocable</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Se carga sola al tocar ficheros que casan con sus rutas (<code>paths:</code>). No entra en el listado de skills.</p><pre data-lang="yaml"><code>paths:
+  - &quot;tests/**/*.cs&quot;
+  - &quot;**/*.Tests/**/*.cs&quot;
+  - &quot;**/*.Test/**/*.cs&quot;
+  - &quot;**/Tests/**/*.cs&quot;
+  - &quot;**/*Tests.cs&quot;
+  - &quot;**/*Test.cs&quot;</code></pre></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Se carga por ruta, no por invocacion</strong>: el campo <code>paths:</code> la activa cuando Claude trabaja con ficheros que casan con esos patrones. No aparece en el menu (<code>user-invocable: false</code>) y <strong>no ocupa contexto</strong> mientras no case ningun fichero.</p>
+<p>Procede de <code>.claude/skills/tests/SKILL.md</code>. Se convirtio en skill porque un plugin no distribuye <code>rules/</code>.</p></blockquote>
+<hr>
+<h2 id="reglas-para-pruebas-unitarias">Reglas para Pruebas Unitarias</h2>
+<blockquote><p>Este archivo aplica cuando Claude trabaja con tests. <strong>Detecta automáticamente</strong> el framework de testing del proyecto.</p></blockquote>
+<hr>
+<section class="sec" id="sec-detección-de-framework">
+<h3 id="detección-de-framework">DETECCIÓN DE FRAMEWORK</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;xunit&quot;</span> Version=<span class="tk-s">&quot;2.*&quot;</span> <span class="tk-t">/&gt;</span>              <span class="tk-c">&lt;!-- xUnit (recomendado) --&gt;</span>
+<span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;NUnit&quot;</span> Version=<span class="tk-s">&quot;4.*&quot;</span> <span class="tk-t">/&gt;</span>              <span class="tk-c">&lt;!-- NUnit --&gt;</span>
+<span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;MSTest.TestFramework&quot;</span> Version=<span class="tk-s">&quot;3.*&quot;</span> <span class="tk-t">/&gt;</span> <span class="tk-c">&lt;!-- MSTest --&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-1-nomenclatura">
+<h3 id="parte-1-nomenclatura">PARTE 1: NOMENCLATURA</h3>
+<h4 id="convención-de-nombres">Convención de Nombres</h4>
+<pre><code>Method_Scenario_ExpectedResult
+
+Ejemplos:
+- GetById_ScholarshipExists_ReturnsScholarship
+- GetById_ScholarshipDoesNotExist_ReturnsNull
+- Create_ValidData_SavesToDatabase
+- Create_EmptyName_ThrowsValidationException
+- Delete_ScholarshipWithApplications_ThrowsBusinessException</code></pre>
+<h4 id="estructura-de-carpetas">Estructura de Carpetas</h4>
+<pre><code>tests/
+├── MyCompany.MyApp.Domain.Tests/
+│   ├── Entities/
+│   │   ├── ScholarshipTests.cs
+│   │   └── ScholarshipApplicationTests.cs
+│   └── ValueObjects/
+│       └── PeriodTests.cs
+├── MyCompany.MyApp.Application.Tests/
+│   ├── Services/
+│   │   └── ScholarshipServiceTests.cs
+│   └── Validators/
+│       └── CreateScholarshipRequestValidatorTests.cs
+└── MyCompany.MyApp.Integration.Tests/
+    ├── Api/
+    │   └── ScholarshipsControllerTests.cs
+    └── Fixtures/
+        └── WebApplicationFixture.cs</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-2-patrón-aaa-arrange-act-assert">
+<h3 id="parte-2-patrón-aaa-arrange-act-assert">PARTE 2: PATRÓN AAA (Arrange-Act-Assert)</h3>
+<h4 id="ejemplo-completo---xunit--fluentassertions">Ejemplo Completo - xUnit + FluentAssertions</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipServiceTests
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;IScholarshipRepository&gt; _repositoryMock;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> Mock&lt;ILogger&lt;ScholarshipService&gt;&gt; _loggerMock;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ScholarshipService _sut; <span class="tk-c">// System Under Test</span>
+
+    <span class="tk-k">public</span> ScholarshipServiceTests()
+    {
+        _repositoryMock = <span class="tk-k">new</span> Mock&lt;IScholarshipRepository&gt;();
+        _loggerMock = <span class="tk-k">new</span> Mock&lt;ILogger&lt;ScholarshipService&gt;&gt;();
+        _sut = <span class="tk-k">new</span> ScholarshipService(_repositoryMock.Object, _loggerMock.Object);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetById_ScholarshipExists_ReturnsScholarshipDto()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> scholarshipId = <span class="tk-n">1</span>;
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">new</span> Scholarship 
+        { 
+            Id = scholarshipId, 
+            Name = <span class="tk-s">&quot;Scholarship Test&quot;</span>, 
+            Amount = 5000m 
+        };
+        
+        _repositoryMock
+            .Setup(r =&gt; r.GetByIdAsync(scholarshipId, It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync(scholarship);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.GetByIdAsync(scholarshipId);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().NotBeNull();
+        result!.Id.Should().Be(scholarshipId);
+        result.Name.Should().Be(<span class="tk-s">&quot;Scholarship Test&quot;</span>);
+        result.Amount.Should().Be(5000m);
+        
+        _repositoryMock.Verify(
+            r =&gt; r.GetByIdAsync(scholarshipId, It.IsAny&lt;CancellationToken&gt;()), 
+            Times.Once);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetById_ScholarshipDoesNotExist_ReturnsNull()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> scholarshipId = <span class="tk-n">999</span>;
+        _repositoryMock
+            .Setup(r =&gt; r.GetByIdAsync(scholarshipId, It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync((Scholarship?)<span class="tk-k">null</span>);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.GetByIdAsync(scholarshipId);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().BeNull();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_ValidData_SavesAndReturnsScholarship()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> CreateScholarshipRequest
+        {
+            Name = <span class="tk-s">&quot;New Scholarship&quot;</span>,
+            Amount = 3000m,
+            StartDate = DateTime.Today.AddDays(<span class="tk-n">1</span>),
+            EndDate = DateTime.Today.AddMonths(<span class="tk-n">6</span>)
+        };
+
+        _repositoryMock
+            .Setup(r =&gt; r.AddAsync(It.IsAny&lt;Scholarship&gt;(), It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync((Scholarship b, CancellationToken _) =&gt; 
+            {
+                b.Id = <span class="tk-n">1</span>;
+                <span class="tk-k">return</span> b;
+            });
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.CreateAsync(request);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().NotBeNull();
+        result.Id.Should().Be(<span class="tk-n">1</span>);
+        result.Name.Should().Be(<span class="tk-s">&quot;New Scholarship&quot;</span>);
+        
+        _repositoryMock.Verify(
+            r =&gt; r.AddAsync(
+                It.Is&lt;Scholarship&gt;(b =&gt; b.Name == <span class="tk-s">&quot;New Scholarship&quot;</span> &amp;&amp; b.Amount == 3000m),
+                It.IsAny&lt;CancellationToken&gt;()),
+            Times.Once);
+    }
+
+    [Theory]
+    [InlineData(<span class="tk-s">&quot;&quot;</span>)]
+    [InlineData(<span class="tk-k">null</span>)]
+    [InlineData(<span class="tk-s">&quot;   &quot;</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_InvalidName_ThrowsValidationException(<span class="tk-k">string</span>? name)
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> CreateScholarshipRequest { Name = name!, Amount = 1000m };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> act = () =&gt; _sut.CreateAsync(request);
+
+        <span class="tk-c">// Assert</span>
+        <span class="tk-k">await</span> act.Should().ThrowAsync&lt;ValidationException&gt;()
+            .WithMessage(<span class="tk-s">&quot;*name*&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-3-mocking-con-moq">
+<h3 id="parte-3-mocking-con-moq">PARTE 3: MOCKING CON MOQ</h3>
+<h4 id="setup-básico">Setup Básico</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Retornar valor</span>
+_mockRepo.Setup(r =&gt; r.GetByIdAsync(<span class="tk-n">1</span>, It.IsAny&lt;CancellationToken&gt;()))
+    .ReturnsAsync(<span class="tk-k">new</span> Scholarship { Id = <span class="tk-n">1</span> });
+
+<span class="tk-c">// Retornar según parámetro</span>
+_mockRepo.Setup(r =&gt; r.GetByIdAsync(It.IsAny&lt;<span class="tk-k">int</span>&gt;(), It.IsAny&lt;CancellationToken&gt;()))
+    .ReturnsAsync((<span class="tk-k">int</span> id, CancellationToken _) =&gt; <span class="tk-k">new</span> Scholarship { Id = id });
+
+<span class="tk-c">// Lanzar excepción</span>
+_mockRepo.Setup(r =&gt; r.GetByIdAsync(<span class="tk-n">999</span>, It.IsAny&lt;CancellationToken&gt;()))
+    .ThrowsAsync(<span class="tk-k">new</span> NotFoundException(<span class="tk-s">&quot;Scholarship not found&quot;</span>));
+
+<span class="tk-c">// Callback para inspeccionar</span>
+_mockRepo.Setup(r =&gt; r.AddAsync(It.IsAny&lt;Scholarship&gt;(), It.IsAny&lt;CancellationToken&gt;()))
+    .Callback&lt;Scholarship, CancellationToken&gt;((b, _) =&gt; savedScholarship = b)
+    .ReturnsAsync((Scholarship b, CancellationToken _) =&gt; b);</code></pre>
+<h4 id="verificaciones">Verificaciones</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Verificar que se llamó</span>
+_mockRepo.Verify(r =&gt; r.GetByIdAsync(<span class="tk-n">1</span>, It.IsAny&lt;CancellationToken&gt;()), Times.Once);
+
+<span class="tk-c">// Verificar que NO se llamó</span>
+_mockRepo.Verify(r =&gt; r.DeleteAsync(It.IsAny&lt;Scholarship&gt;(), It.IsAny&lt;CancellationToken&gt;()), Times.Never);
+
+<span class="tk-c">// Verificar con condición</span>
+_mockRepo.Verify(
+    r =&gt; r.AddAsync(
+        It.Is&lt;Scholarship&gt;(b =&gt; b.Name == <span class="tk-s">&quot;Test&quot;</span> &amp;&amp; b.Amount &gt; <span class="tk-n">0</span>),
+        It.IsAny&lt;CancellationToken&gt;()),
+    Times.Once);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-4-fluent-assertions">
+<h3 id="parte-4-fluent-assertions">PARTE 4: FLUENT ASSERTIONS</h3>
+<h4 id="aserciones-comunes">Aserciones Comunes</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Valores</span>
+result.Should().Be(expected);
+result.Should().NotBe(unexpected);
+result.Should().BeNull();
+result.Should().NotBeNull();
+
+<span class="tk-c">// Strings</span>
+name.Should().Be(<span class="tk-s">&quot;Test&quot;</span>);
+name.Should().StartWith(<span class="tk-s">&quot;Scholarship&quot;</span>);
+name.Should().Contain(<span class="tk-s">&quot;excelencia&quot;</span>);
+name.Should().BeEmpty();
+name.Should().HaveLength(<span class="tk-n">10</span>);
+
+<span class="tk-c">// Números</span>
+amount.Should().Be(5000m);
+amount.Should().BeGreaterThan(<span class="tk-n">0</span>);
+amount.Should().BeInRange(<span class="tk-n">1000</span>, <span class="tk-n">10000</span>);
+amount.Should().BeApproximately(5000m, <span class="tk-n">0</span>.01m);
+
+<span class="tk-c">// Colecciones</span>
+scholarships.Should().NotBeEmpty();
+scholarships.Should().HaveCount(<span class="tk-n">5</span>);
+scholarships.Should().Contain(b =&gt; b.Name == <span class="tk-s">&quot;Test&quot;</span>);
+scholarships.Should().BeInAscendingOrder(b =&gt; b.Name);
+scholarships.Should().OnlyContain(b =&gt; b.Status == ScholarshipStatus.Published);
+
+<span class="tk-c">// Excepciones</span>
+<span class="tk-k">var</span> act = () =&gt; _sut.Delete(<span class="tk-n">999</span>);
+<span class="tk-k">await</span> act.Should().ThrowAsync&lt;NotFoundException&gt;();
+<span class="tk-k">await</span> act.Should().ThrowAsync&lt;ValidationException&gt;()
+    .WithMessage(<span class="tk-s">&quot;*required*&quot;</span>);
+
+<span class="tk-c">// Objetos</span>
+scholarship.Should().BeEquivalentTo(expected, options =&gt; 
+    options.Excluding(b =&gt; b.Id)
+           .Excluding(b =&gt; b.CreatedAt));
+
+<span class="tk-c">// Tiempo de ejecución</span>
+<span class="tk-k">var</span> act = () =&gt; _sut.ProcessAsync();
+<span class="tk-k">await</span> act.Should().CompleteWithinAsync(TimeSpan.FromSeconds(<span class="tk-n">5</span>));</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-5-tests-de-integración---net-10">
+<h3 id="parte-5-tests-de-integración---net-10">PARTE 5: TESTS DE INTEGRACIÓN - .NET 10</h3>
+<h4 id="WebApplicationFactory">WebApplicationFactory</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> WebApplicationFixture : WebApplicationFactory&lt;Program&gt;, IAsyncLifetime
+{
+    <span class="tk-k">private</span> MsSqlContainer _sqlContainer = <span class="tk-k">null</span>!;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task InitializeAsync()
+    {
+        <span class="tk-c">// Testcontainers - SQL Server en Docker</span>
+        _sqlContainer = <span class="tk-k">new</span> MsSqlBuilder()
+            .WithImage(<span class="tk-s">&quot;mcr.microsoft.com/mssql/server:2022-latest&quot;</span>)
+            .Build();
+        
+        <span class="tk-k">await</span> _sqlContainer.StartAsync();
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">void</span> ConfigureWebHost(IWebHostBuilder builder)
+    {
+        builder.ConfigureServices(services =&gt;
+        {
+            <span class="tk-c">// Reemplazar DbContext con conexión a contenedor</span>
+            <span class="tk-k">var</span> descriptor = services.SingleOrDefault(
+                d =&gt; d.ServiceType == <span class="tk-k">typeof</span>(DbContextOptions&lt;ApplicationDbContext&gt;));
+            
+            <span class="tk-k">if</span> (descriptor != <span class="tk-k">null</span>)
+                services.Remove(descriptor);
+
+            services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+                options.UseSqlServer(_sqlContainer.GetConnectionString()));
+        });
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">new</span> <span class="tk-k">async</span> Task DisposeAsync()
+    {
+        <span class="tk-k">await</span> _sqlContainer.DisposeAsync();
+    }
+}
+
+[Collection(<span class="tk-s">&quot;Integration&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsControllerTests : IClassFixture&lt;WebApplicationFixture&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> HttpClient _client;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> WebApplicationFixture _factory;
+
+    <span class="tk-k">public</span> ScholarshipsControllerTests(WebApplicationFixture factory)
+    {
+        _factory = factory;
+        _client = factory.CreateClient();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetAll_ReturnsOk()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        
+        <span class="tk-k">var</span> content = <span class="tk-k">await</span> response.Content.ReadFromJsonAsync&lt;PaginatedResult&lt;ScholarshipDto&gt;&gt;();
+        content.Should().NotBeNull();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_ValidRequest_ReturnsCreated()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> CreateScholarshipRequest
+        {
+            Name = <span class="tk-s">&quot;Scholarship Test Integration&quot;</span>,
+            Amount = 5000m
+        };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.PostAsJsonAsync(<span class="tk-s">&quot;/api/scholarships&quot;</span>, request);
+
+        <span class="tk-c">// Assert</span>
+        response.StatusCode.Should().Be(HttpStatusCode.Created);
+        response.Headers.Location.Should().NotBeNull();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-6-tests-de-dominio">
+<h3 id="parte-6-tests-de-dominio">PARTE 6: TESTS DE DOMINIO</h3>
+<h4 id="testing-value-objects">Testing Value Objects</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> PeriodTests
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Constructor_ValidDates_CreatesPeriod()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> start = <span class="tk-k">new</span> DateTime(<span class="tk-n">2025</span>, <span class="tk-n">1</span>, <span class="tk-n">1</span>);
+        <span class="tk-k">var</span> end = <span class="tk-k">new</span> DateTime(<span class="tk-n">2025</span>, <span class="tk-n">12</span>, <span class="tk-n">31</span>);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> period = <span class="tk-k">new</span> Period(start, end);
+
+        <span class="tk-c">// Assert</span>
+        period.StartDate.Should().Be(start);
+        period.EndDate.Should().Be(end);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Constructor_EndDateBeforeStartDate_ThrowsException()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> start = <span class="tk-k">new</span> DateTime(<span class="tk-n">2025</span>, <span class="tk-n">12</span>, <span class="tk-n">31</span>);
+        <span class="tk-k">var</span> end = <span class="tk-k">new</span> DateTime(<span class="tk-n">2025</span>, <span class="tk-n">1</span>, <span class="tk-n">1</span>);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> act = () =&gt; <span class="tk-k">new</span> Period(start, end);
+
+        <span class="tk-c">// Assert</span>
+        act.Should().Throw&lt;DomainException&gt;()
+            .WithMessage(<span class="tk-s">&quot;*end date*before*&quot;</span>);
+    }
+
+    [Theory]
+    [InlineData(<span class="tk-s">&quot;2025-06-15&quot;</span>, <span class="tk-k">true</span>)]  <span class="tk-c">// Dentro del period</span>
+    [InlineData(<span class="tk-s">&quot;2024-12-31&quot;</span>, <span class="tk-k">false</span>)] <span class="tk-c">// Antes</span>
+    [InlineData(<span class="tk-s">&quot;2026-01-01&quot;</span>, <span class="tk-k">false</span>)] <span class="tk-c">// Después</span>
+    <span class="tk-k">public</span> <span class="tk-k">void</span> Contains_VariousDates_ReturnsExpected(<span class="tk-k">string</span> dateStr, <span class="tk-k">bool</span> expected)
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> period = <span class="tk-k">new</span> Period(
+            <span class="tk-k">new</span> DateTime(<span class="tk-n">2025</span>, <span class="tk-n">1</span>, <span class="tk-n">1</span>),
+            <span class="tk-k">new</span> DateTime(<span class="tk-n">2025</span>, <span class="tk-n">12</span>, <span class="tk-n">31</span>));
+        <span class="tk-k">var</span> date = DateTime.Parse(dateStr);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = period.Contains(date);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().Be(expected);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-7-cobertura">
+<h3 id="parte-7-cobertura">PARTE 7: COBERTURA</h3>
+<h4 id="cobertura-mínima-recomendada">Cobertura Mínima Recomendada</h4>
+<div class="tbl"><table><thead><tr><th>Capa</th><th>Cobertura mínima</th></tr></thead><tbody><tr><td>Domain</td><td>90%</td></tr><tr><td>Application</td><td>80%</td></tr><tr><td>Infrastructure</td><td>60%</td></tr><tr><td>Presentation</td><td>40%</td></tr></tbody></table></div>
+<h4 id="ejecutar-con-cobertura">Ejecutar con Cobertura</h4>
+<pre data-lang="bash"><code><span class="tk-c"># .NET 10 con coverlet</span>
+<span class="tk-k">dotnet</span> test --collect:<span class="tk-s">&quot;XPlat Code Coverage&quot;</span>
+
+<span class="tk-c"># Generar reporte HTML</span>
+reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage-report</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-CHECKLIST">
+<h3 id="CHECKLIST">CHECKLIST</h3>
+<h4 id="cada-test-debe">Cada test debe</h4>
+<ul>
+<li><input type="checkbox" disabled> Nombre descriptivo (Método_Escenario_Resultado)</li>
+<li><input type="checkbox" disabled> Seguir patrón AAA</li>
+<li><input type="checkbox" disabled> Probar UN solo comportamiento</li>
+<li><input type="checkbox" disabled> Ser independiente de otros tests</li>
+<li><input type="checkbox" disabled> Ejecutar rápido (&lt;1 segundo unitarios)</li>
+</ul>
+<h4 id="proyecto-de-tests-debe">Proyecto de tests debe</h4>
+<ul>
+<li><input type="checkbox" disabled> xUnit + FluentAssertions + Moq</li>
+<li><input type="checkbox" disabled> Estructura espejo del proyecto principal</li>
+<li><input type="checkbox" disabled> Tests de integración separados</li>
+<li><input type="checkbox" disabled> Cobertura mínima por capa</li>
+</ul>
+<hr>
+<p><em>Regla incondicional — Multi-versión .NET</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>95</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 240 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>5 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(puertas): Lote B — metadata.kind declarativo y verificado, hook skill-guard, puertas semanticas del portal (ADR-022, ADR-003 enmendado)</em> (<code>55ad636</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/tests/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#detección-de-framework">DETECCIÓN DE FRAMEWORK</a></li><li class="l3"><a href="#parte-1-nomenclatura">PARTE 1: NOMENCLATURA</a></li><li class="l3"><a href="#parte-2-patrón-aaa-arrange-act-assert">PARTE 2: PATRÓN AAA (Arrange-Act-Assert)</a></li><li class="l3"><a href="#parte-3-mocking-con-moq">PARTE 3: MOCKING CON MOQ</a></li><li class="l3"><a href="#parte-4-fluent-assertions">PARTE 4: FLUENT ASSERTIONS</a></li><li class="l3"><a href="#parte-5-tests-de-integración---net-10">PARTE 5: TESTS DE INTEGRACIÓN - .NET 10</a></li><li class="l3"><a href="#parte-6-tests-de-dominio">PARTE 6: TESTS DE DOMINIO</a></li><li class="l3"><a href="#parte-7-cobertura">PARTE 7: COBERTURA</a></li><li class="l3"><a href="#CHECKLIST">CHECKLIST</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

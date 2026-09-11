@@ -1,0 +1,178 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · patterns/test-data-factory.md · Ovillo</title><meta name="description" content="Fichero patterns/test-data-factory.md de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · patterns/test-data-factory.md · Ovillo"><meta property="og:description" content="Fichero patterns/test-data-factory.md de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/test-data-factory.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/test-data-factory.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/patterns/test-data-factory.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (16)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html" class="cur">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>patterns</span><span>test-data-factory.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>patterns/</span></div><h1>test-data-factory.md</h1><p class="lede">Referencia que <code>testing-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>6841 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: testing-patterns</p></blockquote>
+<hr>
+<section class="sec" id="sec-descripción">
+<h3 id="descripción">Descripción</h3>
+<p>El patrón Test Data Factory centraliza la creación de datos de prueba en una clase estática, proporcionando métodos para generar entidades, DTOs y requests con valores por defecto válidos. Complementa al patrón Builder ofreciendo accesos directos para escenarios comunes.</p>
+<hr>
+</section>
+<section class="sec" id="sec-factory-base">
+<h3 id="factory-base">Factory Base</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> TestDataFactory
+{
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// el pool configurado - Acceso fluido a builders específicos</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> ScholarshipBuilder Scholarship() =&gt; <span class="tk-k">new</span>();
+    <span class="tk-k">public</span> <span class="tk-k">static</span> ScholarshipApplicationBuilder ScholarshipApplication() =&gt; <span class="tk-k">new</span>();
+    <span class="tk-k">public</span> <span class="tk-k">static</span> StudentBuilder Student() =&gt; <span class="tk-k">new</span>();
+    <span class="tk-k">public</span> <span class="tk-k">static</span> CreateScholarshipRequestBuilder CreateScholarshipRequest() =&gt; <span class="tk-k">new</span>();
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// ESCENARIOS PREDEFINIDOS - Entidades listas para usar</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Scholarship ScholarshipDraftValida() =&gt; <span class="tk-k">new</span> ScholarshipBuilder()
+        .ConCode(<span class="tk-s">&quot;BECA-TEST-001&quot;</span>)
+        .ConNombre(<span class="tk-s">&quot;Scholarship de Prueba&quot;</span>)
+        .ConAmount(5000m)
+        .ConPeriod(DateTime.Today.AddDays(<span class="tk-n">1</span>), DateTime.Today.AddMonths(<span class="tk-n">6</span>))
+        .Build();
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Scholarship ScholarshipPublishedValida() =&gt; <span class="tk-k">new</span> ScholarshipBuilder()
+        .ConCode(<span class="tk-s">&quot;BECA-PUB-001&quot;</span>)
+        .Published()
+        .ConPeriod(DateTime.Today, DateTime.Today.AddMonths(<span class="tk-n">6</span>))
+        .Build();
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Scholarship ScholarshipClosedConApplications(<span class="tk-k">int</span> numApplications = <span class="tk-n">10</span>) =&gt; <span class="tk-k">new</span> ScholarshipBuilder()
+        .ConCode(<span class="tk-s">&quot;BECA-CERR-001&quot;</span>)
+        .Closed()
+        .ConApplications(numApplications)
+        .Build();
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> Student StudentActive() =&gt; <span class="tk-k">new</span> StudentBuilder()
+        .ConNombre(<span class="tk-s">&quot;Student Test&quot;</span>)
+        .ConEmail(<span class="tk-s">&quot;test@example.com&quot;</span>)
+        .Active()
+        .Build();
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-escenarios-de-listas">
+<h3 id="escenarios-de-listas">Escenarios de Listas</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> TestDataFactory
+{
+    <span class="tk-c">// Listas para tests de paginación y filtrado</span>
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> List&lt;Scholarship&gt; ListaScholarshipsMixtas(<span class="tk-k">int</span> amount = <span class="tk-n">20</span>)
+    {
+        <span class="tk-k">var</span> scholarships = <span class="tk-k">new</span> List&lt;Scholarship&gt;();
+        <span class="tk-k">var</span> estados = <span class="tk-k">new</span>[] { ScholarshipStatus.Draft, ScholarshipStatus.Published, ScholarshipStatus.Closed };
+
+        <span class="tk-k">for</span> (<span class="tk-k">int</span> i = <span class="tk-n">0</span>; i &lt; amount; i++)
+        {
+            scholarships.Add(<span class="tk-k">new</span> ScholarshipBuilder()
+                .ConId(i + <span class="tk-n">1</span>)
+                .ConCode(<span class="tk-s">$&quot;BECA-{i + 1:D3}&quot;</span>)
+                .ConNombre(<span class="tk-s">$&quot;Scholarship Test {i + 1}&quot;</span>)
+                .ConAmount(1000m + (i * 500m))
+                .ConEstado(estados[i % estados.Length])
+                .Build());
+        }
+
+        <span class="tk-k">return</span> scholarships;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> List&lt;ScholarshipDto&gt; ListaScholarshipDtos(<span class="tk-k">int</span> amount = <span class="tk-n">10</span>)
+    {
+        <span class="tk-k">return</span> Enumerable.Range(<span class="tk-n">1</span>, amount)
+            .Select(i =&gt; <span class="tk-k">new</span> ScholarshipDtoBuilder()
+                .ConId(i)
+                .ConNombre(<span class="tk-s">$&quot;Scholarship DTO {i}&quot;</span>)
+                .ConAmount(i * 1000m)
+                .Build())
+            .ToList();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-datos-inválidos-para-tests-negativos">
+<h3 id="datos-inválidos-para-tests-negativos">Datos Inválidos para Tests Negativos</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> TestDataFactory
+{
+    <span class="tk-c">// Requests inválidos para validar errores</span>
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> CreateScholarshipCommand RequestSinNombre() =&gt; <span class="tk-k">new</span> CreateScholarshipRequestBuilder()
+        .SinNombre()
+        .Build();
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> CreateScholarshipCommand RequestConAmountNegativo() =&gt; <span class="tk-k">new</span> CreateScholarshipRequestBuilder()
+        .ConAmountInvalido()
+        .Build();
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> CreateScholarshipCommand RequestConFechasInvalidas() =&gt; <span class="tk-k">new</span> CreateScholarshipRequestBuilder()
+        .ConFechasInvalidas()
+        .Build();
+
+    <span class="tk-c">// Colección de casos inválidos para Theory</span>
+    <span class="tk-k">public</span> <span class="tk-k">static</span> IEnumerable&lt;<span class="tk-k">object</span>[]&gt; RequestsInvalidos()
+    {
+        <span class="tk-k">yield</span> <span class="tk-k">return</span> <span class="tk-k">new</span> <span class="tk-k">object</span>[] { RequestSinNombre(), <span class="tk-s">&quot;name&quot;</span> };
+        <span class="tk-k">yield</span> <span class="tk-k">return</span> <span class="tk-k">new</span> <span class="tk-k">object</span>[] { RequestConAmountNegativo(), <span class="tk-s">&quot;amount&quot;</span> };
+        <span class="tk-k">yield</span> <span class="tk-k">return</span> <span class="tk-k">new</span> <span class="tk-k">object</span>[] { RequestConFechasInvalidas(), <span class="tk-s">&quot;fecha&quot;</span> };
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-uso-en-tests">
+<h3 id="uso-en-tests">Uso en Tests</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipServiceTests
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetById_ScholarshipExists_ReturnsScholarshipDto()
+    {
+        <span class="tk-c">// Arrange - Escenario predefinido</span>
+        <span class="tk-k">var</span> scholarship = TestDataFactory.ScholarshipPublishedValida();
+
+        _repositoryMock
+            .Setup(r =&gt; r.GetByIdAsync(scholarship.Id, It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync(scholarship);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.GetByIdAsync(scholarship.Id);
+
+        <span class="tk-c">// Assert</span>
+        result.Should().NotBeNull();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetAll_ReturnsPaginado()
+    {
+        <span class="tk-c">// Arrange - Lista predefinida</span>
+        <span class="tk-k">var</span> scholarships = TestDataFactory.ListaScholarshipsMixtas(<span class="tk-n">50</span>);
+
+        _repositoryMock
+            .Setup(r =&gt; r.GetAllAsync(It.IsAny&lt;CancellationToken&gt;()))
+            .ReturnsAsync(scholarships);
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> result = <span class="tk-k">await</span> _sut.GetPaginatedAsync(<span class="tk-n">1</span>, <span class="tk-n">10</span>);
+
+        <span class="tk-c">// Assert</span>
+        result.Items.Should().HaveCount(<span class="tk-n">10</span>);
+        result.TotalCount.Should().Be(<span class="tk-n">50</span>);
+    }
+
+    [Theory]
+    [MemberData(nameof(TestDataFactory.RequestsInvalidos), MemberType = <span class="tk-k">typeof</span>(TestDataFactory))]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task Create_InvalidData_ThrowsValidationException(
+        CreateScholarshipCommand request, <span class="tk-k">string</span> campoEsperado)
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> act = () =&gt; _sut.CreateAsync(request);
+
+        <span class="tk-c">// Assert</span>
+        <span class="tk-k">await</span> act.Should().ThrowAsync&lt;ValidationException&gt;()
+            .Where(e =&gt; e.Errors.ContainsKey(campoEsperado));
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-factory-vs-builder">
+<h3 id="factory-vs-builder">Factory vs Builder</h3>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>TestDataFactory</th><th>Builder</th></tr></thead><tbody><tr><td><strong>Uso</strong></td><td>Escenarios comunes predefinidos</td><td>Configuración granular</td></tr><tr><td><strong>Sintaxis</strong></td><td><code>TestDataFactory.ScholarshipPublicadaValida()</code></td><td><code>new ScholarshipBuilder().Publicada().Build()</code></td></tr><tr><td><strong>Personalización</strong></td><td>Baja (escenarios fijos)</td><td>Alta (método por propiedad)</td></tr><tr><td><strong>Mejor para</strong></td><td>Tests simples, datos por defecto</td><td>Tests que requieren variaciones</td></tr></tbody></table></div>
+<p>Se recomienda usar ambos: Factory para escenarios comunes y Builder cuando se necesita personalizar propiedades específicas del objeto de test.</p>
+<hr>
+<p><em>Pattern v1.0 - testing-patterns skill</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html"><small>Anterior</small>patterns/snapshot-testing.md</a><a class="next" href="../../../skills/testing-patterns/references/test-helpers.html"><small>Siguiente</small>references/test-helpers.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/patterns/test-data-factory.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#descripción">Descripción</a></li><li class="l2"><a href="#factory-base">Factory Base</a></li><li class="l2"><a href="#escenarios-de-listas">Escenarios de Listas</a></li><li class="l2"><a href="#datos-inválidos-para-tests-negativos">Datos Inválidos para Tests Negativos</a></li><li class="l2"><a href="#uso-en-tests">Uso en Tests</a></li><li class="l2"><a href="#factory-vs-builder">Factory vs Builder</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

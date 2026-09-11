@@ -1,0 +1,430 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · strategies/branching-models.md · Ovillo</title><meta name="description" content="Fichero strategies/branching-models.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · strategies/branching-models.md · Ovillo"><meta property="og:description" content="Fichero strategies/branching-models.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/strategies/branching-models.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/strategies/branching-models.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/strategies/branching-models.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html" class="cur">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>strategies</span><span>branching-models.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>strategies/</span></div><h1>branching-models.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>strategies</b><span>carpeta</span></div><div><b>23.344 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: git-best-practices Documento fuente: <code>Guias/reglas-externas/branching-strategies-v2-guia-completa.html</code></p></blockquote>
+<p class="lede">Comparativa de 12 modelos de ramificacion con recomendaciones para proyectos de la organización.</p>
+<hr>
+<section class="sec" id="sec-estrategias-principales">
+<h3 id="estrategias-principales">Estrategias Principales</h3>
+<h4 id="1-github-flow-default-del-ecosistema">1. GitHub Flow (Default del ecosistema)</h4>
+<pre><code>main ─────●────●─────────●────●──── (produccion)
+           \  /           \  /
+            ●──●──●        ●──●     (feature branches)</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li><code>main</code> siempre desplegable</li>
+<li>Feature branches con nombre descriptivo</li>
+<li>Pull Requests obligatorios con code review</li>
+<li>Deploy desde main tras merge</li>
+</ul>
+<p><strong>Cuando usar:</strong></p>
+<ul>
+<li>Equipos de 1-6 desarrolladores</li>
+<li>APIs REST, portales web, servicios</li>
+<li>Despliegues semanales o continuos</li>
+<li>Un unico entorno de produccion</li>
+</ul>
+<p><strong>Merge strategy:</strong> Squash merge (1 commit por feature)</p>
+<hr>
+<h4 id="2-trunk-based-development">2. Trunk-Based Development</h4>
+<pre><code>main ─────●────●────●────●────●────●──── (produccion)
+           \  /      \  /      \  /
+            ●         ●         ●        (ramas cortas, &lt;1 dia)</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li>Rama <code>main</code> siempre desplegable</li>
+<li>Feature branches de vida corta (horas, maximo 1-2 dias)</li>
+<li>Integracion continua real: merge a main varias veces al dia</li>
+<li><strong>Feature flags</strong> para codigo incompleto (<code>Microsoft.FeatureManagement</code> en .NET 10)</li>
+</ul>
+<p><strong>Cuando usar:</strong></p>
+<ul>
+<li>Equipos con CI/CD maduro y buena cobertura de tests</li>
+<li>Despliegues frecuentes (diarios o mas)</li>
+<li>Equipos pequenos-medianos (2-8 devs) con confianza alta</li>
+</ul>
+<p><strong>Requisitos:</strong> CI/CD robusto, feature flags, tests automatizados con alta cobertura</p>
+<hr>
+<h4 id="3-release-flow-microsoft">3. Release Flow (Microsoft)</h4>
+<pre><code>main ─────●────●────●────●────●──── (desarrollo continuo)
+           \        \        \
+            ●        ●        ●      (release/v1.2, release/v1.3...)</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li>Desarrollo en <code>main</code> (similar a Trunk-Based)</li>
+<li>Release branches solo para estabilizar antes de produccion</li>
+<li>Cherry-pick de fixes: <strong>siempre main primero</strong>, luego a release branch</li>
+<li>Usado internamente por el equipo de Azure DevOps</li>
+</ul>
+<p><strong>Cuando usar:</strong></p>
+<ul>
+<li>Proyectos con releases versionadas (LicenseManager, Exchange, Billing)</li>
+<li>Necesidad de estabilizar una version antes del pase a produccion</li>
+<li>Soporte de multiples versiones en produccion (LTS)</li>
+</ul>
+<p><strong>Merge strategy:</strong> No-fast-forward para trazabilidad, cherry-pick para hotfixes</p>
+<hr>
+<h4 id="4-oneflow">4. OneFlow</h4>
+<pre><code>main ─────●────●────●────●────●──── (desarrollo + produccion)
+                \        /
+                 ●──●──●             (release/v1.2 temporal)</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li>Una sola rama permanente (<code>main</code>)</li>
+<li>Release branches temporales que se mergean de vuelta y se eliminan</li>
+<li>Tags para marcar versiones</li>
+<li>Simplificacion de GitFlow manteniendo releases</li>
+</ul>
+<p><strong>Cuando usar:</strong></p>
+<ul>
+<li>SDK, librerias publicas, paquetes NuGet</li>
+<li>Necesitas releases pero GitFlow es excesivo</li>
+<li>Equipos medianos (3-8 devs)</li>
+</ul>
+<hr>
+<h4 id="5-developer-flow-gitlab-flow-simplificado">5. Developer Flow (GitLab Flow simplificado)</h4>
+<pre><code>main    ──●──●──●──●──●──●──●──── (integracion)
+                │        │
+                ↓        ↓
+release ────────●────────●──────── (produccion)</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li><code>main</code> como rama de integracion (no es produccion directamente)</li>
+<li><code>release</code> (o <code>production</code>) como rama de produccion</li>
+<li>Features → main via PR → release via merge programado</li>
+<li>QA manual en main antes de promover a release</li>
+</ul>
+<p><strong>Cuando usar:</strong></p>
+<ul>
+<li>Monolitos con QA manual obligatoria</li>
+<li>Deploy escalonado con aprobacion</li>
+<li>Equipos que necesitan buffer entre desarrollo y produccion</li>
+</ul>
+<hr>
+<h4 id="6-gitlab-flow">6. GitLab Flow</h4>
+<pre><code>main       ──●──●──●──●──●──●──●──── (desarrollo)
+                  │        │
+                  ↓        ↓ merge
+staging    ──────●────────●──────── (QA/staging)
+                        │
+                        ↓ merge
+production ─────────────●──────── (produccion)</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li>Ramas que reflejan entornos (staging, production)</li>
+<li>Upstream-first: fixes van a main y se propagan &quot;aguas abajo&quot;</li>
+<li>Merge entre ramas = promover codigo entre entornos</li>
+<li>Mas formal que Environment Branching</li>
+</ul>
+<p><strong>Cuando usar:</strong></p>
+<ul>
+<li>Proyectos con multiples entornos y QA manual por etapa</li>
+<li>Requisitos regulatorios de trazabilidad</li>
+<li>Equipos que necesitan visibilidad de que hay en cada entorno</li>
+</ul>
+<p><strong>Advertencia:</strong> En la practica, pipelines multi-stage de Azure Pipelines logran lo mismo sin ramas extra.</p>
+<hr>
+<h4 id="7-gitflow-solo-para-releases-complejos">7. GitFlow (Solo para releases complejos)</h4>
+<pre><code>main ────────────●──────────────●──── (produccion)
+                 ↑              ↑
+release ─────●──●───         ●──●──── (release branches)
+             ↑               ↑
+develop ──●──●──●──●──●──●──●──●──── (integracion)
+           \  /     \  /
+            ●        ●               (feature branches)</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li><code>main</code> = produccion, <code>develop</code> = integracion</li>
+<li>Feature branches desde develop</li>
+<li>Release branches para estabilizar</li>
+<li>Hotfix branches desde main</li>
+</ul>
+<p><strong>Cuando usar:</strong></p>
+<ul>
+<li>Software empaquetado con ciclos de release largos (desktop, instalable)</li>
+<li>Multiples versiones en produccion simultaneas</li>
+<li>Equipos grandes (&gt;10 devs) con coordinacion compleja</li>
+</ul>
+<p><strong>Advertencia:</strong></p>
+<blockquote><p>GitFlow anade complejidad significativa. El propio creador (Vincent Driessen, 2020) desaconseja GitFlow para webapps con deploy continuo. Para la mayoria de proyectos GitHub Flow o Release Flow son suficientes. Solo usar GitFlow si hay requisitos explicitos de multiples versiones en produccion y ciclos largos.</p></blockquote>
+<hr>
+<h4 id="8-github-flow-simplificado-solo-developer">8. GitHub Flow Simplificado (Solo Developer)</h4>
+<pre><code>main  ──●──●──────●──●──────────●──●──  → demo (auto) → prod (manual)
+         ╲      ╱     ╲          ╱
+          ●──●─╱       ●──●──●─╱
+          feature/a    feature/b
+             ↑                ↑
+       merge --no-ff    merge --no-ff
+       (revertible)     (revertible)</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li>Solo <code>main</code> + feature branches</li>
+<li>Sin Pull Requests formales (merge local con <code>--no-ff</code>)</li>
+<li>Build validation como unica branch policy (sin reviewers)</li>
+<li>Pipeline multi-stage: main → demo (auto) → prod (manual)</li>
+<li>Auto-delete de ramas tras merge</li>
+</ul>
+<p><strong>Cuando usar:</strong></p>
+<ul>
+<li>Desarrollador unico que tambien despliega</li>
+<li>Proyectos internos pequenos sin equipo de review</li>
+<li>Aplicaciones con CI/CD pero sin necesidad de code review formal</li>
+</ul>
+<p><strong>Workflow diario:</strong></p>
+<pre data-lang="bash"><code><span class="tk-c"># 1. Crear rama para la tarea</span>
+<span class="tk-k">git</span> checkout -b feature/HV-18-filter-scholarships main
+
+<span class="tk-c"># 2. Desarrollar con commits atomicos</span>
+<span class="tk-k">git</span> commit -m <span class="tk-s">&quot;feat(scholarships): añadir servicio de filtrado&quot;</span>
+<span class="tk-k">git</span> commit -m <span class="tk-s">&quot;feat(scholarships): implementar endpoint filtros&quot;</span>
+<span class="tk-k">git</span> commit -m <span class="tk-s">&quot;test(scholarships): tests unitarios filtrado&quot;</span>
+
+<span class="tk-c"># 3. Merge local con --no-ff (mantiene trazabilidad)</span>
+<span class="tk-k">git</span> checkout main
+<span class="tk-k">git</span> merge --no-ff feature/HV-18-filter-scholarships
+<span class="tk-c"># Genera commit de merge → revertible con un solo git revert</span>
+
+<span class="tk-c"># 4. Push a main → pipeline se dispara automaticamente</span>
+<span class="tk-k">git</span> push origin main
+
+<span class="tk-c"># 5. Borrar rama feature</span>
+<span class="tk-k">git</span> branch -d feature/HV-18-filter-scholarships</code></pre>
+<p><strong>¿Por que <code>--no-ff</code> en lugar de squash?</strong></p>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th><code>--no-ff</code> (recomendado)</th><th>Squash merge</th></tr></thead><tbody><tr><td>Historial</td><td>Commits individuales visibles</td><td>1 commit por feature</td></tr><tr><td>Revertir</td><td><code>git revert -m1 &lt;merge&gt;</code> → limpio</td><td>Revert manual, cherry-picks</td></tr><tr><td>Bisect</td><td><code>git bisect</code> funciona en cada commit</td><td>Solo a nivel de feature</td></tr><tr><td>Para 1 dev</td><td>Ideal: ve todo su trabajo</td><td>Pierde detalle</td></tr></tbody></table></div>
+<p><strong>Variante con release branches:</strong></p>
+<pre><code>main     ──●──●──────●──●──●──── (desarrollo continuo)
+                          \
+                           ●── release/v2.3 → demo → prod
+                           ↑
+                      cherry-pick desde main</code></pre>
+<p>Para proyectos que necesitan estabilizar una version antes de desplegar a produccion, se puede combinar con release branches temporales (misma mecanica que Release Flow pero sin PRs).</p>
+<hr>
+<h4 id="9-developer-branch-rama-personal-remota">9. Developer Branch (Rama Personal Remota)</h4>
+<pre><code>dev.claudio (remoto)
+    │
+    ├──●── 20260324-DT-005-fix-xyz ──●──●── merge → dev.claudio
+    │
+    ├──●── 20260324-HV-18-filter-scholarships ──●── merge → dev.claudio
+    │
+    └── git push origin dev.claudio  ← unico push</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li>Rama personal remota (<code>dev.{usuario}</code>) como punto de integracion</li>
+<li>Features en ramas locales — NUNCA se pushean al remoto</li>
+<li>Nomenclatura temporal: <code>yyyyMMdd-{tipo}-{codigo}-{descripcion}</code></li>
+<li>Tipo de tarea explicito en nombre de rama (DT, HV, BUG, etc.)</li>
+<li>Plain merge (sin <code>--no-ff</code> por defecto, configurable)</li>
+<li>Confirmar con usuario antes de merge y push</li>
+</ul>
+<p><strong>Cuando usar:</strong></p>
+<ul>
+<li>Desarrollador unico sin CI/CD formal</li>
+<li>Proyectos con rama personal remota como base</li>
+<li>Equipos que prefieren trazabilidad temporal en ramas</li>
+<li>Contextos donde las features no deben publicarse al remoto</li>
+</ul>
+<p><strong>Workflow diario:</strong></p>
+<pre data-lang="bash"><code><span class="tk-c"># 1. Posicionarse en rama base personal</span>
+<span class="tk-k">git</span> checkout dev.claudio
+<span class="tk-k">git</span> pull origin dev.claudio
+
+<span class="tk-c"># 2. Crear rama local con fecha y tipo</span>
+<span class="tk-k">git</span> checkout -b <span class="tk-n">20260406</span>-HV-18-filter-scholarships
+
+<span class="tk-c"># 3. Desarrollar con commits parciales</span>
+<span class="tk-k">git</span> commit -m <span class="tk-s">&quot;feat(scholarships): añadir servicio de filtrado&quot;</span>
+<span class="tk-k">git</span> commit -m <span class="tk-s">&quot;test(scholarships): tests unitarios filtrado&quot;</span>
+
+<span class="tk-c"># 4. Compilar y verificar</span>
+<span class="tk-k">dotnet</span> build &amp;&amp; <span class="tk-k">dotnet</span> test
+
+<span class="tk-c"># 5. Merge a rama base (CONFIRMAR con usuario)</span>
+<span class="tk-k">git</span> checkout dev.claudio
+<span class="tk-k">git</span> merge <span class="tk-n">20260406</span>-HV-18-filter-scholarships
+
+<span class="tk-c"># 6. Push rama base (CONFIRMAR con usuario)</span>
+<span class="tk-k">git</span> push origin dev.claudio
+
+<span class="tk-c"># 7. Mantener rama local como historico o borrar</span>
+<span class="tk-k">git</span> branch -d <span class="tk-n">20260406</span>-HV-18-filter-scholarships</code></pre>
+<p><strong>Nomenclatura configurable:</strong></p>
+<div class="tbl"><table><thead><tr><th>Componente</th><th>Significado</th><th>Ejemplo</th></tr></thead><tbody><tr><td><code>yyyyMMdd</code></td><td>Fecha de inicio de la tarea</td><td><code>20260406</code></td></tr><tr><td><code>{tipo}</code></td><td>Tipo de tarea (configurable)</td><td><code>DT</code>, <code>HV</code>, <code>BUG</code>, <code>REF</code></td></tr><tr><td><code>{codigo}</code></td><td>Codigo evolutivo o numero</td><td><code>005</code>, <code>18</code></td></tr><tr><td><code>{descripcion}</code></td><td>Descripcion breve kebab-case</td><td><code>filtro-becas</code></td></tr></tbody></table></div>
+<p><strong>Comparacion: Developer Branch vs GitHub Flow simplificado:</strong></p>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>Developer Branch</th><th>GitHub Flow simplificado</th></tr></thead><tbody><tr><td>Rama base</td><td><code>dev.{usuario}</code> (personal)</td><td><code>main</code></td></tr><tr><td>Features se pushean</td><td>No</td><td>No</td></tr><tr><td>Merge</td><td>plain merge</td><td><code>--no-ff</code></td></tr><tr><td>Nomenclatura</td><td>Temporal (fecha + tipo)</td><td>Semantica (<code>feature/...</code>)</td></tr><tr><td>Tipo tarea en rama</td><td>Si (DT/HV/...)</td><td>No</td></tr><tr><td>CI/CD</td><td>Opcional</td><td>Recomendado</td></tr></tbody></table></div>
+<hr>
+<p><strong>Comparacion: GitHub Flow vs GitHub Flow simplificado:</strong></p>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>GitHub Flow</th><th>GitHub Flow simplificado</th></tr></thead><tbody><tr><td>Pull Requests</td><td>Obligatorios</td><td>No (merge local)</td></tr><tr><td>Code review</td><td>Minimo 1 reviewer</td><td>No (solo developer)</td></tr><tr><td>Branch policies</td><td>Build + reviewers</td><td>Solo build validation</td></tr><tr><td>Merge strategy</td><td>Squash merge</td><td><code>--no-ff</code> merge</td></tr><tr><td>Safety net</td><td>PR + CI + review</td><td>CI + <code>--no-ff</code> (revertible)</td></tr><tr><td>Release branches</td><td>No</td><td>Opcional (variante)</td></tr><tr><td>Equipo</td><td>1-6 devs</td><td>1 dev</td></tr><tr><td>Complejidad</td><td>Baja</td><td>Minima</td></tr></tbody></table></div>
+<p><strong>Azure DevOps config:</strong></p>
+<ul>
+<li>Branch policies en <code>main</code>: Solo build validation (sin minimum reviewers)</li>
+<li>Pipeline multi-stage con <code>condition: or(main, release/*)</code> para despliegue a produccion</li>
+<li>Auto-delete de ramas tras merge habilitado</li>
+<li>Ver <code>patterns/azure-devops-branching.md</code> para pipeline YAML concreto</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-tecnicas-complementarias-overlays">
+<h3 id="tecnicas-complementarias-overlays">Tecnicas Complementarias (Overlays)</h3>
+<p>Estas tecnicas se superponen sobre cualquier estrategia base:</p>
+<h4 id="9-shipshowask">9. Ship/Show/Ask</h4>
+<p>Clasifica cada cambio segun su riesgo:</p>
+<div class="tbl"><table><thead><tr><th>Nivel</th><th>Accion</th><th>Ejemplo</th></tr></thead><tbody><tr><td><strong>Ship</strong></td><td>Merge directo sin PR</td><td>Fix typo, update dependency minor</td></tr><tr><td><strong>Show</strong></td><td>Merge, abrir PR informativo (post-merge)</td><td>Refactor local, test nuevo</td></tr><tr><td><strong>Ask</strong></td><td>PR clasico con review obligatorio</td><td>Feature nueva, cambio de API, seguridad</td></tr></tbody></table></div>
+<p><strong>Requiere:</strong> Madurez del equipo, CI/CD robusto. No usar en entornos regulados sin adaptacion.</p>
+<h4 id="10-stacked-prs">10. Stacked PRs</h4>
+<p>Descomponer features grandes en PRs pequenos encadenados:</p>
+<pre><code>main
+ └── feature/upvotes/data-model      (PR #1 → main)
+      └── feature/upvotes/api        (PR #2 → PR #1)
+           └── feature/upvotes/ui    (PR #3 → PR #2)</code></pre>
+<p><strong>Herramientas:</strong> Graphite (GitHub), Aviator (GitHub), <code>git --update-refs</code> (Git 2.38+), Azure DevOps (PR contra PR soportado pero sin restacking automatico).</p>
+<p><strong>Cuando usarlo:</strong> Features grandes (backend + API + frontend), refactorizaciones en pasos. <strong>Cuando NO:</strong> Features pequenas (&lt;300 lineas). La complejidad del stack no compensa.</p>
+<h4 id="11-forking-workflow">11. Forking Workflow</h4>
+<p>Cada desarrollador tiene su propio fork. PRs van del fork al repo central.</p>
+<p><strong>Cuando usar:</strong> Contribuidores externos sin acceso al repo, proyectos open source. <strong>En la practica:</strong> Raro. Solo para colaboraciones inter-departamentales sin acceso compartido.</p>
+<h4 id="12-environment-branching">12. Environment Branching</h4>
+<p>Una rama por entorno (<code>dev</code>, <code>staging</code>, <code>production</code>). Merge entre ramas = promover.</p>
+<p><strong>Advertencia:</strong> Superado por pipelines multi-stage de Azure Pipelines. GitLab Flow es la version formalizada. Evitar en proyectos nuevos.</p>
+<h4 id="13-cherry-pick-operacion-tactica-no-estrategia">13. Cherry-Pick (operacion tactica, NO estrategia)</h4>
+<p><code>git cherry-pick</code> <strong>NO es</strong> una estrategia de branching ni una <code>mergeStrategy</code>. Es una <strong>operacion tactica</strong> que se aplica encima de cualquier estrategia base cuando hace falta trasladar UN commit especifico entre ramas (en vez de mezclar la rama entera).</p>
+<p><strong>Casos validos:</strong></p>
+<div class="tbl"><table><thead><tr><th>Caso</th><th>Patron</th><th>Estrategia base aplicable</th></tr></thead><tbody><tr><td><strong>Hotfix backport</strong></td><td>Fix en <code>main</code> → cherry-pick a <code>release/v3.x</code></td><td>GitFlow, OneFlow, Release Flow</td></tr><tr><td><strong>Promocion selectiva</strong></td><td>Commit aprobado en <code>main</code> → cherry-pick a <code>pre</code> o <code>production</code></td><td>GitLab Flow</td></tr><tr><td><strong>Hotfix paralelo</strong></td><td>Fix urgente aplicado a varias release branches simultaneas</td><td>GitFlow, Release Flow</td></tr><tr><td><strong>Rescate de commit perdido</strong></td><td>Recuperar 1 commit de una rama abandonada o rebaseada</td><td>Cualquiera</td></tr></tbody></table></div>
+<p><strong>Comandos basicos:</strong></p>
+<pre data-lang="bash"><code><span class="tk-c"># Cherry-pick de un commit</span>
+<span class="tk-k">git</span> checkout release/v3.<span class="tk-n">0</span>
+<span class="tk-k">git</span> cherry-pick &lt;hash-en-main&gt;
+
+<span class="tk-c"># Cherry-pick de varios commits (range)</span>
+<span class="tk-k">git</span> cherry-pick &lt;hash-start&gt;..&lt;hash-end&gt;
+
+<span class="tk-c"># Cherry-pick sin commitear (deja staged para revisar)</span>
+<span class="tk-k">git</span> cherry-pick -n &lt;hash&gt;
+
+<span class="tk-c"># Cherry-pick con tracking del origen (recomendado para auditoria)</span>
+<span class="tk-k">git</span> cherry-pick -x &lt;hash&gt;
+<span class="tk-c"># Anade footer &quot;(cherry picked from commit &lt;hash&gt;)&quot; automaticamente</span></code></pre>
+<p><strong>Anti-patron: cherry-pick inverso</strong></p>
+<p>NO hacer el fix directamente en la rama de release y luego cherry-pick a <code>main</code>. El orden correcto siempre es: <strong>fix primero en <code>main</code></strong> (o <code>develop</code> en GitFlow), VALIDAR ahi, y luego cherry-pick <strong>hacia atras</strong> a las release branches activas.</p>
+<p>Razon: si el fix se hace primero en release/v3.0 y se cherry-pickea a main, es facil que se olvide y futuras releases (v3.1, v4.0) no incluyan el fix. Convirtiendo el bug en regresion permanente.</p>
+<p><strong>Convencion de mensaje:</strong></p>
+<p>Usar <code>git cherry-pick -x &lt;hash&gt;</code> (con <code>-x</code>) para que el commit destino lleve automaticamente:</p>
+<pre><code>fix(scholarships): corregir validacion de fecha
+
+(cherry picked from commit abc1234...)</code></pre>
+<p>Asi la auditoria via <code>git log</code> permite rastrear de donde viene cada fix.</p>
+<p><strong>Cuando NO usar cherry-pick:</strong></p>
+<ul>
+<li>Para mezclar una rama feature entera → usar merge / rebase / squash segun mergeStrategy.</li>
+<li>Para &quot;rebobinar&quot; historia rota → usar <code>git revert</code> (preserva historia) o <code>git reset</code> (con cuidado).</li>
+<li>En GitHub Flow puro o Trunk-Based → no hay release branches, no necesitas cherry-pick.</li>
+</ul>
+<p><strong>Relacion con <code>/git-best-practices</code>:</strong></p>
+<p>Cherry-pick <strong>NO es configurable</strong> en <code>_hilo/ESTADO_PROYECTO.json</code> porque es operacion tactica, no estructural. <code>/git-best-practices</code> no lo gestiona. La decision de cuando usar cherry-pick es del desarrollador en base a esta documentacion.</p>
+<hr>
+</section>
+<section class="sec" id="sec-arbol-de-decision">
+<h3 id="arbol-de-decision">Arbol de Decision</h3>
+<pre><code>¿Eres desarrollador unico sin equipo de review?
+├── SI ──────────────────────────────── GitHub Flow simplificado
+└── NO
+    ¿Despliegas varias veces al dia con CI/CD maduro?
+    ├── SI, equipo senior ────────────── Trunk-Based (+ Ship/Show/Ask)
+    ├── SI, quiero code review en PRs ── GitHub Flow
+    └── NO
+        ¿Necesitas staging con QA manual?
+        ├── SI, ramas por entorno ────── GitLab Flow
+        ├── SI, pipelines multi-stage ── Developer Flow o GitHub Flow + stages
+        └── NO
+            ¿Multiples versiones en produccion?
+            ├── SI, releases planificadas  Release Flow
+            ├── SI, simplificar GitFlow ── OneFlow
+            ├── SI, ciclos largos ──────── GitFlow
+            └── NO ESTOY SEGURO ─────────  GitHub Flow (default seguro)
+
+¿PRs demasiado grandes? → Stacked PRs sobre tu estrategia actual
+¿Contribuidores externos? → Forking Workflow combinado con estrategia interna</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-matriz-de-decision">
+<h3 id="matriz-de-decision">Matriz de Decision</h3>
+<div class="tbl"><table><thead><tr><th>Criterio</th><th>Trunk</th><th>GitHub Flow</th><th>GH Flow Simp.</th><th>Release Flow</th><th>OneFlow</th><th>Developer</th><th>GitLab</th><th>GitFlow</th></tr></thead><tbody><tr><td>Tamano equipo</td><td>2-8</td><td><strong>1-6</strong></td><td><strong>1</strong></td><td>5+</td><td>3-8</td><td>4-10</td><td>5-15</td><td>8+</td></tr><tr><td>Frecuencia deploy</td><td>Diaria+</td><td>Semanal+</td><td>Semanal+</td><td>Variable</td><td>Variable</td><td>Semanal</td><td>Semanal</td><td>Mensual+</td></tr><tr><td>Complejidad</td><td>Baja</td><td><strong>Baja</strong></td><td><strong>Minima</strong></td><td>Media</td><td>Media</td><td>Media</td><td>Media-Alta</td><td>Alta</td></tr><tr><td>CI/CD requerido</td><td>Maduro</td><td>Basico</td><td>Basico</td><td>Medio</td><td>Basico</td><td>Medio</td><td>Medio</td><td>Basico</td></tr><tr><td>Multiples versiones</td><td>No</td><td>No</td><td>No*</td><td><strong>Si</strong></td><td>Si</td><td>No</td><td>No</td><td>Si</td></tr><tr><td>Feature flags</td><td>Obligatorio</td><td>Opcional</td><td>No</td><td>Opcional</td><td>No</td><td>No</td><td>No</td><td>No</td></tr><tr><td><strong>Encaje Azure DevOps</strong></td><td>Bueno</td><td><strong>Excelente</strong></td><td><strong>Excelente</strong></td><td><strong>Excelente</strong></td><td>Muy bueno</td><td>Bueno</td><td>Bueno</td><td>Con friccion</td></tr></tbody></table></div>
+<p>*GitHub Flow simplificado soporta releases opcionales con variante cherry-pick.</p>
+<h4 id="matriz-por-tipo-de-proyecto">Matriz por tipo de proyecto</h4>
+<div class="tbl"><table><thead><tr><th>Tipo de proyecto</th><th>Recomendada</th><th>Alternativa</th></tr></thead><tbody><tr><td>API REST / Portal web</td><td><strong>GitHub Flow</strong></td><td>Trunk-Based</td></tr><tr><td>App con releases planificadas</td><td><strong>Release Flow</strong></td><td>OneFlow</td></tr><tr><td>Microservicios</td><td>Trunk-Based / GitHub Flow</td><td>—</td></tr><tr><td>Monolito con QA manual</td><td>Developer Flow</td><td>GitLab Flow</td></tr><tr><td>SDK / Libreria NuGet</td><td>OneFlow</td><td>GitFlow</td></tr><tr><td>Sincronizacion / ETL</td><td>GitHub Flow</td><td>Release Flow</td></tr><tr><td>Desarrollador unico que despliega</td><td><strong>GitHub Flow simplificado</strong></td><td>Release Flow (si versiones)</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-recomendacion-del-ecosistema">
+<h3 id="recomendacion-del-ecosistema">Recomendacion del ecosistema</h3>
+<h4 id="apis-y-portales-web--github-flow">APIs y portales web → GitHub Flow</h4>
+<p>Main desplegable, PRs como gate, CI/CD directo. Considerar Ship/Show/Ask para cambios triviales si el equipo tiene madurez.</p>
+<h4 id="proyectos-versionados--release-flow">Proyectos versionados → Release Flow</h4>
+<p>LicenseManager, Exchange, Billing. Desarrollo fluido en main, release branches solo para estabilizar, cherry-picks para hotfixes. Stacked PRs para features complejas.</p>
+<h4 id="desarrollador-unico-que-tambien-despliega--github-flow-simplificado">Desarrollador unico que tambien despliega → GitHub Flow simplificado</h4>
+<p>Solo <code>main</code> + feature branches. Sin PRs formales. Pipeline CI/CD: main → demo (auto) → prod (manual). Build validation en main como unica policy. Ver <code>patterns/azure-devops-branching.md</code> para pipeline concreto.</p>
+<h4 id="desarrollador-unico-con-rama-personal-remota--developer-branch">Desarrollador unico con rama personal remota → Developer Branch</h4>
+<p>Rama personal (<code>dev.{usuario}</code>) como punto de integracion. Features locales con nomenclatura temporal (<code>yyyyMMdd-{tipo}-{codigo}-{descripcion}</code>). Sin CI/CD formal. Ideal para proyectos internos sin pipeline automatizado.</p>
+<hr>
+</section>
+<section class="sec" id="sec-conexion-con-metricas-dora">
+<h3 id="conexion-con-metricas-dora">Conexion con Metricas DORA</h3>
+<p>Las metricas DORA (Accelerate, Nicole Forsgren) demuestran que equipos de alto rendimiento usan flujos simples:</p>
+<div class="tbl"><table><thead><tr><th>Metrica DORA</th><th>Flujos simples (Trunk/GitHub)</th><th>Flujos complejos (GitFlow)</th></tr></thead><tbody><tr><td>Deployment Frequency</td><td>Diaria-semanal</td><td>Mensual-trimestral</td></tr><tr><td>Lead Time for Changes</td><td>Horas-dias</td><td>Semanas-meses</td></tr><tr><td>Change Failure Rate</td><td>0-15%</td><td>31-45%</td></tr><tr><td>MTTR</td><td>Minutos-horas</td><td>Dias-semanas</td></tr></tbody></table></div>
+<p><strong>Implicacion:</strong> Preferir GitHub Flow o Trunk-Based salvo que haya requisitos explicitos que justifiquen mayor complejidad.</p>
+<hr>
+</section>
+<section class="sec" id="sec-persistencia-de-la-decision">
+<h3 id="persistencia-de-la-decision">Persistencia de la Decision</h3>
+<p>La estrategia elegida se registra en <code>_hilo/ESTADO_PROYECTO.json</code> seccion <code>branching</code>:</p>
+<pre data-lang="json"><code><span class="tk-s">&quot;branching&quot;</span>: {
+    <span class="tk-s">&quot;estrategia&quot;</span>: <span class="tk-s">&quot;github-flow&quot;</span>,
+    <span class="tk-s">&quot;ramaBase&quot;</span>: <span class="tk-s">&quot;main&quot;</span>,
+    <span class="tk-s">&quot;mergeStrategy&quot;</span>: <span class="tk-s">&quot;squash&quot;</span>,
+    <span class="tk-s">&quot;convencionRamas&quot;</span>: <span class="tk-s">&quot;feature/{codigo}-{descripcion}&quot;</span>,
+    <span class="tk-s">&quot;pushFeatures&quot;</span>: true,
+    <span class="tk-s">&quot;tiposTarea&quot;</span>: null,
+    <span class="tk-s">&quot;releasesBranches&quot;</span>: false,
+    <span class="tk-s">&quot;flujoDespliegue&quot;</span>: <span class="tk-s">&quot;main → demo (auto) → prod (manual)&quot;</span>
+}</code></pre>
+<p>Claude usa esta configuracion en <code>/hv:commit</code>, <code>/hv:git-sync</code> y <code>/hv:liberar</code> para aplicar la estrategia correcta.</p>
+<p><strong>Nomenclatura configurable</strong> — el campo <code>convencionRamas</code> acepta distintos patrones:</p>
+<div class="tbl"><table><thead><tr><th>Patron</th><th>Ejemplo</th><th>Cuando usar</th></tr></thead><tbody><tr><td><code>feature/{codigo}-{descripcion}</code></td><td><code>feature/HV-18-filtro-becas</code></td><td>Default, equipos con PRs</td></tr><tr><td><code>yyyyMMdd-{tipo}-{codigo}-{descripcion}</code></td><td><code>20260406-DT-005-fix-xyz</code></td><td>Developer Branch, trazabilidad temporal</td></tr><tr><td><code>yyyyMMdd-{tipo}/{codigo}-{descripcion}</code></td><td><code>20260406-HV/HV-18-filtro</code></td><td>Combinada</td></tr><tr><td><code>custom</code></td><td>Lo que defina el equipo</td><td>Nomenclatura propia</td></tr></tbody></table></div>
+<p><strong>Rama base configurable</strong> — <code>ramaBase</code> acepta cualquier valor: <code>main</code>, <code>master</code>, <code>develop</code>, <code>dev.{usuario}</code>.</p>
+<p><strong>Tipos de tarea</strong> — si <code>convencionRamas</code> contiene <code>{tipo}</code>, el campo <code>tiposTarea</code> define los tipos disponibles.</p>
+<hr>
+</section>
+<section class="sec" id="sec-convencion-de-ramas">
+<h3 id="convencion-de-ramas">Convencion de Ramas</h3>
+<h4 id="nomenclatura-semantica-default">Nomenclatura Semantica (default)</h4>
+<pre><code># Ramas principales
+main              # Produccion (protegida)
+develop           # Integracion (solo si GitFlow)
+
+# Ramas de trabajo
+feature/HV-XX-descripcion    # Nuevas funcionalidades
+bugfix/HV-XX-descripcion     # Correcciones de bugs
+hotfix/HV-XX-descripcion     # Fixes urgentes en produccion
+release/vX.Y.Z               # Preparacion de release (si aplica)
+chore/descripcion             # Tareas de mantenimiento
+
+# Ejemplos
+feature/HV-18-filter-scholarships-por-estado
+bugfix/HV-23-fecha-application-null
+hotfix/HV-25-error-login-produccion
+release/v2.3</code></pre>
+<h4 id="nomenclatura-temporal-developer-branch-y-otros">Nomenclatura Temporal (developer-branch y otros)</h4>
+<pre><code># Rama base personal
+dev.{usuario}     # Rama personal remota (ej: dev.claudio)
+
+# Ramas de trabajo (LOCALES, nunca se pushean)
+yyyyMMdd-{tipo}-{codigo}-{descripcion}
+
+# Tipos de tarea (configurables en ESTADO_PROYECTO.json)
+DT  = Deuda tecnica
+HV  = Evolutivo
+BUG = Correccion
+REF = Refactoring
+
+# Ejemplos
+20260406-DT-005-fix-validacion-email
+20260406-HV-18-filter-scholarships-por-estado
+20260407-BUG-003-null-ref-application</code></pre>
+<blockquote><p>La nomenclatura se configura en <code>configuracion.branching.convencionRamas</code> de ESTADO_PROYECTO.json. Claude la lee automaticamente en <code>/hv:commit</code>, <code>/hv:git-sync</code> y <code>/hv:nuevo-evolutivo</code>.</p></blockquote>
+<hr>
+<p><em>Pattern 1.0.0 — 12 estrategias, decision tree, metricas DORA</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/references/workflow-branching.html"><small>Anterior</small>references/workflow-branching.md</a><a class="next" href="../../../skills/git-best-practices/strategies/merge-strategies.html"><small>Siguiente</small>strategies/merge-strategies.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/strategies/branching-models.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#estrategias-principales">Estrategias Principales</a></li><li class="l3"><a href="#1-github-flow-default-del-ecosistema">1. GitHub Flow (Default del ecosistema)</a></li><li class="l3"><a href="#2-trunk-based-development">2. Trunk-Based Development</a></li><li class="l3"><a href="#3-release-flow-microsoft">3. Release Flow (Microsoft)</a></li><li class="l3"><a href="#4-oneflow">4. OneFlow</a></li><li class="l3"><a href="#5-developer-flow-gitlab-flow-simplificado">5. Developer Flow (GitLab Flow simplificado)</a></li><li class="l3"><a href="#6-gitlab-flow">6. GitLab Flow</a></li><li class="l3"><a href="#7-gitflow-solo-para-releases-complejos">7. GitFlow (Solo para releases complejos)</a></li><li class="l3"><a href="#8-github-flow-simplificado-solo-developer">8. GitHub Flow Simplificado (Solo Developer)</a></li><li class="l3"><a href="#9-developer-branch-rama-personal-remota">9. Developer Branch (Rama Personal Remota)</a></li><li class="l2"><a href="#tecnicas-complementarias-overlays">Tecnicas Complementarias (Overlays)</a></li><li class="l3"><a href="#9-shipshowask">9. Ship/Show/Ask</a></li><li class="l3"><a href="#10-stacked-prs">10. Stacked PRs</a></li><li class="l3"><a href="#11-forking-workflow">11. Forking Workflow</a></li><li class="l3"><a href="#12-environment-branching">12. Environment Branching</a></li><li class="l3"><a href="#13-cherry-pick-operacion-tactica-no-estrategia">13. Cherry-Pick (operacion tactica, NO estrategia)</a></li><li class="l2"><a href="#arbol-de-decision">Arbol de Decision</a></li><li class="l2"><a href="#matriz-de-decision">Matriz de Decision</a></li><li class="l3"><a href="#matriz-por-tipo-de-proyecto">Matriz por tipo de proyecto</a></li><li class="l2"><a href="#recomendacion-del-ecosistema">Recomendacion del ecosistema</a></li><li class="l3"><a href="#apis-y-portales-web--github-flow">APIs y portales web → GitHub Flow</a></li><li class="l3"><a href="#proyectos-versionados--release-flow">Proyectos versionados → Release Flow</a></li><li class="l3"><a href="#desarrollador-unico-que-tambien-despliega--github-flow-simplificado">Desarrollador unico que tambien despliega → GitHub Flow simplificado</a></li><li class="l3"><a href="#desarrollador-unico-con-rama-personal-remota--developer-branch">Desarrollador unico con rama personal remota → Developer Branch</a></li><li class="l2"><a href="#conexion-con-metricas-dora">Conexion con Metricas DORA</a></li><li class="l2"><a href="#persistencia-de-la-decision">Persistencia de la Decision</a></li><li class="l2"><a href="#convencion-de-ramas">Convencion de Ramas</a></li><li class="l3"><a href="#nomenclatura-semantica-default">Nomenclatura Semantica (default)</a></li><li class="l3"><a href="#nomenclatura-temporal-developer-branch-y-otros">Nomenclatura Temporal (developer-branch y otros)</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

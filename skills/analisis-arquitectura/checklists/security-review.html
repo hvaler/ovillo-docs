@@ -1,0 +1,297 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>analisis-arquitectura · checklists/security-review.md · Ovillo</title><meta name="description" content="Fichero checklists/security-review.md de la skill analisis-arquitectura"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="analisis-arquitectura · checklists/security-review.md · Ovillo"><meta property="og:description" content="Fichero checklists/security-review.md de la skill analisis-arquitectura"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/checklists/security-review.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/analisis-arquitectura/checklists/security-review.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/analisis-arquitectura/checklists/security-review.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de analisis-arquitectura (18)</h4><ul class="sibs"><li><a href="../../../skills/analisis-arquitectura/checklists/api-design-review.html">checklists/api-design-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/clean-architecture.html">checklists/clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/database-review.html">checklists/database-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/microservices-review.html">checklists/microservices-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/migration-viability.html">checklists/migration-viability.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/performance-review.html">checklists/performance-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/checklists/security-review.html" class="cur">checklists/security-review.md</a></li><li><a href="../../../skills/analisis-arquitectura/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/architecture-diagrams.html">patterns/architecture-diagrams.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/dependency-analysis.html">patterns/dependency-analysis.md</a></li><li><a href="../../../skills/analisis-arquitectura/patterns/design-pattern-catalog.html">patterns/design-pattern-catalog.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-clean-architecture.html">prompts/prompt-clean-architecture.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-contexto-agente.html">prompts/prompt-contexto-agente.md</a></li><li><a href="../../../skills/analisis-arquitectura/prompts/prompt-general.html">prompts/prompt-general.md</a></li><li><a href="../../../skills/analisis-arquitectura/README.html">README.md</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.html.html">templates/ANALISIS_ARQUITECTURA.html.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/ANALISIS_ARQUITECTURA.md.html">templates/ANALISIS_ARQUITECTURA.md.template</a></li><li><a href="../../../skills/analisis-arquitectura/templates/CONTEXTO_AGENTE.md.html">templates/CONTEXTO_AGENTE.md.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></span><span>checklists</span><span>security-review.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>analisis-arquitectura</span><span>checklists/</span></div><h1>security-review.md</h1><p class="lede">Referencia que <code>analisis-arquitectura</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/analisis-arquitectura.html">analisis-arquitectura</a></b><span>skill</span></div><div><b>checklists</b><span>carpeta</span></div><div><b>7664 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: analisis-arquitectura</p></blockquote>
+<hr>
+<section class="sec" id="sec-descripción">
+<h3 id="descripción">Descripción</h3>
+<p>Checklist para revisión de seguridad de aplicaciones .NET basado en OWASP Top 10 y mejores prácticas de desarrollo seguro.</p>
+<hr>
+</section>
+<section class="sec" id="sec-1-autenticación">
+<h3 id="1-autenticación">1. Autenticación</h3>
+<h4 id="configuración">Configuración</h4>
+<ul>
+<li><input type="checkbox" disabled> Autenticación con Azure AD / Microsoft Entra ID</li>
+<li><input type="checkbox" disabled> Tokens JWT con expiración corta (&lt; 1 hora)</li>
+<li><input type="checkbox" disabled> Refresh tokens con rotación</li>
+<li><input type="checkbox" disabled> HTTPS obligatorio</li>
+</ul>
+<h4 id="código">Código</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>[Authorize]</code> en controllers/endpoints protegidos</li>
+<li><input type="checkbox" disabled> Validación de claims del token</li>
+<li><input type="checkbox" disabled> No hardcodear credenciales en código</li>
+<li><input type="checkbox" disabled> Logout invalida tokens</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Correcto</span>
+[Authorize(Roles = <span class="tk-s">&quot;Admin&quot;</span>)]
+[HttpDelete(<span class="tk-s">&quot;{id}&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IActionResult&gt; Delete(<span class="tk-k">int</span> id)
+
+<span class="tk-c">// ❌ Incorrecto - sin autorización</span>
+[HttpDelete(<span class="tk-s">&quot;{id}&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IActionResult&gt; Delete(<span class="tk-k">int</span> id)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-autorización">
+<h3 id="2-autorización">2. Autorización</h3>
+<h4 id="configuración-2">Configuración</h4>
+<ul>
+<li><input type="checkbox" disabled> Autorización basada en roles definida</li>
+<li><input type="checkbox" disabled> Políticas de autorización personalizadas</li>
+<li><input type="checkbox" disabled> Principio de mínimo privilegio</li>
+</ul>
+<h4 id="código-2">Código</h4>
+<ul>
+<li><input type="checkbox" disabled> Verificar permisos antes de operaciones sensibles</li>
+<li><input type="checkbox" disabled> No confiar en datos del cliente para autorización</li>
+<li><input type="checkbox" disabled> Logs de accesos denegados</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Correcto - verificar propiedad del recurso</span>
+[Authorize]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IActionResult&gt; GetMyScholarship(<span class="tk-k">int</span> id)
+{
+    <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _service.GetByIdAsync(id);
+    <span class="tk-k">if</span> (scholarship.UserId != User.GetUserId())
+        <span class="tk-k">return</span> Forbid();
+    <span class="tk-k">return</span> Ok(scholarship);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-3-gestión-de-secretos">
+<h3 id="3-gestión-de-secretos">3. Gestión de Secretos</h3>
+<h4 id="nunca-en-código">Nunca en Código</h4>
+<ul>
+<li><input type="checkbox" disabled> Sin connection strings con credenciales</li>
+<li><input type="checkbox" disabled> Sin API keys hardcodeadas</li>
+<li><input type="checkbox" disabled> Sin passwords en appsettings.json</li>
+<li><input type="checkbox" disabled> Sin secretos en logs</li>
+</ul>
+<h4 id="gestión-correcta">Gestión Correcta</h4>
+<ul>
+<li><input type="checkbox" disabled> User Secrets en desarrollo</li>
+<li><input type="checkbox" disabled> Azure Key Vault en producción</li>
+<li><input type="checkbox" disabled> Variables de entorno en CI/CD</li>
+<li><input type="checkbox" disabled> Rotación de secretos documentada</li>
+</ul>
+<pre data-lang="json"><code>// ❌ NUNCA
+{
+  <span class="tk-s">&quot;ConnectionStrings&quot;</span>: {
+    <span class="tk-s">&quot;Default&quot;</span>: <span class="tk-s">&quot;Server=prod;Password=123456&quot;</span>
+  }
+}
+
+// ✅ Correcto - referencia a Key Vault
+{
+  <span class="tk-s">&quot;KeyVault&quot;</span>: {
+    <span class="tk-s">&quot;Url&quot;</span>: <span class="tk-s">&quot;https://mi-keyvault.vault.azure.net/&quot;</span>
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-validación-de-inputs-a032021">
+<h3 id="4-validación-de-inputs-a032021">4. Validación de Inputs (A03:2021)</h3>
+<h4 id="validación">Validación</h4>
+<ul>
+<li><input type="checkbox" disabled> FluentValidation en todos los inputs</li>
+<li><input type="checkbox" disabled> Validación en servidor (no solo cliente)</li>
+<li><input type="checkbox" disabled> Límites de longitud definidos</li>
+<li><input type="checkbox" disabled> Tipos de datos correctos</li>
+</ul>
+<h4 id="sanitización">Sanitización</h4>
+<ul>
+<li><input type="checkbox" disabled> Encoding de outputs HTML</li>
+<li><input type="checkbox" disabled> Parámetros en queries SQL (no concatenación)</li>
+<li><input type="checkbox" disabled> Validación de URLs antes de redirección</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Correcto</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> CreateScholarshipValidator : AbstractValidator&lt;CreateScholarshipCommand&gt;
+{
+    <span class="tk-k">public</span> CreateScholarshipValidator()
+    {
+        RuleFor(x =&gt; x.Name)
+            .NotEmpty()
+            .MaximumLength(<span class="tk-n">200</span>)
+            .Matches(<span class="tk-s">@&quot;^[\w\s\-áéíóúñÁÉÍÓÚÑ]+$&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-5-sql-injection-a032021">
+<h3 id="5-sql-injection-a032021">5. SQL Injection (A03:2021)</h3>
+<h4 id="prevención">Prevención</h4>
+<ul>
+<li><input type="checkbox" disabled> Usar Entity Framework con LINQ</li>
+<li><input type="checkbox" disabled> Parámetros en queries raw</li>
+<li><input type="checkbox" disabled> No concatenar strings en SQL</li>
+<li><input type="checkbox" disabled> Stored procedures con parámetros</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ NUNCA - SQL Injection</span>
+<span class="tk-k">var</span> sql = <span class="tk-s">$&quot;SELECT * FROM Users WHERE Name = '{nombre}'&quot;</span>;
+
+<span class="tk-c">// ✅ Correcto - parámetros</span>
+<span class="tk-k">var</span> sql = <span class="tk-s">&quot;SELECT * FROM Users WHERE Name = @name&quot;</span>;
+<span class="tk-k">await</span> context.Database.ExecuteSqlRawAsync(sql, <span class="tk-k">new</span> SqlParameter(<span class="tk-s">&quot;@name&quot;</span>, name));
+
+<span class="tk-c">// ✅ Mejor - LINQ</span>
+<span class="tk-k">var</span> user = <span class="tk-k">await</span> context.Users.FirstOrDefaultAsync(u =&gt; u.Name == name);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-6-xss---cross-site-scripting-a032021">
+<h3 id="6-xss---cross-site-scripting-a032021">6. XSS - Cross-Site Scripting (A03:2021)</h3>
+<h4 id="prevención-2">Prevención</h4>
+<ul>
+<li><input type="checkbox" disabled> Encoding automático en Razor (<code>@variable</code>)</li>
+<li><input type="checkbox" disabled> <code>@Html.Raw()</code> solo con datos confiables</li>
+<li><input type="checkbox" disabled> Content-Security-Policy header</li>
+<li><input type="checkbox" disabled> HttpOnly en cookies</li>
+</ul>
+<pre data-lang="razor"><code>@* ✅ Correcto - encoding automático *@
+<span class="tk-t">&lt;p</span><span class="tk-t">&gt;</span>@Model.Name<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span>
+
+@* ❌ Peligroso - sin encoding *@
+<span class="tk-t">&lt;p</span><span class="tk-t">&gt;</span>@Html.Raw(Model.Description)<span class="tk-t">&lt;/p</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-7-csrf---cross-site-request-forgery-a012021">
+<h3 id="7-csrf---cross-site-request-forgery-a012021">7. CSRF - Cross-Site Request Forgery (A01:2021)</h3>
+<h4 id="prevención-3">Prevención</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>[ValidateAntiForgeryToken]</code> en POST/PUT/DELETE</li>
+<li><input type="checkbox" disabled> Tokens anti-forgery en formularios</li>
+<li><input type="checkbox" disabled> SameSite cookies</li>
+<li><input type="checkbox" disabled> Verificar Origin/Referer en APIs</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Correcto</span>
+[HttpPost]
+[ValidateAntiForgeryToken]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IActionResult&gt; Create(ScholarshipModel model)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-8-exposición-de-datos-sensibles-a022021">
+<h3 id="8-exposición-de-datos-sensibles-a022021">8. Exposición de Datos Sensibles (A02:2021)</h3>
+<h4 id="datos-en-reposo">Datos en Reposo</h4>
+<ul>
+<li><input type="checkbox" disabled> Cifrado de columnas sensibles en BD</li>
+<li><input type="checkbox" disabled> TDE habilitado en SQL Server</li>
+<li><input type="checkbox" disabled> Backups cifrados</li>
+</ul>
+<h4 id="datos-en-tránsito">Datos en Tránsito</h4>
+<ul>
+<li><input type="checkbox" disabled> HTTPS obligatorio</li>
+<li><input type="checkbox" disabled> TLS 1.2 mínimo</li>
+<li><input type="checkbox" disabled> HSTS habilitado</li>
+</ul>
+<h4 id="datos-en-logs">Datos en Logs</h4>
+<ul>
+<li><input type="checkbox" disabled> No loguear contraseñas</li>
+<li><input type="checkbox" disabled> No loguear tokens completos</li>
+<li><input type="checkbox" disabled> No loguear datos personales (DNI, email completo)</li>
+<li><input type="checkbox" disabled> Enmascaramiento de datos sensibles</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ❌ NUNCA</span>
+_logger.LogInformation(<span class="tk-s">&quot;Login: {Email}, Password: {Password}&quot;</span>, email, password);
+
+<span class="tk-c">// ✅ Correcto</span>
+_logger.LogInformation(<span class="tk-s">&quot;Login attempt for user {UserId}&quot;</span>, userId);</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-9-configuración-de-seguridad-a052021">
+<h3 id="9-configuración-de-seguridad-a052021">9. Configuración de Seguridad (A05:2021)</h3>
+<h4 id="headers-http">Headers HTTP</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>X-Content-Type-Options: nosniff</code></li>
+<li><input type="checkbox" disabled> <code>X-Frame-Options: DENY</code></li>
+<li><input type="checkbox" disabled> <code>X-XSS-Protection: 1; mode=block</code></li>
+<li><input type="checkbox" disabled> <code>Strict-Transport-Security</code></li>
+<li><input type="checkbox" disabled> <code>Content-Security-Policy</code></li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+app.UseHsts();
+app.Use(<span class="tk-k">async</span> (context, next) =&gt;
+{
+    context.Response.Headers.Add(<span class="tk-s">&quot;X-Content-Type-Options&quot;</span>, <span class="tk-s">&quot;nosniff&quot;</span>);
+    context.Response.Headers.Add(<span class="tk-s">&quot;X-Frame-Options&quot;</span>, <span class="tk-s">&quot;DENY&quot;</span>);
+    <span class="tk-k">await</span> next();
+});</code></pre>
+<h4 id="errores">Errores</h4>
+<ul>
+<li><input type="checkbox" disabled> <code>customErrors=&quot;On&quot;</code> en producción</li>
+<li><input type="checkbox" disabled> No exponer stack traces</li>
+<li><input type="checkbox" disabled> Mensajes de error genéricos al usuario</li>
+<li><input type="checkbox" disabled> Logs detallados solo internamente</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-10-componentes-vulnerables-a062021">
+<h3 id="10-componentes-vulnerables-a062021">10. Componentes Vulnerables (A06:2021)</h3>
+<h4 id="dependencias">Dependencias</h4>
+<ul>
+<li><input type="checkbox" disabled> NuGets actualizados</li>
+<li><input type="checkbox" disabled> Sin vulnerabilidades conocidas (CVEs)</li>
+<li><input type="checkbox" disabled> Análisis con <code>dotnet list package --vulnerable</code></li>
+<li><input type="checkbox" disabled> Dependabot o similar activado</li>
+</ul>
+<h4 id="verificación">Verificación</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Verificar vulnerabilidades</span>
+<span class="tk-k">dotnet</span> list package --vulnerable
+
+<span class="tk-c"># Actualizar paquetes</span>
+<span class="tk-k">dotnet</span> outdated</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-11-logging-y-monitorización-a092021">
+<h3 id="11-logging-y-monitorización-a092021">11. Logging y Monitorización (A09:2021)</h3>
+<h4 id="qué-loguear">Qué Loguear</h4>
+<ul>
+<li><input type="checkbox" disabled> Intentos de autenticación (éxito y fallo)</li>
+<li><input type="checkbox" disabled> Accesos denegados</li>
+<li><input type="checkbox" disabled> Errores de validación</li>
+<li><input type="checkbox" disabled> Operaciones sensibles (crear, eliminar)</li>
+</ul>
+<h4 id="qué-no-loguear">Qué NO Loguear</h4>
+<ul>
+<li><input type="checkbox" disabled> Contraseñas</li>
+<li><input type="checkbox" disabled> Tokens de acceso</li>
+<li><input type="checkbox" disabled> Datos personales completos</li>
+<li><input type="checkbox" disabled> Números de tarjeta</li>
+</ul>
+<h4 id="alertas">Alertas</h4>
+<ul>
+<li><input type="checkbox" disabled> Múltiples intentos fallidos de login</li>
+<li><input type="checkbox" disabled> Accesos desde ubicaciones inusuales</li>
+<li><input type="checkbox" disabled> Errores 500 frecuentes</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-12-control-de-acceso-a012021">
+<h3 id="12-control-de-acceso-a012021">12. Control de Acceso (A01:2021)</h3>
+<h4 id="verificaciones">Verificaciones</h4>
+<ul>
+<li><input type="checkbox" disabled> Verificar autorización en cada operación</li>
+<li><input type="checkbox" disabled> No exponer IDs secuenciales predecibles</li>
+<li><input type="checkbox" disabled> Verificar propiedad de recursos</li>
+<li><input type="checkbox" disabled> Rate limiting en APIs públicas</li>
+</ul>
+<pre data-lang="csharp"><code><span class="tk-c">// ✅ Verificar que el user puede acceder al recurso</span>
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ScholarshipDto?&gt; GetByIdAsync(<span class="tk-k">int</span> id, ClaimsPrincipal user)
+{
+    <span class="tk-k">var</span> scholarship = <span class="tk-k">await</span> _repository.GetByIdAsync(id);
+
+    <span class="tk-k">if</span> (scholarship <span class="tk-k">is</span> <span class="tk-k">null</span>)
+        <span class="tk-k">return</span> <span class="tk-k">null</span>;
+
+    <span class="tk-c">// Verificar acceso</span>
+    <span class="tk-k">if</span> (!user.IsInRole(<span class="tk-s">&quot;Admin&quot;</span>) &amp;&amp; scholarship.CreatedBy != user.GetUserId())
+        <span class="tk-k">throw</span> <span class="tk-k">new</span> ForbiddenAccessException();
+
+    <span class="tk-k">return</span> _mapper.Map&lt;ScholarshipDto&gt;(scholarship);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-resultado-de-la-revisión">
+<h3 id="resultado-de-la-revisión">Resultado de la Revisión</h3>
+<div class="tbl"><table><thead><tr><th>Categoría</th><th>Cumple</th><th>Parcial</th><th>No Cumple</th><th>N/A</th></tr></thead><tbody><tr><td>Autenticación</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Autorización</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Secretos</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Validación</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>SQL Injection</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>XSS</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>CSRF</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Datos Sensibles</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Configuración</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Dependencias</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Logging</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr><tr><td>Control Acceso</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr></tbody></table></div>
+<hr>
+<p><strong>Fecha de revisión:</strong> _______________ <strong>Revisado por:</strong> _______________ <strong>Proyecto:</strong> _______________</p>
+<hr>
+<p><em>Checklist v1.0 - analisis-arquitectura skill</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/analisis-arquitectura.html#ficheros">← Volver a la ficha de analisis-arquitectura</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/analisis-arquitectura/checklists/performance-review.html"><small>Anterior</small>checklists/performance-review.md</a><a class="next" href="../../../skills/analisis-arquitectura/eval-set.html"><small>Siguiente</small>eval-set.json</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/analisis-arquitectura/checklists/security-review.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#descripción">Descripción</a></li><li class="l2"><a href="#1-autenticación">1. Autenticación</a></li><li class="l3"><a href="#configuración">Configuración</a></li><li class="l3"><a href="#código">Código</a></li><li class="l2"><a href="#2-autorización">2. Autorización</a></li><li class="l3"><a href="#configuración-2">Configuración</a></li><li class="l3"><a href="#código-2">Código</a></li><li class="l2"><a href="#3-gestión-de-secretos">3. Gestión de Secretos</a></li><li class="l3"><a href="#nunca-en-código">Nunca en Código</a></li><li class="l3"><a href="#gestión-correcta">Gestión Correcta</a></li><li class="l2"><a href="#4-validación-de-inputs-a032021">4. Validación de Inputs (A03:2021)</a></li><li class="l3"><a href="#validación">Validación</a></li><li class="l3"><a href="#sanitización">Sanitización</a></li><li class="l2"><a href="#5-sql-injection-a032021">5. SQL Injection (A03:2021)</a></li><li class="l3"><a href="#prevención">Prevención</a></li><li class="l2"><a href="#6-xss---cross-site-scripting-a032021">6. XSS - Cross-Site Scripting (A03:2021)</a></li><li class="l3"><a href="#prevención-2">Prevención</a></li><li class="l2"><a href="#7-csrf---cross-site-request-forgery-a012021">7. CSRF - Cross-Site Request Forgery (A01:2021)</a></li><li class="l3"><a href="#prevención-3">Prevención</a></li><li class="l2"><a href="#8-exposición-de-datos-sensibles-a022021">8. Exposición de Datos Sensibles (A02:2021)</a></li><li class="l3"><a href="#datos-en-reposo">Datos en Reposo</a></li><li class="l3"><a href="#datos-en-tránsito">Datos en Tránsito</a></li><li class="l3"><a href="#datos-en-logs">Datos en Logs</a></li><li class="l2"><a href="#9-configuración-de-seguridad-a052021">9. Configuración de Seguridad (A05:2021)</a></li><li class="l3"><a href="#headers-http">Headers HTTP</a></li><li class="l3"><a href="#errores">Errores</a></li><li class="l2"><a href="#10-componentes-vulnerables-a062021">10. Componentes Vulnerables (A06:2021)</a></li><li class="l3"><a href="#dependencias">Dependencias</a></li><li class="l3"><a href="#verificación">Verificación</a></li><li class="l2"><a href="#11-logging-y-monitorización-a092021">11. Logging y Monitorización (A09:2021)</a></li><li class="l3"><a href="#qué-loguear">Qué Loguear</a></li><li class="l3"><a href="#qué-no-loguear">Qué NO Loguear</a></li><li class="l3"><a href="#alertas">Alertas</a></li><li class="l2"><a href="#12-control-de-acceso-a012021">12. Control de Acceso (A01:2021)</a></li><li class="l3"><a href="#verificaciones">Verificaciones</a></li><li class="l2"><a href="#resultado-de-la-revisión">Resultado de la Revisión</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

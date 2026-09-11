@@ -1,0 +1,301 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · templates/azure-pipelines.fase2.netfx.branch-gated.yml.template · Ovillo</title><meta name="description" content="Fichero templates/azure-pipelines.fase2.netfx.branch-gated.yml.template de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · templates/azure-pipelines.fase2.netfx.branch-gated.yml.template · Ovillo"><meta property="og:description" content="Fichero templates/azure-pipelines.fase2.netfx.branch-gated.yml.template de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html" class="cur">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/cicd-architect.html">cicd-architect</a></span><span>templates</span><span>azure-pipelines.fase2.netfx.branch-gated.yml.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>templates/</span><span>15.136 B</span></div><h1>azure-pipelines.fase2.netfx.branch-gated.yml.template</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>15.136 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code><span class="tk-c"># =============================================================================</span>
+<span class="tk-c"># {{PROYECTO_NOMBRE}} - Pipeline CI + CD  (FASE 2, stack .NET Framework clasico, model BRANCH-GATED R24)</span>
+<span class="tk-c"># Ovillo cicd-architect netfx-branch-gated @ {{TEMPLATE_STAMP}}   (sello de plantilla; /cicd-status detecta drift)</span>
+<span class="tk-c"># -----------------------------------------------------------------------------</span>
+<span class="tk-c"># Variante de azure-pipelines.fase2.netfx.yml.template para estrategias con RAMAS POR</span>
+<span class="tk-c"># ENTORNO (gitlab-flow, gitflow): Dev/Demo se alimentan de {{BRANCH_DEVELOP}} y PROD de</span>
+<span class="tk-c"># {{BRANCH_MAIN}}. Origen: GI#1+GI#2.</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># Modelo BRANCH-GATED (R24) = on-demand (R20) + gate por rama origen:</span>
+<span class="tk-c">#   - Push a cualquiera de las 2 ramas SOLO construye (DeployEnv vacio).</span>
+<span class="tk-c">#   - /cicd-deploy --env &lt;dev|pre|pro&gt; encola con DeployEnv + la RAMA del entorno</span>
+<span class="tk-c">#     (dev/pre -&gt; {{BRANCH_DEVELOP}}, pro -&gt; {{BRANCH_MAIN}}). Un build de</span>
+<span class="tk-c">#     {{BRANCH_DEVELOP}} NUNCA puede desplegar a PROD (condition por Build.SourceBranch).</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># Build R23 HIBRIDO + R24: 3 VSBuild@1 condicionales por rama, cada uno hornea el paquete</span>
+<span class="tk-c"># MSDeploy con SU Configuration (transforms Web.&lt;Config&gt;.config):</span>
+<span class="tk-c">#   - push a {{BRANCH_DEVELOP}} -&gt; paquetes {{CFG_DEV}} + {{CFG_PRE}} (drop-dev + drop-pre)</span>
+<span class="tk-c">#   - push a {{BRANCH_MAIN}}    -&gt; paquete {{CFG_PRO}} (drop-pro)</span>
+<span class="tk-c"># Cada stage de deploy descarga SU drop-&lt;env&gt; via REST (R3). Los proyectos no-web</span>
+<span class="tk-c"># compilan en Release en todas las Configuration (wiring mecanico del .sln, ver R23).</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># === /cicd-init DEBE GARANTIZAR (ademas de las 9 lecciones del template netfx base) ===</span>
+<span class="tk-c">#  1. Las Configuration {{CFG_DEV}}/{{CFG_PRE}}/{{CFG_PRO}} existen en el .sln y el .csproj web</span>
+<span class="tk-c">#     (con sus Web.&lt;Config&gt;.config). Si faltan: crearlas espejando Release (gotchas R23:</span>
+<span class="tk-c">#     'Any CPU' en .sln vs 'AnyCPU' en .csproj, sin '--' en comentarios XML, copiar VERBATIM).</span>
+<span class="tk-c">#  2. definition.queue != NULL (TEC-007) + DeployEnv settable at queue time (FASE 2.5).</span>
+<span class="tk-c">#  3. trigger.branches con AMBAS ramas (R21) + doble patron de paths (R7).</span>
+<span class="tk-c">#  4. /cicd-deploy deriva sourceBranch del entorno (mapeo R24) — NUNCA rama fija.</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># Placeholders: {{PROYECTO_NOMBRE}} {{BRANCH_MAIN}} {{BRANCH_DEVELOP}} {{SRC_DIR}} {{TEST_DIR}}</span>
+<span class="tk-c">#               {{SLN_PATH}} {{WEB_PROJECT}} {{NUGET_CONFIG_PATH}} {{IIS_VIRTUAL_APP}} {{IIS_APP_POOL}}</span>
+<span class="tk-c">#               {{APPROVER_EMAIL}} {{DEV_URL}} {{DEMO_URL}} {{PROD_URL}} {{TESTPLATFORM_NUPKG}}</span>
+<span class="tk-c">#               {{CFG_DEV}} {{CFG_PRE}} {{CFG_PRO}}   (Configurations por entorno, R23; tipico: Dev / Preproduccion / Release)</span>
+<span class="tk-c"># Steps reutilizables (skills/cicd-architect/templates/steps/): download-artifact-rest (param</span>
+<span class="tk-c">#   artifactName), security-scan-build, security-verdict-gate, backup-pre-deploy,</span>
+<span class="tk-c">#   rollback-on-fail, smoke-besteffort.</span>
+<span class="tk-c"># Script de registro en Azure DevOps: registrar-pipeline-azure-devops.ps1.template (TEC-007 + TEC-003 + R17 + R20).</span>
+<span class="tk-c"># =============================================================================</span>
+
+name: <span class="tk-v">$(date:yyyyMMdd)</span><span class="tk-v">$(rev:.r)</span>
+
+trigger:
+  branches:
+    include:
+      - <span class="tk-v">{{BRANCH_MAIN}}</span>             <span class="tk-c"># R24/R21: la estrategia construye AMBAS ramas</span>
+      - <span class="tk-v">{{BRANCH_DEVELOP}}</span>
+  paths:
+    include:
+      - <span class="tk-s">'{{SRC_DIR}}/**'</span>
+      - <span class="tk-s">'{{SRC_DIR}}/**/*'</span>        <span class="tk-c"># R7: doble patron</span>
+      - <span class="tk-s">'{{TEST_DIR}}/**'</span>
+      - <span class="tk-s">'{{TEST_DIR}}/**/*'</span>
+      - <span class="tk-s">'azure-pipelines.yml'</span>
+
+pr: none
+
+variables:
+  <span class="tk-c"># R20 (TEC-009): DeployEnv NO se declara aqui — es variable de la DEFINICION (settable at</span>
+  <span class="tk-c"># queue time, default '', la pone FASE 2.5). Declararla en el YAML la ECLIPSA.</span>
+  <span class="tk-c"># R24: las ramas se evaluan con Build.SourceBranch en las condition de build/deploy.</span>
+  - name: buildPlatform
+    value: <span class="tk-s">'Any CPU'</span>
+  - name: solution
+    value: <span class="tk-s">'{{SLN_PATH}}'</span>
+  - name: solutionPath            <span class="tk-c"># alias que esperan los steps R22</span>
+    value: <span class="tk-s">'{{SLN_PATH}}'</span>
+  - name: apiProject              <span class="tk-c"># proyecto web (para el scan R22)</span>
+    value: <span class="tk-s">'{{WEB_PROJECT}}'</span>
+  - name: iisVirtualApp
+    value: <span class="tk-s">'{{IIS_VIRTUAL_APP}}'</span>
+  - name: iisAppPool
+    value: <span class="tk-s">'{{IIS_APP_POOL}}'</span>
+  - name: iisPhysicalPath         <span class="tk-c"># R15: ruta fisica REAL de la vApp en disco. Vacio = C:\inetpub\wwwroot\&lt;vApp&gt;.</span>
+    value: <span class="tk-s">'{{IIS_PHYSICAL_PATH}}'</span>
+  - name: backupRoot              <span class="tk-c"># R15: raiz de backups pre-deploy.</span>
+    value: <span class="tk-s">'C:\Backups'</span>
+  <span class="tk-c"># R24: refs completas de las 2 ramas (legibilidad de las condition)</span>
+  - name: refMain
+    value: <span class="tk-s">'refs/heads/{{BRANCH_MAIN}}'</span>
+  - name: refDevelop
+    value: <span class="tk-s">'refs/heads/{{BRANCH_DEVELOP}}'</span>
+
+stages:
+  <span class="tk-c"># ── STAGE 1: BUILD (auto en push a AMBAS ramas; hornea solo los paquetes de SU rama) ──</span>
+  - stage: Build
+    displayName: <span class="tk-s">'Build &amp; Test (branch-gated R24)'</span>
+    jobs:
+      - job: BuildAndTest
+        pool:
+          name: <span class="tk-v">{{BUILD_POOL}}</span>                                     <span class="tk-c"># R1</span>
+          demands:
+            - Agent.ComputerName -equals <span class="tk-v">{{BUILD_AGENT}}</span>             <span class="tk-c"># R1</span>
+        timeoutInMinutes: <span class="tk-n">45</span>
+        steps:
+          - checkout: self
+            clean: <span class="tk-k">true</span>
+          - task: NuGetToolInstaller@<span class="tk-n">1</span>
+            displayName: <span class="tk-s">'Instalar nuget.exe'</span>
+            inputs:
+              versionSpec: <span class="tk-s">'6.x'</span>
+          - task: NuGetCommand@<span class="tk-n">2</span>
+            displayName: <span class="tk-s">'NuGet restore (solucion)'</span>
+            inputs:
+              command: <span class="tk-s">'restore'</span>
+              restoreSolution: <span class="tk-s">'$(solution)'</span>
+              feedsToUse: <span class="tk-s">'config'</span>
+              nugetConfigPath: <span class="tk-s">'{{NUGET_CONFIG_PATH}}'</span>
+
+          <span class="tk-c"># R24 + R23: un VSBuild POR Configuration, condicional por rama origen.</span>
+          <span class="tk-c"># develop hornea dev+pre; main hornea pro. Los transforms Web.&lt;Config&gt;.config</span>
+          <span class="tk-c"># quedan resueltos en cada paquete (config por entorno horneada, R23 hibrido).</span>
+          - task: VSBuild@<span class="tk-n">1</span>
+            displayName: <span class="tk-s">'VSBuild {{CFG_DEV}} + paquete MSDeploy (drop-dev)'</span>
+            condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], variables[<span class="tk-s">'refDevelop'</span>]))   <span class="tk-c"># R24</span>
+            inputs:
+              solution: <span class="tk-s">'$(solution)'</span>
+              vsVersion: <span class="tk-s">'latest'</span>
+              configuration: <span class="tk-s">'{{CFG_DEV}}'</span>
+              platform: <span class="tk-s">'$(buildPlatform)'</span>
+              msbuildArgs: <span class="tk-s">'/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation=&quot;$(Build.ArtifactStagingDirectory)\dev&quot;'</span>
+          - task: VSBuild@<span class="tk-n">1</span>
+            displayName: <span class="tk-s">'VSBuild {{CFG_PRE}} + paquete MSDeploy (drop-pre)'</span>
+            condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], variables[<span class="tk-s">'refDevelop'</span>]))   <span class="tk-c"># R24</span>
+            inputs:
+              solution: <span class="tk-s">'$(solution)'</span>
+              vsVersion: <span class="tk-s">'latest'</span>
+              configuration: <span class="tk-s">'{{CFG_PRE}}'</span>
+              platform: <span class="tk-s">'$(buildPlatform)'</span>
+              msbuildArgs: <span class="tk-s">'/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation=&quot;$(Build.ArtifactStagingDirectory)\pre&quot;'</span>
+          - task: VSBuild@<span class="tk-n">1</span>
+            displayName: <span class="tk-s">'VSBuild {{CFG_PRO}} + paquete MSDeploy (drop-pro)'</span>
+            condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], variables[<span class="tk-s">'refMain'</span>]))      <span class="tk-c"># R24</span>
+            inputs:
+              solution: <span class="tk-s">'$(solution)'</span>
+              vsVersion: <span class="tk-s">'latest'</span>
+              configuration: <span class="tk-s">'{{CFG_PRO}}'</span>
+              platform: <span class="tk-s">'$(buildPlatform)'</span>
+              msbuildArgs: <span class="tk-s">'/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation=&quot;$(Build.ArtifactStagingDirectory)\pro&quot;'</span>
+
+          <span class="tk-c"># TEC-008: vstest 18.x desde el feed Internal si el adapter MSTest es &gt;=4.x.</span>
+          - task: VisualStudioTestPlatformInstaller@<span class="tk-n">1</span>
+            displayName: <span class="tk-s">'vstest.console 18.x (feed Internal)'</span>
+            inputs:
+              packageFeedSelector: <span class="tk-s">'netShare'</span>
+              netShare: <span class="tk-s">'{{TESTPLATFORM_NUPKG}}'</span>
+          <span class="tk-c"># Los proyectos de tests compilan en Release en TODAS las Configuration (wiring R23:</span>
+          <span class="tk-c"># solo el web cambia de Configuration), asi que VSTest usa Release siempre.</span>
+          - task: VSTest@<span class="tk-n">2</span>
+            displayName: <span class="tk-s">'VSTest'</span>
+            inputs:
+              vsTestVersion: <span class="tk-s">'toolsInstaller'</span>      <span class="tk-c"># TEC-008</span>
+              testSelector: <span class="tk-s">'testAssemblies'</span>
+              testAssemblyVer2: |
+                **\*Tests.dll
+                !**\*TestAdapter.dll
+                !**\obj\**
+              searchFolder: <span class="tk-s">'$(System.DefaultWorkingDirectory)'</span>
+              configuration: <span class="tk-s">'Release'</span>
+              codeCoverageEnabled: <span class="tk-k">false</span>                     <span class="tk-c"># prerequisito 7 del template netfx base</span>
+          - template: steps/security-scan-build.yml          <span class="tk-c"># R22 verdict-file (no tumba el Build)</span>
+            parameters:
+              stack: dotnet
+
+          <span class="tk-c"># R24: publicar SOLO los drops horneados por esta rama (condition espejo de los VSBuild)</span>
+          - task: PublishBuildArtifacts@<span class="tk-n">1</span>
+            displayName: <span class="tk-s">'Publish artifact drop-dev'</span>
+            condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], variables[<span class="tk-s">'refDevelop'</span>]))
+            inputs:
+              PathtoPublish: <span class="tk-s">'$(Build.ArtifactStagingDirectory)\dev'</span>
+              ArtifactName: <span class="tk-s">'drop-dev'</span>
+          - task: PublishBuildArtifacts@<span class="tk-n">1</span>
+            displayName: <span class="tk-s">'Publish artifact drop-pre'</span>
+            condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], variables[<span class="tk-s">'refDevelop'</span>]))
+            inputs:
+              PathtoPublish: <span class="tk-s">'$(Build.ArtifactStagingDirectory)\pre'</span>
+              ArtifactName: <span class="tk-s">'drop-pre'</span>
+          - task: PublishBuildArtifacts@<span class="tk-n">1</span>
+            displayName: <span class="tk-s">'Publish artifact drop-pro'</span>
+            condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], variables[<span class="tk-s">'refMain'</span>]))
+            inputs:
+              PathtoPublish: <span class="tk-s">'$(Build.ArtifactStagingDirectory)\pro'</span>
+              ArtifactName: <span class="tk-s">'drop-pro'</span>
+
+  <span class="tk-c"># ── STAGE 2: DEPLOY DEV (DeployEnv=dev + rama develop) ──────────────────</span>
+  - stage: DeployDev
+    displayName: <span class="tk-s">'Deploy a DEV (branch-gated)'</span>
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables[<span class="tk-s">'DeployEnv'</span>], <span class="tk-s">'dev'</span>), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], variables[<span class="tk-s">'refDevelop'</span>]))    <span class="tk-c"># R20 + R24</span>
+    jobs:
+      - job: DeployToDev
+        pool:
+          name: <span class="tk-v">{{BUILD_POOL}}</span>
+          demands:
+            - DeployTarget -equals <span class="tk-v">{{DEPLOY_DEMAND_DEV}}</span>    <span class="tk-c"># R1/R25 (&lt;env&gt;-&lt;app|svc&gt;)</span>
+        timeoutInMinutes: <span class="tk-n">15</span>
+        steps:
+          - checkout: none                                   <span class="tk-c"># R8</span>
+          - template: steps/security-verdict-gate.yml        <span class="tk-c"># R22 (DEV = WARN)</span>
+            parameters:
+              mode: warn
+          - template: steps/download-artifact-rest.yml       <span class="tk-c"># R3 -&gt; $(MsDeployPackage)</span>
+            parameters:
+              artifactName: drop-dev                         <span class="tk-c"># R24: drop de SU entorno</span>
+          - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>        <span class="tk-c"># R4</span>
+            displayName: <span class="tk-s">'Deploy IIS (DEV)'</span>
+            inputs:
+              WebSiteName: <span class="tk-s">'Default Web Site'</span>
+              VirtualApplication: <span class="tk-s">'$(iisVirtualApp)'</span>
+              Package: <span class="tk-s">'$(MsDeployPackage)\*.zip'</span>
+              RemoveAdditionalFilesFlag: <span class="tk-k">true</span>
+              TakeAppOfflineFlag: <span class="tk-k">true</span>                       <span class="tk-c"># R10 (System.Web in-process)</span>
+          - template: steps/smoke-besteffort.yml             <span class="tk-c"># R11</span>
+            parameters:
+              appUrl: <span class="tk-s">'{{DEV_URL}}'</span>
+
+  <span class="tk-c"># ── STAGE 3: DEPLOY DEMO/Pre (DeployEnv=pre + rama develop) ──────────────</span>
+  - stage: DeployDemo
+    displayName: <span class="tk-s">'Deploy a DEMO/Pre (branch-gated)'</span>
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables[<span class="tk-s">'DeployEnv'</span>], <span class="tk-s">'pre'</span>), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], variables[<span class="tk-s">'refDevelop'</span>]))    <span class="tk-c"># R20 + R24</span>
+    jobs:
+      <span class="tk-c"># DEMO/Pre SIN ManualValidation en on-demand/branch-gated. El gate ya es la</span>
+      <span class="tk-c"># condicion DeployEnv=='pre' + el comando /cicd-deploy --env pre (la aprobacion explicita). PROD si gatea.</span>
+      <span class="tk-c"># (Modelo 'auto' -DEMO se despliega en push sin DeployEnv-: re-anadir aqui un job WaitForApproval con</span>
+      <span class="tk-c">#  ManualValidation@0 + 'dependsOn: WaitForApproval' en DeployToDemo. Ver P2-bis en /cicd-init.)</span>
+      - job: DeployToDemo
+        condition: succeeded()
+        pool:
+          name: <span class="tk-v">{{BUILD_POOL}}</span>
+          demands:
+            - DeployTarget -equals <span class="tk-v">{{DEPLOY_DEMAND_PRE}}</span>    <span class="tk-c"># R1/R25</span>
+        timeoutInMinutes: <span class="tk-n">30</span>
+        steps:
+          - checkout: none
+          - template: steps/security-verdict-gate.yml        <span class="tk-c"># R22 (DEMO = BLOCK)</span>
+            parameters:
+              mode: block
+          - template: steps/download-artifact-rest.yml
+            parameters:
+              artifactName: drop-pre                         <span class="tk-c"># R24</span>
+          - template: steps/backup-pre-deploy.yml            <span class="tk-c"># R15 capa 1</span>
+          - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>
+            displayName: <span class="tk-s">'Deploy IIS (DEMO)'</span>
+            inputs:
+              WebSiteName: <span class="tk-s">'Default Web Site'</span>
+              VirtualApplication: <span class="tk-s">'$(iisVirtualApp)'</span>
+              Package: <span class="tk-s">'$(MsDeployPackage)\*.zip'</span>
+              RemoveAdditionalFilesFlag: <span class="tk-k">true</span>
+              TakeAppOfflineFlag: <span class="tk-k">true</span>
+              AdditionalArguments: <span class="tk-s">'-enableRule:DoNotDeleteRule'</span>   <span class="tk-c"># R15 capa 2</span>
+          - template: steps/smoke-besteffort.yml             <span class="tk-c"># R11</span>
+            parameters:
+              appUrl: <span class="tk-s">'{{DEMO_URL}}'</span>
+          - template: steps/rollback-on-fail.yml             <span class="tk-c"># R15 capa 3 (condition: failed())</span>
+
+  <span class="tk-c"># ── STAGE 4: DEPLOY PROD (DeployEnv=pro + rama main) ────────────────────</span>
+  - stage: DeployProd
+    displayName: <span class="tk-s">'Deploy a PROD (branch-gated)'</span>
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables[<span class="tk-s">'DeployEnv'</span>], <span class="tk-s">'pro'</span>), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], variables[<span class="tk-s">'refMain'</span>]))       <span class="tk-c"># R20 + R24: SOLO builds de {{BRANCH_MAIN}}</span>
+    jobs:
+      - job: WaitForApprovalProd
+        pool: server
+        timeoutInMinutes: <span class="tk-n">1440</span>
+        steps:
+          - task: ManualValidation@<span class="tk-n">0</span>
+            inputs:
+              notifyUsers: <span class="tk-s">'{{APPROVER_EMAIL}}'</span>
+              instructions: <span class="tk-s">'Aprobar deploy a PROD del build $(Build.BuildNumber) (rama {{BRANCH_MAIN}}).'</span>
+              onTimeout: <span class="tk-s">'reject'</span>
+      - job: DeployToProd
+        dependsOn: WaitForApprovalProd
+        condition: succeeded()
+        pool:
+          name: <span class="tk-v">{{BUILD_POOL}}</span>
+          demands:
+            - DeployTarget -equals <span class="tk-v">{{DEPLOY_DEMAND_PRO}}</span>    <span class="tk-c"># R1/R25 (app=APPNODE01/02, svc=STORM01[/02 off])</span>
+        timeoutInMinutes: <span class="tk-n">30</span>
+        steps:
+          - checkout: none
+          - template: steps/security-verdict-gate.yml        <span class="tk-c"># R22 (PROD = BLOCK)</span>
+            parameters:
+              mode: block
+          - template: steps/download-artifact-rest.yml
+            parameters:
+              artifactName: drop-pro                         <span class="tk-c"># R24</span>
+          - template: steps/backup-pre-deploy.yml
+          - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>
+            displayName: <span class="tk-s">'Deploy IIS (PROD)'</span>
+            inputs:
+              WebSiteName: <span class="tk-s">'Default Web Site'</span>
+              VirtualApplication: <span class="tk-s">'$(iisVirtualApp)'</span>
+              Package: <span class="tk-s">'$(MsDeployPackage)\*.zip'</span>
+              RemoveAdditionalFilesFlag: <span class="tk-k">true</span>
+              TakeAppOfflineFlag: <span class="tk-k">true</span>
+              AdditionalArguments: <span class="tk-s">'-enableRule:DoNotDeleteRule'</span>
+          - template: steps/smoke-besteffort.yml             <span class="tk-c"># R11</span>
+            parameters:
+              appUrl: <span class="tk-s">'{{PROD_URL}}'</span>
+          - template: steps/rollback-on-fail.yml
+</code></pre><p style="margin-top:32px"><a href="../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html"><small>Anterior</small>templates/azure-pipelines.fase2.dotnet.yml.template</a><a class="next" href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html"><small>Siguiente</small>templates/azure-pipelines.fase2.netfx.yml.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

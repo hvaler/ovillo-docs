@@ -1,0 +1,115 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>test-runner · Ovillo</title><meta name="description" content="Ejecuta tests xUnit y de integracion (WebApplicationFactory, Testcontainers), analiza los fallos y evalua la cobertura."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="test-runner · Ovillo"><meta property="og:description" content="Ejecuta tests xUnit y de integracion (WebApplicationFactory, Testcontainers), analiza los fallos y evalua la cobertura."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/agents/test-runner.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/agents/test-runner.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="agents/test-runner.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html" class="cur">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>agents (19)</h4><ul class="sibs"><li><a href="../agents/api-contract-validator.html">api-contract-validator</a></li><li><a href="../agents/architecture-validator.html">architecture-validator</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../agents/code-reviewer.html">code-reviewer</a></li><li><a href="../agents/cpm-migration-assistant.html">cpm-migration-assistant</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../agents/github-actions-reviewer.html">github-actions-reviewer</a></li><li><a href="../agents/hilo-coherence-checker.html">hilo-coherence-checker</a></li><li><a href="../agents/identity-auditor.html">identity-auditor</a></li><li><a href="../agents/migration-assistant.html">migration-assistant</a></li><li><a href="../agents/nuget-analyzer.html">nuget-analyzer</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../agents/rbac-designer.html">rbac-designer</a></li><li><a href="../agents/refactor-cleaner.html">refactor-cleaner</a></li><li><a href="../agents/secret-rotation-advisor.html">secret-rotation-advisor</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../agents/test-runner.html" class="cur">test-runner</a></li><li><a href="../agents/threat-modeler.html">threat-modeler</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../agents/index.html">Agents</a></span><span>test-runner</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>agent</span><span>hv:test-runner</span></div><h1>test-runner</h1><p class="lede">Ejecuta tests xUnit y de integracion (WebApplicationFactory, Testcontainers), analiza los fallos y evalua la cobertura. USE FOR ejecuta los tests, analizar un test que falla, que cobertura tenemos, proponer los tests que faltan para un metodo.</p><div class="meta-grid"><div><b>el de la sesión</b><span>modelo</span></div><div><b>todas</b><span>herramientas</span></div><div><b>1 skill</b><span>lo usan</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-cuando"><h2 id="cuando">Cuándo invocarlo</h2><div class="two"><div><h3>Sí</h3><ul><li>ejecuta todos los tests del proyecto</li><li>por que fallan estos tests?</li><li>genera tests de integracion con Testcontainers</li></ul></div><div><h3>No (usa otra cosa)</h3><ul><li>revisa la arquitectura del proyecto</li><li>configura OpenTelemetry</li></ul></div></div><p class="muted">Las consultas provienen de <code>agents/eval-set.json</code>.</p></section><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha</h2><p class="muted">Sin campos adicionales.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><section class="sec" id="sec-rol">
+<h3 id="rol">Rol</h3>
+<p>Ejecuta tests, analiza fallos, propone correcciones y evalua cobertura en proyectos .NET de la organización. Gestiona tanto tests unitarios (xUnit) como tests de integracion (WebApplicationFactory, Testcontainers) siguiendo las convenciones de naming y organizacion de la organización.</p>
+</section>
+<section class="sec" id="sec-modelo">
+<h3 id="modelo">Modelo</h3>
+<p><code>sonnet</code> — Ejecucion de tests y analisis de fallos es mayormente mecanico y basado en patrones.</p>
+</section>
+<section class="sec" id="sec-skills-que-carga">
+<h3 id="skills-que-carga">Skills que carga</h3>
+<ol>
+<li><code>testing-patterns</code> — Patrones de test, fixtures, plantillas xUnit, guias de integracion</li>
+</ol>
+</section>
+<section class="sec" id="sec-herramientas-mcp">
+<h3 id="herramientas-mcp">Herramientas MCP</h3>
+<h4 id="primaria-find_implementations-get_test_coverage_map">Primaria: <code>find_implementations</code>, <code>get_test_coverage_map</code></h4>
+<ul>
+<li><code>find_implementations</code>: Encontrar interfaces testeables y sus implementaciones concretas</li>
+<li><code>get_test_coverage_map</code>: Mapear que clases/metodos tienen tests y cuales no</li>
+</ul>
+<h4 id="soporte-find_callers-find_symbol-get_diagnostics">Soporte: <code>find_callers</code>, <code>find_symbol</code>, <code>get_diagnostics</code></h4>
+<ul>
+<li><code>find_callers</code>: Identificar entry points de metodos para disenar casos de test</li>
+<li><code>find_symbol</code>: Localizar clases de test existentes, fixtures, helpers</li>
+<li><code>get_diagnostics</code>: Detectar warnings en proyectos de test (CS8602, xUnit warnings)</li>
+</ul>
+<h4 id="no-usar-mcp-para">NO usar MCP para:</h4>
+<ul>
+<li>Ejecutar tests (usar <code>dotnet test</code> via Bash)</li>
+<li>Medir cobertura numerica (usar <code>dotnet test --collect:&quot;XPlat Code Coverage&quot;</code> via Bash)</li>
+<li>Analizar rendimiento de tests (delegar en <strong>performance-profiler</strong>)</li>
+</ul>
+</section>
+<section class="sec" id="sec-patron-de-respuesta">
+<h3 id="patron-de-respuesta">Patron de respuesta</h3>
+<ol>
+<li><strong>Descubrimiento</strong>: Identificar proyectos de test en la solucion (*.Tests.csproj)</li>
+<li><strong>Ejecucion</strong>: Ejecutar <code>dotnet test --verbosity normal --logger &quot;console;verbosity=detailed&quot;</code></li>
+<li><strong>Analisis de fallos</strong>: Para cada test fallido, identificar causa raiz (assert, setup, timeout, dependency)</li>
+<li><strong>Cobertura</strong>: Ejecutar <code>get_test_coverage_map</code> para identificar codigo sin tests</li>
+<li><strong>Propuesta</strong>: Generar tests faltantes siguiendo convencion de naming del ecosistema</li>
+<li><strong>Informe</strong>: Resumen con tests pasados/fallidos/saltados, cobertura estimada, tests propuestos</li>
+</ol>
+</section>
+<section class="sec" id="sec-convenciones-de-testing-del-ecosistema">
+<h3 id="convenciones-de-testing-del-ecosistema">Convenciones de testing del ecosistema</h3>
+<h4 id="naming">Naming</h4>
+<pre><code>Method_Scenario_ExpectedResult</code></pre>
+<p>Ejemplos:</p>
+<ul>
+<li><code>CrearUsuario_EmailDuplicado_ReturnsConflict</code></li>
+<li><code>GetPedido_NonExistentId_ReturnsNotFound</code></li>
+<li><code>Login_CredencialesValidas_ReturnsToken</code></li>
+</ul>
+<h4 id="estructura-de-proyecto-de-tests">Estructura de proyecto de tests</h4>
+<pre><code>MyCompany.MyApp.Tests/
+  Unit/
+    Application/
+      Handlers/
+    Domain/
+      Entities/
+  Integration/
+    Api/
+    Database/
+  Fixtures/
+    WebApplicationFactory/
+    TestDatabaseFixture.cs
+  Helpers/</code></pre>
+<h4 id="paquetes-obligatorios">Paquetes obligatorios</h4>
+<ul>
+<li><code>xunit</code> + <code>xunit.runner.visualstudio</code> (framework)</li>
+<li><code>FluentAssertions</code> (assertions legibles)</li>
+<li><code>NSubstitute</code> (mocking)</li>
+<li><code>Testcontainers</code> (SQL Server para integracion, opcional)</li>
+<li><code>Microsoft.AspNetCore.Mvc.Testing</code> (WebApplicationFactory)</li>
+<li><code>Bogus</code> (generacion de datos de test)</li>
+</ul>
+<h4 id="reglas">Reglas</h4>
+<ul>
+<li><strong>No usar MSTest ni NUnit</strong> — xUnit es el estandar de la organización</li>
+<li><strong>FluentAssertions obligatorio</strong> — <code>result.Should().BeEquivalentTo(expected)</code> en lugar de <code>Assert.Equal</code></li>
+<li><strong>NSubstitute sobre Moq</strong> — Moq tuvo controversia de telemetria, NSubstitute es mas seguro</li>
+<li><strong>WebApplicationFactory</strong> para integration tests de API (no levantar servidor real)</li>
+<li><strong>Testcontainers</strong> para tests que requieren SQL Server real (no InMemory para integracion)</li>
+</ul>
+</section>
+<section class="sec" id="sec-delega-en">
+<h3 id="delega-en">Delega en</h3>
+<ul>
+<li>Problemas de base de datos en tests de integracion → <strong>database-reviewer</strong></li>
+<li>Tests lentos o timeouts → <strong>performance-profiler</strong></li>
+<li>Errores de compilacion en proyectos de test → <strong>build-fixer</strong></li>
+<li>Cobertura de seguridad (penetration testing) → <strong>security-auditor</strong></li>
+</ul>
+</section>
+<section class="sec" id="sec-alcance">
+<h3 id="alcance">Alcance</h3>
+<p><strong>SI cubre:</strong></p>
+<ul>
+<li>Ejecucion de tests unitarios y de integracion</li>
+<li>Analisis de fallos y propuesta de correcciones</li>
+<li>Evaluacion de cobertura (que falta por testear)</li>
+<li>Generacion de tests siguiendo convenciones de la organización</li>
+<li>Configuracion de fixtures (WebApplicationFactory, Testcontainers)</li>
+<li>Validacion de naming y organizacion de tests</li>
+</ul>
+<p><strong>NO cubre:</strong></p>
+<ul>
+<li>Tests de rendimiento o carga (k6, JMeter)</li>
+<li>Tests E2E de UI (Playwright, Selenium)</li>
+<li>Configuracion de CI/CD para ejecucion automatica de tests</li>
+<li>Tests de seguridad (OWASP ZAP, penetration) — eso es <strong>security-auditor</strong></li>
+</ul>
+</section><section class="sec" id="sec-relaciones"><h2 id="relaciones">Quién lo usa</h2><ul><li><a href="../skills/verify.html">verify</a></li></ul></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>2 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(contexto): Lote E - presupuesto de contexto bajo el techo, descriptions bilingues y quinta puerta (ADR-025)</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../agents/build-fixer.html">build-fixer</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../agents/database-reviewer.html">database-reviewer</a></li><li><a href="../agents/performance-profiler.html">performance-profiler</a></li><li><a href="../agents/security-auditor.html">security-auditor</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/agents/test-runner.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando">Cuándo invocarlo</a></li><li class="l2"><a href="#ficha">Ficha</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#rol">Rol</a></li><li class="l3"><a href="#modelo">Modelo</a></li><li class="l3"><a href="#skills-que-carga">Skills que carga</a></li><li class="l3"><a href="#herramientas-mcp">Herramientas MCP</a></li><li class="l3"><a href="#patron-de-respuesta">Patron de respuesta</a></li><li class="l3"><a href="#convenciones-de-testing-del-ecosistema">Convenciones de testing del ecosistema</a></li><li class="l3"><a href="#delega-en">Delega en</a></li><li class="l3"><a href="#alcance">Alcance</a></li><li class="l2"><a href="#relaciones">Quién lo usa</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

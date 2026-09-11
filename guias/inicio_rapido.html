@@ -1,0 +1,134 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guía de inicio rápido · Ovillo</title><meta name="description" content="Esta guía te permite poner Ovillo en un proyecto en menos de 30 minutos."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Guía de inicio rápido · Ovillo"><meta property="og:description" content="Esta guía te permite poner Ovillo en un proyecto en menos de 30 minutos."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/inicio_rapido.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/inicio_rapido.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/inicio_rapido.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Empezar (2)</h4><ul class="sibs"><li><a href="../guias/inicio_rapido.html" class="cur">Guía de inicio rápido</a></li><li><a href="../guias/readme.html">Proyecto Ovillo</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Empezar</span><span>Guía de inicio rápido</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Empezar</span><span>español</span></div><h1>Guía de inicio rápido</h1><p class="lede">Esta guía te permite poner Ovillo en un proyecto en menos de 30 minutos.</p><div class="meta-grid"><div><b>3 min</b><span>lectura</span></div><div><b>715</b><span>palabras</span></div><div><b>11</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>5</b><span>cambios</span></div></div><p class="lede">Esta guía te permite poner Ovillo en un proyecto en menos de 30 minutos.</p>
+<hr>
+<section class="sec" id="sec-requisitos">
+<h3 id="requisitos">Requisitos</h3>
+<ul>
+<li><a href="https://claude.com/claude-code" rel="noopener">Claude Code</a> y <strong>Node.js ≥ 18</strong> (los hooks son Node).</li>
+<li><strong>SDK de .NET</strong>. Ningún IDE es requisito: la integración con Visual Studio o VS Code se activa por configuración (<code>organization.ide</code> en <code>ecosystem.config.json</code>).</li>
+<li>git.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-opción-a-proyecto-existente-recomendado">
+<h3 id="opción-a-proyecto-existente-recomendado">Opción A: proyecto existente (recomendado)</h3>
+<h4 id="paso-1-instalar-el-plugin-2-min">Paso 1: instalar el plugin (2 min)</h4>
+<pre><code>claude plugin marketplace add hvaler/ovillo      # el repositorio es el marketplace
+claude plugin install hv@ovillo</code></pre>
+<p>Se instala una vez por usuario. A partir de aquí todas las skills se invocan con el prefijo <code>/hv:</code> y los agents como <code>hv:&lt;agent&gt;</code>.</p>
+<h4 id="paso-2-preparar-el-repositorio-1-min">Paso 2: preparar el repositorio (1 min)</h4>
+<pre><code>cd C:\MiProyecto
+claude
+/hv:init</code></pre>
+<p><code>/hv:init</code> escribe en el repositorio lo que un plugin no puede llevar, y <strong>nunca pisa lo que ya existe</strong>:</p>
+<ul>
+<li>el layout <code>src/ docs/ ops/ _hilo/ _patron/</code> con sus README;</li>
+<li>el <strong>Hilo</strong> (<code>_hilo/</code>, memoria del proyecto) vacío de arranque;</li>
+<li>el <strong>Patrón</strong> (<code>_patron/</code>, base de conocimiento de la organización);</li>
+<li><code>CLAUDE.md</code>, las 3 reglas incondicionales y la configuración de Claude Code;</li>
+<li><code>.vscode/</code> si <code>organization.ide</code> es <code>vscode</code>, o el script de Solution Folders si es <code>visual-studio</code>.</li>
+</ul>
+<p>Si el código vive en la raíz del repositorio, <code>/hv:init</code> lo detecta y <strong>propone</strong> los <code>git mv</code> a <code>src/</code>; no mueve nada por su cuenta. Con <code>--dry-run</code> muestra el plan sin escribir.</p>
+<h4 id="paso-3-onboarding-10-min">Paso 3: onboarding (10 min)</h4>
+<pre><code>/hv:onboarding</code></pre>
+<p>Configuración guiada en 8 fases: información general, stack, estructura del código, base de datos, integraciones, funcionalidades, tests y documentación, equipo y problemas conocidos. Al terminar deja el Hilo relleno (<code>_hilo/ESTADO_PROYECTO.json</code>, <code>FUNCIONALIDADES.md</code>, <code>DEPENDENCIAS.md</code>, <code>DEUDA_TECNICA.md</code>) y completa el <code>CLAUDE.md</code>.</p>
+<h4 id="paso-4-integración-con-el-ide-opcional">Paso 4: integración con el IDE (opcional)</h4>
+<p>Con <code>organization.ide: &quot;visual-studio&quot;</code>, el onboarding ejecuta <code>.claude/scripts/integracion-vs.ps1</code>, que añade al <code>.sln</code> un contenedor <strong>Ovillo</strong> con las carpetas <code>Raiz</code>, <code>_hilo</code>, <code>_patron</code>, <code>docs</code> y <code>ops</code>. Con <code>vscode</code>, <code>/hv:init</code> deja <code>.vscode/settings.json</code>, <code>extensions.json</code> y <code>tasks.json</code> (build, test con cobertura, entorno docker). Con <code>none</code> (valor por defecto) no se toca el IDE.</p>
+<h4 id="paso-5-análisis-profundo-opcional">Paso 5: análisis profundo (opcional)</h4>
+<pre><code>/hv:analizar</code></pre>
+<p>Corre en un subagente aislado y deja los diagramas en <code>docs/architecture/</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-opción-b-proyecto-nuevo">
+<h3 id="opción-b-proyecto-nuevo">Opción B: proyecto nuevo</h3>
+<h4 id="paso-1-plugin-y-repositorio">Paso 1: plugin y repositorio</h4>
+<pre><code>mkdir C:\MiNuevoProyecto &amp;&amp; cd C:\MiNuevoProyecto
+git init
+claude
+/hv:init</code></pre>
+<h4 id="paso-2-crear-la-solución-net-3-min">Paso 2: crear la solución .NET (3 min)</h4>
+<pre data-lang="powershell"><code>cd src
+
+dotnet new sln -n MiProyecto
+
+<span class="tk-c"># Clean Architecture</span>
+dotnet new webapi   -n MiProyecto.API
+dotnet new classlib -n MiProyecto.Application
+dotnet new classlib -n MiProyecto.Domain
+dotnet new classlib -n MiProyecto.Infrastructure
+dotnet new xunit    -n MiProyecto.Tests
+
+dotnet sln add **/*.csproj
+
+dotnet add MiProyecto.API            reference MiProyecto.Application
+dotnet add MiProyecto.Application    reference MiProyecto.Domain
+dotnet add MiProyecto.Infrastructure reference MiProyecto.Domain
+dotnet add MiProyecto.Tests          reference MiProyecto.API</code></pre>
+<h4 id="paso-3-onboarding">Paso 3: onboarding</h4>
+<pre><code>claude
+/hv:onboarding</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-flujo-completo">
+<h3 id="flujo-completo">Flujo completo</h3>
+<pre><code>claude plugin install hv@ovillo ──► /hv:init ──► /hv:onboarding ──► (IDE según config) ──► desarrollo
+        una vez por usuario         layout,        Hilo relleno,      Solution Folders
+                                    Hilo, Patrón   CLAUDE.md          o .vscode/</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-configuración-de-la-organización">
+<h3 id="configuración-de-la-organización">Configuración de la organización</h3>
+<p>Copia <code>ecosystem.config.example.json</code> como <code>ecosystem.config.json</code> en la raíz del repositorio y define la identidad de tu organización: prefijo de namespaces, IdP, servicios cloud, motor y nomenclatura de base de datos, plataforma CI/CD, IDE, tema y Hub. Sin ese archivo, Ovillo aplica defaults neutrales. Validación: <code>node .claude/scripts/validate-config.js</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-entorno-docker-5-min">
+<h3 id="entorno-docker-5-min">Entorno Docker (5 min)</h3>
+<p>Revisa y ajusta <code>ops/environment/docker-compose.yml</code> (SQL Server, Redis y el emulador de storage como servicios) y copia <code>.env.example</code> a <code>.env</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-de-validación">
+<h3 id="checklist-de-validación">Checklist de validación</h3>
+<ul>
+<li><input type="checkbox" disabled> Plugin instalado (<code>claude plugin list</code> muestra <code>hv@ovillo</code>)</li>
+<li><input type="checkbox" disabled> <code>/hv:init</code> ejecutado: existen <code>src/ docs/ ops/ _hilo/ _patron/</code> y <code>CLAUDE.md</code></li>
+<li><input type="checkbox" disabled> Onboarding completado (<code>/hv:onboarding</code>)</li>
+<li><input type="checkbox" disabled> IDE integrado si la organización lo configuró</li>
+<li><input type="checkbox" disabled> Análisis ejecutado (<code>/hv:analizar</code>)</li>
+<li><input type="checkbox" disabled> Solución .NET compilando</li>
+<li><input type="checkbox" disabled> Docker funcionando</li>
+<li><input type="checkbox" disabled> Git inicializado y primer commit (<code>/hv:commit</code>)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-skills-más-usadas">
+<h3 id="skills-más-usadas">Skills más usadas</h3>
+<div class="tbl"><table><thead><tr><th>Skill</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>/hv:onboarding</code></td><td>Configuración guiada en 8 fases</td></tr><tr><td><code>/hv:analizar</code></td><td>Análisis profundo del código con diagramas</td></tr><tr><td><code>/hv:nuevo-evolutivo</code> / <code>/hv:finalizar-evolutivo</code></td><td>Ciclo de vida de una funcionalidad</td></tr><tr><td><code>/hv:revision</code></td><td>Análisis de impacto antes del commit</td></tr><tr><td><code>/hv:testing-patterns</code></td><td>Genera y ejecuta tests</td></tr><tr><td><code>/hv:commit</code></td><td>Commit con Conventional Commits</td></tr><tr><td><code>/hv:estado</code></td><td>Dashboard del proyecto</td></tr><tr><td><code>/hv:pausar</code> / <code>/hv:continuar</code></td><td>Guardar y retomar la sesión</td></tr><tr><td><code>/hv:cicd-init</code></td><td>Wizard de pipelines para la plataforma configurada</td></tr><tr><td><code>/hv:sos</code></td><td>Ayuda y catálogo completo</td></tr></tbody></table></div>
+<p>Las skills de <strong>conocimiento</strong> (patrones de API, dominio, tests, seguridad, resiliencia, observabilidad...) se activan solas cuando la petición encaja; las de <strong>workflow</strong> solo con <code>/hv:</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-solución-de-problemas">
+<h3 id="solución-de-problemas">Solución de problemas</h3>
+<p><strong>Las carpetas no aparecen en Visual Studio</strong>: ejecuta <code>.\.claude\scripts\integracion-vs.ps1</code> desde la raíz (<code>-Force</code> si hay duplicados). Solo actúa con <code>organization.ide: &quot;visual-studio&quot;</code>.</p>
+<p><strong>El onboarding no creó los archivos</strong>: comprueba <code>_hilo/ESTADO_PROYECTO.json</code>, <code>FUNCIONALIDADES.md</code>, <code>DEPENDENCIAS.md</code> y <code>DEUDA_TECNICA.md</code>; si faltan, repite <code>/hv:onboarding</code>.</p>
+<p><strong>Una skill no aparece</strong>: <code>claude plugin update hv@ovillo</code> y de nuevo <code>/hv:init</code>. Las skills de workflow no salen en el listado del modelo a propósito; se invocan con <code>/hv:&lt;skill&gt;</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-siguientes-pasos">
+<h3 id="siguientes-pasos">Siguientes pasos</h3>
+<ol>
+<li>Desarrollar en <code>src/</code> (código y tests van juntos en la solución).</li>
+<li>Configurar el pipeline con <code>/hv:cicd-init</code> (genera <code>ops/cicd/</code> y <code>ops/testing/</code>).</li>
+<li>Documentar la API con <code>/hv:documentacion-tecnica</code> (genera <code>docs/api/</code>).</li>
+<li>Preparar el soporte en <code>docs/support/</code>.</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-ayuda">
+<h3 id="ayuda">Ayuda</h3>
+<ul>
+<li>Estructura del proyecto: <code>README.md</code></li>
+<li>Estándares de la organización: <code>_patron/</code></li>
+<li>Catálogo de skills: <code>/hv:sos</code></li>
+</ul>
+<hr>
+<p><em>Ovillo</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/INICIO_RAPIDO.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/api.html">api</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/documentacion-tecnica.html">documentacion-tecnica</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/onboarding.html">onboarding</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a><a class="next" href="../guias/readme.html"><small>Siguiente</small>Proyecto Ovillo</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/INICIO_RAPIDO.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#requisitos">Requisitos</a></li><li class="l2"><a href="#opción-a-proyecto-existente-recomendado">Opción A: proyecto existente (recomendado)</a></li><li class="l3"><a href="#paso-1-instalar-el-plugin-2-min">Paso 1: instalar el plugin (2 min)</a></li><li class="l3"><a href="#paso-2-preparar-el-repositorio-1-min">Paso 2: preparar el repositorio (1 min)</a></li><li class="l3"><a href="#paso-3-onboarding-10-min">Paso 3: onboarding (10 min)</a></li><li class="l3"><a href="#paso-4-integración-con-el-ide-opcional">Paso 4: integración con el IDE (opcional)</a></li><li class="l3"><a href="#paso-5-análisis-profundo-opcional">Paso 5: análisis profundo (opcional)</a></li><li class="l2"><a href="#opción-b-proyecto-nuevo">Opción B: proyecto nuevo</a></li><li class="l3"><a href="#paso-1-plugin-y-repositorio">Paso 1: plugin y repositorio</a></li><li class="l3"><a href="#paso-2-crear-la-solución-net-3-min">Paso 2: crear la solución .NET (3 min)</a></li><li class="l3"><a href="#paso-3-onboarding">Paso 3: onboarding</a></li><li class="l2"><a href="#flujo-completo">Flujo completo</a></li><li class="l2"><a href="#configuración-de-la-organización">Configuración de la organización</a></li><li class="l2"><a href="#entorno-docker-5-min">Entorno Docker (5 min)</a></li><li class="l2"><a href="#checklist-de-validación">Checklist de validación</a></li><li class="l2"><a href="#skills-más-usadas">Skills más usadas</a></li><li class="l2"><a href="#solución-de-problemas">Solución de problemas</a></li><li class="l2"><a href="#siguientes-pasos">Siguientes pasos</a></li><li class="l2"><a href="#ayuda">Ayuda</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,486 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Documento de Estructura Técnica · Ovillo</title><meta name="description" content="Guía técnica para proyectos de la organización."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Documento de Estructura Técnica · Ovillo"><meta property="og:description" content="Guía técnica para proyectos de la organización."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/estructura_tecnica.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/estructura_tecnica.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/estructura_tecnica.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 01_Estructura_Tecnica (4)</h4><ul class="sibs"><li><a href="../guias/estructura_tecnica.html" class="cur">Documento de Estructura Técnica</a></li><li><a href="../guias/guia_acceso_datos.html">Guía de Acceso a Datos: Dapper vs ADO.NET</a></li><li><a href="../guias/guia_arquitectura.html">Guia de Arquitectura y Patrones</a></li><li><a href="../guias/guia_mcp_instalacion.html">Guía: Instalación y uso de MCPs en Ovillo</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 01_Estructura_Tecnica</span><span>Documento de Estructura Técnica</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 01_Estructura_Tecnica</span><span>español</span><span><a href="../guias/estructura_tecnica.en.html">English version</a></span></div><h1>Documento de Estructura Técnica</h1><p class="lede">Guía técnica para proyectos de la organización.</p><div class="meta-grid"><div><b>6 min</b><span>lectura</span></div><div><b>1337</b><span>palabras</span></div><div><b>10</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>2</b><span>cambios</span></div></div><p class="lede">Guía técnica para proyectos de la organización.</p>
+<hr>
+<section class="sec" id="sec-1-stack-tecnológico">
+<h3 id="1-stack-tecnológico">1. Stack Tecnológico</h3>
+<h4 id="11-tecnologías-recomendadas-microsoft">1.1 Tecnologías Recomendadas (Microsoft)</h4>
+<div class="tbl"><table><thead><tr><th>Capa</th><th>Tecnología</th><th>Versión</th><th>Justificación</th></tr></thead><tbody><tr><td>Backend</td><td>.NET / C#</td><td>8+ LTS</td><td>Estándar corporativo, soporte largo plazo</td></tr><tr><td>Acceso a datos</td><td>Dapper</td><td>Última estable</td><td>Rendimiento, control sobre SQL</td></tr><tr><td>Base de datos</td><td>SQL Server</td><td>2017 (14.0)</td><td>Infraestructura existente</td></tr><tr><td>Intercalación BD</td><td>SQL_Latin1_General_CP1250_CI_AS</td><td>-</td><td>Compatibilidad con producción</td></tr><tr><td>Cloud</td><td>Azure</td><td>-</td><td>Contrato corporativo</td></tr><tr><td>Contenedores</td><td>Docker</td><td>-</td><td>Estandarización de entornos</td></tr><tr><td>Caché</td><td>Redis</td><td>7+</td><td>Caché distribuida para balanceo</td></tr><tr><td>Almacenamiento</td><td>Azure Blob Storage</td><td>-</td><td>Archivos en infraestructura balanceada</td></tr></tbody></table></div>
+<h4 id="12-tecnologías-permitidas-con-justificación">1.2 Tecnologías Permitidas (con justificación)</h4>
+<div class="tbl"><table><thead><tr><th>Categoría</th><th>Alternativas</th><th>Cuándo usar</th></tr></thead><tbody><tr><td>Acceso a datos</td><td>ADO.NET, EF Core</td><td>Proyectos legacy, requisitos específicos</td></tr><tr><td>Base de datos</td><td>Oracle</td><td>Integración con sistemas existentes</td></tr><tr><td>Frontend</td><td>React, Angular</td><td>Requisitos de cliente, equipo especializado</td></tr><tr><td>Cloud</td><td>AWS</td><td>Requisito explícito del cliente</td></tr></tbody></table></div>
+<p><strong>Proceso para usar tecnología alternativa:</strong></p>
+<ol>
+<li>Desarrollador propone alternativa con justificación técnica</li>
+<li>JP y Líder Técnico evalúan impacto y viabilidad</li>
+<li>Se documenta la decisión en el proyecto</li>
+<li>Se actualiza este documento si aplica a más proyectos</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-2-arquitectura-de-referencia">
+<h3 id="2-arquitectura-de-referencia">2. Arquitectura de Referencia</h3>
+<h4 id="21-patrón-clean-architecture">2.1 Patrón: Clean Architecture</h4>
+<pre><code>Solución/
+├── Proyecto.API/              # Capa de presentación
+│   ├── Controllers/
+│   ├── Middleware/
+│   └── Program.cs
+│
+├── Proyecto.Application/      # Casos de uso
+│   ├── Services/
+│   ├── DTOs/
+│   └── Interfaces/
+│
+├── Proyecto.Domain/           # Entidades y lógica de negocio
+│   ├── Entities/
+│   ├── ValueObjects/
+│   └── Exceptions/
+│
+├── Proyecto.Infrastructure/   # Implementaciones externas
+│   ├── Repositories/
+│   ├── ExternalServices/
+│   ├── BlobStorage/          # Servicios de Azure Blob
+│   └── Persistence/
+│
+└── Proyecto.Tests/            # Pruebas
+    ├── Unit/
+    └── Integration/</code></pre>
+<h4 id="22-principios-obligatorios">2.2 Principios Obligatorios</h4>
+<ul>
+<li><input type="checkbox" disabled> Separación de responsabilidades por capas</li>
+<li><input type="checkbox" disabled> Inyección de dependencias</li>
+<li><input type="checkbox" disabled> Interfaces para servicios externos</li>
+<li><input type="checkbox" disabled> Sin lógica de negocio en controladores</li>
+<li><input type="checkbox" disabled> Configuración externalizada (no hardcoded)</li>
+<li><input type="checkbox" disabled> Sin estado local (preparado para balanceo)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-3-seguridad-crítico">
+<h3 id="3-seguridad-crítico">3. Seguridad (CRÍTICO)</h3>
+<h4 id="31-owasp-top-10---checklist-obligatorio">3.1 OWASP Top 10 - Checklist Obligatorio</h4>
+<div class="tbl"><table><thead><tr><th>Vulnerabilidad</th><th>Mitigación</th><th>Implementación</th></tr></thead><tbody><tr><td><strong>Injection (SQL, NoSQL)</strong></td><td>Queries parametrizadas</td><td>Dapper con parámetros, nunca concatenar strings</td></tr><tr><td><strong>Broken Authentication</strong></td><td>Azure AD / JWT</td><td>Tokens con expiración, refresh tokens</td></tr><tr><td><strong>Sensitive Data Exposure</strong></td><td>Cifrado, HTTPS</td><td>TLS 1.2+, datos sensibles cifrados en BD</td></tr><tr><td><strong>XML External Entities</strong></td><td>Deshabilitar DTD</td><td><code>XmlReaderSettings.DtdProcessing = Prohibit</code></td></tr><tr><td><strong>Broken Access Control</strong></td><td>Autorización por roles</td><td><code>[Authorize(Roles = &quot;...&quot;)]</code>, claims</td></tr><tr><td><strong>Security Misconfiguration</strong></td><td>Headers seguros</td><td>HSTS, X-Content-Type-Options, CSP</td></tr><tr><td><strong>Cross-Site Scripting (XSS)</strong></td><td>Encoding de output</td><td>Razor encoding automático, validar inputs</td></tr><tr><td><strong>Insecure Deserialization</strong></td><td>Validar tipos</td><td>No deserializar datos no confiables</td></tr><tr><td><strong>Vulnerable Components</strong></td><td>Actualizar dependencias</td><td>Dependabot, auditorías NuGet</td></tr><tr><td><strong>Insufficient Logging</strong></td><td>Logging completo</td><td>Application Insights, no loguear datos sensibles</td></tr></tbody></table></div>
+<h4 id="32-azure-key-vault-obligatorio">3.2 Azure Key Vault (OBLIGATORIO)</h4>
+<p><strong>NUNCA almacenar secretos en código ni en appsettings.json</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - Configuración obligatoria</span>
+<span class="tk-k">var</span> keyVaultName = builder.Configuration[<span class="tk-s">&quot;KeyVaultName&quot;</span>];
+builder.Configuration.AddAzureKeyVault(
+    <span class="tk-k">new</span> Uri(<span class="tk-s">$&quot;https://{keyVaultName}.vault.azure.net/&quot;</span>),
+    <span class="tk-k">new</span> DefaultAzureCredential());</code></pre>
+<p><strong>Secretos que DEBEN estar en Key Vault:</strong></p>
+<ul>
+<li>Cadenas de conexión a bases de datos</li>
+<li>API Keys de servicios externos</li>
+<li>Certificados SSL/TLS</li>
+<li>Credenciales de integración</li>
+<li>Claves de cifrado</li>
+</ul>
+<p><strong>Para desarrollo local:</strong></p>
+<pre data-lang="bash"><code><span class="tk-c"># Usar User Secrets de .NET</span>
+<span class="tk-k">dotnet</span> user-secrets init
+<span class="tk-k">dotnet</span> user-secrets <span class="tk-k">set</span> <span class="tk-s">&quot;ConnectionStrings:DefaultConnection&quot;</span> <span class="tk-s">&quot;Server=localhost...&quot;</span></code></pre>
+<h4 id="33-autenticación-y-autorización">3.3 Autenticación y Autorización</h4>
+<p><strong>Método recomendado: Azure AD + JWT</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection(<span class="tk-s">&quot;AzureAd&quot;</span>));
+
+builder.Services.AddAuthorization(options =&gt;
+{
+    options.AddPolicy(<span class="tk-s">&quot;RequireAdminRole&quot;</span>, policy =&gt;
+        policy.RequireRole(<span class="tk-s">&quot;Admin&quot;</span>));
+});</code></pre>
+<p><strong>Principios:</strong></p>
+<ul>
+<li>Tokens JWT verificables por cualquier instancia (sin estado local)</li>
+<li>Claims para permisos granulares</li>
+<li>Refresh tokens con rotación</li>
+<li>Expiración de sesión configurable</li>
+</ul>
+<h4 id="34-validación-de-inputs">3.4 Validación de Inputs</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Usar FluentValidation o DataAnnotations</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> CreateUserValidator : AbstractValidator&lt;CreateUserDto&gt;
+{
+    <span class="tk-k">public</span> CreateUserValidator()
+    {
+        RuleFor(x =&gt; x.Email)
+            .NotEmpty()
+            .EmailAddress()
+            .MaximumLength(<span class="tk-n">255</span>);
+
+        RuleFor(x =&gt; x.Name)
+            .NotEmpty()
+            .MaximumLength(<span class="tk-n">100</span>)
+            .Matches(<span class="tk-s">@&quot;^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-infraestructura-balanceada-crítico">
+<h3 id="4-infraestructura-balanceada-crítico">4. Infraestructura Balanceada (CRÍTICO)</h3>
+<h4 id="41-principio-fundamental">4.1 Principio Fundamental</h4>
+<p><strong>TODAS las aplicaciones se despliegan en múltiples servidores balanceados. El código DEBE diseñarse sin estado local.</strong></p>
+<h4 id="42-azure-blob-storage-obligatorio">4.2 Azure Blob Storage (OBLIGATORIO)</h4>
+<p><strong>Todo archivo generado o subido debe almacenarse en Blob Storage, tanto en Frontend como en Backend.</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// Servicio de almacenamiento</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> BlobStorageService : IBlobStorageService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> BlobServiceClient _blobServiceClient;
+
+    <span class="tk-k">public</span> BlobStorageService(IConfiguration configuration)
+    {
+        <span class="tk-c">// Connection string desde Key Vault</span>
+        <span class="tk-k">var</span> connectionString = configuration[<span class="tk-s">&quot;AzureStorage:ConnectionString&quot;</span>];
+        _blobServiceClient = <span class="tk-k">new</span> BlobServiceClient(connectionString);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;<span class="tk-k">string</span>&gt; UploadFileAsync(Stream content, <span class="tk-k">string</span> fileName, <span class="tk-k">string</span> container)
+    {
+        <span class="tk-k">var</span> containerClient = _blobServiceClient.GetBlobContainerClient(container);
+        <span class="tk-k">await</span> containerClient.CreateIfNotExistsAsync();
+
+        <span class="tk-k">var</span> blobClient = containerClient.GetBlobClient(fileName);
+        <span class="tk-k">await</span> blobClient.UploadAsync(content, overwrite: <span class="tk-k">true</span>);
+
+        <span class="tk-k">return</span> blobClient.Uri.ToString();
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;Stream&gt; DownloadFileAsync(<span class="tk-k">string</span> fileName, <span class="tk-k">string</span> container)
+    {
+        <span class="tk-k">var</span> containerClient = _blobServiceClient.GetBlobContainerClient(container);
+        <span class="tk-k">var</span> blobClient = containerClient.GetBlobClient(fileName);
+
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> blobClient.DownloadAsync();
+        <span class="tk-k">return</span> response.Value.Content;
+    }
+}</code></pre>
+<p><strong>Casos de uso obligatorios para Blob Storage:</strong></p>
+<ul>
+<li>Archivos subidos por usuarios (documentos, imágenes)</li>
+<li>Reportes generados (PDF, Excel)</li>
+<li>Logs de aplicación (si no se usa Application Insights)</li>
+<li>Archivos temporales de procesamiento</li>
+<li>Exports de datos</li>
+<li>Backups de configuración</li>
+</ul>
+<h4 id="43-redis---caché-distribuida-obligatorio">4.3 Redis - Caché Distribuida (OBLIGATORIO)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddStackExchangeRedisCache(options =&gt;
+{
+    options.Configuration = builder.Configuration.GetConnectionString(<span class="tk-s">&quot;Redis&quot;</span>);
+    options.InstanceName = <span class="tk-s">&quot;MiProyecto_&quot;</span>;
+});
+
+<span class="tk-c">// Uso en servicios</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> MiServicio
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IDistributedCache _cache;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;DatosDto&gt; GetDatosAsync(<span class="tk-k">string</span> id)
+    {
+        <span class="tk-k">var</span> cacheKey = <span class="tk-s">$&quot;datos_{id}&quot;</span>;
+        <span class="tk-k">var</span> cached = <span class="tk-k">await</span> _cache.GetStringAsync(cacheKey);
+
+        <span class="tk-k">if</span> (cached != <span class="tk-k">null</span>)
+            <span class="tk-k">return</span> JsonSerializer.Deserialize&lt;DatosDto&gt;(cached);
+
+        <span class="tk-k">var</span> datos = <span class="tk-k">await</span> _repository.GetAsync(id);
+
+        <span class="tk-k">await</span> _cache.SetStringAsync(cacheKey,
+            JsonSerializer.Serialize(datos),
+            <span class="tk-k">new</span> DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(<span class="tk-n">30</span>)
+            });
+
+        <span class="tk-k">return</span> datos;
+    }
+}</code></pre>
+<h4 id="44-tabla-resumen-no-hacer-vs-sí-hacer">4.4 Tabla Resumen: NO hacer vs SÍ hacer</h4>
+<div class="tbl"><table><thead><tr><th>Escenario</th><th>❌ NO hacer</th><th>✅ SÍ hacer</th></tr></thead><tbody><tr><td>Sesiones de usuario</td><td><code>MemoryCache</code>, <code>Session</code> en memoria</td><td>Redis, SQL Server distribuido</td></tr><tr><td>Archivos subidos</td><td><code>wwwroot/uploads/</code>, disco local</td><td>Azure Blob Storage</td></tr><tr><td>Archivos generados</td><td><code>Path.GetTempPath()</code>, disco local</td><td>Azure Blob Storage</td></tr><tr><td>Tareas programadas</td><td><code>Timer</code>, <code>Task.Run()</code> con delay</td><td>Azure Functions, Hangfire con SQL/Redis</td></tr><tr><td>Caché de datos</td><td><code>MemoryCache</code></td><td><code>IDistributedCache</code> con Redis</td></tr><tr><td>Logs</td><td>Archivos locales</td><td>Application Insights</td></tr><tr><td>Estado de aplicación</td><td>Variables estáticas</td><td>Redis, base de datos</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-5-proyectos-legacy-webforms">
+<h3 id="5-proyectos-legacy-webforms">5. Proyectos Legacy (WebForms)</h3>
+<h4 id="51-contexto">5.1 Contexto</h4>
+<p>Por esta plantilla pueden pasar proyectos antiguos desarrollados en <strong>ASP.NET WebForms</strong>. No existe obligación de migración, pero sí es <strong>obligatorio</strong> realizar un estudio de viabilidad.</p>
+<h4 id="52-estudio-de-migración-obligatorio">5.2 Estudio de Migración (OBLIGATORIO)</h4>
+<p><strong>Todo proyecto WebForms debe pasar por este análisis antes de cualquier desarrollo:</strong></p>
+<h5 id="paso-1-inventario-técnico">Paso 1: Inventario Técnico</h5>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>Qué analizar</th><th>Herramientas</th></tr></thead><tbody><tr><td>Tamaño</td><td>Nº de páginas .aspx, .ascx</td><td>Script de conteo</td></tr><tr><td>Complejidad</td><td>Code-behind, controles personalizados</td><td>Revisión manual</td></tr><tr><td>Base de datos</td><td>Stored procedures, ADO.NET</td><td>SQL Server</td></tr><tr><td>Dependencias</td><td>DLLs terceros, COM</td><td>NuGet, referencias</td></tr><tr><td>Integraciones</td><td>Web services, APIs externas</td><td>Documentación</td></tr></tbody></table></div>
+<h5 id="paso-2-evaluación-de-riesgos-de-seguridad">Paso 2: Evaluación de Riesgos de Seguridad</h5>
+<div class="tbl"><table><thead><tr><th>Riesgo</th><th>Verificar</th><th>Criticidad</th></tr></thead><tbody><tr><td>SQL Injection</td><td>Queries dinámicas sin parametrizar</td><td>ALTA</td></tr><tr><td>ViewState sin cifrar</td><td>Datos sensibles en ViewState</td><td>ALTA</td></tr><tr><td>Autenticación obsoleta</td><td>Forms Auth sin tokens</td><td>MEDIA</td></tr><tr><td>HTTPS</td><td>Certificados, redirección</td><td>ALTA</td></tr><tr><td>Headers de seguridad</td><td>HSTS, CSP, X-Frame-Options</td><td>MEDIA</td></tr></tbody></table></div>
+<h5 id="paso-3-estimación-de-tiempos">Paso 3: Estimación de Tiempos</h5>
+<p><strong>Matriz de estimación según complejidad:</strong></p>
+<div class="tbl"><table><thead><tr><th>Complejidad</th><th>Páginas</th><th>Estimación Base</th><th>Con mitigación seguridad</th></tr></thead><tbody><tr><td><strong>Baja</strong></td><td>1-10</td><td>2-4 semanas</td><td>+1 semana</td></tr><tr><td><strong>Media</strong></td><td>11-30</td><td>1-2 meses</td><td>+2 semanas</td></tr><tr><td><strong>Alta</strong></td><td>31-50</td><td>2-4 meses</td><td>+1 mes</td></tr><tr><td><strong>Muy Alta</strong></td><td>50+</td><td>4-6 meses</td><td>+1-2 meses</td></tr></tbody></table></div>
+<p><strong>Factores multiplicadores:</strong></p>
+<ul>
+<li>Controles de terceros sin soporte: x1.5</li>
+<li>Integración con sistemas legacy: x1.3</li>
+<li>Lógica de negocio compleja en code-behind: x1.4</li>
+<li>Sin documentación: x1.2</li>
+<li>Sin tests: x1.3</li>
+</ul>
+<h4 id="53-opciones-de-actuación">5.3 Opciones de Actuación</h4>
+<h5 id="opción-a-migración-completa-a-net-8">Opción A: Migración Completa a .NET 8</h5>
+<p><strong>Cuándo elegir:</strong></p>
+<ul>
+<li>Proyecto con desarrollo activo previsto</li>
+<li>Presupuesto y tiempo disponible</li>
+<li>Equipo con capacidad</li>
+</ul>
+<p><strong>Beneficios:</strong></p>
+<ul>
+<li>Arquitectura moderna</li>
+<li>Mejor rendimiento</li>
+<li>Soporte a largo plazo</li>
+<li>Compatible con infraestructura balanceada</li>
+</ul>
+<h5 id="opción-b-migración-incremental">Opción B: Migración Incremental</h5>
+<p><strong>Cuándo elegir:</strong></p>
+<ul>
+<li>Proyecto grande (50+ páginas)</li>
+<li>Presupuesto limitado</li>
+<li>Necesidad de mantener operativo</li>
+</ul>
+<p><strong>Estrategia:</strong></p>
+<ol>
+<li>Crear API .NET 8 para nueva funcionalidad</li>
+<li>WebForms consume la API</li>
+<li>Migrar páginas gradualmente</li>
+<li>Coexistencia temporal</li>
+</ol>
+<h5 id="opción-c-hardening-de-seguridad-mínimo-obligatorio">Opción C: Hardening de Seguridad (Mínimo Obligatorio)</h5>
+<p><strong>Cuándo elegir:</strong></p>
+<ul>
+<li>Sin presupuesto para migración</li>
+<li>Proyecto en mantenimiento mínimo</li>
+<li>Fecha de fin de vida cercana</li>
+</ul>
+<p><strong>Acciones obligatorias:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// web.config - Configuración mínima de seguridad</span>
+
+&lt;!-- HTTPS obligatorio --&gt;
+&lt;system.webServer&gt;
+  &lt;rewrite&gt;
+    &lt;rules&gt;
+      &lt;rule name=<span class="tk-s">&quot;HTTPS Redirect&quot;</span>&gt;
+        &lt;match url=<span class="tk-s">&quot;(.*)&quot;</span> /&gt;
+        &lt;conditions&gt;
+          &lt;add input=<span class="tk-s">&quot;{HTTPS}&quot;</span> pattern=<span class="tk-s">&quot;off&quot;</span> /&gt;
+        &lt;/conditions&gt;
+        &lt;action type=<span class="tk-s">&quot;Redirect&quot;</span> url=<span class="tk-s">&quot;https://{HTTP_HOST}/{R:1}&quot;</span> /&gt;
+      &lt;/rule&gt;
+    &lt;/rules&gt;
+  &lt;/rewrite&gt;
+
+  &lt;!-- Headers de seguridad --&gt;
+  &lt;httpProtocol&gt;
+    &lt;customHeaders&gt;
+      &lt;add name=<span class="tk-s">&quot;X-Content-Type-Options&quot;</span> value=<span class="tk-s">&quot;nosniff&quot;</span> /&gt;
+      &lt;add name=<span class="tk-s">&quot;X-Frame-Options&quot;</span> value=<span class="tk-s">&quot;SAMEORIGIN&quot;</span> /&gt;
+      &lt;add name=<span class="tk-s">&quot;X-XSS-Protection&quot;</span> value=<span class="tk-s">&quot;1; mode=block&quot;</span> /&gt;
+      &lt;add name=<span class="tk-s">&quot;Strict-Transport-Security&quot;</span> value=<span class="tk-s">&quot;max-age=31536000; includeSubDomains&quot;</span> /&gt;
+    &lt;/customHeaders&gt;
+  &lt;/httpProtocol&gt;
+&lt;/system.webServer&gt;
+
+&lt;!-- ViewState cifrado --&gt;
+&lt;system.web&gt;
+  &lt;machineKey validation=<span class="tk-s">&quot;SHA1&quot;</span> decryption=<span class="tk-s">&quot;AES&quot;</span>
+              validationKey=<span class="tk-s">&quot;[DESDE KEY VAULT]&quot;</span>
+              decryptionKey=<span class="tk-s">&quot;[DESDE KEY VAULT]&quot;</span> /&gt;
+  &lt;pages viewStateEncryptionMode=<span class="tk-s">&quot;Always&quot;</span> /&gt;
+&lt;/system.web&gt;</code></pre>
+<p><strong>Checklist mínimo de seguridad para WebForms:</strong></p>
+<ul>
+<li><input type="checkbox" disabled> HTTPS obligatorio con redirección</li>
+<li><input type="checkbox" disabled> Headers de seguridad configurados</li>
+<li><input type="checkbox" disabled> ViewState cifrado</li>
+<li><input type="checkbox" disabled> Queries SQL parametrizadas (revisar TODO el código)</li>
+<li><input type="checkbox" disabled> Validación de inputs en servidor</li>
+<li><input type="checkbox" disabled> Autenticación revisada</li>
+<li><input type="checkbox" disabled> Logging de accesos habilitado</li>
+<li><input type="checkbox" disabled> Dependencias actualizadas (si es posible)</li>
+</ul>
+<h4 id="54-documento-de-decisión">5.4 Documento de Decisión</h4>
+<p><strong>Para cada proyecto WebForms, el desarrollador debe entregar al JP:</strong></p>
+<pre data-lang="markdown"><code># Análisis de Proyecto WebForms: [Nombre]
+
+## 1. Inventario
+- Páginas .aspx: XX
+- User Controls: XX
+- Stored Procedures: XX
+- Integraciones: [lista]
+
+## 2. Riesgos de Seguridad Identificados
+| Riesgo | Severidad | Ubicación |
+|--------|-----------|-----------|
+| ... | Alta/Media/Baja | archivo:línea |
+
+## 3. Recomendación
+[ ] Migración completa - Estimación: X semanas/meses
+[ ] Migración incremental - Estimación fase 1: X semanas
+[ ] Hardening de seguridad - Estimación: X semanas
+
+## 4. Justificación
+[Explicación de la recomendación]
+
+## 5. Riesgos de NO actuar
+[Consecuencias de mantener el estado actual]</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-6-entorno-de-desarrollo">
+<h3 id="6-entorno-de-desarrollo">6. Entorno de Desarrollo</h3>
+<h4 id="61-docker-compose">6.1 Docker Compose</h4>
+<p><strong>Servicios incluidos:</strong></p>
+<div class="tbl"><table><thead><tr><th>Servicio</th><th>Puerto</th><th>Imagen</th><th>Uso</th></tr></thead><tbody><tr><td>SQL Server 2017</td><td>1433</td><td><code>mcr.microsoft.com/mssql/server:2017-latest</code></td><td>Base de datos</td></tr><tr><td>Redis</td><td>6379</td><td><code>redis:7-alpine</code></td><td>Caché distribuida</td></tr><tr><td>Azurite</td><td>10000-10002</td><td><code>mcr.microsoft.com/azure-storage/azurite</code></td><td>Emulador Blob Storage</td></tr><tr><td>Mailhog</td><td>1025/8025</td><td><code>mailhog/mailhog</code></td><td>SMTP de pruebas</td></tr></tbody></table></div>
+<p><strong>Configuración SQL Server compatible con producción:</strong></p>
+<pre data-lang="yaml"><code>sqlserver:
+  image: mcr.microsoft.com/mssql/server:<span class="tk-n">2017</span>-latest
+  environment:
+    - ACCEPT_EULA=Y
+    - MSSQL_SA_PASSWORD=${SA_PASSWORD}
+    - MSSQL_COLLATION=SQL_Latin1_General_CP1250_CI_AS</code></pre>
+<h4 id="62-archivos-de-configuración">6.2 Archivos de Configuración</h4>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Contenido</th><th>Commitear</th></tr></thead><tbody><tr><td><code>appsettings.json</code></td><td>Config base sin secretos</td><td>Sí</td></tr><tr><td><code>appsettings.Development.json</code></td><td>Config desarrollo</td><td>Sí</td></tr><tr><td><code>.env</code></td><td>Variables Docker</td><td>NO</td></tr><tr><td><code>.env.example</code></td><td>Plantilla variables</td><td>Sí</td></tr><tr><td><code>docker-compose.yml</code></td><td>Servicios</td><td>Sí</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-7-buenas-prácticas-de-código">
+<h3 id="7-buenas-prácticas-de-código">7. Buenas Prácticas de Código</h3>
+<h4 id="71-obligatorias">7.1 Obligatorias</h4>
+<ul>
+<li><input type="checkbox" disabled> Nombres de código: inglés o castellano (consistente en todo el proyecto)</li>
+<li><input type="checkbox" disabled> Comentarios solo donde el código no sea autoexplicativo</li>
+<li><input type="checkbox" disabled> Manejo de excepciones centralizado</li>
+<li><input type="checkbox" disabled> Logging estructurado con Application Insights</li>
+<li><input type="checkbox" disabled> Sin warnings en compilación</li>
+<li><input type="checkbox" disabled> Async/await para operaciones I/O</li>
+</ul>
+<h4 id="72-convenciones-de-nombres">7.2 Convenciones de Nombres</h4>
+<div class="tbl"><table><thead><tr><th>Elemento</th><th>Convención</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Clases</td><td>PascalCase</td><td><code>UserService</code></td></tr><tr><td>Interfaces</td><td>IPascalCase</td><td><code>IUserRepository</code></td></tr><tr><td>Métodos</td><td>PascalCase</td><td><code>GetUserById</code></td></tr><tr><td>Variables locales</td><td>camelCase</td><td><code>userName</code></td></tr><tr><td>Constantes</td><td>UPPER_SNAKE</td><td><code>MAX_RETRY_COUNT</code></td></tr><tr><td>Parámetros</td><td>camelCase</td><td><code>userId</code></td></tr></tbody></table></div>
+<h4 id="73-estructura-de-excepciones">7.3 Estructura de Excepciones</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Excepciones de dominio</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> DomainException : Exception
+{
+    <span class="tk-k">public</span> <span class="tk-k">string</span> Code { <span class="tk-k">get</span>; }
+    <span class="tk-k">public</span> DomainException(<span class="tk-k">string</span> code, <span class="tk-k">string</span> message) : <span class="tk-k">base</span>(message)
+    {
+        Code = code;
+    }
+}
+
+<span class="tk-c">// Middleware global de excepciones</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ExceptionMiddleware
+{
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task InvokeAsync(HttpContext context, RequestDelegate next)
+    {
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-k">await</span> next(context);
+        }
+        <span class="tk-k">catch</span> (DomainException ex)
+        {
+            _logger.LogWarning(ex, <span class="tk-s">&quot;Domain exception: {Code}&quot;</span>, ex.Code);
+            context.Response.StatusCode = <span class="tk-n">400</span>;
+            <span class="tk-k">await</span> context.Response.WriteAsJsonAsync(<span class="tk-k">new</span> { error = ex.Message, code = ex.Code });
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            _logger.LogError(ex, <span class="tk-s">&quot;Unhandled exception&quot;</span>);
+            context.Response.StatusCode = <span class="tk-n">500</span>;
+            <span class="tk-k">await</span> context.Response.WriteAsJsonAsync(<span class="tk-k">new</span> { error = <span class="tk-s">&quot;Error interno del servidor&quot;</span> });
+        }
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-8-control-de-versiones">
+<h3 id="8-control-de-versiones">8. Control de Versiones</h3>
+<h4 id="81-estrategia-de-ramas">8.1 Estrategia de Ramas</h4>
+<pre><code>main                    # Producción
+├── develop             # Integración
+├── feature/XXX-desc    # Nuevas funcionalidades
+├── bugfix/XXX-desc     # Correcciones
+├── hotfix/XXX-desc     # Urgentes a producción
+└── release/X.X.X       # Preparación de release</code></pre>
+<h4 id="82-convención-de-commits">8.2 Convención de Commits</h4>
+<pre><code>tipo(alcance): descripción breve
+
+Tipos: feat, fix, docs, style, refactor, test, chore, security
+Ejemplo: feat(auth): añadir login con Azure AD
+Ejemplo: security(sql): parametrizar queries en UserRepository</code></pre>
+<h4 id="83-pull-requests">8.3 Pull Requests</h4>
+<ul>
+<li>Mínimo 1 revisor</li>
+<li>Tests pasando</li>
+<li>Sin conflictos</li>
+<li>Descripción clara de cambios</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-9-testing">
+<h3 id="9-testing">9. Testing</h3>
+<h4 id="91-cobertura-mínima">9.1 Cobertura Mínima</h4>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Cobertura Objetivo</th><th>Obligatorio</th></tr></thead><tbody><tr><td>Unitarios</td><td>70% lógica de negocio</td><td>Sí</td></tr><tr><td>Integración</td><td>Endpoints críticos</td><td>Sí</td></tr><tr><td>E2E</td><td>Flujos principales</td><td>Recomendado</td></tr></tbody></table></div>
+<h4 id="92-estructura-de-tests">9.2 Estructura de Tests</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Patrón Arrange-Act-Assert</span>
+[Fact]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task GetUser_WithValidId_ReturnsUser()
+{
+    <span class="tk-c">// Arrange</span>
+    <span class="tk-k">var</span> userId = Guid.NewGuid();
+    <span class="tk-k">var</span> expectedUser = <span class="tk-k">new</span> User { Id = userId, Name = <span class="tk-s">&quot;Test&quot;</span> };
+    _mockRepository.Setup(r =&gt; r.GetByIdAsync(userId))
+        .ReturnsAsync(expectedUser);
+
+    <span class="tk-c">// Act</span>
+    <span class="tk-k">var</span> result = <span class="tk-k">await</span> _service.GetUserAsync(userId);
+
+    <span class="tk-c">// Assert</span>
+    Assert.NotNull(result);
+    Assert.Equal(expectedUser.Name, result.Name);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-10-logging-y-monitorización">
+<h3 id="10-logging-y-monitorización">10. Logging y Monitorización</h3>
+<h4 id="101-application-insights-obligatorio">10.1 Application Insights (Obligatorio)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs</span>
+builder.Services.AddApplicationInsightsTelemetry();
+
+<span class="tk-c">// En servicios</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> MiServicio
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> TelemetryClient _telemetry;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task ProcessAsync(DatosDto datos)
+    {
+        <span class="tk-k">using</span> <span class="tk-k">var</span> operation = _telemetry.StartOperation&lt;RequestTelemetry&gt;(<span class="tk-s">&quot;Procesar&quot;</span>);
+
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-c">// Lógica</span>
+            _telemetry.TrackEvent(<span class="tk-s">&quot;DatosProcesados&quot;</span>, <span class="tk-k">new</span> Dictionary&lt;<span class="tk-k">string</span>, <span class="tk-k">string</span>&gt;
+            {
+                [<span class="tk-s">&quot;TipoOperacion&quot;</span>] = datos.Tipo
+            });
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            _telemetry.TrackException(ex);
+            <span class="tk-k">throw</span>;
+        }
+    }
+}</code></pre>
+<h4 id="102-qué-loguear">10.2 Qué Loguear</h4>
+<div class="tbl"><table><thead><tr><th>Nivel</th><th>Cuándo usar</th><th>Ejemplo</th></tr></thead><tbody><tr><td><strong>Error</strong></td><td>Excepciones, fallos críticos</td><td>Error de conexión BD</td></tr><tr><td><strong>Warning</strong></td><td>Situaciones anómalas recuperables</td><td>Retry de operación</td></tr><tr><td><strong>Information</strong></td><td>Eventos de negocio importantes</td><td>Usuario creado</td></tr><tr><td><strong>Debug</strong></td><td>Información de diagnóstico</td><td>Parámetros de query</td></tr></tbody></table></div>
+<h4 id="103-qué-no-loguear">10.3 Qué NO Loguear</h4>
+<ul>
+<li>Contraseñas</li>
+<li>Tokens de autenticación</li>
+<li>Datos personales (DNI, email completo)</li>
+<li>Números de tarjeta</li>
+<li>Datos médicos</li>
+</ul>
+<hr>
+<p><strong>Versión:</strong> 1.0 <strong>Fecha:</strong> Diciembre 2025 <strong>Responsable:</strong> Comité Técnico <strong>Última revisión:</strong> [Fecha] <strong>Próxima revisión:</strong> [Fecha + 3 meses]</p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/01_Estructura_Tecnica/ESTRUCTURA_TECNICA.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a><a class="next" href="../guias/guia_acceso_datos.html"><small>Siguiente</small>Guía de Acceso a Datos: Dapper vs ADO.NET</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/01_Estructura_Tecnica/ESTRUCTURA_TECNICA.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-stack-tecnológico">1. Stack Tecnológico</a></li><li class="l3"><a href="#11-tecnologías-recomendadas-microsoft">1.1 Tecnologías Recomendadas (Microsoft)</a></li><li class="l3"><a href="#12-tecnologías-permitidas-con-justificación">1.2 Tecnologías Permitidas (con justificación)</a></li><li class="l2"><a href="#2-arquitectura-de-referencia">2. Arquitectura de Referencia</a></li><li class="l3"><a href="#21-patrón-clean-architecture">2.1 Patrón: Clean Architecture</a></li><li class="l3"><a href="#22-principios-obligatorios">2.2 Principios Obligatorios</a></li><li class="l2"><a href="#3-seguridad-crítico">3. Seguridad (CRÍTICO)</a></li><li class="l3"><a href="#31-owasp-top-10---checklist-obligatorio">3.1 OWASP Top 10 - Checklist Obligatorio</a></li><li class="l3"><a href="#32-azure-key-vault-obligatorio">3.2 Azure Key Vault (OBLIGATORIO)</a></li><li class="l3"><a href="#33-autenticación-y-autorización">3.3 Autenticación y Autorización</a></li><li class="l3"><a href="#34-validación-de-inputs">3.4 Validación de Inputs</a></li><li class="l2"><a href="#4-infraestructura-balanceada-crítico">4. Infraestructura Balanceada (CRÍTICO)</a></li><li class="l3"><a href="#41-principio-fundamental">4.1 Principio Fundamental</a></li><li class="l3"><a href="#42-azure-blob-storage-obligatorio">4.2 Azure Blob Storage (OBLIGATORIO)</a></li><li class="l3"><a href="#43-redis---caché-distribuida-obligatorio">4.3 Redis - Caché Distribuida (OBLIGATORIO)</a></li><li class="l3"><a href="#44-tabla-resumen-no-hacer-vs-sí-hacer">4.4 Tabla Resumen: NO hacer vs SÍ hacer</a></li><li class="l2"><a href="#5-proyectos-legacy-webforms">5. Proyectos Legacy (WebForms)</a></li><li class="l3"><a href="#51-contexto">5.1 Contexto</a></li><li class="l3"><a href="#52-estudio-de-migración-obligatorio">5.2 Estudio de Migración (OBLIGATORIO)</a></li><li class="l3"><a href="#53-opciones-de-actuación">5.3 Opciones de Actuación</a></li><li class="l3"><a href="#54-documento-de-decisión">5.4 Documento de Decisión</a></li><li class="l2"><a href="#6-entorno-de-desarrollo">6. Entorno de Desarrollo</a></li><li class="l3"><a href="#61-docker-compose">6.1 Docker Compose</a></li><li class="l3"><a href="#62-archivos-de-configuración">6.2 Archivos de Configuración</a></li><li class="l2"><a href="#7-buenas-prácticas-de-código">7. Buenas Prácticas de Código</a></li><li class="l3"><a href="#71-obligatorias">7.1 Obligatorias</a></li><li class="l3"><a href="#72-convenciones-de-nombres">7.2 Convenciones de Nombres</a></li><li class="l3"><a href="#73-estructura-de-excepciones">7.3 Estructura de Excepciones</a></li><li class="l2"><a href="#8-control-de-versiones">8. Control de Versiones</a></li><li class="l3"><a href="#81-estrategia-de-ramas">8.1 Estrategia de Ramas</a></li><li class="l3"><a href="#82-convención-de-commits">8.2 Convención de Commits</a></li><li class="l3"><a href="#83-pull-requests">8.3 Pull Requests</a></li><li class="l2"><a href="#9-testing">9. Testing</a></li><li class="l3"><a href="#91-cobertura-mínima">9.1 Cobertura Mínima</a></li><li class="l3"><a href="#92-estructura-de-tests">9.2 Estructura de Tests</a></li><li class="l2"><a href="#10-logging-y-monitorización">10. Logging y Monitorización</a></li><li class="l3"><a href="#101-application-insights-obligatorio">10.1 Application Insights (Obligatorio)</a></li><li class="l3"><a href="#102-qué-loguear">10.2 Qué Loguear</a></li><li class="l3"><a href="#103-qué-no-loguear">10.3 Qué NO Loguear</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

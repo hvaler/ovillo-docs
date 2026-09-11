@@ -1,0 +1,135 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>session-checkpoint · Ovillo</title><meta name="description" content="Registrar metricas de sesion al cerrar"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="session-checkpoint · Ovillo"><meta property="og:description" content="Registrar metricas de sesion al cerrar"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/session-checkpoint.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/session-checkpoint.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/session-checkpoint.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html" class="cur">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>session-checkpoint</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>Stop[*]</span><span class="kind kind-ok">informa</span></div><h1>session-checkpoint</h1><p class="lede">Registrar metricas de sesion al cerrar</p><div class="meta-grid"><div><b><code>Stop</code></b><span>evento</span></div><div><b><code>*</code></b><span>matcher</span></div><div><b><span class="kind kind-ok">informa</span></b><span>política</span></div><div><b>1.0.0</b><span>versión</span></div><div><b>15 s</b><span>timeout</span></div><div><b>2026-09-07</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p>Registra en _hilo/METRICAS.json (SIEMPRE via writeHiloJson - FB-004: atomico, UTF-8 sin BOM, serializador unico): - Fecha y duracion de sesion - Skills invocados (detectados por archivos modificados en .claude/skills/) - Archivos modificados - Commits realizados Git read-only con GIT_OPTIONAL_LOCKS=0 (v1.0.1: evitar colisiones index.lock con IDE).</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>0</code></td><td>siempre (no bloquea cierre)</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>Informa: nunca bloquea.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>session-checkpoint.js · 135 líneas</summary><pre data-lang="javascript"><code>#!/usr/bin/env node
+<span class="tk-c">// session-checkpoint.js - Registrar metricas de sesion al cerrar</span>
+<span class="tk-c">// Evento: Stop</span>
+<span class="tk-c">// Exit 0 = siempre (no bloquea cierre)</span>
+<span class="tk-c">// Version: 1.0.0</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Registra en _hilo/METRICAS.json (SIEMPRE via writeHiloJson - FB-004: atomico,</span>
+<span class="tk-c">// UTF-8 sin BOM, serializador unico):</span>
+<span class="tk-c">// - Fecha y duracion de sesion</span>
+<span class="tk-c">// - Skills invocados (detectados por archivos modificados en .claude/skills/)</span>
+<span class="tk-c">// - Archivos modificados</span>
+<span class="tk-c">// - Commits realizados</span>
+<span class="tk-c">// Git read-only con GIT_OPTIONAL_LOCKS=0 (v1.0.1: evitar colisiones index.lock con IDE).</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> fs = <span class="tk-k">require</span>(<span class="tk-s">'fs'</span>);
+<span class="tk-k">const</span> path = <span class="tk-k">require</span>(<span class="tk-s">'path'</span>);
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(path.join(__dirname, <span class="tk-s">'lib'</span>, <span class="tk-s">'helpers'</span>));
+
+<span class="tk-k">function</span> pad2(n) {
+  <span class="tk-k">return</span> String(n).padStart(<span class="tk-n">2</span>, <span class="tk-s">'0'</span>);
+}
+
+<span class="tk-k">function</span> main() {
+  <span class="tk-k">const</span> projectDir = h.projectDir();
+  <span class="tk-k">const</span> duranDir = path.join(projectDir, <span class="tk-s">'_hilo'</span>);
+  <span class="tk-k">const</span> metricasFile = path.join(duranDir, <span class="tk-s">'METRICAS.json'</span>);
+
+  <span class="tk-c">// Crear archivo si no existe</span>
+  <span class="tk-k">if</span> (!fs.existsSync(metricasFile)) {
+    h.writeHiloJson({ version: <span class="tk-s">'1.0.0'</span>, sesiones: [] }, metricasFile); <span class="tk-c">// FB-004: UTF-8 sin BOM</span>
+  }
+
+  <span class="tk-c">// Leer metricas existentes</span>
+  <span class="tk-k">let</span> metricas = h.readJsonSafe(metricasFile);
+  <span class="tk-k">if</span> (!metricas || <span class="tk-k">typeof</span> metricas !== <span class="tk-s">'object'</span>) {
+    metricas = { version: <span class="tk-s">'1.0.0'</span>, sesiones: [] };
+  }
+
+  <span class="tk-c">// Recopilar datos de la sesion</span>
+  <span class="tk-k">const</span> now = <span class="tk-k">new</span> Date();
+  <span class="tk-k">const</span> fecha = <span class="tk-s">`${now.getFullYear()}-${pad2(now.getMonth() + 1)}-${pad2(now.getDate())}`</span>;
+  <span class="tk-k">const</span> ahora = <span class="tk-s">`${fecha} ${pad2(now.getHours())}:${pad2(now.getMinutes())}:${pad2(now.getSeconds())}`</span>;
+
+  <span class="tk-c">// Archivos modificados (git, read-only sin lock)</span>
+  <span class="tk-k">let</span> archivosModificados = [];
+  <span class="tk-k">const</span> st = h.gitReadOnly([<span class="tk-s">'status'</span>, <span class="tk-s">'--porcelain'</span>], projectDir);
+  <span class="tk-k">if</span> (st.exitCode === <span class="tk-n">0</span> &amp;&amp; st.stdOut &amp;&amp; st.stdOut.trim()) {
+    archivosModificados = st.stdOut
+      .split(/\r?\n/)
+      .filter((l) =&gt; l.trim())
+      .map((l) =&gt; l.substring(<span class="tk-n">3</span>).trim());
+  }
+
+  <span class="tk-c">// Commits de hoy (proxy de actividad)</span>
+  <span class="tk-k">let</span> commitsHoy = <span class="tk-n">0</span>;
+  <span class="tk-k">const</span> lg = h.gitReadOnly([<span class="tk-s">'log'</span>, <span class="tk-s">'--oneline'</span>, <span class="tk-s">`--since=${fecha}`</span>], projectDir);
+  <span class="tk-k">if</span> (lg.exitCode === <span class="tk-n">0</span> &amp;&amp; lg.stdOut &amp;&amp; lg.stdOut.trim()) {
+    commitsHoy = lg.stdOut.split(/\r?\n/).filter((l) =&gt; l.trim()).length;
+  }
+
+  <span class="tk-c">// Detectar skills que pudieron usarse (directorios tocados en las ultimas 4h)</span>
+  <span class="tk-k">let</span> skillsUsados = [];
+  <span class="tk-k">try</span> {
+    <span class="tk-k">const</span> skillsDir = path.join(projectDir, <span class="tk-s">'.claude'</span>, <span class="tk-s">'skills'</span>);
+    <span class="tk-k">if</span> (fs.existsSync(skillsDir)) {
+      <span class="tk-k">const</span> cutoff = Date.now() - <span class="tk-n">4</span> * <span class="tk-n">3600000</span>;
+      skillsUsados = fs
+        .readdirSync(skillsDir, { withFileTypes: <span class="tk-k">true</span> })
+        .filter((d) =&gt; d.isDirectory())
+        .filter((d) =&gt; {
+          <span class="tk-k">try</span> {
+            <span class="tk-k">return</span> fs.statSync(path.join(skillsDir, d.name)).mtimeMs &gt; cutoff;
+          } <span class="tk-k">catch</span> {
+            <span class="tk-k">return</span> <span class="tk-k">false</span>;
+          }
+        })
+        .map((d) =&gt; d.name);
+    }
+  } <span class="tk-k">catch</span> { <span class="tk-c">/* silencioso */</span> }
+
+  <span class="tk-c">// Detectar agents disponibles</span>
+  <span class="tk-k">let</span> agentsCount = <span class="tk-n">0</span>;
+  <span class="tk-k">try</span> {
+    <span class="tk-k">const</span> agentsDir = path.join(projectDir, <span class="tk-s">'.claude'</span>, <span class="tk-s">'agents'</span>);
+    <span class="tk-k">if</span> (fs.existsSync(agentsDir)) {
+      agentsCount = fs.readdirSync(agentsDir).filter((f) =&gt; f.toLowerCase().endsWith(<span class="tk-s">'.md'</span>)).length;
+    }
+  } <span class="tk-k">catch</span> { <span class="tk-c">/* silencioso */</span> }
+
+  <span class="tk-c">// Detectar estado proyecto</span>
+  <span class="tk-k">let</span> modo = <span class="tk-s">'desconocido'</span>;
+  <span class="tk-k">let</span> version = <span class="tk-s">'0.0.0'</span>;
+  <span class="tk-k">const</span> estado = h.readJsonSafe(path.join(duranDir, <span class="tk-s">'ESTADO_PROYECTO.json'</span>));
+  <span class="tk-k">if</span> (estado &amp;&amp; estado.estado) {
+    modo = estado.estado.modo ?? <span class="tk-k">null</span>;
+    version = estado.estado.version_actual ?? <span class="tk-k">null</span>;
+  }
+
+  <span class="tk-c">// Construir registro de sesion</span>
+  <span class="tk-k">const</span> sesion = {
+    fecha: ahora,
+    archivosModificados: archivosModificados.length,
+    archivos: archivosModificados.length &lt;= <span class="tk-n">20</span> ? archivosModificados : archivosModificados.slice(<span class="tk-n">0</span>, <span class="tk-n">20</span>),
+    commitsHoy,
+    skillsTocados: skillsUsados,
+    agentsDisponibles: agentsCount,
+    modoProyecto: modo,
+    versionProyecto: version,
+  };
+
+  <span class="tk-c">// Anadir sesion (mantener ultimas 50)</span>
+  <span class="tk-k">if</span> (!Array.isArray(metricas.sesiones)) metricas.sesiones = [];
+  <span class="tk-k">let</span> sesiones = metricas.sesiones.concat([sesion]);
+  <span class="tk-k">if</span> (sesiones.length &gt; <span class="tk-n">50</span>) {
+    sesiones = sesiones.slice(sesiones.length - <span class="tk-n">50</span>);
+  }
+  metricas.sesiones = sesiones;
+
+  <span class="tk-c">// Guardar (FB-004: atomico, UTF-8 sin BOM)</span>
+  <span class="tk-k">try</span> {
+    h.writeHiloJson(metricas, metricasFile);
+  } <span class="tk-k">catch</span> { <span class="tk-c">/* silencioso */</span> }
+
+  <span class="tk-k">return</span> <span class="tk-n">0</span>;
+}
+
+<span class="tk-k">try</span> {
+  process.exit(main());
+} <span class="tk-k">catch</span> (e) {
+  console.error(<span class="tk-s">`[session-checkpoint] error no fatal: ${e.message}`</span>);
+  process.exit(<span class="tk-n">0</span>);
+}
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>2 cambios · 2026-09-07 → 2026-09-07. Último cambio: <em>feat!: Ovillo 1.0.0 — primera publicacion, sin genealogia; ADR-001..010; GitHub y modelos al dia</em>.</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/console.html">console</a></li><li><a href="../skills/estado.html">estado</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/session-checkpoint.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

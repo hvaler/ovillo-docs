@@ -1,0 +1,160 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guia de adopcion CI/CD — Fases 0, 1 y 2 · Ovillo</title><meta name="description" content="Guia de adopcion CI/CD — Fases 0, 1 y 2"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Guia de adopcion CI/CD — Fases 0, 1 y 2 · Ovillo"><meta property="og:description" content="Guia de adopcion CI/CD — Fases 0, 1 y 2"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/guia_fases_adopcion.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/guia_fases_adopcion.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/guia_fases_adopcion.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 08_CICD (9)</h4><ul class="sibs"><li><a href="../guias/auditar_pipeline.html">Auditar tu pipeline CI/CD (<code>cicd-pipeline-reviewer</code> · <code>github-actions-reviewer</code>)</a></li><li><a href="../guias/cicd-readme.html">08_CICD — Integracion Continua / Despliegue Continuo</a></li><li><a href="../guias/guia_completa_cicd.html">Guía completa de CI/CD Ovillo — los comandos <code>/cicd-*</code> y todas sus variantes</a></li><li><a href="../guias/guia_fases_adopcion.html" class="cur">Guia de adopcion CI/CD — Fases 0, 1 y 2</a></li><li><a href="../guias/guia_github_actions.html">Guía CI/CD con GitHub Actions — Fases 0, 1 y 2, comandos y seguridad</a></li><li><a href="../guias/permisos_cicd.html">Permisos e infraestructura CI/CD — PLANTILLA</a></li><li><a href="../guias/runbook_actualizar_pipeline.html">Runbook — Actualizar el pipeline tras un refresco de plantilla</a></li><li><a href="../guias/runbook_deploy_manual.html">Runbook deploy manual — Fase 0</a></li><li><a href="../guias/runbook_template.html">Runbook operacional CI/CD — <code>{{PROYECTO_NOMBRE}}</code></a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 08_CICD</span><span>Guia de adopcion CI/CD — Fases 0, 1 y 2</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 08_CICD</span><span>español</span></div><h1>Guia de adopcion CI/CD — Fases 0, 1 y 2</h1><div class="meta-grid"><div><b>8 min</b><span>lectura</span></div><div><b>1678</b><span>palabras</span></div><div><b>9</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>9</b><span>cambios</span></div></div><blockquote><p><strong>Audiencia</strong>: desarrolladores + jefes de proyecto. <strong>Propósito</strong>: elegir el nivel correcto de CI/CD para tu proyecto <strong>antes</strong> de invocar <code>/hv:cicd-init</code>. <strong>Origen</strong>: modelo de doble barrera Ovillo local + Pipeline remoto (ver <code>analisis-integracion-cicd.html</code> en el portal docs).</p></blockquote>
+<hr>
+<blockquote><p><strong>Repositorio en GitHub?</strong> Las fases son las mismas; lo que necesitas y lo que se genera cambia. Lee <a href="../guias/guia_github_actions.html"><code>GUIA_GITHUB_ACTIONS.md</code></a> (§ 2 y § 3) y usa esta guia para el modelo de fases.</p></blockquote>
+<section class="sec" id="sec-tldr--cual-elegir">
+<h3 id="tldr--cual-elegir">TL;DR — Cual elegir</h3>
+<div class="tbl"><table><thead><tr><th>Fase</th><th>Estado del proyecto</th><th>Esfuerzo inicial</th><th>Lo que ganas</th><th>Lo que NO obtienes</th></tr></thead><tbody><tr><td><strong>Fase 0</strong></td><td>Cero infraestructura Azure DevOps, deploy manual</td><td>0 horas (solo Ovillo local)</td><td><code>/hv:verify</code> 7 fases pre-push, recordatorios disciplina</td><td>Build remoto, CI verde/rojo, deploy automatico</td></tr><tr><td><strong>Fase 1</strong></td><td>Tienes acceso a Azure DevOps + agente de build online</td><td>~2 horas</td><td>Build validation branch policy, <code>dotnet build</code> + <code>dotnet test</code> en cada PR</td><td>Deploy automatico, rollback, gates manuales</td></tr><tr><td><strong>Fase 2</strong></td><td>Tienes el pool configurado + agentes <code>&lt;ENV&gt;_DEPLOY</code> + grupo aprobadores</td><td>~6 horas</td><td>Pipeline completo Build → DEV (auto) → DEMO (gate manual) → PROD (gate environment, 2 servers rolling, triple rollback)</td><td>— (este es el techo)</td></tr></tbody></table></div>
+<p><strong>Regla rapida</strong>: empieza por la fase mas baja que <strong>puedas mantener</strong>. Subir de fase es facil; bajar duele.</p>
+<hr>
+</section>
+<section class="sec" id="sec-fase-0--solo-ovillo-local">
+<h3 id="fase-0--solo-ovillo-local">Fase 0 — Solo Ovillo local</h3>
+<h4 id="cuando-aplica">Cuando aplica</h4>
+<ul>
+<li>Proyecto nuevo o sin pipeline previa.</li>
+<li>Sistemas de la organización aun no ha autorizado el pool configurado al proyecto.</li>
+<li>Equipo pequeno (1 dev) sin necesidad de validacion remota.</li>
+<li>Deploys puntuales (cada varias semanas), no diarios.</li>
+</ul>
+<h4 id="que-genera-hvcicd-init-en-fase-0">Que genera <code>/hv:cicd-init</code> en Fase 0</h4>
+<ol>
+<li><strong><code>RUNBOOK_DEPLOY_MANUAL.md</code></strong> adaptado al proyecto: RDP a server, copy DLLs, recycle app pool, smoke manual.</li>
+<li><strong>Recordatorios pre-push</strong> en <code>_hilo/CLAUDE.md</code> (sección &quot;Pre-commit&quot;): obliga a ejecutar <code>/hv:verify</code> antes de cada <code>git push</code>.</li>
+<li><strong>Entrada en <code>_hilo/ESTADO_PROYECTO.json.infraestructura.cicd[]</code></strong> con <code>{ fase: 0, ... }</code>.</li>
+</ol>
+<h4 id="que-no-genera">Que NO genera</h4>
+<ul>
+<li>❌ <code>azure-pipelines.yml</code> (no hay pipeline)</li>
+<li>❌ Llamada a Hub MCP (<code>register_pipeline</code> omitida)</li>
+<li>❌ Agentes ni grupos Azure DevOps</li>
+</ul>
+<h4 id="como-promocionar-a-fase-1">Como promocionar a Fase 1</h4>
+<p>Cuando el equipo de infraestructura autorice el pool configurado al proyecto + agente de build (<code>cicd.buildAgent</code>) disponible:</p>
+<pre><code>claude /cicd-init  # detecta Fase 0 + reescribe a Fase 1 (modo edicion FASE 0.5 idempotente)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-fase-1--build-validation-branch-policy">
+<h3 id="fase-1--build-validation-branch-policy">Fase 1 — Build validation branch policy</h3>
+<h4 id="cuando-aplica-2">Cuando aplica</h4>
+<ul>
+<li>Tienes acceso a Azure DevOps + el pool configurado autorizado.</li>
+<li>Agente de build (<code>cicd.buildAgent</code>) online (el equipo de infraestructura confirma).</li>
+<li>Quieres <strong>bloquear merges con build/tests rojos</strong> pero el deploy sigue manual.</li>
+<li>Equipo de 2+ devs (PRs requieren protección).</li>
+</ul>
+<h4 id="que-genera-hvcicd-init-en-fase-1">Que genera <code>/hv:cicd-init</code> en Fase 1</h4>
+<ol>
+<li><strong><code>azure-pipelines.yml</code> minimal</strong>: stage unico <code>Build</code> con <code>dotnet restore</code>/<code>build</code>/<code>test</code> y <code>dotnet publish</code> → artefacto <code>drop</code>. Sin CD, sin Deployment Groups.</li>
+<li><strong>Registro pipeline en Azure DevOps</strong> vía <code>_apis/build/definitions</code> (FASE 2.5 del comando).</li>
+<li><strong>Branch policy de build validation</strong> sugerida (manual via la UI de Azure DevOps o <code>_apis/policy/configurations</code>).</li>
+<li><strong>Registro en Hub MCP</strong>: tool <code>register_pipeline</code> con <code>fase=1</code>.</li>
+<li><strong>Entrada en <code>_hilo/ESTADO_PROYECTO.json.infraestructura.cicd[]</code></strong> con <code>{ fase: 1, pipelineId, url, stages: ['Build'] }</code>.</li>
+</ol>
+<h4 id="que-no-genera-2">Que NO genera</h4>
+<ul>
+<li>❌ Stages DeployDev/Demo/Prod</li>
+<li>❌ Variable Groups para secretos</li>
+<li>❌ Backup/rollback automatico</li>
+<li>❌ Runbook (deploy manual desde el artefacto)</li>
+</ul>
+<h4 id="como-promocionar-a-fase-2">Como promocionar a Fase 2</h4>
+<p>Cuando el equipo de infraestructura instale agentes <code>&lt;SERVER&gt;_DEPLOY</code> con capability <code>DeployTarget=&lt;env&gt;-&lt;app|svc&gt;</code> (R1/R25: un agente por entorno×tipo — Aplicaciones y Servicios; ver <code>PERMISOS_CICD.md</code> §3) en cada server destino:</p>
+<pre><code>claude /cicd-init  # detecta Fase 1 + reescribe a Fase 2 anadiendo stages CD (modo edicion FASE 0.5)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-fase-2--pipeline-completo-cd">
+<h3 id="fase-2--pipeline-completo-cd">Fase 2 — Pipeline completo CD</h3>
+<h4 id="cuando-aplica-3">Cuando aplica</h4>
+<ul>
+<li>Tienes Fase 1 funcionando estable &gt;= 4 semanas.</li>
+<li>el equipo de infraestructura confirma agentes online en DEV, DEMO y PROD (cada server con su agente <code>&lt;SERVER&gt;_DEPLOY</code>).</li>
+<li>Grupo Azure DevOps de aprobadores creado y poblado (≥2 miembros para PROD).</li>
+<li>Stack soportado: .NET ASP.NET Core (in-process) o Vue 3 + Vite + TS (SPA estatica).</li>
+</ul>
+<h4 id="que-genera-hvcicd-init-en-fase-2">Que genera <code>/hv:cicd-init</code> en Fase 2</h4>
+<ol>
+<li><strong><code>azure-pipelines.yml</code> completo</strong>: stages Build → DeployDev (auto) → DeployDemo (gate <code>ManualValidation@0</code>) → DeployProd (Environment + group approval + 2 servers rolling).</li>
+<li><strong>Triple rollback PROD</strong>: backup pre-deploy + <code>MSDeploy enableRule:DoNotDeleteRule</code> + <code>condition: failed()</code> step de restauracion.</li>
+<li><strong>Variable Group <code>&lt;PIPELINE_NAME&gt;-secrets</code></strong> creado vía <code>_apis/distributedtask/variablegroups</code> con fail-fast pre-build (valida que los secretos tienen valor).</li>
+<li><strong>Retention rules</strong>: master 30d/5 builds, otras 7d/1 build.</li>
+<li><strong>Coverage gate</strong>: avisa (WARN-first) o bloquea si la cobertura de lineas/branches baja del umbral (<code>coverage-gate.ps1</code>, script propio; <code>-Mode block</code> para bloquear; no calcula CRAP).</li>
+<li><strong><code>RUNBOOK.md</code></strong> del proyecto: 6 secciones (build falla / deploy DEMO falla / deploy PROD falla / app caida tras deploy verde / contactos / backups), ≤1 pagina cada una.</li>
+<li><strong>Registro Hub MCP</strong>: tool <code>register_pipeline</code> con <code>fase=2</code>.</li>
+</ol>
+<h4 id="limitaciones-a-respetar">Limitaciones a respetar</h4>
+<p>Antes de editar el YAML manualmente, comprueba las restricciones de tu plataforma (<code>cicd.platform</code> + <code>cicd.variant</code>). En la variante <code>server-2020</code> aplican:</p>
+<ul>
+<li>❌ NUNCA <code>Cache@2</code> (servicio Pipeline Caching no existe en Azure DevOps Server 2020)</li>
+<li>❌ NUNCA <code>IISWebAppDeployment@1</code> (preview deprecada) → usar <code>IISWebAppDeploymentOnMachineGroup@0</code></li>
+<li>❌ NUNCA <code>deploymentGroup:</code> keyword (schema rechaza)</li>
+<li>❌ NUNCA <code>DownloadBuildArtifacts@0</code> / <code>DownloadPipelineArtifact@2</code> (bug SSL Node.js contra <code>devops.example.org</code>) → usar REST API + PowerShell</li>
+<li>❌ NUNCA TLS 1.0/1.1 en scripts PowerShell (PS 5.1 default es 1.0; forzar 1.2+)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-tabla-resumen--que-necesitas-para-cada-fase">
+<h3 id="tabla-resumen--que-necesitas-para-cada-fase">Tabla resumen — Que necesitas para cada fase</h3>
+<div class="tbl"><table><thead><tr><th>Requisito</th><th>Fase 0</th><th>Fase 1</th><th>Fase 2</th></tr></thead><tbody><tr><td><code>_hilo/ESTADO_PROYECTO.json</code> configurado</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><code>/hv:verify</code> ejecutado pre-push</td><td>✅ recomendado</td><td>✅ obligatorio</td><td>✅ obligatorio</td></tr><tr><td>Acceso Azure DevOps (proyecto + repo)</td><td>❌ no necesario</td><td>✅ obligatorio</td><td>✅ obligatorio</td></tr><tr><td>Pool configurado (<code>cicd.buildPool</code>) autorizado al proyecto</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Agente de build online</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Agente <code>&lt;SERVER&gt;_DEPLOY</code> por entorno</td><td>❌</td><td>❌</td><td>✅ (uno por DEV/DEMO/PROD)</td></tr><tr><td>Grupo de aprobadores en Azure DevOps (&gt;=2)</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Variable Group de secretos</td><td>❌</td><td>❌</td><td>✅ (si hay secrets)</td></tr><tr><td>Health endpoints (<code>/health/live</code>, <code>/ready</code>)</td><td>opcional</td><td>opcional</td><td>recomendado (smoke estricto .NET)</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-y-en-github-actions">
+<h3 id="y-en-github-actions">Y en GitHub Actions</h3>
+<div class="tbl"><table><thead><tr><th>Necesitas en Azure DevOps</th><th>Equivalente en GitHub</th></tr></thead><tbody><tr><td>Pool <code>{{BUILD_POOL}}</code> autorizado + agente de build (<code>cicd.buildAgent</code>)</td><td>Runner hosted (<code>ubuntu-latest</code>) o self-hosted; nada que autorizar</td></tr><tr><td>Agentes <code>&lt;ENV&gt;_DEPLOY</code> con <code>DeployTarget</code></td><td>OIDC hacia la nube (<code>id-token: write</code>) o runner self-hosted con acceso al destino</td></tr><tr><td>Grupo de aprobadores (≥2)</td><td><em>Required reviewers</em> del environment <code>pro</code> (repos públicos o plan Team/Enterprise)</td></tr><tr><td>Variable Group de secretos</td><td>Secrets de environment/repositorio (<code>gh secret set --env</code>)</td></tr><tr><td>Build validation branch policy</td><td>Ruleset con checks <code>Build</code>/<code>Security</code> + merge queue (<code>git-best-practices</code>)</td></tr><tr><td>Registro de la definición (FASE 2.5)</td><td>No existe: el workflow vale por estar en <code>.github/workflows/</code></td></tr></tbody></table></div>
+<p>Detalle, comandos y seguridad opt-in: <code>GUIA_GITHUB_ACTIONS.md</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patrones-lo-que-no-hacer">
+<h3 id="anti-patrones-lo-que-no-hacer">Anti-patrones (lo que NO hacer)</h3>
+<ul>
+<li>❌ <strong>Saltar de Fase 0 a Fase 2 directamente</strong>: el modo edicion FASE 0.5 del comando lo permite, pero perderse la fase intermedia significa que el primer fallo PROD sera catastrofico (sin practica con Fase 1).</li>
+<li>❌ <strong>Pedir Fase 2 sin tener agentes <code>&lt;ENV&gt;_DEPLOY</code></strong>: el wizard lo detectara en FASE 0.4 pre-flight y abortara con mensaje claro.</li>
+<li>❌ <strong>Tratar Fase 0 como &quot;no se hace CI/CD&quot;</strong>: Fase 0 SI es CI/CD — la primera barrera (Ovillo local con <code>/hv:verify</code> 7 fases) es lo que evita bugs reales en deploys manuales.</li>
+<li>❌ <strong>Editar <code>azure-pipelines.yml</code> ignorando G1-G19</strong>: el agent <code>cicd-pipeline-reviewer</code> te avisara, pero la disciplina humana es mas barata.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-cuando-dudes">
+<h3 id="cuando-dudes">Cuando dudes</h3>
+<p>Sigue este arbol:</p>
+<pre><code>¿Tienes acceso a Azure DevOps y el pool configurado autorizado?
+├── NO  → Fase 0
+└── SI  → ¿Tienes agentes &lt;ENV&gt;_DEPLOY online en todos los servers destino?
+         ├── NO  → Fase 1
+         └── SI  → ¿Existe grupo aprobadores de Azure DevOps con ≥2 miembros?
+                  ├── NO  → Fase 1 (y crear grupo en paralelo)
+                  └── SI  → Fase 2</code></pre>
+<p>Si no estas seguro, <strong>empieza por Fase 0</strong> y promociona cuando este claro el siguiente paso. El comando <code>/hv:cicd-init</code> es idempotente — re-invocarlo en modo edicion no rompe nada.</p>
+<hr>
+</section>
+<section class="sec" id="sec-actualizar-el-pipeline-tras-nuevas-versiones-de-ovillo">
+<h3 id="actualizar-el-pipeline-tras-nuevas-versiones-de-ovillo">Actualizar el pipeline tras nuevas versiones de Ovillo</h3>
+<p>Hay <strong>dos capas</strong> y actualizar una NO actualiza la otra:</p>
+<div class="tbl"><table><thead><tr><th>Capa</th><th>Que es</th><th>Como se actualiza</th></tr></thead><tbody><tr><td><strong>Plantilla Ovillo</strong> (<code>.claude/</code>)</td><td>Las <em>herramientas</em>: comandos, reglas, skill <code>cicd-architect</code>, agent <code>cicd-pipeline-reviewer</code>, hooks, templates</td><td>`irm &lt;distribution.baseUrl&gt;/install.ps1 \</td><td>iex`</td></tr><tr><td><strong>Tu <code>azure-pipelines.yml</code></strong></td><td>El <em>artefacto</em> generado: vive en tu repo y corre en Azure DevOps</td><td><code>/hv:cicd-init</code> (re-ejecutado) o edicion manual</td></tr></tbody></table></div>
+<blockquote><p><strong>Clave</strong>: <code>irm</code> actualiza las herramientas, pero <strong>nunca toca tu YAML</strong>. El pipeline es tuyo; las mejoras de reglas no se imponen sobre el sin que tu lo decidas.</p></blockquote>
+<h4 id="comando-vs-skill-vs-agent--como-invocar-cada-cosa">Comando vs skill vs agent — como invocar cada cosa</h4>
+<ul>
+<li><strong>Comandos</strong> (<code>/hv:cicd-init</code>, <code>/hv:cicd-status</code>, <code>/hv:cicd-deploy</code>, <code>/hv:cicd-release</code>): se escriben con <code>/</code>.</li>
+<li><strong>Skill <code>cicd-architect</code></strong>: auto-invocacion (se activa solo al editar <code>azure-pipelines.yml</code>).</li>
+<li><strong>Agent <code>cicd-pipeline-reviewer</code></strong>: NO es un <code>/comando</code> (por eso no lo ves en la lista de slash commands). Se lo <strong>pides a Claude</strong> — ej. <em>&quot;audita mi azure-pipelines.yml con el agent cicd-pipeline-reviewer&quot;</em> o <em>&quot;revisa mi pipeline y dame un reporte de severidad&quot;</em> — y lo lanza como subagente.</li>
+</ul>
+<h4 id="flujo-recomendado-al-actualizar">Flujo recomendado al actualizar</h4>
+<ol>
+<li><strong>Actualiza la plantilla</strong>: <code>irm … | iex</code> (trae reglas/templates nuevos).</li>
+<li><strong>Audita tu YAML</strong> contra las reglas vigentes: pide a Claude que pase el agent <code>cicd-pipeline-reviewer</code>. Te da el &quot;diff de conformidad&quot; (que reglas nuevas no cumple tu pipeline). Si sale limpio, <strong>no hay nada que hacer</strong>.</li>
+<li><strong>Si hay hallazgos que quieres aplicar</strong>: re-ejecuta <code>/hv:cicd-init</code>. Su FASE 0.5 (modo edicion, regla R14 idempotencia):</li>
+<ul>
+<li>hace <strong>backup</strong> automatico (<code>.azure-pipelines.bak.&lt;fecha&gt;.yml</code>),</li>
+<li>muestra el <strong>diff</strong> antes de tocar nada,</li>
+<li>ofrece <strong>5 opciones</strong>: anadir stage / modificar stage / regenerar docs / actualizar YAML completo / salir,</li>
+<li><strong>preserva</strong> tus bloques <code># CUSTOM: ... # /CUSTOM</code> y variables propias.</li>
+</ul>
+<li><strong>Commit + push</strong> del YAML en tu repo → el push dispara el build y valida que sigue verde. La definicion en Azure DevOps <strong>no</strong> se re-registra (ya existe).</li>
+<li><strong>Cambio de fase</strong> (0→1→2): el mismo <code>/hv:cicd-init</code> anade los stages nuevos (Deploy on-demand con <code>DeployEnv</code> R20, gate de seguridad R22, rollback…).</li>
+</ol>
+<h4 id="que-obliga-a-tocar-el-yaml-y-que-no">Que obliga a tocar el YAML (y que no)</h4>
+<div class="tbl"><table><thead><tr><th>Tipo de mejora en Ovillo</th><th>¿Tocar el YAML?</th></tr></thead><tbody><tr><td>Solo auditoria (el reviewer detecta mas cosas)</td><td>No, salvo que quieras corregir un hallazgo</td></tr><tr><td>Cambio en el template (nuevo paso canonico)</td><td><code>/hv:cicd-init</code> opcion &quot;actualizar YAML&quot; lo incorpora (preservando tus customs)</td></tr><tr><td>Nueva fase / CD</td><td><code>/hv:cicd-init</code> anade stages</td></tr><tr><td>Cambios solo en hooks / comandos / skill</td><td>No afecta al YAML</td></tr></tbody></table></div>
+<blockquote><p><strong>Garantia</strong>: re-ejecutar <code>/hv:cicd-init</code> <strong>nunca pisa tu trabajo</strong> (backup + diff + confirmacion + preserva <code># CUSTOM</code>). Es seguro hacerlo en cada actualizacion para re-sincronizar el pipeline con las reglas vigentes.</p></blockquote>
+<p><strong>Ejemplo (proyecto en Fase 1 que solo refresca herramientas)</strong>: si las novedades de la version son de Fase 2 (deploy) o de otro stack, tu YAML Fase 1 <strong>no necesita cambios</strong> — basta <code>irm … | iex</code>. Solo re-ejecutas <code>/hv:cicd-init</code> cuando quieras <strong>promocionar de fase</strong> o aplicar un <strong>cambio de template</strong>.</p>
+<hr>
+<p><em>Documento generado por Ovillo — Integracion CI/CD. Seccion &quot;Actualizar el pipeline&quot; anadida 2026-06-02.</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/08_CICD/GUIA_FASES_ADOPCION.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/cicd-architect.html">cicd-architect</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../agents/cicd-pipeline-reviewer.html">cicd-pipeline-reviewer</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/git-best-practices.html">git-best-practices</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/verify.html">verify</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/guia_completa_cicd.html"><small>Anterior</small>Guía completa de CI/CD Ovillo — los comandos <code>/cicd-*</code> y todas sus variantes</a><a class="next" href="../guias/guia_github_actions.html"><small>Siguiente</small>Guía CI/CD con GitHub Actions — Fases 0, 1 y 2, comandos y seguridad</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/08_CICD/GUIA_FASES_ADOPCION.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#tldr--cual-elegir">TL;DR — Cual elegir</a></li><li class="l2"><a href="#fase-0--solo-ovillo-local">Fase 0 — Solo Ovillo local</a></li><li class="l3"><a href="#cuando-aplica">Cuando aplica</a></li><li class="l3"><a href="#que-genera-hvcicd-init-en-fase-0">Que genera /hv:cicd-init en Fase 0</a></li><li class="l3"><a href="#que-no-genera">Que NO genera</a></li><li class="l3"><a href="#como-promocionar-a-fase-1">Como promocionar a Fase 1</a></li><li class="l2"><a href="#fase-1--build-validation-branch-policy">Fase 1 — Build validation branch policy</a></li><li class="l3"><a href="#cuando-aplica-2">Cuando aplica</a></li><li class="l3"><a href="#que-genera-hvcicd-init-en-fase-1">Que genera /hv:cicd-init en Fase 1</a></li><li class="l3"><a href="#que-no-genera-2">Que NO genera</a></li><li class="l3"><a href="#como-promocionar-a-fase-2">Como promocionar a Fase 2</a></li><li class="l2"><a href="#fase-2--pipeline-completo-cd">Fase 2 — Pipeline completo CD</a></li><li class="l3"><a href="#cuando-aplica-3">Cuando aplica</a></li><li class="l3"><a href="#que-genera-hvcicd-init-en-fase-2">Que genera /hv:cicd-init en Fase 2</a></li><li class="l3"><a href="#limitaciones-a-respetar">Limitaciones a respetar</a></li><li class="l2"><a href="#tabla-resumen--que-necesitas-para-cada-fase">Tabla resumen — Que necesitas para cada fase</a></li><li class="l2"><a href="#y-en-github-actions">Y en GitHub Actions</a></li><li class="l2"><a href="#anti-patrones-lo-que-no-hacer">Anti-patrones (lo que NO hacer)</a></li><li class="l2"><a href="#cuando-dudes">Cuando dudes</a></li><li class="l2"><a href="#actualizar-el-pipeline-tras-nuevas-versiones-de-ovillo">Actualizar el pipeline tras nuevas versiones de Ovillo</a></li><li class="l3"><a href="#comando-vs-skill-vs-agent--como-invocar-cada-cosa">Comando vs skill vs agent — como invocar cada cosa</a></li><li class="l3"><a href="#flujo-recomendado-al-actualizar">Flujo recomendado al actualizar</a></li><li class="l3"><a href="#que-obliga-a-tocar-el-yaml-y-que-no">Que obliga a tocar el YAML (y que no)</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

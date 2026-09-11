@@ -1,0 +1,134 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>antipattern-guard · Ovillo</title><meta name="description" content="Detectar anti-patrones .NET en archivos staged"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="antipattern-guard · Ovillo"><meta property="og:description" content="Detectar anti-patrones .NET en archivos staged"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/hooks/antipattern-guard.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/hooks/antipattern-guard.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="hooks/antipattern-guard.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html" class="cur">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>hooks (22)</h4><ul class="sibs"><li><a href="../hooks/agent-telemetry.html">agent-telemetry</a></li><li><a href="../hooks/antipattern-guard.html" class="cur">antipattern-guard</a></li><li><a href="../hooks/auth-config-guard.html">auth-config-guard</a></li><li><a href="../hooks/auto-format.html">auto-format</a></li><li><a href="../hooks/banner.html">banner</a></li><li><a href="../hooks/bash-guard.html">bash-guard</a></li><li><a href="../hooks/cert-expiry-reminder.html">cert-expiry-reminder</a></li><li><a href="../hooks/hilo-checkpoint.html">hilo-checkpoint</a></li><li><a href="../hooks/hilo-freshness.html">hilo-freshness</a></li><li><a href="../hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="../hooks/mcp-check.html">mcp-check</a></li><li><a href="../hooks/multi-rol-coordination.html">multi-rol-coordination</a></li><li><a href="../hooks/post-build-check.html">post-build-check</a></li><li><a href="../hooks/pre-cicd-init.html">pre-cicd-init</a></li><li><a href="../hooks/protect-files.html">protect-files</a></li><li><a href="../hooks/quality-alert.html">quality-alert</a></li><li><a href="../hooks/secret-scanner.html">secret-scanner</a></li><li><a href="../hooks/session-checkpoint.html">session-checkpoint</a></li><li><a href="../hooks/skill-guard.html">skill-guard</a></li><li><a href="../hooks/sql-injection-guard.html">sql-injection-guard</a></li><li><a href="../hooks/sql-nomenclatura-guard.html">sql-nomenclatura-guard</a></li><li><a href="../hooks/token-validation-guard.html">token-validation-guard</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../hooks.html">Hooks</a></span><span>antipattern-guard</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>hook</span><span>PreToolUse[Bash]</span><span class="kind kind-workflow">configurable</span></div><h1>antipattern-guard</h1><p class="lede">Detectar anti-patrones .NET en archivos staged</p><div class="meta-grid"><div><b><code>PreToolUse</code></b><span>evento</span></div><div><b><code>Bash</code></b><span>matcher</span></div><div><b><span class="kind kind-workflow">configurable</span></b><span>política</span></div><div><b>1.0.0</b><span>versión</span></div><div><b>15 s</b><span>timeout</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-que"><h2 id="que">Qué comprueba</h2><p class="muted">La cabecera del fichero no describe el comportamiento (la higiene de fuentes lo señala).</p></section><section class="sec" id="sec-salidas"><h2 id="salidas">Códigos de salida</h2><div class="tbl"><table><thead><tr><th>Exit</th><th>Significado</th></tr></thead><tbody><tr><td><code>1</code></td><td>AVISO informativo (no bloquea commit)</td></tr><tr><td><code>0</code></td><td>sin hallazgos</td></tr></tbody></table></div></section><section class="sec" id="sec-politica"><h2 id="politica">Política</h2><p>WARN-first: avisa (exit 1) por defecto y bloquea (exit 2) solo si la organización lo pone en <code>hooks.blockList</code> o sube <code>hooks.policy</code> a <code>block</code>.</p><div class="tbl"><table><thead><tr><th>Clave</th><th>Tipo</th><th>Default</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>hooks.policy</code></td><td>string</td><td><code>&quot;warn&quot;</code></td><td>WARN-first por defecto (avisan sin bloquear); 'block' eleva todos los hooks defensivos a bloqueo. Los hooks intrinsecamente BLOCK (bash-guard, protect-files certs/keys, hilo-json-guard) no se degradan nunca.</td></tr><tr><td><code>hooks.blockList</code></td><td>array</td><td><code>[]</code></td><td>Hooks concretos elevados a BLOCK aunque policy=warn (ej. ['secret-scanner']).</td></tr></tbody></table></div></section><section class="sec" id="sec-codigo"><h2 id="codigo">Código fuente</h2><details><summary>antipattern-guard.js · 134 líneas</summary><pre data-lang="javascript"><code><span class="tk-c">// antipattern-guard.js - Detectar anti-patrones .NET en archivos staged</span>
+<span class="tk-c">// Evento: PreToolUse[Bash] (cuando el comando es git commit)</span>
+<span class="tk-c">// Exit 1 = AVISO informativo (no bloquea commit), Exit 0 = sin hallazgos.</span>
+<span class="tk-c">// Version: 1.0.0</span>
+<span class="tk-c">// Historial del original (condensado):</span>
+<span class="tk-c">//   v2.0.0: politica WARN-first — todos los ERROR pasan a AVISO/exit 1; mensajes via</span>
+<span class="tk-c">//     stderr (Write-Host no surfaceaba en Claude Code); escanea contenido COMPLETO de staged, no solo diff.</span>
+<span class="tk-c">//   v1.0.1: GIT_OPTIONAL_LOCKS=0 (colisiones index.lock con IDE). v1.0.0: 7 antipatrones .NET.</span>
+<span class="tk-c">// Detecta: DateTime.Now, new HttpClient(), async void, .Result, sync-over-async,</span>
+<span class="tk-c">//          catch generico, string interpolation en logs, connection strings hardcoded.</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Politica: WARN-first configurable — resolvePolicy(cfg, 'antipattern-guard');</span>
+<span class="tk-c">// exit 2 (prefijo BLOQUEADO) solo si hooks.policy='block' o hooks.blockList lo incluye.</span>
+
+<span class="tk-s">'use strict'</span>;
+
+<span class="tk-k">const</span> fs = <span class="tk-k">require</span>(<span class="tk-s">'fs'</span>);
+<span class="tk-k">const</span> h = <span class="tk-k">require</span>(<span class="tk-s">'./lib/helpers'</span>);
+<span class="tk-k">const</span> config = <span class="tk-k">require</span>(<span class="tk-s">'./lib/config'</span>);
+
+<span class="tk-k">try</span> {
+  <span class="tk-k">const</span> hookData = h.readHookInput();
+  <span class="tk-k">const</span> command = h.getToolInput(hookData);
+  <span class="tk-k">if</span> (!command) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-c">// Solo actuar cuando el comando es git commit</span>
+  <span class="tk-k">if</span> (!/git\s+commit/i.test(command)) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-c">// Obtener archivos .cs en staging (GIT_OPTIONAL_LOCKS=0 via gitReadOnly: sin lock,</span>
+  <span class="tk-c">// no colisiona con VS Code/IDE)</span>
+  <span class="tk-k">const</span> diff = h.gitReadOnly([<span class="tk-s">'diff'</span>, <span class="tk-s">'--cached'</span>, <span class="tk-s">'--name-only'</span>, <span class="tk-s">'--diff-filter=ACM'</span>]);
+  <span class="tk-k">if</span> (diff.exitCode !== <span class="tk-n">0</span>) process.exit(<span class="tk-n">0</span>);
+  <span class="tk-k">const</span> stagedFiles = diff.stdOut.split(/\r?\n/).filter(Boolean).filter((f) =&gt; /\.cs$/i.test(f));
+
+  <span class="tk-k">if</span> (stagedFiles.length === <span class="tk-n">0</span>) process.exit(<span class="tk-n">0</span>);
+
+  <span class="tk-k">const</span> mode = config.resolvePolicy(config.load(), <span class="tk-s">'antipattern-guard'</span>); <span class="tk-c">// WARN-first (default 'warn')</span>
+  <span class="tk-k">const</span> prefijo = mode === <span class="tk-s">'block'</span> ? <span class="tk-s">'BLOQUEADO'</span> : <span class="tk-s">'AVISO'</span>;
+
+  <span class="tk-c">// Helper: emitir aviso por stderr (visible para Claude Code)</span>
+  <span class="tk-k">const</span> aviso = (msg) =&gt; console.error(msg);
+
+  aviso(<span class="tk-s">`Verificando ${stagedFiles.length} archivo(s) C# en staging...`</span>);
+
+  <span class="tk-k">let</span> warnings = <span class="tk-n">0</span>;
+
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> file <span class="tk-k">of</span> stagedFiles) {
+    <span class="tk-k">if</span> (!fs.existsSync(file)) <span class="tk-k">continue</span>;
+    <span class="tk-k">let</span> content = <span class="tk-k">null</span>;
+    <span class="tk-k">try</span> {
+      content = fs.readFileSync(file, <span class="tk-s">'utf8'</span>);
+    } <span class="tk-k">catch</span> {
+      <span class="tk-k">continue</span>;
+    }
+    <span class="tk-k">if</span> (!content) <span class="tk-k">continue</span>;
+    <span class="tk-k">const</span> lines = content.split(/\r?\n/);
+
+    <span class="tk-k">let</span> lineNum = <span class="tk-n">0</span>;
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> line <span class="tk-k">of</span> lines) {
+      lineNum++;
+
+      <span class="tk-c">// AP001: async void (excepto event handlers)</span>
+      <span class="tk-k">if</span> (/<span class="tk-k">async</span>\s+<span class="tk-k">void</span>/i.test(line) &amp;&amp; !/EventArgs/i.test(line)) {
+        aviso(<span class="tk-s">`${prefijo} ${file}:${lineNum} - async void detectado. Recomendado: async Task.`</span>);
+        warnings++;
+      }
+
+      <span class="tk-c">// AP002: .Result o .GetAwaiter().GetResult() (sync-over-async)</span>
+      <span class="tk-k">if</span> (/\.Result\b/i.test(line) || /\.GetAwaiter\(\)\.GetResult\(\)/i.test(line)) {
+        aviso(<span class="tk-s">`${prefijo} ${file}:${lineNum} - sync-over-async (.Result / .GetAwaiter().GetResult())`</span>);
+        warnings++;
+      }
+
+      <span class="tk-c">// AP003: new HttpClient() (socket exhaustion)</span>
+      <span class="tk-k">if</span> (/<span class="tk-k">new</span>\s+HttpClient\s*\(/i.test(line)) {
+        aviso(<span class="tk-s">`${prefijo} ${file}:${lineNum} - new HttpClient(). Recomendado: IHttpClientFactory.`</span>);
+        warnings++;
+      }
+
+      <span class="tk-c">// AP004: DateTime.Now / DateTime.UtcNow (untestable)</span>
+      <span class="tk-k">if</span> (/DateTime\.(Now|UtcNow)/i.test(line)) {
+        aviso(<span class="tk-s">`${prefijo} ${file}:${lineNum} - DateTime.Now/UtcNow. Recomendado: TimeProvider.`</span>);
+        warnings++;
+      }
+
+      <span class="tk-c">// AP005: catch(Exception) broad catch</span>
+      <span class="tk-k">if</span> (/<span class="tk-k">catch</span>\s*\(\s*Exception\s*\)/i.test(line) || /<span class="tk-k">catch</span>\s*\(\s*Exception\s+\w+\s*\)/i.test(line)) {
+        aviso(<span class="tk-s">`${prefijo} ${file}:${lineNum} - catch(Exception) generico. Recomendado: capturar excepciones especificas.`</span>);
+        warnings++;
+      }
+
+      <span class="tk-c">// AP006: String interpolation en logging</span>
+      <span class="tk-k">if</span> (/Log(Information|Warning|Error|Debug|Critical)\s*\(\s*\$&quot;/i.test(line)) {
+        aviso(<span class="tk-s">`${prefijo} ${file}:${lineNum} - Interpolacion en log. Recomendado: template &quot;Msg {Param}&quot;, value`</span>);
+        warnings++;
+      }
+
+      <span class="tk-c">// AP007 (ADR-024): captura de datos sensibles en telemetria/logging sin guarda de entorno</span>
+      <span class="tk-k">if</span> (/(SetDbStatementForText|SetDbStatementForStoredProcedure|EnableSensitiveDataLogging)\s*=?\s*\(?\s*<span class="tk-k">true</span>/i.test(line)) {
+        aviso(<span class="tk-s">`${prefijo} ${file}:${lineNum} - ${line.trim().slice(0, 60)} captura SQL o datos sensibles siempre. Recomendado: builder.Environment.IsDevelopment().`</span>);
+        warnings++;
+      }
+
+      <span class="tk-c">// COMILLAS: Connection string hardcoded</span>
+      <span class="tk-k">if</span> (/(Server|Data Source|Initial Catalog|Password)\s*=/i.test(line) &amp;&amp;
+          !/(appsettings|configuration|IOptions|GetConnectionString)/i.test(line)) {
+        <span class="tk-k">if</span> (/<span class="tk-s">&quot;[^&quot;</span>]*Server\s*=/i.test(line)) {
+          aviso(<span class="tk-s">`${prefijo} ${file}:${lineNum} - Connection string hardcoded. Recomendado: appsettings + Key Vault.`</span>);
+          warnings++;
+        }
+      }
+    }
+  }
+
+  <span class="tk-k">if</span> (warnings &gt; <span class="tk-n">0</span>) {
+    aviso(<span class="tk-s">''</span>);
+    aviso(<span class="tk-s">`Se encontraron ${warnings} posible(s) antipatron(es) en archivos staged. Politica de la organización:`</span>);
+    aviso(<span class="tk-s">'  - Entorno seguro y deuda tecnica progresiva - NO bloqueante actualmente'</span>);
+    aviso(<span class="tk-s">'  - El hook escanea contenido completo del archivo, no solo el diff.'</span>);
+    aviso(<span class="tk-s">'    Un refactor sobre archivo con .Result/DateTime.Now/etc legacy lo dispara.'</span>);
+    aviso(<span class="tk-s">'  - Si el antipatron es NUEVO (introducido por este commit): corregirlo.'</span>);
+    aviso(<span class="tk-s">'  - Si es legacy preexistente: documentar en _hilo/DEUDA_TECNICA.md como DT-XXX.'</span>);
+    aviso(<span class="tk-s">'  - Si el equipo de infraestructura decide enforcement: el hook pasa a exit 2'</span>);
+    process.exit(mode === <span class="tk-s">'block'</span> ? <span class="tk-n">2</span> : <span class="tk-n">1</span>); <span class="tk-c">// exit 1 = AVISO informativo, patron WARN-first</span>
+  }
+
+  aviso(<span class="tk-s">'OK: Verificacion de anti-patrones completada (0 hallazgos).'</span>);
+  process.exit(<span class="tk-n">0</span>);
+} <span class="tk-k">catch</span> (e) {
+  <span class="tk-c">// Error inesperado: permitir operacion en lugar de romper el flujo.</span>
+  console.error(<span class="tk-s">`antipattern-guard.js: error inesperado, permitiendo operacion. Detalle: ${e &amp;&amp; e.message ? e.message : e}`</span>);
+  process.exit(<span class="tk-n">0</span>);
+}
+</code></pre></details></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>4 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(medida): Lote H - los instrumentos miden de verdad y la cobertura se declara (ADR-028)</em>.</p><h3>Notas de versiones anteriores</h3><ul><li>v2.0.0: politica WARN-first — todos los ERROR pasan a AVISO/exit 1; mensajes via</li><li>stderr (Write-Host no surfaceaba en Claude Code); escanea contenido COMPLETO de staged, no solo diff.</li><li>v1.0.1: GIT_OPTIONAL_LOCKS=0 (colisiones index.lock con IDE). v1.0.0: 7 antipatrones .NET.</li><li>Detecta: DateTime.Now, new HttpClient(), async void, .Result, sync-over-async,</li><li>catch generico, string interpolation en logs, connection strings hardcoded.</li><li>Politica: WARN-first configurable — resolvePolicy(cfg, 'antipattern-guard');</li><li>exit 2 (prefijo BLOQUEADO) solo si hooks.policy='block' o hooks.blockList lo incluye.</li></ul></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/console.html">console</a></li><li><a href="../skills/equipo.html">equipo</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/hooks/antipattern-guard.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que">Qué comprueba</a></li><li class="l2"><a href="#salidas">Códigos de salida</a></li><li class="l2"><a href="#politica">Política</a></li><li class="l2"><a href="#codigo">Código fuente</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

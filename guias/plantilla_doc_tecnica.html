@@ -1,0 +1,165 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Documentacion Tecnica - [Nombre del Proyecto] · Ovillo</title><meta name="description" content="Documentacion Tecnica - [Nombre del Proyecto]"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Documentacion Tecnica - [Nombre del Proyecto] · Ovillo"><meta property="og:description" content="Documentacion Tecnica - [Nombre del Proyecto]"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/plantilla_doc_tecnica.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/plantilla_doc_tecnica.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/plantilla_doc_tecnica.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 04_Plantillas_Documentacion (3)</h4><ul class="sibs"><li><a href="../guias/plantilla_doc_funcional.html">Manual de Usuario - [Nombre del Proyecto]</a></li><li><a href="../guias/plantilla_doc_tecnica.html" class="cur">Documentacion Tecnica - [Nombre del Proyecto]</a></li><li><a href="../guias/plantillas_documentacion-readme.html">04_Plantillas_Documentacion</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 04_Plantillas_Documentacion</span><span>Documentacion Tecnica - [Nombre del Proyecto]</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 04_Plantillas_Documentacion</span><span>español</span><span><a href="../guias/plantilla_doc_tecnica.en.html">English version</a></span></div><h1>Documentacion Tecnica - [Nombre del Proyecto]</h1><div class="meta-grid"><div><b>3 min</b><span>lectura</span></div><div><b>636</b><span>palabras</span></div><div><b>14</b><span>secciones</span></div><div><b>2026-09-07</b><span>última edición</span></div><div><b>1</b><span>cambios</span></div></div><blockquote><p><strong>Instrucciones</strong>: Esta plantilla define la estructura de documentacion tecnica. Completar cada seccion con la informacion especifica del proyecto. Eliminar las instrucciones (texto en cursiva) antes de publicar.</p></blockquote>
+<hr>
+<section class="sec" id="sec-informacion-del-documento">
+<h3 id="informacion-del-documento">Informacion del Documento</h3>
+<div class="tbl"><table><thead><tr><th>Campo</th><th>Valor</th></tr></thead><tbody><tr><td><strong>Proyecto</strong></td><td>[Nombre]</td></tr><tr><td><strong>Version documento</strong></td><td>[X.Y]</td></tr><tr><td><strong>Fecha</strong></td><td>[YYYY-MM-DD]</td></tr><tr><td><strong>Autor</strong></td><td>[Nombre]</td></tr><tr><td><strong>Estado</strong></td><td>[Borrador/Revision/Aprobado]</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-control-de-versiones">
+<h3 id="control-de-versiones">Control de Versiones</h3>
+<div class="tbl"><table><thead><tr><th>Version</th><th>Fecha</th><th>Autor</th><th>Cambios</th></tr></thead><tbody><tr><td>1.0</td><td>[YYYY-MM-DD]</td><td>[Nombre]</td><td>Version inicial</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-1-introduccion">
+<h3 id="1-introduccion">1. Introduccion</h3>
+<h4 id="11-proposito">1.1 Proposito</h4>
+<p><em>Describir el proposito de este documento y a quien va dirigido.</em></p>
+<p>[Texto]</p>
+<h4 id="12-alcance">1.2 Alcance</h4>
+<p><em>Describir que cubre y que no cubre esta documentacion.</em></p>
+<p>[Texto]</p>
+<h4 id="13-definiciones-y-acronimos">1.3 Definiciones y Acronimos</h4>
+<div class="tbl"><table><thead><tr><th>Termino</th><th>Definicion</th></tr></thead><tbody><tr><td>[Termino]</td><td>[Definicion]</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-2-vision-general-del-sistema">
+<h3 id="2-vision-general-del-sistema">2. Vision General del Sistema</h3>
+<h4 id="21-descripcion">2.1 Descripcion</h4>
+<p><em>Descripcion general del sistema y su proposito de negocio.</em></p>
+<p>[Texto]</p>
+<h4 id="22-contexto">2.2 Contexto</h4>
+<p><em>Donde encaja este sistema en el ecosistema de la organizacion.</em></p>
+<pre><code>[Diagrama de contexto]</code></pre>
+<h4 id="23-stakeholders">2.3 Stakeholders</h4>
+<div class="tbl"><table><thead><tr><th>Rol</th><th>Responsabilidad</th><th>Contacto</th></tr></thead><tbody><tr><td>[Rol]</td><td>[Responsabilidad]</td><td>[Email]</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-3-arquitectura">
+<h3 id="3-arquitectura">3. Arquitectura</h3>
+<h4 id="31-diagrama-de-arquitectura">3.1 Diagrama de Arquitectura</h4>
+<pre><code>[Diagrama C4 - Nivel Contenedor]
+
+┌─────────────────────────────────────────────────────┐
+│                    [Sistema]                         │
+├─────────────────────────────────────────────────────┤
+│  ┌─────────────┐    ┌─────────────┐                │
+│  │   Web App   │───▶│    API      │                │
+│  └─────────────┘    └──────┬──────┘                │
+│                            │                        │
+│                     ┌──────▼──────┐                │
+│                     │   Database  │                │
+│                     └─────────────┘                │
+└─────────────────────────────────────────────────────┘</code></pre>
+<h4 id="32-componentes-principales">3.2 Componentes Principales</h4>
+<div class="tbl"><table><thead><tr><th>Componente</th><th>Tecnologia</th><th>Responsabilidad</th></tr></thead><tbody><tr><td>Frontend</td><td>[Tech]</td><td>[Descripcion]</td></tr><tr><td>API</td><td>[Tech]</td><td>[Descripcion]</td></tr><tr><td>Base de datos</td><td>[Tech]</td><td>[Descripcion]</td></tr></tbody></table></div>
+<h4 id="33-patrones-utilizados">3.3 Patrones Utilizados</h4>
+<p><em>Describir patrones arquitectonicos y de diseno utilizados.</em></p>
+<ul>
+<li><strong>Patron 1</strong>: [Descripcion y justificacion]</li>
+<li><strong>Patron 2</strong>: [Descripcion y justificacion]</li>
+</ul>
+<h4 id="34-decisiones-arquitectonicas">3.4 Decisiones Arquitectonicas</h4>
+<p><em>Referencia a ADRs importantes. Ver <code>_hilo/DECISIONES.md</code></em></p>
+<div class="tbl"><table><thead><tr><th>ADR</th><th>Titulo</th><th>Impacto</th></tr></thead><tbody><tr><td>ADR-001</td><td>[Titulo]</td><td>[Impacto]</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-4-stack-tecnologico">
+<h3 id="4-stack-tecnologico">4. Stack Tecnologico</h3>
+<h4 id="41-backend">4.1 Backend</h4>
+<div class="tbl"><table><thead><tr><th>Tecnologia</th><th>Version</th><th>Proposito</th></tr></thead><tbody><tr><td>.NET</td><td>[8.0]</td><td>Framework principal</td></tr><tr><td>ASP.NET Core</td><td>[8.0]</td><td>Web API</td></tr><tr><td>Dapper</td><td>[X.Y]</td><td>Acceso a datos</td></tr></tbody></table></div>
+<h4 id="42-frontend">4.2 Frontend</h4>
+<div class="tbl"><table><thead><tr><th>Tecnologia</th><th>Version</th><th>Proposito</th></tr></thead><tbody><tr><td>[Tech]</td><td>[X.Y]</td><td>[Proposito]</td></tr></tbody></table></div>
+<h4 id="43-base-de-datos">4.3 Base de Datos</h4>
+<div class="tbl"><table><thead><tr><th>Tecnologia</th><th>Version</th><th>Proposito</th></tr></thead><tbody><tr><td>SQL Server</td><td>[2017]</td><td>Base de datos principal</td></tr></tbody></table></div>
+<h4 id="44-infraestructura">4.4 Infraestructura</h4>
+<div class="tbl"><table><thead><tr><th>Servicio</th><th>Proposito</th></tr></thead><tbody><tr><td>Azure App Service</td><td>Hosting aplicacion</td></tr><tr><td>Azure SQL Database</td><td>Base de datos</td></tr><tr><td>Azure Key Vault</td><td>Gestion de secretos</td></tr><tr><td>Azure Blob Storage</td><td>Almacenamiento de archivos</td></tr><tr><td>Redis</td><td>Cache distribuida</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-5-modelo-de-datos">
+<h3 id="5-modelo-de-datos">5. Modelo de Datos</h3>
+<h4 id="51-diagrama-entidad-relacion">5.1 Diagrama Entidad-Relacion</h4>
+<pre><code>[Diagrama ER simplificado]</code></pre>
+<h4 id="52-tablas-principales">5.2 Tablas Principales</h4>
+<h5 id="tabla-nombre">Tabla: [Nombre]</h5>
+<div class="tbl"><table><thead><tr><th>Columna</th><th>Tipo</th><th>Descripcion</th><th>Constraints</th></tr></thead><tbody><tr><td>Id</td><td>int</td><td>Identificador</td><td>PK, Identity</td></tr><tr><td>[Campo]</td><td>[Tipo]</td><td>[Descripcion]</td><td>[Constraints]</td></tr></tbody></table></div>
+<h4 id="53-stored-procedures-criticos">5.3 Stored Procedures Criticos</h4>
+<div class="tbl"><table><thead><tr><th>Nombre</th><th>Proposito</th><th>Parametros</th></tr></thead><tbody><tr><td>[sp_Nombre]</td><td>[Descripcion]</td><td>[Params]</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-6-api">
+<h3 id="6-api">6. API</h3>
+<h4 id="61-autenticacion">6.1 Autenticacion</h4>
+<p><em>Describir mecanismo de autenticacion.</em></p>
+<p>[Azure AD / JWT / etc.]</p>
+<h4 id="62-endpoints-principales">6.2 Endpoints Principales</h4>
+<h5 id="modulo">[Modulo]</h5>
+<div class="tbl"><table><thead><tr><th>Metodo</th><th>Endpoint</th><th>Descripcion</th><th>Auth</th></tr></thead><tbody><tr><td>GET</td><td>/api/[recurso]</td><td>[Descripcion]</td><td>[Si/No]</td></tr><tr><td>POST</td><td>/api/[recurso]</td><td>[Descripcion]</td><td>[Si/No]</td></tr></tbody></table></div>
+<h4 id="63-documentacion-swagger">6.3 Documentacion Swagger</h4>
+<p><em>Referencia a Swagger UI.</em></p>
+<p>URL: <code>[URL]/swagger</code></p>
+<hr>
+</section>
+<section class="sec" id="sec-7-seguridad">
+<h3 id="7-seguridad">7. Seguridad</h3>
+<h4 id="71-autenticacion-y-autorizacion">7.1 Autenticacion y Autorizacion</h4>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>Implementacion</th></tr></thead><tbody><tr><td>Autenticacion</td><td>Azure AD</td></tr><tr><td>Autorizacion</td><td>Roles/Claims</td></tr><tr><td>Tokens</td><td>JWT</td></tr></tbody></table></div>
+<h4 id="72-gestion-de-secretos">7.2 Gestion de Secretos</h4>
+<div class="tbl"><table><thead><tr><th>Secreto</th><th>Ubicacion</th><th>Rotacion</th></tr></thead><tbody><tr><td>Connection strings</td><td>Key Vault</td><td>[Frecuencia]</td></tr><tr><td>API Keys</td><td>Key Vault</td><td>[Frecuencia]</td></tr></tbody></table></div>
+<h4 id="73-checklist-owasp">7.3 Checklist OWASP</h4>
+<p><em>Referencia a cumplimiento OWASP. Ver <code>_patron/01_Estructura_Tecnica/</code></em></p>
+<hr>
+</section>
+<section class="sec" id="sec-8-integraciones">
+<h3 id="8-integraciones">8. Integraciones</h3>
+<h4 id="81-sistemas-integrados">8.1 Sistemas Integrados</h4>
+<div class="tbl"><table><thead><tr><th>Sistema</th><th>Tipo</th><th>Direccion</th><th>Protocolo</th></tr></thead><tbody><tr><td>[Sistema]</td><td>[Interno/Externo]</td><td>[Consumo/Exposicion]</td><td>[REST/SOAP/etc]</td></tr></tbody></table></div>
+<h4 id="82-detalle-de-integracion-sistema">8.2 Detalle de Integracion: [Sistema]</h4>
+<p><strong>Proposito</strong>: [Descripcion]</p>
+<p><strong>Endpoints utilizados</strong>:</p>
+<div class="tbl"><table><thead><tr><th>Endpoint</th><th>Metodo</th><th>Proposito</th></tr></thead><tbody><tr><td>[URL]</td><td>[GET/POST]</td><td>[Descripcion]</td></tr></tbody></table></div>
+<p><strong>Manejo de errores</strong>: [Descripcion]</p>
+<p><strong>Timeout/Reintentos</strong>: [Configuracion]</p>
+<hr>
+</section>
+<section class="sec" id="sec-9-despliegue">
+<h3 id="9-despliegue">9. Despliegue</h3>
+<h4 id="91-entornos">9.1 Entornos</h4>
+<div class="tbl"><table><thead><tr><th>Entorno</th><th>URL</th><th>Proposito</th></tr></thead><tbody><tr><td>Development</td><td>[URL]</td><td>Desarrollo</td></tr><tr><td>Staging</td><td>[URL]</td><td>Pruebas</td></tr><tr><td>Production</td><td>[URL]</td><td>Produccion</td></tr></tbody></table></div>
+<h4 id="92-pipeline-cicd">9.2 Pipeline CI/CD</h4>
+<pre><code>[Diagrama de pipeline]
+
+Commit → Build → Test → Deploy Dev → Deploy Staging → Aprobacion → Deploy Prod</code></pre>
+<h4 id="93-requisitos-de-despliegue">9.3 Requisitos de Despliegue</h4>
+<div class="tbl"><table><thead><tr><th>Requisito</th><th>Valor</th></tr></thead><tbody><tr><td>Runtime</td><td>.NET 8</td></tr><tr><td>Memoria</td><td>[X] GB</td></tr><tr><td>CPU</td><td>[X] cores</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-10-operaciones">
+<h3 id="10-operaciones">10. Operaciones</h3>
+<h4 id="101-monitoreo">10.1 Monitoreo</h4>
+<div class="tbl"><table><thead><tr><th>Herramienta</th><th>Proposito</th><th>Dashboard</th></tr></thead><tbody><tr><td>Application Insights</td><td>APM, Logs</td><td>[URL]</td></tr><tr><td>Azure Monitor</td><td>Metricas infra</td><td>[URL]</td></tr></tbody></table></div>
+<h4 id="102-alertas-configuradas">10.2 Alertas Configuradas</h4>
+<div class="tbl"><table><thead><tr><th>Alerta</th><th>Condicion</th><th>Accion</th></tr></thead><tbody><tr><td>CPU &gt; 80%</td><td>5 min consecutivos</td><td>Email a [equipo]</td></tr><tr><td>Errores &gt; 10/min</td><td>Instantaneo</td><td>[Accion]</td></tr></tbody></table></div>
+<h4 id="103-backup-y-recuperacion">10.3 Backup y Recuperacion</h4>
+<div class="tbl"><table><thead><tr><th>Elemento</th><th>Frecuencia</th><th>Retencion</th><th>Procedimiento</th></tr></thead><tbody><tr><td>Base de datos</td><td>[Frecuencia]</td><td>[Dias]</td><td>[Referencia]</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-11-troubleshooting">
+<h3 id="11-troubleshooting">11. Troubleshooting</h3>
+<h4 id="111-problemas-conocidos">11.1 Problemas Conocidos</h4>
+<div class="tbl"><table><thead><tr><th>Problema</th><th>Sintomas</th><th>Solucion</th></tr></thead><tbody><tr><td>[Problema]</td><td>[Sintomas]</td><td>[Pasos solucion]</td></tr></tbody></table></div>
+<h4 id="112-logs">11.2 Logs</h4>
+<div class="tbl"><table><thead><tr><th>Log</th><th>Ubicacion</th><th>Proposito</th></tr></thead><tbody><tr><td>Aplicacion</td><td>Application Insights</td><td>Errores, traces</td></tr><tr><td>Auditoria</td><td>[Tabla/Archivo]</td><td>Acciones usuario</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-anexos">
+<h3 id="anexos">Anexos</h3>
+<h4 id="a-glosario-tecnico">A. Glosario Tecnico</h4>
+<div class="tbl"><table><thead><tr><th>Termino</th><th>Definicion</th></tr></thead><tbody><tr><td>[Termino]</td><td>[Definicion]</td></tr></tbody></table></div>
+<h4 id="b-referencias">B. Referencias</h4>
+<ul>
+<li>[Documento 1](URL)</li>
+<li>[Documento 2](URL)</li>
+</ul>
+<hr>
+<p><strong>Fin del documento</strong></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/04_Plantillas_Documentacion/PLANTILLA_DOC_TECNICA.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/equipo.html">equipo</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/plantilla_doc_funcional.html"><small>Anterior</small>Manual de Usuario - [Nombre del Proyecto]</a><a class="next" href="../guias/plantillas_documentacion-readme.html"><small>Siguiente</small>04_Plantillas_Documentacion</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/04_Plantillas_Documentacion/PLANTILLA_DOC_TECNICA.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#informacion-del-documento">Informacion del Documento</a></li><li class="l2"><a href="#control-de-versiones">Control de Versiones</a></li><li class="l2"><a href="#1-introduccion">1. Introduccion</a></li><li class="l3"><a href="#11-proposito">1.1 Proposito</a></li><li class="l3"><a href="#12-alcance">1.2 Alcance</a></li><li class="l3"><a href="#13-definiciones-y-acronimos">1.3 Definiciones y Acronimos</a></li><li class="l2"><a href="#2-vision-general-del-sistema">2. Vision General del Sistema</a></li><li class="l3"><a href="#21-descripcion">2.1 Descripcion</a></li><li class="l3"><a href="#22-contexto">2.2 Contexto</a></li><li class="l3"><a href="#23-stakeholders">2.3 Stakeholders</a></li><li class="l2"><a href="#3-arquitectura">3. Arquitectura</a></li><li class="l3"><a href="#31-diagrama-de-arquitectura">3.1 Diagrama de Arquitectura</a></li><li class="l3"><a href="#32-componentes-principales">3.2 Componentes Principales</a></li><li class="l3"><a href="#33-patrones-utilizados">3.3 Patrones Utilizados</a></li><li class="l3"><a href="#34-decisiones-arquitectonicas">3.4 Decisiones Arquitectonicas</a></li><li class="l2"><a href="#4-stack-tecnologico">4. Stack Tecnologico</a></li><li class="l3"><a href="#41-backend">4.1 Backend</a></li><li class="l3"><a href="#42-frontend">4.2 Frontend</a></li><li class="l3"><a href="#43-base-de-datos">4.3 Base de Datos</a></li><li class="l3"><a href="#44-infraestructura">4.4 Infraestructura</a></li><li class="l2"><a href="#5-modelo-de-datos">5. Modelo de Datos</a></li><li class="l3"><a href="#51-diagrama-entidad-relacion">5.1 Diagrama Entidad-Relacion</a></li><li class="l3"><a href="#52-tablas-principales">5.2 Tablas Principales</a></li><li class="l3"><a href="#53-stored-procedures-criticos">5.3 Stored Procedures Criticos</a></li><li class="l2"><a href="#6-api">6. API</a></li><li class="l3"><a href="#61-autenticacion">6.1 Autenticacion</a></li><li class="l3"><a href="#62-endpoints-principales">6.2 Endpoints Principales</a></li><li class="l3"><a href="#63-documentacion-swagger">6.3 Documentacion Swagger</a></li><li class="l2"><a href="#7-seguridad">7. Seguridad</a></li><li class="l3"><a href="#71-autenticacion-y-autorizacion">7.1 Autenticacion y Autorizacion</a></li><li class="l3"><a href="#72-gestion-de-secretos">7.2 Gestion de Secretos</a></li><li class="l3"><a href="#73-checklist-owasp">7.3 Checklist OWASP</a></li><li class="l2"><a href="#8-integraciones">8. Integraciones</a></li><li class="l3"><a href="#81-sistemas-integrados">8.1 Sistemas Integrados</a></li><li class="l3"><a href="#82-detalle-de-integracion-sistema">8.2 Detalle de Integracion: [Sistema]</a></li><li class="l2"><a href="#9-despliegue">9. Despliegue</a></li><li class="l3"><a href="#91-entornos">9.1 Entornos</a></li><li class="l3"><a href="#92-pipeline-cicd">9.2 Pipeline CI/CD</a></li><li class="l3"><a href="#93-requisitos-de-despliegue">9.3 Requisitos de Despliegue</a></li><li class="l2"><a href="#10-operaciones">10. Operaciones</a></li><li class="l3"><a href="#101-monitoreo">10.1 Monitoreo</a></li><li class="l3"><a href="#102-alertas-configuradas">10.2 Alertas Configuradas</a></li><li class="l3"><a href="#103-backup-y-recuperacion">10.3 Backup y Recuperacion</a></li><li class="l2"><a href="#11-troubleshooting">11. Troubleshooting</a></li><li class="l3"><a href="#111-problemas-conocidos">11.1 Problemas Conocidos</a></li><li class="l3"><a href="#112-logs">11.2 Logs</a></li><li class="l2"><a href="#anexos">Anexos</a></li><li class="l3"><a href="#a-glosario-tecnico">A. Glosario Tecnico</a></li><li class="l3"><a href="#b-referencias">B. Referencias</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

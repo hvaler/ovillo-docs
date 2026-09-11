@@ -1,0 +1,363 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>documentacion-tecnica · templates/API-REFERENCE.md.template · Ovillo</title><meta name="description" content="Fichero templates/API-REFERENCE.md.template de la skill documentacion-tecnica"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="documentacion-tecnica · templates/API-REFERENCE.md.template · Ovillo"><meta property="og:description" content="Fichero templates/API-REFERENCE.md.template de la skill documentacion-tecnica"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/documentacion-tecnica/templates/API-REFERENCE.md.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/documentacion-tecnica/templates/API-REFERENCE.md.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/documentacion-tecnica/templates/API-REFERENCE.md.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de documentacion-tecnica (12)</h4><ul class="sibs"><li><a href="../../../skills/documentacion-tecnica/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/documentacion-tecnica/patterns/diagrams-mermaid.html">patterns/diagrams-mermaid.md</a></li><li><a href="../../../skills/documentacion-tecnica/patterns/documentation-standards.html">patterns/documentation-standards.md</a></li><li><a href="../../../skills/documentacion-tecnica/references/workflow-documentar.html">references/workflow-documentar.md</a></li><li><a href="../../../skills/documentacion-tecnica/templates/ADR.md.html">templates/ADR.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/API-REFERENCE.md.html" class="cur">templates/API-REFERENCE.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/ARCHITECTURE.md.html">templates/ARCHITECTURE.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/CHANGELOG.md.html">templates/CHANGELOG.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/CONTRIBUTING.md.html">templates/CONTRIBUTING.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/DEPLOYMENT.md.html">templates/DEPLOYMENT.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/SECURITY.md.html">templates/SECURITY.md.template</a></li><li><a href="../../../skills/documentacion-tecnica/templates/TROUBLESHOOTING.md.html">templates/TROUBLESHOOTING.md.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/documentacion-tecnica.html">documentacion-tecnica</a></span><span>templates</span><span>API-REFERENCE.md.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>documentacion-tecnica</span><span>templates/</span><span>6287 B</span></div><h1>API-REFERENCE.md.template</h1><p class="lede">Fichero que <code>/hv:documentacion-tecnica</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/documentacion-tecnica.html">documentacion-tecnica</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>6287 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code><span class="tk-c"># Referencia de API</span>
+
+&gt; Template para documentación de API REST
+&gt; Skill: documentacion-tecnica
+
+<span class="tk-c">## Información General</span>
+
+| Campo | Valor |
+|-------|-------|
+| **Base URL** | `https://api.example.org/v1` |
+| **Autenticación** | Bearer Token (Azure AD) |
+| **Formato** | JSON |
+| **Encoding** | UTF-8 |
+
+---
+
+<span class="tk-c">## Autenticación</span>
+
+Todas las peticiones requieren un token Bearer en el header `Authorization`:
+
+` ` `http
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOi...
+` ` `
+
+<span class="tk-c">### Obtener Token</span>
+
+` ` `http
+POST https://login.microsoftonline.com/{tenant}/oauth2/v2.<span class="tk-n">0</span>/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id={client_id}
+&amp;scope=api://{api_client_id}/.default
+&amp;client_secret={client_secret}
+&amp;grant_type=client_credentials
+` ` `
+
+---
+
+<span class="tk-c">## Respuestas</span>
+
+<span class="tk-c">### Códigos HTTP</span>
+
+| Código | Descripción |
+|--------|-------------|
+| `<span class="tk-n">200</span>` | OK - Petición exitosa |
+| `<span class="tk-n">201</span>` | Created - Recurso creado |
+| `<span class="tk-n">204</span>` | <span class="tk-k">No</span> Content - Operación exitosa sin contenido |
+| `<span class="tk-n">400</span>` | Bad Request - Error de validación |
+| `<span class="tk-n">401</span>` | Unauthorized - Token inválido o ausente |
+| `<span class="tk-n">403</span>` | Forbidden - Sin permisos |
+| `<span class="tk-n">404</span>` | Not Found - Recurso <span class="tk-k">no</span> encontrado |
+| `<span class="tk-n">409</span>` | Conflict - Conflicto de status |
+| `<span class="tk-n">500</span>` | Internal Server Error |
+
+<span class="tk-c">### Formato de Error</span>
+
+` ` `json
+{
+  <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;https://example.org/errors/validation&quot;</span>,
+  <span class="tk-s">&quot;title&quot;</span>: <span class="tk-s">&quot;Error de validación&quot;</span>,
+  <span class="tk-s">&quot;status&quot;</span>: <span class="tk-n">400</span>,
+  <span class="tk-s">&quot;detail&quot;</span>: <span class="tk-s">&quot;Name is required&quot;</span>,
+  <span class="tk-s">&quot;instance&quot;</span>: <span class="tk-s">&quot;/api/scholarships&quot;</span>,
+  <span class="tk-s">&quot;errors&quot;</span>: {
+    <span class="tk-s">&quot;Name&quot;</span>: [<span class="tk-s">&quot;Name is required&quot;</span>],
+    <span class="tk-s">&quot;Amount&quot;</span>: [<span class="tk-s">&quot;El amount debe ser mayor que 0&quot;</span>]
+  }
+}
+` ` `
+
+---
+
+<span class="tk-c">## Paginación</span>
+
+Los endpoints de listado soportan paginación:
+
+` ` `http
+GET /api/scholarships?page=<span class="tk-n">1</span>&amp;size=<span class="tk-n">10</span>
+` ` `
+
+<span class="tk-c">### Respuesta Paginada</span>
+
+` ` `json
+{
+  <span class="tk-s">&quot;items&quot;</span>: [...],
+  <span class="tk-s">&quot;totalCount&quot;</span>: <span class="tk-n">100</span>,
+  <span class="tk-s">&quot;page&quot;</span>: <span class="tk-n">1</span>,
+  <span class="tk-s">&quot;size&quot;</span>: <span class="tk-n">10</span>,
+  <span class="tk-s">&quot;totalPages&quot;</span>: <span class="tk-n">10</span>,
+  <span class="tk-s">&quot;hasNextPage&quot;</span>: <span class="tk-k">true</span>,
+  <span class="tk-s">&quot;hasPreviousPage&quot;</span>: <span class="tk-k">false</span>
+}
+` ` `
+
+---
+
+<span class="tk-c">## Endpoints</span>
+
+<span class="tk-c">### Scholarships</span>
+
+<span class="tk-c">#### Listar Scholarships</span>
+
+` ` `http
+GET /api/scholarships
+` ` `
+
+**Query Parameters:**
+
+| Parámetro | Tipo | Descripción | Default |
+|-----------|------|-------------|---------|
+| `page` | int | Número de página | <span class="tk-n">1</span> |
+| `size` | int | Elementos por página | <span class="tk-n">10</span> |
+| `status` | string | Filtrar por status | - |
+| `orderBy` | string | Campo para ordenar | createdAt |
+| `orderDesc` | bool | Orden descendente | <span class="tk-k">true</span> |
+
+**Response:** `<span class="tk-n">200</span> OK`
+
+` ` `json
+{
+  <span class="tk-s">&quot;items&quot;</span>: [
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-n">1</span>,
+      <span class="tk-s">&quot;code&quot;</span>: <span class="tk-s">&quot;BECA-001&quot;</span>,
+      <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Scholarship de Excelencia&quot;</span>,
+      <span class="tk-s">&quot;amount&quot;</span>: <span class="tk-n">5000.00</span>,
+      <span class="tk-s">&quot;status&quot;</span>: <span class="tk-s">&quot;Published&quot;</span>,
+      <span class="tk-s">&quot;startDate&quot;</span>: <span class="tk-s">&quot;2025-01-01&quot;</span>,
+      <span class="tk-s">&quot;endDate&quot;</span>: <span class="tk-s">&quot;2025-12-31&quot;</span>
+    }
+  ],
+  <span class="tk-s">&quot;totalCount&quot;</span>: <span class="tk-n">50</span>,
+  <span class="tk-s">&quot;page&quot;</span>: <span class="tk-n">1</span>,
+  <span class="tk-s">&quot;size&quot;</span>: <span class="tk-n">10</span>
+}
+` ` `
+
+---
+
+<span class="tk-c">#### Obtener Scholarship</span>
+
+` ` `http
+GET /api/scholarships/{id}
+` ` `
+
+**Path Parameters:**
+
+| Parámetro | Tipo | Descripción |
+|-----------|------|-------------|
+| `id` | int | ID de la scholarship |
+
+**Response:** `<span class="tk-n">200</span> OK`
+
+` ` `json
+{
+  <span class="tk-s">&quot;id&quot;</span>: <span class="tk-n">1</span>,
+  <span class="tk-s">&quot;code&quot;</span>: <span class="tk-s">&quot;BECA-001&quot;</span>,
+  <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Scholarship de Excelencia&quot;</span>,
+  <span class="tk-s">&quot;descripcion&quot;</span>: <span class="tk-s">&quot;Scholarship para students con expediente académico destacado&quot;</span>,
+  <span class="tk-s">&quot;amount&quot;</span>: <span class="tk-n">5000.00</span>,
+  <span class="tk-s">&quot;status&quot;</span>: <span class="tk-s">&quot;Published&quot;</span>,
+  <span class="tk-s">&quot;startDate&quot;</span>: <span class="tk-s">&quot;2025-01-01&quot;</span>,
+  <span class="tk-s">&quot;endDate&quot;</span>: <span class="tk-s">&quot;2025-12-31&quot;</span>,
+  <span class="tk-s">&quot;createdAt&quot;</span>: <span class="tk-s">&quot;2025-01-01T10:00:00Z&quot;</span>,
+  <span class="tk-s">&quot;createdBy&quot;</span>: <span class="tk-s">&quot;admin@example.com&quot;</span>
+}
+` ` `
+
+**Error Response:** `<span class="tk-n">404</span> Not Found`
+
+` ` `json
+{
+  <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;https://example.org/errors/not-found&quot;</span>,
+  <span class="tk-s">&quot;title&quot;</span>: <span class="tk-s">&quot;Recurso no encontrado&quot;</span>,
+  <span class="tk-s">&quot;status&quot;</span>: <span class="tk-n">404</span>,
+  <span class="tk-s">&quot;detail&quot;</span>: <span class="tk-s">&quot;No existe una scholarship con ID 999&quot;</span>
+}
+` ` `
+
+---
+
+<span class="tk-c">#### Crear Scholarship</span>
+
+` ` `http
+POST /api/scholarships
+` ` `
+
+**Request Body:**
+
+` ` `json
+{
+  <span class="tk-s">&quot;code&quot;</span>: <span class="tk-s">&quot;BECA-002&quot;</span>,
+  <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;New Scholarship&quot;</span>,
+  <span class="tk-s">&quot;descripcion&quot;</span>: <span class="tk-s">&quot;Descripción opcional&quot;</span>,
+  <span class="tk-s">&quot;amount&quot;</span>: <span class="tk-n">3000.00</span>,
+  <span class="tk-s">&quot;startDate&quot;</span>: <span class="tk-s">&quot;2025-06-01&quot;</span>,
+  <span class="tk-s">&quot;endDate&quot;</span>: <span class="tk-s">&quot;2025-12-31&quot;</span>
+}
+` ` `
+
+**Validaciones:**
+
+| Campo | Reglas |
+|-------|--------|
+| `code` | Requerido, único, max <span class="tk-n">20</span> chars |
+| `name` | Requerido, max <span class="tk-n">200</span> chars |
+| `descripcion` | Opcional, max <span class="tk-n">2000</span> chars |
+| `amount` | Requerido, &gt; <span class="tk-n">0</span>, &lt;= <span class="tk-n">100000</span> |
+| `startDate` | Requerido |
+| `endDate` | Requerido, &gt; startDate |
+
+**Response:** `<span class="tk-n">201</span> Created`
+
+` ` `http
+Location: /api/scholarships/<span class="tk-n">2</span>
+` ` `
+
+` ` `json
+{
+  <span class="tk-s">&quot;id&quot;</span>: <span class="tk-n">2</span>,
+  <span class="tk-s">&quot;code&quot;</span>: <span class="tk-s">&quot;BECA-002&quot;</span>,
+  <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;New Scholarship&quot;</span>,
+  <span class="tk-s">&quot;status&quot;</span>: <span class="tk-s">&quot;Draft&quot;</span>
+}
+` ` `
+
+**Error Response:** `<span class="tk-n">400</span> Bad Request`
+
+` ` `json
+{
+  <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;https://example.org/errors/validation&quot;</span>,
+  <span class="tk-s">&quot;title&quot;</span>: <span class="tk-s">&quot;Error de validación&quot;</span>,
+  <span class="tk-s">&quot;status&quot;</span>: <span class="tk-n">400</span>,
+  <span class="tk-s">&quot;errors&quot;</span>: {
+    <span class="tk-s">&quot;Name&quot;</span>: [<span class="tk-s">&quot;Name is required&quot;</span>],
+    <span class="tk-s">&quot;Amount&quot;</span>: [<span class="tk-s">&quot;El amount debe ser mayor que 0&quot;</span>]
+  }
+}
+` ` `
+
+---
+
+<span class="tk-c">#### Actualizar Scholarship</span>
+
+` ` `http
+PUT /api/scholarships/{id}
+` ` `
+
+**Request Body:**
+
+` ` `json
+{
+  <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;Name Actualizado&quot;</span>,
+  <span class="tk-s">&quot;descripcion&quot;</span>: <span class="tk-s">&quot;Nueva descripción&quot;</span>,
+  <span class="tk-s">&quot;amount&quot;</span>: <span class="tk-n">4000.00</span>
+}
+` ` `
+
+**Response:** `<span class="tk-n">204</span> <span class="tk-k">No</span> Content`
+
+---
+
+<span class="tk-c">#### Eliminar Scholarship</span>
+
+` ` `http
+DELETE /api/scholarships/{id}
+` ` `
+
+**Response:** `<span class="tk-n">204</span> <span class="tk-k">No</span> Content`
+
+**Error Response:** `<span class="tk-n">409</span> Conflict`
+
+` ` `json
+{
+  <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;https://example.org/errors/conflict&quot;</span>,
+  <span class="tk-s">&quot;title&quot;</span>: <span class="tk-s">&quot;Conflicto&quot;</span>,
+  <span class="tk-s">&quot;status&quot;</span>: <span class="tk-n">409</span>,
+  <span class="tk-s">&quot;detail&quot;</span>: <span class="tk-s">&quot;No se puede eliminar una scholarship con applications activas&quot;</span>
+}
+` ` `
+
+---
+
+<span class="tk-c">### Applications</span>
+
+<span class="tk-c">#### Listar Applications de una Scholarship</span>
+
+` ` `http
+GET /api/scholarships/{scholarshipId}/applications
+` ` `
+
+<span class="tk-c">#### Crear ScholarshipApplication</span>
+
+` ` `http
+POST /api/scholarships/{scholarshipId}/applications
+` ` `
+
+**Request Body:**
+
+` ` `json
+{
+  <span class="tk-s">&quot;studentId&quot;</span>: <span class="tk-n">123</span>,
+  <span class="tk-s">&quot;motivacion&quot;</span>: <span class="tk-s">&quot;Texto de motivación...&quot;</span>
+}
+` ` `
+
+---
+
+<span class="tk-c">## Ejemplos con cURL</span>
+
+<span class="tk-c">### Listar Scholarships</span>
+
+` ` `bash
+curl -X GET <span class="tk-s">&quot;https://api.example.org/v1/scholarships?page=1&amp;size=10&quot;</span> \
+  -H <span class="tk-s">&quot;Authorization: Bearer eyJ0eXAi...&quot;</span> \
+  -H <span class="tk-s">&quot;Accept: application/json&quot;</span>
+` ` `
+
+<span class="tk-c">### Crear Scholarship</span>
+
+` ` `bash
+curl -X POST <span class="tk-s">&quot;https://api.example.org/v1/scholarships&quot;</span> \
+  -H <span class="tk-s">&quot;Authorization: Bearer eyJ0eXAi...&quot;</span> \
+  -H <span class="tk-s">&quot;Content-Type: application/json&quot;</span> \
+  -d '{
+    <span class="tk-s">&quot;code&quot;</span>: <span class="tk-s">&quot;BECA-003&quot;</span>,
+    <span class="tk-s">&quot;name&quot;</span>: <span class="tk-s">&quot;New Scholarship&quot;</span>,
+    <span class="tk-s">&quot;amount&quot;</span>: <span class="tk-n">2500.00</span>,
+    <span class="tk-s">&quot;startDate&quot;</span>: <span class="tk-s">&quot;2025-01-01&quot;</span>,
+    <span class="tk-s">&quot;endDate&quot;</span>: <span class="tk-s">&quot;2025-06-30&quot;</span>
+  }'
+` ` `
+
+---
+
+<span class="tk-c">## Rate Limiting</span>
+
+| Límite | Valor |
+|--------|-------|
+| Peticiones por minuto | <span class="tk-n">100</span> |
+| Peticiones por hora | <span class="tk-n">1000</span> |
+
+Headers de respuesta:
+
+` ` `http
+X-RateLimit-Limit: <span class="tk-n">100</span>
+X-RateLimit-Remaining: <span class="tk-n">95</span>
+X-RateLimit-Reset: <span class="tk-n">1640000000</span>
+` ` `
+
+---
+
+<span class="tk-c">## Versionado</span>
+
+La API está versionada en la URL: `/v1/`, `/v2/`, etc.
+
+Cambios menores se documentan en el changelog sin cambiar versión.
+Cambios breaking requieren nueva versión.
+
+---
+
+*Generado con documentacion-tecnica skill v2.<span class="tk-n">8.0</span>*
+</code></pre><p style="margin-top:32px"><a href="../../../skills/documentacion-tecnica.html#ficheros">← Volver a la ficha de documentacion-tecnica</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/documentacion-tecnica/templates/ADR.md.html"><small>Anterior</small>templates/ADR.md.template</a><a class="next" href="../../../skills/documentacion-tecnica/templates/ARCHITECTURE.md.html"><small>Siguiente</small>templates/ARCHITECTURE.md.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/documentacion-tecnica/templates/API-REFERENCE.md.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

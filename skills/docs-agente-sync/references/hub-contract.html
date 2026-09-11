@@ -1,0 +1,83 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>docs-agente-sync · references/hub-contract.md · Ovillo</title><meta name="description" content="Fichero references/hub-contract.md de la skill docs-agente-sync"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="docs-agente-sync · references/hub-contract.md · Ovillo"><meta property="og:description" content="Fichero references/hub-contract.md de la skill docs-agente-sync"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/docs-agente-sync/references/hub-contract.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/docs-agente-sync/references/hub-contract.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/docs-agente-sync/references/hub-contract.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de docs-agente-sync (6)</h4><ul class="sibs"><li><a href="../../../skills/docs-agente-sync/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/docs-agente-sync/references/ci-wiring.html">references/ci-wiring.md</a></li><li><a href="../../../skills/docs-agente-sync/references/hub-contract.html" class="cur">references/hub-contract.md</a></li><li><a href="../../../skills/docs-agente-sync/references/workflow-docs-sync.html">references/workflow-docs-sync.md</a></li><li><a href="../../../skills/docs-agente-sync/scripts/Get-SourceStamp.html">scripts/Get-SourceStamp.ps1</a></li><li><a href="../../../skills/docs-agente-sync/scripts/Sync-AgentDoc.html">scripts/Sync-AgentDoc.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/docs-agente-sync.html">docs-agente-sync</a></span><span>references</span><span>hub-contract.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>docs-agente-sync</span><span>references/</span></div><h1>hub-contract.md</h1><p class="lede">Referencia que <code>docs-agente-sync</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/docs-agente-sync.html">docs-agente-sync</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>4252 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Esta es la pieza server-side que gatea todo el flujo.</strong> Sin ella, <code>docs-agente-sync</code> corre en modo <code>[SKIP]</code> (404) — inofensivo, pero no registra nada. Requiere trabajo en <code>Ovillo.Hub</code>.</p></blockquote>
+<p class="lede">Las 14 tools actuales del Hub (<code>register_decision</code>, <code>register_lesson</code>, <code>register_pipeline</code>, …) <strong>no</strong> contemplan documentación de agente. DOC-nnn es un tipo de registro nuevo, hermano de QR-nnn.</p>
+<section class="sec" id="sec-1-endpoints-rest-los-que-consume-el-script">
+<h3 id="1-endpoints-rest-los-que-consume-el-script">1. Endpoints REST (los que consume el script)</h3>
+<p>Simétricos a los de calidad (<code>/v2/sync/quality-batch</code>, <code>/v2/stats/quality/{id}</code>):</p>
+<div class="tbl"><table><thead><tr><th>Método</th><th>Ruta</th><th>Uso</th></tr></thead><tbody><tr><td><code>GET</code></td><td><code>/v2/stats/docs/{proyectoId}</code></td><td>Devuelve <code>{ ultimoNumero, total, ultimoSync }</code> para numerar DOC-nnn.</td></tr><tr><td><code>POST</code></td><td><code>/v2/sync/docs-batch</code></td><td>UPSERT de N DOC. Header <code>X-Hub-Api-Key</code>.</td></tr></tbody></table></div>
+<h4 id="payload-del-post-lo-que-emite-sync-agentdocps1">Payload del POST (lo que emite <code>Sync-AgentDoc.ps1</code>)</h4>
+<pre data-lang="jsonc"><code>{
+  <span class="tk-s">&quot;proyectoId&quot;</span>: <span class="tk-s">&quot;&lt;GUID&gt;&quot;</span>,
+  <span class="tk-s">&quot;buildId&quot;</span>: <span class="tk-s">&quot;12345&quot;</span>,
+  <span class="tk-s">&quot;generados&quot;</span>: [
+    {
+      <span class="tk-s">&quot;codigo&quot;</span>: <span class="tk-s">&quot;DOC-001&quot;</span>,
+      <span class="tk-s">&quot;entrypoint&quot;</span>: <span class="tk-s">&quot;MyCompany.X.Api&quot;</span>,
+      <span class="tk-s">&quot;docPath&quot;</span>: <span class="tk-s">&quot;docs/agente/api.md&quot;</span>,
+      <span class="tk-s">&quot;srcStamp&quot;</span>: <span class="tk-s">&quot;9f3a1c07be22&quot;</span>,       // hash del subarbol de fuente AHORA
+      <span class="tk-s">&quot;srcStampDoc&quot;</span>: <span class="tk-s">&quot;9f3a1c07be22&quot;</span>,    // hash sellado en el doc al generarlo
+      <span class="tk-s">&quot;drift&quot;</span>: <span class="tk-s">&quot;fresh&quot;</span>,                  // fresh | stale | orphan
+      <span class="tk-s">&quot;tokensEstimados&quot;</span>: <span class="tk-n">2180</span>,
+      <span class="tk-s">&quot;gate&quot;</span>: <span class="tk-s">&quot;PASS&quot;</span>,                    // PASS | WARN
+      <span class="tk-s">&quot;generadoCon&quot;</span>: <span class="tk-s">&quot;1.0.0&quot;</span>,
+      <span class="tk-s">&quot;adrRelacionados&quot;</span>: [],
+      <span class="tk-s">&quot;codeSearchUrl&quot;</span>: <span class="tk-s">&quot;https://devops.example.org/.../_search?type=code&amp;text=MyCompany.X.Api&quot;</span>
+    }
+  ]
+}</code></pre>
+</section>
+<section class="sec" id="sec-2-tool-mcp-register_agentdoc">
+<h3 id="2-tool-mcp-register_agentdoc">2. Tool MCP <code>register_agentdoc</code></h3>
+<p>Para que un agente (o <code>/hub-client</code>) publique un DOC vía MCP además del REST batch. Firma alineada con <code>register_pipeline</code>:</p>
+<pre><code>register_agentdoc(
+  proyectoId:  string (GUID),
+  codigo:      string,            // DOC-nnn; si se omite, el hub asigna el siguiente
+  entrypoint:  string,
+  docPath:     string,
+  srcStamp:    string,
+  srcStampDoc: string,
+  drift:       &quot;fresh&quot;|&quot;stale&quot;|&quot;orphan&quot;,
+  tokensEstimados: int,
+  gate:        &quot;PASS&quot;|&quot;WARN&quot;,
+  generadoCon: string,
+  adrRelacionados: string[]
+) -&gt; { codigo, upserted: bool }</code></pre>
+<ul>
+<li><strong>Idempotente</strong>: UPSERT por <code>(ProyectoId, Codigo)</code> — mismo PK que QR/ADR/pipeline.</li>
+<li><strong>Atribución</strong>: <code>devAlias</code> (per-dev) o <code>'ci'</code> (service-key), resuelto de la key igual que QR.</li>
+</ul>
+</section>
+<section class="sec" id="sec-3-esquema-de-persistencia-sugerido-análogo-a-qr">
+<h3 id="3-esquema-de-persistencia-sugerido-análogo-a-qr">3. Esquema de persistencia (sugerido, análogo a QR)</h3>
+<pre data-lang="sql"><code><span class="tk-k">CREATE</span> <span class="tk-k">TABLE</span> mcp.RegistroDocAgente (
+    Id               <span class="tk-k">INT</span> IDENTITY <span class="tk-k">PRIMARY</span> <span class="tk-k">KEY</span>,
+    ProyectoId       <span class="tk-k">UNIQUEIDENTIFIER</span> <span class="tk-k">NOT</span> <span class="tk-k">NULL</span>,
+    Code           <span class="tk-k">VARCHAR</span>(<span class="tk-n">16</span>)  <span class="tk-k">NOT</span> <span class="tk-k">NULL</span>,     <span class="tk-c">-- DOC-nnn</span>
+    Entrypoint       <span class="tk-k">NVARCHAR</span>(<span class="tk-n">200</span>) <span class="tk-k">NOT</span> <span class="tk-k">NULL</span>,
+    DocPath          <span class="tk-k">NVARCHAR</span>(<span class="tk-n">400</span>) <span class="tk-k">NOT</span> <span class="tk-k">NULL</span>,
+    SrcStamp         <span class="tk-k">VARCHAR</span>(<span class="tk-n">64</span>)  <span class="tk-k">NULL</span>,
+    SrcStampDoc      <span class="tk-k">VARCHAR</span>(<span class="tk-n">64</span>)  <span class="tk-k">NULL</span>,
+    Drift            <span class="tk-k">VARCHAR</span>(<span class="tk-n">8</span>)   <span class="tk-k">NOT</span> <span class="tk-k">NULL</span>,      <span class="tk-c">-- fresh|stale|orphan</span>
+    TokensEstimados  <span class="tk-k">INT</span>          <span class="tk-k">NOT</span> <span class="tk-k">NULL</span>,
+    Gate             <span class="tk-k">VARCHAR</span>(<span class="tk-n">4</span>)   <span class="tk-k">NOT</span> <span class="tk-k">NULL</span>,      <span class="tk-c">-- PASS|WARN</span>
+    GeneradoCon      <span class="tk-k">VARCHAR</span>(<span class="tk-n">32</span>)  <span class="tk-k">NULL</span>,
+    DevAlias         <span class="tk-k">NVARCHAR</span>(<span class="tk-n">120</span>) <span class="tk-k">NULL</span>,
+    FechaSync        <span class="tk-k">DATETIME2</span>    <span class="tk-k">NOT</span> <span class="tk-k">NULL</span> <span class="tk-k">DEFAULT</span> SYSUTCDATETIME(),
+    <span class="tk-k">CONSTRAINT</span> UQ_DocAgente UNIQUE (ProyectoId, Code)
+);</code></pre>
+<p>Esquema <code>mcp</code> como namespace (convención schema-as-namespace). Zero-downtime: tabla nueva + índices, sin tocar las de QR.</p>
+</section>
+<section class="sec" id="sec-4-dashboard-fase-posterior-fuera-de-esta-skill">
+<h3 id="4-dashboard-fase-posterior-fuera-de-esta-skill">4. Dashboard (fase posterior, fuera de esta skill)</h3>
+<p>El dashboard de calidad (<code>docs/dashboard/calidad.html</code>) puede ganar una columna/tarjeta &quot;Contexto de agente&quot; por proyecto: <code>% docs fresh</code>, <code>nº stale</code>, <code>tokens totales de contexto</code>. Solo-lectura, Chart.js, colores del tema — mismo patrón que las tarjetas de QR. <strong>No</strong> forma parte de <code>docs-agente-sync</code> (que es solo el productor); es trabajo del repo del Hub/dashboard.</p>
+</section>
+<section class="sec" id="sec-5-orden-de-implementación-recomendado">
+<h3 id="5-orden-de-implementación-recomendado">5. Orden de implementación recomendado</h3>
+<ol>
+<li>Tabla <code>mcp.RegistroDocAgente</code> + endpoints <code>GET /v2/stats/docs/{id}</code> y <code>POST /v2/sync/docs-batch</code>.</li>
+<li>Tool MCP <code>register_agentdoc</code> (envuelve el mismo UPSERT).</li>
+<li>Extender <code>hub-client</code> (subir de 14 → 15 tools; añadir <code>register_agentdoc</code> a su catálogo).</li>
+<li>Piloto: un proyecto con <code>docs/agente/</code> poblada por <code>/analisis-arquitectura --agente</code>.</li>
+<li>(Opcional) tarjeta de dashboard + hornear el step opt-out en <code>cicd-architect</code> fase2.</li>
+</ol>
+<p>Hasta el paso 1, <code>docs-agente-sync</code> es totalmente instalable y corre en modo <code>[SKIP]</code> sin romper nada.</p>
+</section><p style="margin-top:32px"><a href="../../../skills/docs-agente-sync.html#ficheros">← Volver a la ficha de docs-agente-sync</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/docs-agente-sync/references/ci-wiring.html"><small>Anterior</small>references/ci-wiring.md</a><a class="next" href="../../../skills/docs-agente-sync/references/workflow-docs-sync.html"><small>Siguiente</small>references/workflow-docs-sync.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/docs-agente-sync/references/hub-contract.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-endpoints-rest-los-que-consume-el-script">1. Endpoints REST (los que consume el script)</a></li><li class="l3"><a href="#payload-del-post-lo-que-emite-sync-agentdocps1">Payload del POST (lo que emite Sync-AgentDoc.ps1)</a></li><li class="l2"><a href="#2-tool-mcp-register_agentdoc">2. Tool MCP register_agentdoc</a></li><li class="l2"><a href="#3-esquema-de-persistencia-sugerido-análogo-a-qr">3. Esquema de persistencia (sugerido, análogo a QR)</a></li><li class="l2"><a href="#4-dashboard-fase-posterior-fuera-de-esta-skill">4. Dashboard (fase posterior, fuera de esta skill)</a></li><li class="l2"><a href="#5-orden-de-implementación-recomendado">5. Orden de implementación recomendado</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

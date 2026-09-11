@@ -1,0 +1,492 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>console · Ovillo</title><meta name="description" content="Convenciones de aplicaciones de consola y servicios alojados: hosting, workers y ciclo de vida."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="console · Ovillo"><meta property="og:description" content="Convenciones de aplicaciones de consola y servicios alojados: hosting, workers y ciclo de vida."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/console.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/console.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/console.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>regla por ruta (13)</h4><ul class="sibs"><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/blazor.html">blazor</a></li><li><a href="../skills/cicd-runtime.html">cicd-runtime</a></li><li><a href="../skills/console.html" class="cur">console</a></li><li><a href="../skills/database.html">database</a></li><li><a href="../skills/domain.html">domain</a></li><li><a href="../skills/domain-api-docs.html">domain-api-docs</a></li><li><a href="../skills/estandares-base.html">estandares-base</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/mcp-config.html">mcp-config</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/webapp.html">webapp</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>console</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>/hv:console</span></div><h1>console</h1><p class="lede">Convenciones de aplicaciones de consola y servicios alojados: hosting, workers y ciclo de vida.</p><div class="meta-grid"><div><b>regla por ruta</b><span>clase</span></div><div><b><code>/hv:console</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>347</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>user-invocable</th><td><code>false</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Se carga sola al tocar ficheros que casan con sus rutas (<code>paths:</code>). No entra en el listado de skills.</p><pre data-lang="yaml"><code>paths:
+  - &quot;**/Workers/**/*.cs&quot;
+  - &quot;**/Services/**/*Service.cs&quot;
+  - &quot;**/Jobs/**/*.cs&quot;
+  - &quot;**/Tasks/**/*.cs&quot;
+  - &quot;**/Handlers/**/*.cs&quot;
+  - &quot;**/Console/**/*.cs&quot;
+  - &quot;**/*Worker.cs&quot;
+  - &quot;**/*Job.cs&quot;
+  - &quot;**/*Task.cs&quot;
+  - &quot;**/*HostedService.cs&quot;</code></pre></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Se carga por ruta, no por invocacion</strong>: el campo <code>paths:</code> la activa cuando Claude trabaja con ficheros que casan con esos patrones. No aparece en el menu (<code>user-invocable: false</code>) y <strong>no ocupa contexto</strong> mientras no case ningun fichero.</p>
+<p>Procede de <code>.claude/skills/console/SKILL.md</code>. Se convirtio en skill porque un plugin no distribuye <code>rules/</code>.</p></blockquote>
+<hr>
+<h2 id="reglas-para-aplicaciones-de-consola-y-servicios-windows">Reglas para Aplicaciones de Consola y Servicios Windows</h2>
+<blockquote><p>Este archivo aplica cuando Claude trabaja con aplicaciones de consola, tareas programadas o servicios Windows. <strong>Detecta automáticamente</strong> la versión de .NET del proyecto.</p></blockquote>
+<hr>
+<section class="sec" id="sec-detección-de-versión">
+<h3 id="detección-de-versión">DETECCIÓN DE VERSIÓN</h3>
+<pre data-lang="xml"><code><span class="tk-c">&lt;!-- En .csproj --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net10.<span class="tk-n">0</span><span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>  <span class="tk-c">&lt;!-- .NET 10 --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net9.<span class="tk-n">0</span><span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>   <span class="tk-c">&lt;!-- .NET 9 --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net8.<span class="tk-n">0</span><span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>   <span class="tk-c">&lt;!-- .NET 8 --&gt;</span>
+<span class="tk-t">&lt;TargetFramework</span><span class="tk-t">&gt;</span>net48<span class="tk-t">&lt;/TargetFramework</span><span class="tk-t">&gt;</span>    <span class="tk-c">&lt;!-- .NET Framework 4.8 --&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-tipos-de-aplicaciones">
+<h3 id="tipos-de-aplicaciones">TIPOS DE APLICACIONES</h3>
+<div class="tbl"><table><thead><tr><th>Tipo</th><th>Ejecución</th><th>Versiones</th></tr></thead><tbody><tr><td><strong>Console App</strong></td><td>Manual / Programador de Tareas</td><td>Todas</td></tr><tr><td><strong>Worker Service</strong></td><td>Servicio Windows / systemd</td><td>.NET 8+</td></tr><tr><td><strong>Windows Service</strong></td><td>Servicio Windows tradicional</td><td>.NET 4.x</td></tr><tr><td><strong>Hosted Service</strong></td><td>Dentro de aplicación web</td><td>.NET 8+</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-parte-1-worker-service-net-10-recomendado">
+<h3 id="parte-1-worker-service-net-10-recomendado">PARTE 1: WORKER SERVICE .NET 10 (Recomendado)</h3>
+<h4 id="programcs---net-10">Program.cs - .NET 10</h4>
+<pre data-lang="csharp"><code><span class="tk-k">using</span> Serilog;
+
+Log.Logger = <span class="tk-k">new</span> LoggerConfiguration()
+    .ReadFrom.Configuration(<span class="tk-k">new</span> ConfigurationBuilder()
+        .AddJsonFile(<span class="tk-s">&quot;appsettings.json&quot;</span>)
+        .Build())
+    .CreateLogger();
+
+<span class="tk-k">try</span>
+{
+    Log.Information(<span class="tk-s">&quot;Iniciando servicio {ServiceName}&quot;</span>, <span class="tk-s">&quot;MyCompany.Worker&quot;</span>);
+
+    <span class="tk-k">var</span> builder = Host.CreateApplicationBuilder(args);
+
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    <span class="tk-c">// CONFIGURACIÓN .NET 10 - Validación integrada</span>
+    <span class="tk-c">// ═══════════════════════════════════════════════════════════════</span>
+    
+    builder.Services.AddOptionsWithValidateOnStart&lt;WorkerSettings&gt;()
+        .Bind(builder.Configuration.GetSection(<span class="tk-s">&quot;WorkerSettings&quot;</span>))
+        .ValidateDataAnnotations();
+
+    <span class="tk-c">// Base de datos</span>
+    builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+        options.UseSqlServer(
+            builder.Configuration.GetConnectionString(<span class="tk-s">&quot;DefaultConnection&quot;</span>),
+            sqlOptions =&gt; sqlOptions.EnableRetryOnFailure(<span class="tk-n">3</span>)));
+
+    <span class="tk-c">// Servicios</span>
+    builder.Services.AddScoped&lt;IScholarshipService, ScholarshipService&gt;();
+    builder.Services.AddSingleton&lt;IEmailService, EmailService&gt;();
+
+    <span class="tk-c">// Workers con mejoras .NET 10</span>
+    builder.Services.AddHostedService&lt;ScholarshipProcessorWorker&gt;();
+    builder.Services.AddHostedService&lt;NotificationsWorker&gt;();
+
+    <span class="tk-c">// Health checks para monitorización</span>
+    builder.Services.AddHealthChecks()
+        .AddDbContextCheck&lt;ApplicationDbContext&gt;(<span class="tk-s">&quot;database&quot;</span>)
+        .AddCheck&lt;WorkerHealthCheck&gt;(<span class="tk-s">&quot;worker&quot;</span>);
+
+    <span class="tk-c">// Serilog</span>
+    builder.Services.AddSerilog();
+
+    <span class="tk-c">// Servicio Windows / systemd</span>
+    builder.Services.AddWindowsService(options =&gt;
+    {
+        options.ServiceName = <span class="tk-s">&quot;MyCompany.ScholarshipManagement.Worker&quot;</span>;
+    });
+    
+    <span class="tk-c">// Linux systemd</span>
+    builder.Services.AddSystemd();
+
+    <span class="tk-k">var</span> host = builder.Build();
+    
+    <span class="tk-c">// Endpoint de health (opcional, para K8s/Docker)</span>
+    <span class="tk-c">// host.MapHealthChecks(&quot;/health&quot;);</span>
+    
+    <span class="tk-k">await</span> host.RunAsync();
+}
+<span class="tk-k">catch</span> (Exception ex)
+{
+    Log.Fatal(ex, <span class="tk-s">&quot;Error fatal al iniciar el servicio&quot;</span>);
+    <span class="tk-k">throw</span>;
+}
+<span class="tk-k">finally</span>
+{
+    <span class="tk-k">await</span> Log.CloseAndFlushAsync();
+}</code></pre>
+<h4 id="worker-con-backgroundservice---net-10">Worker con BackgroundService - .NET 10</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipProcessorWorker : BackgroundService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;ScholarshipProcessorWorker&gt; _logger;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IServiceScopeFactory _scopeFactory;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IOptionsMonitor&lt;WorkerSettings&gt; _settings;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> TimeProvider _timeProvider;
+
+    <span class="tk-k">public</span> ScholarshipProcessorWorker(
+        ILogger&lt;ScholarshipProcessorWorker&gt; logger,
+        IServiceScopeFactory scopeFactory,
+        IOptionsMonitor&lt;WorkerSettings&gt; settings,
+        TimeProvider timeProvider)  <span class="tk-c">// .NET 10 - TimeProvider para testing</span>
+    {
+        _logger = logger;
+        _scopeFactory = scopeFactory;
+        _settings = settings;
+        _timeProvider = timeProvider;
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">async</span> Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        _logger.LogInformation(<span class="tk-s">&quot;Worker iniciado a las {Time}&quot;</span>, 
+            _timeProvider.GetUtcNow());
+
+        <span class="tk-c">// .NET 10 - PeriodicTimer mejorado</span>
+        <span class="tk-k">using</span> <span class="tk-k">var</span> timer = <span class="tk-k">new</span> PeriodicTimer(
+            TimeSpan.FromMinutes(_settings.CurrentValue.IntervalMinutes),
+            _timeProvider);
+
+        <span class="tk-k">while</span> (<span class="tk-k">await</span> timer.WaitForNextTickAsync(stoppingToken))
+        {
+            <span class="tk-k">try</span>
+            {
+                <span class="tk-k">await</span> ProcessPendingScholarshipsAsync(stoppingToken);
+            }
+            <span class="tk-k">catch</span> (OperationCanceledException) when (stoppingToken.IsCancellationRequested)
+            {
+                _logger.LogInformation(<span class="tk-s">&quot;Worker cancelado correctamente&quot;</span>);
+                <span class="tk-k">break</span>;
+            }
+            <span class="tk-k">catch</span> (Exception ex)
+            {
+                _logger.LogError(ex, <span class="tk-s">&quot;Error en ciclo de procesamiento&quot;</span>);
+                <span class="tk-c">// Continuar con el siguiente ciclo</span>
+            }
+        }
+
+        _logger.LogInformation(<span class="tk-s">&quot;Worker detenido&quot;</span>);
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">async</span> Task ProcessPendingScholarshipsAsync(CancellationToken ct)
+    {
+        <span class="tk-c">// ⚠️ IMPORTANTE: Crear scope para servicios Scoped</span>
+        <span class="tk-k">await</span> <span class="tk-k">using</span> <span class="tk-k">var</span> scope = _scopeFactory.CreateAsyncScope();
+        <span class="tk-k">var</span> scholarshipService = scope.ServiceProvider.GetRequiredService&lt;IScholarshipService&gt;();
+
+        <span class="tk-k">var</span> pendingScholarships = <span class="tk-k">await</span> scholarshipService.GetPendingAsync(ct);
+        
+        _logger.LogInformation(<span class="tk-s">&quot;Found {Count} pending scholarships&quot;</span>, 
+            pendingScholarships.Count());
+
+        <span class="tk-c">// .NET 10 - Parallel.ForEachAsync mejorado</span>
+        <span class="tk-k">await</span> Parallel.ForEachAsync(
+            pendingScholarships,
+            <span class="tk-k">new</span> ParallelOptions 
+            { 
+                MaxDegreeOfParallelism = <span class="tk-n">4</span>,
+                CancellationToken = ct 
+            },
+            <span class="tk-k">async</span> (scholarship, token) =&gt;
+            {
+                <span class="tk-k">await</span> <span class="tk-k">using</span> <span class="tk-k">var</span> innerScope = _scopeFactory.CreateAsyncScope();
+                <span class="tk-k">var</span> service = innerScope.ServiceProvider.GetRequiredService&lt;IScholarshipService&gt;();
+                
+                _logger.LogDebug(<span class="tk-s">&quot;Procesando scholarship {ScholarshipId}&quot;</span>, scholarship.Id);
+                <span class="tk-k">await</span> service.ProcessAsync(scholarship.Id, token);
+            });
+
+        _logger.LogInformation(<span class="tk-s">&quot;Ciclo completado&quot;</span>);
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">override</span> <span class="tk-k">async</span> Task StopAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogInformation(<span class="tk-s">&quot;Stop request received&quot;</span>);
+        <span class="tk-k">await</span> <span class="tk-k">base</span>.StopAsync(cancellationToken);
+        _logger.LogInformation(<span class="tk-s">&quot;Worker detenido correctamente&quot;</span>);
+    }
+}</code></pre>
+<h4 id="health-check-para-worker">Health Check para Worker</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> WorkerHealthCheck : IHealthCheck
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;WorkerHealthCheck&gt; _logger;
+    <span class="tk-k">private</span> <span class="tk-k">static</span> DateTime _lastExecution = DateTime.MinValue;
+    <span class="tk-k">private</span> <span class="tk-k">static</span> <span class="tk-k">readonly</span> TimeSpan MaxInterval = TimeSpan.FromMinutes(<span class="tk-n">15</span>);
+
+    <span class="tk-k">public</span> WorkerHealthCheck(ILogger&lt;WorkerHealthCheck&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">void</span> ReportExecution() =&gt; _lastExecution = DateTime.UtcNow;
+
+    <span class="tk-k">public</span> Task&lt;HealthCheckResult&gt; CheckHealthAsync(
+        HealthCheckContext context,
+        CancellationToken cancellationToken = <span class="tk-k">default</span>)
+    {
+        <span class="tk-k">var</span> timeSinceLastExecution = DateTime.UtcNow - _lastExecution;
+
+        <span class="tk-k">if</span> (_lastExecution == DateTime.MinValue)
+        {
+            <span class="tk-k">return</span> Task.FromResult(HealthCheckResult.Degraded(<span class="tk-s">&quot;Worker no ha ejecutado aún&quot;</span>));
+        }
+
+        <span class="tk-k">if</span> (timeSinceLastExecution &gt; MaxInterval)
+        {
+            <span class="tk-k">return</span> Task.FromResult(HealthCheckResult.Unhealthy(
+                <span class="tk-s">$&quot;Última ejecución hace {timeSinceLastExecution.TotalMinutes:F0} minutos&quot;</span>));
+        }
+
+        <span class="tk-k">return</span> Task.FromResult(HealthCheckResult.Healthy(
+            <span class="tk-s">$&quot;Última ejecución hace {timeSinceLastExecution.TotalSeconds:F0} segundos&quot;</span>));
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-2-comparativa-por-versión">
+<h3 id="parte-2-comparativa-por-versión">PARTE 2: COMPARATIVA POR VERSIÓN</h3>
+<h4 id="net-10-vs-net-89-vs-net-4x">.NET 10 vs .NET 8/9 vs .NET 4.x</h4>
+<div class="tbl"><table><thead><tr><th>Característica</th><th>.NET 4.x</th><th>.NET 8/9</th><th>.NET 10</th></tr></thead><tbody><tr><td><strong>Host</strong></td><td>ServiceBase</td><td>Host.CreateDefaultBuilder</td><td>Host.CreateApplicationBuilder</td></tr><tr><td><strong>Timer</strong></td><td>System.Timers.Timer</td><td>PeriodicTimer</td><td>PeriodicTimer + TimeProvider</td></tr><tr><td><strong>DI Scope</strong></td><td>Manual</td><td>CreateScope()</td><td>CreateAsyncScope()</td></tr><tr><td><strong>Cancellation</strong></td><td>Manual</td><td>CancellationToken</td><td>CancellationToken mejorado</td></tr><tr><td><strong>Parallel</strong></td><td>Parallel.ForEach</td><td>Parallel.ForEachAsync</td><td>Parallel.ForEachAsync optimizado</td></tr><tr><td><strong>Logging</strong></td><td>log4net/NLog</td><td>Serilog</td><td>Serilog + OpenTelemetry</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-parte-3-net-89-preparar-migración">
+<h3 id="parte-3-net-89-preparar-migración">PARTE 3: .NET 8/9 (PREPARAR MIGRACIÓN)</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - .NET 8/9</span>
+<span class="tk-k">var</span> builder = Host.CreateDefaultBuilder(args)
+    .ConfigureServices((context, services) =&gt;
+    {
+        services.Configure&lt;WorkerSettings&gt;(
+            context.Configuration.GetSection(<span class="tk-s">&quot;WorkerSettings&quot;</span>));
+            
+        services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+            options.UseSqlServer(context.Configuration.GetConnectionString(<span class="tk-s">&quot;DefaultConnection&quot;</span>)));
+            
+        services.AddHostedService&lt;ScholarshipProcessorWorker&gt;();
+    })
+    .UseSerilog();
+
+<span class="tk-c">// Diferencias para migración a .NET 10:</span>
+<span class="tk-c">// - CreateDefaultBuilder → CreateApplicationBuilder</span>
+<span class="tk-c">// - Configure&lt;T&gt; → AddOptionsWithValidateOnStart&lt;T&gt;</span>
+<span class="tk-c">// - CreateScope() → CreateAsyncScope()</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-4-net-framework-4x-legacy">
+<h3 id="parte-4-net-framework-4x-legacy">PARTE 4: .NET FRAMEWORK 4.x (LEGACY)</h3>
+<pre data-lang="csharp"><code><span class="tk-c">// Windows Service tradicional</span>
+<span class="tk-k">public</span> <span class="tk-k">partial</span> <span class="tk-k">class</span> ScholarshipsService : ServiceBase
+{
+    <span class="tk-k">private</span> Timer _timer;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILog _log = LogManager.GetLogger(<span class="tk-k">typeof</span>(ScholarshipsService));
+
+    <span class="tk-k">public</span> ScholarshipsService()
+    {
+        InitializeComponent();
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">void</span> OnStart(<span class="tk-k">string</span>[] args)
+    {
+        _log.Info(<span class="tk-s">&quot;Servicio iniciado&quot;</span>);
+        _timer = <span class="tk-k">new</span> Timer(ProcessScholarships, <span class="tk-k">null</span>, TimeSpan.Zero, TimeSpan.FromMinutes(<span class="tk-n">5</span>));
+    }
+
+    <span class="tk-k">private</span> <span class="tk-k">void</span> ProcessScholarships(<span class="tk-k">object</span> state)
+    {
+        <span class="tk-k">try</span>
+        {
+            <span class="tk-k">using</span> (<span class="tk-k">var</span> context = <span class="tk-k">new</span> ApplicationDbContext())
+            {
+                <span class="tk-k">var</span> pendingScholarships = context.Scholarships
+                    .Where(b =&gt; b.Status == ScholarshipStatus.Pending)
+                    .ToList();
+
+                <span class="tk-k">foreach</span> (<span class="tk-k">var</span> scholarship <span class="tk-k">in</span> pendingScholarships)
+                {
+                    <span class="tk-c">// Procesar...</span>
+                }
+            }
+        }
+        <span class="tk-k">catch</span> (Exception ex)
+        {
+            _log.Error(<span class="tk-s">&quot;Error procesando scholarships&quot;</span>, ex);
+        }
+    }
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">void</span> OnStop()
+    {
+        _log.Info(<span class="tk-s">&quot;Servicio detenido&quot;</span>);
+        _timer?.Dispose();
+    }
+}
+
+<span class="tk-c">// Program.cs para Windows Service .NET 4.x</span>
+<span class="tk-k">static</span> <span class="tk-k">class</span> Program
+{
+    <span class="tk-k">static</span> <span class="tk-k">void</span> Main()
+    {
+        ServiceBase[] ServicesToRun = <span class="tk-k">new</span> ServiceBase[]
+        {
+            <span class="tk-k">new</span> ScholarshipsService()
+        };
+        ServiceBase.Run(ServicesToRun);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-5-configuración">
+<h3 id="parte-5-configuración">PARTE 5: CONFIGURACIÓN</h3>
+<h4 id="appsettingsjson---todas-las-versiones-modernas">appsettings.json - Todas las versiones modernas</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;ConnectionStrings&quot;</span>: {
+    <span class="tk-s">&quot;DefaultConnection&quot;</span>: <span class="tk-s">&quot;Server=...;Database=...;Trusted_Connection=True;TrustServerCertificate=True&quot;</span>
+  },
+  <span class="tk-s">&quot;WorkerSettings&quot;</span>: {
+    <span class="tk-s">&quot;IntervalMinutes&quot;</span>: <span class="tk-n">5</span>,
+    <span class="tk-s">&quot;MaxRetries&quot;</span>: <span class="tk-n">3</span>,
+    <span class="tk-s">&quot;TimeoutSeconds&quot;</span>: <span class="tk-n">300</span>,
+    <span class="tk-s">&quot;MaxParallelism&quot;</span>: <span class="tk-n">4</span>,
+    <span class="tk-s">&quot;WindowStartTime&quot;</span>: <span class="tk-s">&quot;08:00&quot;</span>,
+    <span class="tk-s">&quot;WindowEndTime&quot;</span>: <span class="tk-s">&quot;20:00&quot;</span>
+  },
+  <span class="tk-s">&quot;Serilog&quot;</span>: {
+    <span class="tk-s">&quot;MinimumLevel&quot;</span>: {
+      <span class="tk-s">&quot;Default&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>,
+      <span class="tk-s">&quot;Override&quot;</span>: {
+        <span class="tk-s">&quot;Microsoft&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;System&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>
+      }
+    },
+    <span class="tk-s">&quot;WriteTo&quot;</span>: [
+      { <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;Console&quot;</span> },
+      { 
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;File&quot;</span>, 
+        <span class="tk-s">&quot;Args&quot;</span>: { 
+          <span class="tk-s">&quot;path&quot;</span>: <span class="tk-s">&quot;logs/worker-.log&quot;</span>,
+          <span class="tk-s">&quot;rollingInterval&quot;</span>: <span class="tk-s">&quot;Day&quot;</span>,
+          <span class="tk-s">&quot;retainedFileCountLimit&quot;</span>: <span class="tk-n">30</span>
+        }
+      }
+    ]
+  }
+}</code></pre>
+<h4 id="settings-con-validación-net-10">Settings con validación (.NET 10)</h4>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> WorkerSettings
+{
+    [Required]
+    [Range(<span class="tk-n">1</span>, <span class="tk-n">60</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">int</span> IntervalMinutes { <span class="tk-k">get</span>; <span class="tk-k">set</span>; } = <span class="tk-n">5</span>;
+
+    [Range(<span class="tk-n">1</span>, <span class="tk-n">10</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">int</span> MaxRetries { <span class="tk-k">get</span>; <span class="tk-k">set</span>; } = <span class="tk-n">3</span>;
+
+    [Range(<span class="tk-n">30</span>, <span class="tk-n">600</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">int</span> TimeoutSeconds { <span class="tk-k">get</span>; <span class="tk-k">set</span>; } = <span class="tk-n">300</span>;
+
+    [Range(<span class="tk-n">1</span>, <span class="tk-n">16</span>)]
+    <span class="tk-k">public</span> <span class="tk-k">int</span> MaxParallelism { <span class="tk-k">get</span>; <span class="tk-k">set</span>; } = <span class="tk-n">4</span>;
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-6-instalación-como-servicio">
+<h3 id="parte-6-instalación-como-servicio">PARTE 6: INSTALACIÓN COMO SERVICIO</h3>
+<h4 id="windows-service-net-10">Windows Service (.NET 10)</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Publicar</span>
+dotnet publish -c Release -o C:\Services\MyCompany.Worker
+
+<span class="tk-c"># Crear servicio</span>
+sc.exe create <span class="tk-s">&quot;ScholarshipManagementWorker&quot;</span> `
+    binPath=<span class="tk-s">&quot;C:\Services\MyCompany.Worker\MyCompany.Worker.exe&quot;</span> `
+    start=auto `
+    DisplayName=<span class="tk-s">&quot;Scholarship Management Worker&quot;</span>
+
+<span class="tk-c"># Configurar recuperación ante fallos</span>
+sc.exe failure <span class="tk-s">&quot;ScholarshipManagementWorker&quot;</span> `
+    reset=<span class="tk-n">86400</span> `
+    actions=restart/<span class="tk-n">60000</span>/restart/<span class="tk-n">60000</span>/restart/<span class="tk-n">60000</span>
+
+<span class="tk-c"># Descripción</span>
+sc.exe description <span class="tk-s">&quot;ScholarshipManagementWorker&quot;</span> `
+    <span class="tk-s">&quot;Processes pending scholarships every 5 minutes&quot;</span>
+
+<span class="tk-c"># Iniciar</span>
+sc.exe start <span class="tk-s">&quot;ScholarshipManagementWorker&quot;</span></code></pre>
+<h4 id="linux-systemd-net-10">Linux systemd (.NET 10)</h4>
+<pre data-lang="ini"><code># /etc/systemd/system/scholarship-management-worker.service
+[Unit]
+Description=Scholarship Management Worker
+After=network.target
+
+[Service]
+Type=notify
+WorkingDirectory=/opt/scholarship-management/worker
+ExecStart=/opt/scholarship-management/worker/MyCompany.Worker
+Restart=always
+RestartSec=10
+User=appsvc
+Environment=DOTNET_ENVIRONMENT=Production
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+<pre data-lang="bash"><code><span class="tk-c"># Comandos systemd</span>
+sudo systemctl daemon-reload
+sudo systemctl enable scholarship-management-worker
+sudo systemctl start scholarship-management-worker
+sudo systemctl status scholarship-management-worker</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-parte-7-graceful-shutdown">
+<h3 id="parte-7-graceful-shutdown">PARTE 7: GRACEFUL SHUTDOWN</h3>
+<pre data-lang="csharp"><code><span class="tk-k">public</span> <span class="tk-k">class</span> GracefulShutdownWorker : BackgroundService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;GracefulShutdownWorker&gt; _logger;
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> ConcurrentBag&lt;Task&gt; _tasksInProgress = <span class="tk-k">new</span>();
+
+    <span class="tk-k">protected</span> <span class="tk-k">override</span> <span class="tk-k">async</span> Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        <span class="tk-k">while</span> (!stoppingToken.IsCancellationRequested)
+        {
+            <span class="tk-k">var</span> task = ProcessItemAsync(stoppingToken);
+            _tasksInProgress.Add(task);
+
+            <span class="tk-c">// Limpiar tasks completed periódicamente</span>
+            <span class="tk-k">var</span> completed = _tasksInProgress.Where(t =&gt; t.IsCompleted).ToList();
+            <span class="tk-k">foreach</span> (<span class="tk-k">var</span> t <span class="tk-k">in</span> completed)
+            {
+                _tasksInProgress.TryTake(<span class="tk-k">out</span> _);
+            }
+
+            <span class="tk-k">await</span> Task.Delay(<span class="tk-n">1000</span>, stoppingToken);
+        }
+    }
+
+    <span class="tk-k">public</span> <span class="tk-k">override</span> <span class="tk-k">async</span> Task StopAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogInformation(<span class="tk-s">&quot;Esperando {Count} tasks pendientes...&quot;</span>, 
+            _tasksInProgress.Count);
+
+        <span class="tk-c">// Esperar a que terminen con timeout</span>
+        <span class="tk-k">var</span> timeout = Task.Delay(TimeSpan.FromSeconds(<span class="tk-n">30</span>), cancellationToken);
+        <span class="tk-k">var</span> pending = Task.WhenAll(_tasksInProgress.Where(t =&gt; !t.IsCompleted));
+
+        <span class="tk-k">await</span> Task.WhenAny(pending, timeout);
+
+        <span class="tk-k">if</span> (!pending.IsCompleted)
+        {
+            _logger.LogWarning(<span class="tk-s">&quot;Timeout esperando tasks, forzando cierre&quot;</span>);
+        }
+
+        <span class="tk-k">await</span> <span class="tk-k">base</span>.StopAsync(cancellationToken);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-checklist-por-versión">
+<h3 id="checklist-por-versión">CHECKLIST POR VERSIÓN</h3>
+<h4 id="net-10">.NET 10 ✅</h4>
+<ul>
+<li><input type="checkbox" disabled> Host.CreateApplicationBuilder</li>
+<li><input type="checkbox" disabled> AddOptionsWithValidateOnStart</li>
+<li><input type="checkbox" disabled> CreateAsyncScope()</li>
+<li><input type="checkbox" disabled> TimeProvider para testing</li>
+<li><input type="checkbox" disabled> PeriodicTimer</li>
+<li><input type="checkbox" disabled> Health checks</li>
+</ul>
+<h4 id="net-89-migrar">.NET 8/9 (Migrar)</h4>
+<ul>
+<li><input type="checkbox" disabled> Identificar CreateDefaultBuilder → CreateApplicationBuilder</li>
+<li><input type="checkbox" disabled> Migrar Configure&lt;T&gt; → AddOptionsWithValidateOnStart</li>
+<li><input type="checkbox" disabled> Usar CreateAsyncScope</li>
+</ul>
+<h4 id="net-4x-mantener">.NET 4.x (Mantener)</h4>
+<ul>
+<li><input type="checkbox" disabled> ServiceBase tradicional</li>
+<li><input type="checkbox" disabled> System.Timers.Timer</li>
+<li><input type="checkbox" disabled> log4net/NLog</li>
+<li><input type="checkbox" disabled> No introducir async/await complejo</li>
+</ul>
+<hr>
+<p><em>Regla incondicional — Multi-versión .NET</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>95</strong> caracteres publicados al modelo en el listado de skills; tope 1536. Cuerpo: 347 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>5 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>feat(puertas): Lote B — metadata.kind declarativo y verificado, hook skill-guard, puertas semanticas del portal (ADR-022, ADR-003 enmendado)</em> (<code>55ad636</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/database.html">database</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/console/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#detección-de-versión">DETECCIÓN DE VERSIÓN</a></li><li class="l3"><a href="#tipos-de-aplicaciones">TIPOS DE APLICACIONES</a></li><li class="l3"><a href="#parte-1-worker-service-net-10-recomendado">PARTE 1: WORKER SERVICE .NET 10 (Recomendado)</a></li><li class="l3"><a href="#parte-2-comparativa-por-versión">PARTE 2: COMPARATIVA POR VERSIÓN</a></li><li class="l3"><a href="#parte-3-net-89-preparar-migración">PARTE 3: .NET 8/9 (PREPARAR MIGRACIÓN)</a></li><li class="l3"><a href="#parte-4-net-framework-4x-legacy">PARTE 4: .NET FRAMEWORK 4.x (LEGACY)</a></li><li class="l3"><a href="#parte-5-configuración">PARTE 5: CONFIGURACIÓN</a></li><li class="l3"><a href="#parte-6-instalación-como-servicio">PARTE 6: INSTALACIÓN COMO SERVICIO</a></li><li class="l3"><a href="#parte-7-graceful-shutdown">PARTE 7: GRACEFUL SHUTDOWN</a></li><li class="l3"><a href="#checklist-por-versión">CHECKLIST POR VERSIÓN</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

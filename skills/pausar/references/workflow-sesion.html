@@ -1,0 +1,132 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pausar · references/workflow-sesion.md · Ovillo</title><meta name="description" content="Fichero references/workflow-sesion.md de la skill pausar"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="pausar · references/workflow-sesion.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-sesion.md de la skill pausar"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/pausar/references/workflow-sesion.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/pausar/references/workflow-sesion.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/pausar/references/workflow-sesion.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de pausar (1)</h4><ul class="sibs"><li><a href="../../../skills/pausar/references/workflow-sesion.html" class="cur">references/workflow-sesion.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/pausar.html">pausar</a></span><span>references</span><span>workflow-sesion.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>pausar</span><span>references/</span></div><h1>workflow-sesion.md</h1><p class="lede">Referencia que <code>pausar</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/pausar.html">pausar</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>4983 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Guarda el estado de la sesion en su forma ligera (resumen corto). Es el subconjunto rapido de <code>pausar</code>, no una skill aparte.</p></blockquote>
+<hr>
+<p class="lede">Actualiza el archivo <code>_hilo/SESION_ACTUAL.md</code> con un resumen rápido de la sesión actual.</p>
+<hr>
+<section class="sec" id="sec-cuándo-usar">
+<h3 id="cuándo-usar">Cuándo usar</h3>
+<ul>
+<li><strong>Al final de cada sesión de trabajo</strong></li>
+<li><strong>Antes de cerrar Claude Code</strong></li>
+<li><strong>Cuando cambies de tarea y quieras guardar contexto</strong></li>
+<li><strong>Antes de que otro usuario continúe el trabajo</strong></li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-instrucciones-para-claude">
+<h3 id="instrucciones-para-claude">Instrucciones para Claude</h3>
+<p>Al ejecutar <code>/sesion</code>, Claude debe:</p>
+<h4 id="1-analizar-la-sesión-actual">1. Analizar la sesión actual</h4>
+<p>Revisar la conversación y extraer:</p>
+<ul>
+<li>Qué se trabajó (resumen breve)</li>
+<li>Archivos modificados/creados</li>
+<li>Decisiones importantes</li>
+<li>Tareas completadas</li>
+<li>Tareas pendientes</li>
+<li>Evolutivo activo (si hay)</li>
+<li>Lecciones aprendidas (patrones útiles, errores corregidos, particularidades descubiertas)</li>
+</ul>
+<h4 id="2-leer-el-archivo-actual">2. Leer el archivo actual</h4>
+<p>Leer <code>_hilo/SESION_ACTUAL.md</code> para:</p>
+<ul>
+<li>Obtener el historial reciente existente</li>
+<li>Preservar información que sigue siendo válida</li>
+</ul>
+<h4 id="3-actualizar-sesion_actualmd">3. Actualizar SESION_ACTUAL.md</h4>
+<p>Actualizar el archivo manteniendo la estructura pero con información actualizada:</p>
+<ul>
+<li><strong>Fecha: Fecha de hoy</strong></li>
+<li><strong>Usuario: Detectar de contexto o preguntar</strong></li>
+<li><strong>Evolutivo activo: Del ESTADO_PROYECTO.json o &quot;ninguno&quot;</strong></li>
+<li><strong>Resumen: Lo trabajado en esta sesión</strong></li>
+<li><strong>Archivos: Lista de archivos tocados</strong></li>
+<li><strong>Decisiones: Decisiones importantes tomadas</strong></li>
+<li><strong>Pendientes: Tareas que quedan por hacer</strong></li>
+<li><strong>Historial: Añadir entrada al historial reciente (máximo 5 entradas)</strong></li>
+</ul>
+<h4 id="3b-actualizar-leccionesmd-si-aplica">3b. Actualizar LECCIONES.md (si aplica)</h4>
+<p>Si durante la sesión se descubrió algo relevante, actualizar <code>_hilo/LECCIONES.md</code>:</p>
+<ul>
+<li><strong>Patrón útil → Añadir en sección &quot;Patrones del Proyecto&quot;</strong></li>
+<li><strong>Error corregido no trivial → Añadir en sección &quot;Errores Corregidos&quot;</strong></li>
+<li><strong>Particularidad técnica → Añadir en sección &quot;Particularidades Técnicas&quot;</strong></li>
+<li><strong>Preferencia del equipo → Añadir en sección &quot;Preferencias del Equipo&quot;</strong></li>
+<li><strong>Actualizar Top 5 si la nueva lección es más relevante que las existentes</strong></li>
+</ul>
+<blockquote><p>Solo añadir lecciones que aporten valor para futuras sesiones. No documentar lo trivial.</p></blockquote>
+<h4 id="4-confirmar-al-usuario">4. Confirmar al usuario</h4>
+<pre><code>╔═══════════════════════════════════════════════════════════╗
+║  💾 SESIÓN GUARDADA                                        ║
+╚═══════════════════════════════════════════════════════════╝
+
+Archivo: _hilo/SESION_ACTUAL.md
+
+Resumen guardado:
+- Fecha: [YYYY-MM-DD]
+- Evolutivo: [EV-XX o ninguno]
+- Archivos tocados: [N]
+- Tareas completadas: [N]
+- Pending: [N]
+- Lecciones: [N nuevas o &quot;sin cambios&quot;]
+
+La próxima sesión comenzará con este contexto cargado.</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-diferencia-con-acta">
+<h3 id="diferencia-con-acta">Diferencia con /acta</h3>
+<div class="tbl"><table><thead><tr><th>Aspecto</th><th>/sesion</th><th>/acta (si existe)</th></tr></thead><tbody><tr><td><strong>Propósito</strong></td><td>Contexto rápido para continuar</td><td>Documentación completa</td></tr><tr><td><strong>Archivo</strong></td><td><code>_hilo/SESION_ACTUAL.md</code></td><td>Actas detalladas</td></tr><tr><td><strong>Detalle</strong></td><td>Resumen ejecutivo</td><td>Detalle completo</td></tr><tr><td><strong>Cuándo</strong></td><td>Siempre al terminar</td><td>Sesiones significativas</td></tr><tr><td><strong>Acumulativo</strong></td><td>Sobrescribe anterior</td><td>Crea nuevo archivo</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-parámetros-opcionales">
+<h3 id="parámetros-opcionales">Parámetros opcionales</h3>
+<ul>
+<li><code>/sesion</code> - Actualización normal</li>
+<li><code>/sesion quick</code> - Solo actualiza fecha y pendientes</li>
+<li><code>/sesion handoff &quot;nombre&quot;</code> - Indica que otro usuario continuará</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-ejemplo-de-uso">
+<h3 id="ejemplo-de-uso">Ejemplo de uso</h3>
+<pre><code>Usuario: /sesion
+
+Claude:
+╔═══════════════════════════════════════════════════════════╗
+║  💾 SESIÓN GUARDADA                                        ║
+╚═══════════════════════════════════════════════════════════╝
+
+Archivo: _hilo/SESION_ACTUAL.md
+
+Resumen:
+- Evolutivo: HV-15
+- Trabajado: Implementación de filtros en ScholarshipsController
+- Archivos: 3 modificados
+- Completado: Endpoint GET con filtros
+- Pending: Tests unitarios, documentación
+
+¿Necesitas algo más antes de cerrar?</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-integración-con-otros-comandos">
+<h3 id="integración-con-otros-comandos">Integración con otros comandos</h3>
+<ul>
+<li><code>/hv:pausar</code> → Debería ejecutar <code>/sesion</code> automáticamente</li>
+<li><code>/hv:finalizar-evolutivo</code> → Debería ejecutar <code>/sesion</code> automáticamente</li>
+<li><code>/hv:continuar</code> → Lee <code>SESION_ACTUAL.md</code> y <code>LECCIONES.md</code> para recuperar contexto</li>
+<li><code>_hilo/LECCIONES.md</code> → Se actualiza en paso 3b si hay lecciones nuevas</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-flujo-recomendado">
+<h3 id="flujo-recomendado">Flujo recomendado</h3>
+<pre><code>Al terminar de trabajar:
+1. Guardar archivos pendientes
+2. Ejecutar /sesion
+3. (Opcional) Ejecutar /acta si fue sesión significativa
+4. Cerrar Claude Code
+
+Al empezar nueva sesión:
+1. Claude lee CLAUDE.md → importa SESION_ACTUAL.md
+2. Tienes contexto de dónde dejaste
+3. Ejecutar /continuar si hay evolutivo pausado</code></pre>
+</section><p style="margin-top:32px"><a href="../../../skills/pausar.html#ficheros">← Volver a la ficha de pausar</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/pausar.html"><small>Anterior</small>Ficha de pausar</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/pausar/references/workflow-sesion.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuándo-usar">Cuándo usar</a></li><li class="l2"><a href="#instrucciones-para-claude">Instrucciones para Claude</a></li><li class="l3"><a href="#1-analizar-la-sesión-actual">1. Analizar la sesión actual</a></li><li class="l3"><a href="#2-leer-el-archivo-actual">2. Leer el archivo actual</a></li><li class="l3"><a href="#3-actualizar-sesion_actualmd">3. Actualizar SESION_ACTUAL.md</a></li><li class="l3"><a href="#3b-actualizar-leccionesmd-si-aplica">3b. Actualizar LECCIONES.md (si aplica)</a></li><li class="l3"><a href="#4-confirmar-al-usuario">4. Confirmar al usuario</a></li><li class="l2"><a href="#diferencia-con-acta">Diferencia con /acta</a></li><li class="l2"><a href="#parámetros-opcionales">Parámetros opcionales</a></li><li class="l2"><a href="#ejemplo-de-uso">Ejemplo de uso</a></li><li class="l2"><a href="#integración-con-otros-comandos">Integración con otros comandos</a></li><li class="l2"><a href="#flujo-recomendado">Flujo recomendado</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

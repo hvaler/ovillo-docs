@@ -1,0 +1,229 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>observability-patterns · references/workflow-add-telemetry.md · Ovillo</title><meta name="description" content="Fichero references/workflow-add-telemetry.md de la skill observability-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="observability-patterns · references/workflow-add-telemetry.md · Ovillo"><meta property="og:description" content="Fichero references/workflow-add-telemetry.md de la skill observability-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/observability-patterns/references/workflow-add-telemetry.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/observability-patterns/references/workflow-add-telemetry.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/observability-patterns/references/workflow-add-telemetry.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de observability-patterns (7)</h4><ul class="sibs"><li><a href="../../../skills/observability-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/observability-patterns/patterns/opentelemetry-setup.html">patterns/opentelemetry-setup.md</a></li><li><a href="../../../skills/observability-patterns/patterns/serilog-config.html">patterns/serilog-config.md</a></li><li><a href="../../../skills/observability-patterns/patterns/structured-logging.html">patterns/structured-logging.md</a></li><li><a href="../../../skills/observability-patterns/references/workflow-add-telemetry.html" class="cur">references/workflow-add-telemetry.md</a></li><li><a href="../../../skills/observability-patterns/templates/SerilogConfig.cs.html">templates/SerilogConfig.cs.template</a></li><li><a href="../../../skills/observability-patterns/templates/TelemetryConfig.cs.html">templates/TelemetryConfig.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/observability-patterns.html">observability-patterns</a></span><span>references</span><span>workflow-add-telemetry.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>observability-patterns</span><span>references/</span></div><h1>workflow-add-telemetry.md</h1><p class="lede">Referencia que <code>observability-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/observability-patterns.html">observability-patterns</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>7741 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p><strong>Se ejecuta solo bajo peticion explicita</strong>: invocacion de la skill <code>observability-patterns</code> con intencion de aplicar, o una peticion de accion clara. El disparo semantico de la skill NUNCA llega hasta aqui: responde con el conocimiento del <code>SKILL.md</code> y para.</p></blockquote>
+<hr>
+<p class="lede">Wizard para configurar observabilidad (OpenTelemetry + Serilog) en el proyecto siguiendo los estándares de la organización.</p>
+<hr>
+<section class="sec" id="sec-paso-1-detectar-proyecto">
+<h3 id="paso-1-detectar-proyecto">PASO 1: Detectar proyecto</h3>
+<ol>
+<li><strong>Buscar proyecto principal en <code>src/</code>:</strong></li>
+<ul>
+<li>Localizar archivos <code>.csproj</code> (buscar el proyecto Web/API principal)</li>
+<li>Detectar <code>TargetFramework</code> (net10.0, net9.0, etc.)</li>
+<li>Localizar <code>Program.cs</code></li>
+<li>Verificar si ya existe configuración de telemetría (<code>AddOpenTelemetry</code>, <code>UseSerilog</code>)</li>
+<li>Verificar si Serilog ya está configurado en appsettings.json</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Si ya existe configuración:</strong>:</li>
+<ul>
+<li>Informar al usuario que ya hay telemetría configurada</li>
+<li>Mostrar qué componentes están activos</li>
+<li>Preguntar si desea ampliar o reconfigurar</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Mostrar resumen de detección:</strong>:</li>
+</ol>
+<pre><code>Proyecto detectado: MyCompany.{0}.Web
+Framework: {0}
+Program.cs: {0}
+OpenTelemetry existente: {0}
+Serilog existente: {0}
+Application Insights: {0}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-2-wizard-interactivo">
+<h3 id="paso-2-wizard-interactivo">PASO 2: Wizard interactivo</h3>
+<p>Preguntar al usuario qué componentes desea configurar:</p>
+<pre><code>Selecciona los componentes de telemetría a configurar:
+
+RECOMENDADOS:
+  [x] OpenTelemetry (traces + metrics)   - Trazabilidad distribuida
+  [x] Serilog (structured logging)       - Logging estructurado
+  [x] Application Insights exporter      - Exportar a Azure Monitor
+
+OPCIONALES:
+  [ ] Console exporter                   - Para desarrollo local
+  [ ] OTLP exporter                      - Para Grafana/Jaeger
+
+Cuales deseas configurar? (separados por coma, ej: otel,serilog,appinsights)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-3-añadir-nugets">
+<h3 id="paso-3-añadir-nugets">PASO 3: Añadir NuGets</h3>
+<p>Según la selección del PASO 2, listar e instalar los paquetes necesarios:</p>
+<p><strong>Si OpenTelemetry seleccionado:</strong></p>
+<pre data-lang="powershell"><code>dotnet add package OpenTelemetry
+dotnet add package OpenTelemetry.Extensions.Hosting
+dotnet add package OpenTelemetry.Instrumentation.AspNetCore
+dotnet add package OpenTelemetry.Instrumentation.Http
+dotnet add package OpenTelemetry.Instrumentation.SqlClient</code></pre>
+<p><strong>Si Serilog seleccionado:</strong></p>
+<pre data-lang="powershell"><code>dotnet add package Serilog.AspNetCore
+dotnet add package Serilog.Sinks.Console
+dotnet add package Serilog.Sinks.File
+dotnet add package Serilog.Enrichers.Environment
+dotnet add package Serilog.Enrichers.Thread</code></pre>
+<p><strong>Si Application Insights seleccionado:</strong></p>
+<pre data-lang="powershell"><code>dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
+dotnet add package Serilog.Sinks.ApplicationInsights</code></pre>
+<p><strong>Si Console exporter seleccionado:</strong></p>
+<pre data-lang="powershell"><code>dotnet add package OpenTelemetry.Exporter.Console</code></pre>
+<p><strong>Si OTLP exporter seleccionado:</strong></p>
+<pre data-lang="powershell"><code>dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol</code></pre>
+<p>Ejecutar <code>dotnet add package</code> para cada paquete seleccionado en el directorio del <code>.csproj</code> principal.</p>
+<hr>
+</section>
+<section class="sec" id="sec-paso-4-generar-código">
+<h3 id="paso-4-generar-código">PASO 4: Generar código</h3>
+<ol>
+<li><strong>Leer plantillas desde <code>.claude/skills/observability-patterns/templates/</code></strong></li>
+<ul>
+<li><code>TelemetryConfig.cs.template</code> para OpenTelemetry</li>
+<li><code>SerilogConfig.cs.template</code> para Serilog</li>
+<li>Si las plantillas no existen, generar el código directamente</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Reemplazar variables:</strong>:</li>
+<ul>
+<li><code>{{NombreProyecto}}</code> con el nombre del proyecto detectado</li>
+<li><code>{{Namespace}}</code> con el namespace correspondiente</li>
+<li><code>{{ServiceName}}</code> con el nombre del servicio para trazas</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Generar TelemetryConfig.cs (si OpenTelemetry seleccionado):</strong>:</li>
+<ul>
+<li>Ruta: <code>src/src/MyCompany.{0}.Infrastructure/Telemetry/TelemetryConfig.cs</code></li>
+<li>Clase estática con método de extensión <code>AddCustomTelemetry()</code></li>
+<li>Configurar TracerProvider con instrumentación de ASP.NET Core, HTTP y SQL</li>
+<li>Configurar MeterProvider con métricas de ASP.NET Core</li>
+<li>Añadir exporters según selección (App Insights, Console, OTLP)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Generar SerilogConfig.cs (si Serilog seleccionado):</strong>:</li>
+<ul>
+<li>Ruta: <code>src/src/MyCompany.{0}.Infrastructure/Logging/SerilogConfig.cs</code></li>
+<li>Clase estática con método de extensión <code>AddCustomSerilog()</code></li>
+<li>Configurar sinks: Console, File, Application Insights (si seleccionado)</li>
+<li>Configurar enrichers: Environment, Thread, RequestId</li>
+<li>Configurar filtrado de logs por namespace</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Modificar Program.cs:</strong>:</li>
+<ul>
+<li>Añadir <code>using</code> de los namespaces correspondientes</li>
+<li>Si OpenTelemetry: <code>builder.Services.AddCustomTelemetry(builder.Configuration);</code></li>
+<li>Si Serilog: <code>builder.Host.UseSerilog();</code> y configuración</li>
+<li>Añadir middleware de correlación de trazas</li>
+</ul>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-paso-5-configurar-appsettings">
+<h3 id="paso-5-configurar-appsettings">PASO 5: Configurar appsettings</h3>
+<ol>
+<li><strong>Añadir sección Serilog a appsettings.json (si seleccionado):</strong>:</li>
+</ol>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;Serilog&quot;</span>: {
+    <span class="tk-s">&quot;MinimumLevel&quot;</span>: {
+      <span class="tk-s">&quot;Default&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>,
+      <span class="tk-s">&quot;Override&quot;</span>: {
+        <span class="tk-s">&quot;Microsoft&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>,
+        <span class="tk-s">&quot;Microsoft.Hosting.Lifetime&quot;</span>: <span class="tk-s">&quot;Information&quot;</span>,
+        <span class="tk-s">&quot;System&quot;</span>: <span class="tk-s">&quot;Warning&quot;</span>
+      }
+    },
+    <span class="tk-s">&quot;WriteTo&quot;</span>: [
+      { <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;Console&quot;</span> },
+      {
+        <span class="tk-s">&quot;Name&quot;</span>: <span class="tk-s">&quot;File&quot;</span>,
+        <span class="tk-s">&quot;Args&quot;</span>: {
+          <span class="tk-s">&quot;path&quot;</span>: <span class="tk-s">&quot;logs/log-.txt&quot;</span>,
+          <span class="tk-s">&quot;rollingInterval&quot;</span>: <span class="tk-s">&quot;Day&quot;</span>,
+          <span class="tk-s">&quot;retainedFileCountLimit&quot;</span>: <span class="tk-n">30</span>
+        }
+      }
+    ],
+    <span class="tk-s">&quot;Enrich&quot;</span>: [<span class="tk-s">&quot;FromLogContext&quot;</span>, <span class="tk-s">&quot;WithMachineName&quot;</span>, <span class="tk-s">&quot;WithThreadId&quot;</span>]
+  }
+}</code></pre>
+<ol>
+<li><strong>Añadir ApplicationInsights (si seleccionado):</strong>:</li>
+</ol>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;ApplicationInsights&quot;</span>: {
+    <span class="tk-s">&quot;ConnectionString&quot;</span>: <span class="tk-s">&quot;PLACEHOLDER_USAR_KEY_VAULT_EN_PRODUCCION&quot;</span>
+  }
+}</code></pre>
+<ol>
+<li><strong>Añadir OpenTelemetry (si seleccionado):</strong>:</li>
+</ol>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;OpenTelemetry&quot;</span>: {
+    <span class="tk-s">&quot;ServiceName&quot;</span>: <span class="tk-s">&quot;MyCompany.[Nombre]&quot;</span>,
+    <span class="tk-s">&quot;ServiceVersion&quot;</span>: <span class="tk-s">&quot;1.0.0&quot;</span>
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-paso-6-verificar-y-resumen">
+<h3 id="paso-6-verificar-y-resumen">PASO 6: Verificar y resumen</h3>
+<ol>
+<li><strong>Compilar el proyecto:</strong>:</li>
+</ol>
+<pre data-lang="powershell"><code>dotnet build src/src/MyCompany.[Nombre].Web/</code></pre>
+<ol>
+<li><strong>Verificar que compila sin errores</strong></li>
+</ol>
+<ol>
+<li><strong>Mostrar resumen:</strong>:</li>
+</ol>
+<pre><code>+---------------------------------------------------------+
+|  TELEMETRÍA CONFIGURADA                                 |
++---------------------------------------------------------+
+|                                                         |
+|  Componentes activos:                                   |
+|    [x/--] OpenTelemetry (traces + metrics)              |
+|    [x/--] Serilog (structured logging)                  |
+|    [x/--] Application Insights exporter                 |
+|    [x/--] Console exporter                              |
+|    [x/--] OTLP exporter                                 |
+|                                                         |
+|  Archivos creados/modificados:                          |
+|    + Infrastructure/Telemetry/TelemetryConfig.cs        |
+|    + Infrastructure/Logging/SerilogConfig.cs             |
+|    ~ Program.cs                                         |
+|    ~ appsettings.json                                   |
+|                                                         |
++---------------------------------------------------------+</code></pre>
+<ol>
+<li><strong>Recordatorio RGPD - Datos que NUNCA se deben loguear:</strong>:</li>
+</ol>
+<pre><code>ATENCIÓN - RGPD: No loguear datos personales:
+  - Contraseñas o tokens de autenticación
+  - DNI, NIE, pasaporte
+  - Emails personales
+  - Números de teléfono
+  - Datos bancarios
+  - Datos de salud
+  - Direcciones personales</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-recordatorios-críticos">
+<h3 id="recordatorios-críticos">RECORDATORIOS CRÍTICOS</h3>
+<ul>
+<li><strong>NUNCA loguear datos sensibles</strong> (contraseñas, tokens, DNI, emails personales)</li>
+<li><strong>ApplicationInsights ConnectionString</strong> debe venir de Azure Key Vault en producción</li>
+<li>Configurar <strong>niveles de log apropiados</strong>: Information para desarrollo, Warning para producción</li>
+<li>Los <strong>enrichers</strong> ayudan a correlacionar logs entre servicios</li>
+<li>Usar <strong>structured logging</strong> (templates con parámetros, no concatenación de strings)</li>
+<li><strong>Skill de referencia</strong>: <code>.claude/skills/observability-patterns/</code></li>
+<li><strong>Guía de referencia</strong>: <code>_patron/06_Observabilidad/GUIA_OBSERVABILIDAD.md</code></li>
+</ul>
+</section><p style="margin-top:32px"><a href="../../../skills/observability-patterns.html#ficheros">← Volver a la ficha de observability-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/observability-patterns/patterns/structured-logging.html"><small>Anterior</small>patterns/structured-logging.md</a><a class="next" href="../../../skills/observability-patterns/templates/SerilogConfig.cs.html"><small>Siguiente</small>templates/SerilogConfig.cs.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/observability-patterns/references/workflow-add-telemetry.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#paso-1-detectar-proyecto">PASO 1: Detectar proyecto</a></li><li class="l2"><a href="#paso-2-wizard-interactivo">PASO 2: Wizard interactivo</a></li><li class="l2"><a href="#paso-3-añadir-nugets">PASO 3: Añadir NuGets</a></li><li class="l2"><a href="#paso-4-generar-código">PASO 4: Generar código</a></li><li class="l2"><a href="#paso-5-configurar-appsettings">PASO 5: Configurar appsettings</a></li><li class="l2"><a href="#paso-6-verificar-y-resumen">PASO 6: Verificar y resumen</a></li><li class="l2"><a href="#recordatorios-críticos">RECORDATORIOS CRÍTICOS</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

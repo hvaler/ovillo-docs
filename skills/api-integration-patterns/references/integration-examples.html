@@ -1,0 +1,259 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · references/integration-examples.md · Ovillo</title><meta name="description" content="Fichero references/integration-examples.md de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · references/integration-examples.md · Ovillo"><meta property="og:description" content="Fichero references/integration-examples.md de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/references/integration-examples.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/references/integration-examples.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/references/integration-examples.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html" class="cur">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>references</span><span>integration-examples.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>references/</span></div><h1>integration-examples.md</h1><p class="lede">Referencia que <code>api-integration-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>references</b><span>carpeta</span></div><div><b>6078 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Detalle de los patterns, templates, examples, checklists y scripts del skill. Referencia completa para implementar integraciones con APIs externas.</p></blockquote>
+<hr>
+<section class="sec" id="sec-patterns-6">
+<h3 id="patterns-6">Patterns (6)</h3>
+<ol>
+<li><strong>httpclient-factory.md</strong></li>
+<ul>
+<li>IHttpClientFactory (typed/named clients)</li>
+<li>Configuracion en Program.cs</li>
+<li>Lifetime management</li>
+<li>Evitar socket exhaustion</li>
+</ul>
+</ol>
+<ol>
+<li><strong>retry-policy.md</strong></li>
+<ul>
+<li>Polly v8+ (resilience pipelines)</li>
+<li>WaitAndRetry con backoff exponencial</li>
+<li>Retry solo en errores transitorios (429, 503, timeout)</li>
+<li>Jitter para evitar thundering herd</li>
+</ul>
+</ol>
+<ol>
+<li><strong>circuit-breaker.md</strong></li>
+<ul>
+<li>Circuit breaker states (Closed, Open, Half-Open)</li>
+<li>Configuracion umbrales (failure rate, duracion)</li>
+<li>Fallback strategies</li>
+<li>Telemetria (logs, metrics)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>oauth2-client-credentials.md</strong></li>
+<ul>
+<li>OAuth2 Client Credentials Flow</li>
+<li>Renovacion automatica de tokens</li>
+<li>Almacenamiento seguro (IMemoryCache)</li>
+<li>Azure AD / Entra ID integration</li>
+</ul>
+</ol>
+<ol>
+<li><strong>response-caching.md</strong></li>
+<ul>
+<li>IMemoryCache / IDistributedCache</li>
+<li>Cache-Control headers</li>
+<li>Invalidacion de cache</li>
+<li>Cache aside pattern</li>
+</ul>
+</ol>
+<ol>
+<li><strong>api-versioning.md</strong></li>
+<ul>
+<li>URL versioning (/api/v1/users)</li>
+<li>Header versioning (X-API-Version)</li>
+<li>Query string versioning (?version=1.0)</li>
+<li>Deprecation policies</li>
+</ul>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-templates-7">
+<h3 id="templates-7">Templates (7)</h3>
+<ol>
+<li><strong>ApiClient.cs.template</strong></li>
+</ol>
+<pre data-lang="csharp"><code>   <span class="tk-k">public</span> <span class="tk-k">class</span> GenericApiClient
+   {
+       <span class="tk-k">private</span> <span class="tk-k">readonly</span> HttpClient _httpClient;
+       <span class="tk-k">private</span> <span class="tk-k">readonly</span> ILogger&lt;GenericApiClient&gt; _logger;
+
+       <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;ApiResponse&lt;T&gt;&gt; GetAsync&lt;T&gt;(<span class="tk-k">string</span> endpoint)
+       {
+           <span class="tk-c">// Implementacion generica</span>
+       }
+   }</code></pre>
+<ol>
+<li><strong>ExternalApiClient.cs.template</strong></li>
+<ul>
+<li>Typed HttpClient para SistemaA API</li>
+<li>Metodos: GetStudent(), GetCourses(), EnrollStudent()</li>
+<li>Autenticacion OAuth2 + API Key</li>
+<li>Manejo errores especificos SistemaA</li>
+</ul>
+</ol>
+<ol>
+<li><strong>ExternalApiClient.cs.template</strong></li>
+<ul>
+<li>Typed HttpClient para el SaaS de RRHH del catalogo</li>
+<li>Metodos: GetEmployees(), GetPayroll(), GetAbsences()</li>
+<li>Autenticacion OAuth2</li>
+<li>Paginacion (next links)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>ExternalApiClient.cs.template</strong></li>
+<ul>
+<li>Typed HttpClient paral sistema de nominas</li>
+<li>Metodos: GetNominas(), GetEmployeePayslips()</li>
+<li>Autenticacion custom (API Key + HMAC)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>ApiOptions.cs.template</strong></li>
+</ol>
+<pre data-lang="csharp"><code>   <span class="tk-k">public</span> <span class="tk-k">class</span> SistemaAApiOptions
+   {
+       <span class="tk-k">public</span> <span class="tk-k">string</span> BaseUrl { <span class="tk-k">get</span>; <span class="tk-k">set</span>; }
+       <span class="tk-k">public</span> <span class="tk-k">string</span> ClientId { <span class="tk-k">get</span>; <span class="tk-k">set</span>; }
+       <span class="tk-k">public</span> <span class="tk-k">string</span> ClientSecret { <span class="tk-k">get</span>; <span class="tk-k">set</span>; }
+       <span class="tk-k">public</span> <span class="tk-k">int</span> TimeoutSeconds { <span class="tk-k">get</span>; <span class="tk-k">set</span>; } = <span class="tk-n">30</span>;
+   }</code></pre>
+<ol>
+<li><strong>ApiResponse.cs.template</strong></li>
+<ul>
+<li>Wrapper generico para respuestas</li>
+<li>Success/Error handling</li>
+<li>Metadata (status code, headers, elapsed time)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>DelegatingHandler.cs.template</strong></li>
+<ul>
+<li>LoggingHandler (log request/response)</li>
+<li>AuthenticationHandler (inject OAuth2 token)</li>
+<li>CorrelationIdHandler (X-Correlation-ID)</li>
+</ul>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-examples-4">
+<h3 id="examples-4">Examples (4)</h3>
+<ol>
+<li><strong>external-api-example.md</strong></li>
+<ul>
+<li>Caso completo: matricular estudiante</li>
+<li>Configuracion appsettings.json</li>
+<li>Registro servicios (DI)</li>
+<li>Uso desde Controller/Command</li>
+<li>Tests unitarios (MockHttpMessageHandler)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>external-api-example.md</strong></li>
+<ul>
+<li>Caso completo: obtener empleados activos</li>
+<li>OAuth2 flow</li>
+<li>Paginacion de resultados</li>
+<li>Cache de respuestas (IMemoryCache)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>external-api-example.md</strong></li>
+<ul>
+<li>Caso completo: obtener nominas del mes</li>
+<li>Autenticacion HMAC</li>
+<li>Manejo errores especificos</li>
+<li>Retry policy (429 Rate Limit)</li>
+</ul>
+</ol>
+<ol>
+<li><strong>polly-advanced.md</strong></li>
+<ul>
+<li>Combinar retry + circuit breaker</li>
+<li>Resilience pipeline v8</li>
+<li>Telemetria con Application Insights</li>
+<li>Fallback values</li>
+</ul>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-checklists-2">
+<h3 id="checklists-2">Checklists (2)</h3>
+<ol>
+<li><strong>api-integration-checklist.md</strong></li>
+<ul>
+<li><input type="checkbox" disabled> HttpClientFactory configurado (evitar socket exhaustion)</li>
+<li><input type="checkbox" disabled> Timeout configurado (30s default)</li>
+<li><input type="checkbox" disabled> Retry policy para errores transitorios</li>
+<li><input type="checkbox" disabled> Circuit breaker para proteger sistema</li>
+<li><input type="checkbox" disabled> Autenticacion implementada (OAuth2/API Key)</li>
+<li><input type="checkbox" disabled> Secretos en Azure Key Vault (NO hardcoded)</li>
+<li><input type="checkbox" disabled> Logging request/response (sin datos sensibles)</li>
+<li><input type="checkbox" disabled> Tests unitarios con MockHttpMessageHandler</li>
+<li><input type="checkbox" disabled> Tests integracion con API real (ambiente test)</li>
+<li><input type="checkbox" disabled> Documentacion endpoints consumidos</li>
+</ul>
+</ol>
+<ol>
+<li><strong>security-checklist.md</strong></li>
+<ul>
+<li><input type="checkbox" disabled> Usar HTTPS obligatorio</li>
+<li><input type="checkbox" disabled> Validar certificados SSL (NO AllowInvalidCertificates)</li>
+<li><input type="checkbox" disabled> Tokens en IMemoryCache (NO static variables)</li>
+<li><input type="checkbox" disabled> Secretos en Key Vault</li>
+<li><input type="checkbox" disabled> Rate limiting implementado</li>
+<li><input type="checkbox" disabled> Input validation (sanitizar datos)</li>
+<li><input type="checkbox" disabled> Output encoding (evitar XSS)</li>
+<li><input type="checkbox" disabled> Audit logging (quien llamo que endpoint)</li>
+<li><input type="checkbox" disabled> CORS configurado (si aplica)</li>
+<li><input type="checkbox" disabled> OWASP API Security Top 10</li>
+</ul>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-scripts-2">
+<h3 id="scripts-2">Scripts (2)</h3>
+<ol>
+<li><strong>Test-ApiConnection.ps1</strong></li>
+<ul>
+<li>Script PowerShell para test rapido conexion</li>
+<li>Obtener OAuth2 token</li>
+<li>Llamar endpoint test</li>
+<li>Validar respuesta</li>
+</ul>
+</ol>
+<ol>
+<li><strong>Generate-ApiClient.ps1</strong></li>
+<ul>
+<li>Generar cliente C# desde OpenAPI spec</li>
+<li>Usar NSwag o Kiota</li>
+<li>Configurar namespaces</li>
+<li>Generar modelos DTOs</li>
+</ul>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-casos-de-uso">
+<h3 id="casos-de-uso">Casos de Uso</h3>
+<h4 id="caso-1-nueva-integracion-con-el-sistema-externo">Caso 1: Nueva integracion con el sistema externo</h4>
+<pre><code>Usuario: &quot;Necesito integrar con el sistema externo para matricular students&quot;
+
+Claude activa skill y proporciona:
+1. Pattern: oauth2-client-credentials.md
+2. Template: ExternalApiClient.cs.template
+3. Example: external-api-example.md
+4. Checklist: api-integration-checklist.md
+
+Resultado: Cliente SistemaA funcional con OAuth2 y retry policy</code></pre>
+<h4 id="caso-2-refactorizar-httpclient-existente">Caso 2: Refactorizar HttpClient existente</h4>
+<pre><code>Usuario: &quot;Tengo un HttpClient estatico que causa problemas de sockets&quot;
+
+Claude activa skill y proporciona:
+1. Pattern: httpclient-factory.md
+2. Analiza codigo existente
+3. Propone refactor a IHttpClientFactory
+4. Actualiza Program.cs con DI
+
+Resultado: HttpClient refactorizado con factory pattern</code></pre>
+<h4 id="caso-3-añadir-resiliencia-a-llamadas-api">Caso 3: Añadir resiliencia a llamadas API</h4>
+<pre><code>Usuario: &quot;Las llamadas a el SaaS de RRHH del catalogo fallan a veces, necesito reintentos&quot;
+
+Claude activa skill y proporciona:
+1. Pattern: retry-policy.md + circuit-breaker.md
+2. Example: polly-advanced.md
+3. Configuracion Polly v8
+4. Telemetria con Application Insights
+
+Resultado: Llamadas resilientes con retry + circuit breaker</code></pre>
+</section><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html"><small>Anterior</small>patterns/retry-policy.md</a><a class="next" href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html"><small>Siguiente</small>scripts/Generate-ApiClient.ps1</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/references/integration-examples.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#patterns-6">Patterns (6)</a></li><li class="l2"><a href="#templates-7">Templates (7)</a></li><li class="l2"><a href="#examples-4">Examples (4)</a></li><li class="l2"><a href="#checklists-2">Checklists (2)</a></li><li class="l2"><a href="#scripts-2">Scripts (2)</a></li><li class="l2"><a href="#casos-de-uso">Casos de Uso</a></li><li class="l3"><a href="#caso-1-nueva-integracion-con-el-sistema-externo">Caso 1: Nueva integracion con el sistema externo</a></li><li class="l3"><a href="#caso-2-refactorizar-httpclient-existente">Caso 2: Refactorizar HttpClient existente</a></li><li class="l3"><a href="#caso-3-añadir-resiliencia-a-llamadas-api">Caso 3: Añadir resiliencia a llamadas API</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

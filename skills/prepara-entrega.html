@@ -1,0 +1,160 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>prepara-entrega · Ovillo</title><meta name="description" content="Prepara versión para release - genera documentación de entrega"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="prepara-entrega · Ovillo"><meta property="og:description" content="Prepara versión para release - genera documentación de entrega"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/prepara-entrega.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/prepara-entrega.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/prepara-entrega.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html" class="cur">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>prepara-entrega</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:prepara-entrega</span><span>solo usuario</span></div><h1>prepara-entrega</h1><p class="lede">Prepara versión para release - genera documentación de entrega</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:prepara-entrega</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>178</b><span>palabras</span></div><div><b>2026-09-09</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:prepara-entrega</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:prepara-entrega</code>.</p></blockquote>
+<hr>
+<section class="sec" id="sec-parámetro-recibido">
+<h3 id="parámetro-recibido">Parámetro Recibido</h3>
+<ul>
+<li><strong>Versión</strong>: $ARGUMENTS (ej: v1.2.0)</li>
+</ul>
+<p>Si no se proporciona, preguntar o detectar de <code>.csproj</code> en <code>src/</code>.</p>
+</section>
+<section class="sec" id="sec-importante-estructura-de-carpetas">
+<h3 id="importante-estructura-de-carpetas">IMPORTANTE: Estructura de Carpetas</h3>
+<pre><code>MiProyecto/
+├── _hilo/                  ← Estado del proyecto
+├── src/              ← CÓDIGO FUENTE ⭐
+│   ├── MiSolucion.sln|.slnx    ← .slnx solo .NET 8+
+│   ├── MiProyecto.API/
+│   │   └── MiProyecto.API.csproj  ← Versión aquí
+│   └── ...
+├── docs/           ← Changelogs y release notes
+└── ...</code></pre>
+</section>
+<section class="sec" id="sec-tareas-a-ejecutar">
+<h3 id="tareas-a-ejecutar">Tareas a Ejecutar</h3>
+<h4 id="1-verificaciones-pre-entrega">1. Verificaciones Pre-Entrega</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Compilar desde src/</span>
+Push-Location <span class="tk-s">&quot;src&quot;</span>
+dotnet build --no-restore
+Pop-Location
+
+<span class="tk-c"># Ejecutar tests contra el objetivo que resuelve el ecosistema (ADR-037): solucion o .csproj</span>
+<span class="tk-v">$target</span> = node <span class="tk-s">&quot;$env:CLAUDE_PLUGIN_ROOT/hooks/build-target.js&quot;</span>
+<span class="tk-v">$tests</span> = @(node <span class="tk-s">&quot;$env:CLAUDE_PLUGIN_ROOT/hooks/build-target.js&quot;</span> --tests)
+<span class="tk-k">if</span> (<span class="tk-v">$tests</span>.Count -eq <span class="tk-n">0</span>) { Write-Host <span class="tk-s">&quot;[WARN] Sin proyecto de tests: no hay nada que ejecutar.&quot;</span> }
+<span class="tk-k">elseif</span> (<span class="tk-v">$target</span>) { dotnet test <span class="tk-v">$target</span> }
+<span class="tk-k">else</span> { Write-Host <span class="tk-s">&quot;[WARN] Sin objetivo de compilacion resuelto: revisar con build-target.js --json&quot;</span> }</code></pre>
+<pre><code>📝 VERIFICACIONES PRE-ENTREGA
+────────────────────
+
+✅ Compilación exitosa (src/)
+✅ Tests pasando
+✅ Sin cambios pendientes de commit
+✅ Sin TODOs críticos
+⚠️ Deuda técnica crítica: [N] items
+
+¿Continuar? (s/n)</code></pre>
+<h4 id="2-recopilar-información">2. Recopilar Información</h4>
+<p>Detectar automáticamente::</p>
+<ul>
+<li>Versión anterior (del último tag o release)</li>
+<li>Evolutivos completados desde última versión</li>
+<li>Commits desde última versión</li>
+</ul>
+<pre data-lang="powershell"><code><span class="tk-c"># Detectar versión actual desde .csproj</span>
+<span class="tk-v">$csproj</span> = Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.csproj&quot;</span> -Recurse | Select-Object -First <span class="tk-n">1</span>
+<span class="tk-v">$content</span> = Get-Content <span class="tk-v">$csproj</span>.FullName -Raw
+<span class="tk-k">if</span> (<span class="tk-v">$content</span> -match <span class="tk-s">'&lt;Version&gt;([^&lt;]+)&lt;/Version&gt;'</span>) {
+    <span class="tk-v">$versionActual</span> = <span class="tk-v">$Matches</span>[<span class="tk-n">1</span>]
+}</code></pre>
+<h4 id="3-generar-changelog">3. Generar Changelog</h4>
+<pre data-lang="markdown"><code># Changelog - [versión]
+
+**Fecha**: [FECHA_ACTUAL]
+
+## ✨ Nuevas Funcionalidades
+- [EVO-XXX] Descripción
+
+## 🐛 Correcciones
+- [fix] Descripción
+
+## 🔧 Mejoras
+- [refactor] Descripción
+
+## 📦 Dependencias Actualizadas
+- Package.X: 1.0.0 → 2.0.0</code></pre>
+<p>Guardar en <code>docs/CHANGELOG_[version].md</code></p>
+<h4 id="4-generar-notas-de-release">4. Generar Notas de Release</h4>
+<pre data-lang="markdown"><code># Release Notes - [versión]
+
+## Resumen
+[Descripción general de la versión]
+
+## Requisitos
+- .NET [versión]
+- SQL Server [versión]
+
+## Instalación
+1. Paso 1
+2. Paso 2
+
+## Configuración
+[Cambios en configuración necesarios]
+
+## Breaking Changes
+[Lista de cambios que rompen compatibilidad, si hay]
+
+## Problemas Conocidos
+[Lista de issues conocidos, si hay]</code></pre>
+<p>Guardar en <code>docs/RELEASE_NOTES_[version].md</code></p>
+<h4 id="5-actualizar-versión-en-archivos">5. Actualizar Versión en Archivos</h4>
+<p>Si hay archivos de versión en <code>src/</code>::</p>
+<pre data-lang="powershell"><code><span class="tk-c"># Actualizar todos los .csproj</span>
+Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.csproj&quot;</span> -Recurse | ForEach-Object {
+    <span class="tk-v">$content</span> = Get-Content <span class="tk-v">$_</span>.FullName -Raw
+    <span class="tk-v">$newContent</span> = <span class="tk-v">$content</span> -replace <span class="tk-s">'&lt;Version&gt;[^&lt;]+&lt;/Version&gt;'</span>, <span class="tk-s">&quot;&lt;Version&gt;$nuevaVersion&lt;/Version&gt;&quot;</span>
+    Set-Content -Path <span class="tk-v">$_</span>.FullName -Value <span class="tk-v">$newContent</span>
+}</code></pre>
+<ul>
+<li><code>src/**/*.csproj</code> → <code>&lt;Version&gt;</code></li>
+<li><code>src/**/package.json</code> → <code>&quot;version&quot;</code></li>
+<li><code>src/**/AssemblyInfo.cs</code> → <code>AssemblyVersion</code></li>
+</ul>
+<pre><code>📝 ¿Actualizar versión en archivos del proyecto? (s/n)</code></pre>
+<h4 id="6-crear-tag-git">6. Crear Tag (Git)</h4>
+<pre><code>🏷️ ¿Crear tag de versión? (s/n)
+
+git tag -a v[versión] -m &quot;Release [versión]&quot;</code></pre>
+<h4 id="7-actualizar-estado">7. Actualizar Estado</h4>
+<p><code>_hilo/ESTADO_PROYECTO.json</code>:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;proyecto&quot;</span>: {
+    <span class="tk-s">&quot;version&quot;</span>: <span class="tk-s">&quot;[versión]&quot;</span>,
+    <span class="tk-s">&quot;ultimaEntrega&quot;</span>: <span class="tk-s">&quot;[FECHA_ACTUAL]&quot;</span>,
+    <span class="tk-s">&quot;rutaCode&quot;</span>: <span class="tk-s">&quot;src&quot;</span>
+  }
+}</code></pre>
+<h4 id="8-generar-resumen">8. Generar Resumen</h4>
+<pre><code>📦 ENTREGA PREPARADA
+────────────────
+
+📋 Versión: [versión]
+📅 Fecha: [FECHA_ACTUAL]
+📂 Código: src/
+
+📄 Documentos generados:
+   • docs/CHANGELOG_[version].md
+   • docs/RELEASE_NOTES_[version].md
+
+✨ Evolutivos incluidos: [N]
+🐛 Fixes incluidos: [M]
+
+🏷️ Tag creado: v[versión]
+
+💡 Próximos pasos::
+   1. Revisar documentos generados
+   2. git push --tags (si aplica)
+   3. Desplegar a entorno
+   4. Comunicar a stakeholders</code></pre>
+<hr>
+<p><em>Skill prepara-entrega · kind: workflow</em></p>
+</section>
+<section class="sec" id="sec-delegacion-en-agents">
+<h3 id="delegacion-en-agents">DELEGACION EN AGENTS</h3>
+<p>Estos agents trabajan en su propio contexto: devuelven un resumen y no gastan el de la sesion (ADR-028). Se invocan con la herramienta Task.</p>
+<h4 id="hilo-coherence-checker"><code>hilo-coherence-checker</code></h4>
+<p>Cuando antes de cerrar una entrega, para comprobar que el Hilo no se ha desincronizado:</p>
+<pre><code>Task tool con:
+  subagent_type: hilo-coherence-checker
+  prompt: &quot;Auditar la coherencia del Hilo: evolutivos frente a FUNCIONALIDADES, equipo frente a los autores
+              de git, DEPENDENCIAS frente a los PackageReference, y LECCIONES frente a DECISIONES.&quot;</code></pre>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>62</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 178 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>6 cambios · 2026-09-07 → 2026-09-09. Último cambio: <em>feat: el objetivo de compilacion lo resuelve una sola funcion (ADR-037)</em> (<code>f30140e</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../agents/hilo-coherence-checker.html">hilo-coherence-checker</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/prepara-entrega/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#parámetro-recibido">Parámetro Recibido</a></li><li class="l3"><a href="#importante-estructura-de-carpetas">IMPORTANTE: Estructura de Carpetas</a></li><li class="l3"><a href="#tareas-a-ejecutar">Tareas a Ejecutar</a></li><li class="l3"><a href="#delegacion-en-agents">DELEGACION EN AGENTS</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

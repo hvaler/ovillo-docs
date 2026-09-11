@@ -1,0 +1,295 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · patterns/snapshot-testing.md · Ovillo</title><meta name="description" content="Fichero patterns/snapshot-testing.md de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · patterns/snapshot-testing.md · Ovillo"><meta property="og:description" content="Fichero patterns/snapshot-testing.md de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/snapshot-testing.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/patterns/snapshot-testing.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/patterns/snapshot-testing.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (16)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html" class="cur">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>patterns</span><span>snapshot-testing.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>patterns/</span></div><h1>snapshot-testing.md</h1><p class="lede">Referencia que <code>testing-patterns</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>9336 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: testing-patterns</p></blockquote>
+<p class="lede">Patron para verificar que la salida de un metodo no cambia inesperadamente. Verify.NET captura la primera salida como &quot;snapshot verificado&quot; y compara las siguientes ejecuciones contra ella.</p>
+<hr>
+<section class="sec" id="sec-cuando-usar-snapshot-testing">
+<h3 id="cuando-usar-snapshot-testing">Cuando Usar Snapshot Testing</h3>
+<div class="tbl"><table><thead><tr><th>Usar</th><th>No Usar</th></tr></thead><tbody><tr><td>Respuestas JSON de API complejas</td><td>Logica de negocio simple (usar assertions directas)</td></tr><tr><td>Transformaciones de datos (mapeos DTO)</td><td>Tests con datos dinamicos (fechas, GUIDs)</td></tr><tr><td>Salida de generadores de codigo</td><td>Tests de rendimiento</td></tr><tr><td>Configuraciones serializadas</td><td>Validaciones de dominio</td></tr><tr><td>Reportes y documentos generados</td><td>Tests que cambian frecuentemente</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-paquetes-nuget">
+<h3 id="paquetes-nuget">Paquetes NuGet</h3>
+<pre data-lang="xml"><code><span class="tk-t">&lt;ItemGroup</span><span class="tk-t">&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Verify.Xunit&quot;</span> Version=<span class="tk-s">&quot;26.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Verify.DiffPlex&quot;</span> Version=<span class="tk-s">&quot;3.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-c">&lt;!-- Opcional: soporte para tipos especificos --&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Verify.EntityFramework&quot;</span> Version=<span class="tk-s">&quot;26.*&quot;</span> <span class="tk-t">/&gt;</span>
+  <span class="tk-t">&lt;PackageReference</span> Include=<span class="tk-s">&quot;Verify.Http&quot;</span> Version=<span class="tk-s">&quot;6.*&quot;</span> <span class="tk-t">/&gt;</span>
+<span class="tk-t">&lt;/ItemGroup</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion-inicial">
+<h3 id="configuracion-inicial">Configuracion Inicial</h3>
+<h4 id="moduleinitializer-una-vez-por-proyecto-de-tests">ModuleInitializer (una vez por proyecto de tests)</h4>
+<pre data-lang="csharp"><code><span class="tk-c">// ModuleInitializer.cs</span>
+<span class="tk-k">using</span> System.Runtime.CompilerServices;
+
+<span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">class</span> ModuleInitializer
+{
+    [ModuleInitializer]
+    <span class="tk-k">public</span> <span class="tk-k">static</span> <span class="tk-k">void</span> Init()
+    {
+        <span class="tk-c">// Habilitar diff visual en consola</span>
+        VerifyDiffPlex.Initialize();
+
+        <span class="tk-c">// Configuracion global</span>
+        VerifierSettings.DontScrubDateTimes();     <span class="tk-c">// Mantener fechas exactas</span>
+        VerifierSettings.SortPropertiesAlphabetically(); <span class="tk-c">// Orden consistente</span>
+
+        <span class="tk-c">// Ignorar propiedades volatiles globalmente</span>
+        VerifierSettings.AddScrubber(scrubber =&gt;
+            scrubber.Replace(
+                <span class="tk-k">new</span> Regex(<span class="tk-s">@&quot;&quot;&quot;id&quot;&quot;\s*:\s*\d+&quot;</span>),
+                <span class="tk-s">@&quot;&quot;&quot;id&quot;&quot;: &quot;&quot;SCRUBBED&quot;&quot;&quot;</span>));
+    }
+}</code></pre>
+<h4 id="gitattributes">.gitattributes</h4>
+<pre><code># Marcar snapshots como generados (no cuentan en diff reviews)
+*.verified.txt linguist-generated
+*.verified.json linguist-generated
+*.verified.xml linguist-generated</code></pre>
+<h4 id="gitignore">.gitignore</h4>
+<pre><code># Snapshots recibidos (no verificados aun)
+*.received.*</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-1-snapshot-de-respuesta-api">
+<h3 id="patron-1-snapshot-de-respuesta-api">Patron 1: Snapshot de Respuesta API</h3>
+<pre data-lang="csharp"><code>[UsesVerify]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipsApiSnapshotTests : IClassFixture&lt;WebApplicationFactory&lt;Program&gt;&gt;
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> HttpClient _client;
+
+    <span class="tk-k">public</span> ScholarshipsApiSnapshotTests(WebApplicationFactory&lt;Program&gt; factory)
+    {
+        _client = factory.CreateClient();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetScholarships_ResponseShape_MatchesSnapshot()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/api/scholarships?page=1&amp;size=2&quot;</span>);
+        <span class="tk-k">var</span> json = <span class="tk-k">await</span> response.Content.ReadAsStringAsync();
+
+        <span class="tk-c">// Assert - Primera ejecucion crea el .verified.json</span>
+        <span class="tk-k">await</span> Verify(json)
+            .ScrubMember(<span class="tk-s">&quot;id&quot;</span>)           <span class="tk-c">// IDs cambian</span>
+            .ScrubMember(<span class="tk-s">&quot;createdAt&quot;</span>)    <span class="tk-c">// Fechas cambian</span>
+            .UseMethodName(<span class="tk-s">&quot;GetScholarships_ResponseShape&quot;</span>);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task GetScholarshipById_ResponseShape_MatchesSnapshot()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetFromJsonAsync&lt;JsonElement&gt;(<span class="tk-s">&quot;/api/scholarships/1&quot;</span>);
+
+        <span class="tk-c">// Assert</span>
+        <span class="tk-k">await</span> Verify(response)
+            .ScrubMember(<span class="tk-s">&quot;id&quot;</span>)
+            .ScrubMember(<span class="tk-s">&quot;createdAt&quot;</span>)
+            .ScrubMember(<span class="tk-s">&quot;modifiedAt&quot;</span>);
+    }
+}</code></pre>
+<p>Snapshot generado (<code>GetScholarships_ResponseShape.verified.json</code>):</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;items&quot;</span>: [
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;SCRUBBED&quot;</span>,
+      <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;Scholarship Excelencia&quot;</span>,
+      <span class="tk-s">&quot;amount&quot;</span>: <span class="tk-n">5000.00</span>,
+      <span class="tk-s">&quot;estado&quot;</span>: <span class="tk-s">&quot;Published&quot;</span>,
+      <span class="tk-s">&quot;createdAt&quot;</span>: <span class="tk-s">&quot;SCRUBBED&quot;</span>
+    }
+  ],
+  <span class="tk-s">&quot;totalItems&quot;</span>: <span class="tk-n">10</span>,
+  <span class="tk-s">&quot;page&quot;</span>: <span class="tk-n">1</span>,
+  <span class="tk-s">&quot;pageSize&quot;</span>: <span class="tk-n">2</span>
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-2-snapshot-de-mapeo-dto">
+<h3 id="patron-2-snapshot-de-mapeo-dto">Patron 2: Snapshot de Mapeo DTO</h3>
+<pre data-lang="csharp"><code>[UsesVerify]
+<span class="tk-k">public</span> <span class="tk-k">class</span> MappingSnapshotTests
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IMapper _mapper;
+
+    <span class="tk-k">public</span> MappingSnapshotTests()
+    {
+        <span class="tk-k">var</span> config = <span class="tk-k">new</span> MapperConfiguration(cfg =&gt;
+            cfg.AddProfile&lt;ScholarshipMappingProfile&gt;());
+        _mapper = config.CreateMapper();
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task ScholarshipToDto_CompleteMapping_MatchesSnapshot()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> scholarship = <span class="tk-k">new</span> Scholarship
+        {
+            Id = <span class="tk-n">1</span>,
+            Code = <span class="tk-s">&quot;BECA-001&quot;</span>,
+            Name = <span class="tk-s">&quot;Scholarship Excelencia&quot;</span>,
+            Amount = 5000m,
+            Status = ScholarshipStatus.Published,
+            Period = <span class="tk-k">new</span> Period(
+                <span class="tk-k">new</span> DateTime(<span class="tk-n">2026</span>, <span class="tk-n">1</span>, <span class="tk-n">1</span>),
+                <span class="tk-k">new</span> DateTime(<span class="tk-n">2026</span>, <span class="tk-n">12</span>, <span class="tk-n">31</span>))
+        };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> dto = _mapper.Map&lt;ScholarshipDto&gt;(scholarship);
+
+        <span class="tk-c">// Assert - Verifica que el mapeo no cambia</span>
+        <span class="tk-k">await</span> Verify(dto);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task CreateScholarshipRequest_ToDomain_MatchesSnapshot()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> request = <span class="tk-k">new</span> CreateScholarshipRequest
+        {
+            Name = <span class="tk-s">&quot;Scholarship Test&quot;</span>,
+            Amount = 3000m,
+            StartDate = <span class="tk-k">new</span> DateTime(<span class="tk-n">2026</span>, <span class="tk-n">3</span>, <span class="tk-n">1</span>),
+            EndDate = <span class="tk-k">new</span> DateTime(<span class="tk-n">2026</span>, <span class="tk-n">9</span>, <span class="tk-n">30</span>)
+        };
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> scholarship = _mapper.Map&lt;Scholarship&gt;(request);
+
+        <span class="tk-c">// Assert</span>
+        <span class="tk-k">await</span> Verify(scholarship)
+            .ScrubMember(<span class="tk-s">&quot;Id&quot;</span>);  <span class="tk-c">// No asignado aun</span>
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-3-snapshot-de-configuracion">
+<h3 id="patron-3-snapshot-de-configuracion">Patron 3: Snapshot de Configuracion</h3>
+<pre data-lang="csharp"><code>[UsesVerify]
+<span class="tk-k">public</span> <span class="tk-k">class</span> ConfigurationSnapshotTests
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task ServiceCollection_RegisteredServices_MatchSnapshot()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> builder = WebApplication.CreateBuilder();
+        builder.Services.AddApplication();
+        builder.Services.AddInfrastructure(builder.Configuration);
+
+        <span class="tk-c">// Act - Capturar servicios registrados</span>
+        <span class="tk-k">var</span> services = builder.Services
+            .Where(s =&gt; s.ServiceType.Namespace?.StartsWith(<span class="tk-s">&quot;MyCompany&quot;</span>) == <span class="tk-k">true</span>)
+            .Select(s =&gt; <span class="tk-k">new</span>
+            {
+                Service = s.ServiceType.Name,
+                Implementation = s.ImplementationType?.Name,
+                Lifetime = s.Lifetime.ToString()
+            })
+            .OrderBy(s =&gt; s.Service);
+
+        <span class="tk-c">// Assert</span>
+        <span class="tk-k">await</span> Verify(services);
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task OpenApiDocument_Schema_MatchesSnapshot()
+    {
+        <span class="tk-c">// Arrange</span>
+        <span class="tk-k">var</span> factory = <span class="tk-k">new</span> WebApplicationFactory&lt;Program&gt;();
+        <span class="tk-k">var</span> client = factory.CreateClient();
+
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> openApi = <span class="tk-k">await</span> client.GetStringAsync(<span class="tk-s">&quot;/openapi/v1.json&quot;</span>);
+
+        <span class="tk-c">// Assert - El contrato de API no cambia sin intencion</span>
+        <span class="tk-k">await</span> Verify(openApi);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-patron-4-snapshot-con-scrubbers-personalizados">
+<h3 id="patron-4-snapshot-con-scrubbers-personalizados">Patron 4: Snapshot con Scrubbers Personalizados</h3>
+<pre data-lang="csharp"><code>[UsesVerify]
+<span class="tk-k">public</span> <span class="tk-k">class</span> AdvancedSnapshotTests
+{
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task ErrorResponse_ProblemDetails_MatchesSnapshot()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> response = <span class="tk-k">await</span> _client.GetAsync(<span class="tk-s">&quot;/api/scholarships/99999&quot;</span>);
+        <span class="tk-k">var</span> content = <span class="tk-k">await</span> response.Content.ReadAsStringAsync();
+
+        <span class="tk-c">// Assert con scrubbers encadenados</span>
+        <span class="tk-k">await</span> Verify(content)
+            .ScrubInlineGuids()          <span class="tk-c">// Reemplaza GUIDs por placeholders</span>
+            .ScrubMember(<span class="tk-s">&quot;traceId&quot;</span>)      <span class="tk-c">// Trace IDs cambian</span>
+            .ScrubMember(<span class="tk-s">&quot;instance&quot;</span>)     <span class="tk-c">// Path especifico</span>
+            .AddScrubber(s =&gt; s.Replace(
+                DateTime.Today.ToString(<span class="tk-s">&quot;yyyy-MM-dd&quot;</span>),
+                <span class="tk-s">&quot;TODAY&quot;</span>));               <span class="tk-c">// Scrubber custom para fechas</span>
+    }
+
+    [Fact]
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task AuditLog_Entry_MatchesSnapshot()
+    {
+        <span class="tk-c">// Act</span>
+        <span class="tk-k">var</span> entry = <span class="tk-k">new</span> AuditLogEntry
+        {
+            UserId = <span class="tk-s">&quot;user123&quot;</span>,
+            Action = <span class="tk-s">&quot;CreateScholarship&quot;</span>,
+            Timestamp = DateTime.UtcNow,
+            Details = <span class="tk-k">new</span> { ScholarshipId = <span class="tk-n">1</span>, Name = <span class="tk-s">&quot;Test&quot;</span> }
+        };
+
+        <span class="tk-c">// Assert - Ignorar campos volatiles</span>
+        <span class="tk-k">await</span> Verify(entry)
+            .IgnoreMember(<span class="tk-s">&quot;Timestamp&quot;</span>)
+            .IgnoreMember(<span class="tk-s">&quot;UserId&quot;</span>);
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-flujo-de-trabajo-con-snapshots">
+<h3 id="flujo-de-trabajo-con-snapshots">Flujo de Trabajo con Snapshots</h3>
+<pre><code>1. Escribir test con await Verify(result)
+2. Primera ejecucion → FALLA (no hay snapshot)
+   → Genera archivo .received.json
+3. Revisar .received.json
+   → Si es correcto: renombrar a .verified.json (o usar tool)
+4. Commit del .verified.json al repositorio
+5. Siguientes ejecuciones → PASA si salida == snapshot
+6. Si cambia la salida → FALLA con diff visual
+   → Revisar cambio: ¿intencionado? → Actualizar snapshot
+   → ¿Bug? → Corregir codigo</code></pre>
+<h4 id="comando-para-aceptar-snapshots">Comando para aceptar snapshots</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Aceptar todos los snapshots pendientes</span>
+<span class="tk-k">dotnet</span> verify accept
+
+<span class="tk-c"># Aceptar un snapshot especifico</span>
+<span class="tk-k">dotnet</span> verify accept --filter <span class="tk-s">&quot;ScholarshipsApiSnapshotTests&quot;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-Anti-Patrones">
+<h3 id="Anti-Patrones">Anti-Patrones</h3>
+<div class="tbl"><table><thead><tr><th>Anti-Patron</th><th>Problema</th><th>Solucion</th></tr></thead><tbody><tr><td>Snapshot de entidades completas</td><td>Fragil, cambia con cada campo nuevo</td><td>Usar <code>.ScrubMember()</code> o mapear a DTO</td></tr><tr><td>Sin scrubbers para IDs/fechas</td><td>Tests fallan aleatoriamente</td><td>SIEMPRE scrub datos volatiles</td></tr><tr><td>Snapshots enormes (&gt;100 lineas)</td><td>Dificil de revisar en PR</td><td>Dividir en tests mas pequenos</td></tr><tr><td>Snapshot como unico test</td><td>No valida logica, solo forma</td><td>Complementar con assertions directas</td></tr><tr><td>No commitear <code>.verified.*</code></td><td>Tests fallan en CI</td><td>Incluir en <code>.gitattributes</code> y repo</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-cicd-configuration">
+<h3 id="cicd-configuration">CI/CD Configuration</h3>
+<pre data-lang="yaml"><code><span class="tk-c"># Azure Pipelines</span>
+- task: DotNetCoreCLI@<span class="tk-n">2</span>
+  displayName: <span class="tk-s">'Run Snapshot Tests'</span>
+  inputs:
+    command: test
+    projects: <span class="tk-s">'**/*Tests.csproj'</span>
+  env:
+    <span class="tk-c"># Verify.NET detecta CI y genera mejor output</span>
+    CI: <span class="tk-k">true</span>
+    Verify_DiffTool: <span class="tk-k">false</span>  <span class="tk-c"># No abrir diff tool en CI</span></code></pre>
+<hr>
+<p><em>Pattern snapshot-testing</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/patterns/performance-testing.html"><small>Anterior</small>patterns/performance-testing.md</a><a class="next" href="../../../skills/testing-patterns/patterns/test-data-factory.html"><small>Siguiente</small>patterns/test-data-factory.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/patterns/snapshot-testing.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#cuando-usar-snapshot-testing">Cuando Usar Snapshot Testing</a></li><li class="l2"><a href="#paquetes-nuget">Paquetes NuGet</a></li><li class="l2"><a href="#configuracion-inicial">Configuracion Inicial</a></li><li class="l3"><a href="#moduleinitializer-una-vez-por-proyecto-de-tests">ModuleInitializer (una vez por proyecto de tests)</a></li><li class="l3"><a href="#gitattributes">.gitattributes</a></li><li class="l3"><a href="#gitignore">.gitignore</a></li><li class="l2"><a href="#patron-1-snapshot-de-respuesta-api">Patron 1: Snapshot de Respuesta API</a></li><li class="l2"><a href="#patron-2-snapshot-de-mapeo-dto">Patron 2: Snapshot de Mapeo DTO</a></li><li class="l2"><a href="#patron-3-snapshot-de-configuracion">Patron 3: Snapshot de Configuracion</a></li><li class="l2"><a href="#patron-4-snapshot-con-scrubbers-personalizados">Patron 4: Snapshot con Scrubbers Personalizados</a></li><li class="l2"><a href="#flujo-de-trabajo-con-snapshots">Flujo de Trabajo con Snapshots</a></li><li class="l3"><a href="#comando-para-aceptar-snapshots">Comando para aceptar snapshots</a></li><li class="l2"><a href="#Anti-Patrones">Anti-Patrones</a></li><li class="l2"><a href="#cicd-configuration">CI/CD Configuration</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

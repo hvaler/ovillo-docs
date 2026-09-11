@@ -1,0 +1,407 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git-best-practices · patterns/azure-devops-branching.md · Ovillo</title><meta name="description" content="Fichero patterns/azure-devops-branching.md de la skill git-best-practices"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="git-best-practices · patterns/azure-devops-branching.md · Ovillo"><meta property="og:description" content="Fichero patterns/azure-devops-branching.md de la skill git-best-practices"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/patterns/azure-devops-branching.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/git-best-practices/patterns/azure-devops-branching.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/git-best-practices/patterns/azure-devops-branching.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de git-best-practices (29)</h4><ul class="sibs"><li><a href="../../../skills/git-best-practices/checklists/branching-antipatterns.html">checklists/branching-antipatterns.md</a></li><li><a href="../../../skills/git-best-practices/checklists/git3-readiness.html">checklists/git3-readiness.md</a></li><li><a href="../../../skills/git-best-practices/checklists/pre-merge.html">checklists/pre-merge.md</a></li><li><a href="../../../skills/git-best-practices/checklists/repository-setup.html">checklists/repository-setup.md</a></li><li><a href="../../../skills/git-best-practices/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/git-best-practices/patterns/azure-devops-branching.html" class="cur">patterns/azure-devops-branching.md</a></li><li><a href="../../../skills/git-best-practices/patterns/conventional-commits.html">patterns/conventional-commits.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitattributes-config.html">patterns/gitattributes-config.md</a></li><li><a href="../../../skills/git-best-practices/patterns/gitignore-patterns.html">patterns/gitignore-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/monorepo-patterns.html">patterns/monorepo-patterns.md</a></li><li><a href="../../../skills/git-best-practices/patterns/ssh-signing.html">patterns/ssh-signing.md</a></li><li><a href="../../../skills/git-best-practices/references/workflow-branching.html">references/workflow-branching.md</a></li><li><a href="../../../skills/git-best-practices/strategies/branching-models.html">strategies/branching-models.md</a></li><li><a href="../../../skills/git-best-practices/strategies/merge-strategies.html">strategies/merge-strategies.md</a></li><li><a href="../../../skills/git-best-practices/strategies/release-management.html">strategies/release-management.md</a></li><li><a href="../../../skills/git-best-practices/templates/branch-ruleset.json.html">templates/branch-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/templates/CODEOWNERS.html">templates/CODEOWNERS.template</a></li><li><a href="../../../skills/git-best-practices/templates/commit-msg-hook.sh.html">templates/commit-msg-hook.sh.template</a></li><li><a href="../../../skills/git-best-practices/templates/dependabot.yml.html">templates/dependabot.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/github-workflow.yml.html">templates/github-workflow.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/bug_report.yml.html">templates/ISSUE_TEMPLATE/bug_report.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/config.yml.html">templates/ISSUE_TEMPLATE/config.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/ISSUE_TEMPLATE/feature_request.yml.html">templates/ISSUE_TEMPLATE/feature_request.yml.template</a></li><li><a href="../../../skills/git-best-practices/templates/pull_request_template.md.html">templates/pull_request_template.md.template</a></li><li><a href="../../../skills/git-best-practices/templates/tag-ruleset.json.html">templates/tag-ruleset.json.template</a></li><li><a href="../../../skills/git-best-practices/tools/context7-git.html">tools/context7-git.md</a></li><li><a href="../../../skills/git-best-practices/tools/git-hooks-automation.html">tools/git-hooks-automation.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-actions-patterns.html">tools/github-actions-patterns.md</a></li><li><a href="../../../skills/git-best-practices/tools/github-rulesets.html">tools/github-rulesets.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/git-best-practices.html">git-best-practices</a></span><span>patterns</span><span>azure-devops-branching.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>git-best-practices</span><span>patterns/</span></div><h1>azure-devops-branching.md</h1><p class="lede">Referencia que <code>git-best-practices</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/git-best-practices.html">git-best-practices</a></b><span>skill</span></div><div><b>patterns</b><span>carpeta</span></div><div><b>15.343 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: git-best-practices Documento fuente: <code>Guias/reglas-externas/branching-strategies-v2-guia-completa.html</code></p></blockquote>
+<p class="lede">Configuracion practica de estrategias de ramificacion en Azure DevOps para proyectos de la organización.</p>
+<hr>
+<section class="sec" id="sec-ranking-de-compatibilidad-con-azure-devops">
+<h3 id="ranking-de-compatibilidad-con-azure-devops">Ranking de Compatibilidad con Azure DevOps</h3>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>Compatibilidad</th><th>Notas</th></tr></thead><tbody><tr><td><strong>GitHub Flow</strong></td><td>Excelente</td><td>Branch policies + build validation nativos</td></tr><tr><td><strong>GitHub Flow simplificado</strong></td><td>Excelente</td><td>Build validation only, sin reviewers, merge local --no-ff</td></tr><tr><td><strong>Release Flow</strong></td><td>Excelente</td><td>Cherry-pick UI integrado, release branches</td></tr><tr><td><strong>OneFlow</strong></td><td>Muy bueno</td><td>Tags + branch policies, sin tooling extra</td></tr><tr><td><strong>Trunk-Based</strong></td><td>Bueno</td><td>Requiere feature flags externos (Azure App Configuration)</td></tr><tr><td><strong>Developer Flow</strong></td><td>Bueno</td><td>Multi-branch pipelines, merge entre ramas</td></tr><tr><td><strong>GitLab Flow</strong></td><td>Bueno</td><td>Ramas por entorno, Azure Pipelines multi-stage equivalente</td></tr><tr><td><strong>GitFlow</strong></td><td>Con friccion</td><td>Requiere disciplina manual, no hay soporte nativo develop/release</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-branch-policies-proteccion-de-ramas">
+<h3 id="branch-policies-proteccion-de-ramas">Branch Policies (Proteccion de Ramas)</h3>
+<h4 id="github-flow---branch-policies-para-main">GitHub Flow - Branch Policies para <code>main</code></h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;branch&quot;</span>: <span class="tk-s">&quot;main&quot;</span>,
+  <span class="tk-s">&quot;policies&quot;</span>: {
+    <span class="tk-s">&quot;minimumApprovers&quot;</span>: {
+      <span class="tk-s">&quot;enabled&quot;</span>: true,
+      <span class="tk-s">&quot;count&quot;</span>: <span class="tk-n">1</span>,
+      <span class="tk-s">&quot;allowDownvotes&quot;</span>: false,
+      <span class="tk-s">&quot;creatorVoteCounts&quot;</span>: false,
+      <span class="tk-s">&quot;resetOnSourcePush&quot;</span>: true
+    },
+    <span class="tk-s">&quot;buildValidation&quot;</span>: {
+      <span class="tk-s">&quot;enabled&quot;</span>: true,
+      <span class="tk-s">&quot;builds&quot;</span>: [
+        {
+          <span class="tk-s">&quot;pipeline&quot;</span>: <span class="tk-s">&quot;CI-Build&quot;</span>,
+          <span class="tk-s">&quot;trigger&quot;</span>: <span class="tk-s">&quot;automatic&quot;</span>,
+          <span class="tk-s">&quot;filenamePatterns&quot;</span>: [<span class="tk-s">&quot;*.cs&quot;</span>, <span class="tk-s">&quot;*.csproj&quot;</span>, <span class="tk-s">&quot;*.sln&quot;</span>]
+        }
+      ]
+    },
+    <span class="tk-s">&quot;commentResolution&quot;</span>: {
+      <span class="tk-s">&quot;enabled&quot;</span>: true,
+      <span class="tk-s">&quot;requiredForAll&quot;</span>: true
+    },
+    <span class="tk-s">&quot;mergeStrategy&quot;</span>: {
+      <span class="tk-s">&quot;allowSquash&quot;</span>: true,
+      <span class="tk-s">&quot;allowRebase&quot;</span>: false,
+      <span class="tk-s">&quot;allowMerge&quot;</span>: false,
+      <span class="tk-s">&quot;allowRebaseMerge&quot;</span>: false
+    },
+    <span class="tk-s">&quot;workItemLinking&quot;</span>: {
+      <span class="tk-s">&quot;enabled&quot;</span>: false
+    }
+  }
+}</code></pre>
+<h4 id="release-flow---branch-policies-para-main--release">Release Flow - Branch Policies para <code>main</code> + <code>release/*</code></h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;branches&quot;</span>: {
+    <span class="tk-s">&quot;main&quot;</span>: {
+      <span class="tk-s">&quot;minimumApprovers&quot;</span>: <span class="tk-n">1</span>,
+      <span class="tk-s">&quot;buildValidation&quot;</span>: true,
+      <span class="tk-s">&quot;mergeStrategy&quot;</span>: <span class="tk-s">&quot;noFastForward&quot;</span>,
+      <span class="tk-s">&quot;commentResolution&quot;</span>: true
+    },
+    <span class="tk-s">&quot;release/*&quot;</span>: {
+      <span class="tk-s">&quot;minimumApprovers&quot;</span>: <span class="tk-n">2</span>,
+      <span class="tk-s">&quot;buildValidation&quot;</span>: true,
+      <span class="tk-s">&quot;mergeStrategy&quot;</span>: <span class="tk-s">&quot;noFastForward&quot;</span>,
+      <span class="tk-s">&quot;commentResolution&quot;</span>: true,
+      <span class="tk-s">&quot;requireLinkedWorkItems&quot;</span>: true
+    }
+  }
+}</code></pre>
+<p><strong>Regla clave Release Flow</strong>: Hotfixes siempre van a <code>main</code> primero, luego cherry-pick a <code>release/*</code>.</p>
+<hr>
+</section>
+<section class="sec" id="sec-pipelines-yaml-por-estrategia">
+<h3 id="pipelines-yaml-por-estrategia">Pipelines YAML por Estrategia</h3>
+<h4 id="github-flow---pipeline-cicd">GitHub Flow - Pipeline CI/CD</h4>
+<pre data-lang="yaml"><code><span class="tk-c"># azure-pipelines.yml - GitHub Flow</span>
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - <span class="tk-s">'**/*.md'</span>
+      - <span class="tk-s">'docs/**'</span>
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: <span class="tk-s">'windows-latest'</span>
+
+variables:
+  buildConfiguration: <span class="tk-s">'Release'</span>
+  dotnetVersion: <span class="tk-s">'10.x'</span>
+
+stages:
+  <span class="tk-c"># ═══════════════════════════════════════════</span>
+  <span class="tk-c"># STAGE 1: Build + Test (siempre)</span>
+  <span class="tk-c"># ═══════════════════════════════════════════</span>
+  - stage: Build
+    displayName: <span class="tk-s">'Build &amp; Test'</span>
+    jobs:
+      - job: BuildAndTest
+        steps:
+          - task: UseDotNet@<span class="tk-n">2</span>
+            inputs:
+              version: <span class="tk-v">$(dotnetVersion)</span>
+
+          - script: dotnet restore
+            displayName: <span class="tk-s">'Restore'</span>
+
+          - script: dotnet build --configuration <span class="tk-v">$(buildConfiguration)</span> --no-restore
+            displayName: <span class="tk-s">'Build'</span>
+
+          - script: dotnet test --configuration <span class="tk-v">$(buildConfiguration)</span> --no-build --logger trx --collect:<span class="tk-s">&quot;XPlat Code Coverage&quot;</span>
+            displayName: <span class="tk-s">'Test'</span>
+
+          - task: PublishTestResults@<span class="tk-n">2</span>
+            inputs:
+              testResultsFormat: <span class="tk-s">'VSTest'</span>
+              testResultsFiles: <span class="tk-s">'**/*.trx'</span>
+
+          - task: PublishCodeCoverageResults@<span class="tk-n">2</span>
+            inputs:
+              summaryFileLocation: <span class="tk-s">'**/coverage.cobertura.xml'</span>
+
+          - script: dotnet publish --configuration <span class="tk-v">$(buildConfiguration)</span> --output <span class="tk-v">$(Build.ArtifactStagingDirectory)</span>
+            displayName: <span class="tk-s">'Publish'</span>
+            condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], <span class="tk-s">'refs/heads/main'</span>))
+
+          - publish: <span class="tk-v">$(Build.ArtifactStagingDirectory)</span>
+            artifact: drop
+            condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], <span class="tk-s">'refs/heads/main'</span>))
+
+  <span class="tk-c"># ═══════════════════════════════════════════</span>
+  <span class="tk-c"># STAGE 2: Deploy Demo (auto desde main)</span>
+  <span class="tk-c"># ═══════════════════════════════════════════</span>
+  - stage: DeployDemo
+    displayName: <span class="tk-s">'Deploy → Demo'</span>
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], <span class="tk-s">'refs/heads/main'</span>))
+    jobs:
+      - deployment: DeployToDemo
+        environment: <span class="tk-s">'Demo'</span>
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>
+                  inputs:
+                    WebSiteName: <span class="tk-s">'MyApp-Demo'</span>
+                    Package: <span class="tk-s">'$(Pipeline.Workspace)/drop/**/*.zip'</span>
+
+  <span class="tk-c"># ═══════════════════════════════════════════</span>
+  <span class="tk-c"># STAGE 3: Deploy Produccion (manual)</span>
+  <span class="tk-c"># ═══════════════════════════════════════════</span>
+  - stage: DeployProd
+    displayName: <span class="tk-s">'Deploy → Produccion'</span>
+    dependsOn: DeployDemo
+    condition: and(succeeded(), eq(variables[<span class="tk-s">'Build.SourceBranch'</span>], <span class="tk-s">'refs/heads/main'</span>))
+    jobs:
+      - deployment: DeployToProd
+        environment: <span class="tk-s">'Produccion'</span>  <span class="tk-c"># Requiere aprobacion manual</span>
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>
+                  inputs:
+                    WebSiteName: <span class="tk-s">'MyApp'</span>
+                    Package: <span class="tk-s">'$(Pipeline.Workspace)/drop/**/*.zip'</span></code></pre>
+<h4 id="release-flow---pipeline-con-release-branches">Release Flow - Pipeline con Release Branches</h4>
+<pre data-lang="yaml"><code><span class="tk-c"># azure-pipelines.yml - Release Flow</span>
+trigger:
+  branches:
+    include:
+      - main
+      - release/*
+
+pr:
+  branches:
+    include:
+      - main
+      - release/*
+
+stages:
+  - stage: Build
+    displayName: <span class="tk-s">'Build &amp; Test'</span>
+    jobs:
+      - job: BuildAndTest
+        steps:
+          - task: UseDotNet@<span class="tk-n">2</span>
+            inputs:
+              version: <span class="tk-s">'10.x'</span>
+          - script: dotnet restore &amp;&amp; dotnet build -c Release &amp;&amp; dotnet test -c Release --no-build
+            displayName: <span class="tk-s">'Restore → Build → Test'</span>
+
+          - script: dotnet publish -c Release -o <span class="tk-v">$(Build.ArtifactStagingDirectory)</span>
+            displayName: <span class="tk-s">'Publish'</span>
+          - publish: <span class="tk-v">$(Build.ArtifactStagingDirectory)</span>
+            artifact: drop
+
+  <span class="tk-c"># Deploy desde release/* a Demo</span>
+  - stage: DeployDemo
+    dependsOn: Build
+    condition: and(succeeded(), startsWith(variables[<span class="tk-s">'Build.SourceBranch'</span>], <span class="tk-s">'refs/heads/release/'</span>))
+    jobs:
+      - deployment: DeployToDemo
+        environment: <span class="tk-s">'Demo'</span>
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>
+                  inputs:
+                    WebSiteName: <span class="tk-s">'MyApp-Demo'</span>
+                    Package: <span class="tk-s">'$(Pipeline.Workspace)/drop/**/*.zip'</span>
+
+  <span class="tk-c"># Deploy desde release/* a Produccion (con aprobacion)</span>
+  - stage: DeployProd
+    dependsOn: DeployDemo
+    condition: and(succeeded(), startsWith(variables[<span class="tk-s">'Build.SourceBranch'</span>], <span class="tk-s">'refs/heads/release/'</span>))
+    jobs:
+      - deployment: DeployToProd
+        environment: <span class="tk-s">'Produccion'</span>
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>
+                  inputs:
+                    WebSiteName: <span class="tk-s">'MyApp'</span>
+                    Package: <span class="tk-s">'$(Pipeline.Workspace)/drop/**/*.zip'</span></code></pre>
+<h4 id="github-flow-simplificado---pipeline-solo-developer">GitHub Flow Simplificado - Pipeline Solo Developer</h4>
+<pre data-lang="yaml"><code><span class="tk-c"># azure-pipelines.yml - GitHub Flow simplificado (solo developer)</span>
+<span class="tk-c"># Merge local con --no-ff, sin PRs formales</span>
+<span class="tk-c"># Build validation como unica branch policy</span>
+trigger:
+  branches:
+    include:
+      - main
+      - release/*
+
+pool:
+  vmImage: <span class="tk-s">'windows-latest'</span>
+
+stages:
+  - stage: BuildAndDeploy
+    jobs:
+      - job: Build
+        steps:
+          - task: UseDotNet@<span class="tk-n">2</span>
+            inputs:
+              version: <span class="tk-s">'10.x'</span>
+
+          - script: dotnet restore &amp;&amp; dotnet build -c Release &amp;&amp; dotnet test -c Release --no-build
+            displayName: <span class="tk-s">'Build &amp; Test'</span>
+
+          - script: dotnet publish -c Release -o <span class="tk-v">$(Build.ArtifactStagingDirectory)</span>
+            displayName: <span class="tk-s">'Publish'</span>
+
+          - publish: <span class="tk-v">$(Build.ArtifactStagingDirectory)</span>
+            artifact: drop
+
+      <span class="tk-c"># Deploy automatico a Demo</span>
+      - deployment: DeployDemo
+        dependsOn: Build
+        environment: <span class="tk-s">'Demo'</span>
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>
+                  inputs:
+                    WebSiteName: <span class="tk-s">'MyApp-Demo'</span>
+                    Package: <span class="tk-s">'$(Pipeline.Workspace)/drop/**/*.zip'</span>
+
+      <span class="tk-c"># Deploy manual a Produccion</span>
+      - deployment: DeployProd
+        dependsOn: DeployDemo
+        environment: <span class="tk-s">'Produccion'</span>
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: IISWebAppDeploymentOnMachineGroup@<span class="tk-n">0</span>
+                  inputs:
+                    WebSiteName: <span class="tk-s">'MyApp'</span>
+                    Package: <span class="tk-s">'$(Pipeline.Workspace)/drop/**/*.zip'</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-ejemplo-infraestructura-de-ejemplo">
+<h3 id="ejemplo-infraestructura-de-ejemplo">Ejemplo: Infraestructura de ejemplo</h3>
+<h4 id="topologia-tipica">Topologia tipica</h4>
+<pre><code>                    ┌─────────────────────────────────┐
+                    │        Azure DevOps             │
+                    │   ┌─────────────────────────┐   │
+                    │   │    Build Pipeline        │   │
+                    │   │  (build + test + publish) │   │
+                    │   └────────────┬────────────┘   │
+                    └────────────────┼────────────────┘
+                                     │
+                    ┌────────────────┼────────────────┐
+                    │                │                 │
+                    ▼                ▼                 ▼
+            ┌──────────────┐ ┌──────────────┐ ┌──────────────────┐
+            │     DEV      │ │    DEMO      │ │      PRO         │
+            │ (automatico) │ │ (automatico) │ │ (aprobacion)     │
+            │              │ │              │ │                  │
+            │ dev01        │ │ demo01       │ │ app01            │
+            │ svc01        │ │ demosvc01    │ │ app02            │
+            │              │ │              │ │ (balanceado)     │
+            │              │ │              │ │                  │
+            └──────────────┘ └──────────────┘ └──────────────────┘</code></pre>
+<h4 id="flujo-por-estrategia">Flujo por Estrategia</h4>
+<div class="tbl"><table><thead><tr><th>Estrategia</th><th>Dev</th><th>Demo</th><th>Pro</th></tr></thead><tbody><tr><td><strong>GitHub Flow</strong></td><td>PR → main → auto</td><td>main → auto</td><td>main → manual (aprobacion)</td></tr><tr><td><strong>Release Flow</strong></td><td>PR → main → auto</td><td>release/* → auto</td><td>release/* → manual</td></tr><tr><td><strong>Solo developer</strong></td><td>main → auto</td><td>main → auto</td><td>main → manual</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-merge-queues">
+<h3 id="merge-queues">Merge Queues</h3>
+<h4 id="concepto">Concepto</h4>
+<p>Las merge queues garantizan que los merges a <code>main</code> no introducen regresiones, incluso con PRs concurrentes.</p>
+<pre><code>Sin merge queue:           Con merge queue:
+PR-A ──merge── main ✅     PR-A ──queue── build(A) ──merge── main ✅
+PR-B ──merge── main ❌     PR-B ──queue── build(A+B) ──merge── main ✅
+(conflicto no detectado)   (conflicto detectado ANTES del merge)</code></pre>
+<h4 id="en-azure-devops">En Azure DevOps</h4>
+<p>Azure DevOps no tiene merge queue nativa (a diferencia de GitHub). Alternativas:</p>
+<ol>
+<li><strong>Build validation obligatoria</strong> - Cada PR debe pasar build contra main actualizado</li>
+<li><strong>Auto-complete con policies</strong> - PR se completa automaticamente cuando pasa todas las policies</li>
+<li><strong>Herramientas externas</strong> - Mergify, Aviator (compatible con Azure Repos)</li>
+</ol>
+<h4 id="en-github-merge-queue-ga">En GitHub (Merge Queue GA)</h4>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;merge_queue&quot;</span>: {
+    <span class="tk-s">&quot;enabled&quot;</span>: true,
+    <span class="tk-s">&quot;merge_method&quot;</span>: <span class="tk-s">&quot;squash&quot;</span>,
+    <span class="tk-s">&quot;max_entries_to_build&quot;</span>: <span class="tk-n">5</span>,
+    <span class="tk-s">&quot;min_entries_to_merge&quot;</span>: <span class="tk-n">1</span>,
+    <span class="tk-s">&quot;build_concurrency_group&quot;</span>: <span class="tk-s">&quot;default&quot;</span>
+  }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-feature-flags-con-azure-app-configuration">
+<h3 id="feature-flags-con-azure-app-configuration">Feature Flags con Azure App Configuration</h3>
+<p>Para estrategias que requieren feature flags (especialmente Trunk-Based):</p>
+<pre data-lang="csharp"><code><span class="tk-c">// Program.cs - .NET 10</span>
+builder.Configuration.AddAzureAppConfiguration(options =&gt;
+{
+    options.Connect(builder.Configuration[<span class="tk-s">&quot;AzureAppConfig:ConnectionString&quot;</span>])
+           .UseFeatureFlags(flagOptions =&gt;
+           {
+               flagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(<span class="tk-n">5</span>);
+           });
+});
+
+builder.Services.AddFeatureManagement();</code></pre>
+<pre data-lang="csharp"><code><span class="tk-c">// Uso en controlador</span>
+[FeatureGate(<span class="tk-s">&quot;NuevoFiltrosScholarships&quot;</span>)]
+[HttpGet(<span class="tk-s">&quot;filtros-avanzados&quot;</span>)]
+<span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;IActionResult&gt; FiltrosAvanzados()
+{
+    <span class="tk-c">// Solo accesible si el feature flag esta activo</span>
+}</code></pre>
+<pre data-lang="csharp"><code><span class="tk-c">// Uso en servicio</span>
+<span class="tk-k">public</span> <span class="tk-k">class</span> ScholarshipService
+{
+    <span class="tk-k">private</span> <span class="tk-k">readonly</span> IFeatureManager _featureManager;
+
+    <span class="tk-k">public</span> <span class="tk-k">async</span> Task&lt;List&lt;ScholarshipDto&gt;&gt; GetScholarshipsAsync()
+    {
+        <span class="tk-k">if</span> (<span class="tk-k">await</span> _featureManager.IsEnabledAsync(<span class="tk-s">&quot;NuevoAlgoritmoOrdenacion&quot;</span>))
+        {
+            <span class="tk-k">return</span> <span class="tk-k">await</span> GetScholarshipsConNuevoAlgoritmoAsync();
+        }
+        <span class="tk-k">return</span> <span class="tk-k">await</span> GetScholarshipsClasicasAsync();
+    }
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-configuracion-por-tipo-de-proyecto">
+<h3 id="configuracion-por-tipo-de-proyecto">Configuracion por Tipo de Proyecto</h3>
+<h4 id="api-rest--portal-web">API REST / Portal web</h4>
+<pre><code>Estrategia: GitHub Flow
+Branch policies: 1 reviewer, build validation, squash merge
+Pipeline: main → Demo (auto) → Pro (manual)
+Feature flags: Opcional</code></pre>
+<h4 id="app-con-releases-planificadas">App con releases planificadas</h4>
+<pre><code>Estrategia: Release Flow
+Branch policies: 1 reviewer (main), 2 reviewers (release/*)
+Pipeline: main → Dev (auto), release/* → Demo (auto) → Pro (manual)
+Feature flags: No necesarios
+Cherry-pick: main primero, luego release/*</code></pre>
+<h4 id="desarrollador-unico">Desarrollador unico</h4>
+<pre><code>Estrategia: GitHub Flow simplificado
+Branch policies: Build validation only (sin reviewers)
+Pipeline: main → Demo (auto) → Pro (manual)
+Feature flags: No
+PRs: Opcionales (feature branches para cambios grandes)</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-conexion-con-commit-git-sync-y-liberar">
+<h3 id="conexion-con-commit-git-sync-y-liberar">Conexion con /commit, /git-sync y /liberar</h3>
+<p>Claude lee la seccion <code>branching</code> de <code>_hilo/ESTADO_PROYECTO.json</code> para:</p>
+<div class="tbl"><table><thead><tr><th>Comando</th><th>Usa campo</th><th>Comportamiento</th></tr></thead><tbody><tr><td><code>/hv:commit</code></td><td><code>mergeStrategy</code>, <code>convencionRamas</code></td><td>Genera mensaje y sugiere merge strategy</td></tr><tr><td><code>/hv:git-sync</code></td><td><code>ramaBase</code>, <code>estrategia</code></td><td>Sugiere flujo de sincronizacion correcto</td></tr><tr><td><code>/hv:liberar</code></td><td><code>releasesBranches</code>, <code>flujoDespliegue</code></td><td>Guia el proceso de release segun estrategia</td></tr></tbody></table></div>
+<hr>
+<p><em>Pattern 1.0.0 — Azure DevOps branching configuration</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/git-best-practices.html#ficheros">← Volver a la ficha de git-best-practices</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/git-best-practices/eval-set.html"><small>Anterior</small>eval-set.json</a><a class="next" href="../../../skills/git-best-practices/patterns/conventional-commits.html"><small>Siguiente</small>patterns/conventional-commits.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/git-best-practices/patterns/azure-devops-branching.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ranking-de-compatibilidad-con-azure-devops">Ranking de Compatibilidad con Azure DevOps</a></li><li class="l2"><a href="#branch-policies-proteccion-de-ramas">Branch Policies (Proteccion de Ramas)</a></li><li class="l3"><a href="#github-flow---branch-policies-para-main">GitHub Flow - Branch Policies para main</a></li><li class="l3"><a href="#release-flow---branch-policies-para-main--release">Release Flow - Branch Policies para main + release/*</a></li><li class="l2"><a href="#pipelines-yaml-por-estrategia">Pipelines YAML por Estrategia</a></li><li class="l3"><a href="#github-flow---pipeline-cicd">GitHub Flow - Pipeline CI/CD</a></li><li class="l3"><a href="#release-flow---pipeline-con-release-branches">Release Flow - Pipeline con Release Branches</a></li><li class="l3"><a href="#github-flow-simplificado---pipeline-solo-developer">GitHub Flow Simplificado - Pipeline Solo Developer</a></li><li class="l2"><a href="#ejemplo-infraestructura-de-ejemplo">Ejemplo: Infraestructura de ejemplo</a></li><li class="l3"><a href="#topologia-tipica">Topologia tipica</a></li><li class="l3"><a href="#flujo-por-estrategia">Flujo por Estrategia</a></li><li class="l2"><a href="#merge-queues">Merge Queues</a></li><li class="l3"><a href="#concepto">Concepto</a></li><li class="l3"><a href="#en-azure-devops">En Azure DevOps</a></li><li class="l3"><a href="#en-github-merge-queue-ga">En GitHub (Merge Queue GA)</a></li><li class="l2"><a href="#feature-flags-con-azure-app-configuration">Feature Flags con Azure App Configuration</a></li><li class="l2"><a href="#configuracion-por-tipo-de-proyecto">Configuracion por Tipo de Proyecto</a></li><li class="l3"><a href="#api-rest--portal-web">API REST / Portal web</a></li><li class="l3"><a href="#app-con-releases-planificadas">App con releases planificadas</a></li><li class="l3"><a href="#desarrollador-unico">Desarrollador unico</a></li><li class="l2"><a href="#conexion-con-commit-git-sync-y-liberar">Conexion con /commit, /git-sync y /liberar</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

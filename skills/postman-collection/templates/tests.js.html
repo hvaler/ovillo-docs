@@ -1,0 +1,431 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>postman-collection · templates/tests.js.template · Ovillo</title><meta name="description" content="Fichero templates/tests.js.template de la skill postman-collection"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="postman-collection · templates/tests.js.template · Ovillo"><meta property="og:description" content="Fichero templates/tests.js.template de la skill postman-collection"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/postman-collection/templates/tests.js.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/postman-collection/templates/tests.js.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/postman-collection/templates/tests.js.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de postman-collection (16)</h4><ul class="sibs"><li><a href="../../../skills/postman-collection/checklists/auth-configuration-checklist.html">checklists/auth-configuration-checklist.md</a></li><li><a href="../../../skills/postman-collection/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/postman-collection/patterns/auth-detection.html">patterns/auth-detection.md</a></li><li><a href="../../../skills/postman-collection/patterns/azure-ad-auth.html">patterns/azure-ad-auth.md</a></li><li><a href="../../../skills/postman-collection/patterns/http-signature-mtls.html">patterns/http-signature-mtls.md</a></li><li><a href="../../../skills/postman-collection/patterns/oauth2-token-lifecycle.html">patterns/oauth2-token-lifecycle.md</a></li><li><a href="../../../skills/postman-collection/references/auth-examples.html">references/auth-examples.md</a></li><li><a href="../../../skills/postman-collection/references/test-assertions.html">references/test-assertions.md</a></li><li><a href="../../../skills/postman-collection/references/workflow-postman.html">references/workflow-postman.md</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-apikey.js.html">templates/auth-prerequest-apikey.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-azuread.js.html">templates/auth-prerequest-azuread.js.template</a></li><li><a href="../../../skills/postman-collection/templates/auth-prerequest-basic.js.html">templates/auth-prerequest-basic.js.template</a></li><li><a href="../../../skills/postman-collection/templates/collection.json.html">templates/collection.json.template</a></li><li><a href="../../../skills/postman-collection/templates/environment.json.html">templates/environment.json.template</a></li><li><a href="../../../skills/postman-collection/templates/request.json.html">templates/request.json.template</a></li><li><a href="../../../skills/postman-collection/templates/tests.js.html" class="cur">templates/tests.js.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/postman-collection.html">postman-collection</a></span><span>templates</span><span>tests.js.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>postman-collection</span><span>templates/</span><span>14.791 B</span></div><h1>tests.js.template</h1><p class="lede">Fichero que <code>/hv:postman-collection</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/postman-collection.html">postman-collection</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>14.791 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>// ============================================================================
+// PLANTILLAS DE TESTS POSTMAN
+// Usar como referencia al generar tests para cada tipo de endpoint
+// ============================================================================
+
+// ============================================================================
+// TEST: GET Lista (con paginación)
+// ============================================================================
+const TEST_GET_LIST = `
+pm.test(<span class="tk-s">&quot;Status code is 200&quot;</span>, function () {
+    pm.response.to.have.status(<span class="tk-n">200</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response time is acceptable&quot;</span>, function () {
+    pm.expect(pm.response.responseTime).to.be.below(<span class="tk-n">1000</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response has pagination info&quot;</span>, function () {
+    const jsonData = pm.response.json();
+    // Ajustar según estructura: items/data/results
+    if (jsonData.items) {
+        pm.expect(jsonData).to.have.property(<span class="tk-s">'totalCount'</span>);
+        pm.expect(jsonData).to.have.property(<span class="tk-s">'page'</span>);
+        pm.expect(jsonData).to.have.property(<span class="tk-s">'pageSize'</span>);
+    } else if (Array.isArray(jsonData)) {
+        pm.expect(jsonData).to.be.an(<span class="tk-s">'array'</span>);
+    }
+});
+
+pm.test(<span class="tk-s">&quot;Content-Type is JSON&quot;</span>, function () {
+    pm.response.to.have.header(<span class="tk-s">&quot;Content-Type&quot;</span>);
+    pm.expect(pm.response.headers.get(<span class="tk-s">&quot;Content-Type&quot;</span>)).to.include(<span class="tk-s">&quot;application/json&quot;</span>);
+});
+`;
+
+// ============================================================================
+// TEST: GET Por ID
+// ============================================================================
+const TEST_GET_BY_ID = `
+pm.test(<span class="tk-s">&quot;Status code is 200 or 404&quot;</span>, function () {
+    pm.expect(pm.response.code).to.be.oneOf([<span class="tk-n">200</span>, <span class="tk-n">404</span>]);
+});
+
+pm.test(<span class="tk-s">&quot;Response time is acceptable&quot;</span>, function () {
+    pm.expect(pm.response.responseTime).to.be.below(<span class="tk-n">500</span>);
+});
+
+if (pm.response.code === <span class="tk-n">200</span>) {
+    pm.test(<span class="tk-s">&quot;Response has required fields&quot;</span>, function () {
+        const jsonData = pm.response.json();
+        pm.expect(jsonData).to.have.property(<span class="tk-s">'id'</span>);
+        // Añadir más campos obligatorios según la entidad
+    });
+}
+
+if (pm.response.code === <span class="tk-n">404</span>) {
+    pm.test(<span class="tk-s">&quot;404 response has correct format&quot;</span>, function () {
+        const jsonData = pm.response.json();
+        pm.expect(jsonData).to.have.property(<span class="tk-s">'title'</span>);
+        pm.expect(jsonData).to.have.property(<span class="tk-s">'status'</span>, <span class="tk-n">404</span>);
+    });
+}
+`;
+
+// ============================================================================
+// TEST: POST Crear
+// ============================================================================
+const TEST_POST_CREATE = `
+pm.test(<span class="tk-s">&quot;Status code is 201 Created&quot;</span>, function () {
+    pm.response.to.have.status(<span class="tk-n">201</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response has Location header&quot;</span>, function () {
+    pm.response.to.have.header(<span class="tk-s">&quot;Location&quot;</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response contains created entity with ID&quot;</span>, function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property(<span class="tk-s">'id'</span>);
+
+    // Guardar ID para tests posteriores
+    pm.environment.set(<span class="tk-s">&quot;lastCreatedId&quot;</span>, jsonData.id);
+    console.log(<span class="tk-s">&quot;✅ Creado con ID: &quot;</span> + jsonData.id);
+});
+
+pm.test(<span class="tk-s">&quot;Response time is acceptable&quot;</span>, function () {
+    pm.expect(pm.response.responseTime).to.be.below(<span class="tk-n">1000</span>);
+});
+`;
+
+// ============================================================================
+// TEST: POST Crear - Validación de errores
+// ============================================================================
+const TEST_POST_VALIDATION = `
+pm.test(<span class="tk-s">&quot;Status code is 400 Bad Request&quot;</span>, function () {
+    pm.response.to.have.status(<span class="tk-n">400</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response has validation errors&quot;</span>, function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property(<span class="tk-s">'errors'</span>);
+    // O según formato ProblemDetails
+    pm.expect(jsonData).to.have.property(<span class="tk-s">'title'</span>);
+    pm.expect(jsonData).to.have.property(<span class="tk-s">'status'</span>, <span class="tk-n">400</span>);
+});
+`;
+
+// ============================================================================
+// TEST: PUT Actualizar
+// ============================================================================
+const TEST_PUT_UPDATE = `
+pm.test(<span class="tk-s">&quot;Status code is 200 or 204&quot;</span>, function () {
+    pm.expect(pm.response.code).to.be.oneOf([<span class="tk-n">200</span>, <span class="tk-n">204</span>]);
+});
+
+pm.test(<span class="tk-s">&quot;Response time is acceptable&quot;</span>, function () {
+    pm.expect(pm.response.responseTime).to.be.below(<span class="tk-n">1000</span>);
+});
+
+if (pm.response.code === <span class="tk-n">200</span>) {
+    pm.test(<span class="tk-s">&quot;Response reflects updates&quot;</span>, function () {
+        const jsonData = pm.response.json();
+        // Verificar campos actualizados
+        pm.expect(jsonData).to.have.property(<span class="tk-s">'id'</span>);
+    });
+}
+`;
+
+// ============================================================================
+// TEST: PATCH Actualización parcial
+// ============================================================================
+const TEST_PATCH_UPDATE = `
+pm.test(<span class="tk-s">&quot;Status code is 200 or 204&quot;</span>, function () {
+    pm.expect(pm.response.code).to.be.oneOf([<span class="tk-n">200</span>, <span class="tk-n">204</span>]);
+});
+
+pm.test(<span class="tk-s">&quot;Response time is acceptable&quot;</span>, function () {
+    pm.expect(pm.response.responseTime).to.be.below(<span class="tk-n">500</span>);
+});
+`;
+
+// ============================================================================
+// TEST: DELETE Eliminar
+// ============================================================================
+const TEST_DELETE = `
+pm.test(<span class="tk-s">&quot;Status code is 204 No Content&quot;</span>, function () {
+    pm.response.to.have.status(<span class="tk-n">204</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response body is empty&quot;</span>, function () {
+    pm.expect(pm.response.text()).to.be.empty;
+});
+
+pm.test(<span class="tk-s">&quot;Response time is acceptable&quot;</span>, function () {
+    pm.expect(pm.response.responseTime).to.be.below(<span class="tk-n">500</span>);
+});
+
+// Limpiar variable de ID si existía
+if (pm.environment.get(<span class="tk-s">&quot;lastCreatedId&quot;</span>)) {
+    console.log(<span class="tk-s">&quot;🗑️ Eliminado ID: &quot;</span> + pm.environment.get(<span class="tk-s">&quot;lastCreatedId&quot;</span>));
+    pm.environment.unset(<span class="tk-s">&quot;lastCreatedId&quot;</span>);
+}
+`;
+
+// ============================================================================
+// TEST: Autenticación - Login
+// ============================================================================
+const TEST_AUTH_LOGIN = `
+pm.test(<span class="tk-s">&quot;Status code is 200&quot;</span>, function () {
+    pm.response.to.have.status(<span class="tk-n">200</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response contains token&quot;</span>, function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property(<span class="tk-s">'token'</span>);
+    // o <span class="tk-s">'accessToken'</span>, <span class="tk-s">'access_token'</span> según el formato
+
+    // Guardar token para requests posteriores
+    const token = jsonData.token || jsonData.accessToken || jsonData.access_token;
+    pm.environment.set(<span class="tk-s">&quot;token&quot;</span>, token);
+    console.log(<span class="tk-s">&quot;🔑 Token guardado correctamente&quot;</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response contains refresh token&quot;</span>, function () {
+    const jsonData = pm.response.json();
+    if (jsonData.refreshToken) {
+        pm.environment.set(<span class="tk-s">&quot;refreshToken&quot;</span>, jsonData.refreshToken);
+    }
+});
+`;
+
+// ============================================================================
+// TEST: Autenticación - Refresh Token
+// ============================================================================
+const TEST_AUTH_REFRESH = `
+pm.test(<span class="tk-s">&quot;Status code is 200&quot;</span>, function () {
+    pm.response.to.have.status(<span class="tk-n">200</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response contains new token&quot;</span>, function () {
+    const jsonData = pm.response.json();
+    const token = jsonData.token || jsonData.accessToken || jsonData.access_token;
+    pm.expect(token).to.not.be.empty;
+
+    pm.environment.set(<span class="tk-s">&quot;token&quot;</span>, token);
+    console.log(<span class="tk-s">&quot;🔄 Token renovado correctamente&quot;</span>);
+});
+`;
+
+// ============================================================================
+// TEST: Unauthorized (<span class="tk-n">401</span>)
+// ============================================================================
+const TEST_UNAUTHORIZED = `
+pm.test(<span class="tk-s">&quot;Status code is 401 Unauthorized&quot;</span>, function () {
+    pm.response.to.have.status(<span class="tk-n">401</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response has WWW-Authenticate header&quot;</span>, function () {
+    pm.response.to.have.header(<span class="tk-s">&quot;WWW-Authenticate&quot;</span>);
+});
+`;
+
+// ============================================================================
+// TEST: Forbidden (<span class="tk-n">403</span>)
+// ============================================================================
+const TEST_FORBIDDEN = `
+pm.test(<span class="tk-s">&quot;Status code is 403 Forbidden&quot;</span>, function () {
+    pm.response.to.have.status(<span class="tk-n">403</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response indicates permission denied&quot;</span>, function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData.status).to.equal(<span class="tk-n">403</span>);
+});
+`;
+
+// ============================================================================
+// TEST: Health Check
+// ============================================================================
+const TEST_HEALTH = `
+pm.test(<span class="tk-s">&quot;Status code is 200&quot;</span>, function () {
+    pm.response.to.have.status(<span class="tk-n">200</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Health status is Healthy&quot;</span>, function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData.status).to.equal(<span class="tk-s">&quot;Healthy&quot;</span>);
+});
+
+pm.test(<span class="tk-s">&quot;Response time is under 100ms&quot;</span>, function () {
+    pm.expect(pm.response.responseTime).to.be.below(<span class="tk-n">100</span>);
+});
+`;
+
+// ============================================================================
+// TEST: Schema Validation (genérico)
+// ============================================================================
+const TEST_SCHEMA_VALIDATION = `
+// Definir schema expected (ajustar según entidad)
+const schema = {
+    <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;object&quot;</span>,
+    <span class="tk-s">&quot;required&quot;</span>: [<span class="tk-s">&quot;id&quot;</span>, <span class="tk-s">&quot;name&quot;</span>],
+    <span class="tk-s">&quot;properties&quot;</span>: {
+        <span class="tk-s">&quot;id&quot;</span>: { <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;integer&quot;</span> },
+        <span class="tk-s">&quot;name&quot;</span>: { <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;string&quot;</span> },
+        <span class="tk-s">&quot;fechaCreacion&quot;</span>: { <span class="tk-s">&quot;type&quot;</span>: <span class="tk-s">&quot;string&quot;</span>, <span class="tk-s">&quot;format&quot;</span>: <span class="tk-s">&quot;date-time&quot;</span> }
+    }
+};
+
+pm.test(<span class="tk-s">&quot;Response matches schema&quot;</span>, function () {
+    const jsonData = pm.response.json();
+    pm.expect(tv4.validate(jsonData, schema)).to.be.<span class="tk-k">true</span>;
+});
+`;
+
+// ============================================================================
+// PRE-REQUEST: Basic Auth
+// ============================================================================
+const PREREQUEST_BASIC_AUTH = `
+// Basic Authentication
+const username = pm.environment.get(<span class="tk-s">&quot;basicUsername&quot;</span>);
+const password = pm.environment.get(<span class="tk-s">&quot;basicPassword&quot;</span>);
+
+if (!username || !password) {
+    console.warn(<span class="tk-s">&quot;⚠️ Basic Auth credentials not configured.&quot;</span>);
+    return;
+}
+
+const encoded = btoa(username + <span class="tk-s">&quot;:&quot;</span> + password);
+pm.request.headers.add({
+    key: <span class="tk-s">&quot;Authorization&quot;</span>,
+    value: <span class="tk-s">&quot;Basic &quot;</span> + encoded
+});
+console.log(<span class="tk-s">&quot;🔑 Basic Auth header added for user: &quot;</span> + username);
+`;
+
+// ============================================================================
+// PRE-REQUEST: API Key
+// ============================================================================
+const PREREQUEST_API_KEY = `
+// API Key Authentication
+const apiKey = pm.environment.get(<span class="tk-s">&quot;apiKey&quot;</span>);
+const apiKeyHeader = pm.environment.get(<span class="tk-s">&quot;apiKeyHeader&quot;</span>) || <span class="tk-s">&quot;X-API-Key&quot;</span>;
+
+if (!apiKey) {
+    console.warn(<span class="tk-s">&quot;⚠️ apiKey not configured.&quot;</span>);
+    return;
+}
+
+pm.request.headers.add({
+    key: apiKeyHeader,
+    value: apiKey
+});
+console.log(<span class="tk-s">&quot;🔑 API Key added as header: &quot;</span> + apiKeyHeader);
+`;
+
+// ============================================================================
+// PRE-REQUEST: HttpSignature
+// ============================================================================
+const PREREQUEST_HTTP_SIGNATURE = `
+// HttpSignature Authentication (informational)
+// NOTE: Postman does not natively support RSA signing.
+// For HttpSignature auth, use Newman with a custom pre-request script
+// or an external signing service.
+const privateKey = pm.environment.get(<span class="tk-s">&quot;httpSignaturePrivateKey&quot;</span>);
+const algorithm = pm.environment.get(<span class="tk-s">&quot;httpSignatureAlgorithm&quot;</span>) || <span class="tk-s">&quot;RSA-SHA256&quot;</span>;
+
+if (!privateKey) {
+    console.warn(<span class="tk-s">&quot;⚠️ httpSignaturePrivateKey not configured.&quot;</span>);
+    console.warn(<span class="tk-s">&quot;   HttpSignature requires external signing. See http-signature-mtls.md&quot;</span>);
+    return;
+}
+
+console.log(<span class="tk-s">&quot;ℹ️ HttpSignature configured with algorithm: &quot;</span> + algorithm);
+console.log(<span class="tk-s">&quot;   Use Newman + crypto script for actual request signing.&quot;</span>);
+`;
+
+// ============================================================================
+// TEST: Auth Token Lifecycle
+// ============================================================================
+const TEST_AUTH_TOKEN_LIFECYCLE = `
+pm.test(<span class="tk-s">&quot;Token is present in environment&quot;</span>, function () {
+    const token = pm.environment.get(<span class="tk-s">&quot;token&quot;</span>);
+    pm.expect(token).to.not.be.empty;
+});
+
+pm.test(<span class="tk-s">&quot;Token expiry is set and in the future&quot;</span>, function () {
+    const tokenExpiry = pm.environment.get(<span class="tk-s">&quot;tokenExpiry&quot;</span>);
+    if (tokenExpiry) {
+        pm.expect(parseInt(tokenExpiry)).to.be.above(Date.now());
+    }
+});
+
+pm.test(<span class="tk-s">&quot;Token has valid JWT format&quot;</span>, function () {
+    const token = pm.environment.get(<span class="tk-s">&quot;token&quot;</span>);
+    if (token) {
+        const parts = token.split(<span class="tk-s">&quot;.&quot;</span>);
+        pm.expect(parts.length).to.equal(<span class="tk-n">3</span>, <span class="tk-s">&quot;JWT should have 3 parts&quot;</span>);
+    }
+});
+`;
+
+// ============================================================================
+// PRE-REQUEST: Azure AD Token
+// ============================================================================
+const PREREQUEST_AZURE_AD = `
+// Obtener token de Azure AD automáticamente
+const tokenUrl = pm.environment.get(<span class="tk-s">&quot;azureAdTokenUrl&quot;</span>);
+const clientId = pm.environment.get(<span class="tk-s">&quot;clientId&quot;</span>);
+const clientSecret = pm.environment.get(<span class="tk-s">&quot;clientSecret&quot;</span>);
+const scope = pm.environment.get(<span class="tk-s">&quot;scope&quot;</span>);
+
+// Solo obtener si <span class="tk-k">no</span> hay token o está próximo a expirar
+const currentToken = pm.environment.get(<span class="tk-s">&quot;token&quot;</span>);
+const tokenExpiry = pm.environment.get(<span class="tk-s">&quot;tokenExpiry&quot;</span>);
+
+if (!currentToken || (tokenExpiry &amp;&amp; Date.now() &gt; parseInt(tokenExpiry) - <span class="tk-n">60000</span>)) {
+    pm.sendRequest({
+        url: tokenUrl,
+        method: <span class="tk-s">'POST'</span>,
+        header: {
+            <span class="tk-s">'Content-Type'</span>: <span class="tk-s">'application/x-www-form-urlencoded'</span>
+        },
+        body: {
+            mode: <span class="tk-s">'urlencoded'</span>,
+            urlencoded: [
+                { key: <span class="tk-s">'grant_type'</span>, value: <span class="tk-s">'client_credentials'</span> },
+                { key: <span class="tk-s">'client_id'</span>, value: clientId },
+                { key: <span class="tk-s">'client_secret'</span>, value: clientSecret },
+                { key: <span class="tk-s">'scope'</span>, value: scope }
+            ]
+        }
+    }, function (err, res) {
+        if (!err &amp;&amp; res.code === <span class="tk-n">200</span>) {
+            const jsonResponse = res.json();
+            pm.environment.set(<span class="tk-s">&quot;token&quot;</span>, jsonResponse.access_token);
+            pm.environment.set(<span class="tk-s">&quot;tokenExpiry&quot;</span>, Date.now() + (jsonResponse.expires_in * <span class="tk-n">1000</span>));
+            console.log(<span class="tk-s">&quot;🔑 Token de Azure AD obtenido&quot;</span>);
+        } else {
+            console.error(<span class="tk-s">&quot;❌ Error obteniendo token: &quot;</span> + (err || res.status));
+        }
+    });
+}
+`;
+
+// ============================================================================
+// EXPORTAR (para uso en Node.js si se necesita)
+// ============================================================================
+if (typeof module !== <span class="tk-s">'undefined'</span>) {
+    module.exports = {
+        TEST_GET_LIST,
+        TEST_GET_BY_ID,
+        TEST_POST_CREATE,
+        TEST_POST_VALIDATION,
+        TEST_PUT_UPDATE,
+        TEST_PATCH_UPDATE,
+        TEST_DELETE,
+        TEST_AUTH_LOGIN,
+        TEST_AUTH_REFRESH,
+        TEST_UNAUTHORIZED,
+        TEST_FORBIDDEN,
+        TEST_HEALTH,
+        TEST_SCHEMA_VALIDATION,
+        TEST_AUTH_TOKEN_LIFECYCLE,
+        PREREQUEST_AZURE_AD,
+        PREREQUEST_BASIC_AUTH,
+        PREREQUEST_API_KEY,
+        PREREQUEST_HTTP_SIGNATURE
+    };
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/postman-collection.html#ficheros">← Volver a la ficha de postman-collection</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/postman-collection/templates/request.json.html"><small>Anterior</small>templates/request.json.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/postman-collection/templates/tests.js.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

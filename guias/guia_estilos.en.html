@@ -1,0 +1,540 @@
+<!doctype html><html lang="en" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Design and Usability Guide · Ovillo</title><meta name="description" content="Visual and user experience standards for the organization applications."><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Design and Usability Guide · Ovillo"><meta property="og:description" content="Visual and user experience standards for the organization applications."><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/guia_estilos.en.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/guia_estilos.en.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/guia_estilos.en.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 02_Diseno_Usabilidad (1)</h4><ul class="sibs"><li><a href="../guias/guia_estilos.en.html" class="cur">Design and Usability Guide</a></li></ul></aside><main id="principal" lang="en"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 02_Diseno_Usabilidad</span><span>Design and Usability Guide</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 02_Diseno_Usabilidad</span><span>english</span><span><a href="../guias/guia_estilos.html">versión en español</a></span></div><h1>Design and Usability Guide</h1><p class="lede">Visual and user experience standards for the organization applications.</p><div class="meta-grid"><div><b>3 min</b><span>lectura</span></div><div><b>718</b><span>palabras</span></div><div><b>10</b><span>secciones</span></div><div><b>2026-09-08</b><span>última edición</span></div><div><b>2</b><span>cambios</span></div></div><p class="lede">Visual and user experience standards for the organization applications.</p>
+<hr>
+<section class="sec" id="sec-1-visual-identity">
+<h3 id="1-visual-identity">1. Visual Identity</h3>
+<h4 id="11-logos">1.1 Logos</h4>
+<div class="tbl"><table><thead><tr><th>Logo</th><th>Use</th><th>Location</th></tr></thead><tbody><tr><td><strong>Logo (primary)</strong></td><td>Application header</td><td><code>assets/logo.svg</code></td></tr><tr><td><strong>Secondary</strong></td><td>Footer or secondary</td><td><code>assets/logo_secundario.svg</code></td></tr></tbody></table></div>
+<p><strong>Usage rules:</strong></p>
+<ul>
+<li>Logo always visible in header</li>
+<li>Minimum space around logo: logo height</li>
+<li>Do not deform, rotate, or change colors</li>
+<li>Light background preferred, if dark use white version</li>
+</ul>
+<h4 id="12-color-palette">1.2 Color Palette</h4>
+<h5 id="primary-colors-corporate">Primary Colors (Corporate)</h5>
+<div class="tbl"><table><thead><tr><th>Name</th><th>HEX</th><th>RGB</th><th>Use</th></tr></thead><tbody><tr><td><strong>Primary</strong></td><td><code>#33475B</code></td><td>rgb(51, 71, 91)</td><td>Headers, primary buttons</td></tr><tr><td><strong>Light Blue</strong></td><td><code>#0066CC</code></td><td>rgb(0, 102, 204)</td><td>Links, accents</td></tr><tr><td><strong>White</strong></td><td><code>#FFFFFF</code></td><td>rgb(255, 255, 255)</td><td>Backgrounds, text on dark</td></tr></tbody></table></div>
+<h5 id="secondary-colors">Secondary Colors</h5>
+<div class="tbl"><table><thead><tr><th>Name</th><th>HEX</th><th>RGB</th><th>Use</th></tr></thead><tbody><tr><td><strong>Dark Gray</strong></td><td><code>#333333</code></td><td>rgb(51, 51, 51)</td><td>Main text</td></tr><tr><td><strong>Medium Gray</strong></td><td><code>#666666</code></td><td>rgb(102, 102, 102)</td><td>Secondary text</td></tr><tr><td><strong>Light Gray</strong></td><td><code>#F5F5F5</code></td><td>rgb(245, 245, 245)</td><td>Alternate backgrounds</td></tr><tr><td><strong>Border</strong></td><td><code>#DDDDDD</code></td><td>rgb(221, 221, 221)</td><td>Lines, separators</td></tr></tbody></table></div>
+<h5 id="state-colors">State Colors</h5>
+<div class="tbl"><table><thead><tr><th>State</th><th>HEX</th><th>Use</th></tr></thead><tbody><tr><td><strong>Success</strong></td><td><code>#28A745</code></td><td>Confirmations, completed</td></tr><tr><td><strong>Warning</strong></td><td><code>#FFC107</code></td><td>Alerts, pending</td></tr><tr><td><strong>Error</strong></td><td><code>#DC3545</code></td><td>Errors, deletion</td></tr><tr><td><strong>Information</strong></td><td><code>#17A2B8</code></td><td>Information, help</td></tr></tbody></table></div>
+<h5 id="css-variables">CSS Variables</h5>
+<pre data-lang="css"><code>:root {
+    /* Primary */
+    --color-primary: #33475B;
+    --color-primary-light: #0066CC;
+    --color-white: #FFFFFF;
+
+    /* Secondary */
+    --color-text: #333333;
+    --color-text-secondary: #666666;
+    --color-background: #F5F5F5;
+    --color-border: #DDDDDD;
+
+    /* States */
+    --color-success: #28A745;
+    --color-warning: #FFC107;
+    --color-error: #DC3545;
+    --color-info: #17A2B8;
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-2-typography">
+<h3 id="2-typography">2. Typography</h3>
+<h4 id="21-fonts">2.1 Fonts</h4>
+<div class="tbl"><table><thead><tr><th>Type</th><th>Font</th><th>Fallback</th><th>Use</th></tr></thead><tbody><tr><td><strong>Primary</strong></td><td>Segoe UI</td><td>Tahoma, sans-serif</td><td>All text</td></tr><tr><td><strong>Code</strong></td><td>Consolas</td><td>Monaco, monospace</td><td>Code, technical data</td></tr></tbody></table></div>
+<h4 id="22-typographic-scale">2.2 Typographic Scale</h4>
+<div class="tbl"><table><thead><tr><th>Element</th><th>Size</th><th>Weight</th><th>Line-height</th></tr></thead><tbody><tr><td>H1</td><td>2rem (32px)</td><td>600</td><td>1.2</td></tr><tr><td>H2</td><td>1.5rem (24px)</td><td>600</td><td>1.3</td></tr><tr><td>H3</td><td>1.25rem (20px)</td><td>600</td><td>1.4</td></tr><tr><td>H4</td><td>1rem (16px)</td><td>600</td><td>1.4</td></tr><tr><td>Body</td><td>1rem (16px)</td><td>400</td><td>1.6</td></tr><tr><td>Small</td><td>0.875rem (14px)</td><td>400</td><td>1.5</td></tr><tr><td>Extra small</td><td>0.75rem (12px)</td><td>400</td><td>1.4</td></tr></tbody></table></div>
+<h4 id="23-base-css">2.3 Base CSS</h4>
+<pre data-lang="css"><code>body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2rem; line-height: 1.2; }
+h2 { font-size: 1.5rem; line-height: 1.3; }
+h3 { font-size: 1.25rem; line-height: 1.4; }
+h4 { font-size: 1rem; line-height: 1.4; }
+
+code {
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    background: #E9ECEF;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-3-ui-components">
+<h3 id="3-ui-components">3. UI Components</h3>
+<h4 id="31-buttons">3.1 Buttons</h4>
+<h5 id="styles">Styles</h5>
+<div class="tbl"><table><thead><tr><th>Type</th><th>Use</th><th>Style</th></tr></thead><tbody><tr><td><strong>Primary</strong></td><td>Main action</td><td>Blue background, white text</td></tr><tr><td><strong>Secondary</strong></td><td>Alternative actions</td><td>Blue border, white background</td></tr><tr><td><strong>Danger</strong></td><td>Delete, cancel</td><td>Red background</td></tr><tr><td><strong>Disabled</strong></td><td>Not available</td><td>Gray, cursor not-allowed</td></tr></tbody></table></div>
+<h5 id="CSS">CSS</h5>
+<pre data-lang="css"><code>.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-danger {
+    background: var(--color-error);
+    color: white;
+    border-color: var(--color-error);
+}
+
+.btn:disabled {
+    background: #CCCCCC;
+    border-color: #CCCCCC;
+    color: #666666;
+    cursor: not-allowed;
+}</code></pre>
+<h4 id="32-forms">3.2 Forms</h4>
+<h5 id="inputs">Inputs</h5>
+<pre data-lang="css"><code>.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+}
+
+.form-control.is-invalid {
+    border-color: var(--color-error);
+}
+
+.form-control.is-valid {
+    border-color: var(--color-success);
+}
+
+.form-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
+}
+
+.invalid-feedback {
+    font-size: 0.875rem;
+    color: var(--color-error);
+    margin-top: 0.25rem;
+}</code></pre>
+<h4 id="33-tables">3.3 Tables</h4>
+<pre data-lang="css"><code>.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--color-border);
+}
+
+.table th {
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+}
+
+.table tr:nth-child(even) {
+    background: #F9F9F9;
+}
+
+.table tr:hover {
+    background: #E3F2FD;
+}</code></pre>
+<h4 id="34-alerts">3.4 Alerts</h4>
+<pre data-lang="css"><code>.alert {
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin: 1rem 0;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background: #D4EDDA;
+    border-color: var(--color-success);
+    color: #155724;
+}
+
+.alert-warning {
+    background: #FFF3CD;
+    border-color: var(--color-warning);
+    color: #856404;
+}
+
+.alert-error {
+    background: #F8D7DA;
+    border-color: var(--color-error);
+    color: #721C24;
+}
+
+.alert-info {
+    background: #D1ECF1;
+    border-color: var(--color-info);
+    color: #0C5460;
+}</code></pre>
+<h4 id="35-cards">3.5 Cards</h4>
+<pre data-lang="css"><code>.card {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 15px 20px;
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-footer {
+    padding: 15px 20px;
+    background: var(--color-background);
+    border-top: 1px solid var(--color-border);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-4-layout">
+<h3 id="4-layout">4. Layout</h3>
+<h4 id="41-main-container">4.1 Main Container</h4>
+<pre data-lang="css"><code>.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 20px;
+}</code></pre>
+<h4 id="42-grid-system">4.2 Grid System</h4>
+<pre data-lang="css"><code>.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+.col-3 { flex: 0 0 25%; max-width: 25%; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }</code></pre>
+<h4 id="43-spacing">4.3 Spacing</h4>
+<div class="tbl"><table><thead><tr><th>Class</th><th>Value</th><th>Use</th></tr></thead><tbody><tr><td><code>.m-1</code></td><td>0.25rem (4px)</td><td>Minimum margin</td></tr><tr><td><code>.m-2</code></td><td>0.5rem (8px)</td><td>Small margin</td></tr><tr><td><code>.m-3</code></td><td>1rem (16px)</td><td>Normal margin</td></tr><tr><td><code>.m-4</code></td><td>1.5rem (24px)</td><td>Medium margin</td></tr><tr><td><code>.m-5</code></td><td>3rem (48px)</td><td>Large margin</td></tr></tbody></table></div>
+<p><em>Also applies to padding (<code>.p-X</code>) and directions (<code>.mt-</code>, <code>.mb-</code>, <code>.ml-</code>, <code>.mr-</code>)</em></p>
+<hr>
+</section>
+<section class="sec" id="sec-5-navigation">
+<h3 id="5-navigation">5. Navigation</h3>
+<h4 id="51-header">5.1 Header</h4>
+<pre data-lang="css"><code>.header {
+    background: var(--color-primary);
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-logo img {
+    height: 40px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+}</code></pre>
+<h4 id="52-breadcrumbs">5.2 Breadcrumbs</h4>
+<pre data-lang="css"><code>.breadcrumb {
+    display: flex;
+    list-style: none;
+    padding: 10px 0;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: &quot;/&quot;;
+    padding: 0 10px;
+    color: var(--color-text-secondary);
+}
+
+.breadcrumb-item a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: var(--color-text-secondary);
+}</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-6-responsive-design">
+<h3 id="6-responsive-design">6. Responsive Design</h3>
+<h4 id="61-breakpoints">6.1 Breakpoints</h4>
+<div class="tbl"><table><thead><tr><th>Name</th><th>Width</th><th>Device</th></tr></thead><tbody><tr><td><strong>xs</strong></td><td>&lt; 576px</td><td>Mobile portrait</td></tr><tr><td><strong>sm</strong></td><td>&gt;= 576px</td><td>Mobile landscape</td></tr><tr><td><strong>md</strong></td><td>&gt;= 768px</td><td>Tablet</td></tr><tr><td><strong>lg</strong></td><td>&gt;= 992px</td><td>Desktop</td></tr><tr><td><strong>xl</strong></td><td>&gt;= 1200px</td><td>Large desktop</td></tr></tbody></table></div>
+<h4 id="62-media-queries">6.2 Media Queries</h4>
+<pre data-lang="css"><code>/* Mobile first */
+
+/* Tablet and up */
+@media (min-width: 768px) {
+    .container { max-width: 720px; }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .container { max-width: 960px; }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    .container { max-width: 1140px; }
+}</code></pre>
+<h4 id="63-responsive-rules">6.3 Responsive Rules</h4>
+<ul>
+<li><strong>Mobile:</strong> Collapsed navigation (hamburger), 100% width forms</li>
+<li><strong>Tablet:</strong> Maximum 2-column grid</li>
+<li><strong>Desktop:</strong> Full layout, visible sidebars</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-7-accessibility-wcag-21-aa">
+<h3 id="7-accessibility-wcag-21-aa">7. Accessibility (WCAG 2.1 AA)</h3>
+<h4 id="71-color-contrast">7.1 Color Contrast</h4>
+<div class="tbl"><table><thead><tr><th>Combination</th><th>Minimum Ratio</th><th>Status</th></tr></thead><tbody><tr><td>Normal text on background</td><td>4.5:1</td><td>Mandatory</td></tr><tr><td>Large text (18px+) on background</td><td>3:1</td><td>Mandatory</td></tr><tr><td>UI elements</td><td>3:1</td><td>Mandatory</td></tr></tbody></table></div>
+<p><strong>Verification tool:</strong> <a href="https://webaim.org/resources/contrastchecker/" rel="noopener">WebAIM Contrast Checker</a></p>
+<h4 id="72-accessibility-checklist">7.2 Accessibility Checklist</h4>
+<ul>
+<li><input type="checkbox" disabled> All images have descriptive <code>alt</code></li>
+<li><input type="checkbox" disabled> Forms have associated <code>label</code></li>
+<li><input type="checkbox" disabled> Keyboard navigation functional (Tab, Enter, Escape)</li>
+<li><input type="checkbox" disabled> Visible focus on interactive elements</li>
+<li><input type="checkbox" disabled> Descriptive link texts (not &quot;click here&quot;)</li>
+<li><input type="checkbox" disabled> Hierarchical heading structure (h1 &gt; h2 &gt; h3)</li>
+<li><input type="checkbox" disabled> ARIA labels where necessary</li>
+<li><input type="checkbox" disabled> No content flickering &gt; 3 times/second</li>
+</ul>
+<h4 id="73-visible-focus">7.3 Visible Focus</h4>
+<pre data-lang="css"><code>/* Visible focus for accessibility */
+:focus {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 2px;
+}
+
+/* Hide outline only with mouse, keep with keyboard */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 2px;
+}</code></pre>
+<h4 id="74-skip-links">7.4 Skip Links</h4>
+<pre data-lang="html"><code><span class="tk-c">&lt;!-- First element of body --&gt;</span>
+<span class="tk-t">&lt;a</span> href=<span class="tk-s">&quot;#main-content&quot;</span> class=<span class="tk-s">&quot;skip-link&quot;</span><span class="tk-t">&gt;</span>Skip to main content<span class="tk-t">&lt;/a</span><span class="tk-t">&gt;</span>
+
+<span class="tk-t">&lt;style</span><span class="tk-t">&gt;</span>
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: <span class="tk-n">0</span>;
+    background: var(--color-primary);
+    color: white;
+    padding: 8px;
+    z-index: <span class="tk-n">100</span>;
+}
+
+.skip-link:focus {
+    top: <span class="tk-n">0</span>;
+}
+<span class="tk-t">&lt;/style</span><span class="tk-t">&gt;</span></code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-8-iconography">
+<h3 id="8-iconography">8. Iconography</h3>
+<h4 id="81-recommended-library">8.1 Recommended Library</h4>
+<p><strong>Bootstrap Icons</strong> (free, MIT license)</p>
+<pre data-lang="html"><code><span class="tk-c">&lt;!-- CDN --&gt;</span>
+<span class="tk-t">&lt;link</span> rel=<span class="tk-s">&quot;stylesheet&quot;</span> href=<span class="tk-s">&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css&quot;</span><span class="tk-t">&gt;</span>
+
+<span class="tk-c">&lt;!-- Usage --&gt;</span>
+<span class="tk-t">&lt;i</span> class=<span class="tk-s">&quot;bi bi-check-circle&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/i</span><span class="tk-t">&gt;</span>
+<span class="tk-t">&lt;i</span> class=<span class="tk-s">&quot;bi bi-exclamation-triangle&quot;</span><span class="tk-t">&gt;</span><span class="tk-t">&lt;/i</span><span class="tk-t">&gt;</span></code></pre>
+<h4 id="82-common-icons">8.2 Common Icons</h4>
+<div class="tbl"><table><thead><tr><th>Action</th><th>Icon</th><th>Class</th></tr></thead><tbody><tr><td>Save</td><td>💾</td><td><code>bi-save</code></td></tr><tr><td>Edit</td><td>✏️</td><td><code>bi-pencil</code></td></tr><tr><td>Delete</td><td>🗑️</td><td><code>bi-trash</code></td></tr><tr><td>Search</td><td>🔍</td><td><code>bi-search</code></td></tr><tr><td>Add</td><td>➕</td><td><code>bi-plus-circle</code></td></tr><tr><td>Settings</td><td>⚙️</td><td><code>bi-gear</code></td></tr><tr><td>User</td><td>👤</td><td><code>bi-person</code></td></tr><tr><td>Logout</td><td>🚪</td><td><code>bi-box-arrow-right</code></td></tr></tbody></table></div>
+<h4 id="83-sizes">8.3 Sizes</h4>
+<pre data-lang="css"><code>.icon-sm { font-size: 1rem; }
+.icon-md { font-size: 1.5rem; }
+.icon-lg { font-size: 2rem; }</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-9-page-templates">
+<h3 id="9-page-templates">9. Page Templates</h3>
+<h4 id="91-login-page">9.1 Login Page</h4>
+<ul>
+<li>Centered logo</li>
+<li>Compact form (max-width: 400px)</li>
+<li>Corporate gradient background</li>
+<li>&quot;Forgot password&quot; link</li>
+<li>Visible error message</li>
+</ul>
+<h4 id="92-dashboard">9.2 Dashboard</h4>
+<ul>
+<li>Header with logo and navigation</li>
+<li>Collapsible sidebar (optional)</li>
+<li>Main metrics cards</li>
+<li>Recent data tables</li>
+<li>Quick actions</li>
+</ul>
+<h4 id="93-list-crud">9.3 List (CRUD)</h4>
+<ul>
+<li>Navigation breadcrumb</li>
+<li>Title and &quot;New&quot; button</li>
+<li>Filters/search</li>
+<li>Table with pagination</li>
+<li>Row actions (view, edit, delete)</li>
+</ul>
+<h4 id="94-form">9.4 Form</h4>
+<ul>
+<li>Descriptive title</li>
+<li>Logically grouped fields</li>
+<li>Real-time validation</li>
+<li>&quot;Save&quot; and &quot;Cancel&quot; buttons</li>
+<li>Confirmation messages</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-10-animations-and-transitions">
+<h3 id="10-animations-and-transitions">10. Animations and Transitions</h3>
+<h4 id="101-principles">10.1 Principles</h4>
+<ul>
+<li><strong>Subtle:</strong> Don't distract from content</li>
+<li><strong>Fast:</strong> 200-300ms maximum</li>
+<li><strong>Purposeful:</strong> Indicate state changes</li>
+</ul>
+<h4 id="102-base-transitions">10.2 Base Transitions</h4>
+<pre data-lang="css"><code>/* Standard transition */
+.transition {
+    transition: all 0.2s ease;
+}
+
+/* Fade in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Slide down */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-down {
+    animation: slideDown 0.3s ease;
+}</code></pre>
+<h4 id="103-reduce-motion">10.3 Reduce Motion</h4>
+<pre data-lang="css"><code>/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}</code></pre>
+<hr>
+<p><strong>Version:</strong> 1.0 <strong>Date:</strong> December 2025 <strong>Owner:</strong> Technical Committee <strong>Last review:</strong> [Date] <strong>Next review:</strong> [Date + 6 months]</p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/02_Diseno_Usabilidad/GUIA_ESTILOS_EN.md</code></span></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/index.html"><small>Anterior</small>Todas las guías</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_patron/02_Diseno_Usabilidad/GUIA_ESTILOS_EN.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-visual-identity">1. Visual Identity</a></li><li class="l3"><a href="#11-logos">1.1 Logos</a></li><li class="l3"><a href="#12-color-palette">1.2 Color Palette</a></li><li class="l2"><a href="#2-typography">2. Typography</a></li><li class="l3"><a href="#21-fonts">2.1 Fonts</a></li><li class="l3"><a href="#22-typographic-scale">2.2 Typographic Scale</a></li><li class="l3"><a href="#23-base-css">2.3 Base CSS</a></li><li class="l2"><a href="#3-ui-components">3. UI Components</a></li><li class="l3"><a href="#31-buttons">3.1 Buttons</a></li><li class="l3"><a href="#32-forms">3.2 Forms</a></li><li class="l3"><a href="#33-tables">3.3 Tables</a></li><li class="l3"><a href="#34-alerts">3.4 Alerts</a></li><li class="l3"><a href="#35-cards">3.5 Cards</a></li><li class="l2"><a href="#4-layout">4. Layout</a></li><li class="l3"><a href="#41-main-container">4.1 Main Container</a></li><li class="l3"><a href="#42-grid-system">4.2 Grid System</a></li><li class="l3"><a href="#43-spacing">4.3 Spacing</a></li><li class="l2"><a href="#5-navigation">5. Navigation</a></li><li class="l3"><a href="#51-header">5.1 Header</a></li><li class="l3"><a href="#52-breadcrumbs">5.2 Breadcrumbs</a></li><li class="l2"><a href="#6-responsive-design">6. Responsive Design</a></li><li class="l3"><a href="#61-breakpoints">6.1 Breakpoints</a></li><li class="l3"><a href="#62-media-queries">6.2 Media Queries</a></li><li class="l3"><a href="#63-responsive-rules">6.3 Responsive Rules</a></li><li class="l2"><a href="#7-accessibility-wcag-21-aa">7. Accessibility (WCAG 2.1 AA)</a></li><li class="l3"><a href="#71-color-contrast">7.1 Color Contrast</a></li><li class="l3"><a href="#72-accessibility-checklist">7.2 Accessibility Checklist</a></li><li class="l3"><a href="#73-visible-focus">7.3 Visible Focus</a></li><li class="l3"><a href="#74-skip-links">7.4 Skip Links</a></li><li class="l2"><a href="#8-iconography">8. Iconography</a></li><li class="l3"><a href="#81-recommended-library">8.1 Recommended Library</a></li><li class="l3"><a href="#82-common-icons">8.2 Common Icons</a></li><li class="l3"><a href="#83-sizes">8.3 Sizes</a></li><li class="l2"><a href="#9-page-templates">9. Page Templates</a></li><li class="l3"><a href="#91-login-page">9.1 Login Page</a></li><li class="l3"><a href="#92-dashboard">9.2 Dashboard</a></li><li class="l3"><a href="#93-list-crud">9.3 List (CRUD)</a></li><li class="l3"><a href="#94-form">9.4 Form</a></li><li class="l2"><a href="#10-animations-and-transitions">10. Animations and Transitions</a></li><li class="l3"><a href="#101-principles">10.1 Principles</a></li><li class="l3"><a href="#102-base-transitions">10.2 Base Transitions</a></li><li class="l3"><a href="#103-reduce-motion">10.3 Reduce Motion</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,328 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>security-audit · owasp/owasp-top10-2025.md · Ovillo</title><meta name="description" content="Fichero owasp/owasp-top10-2025.md de la skill security-audit"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="security-audit · owasp/owasp-top10-2025.md · Ovillo"><meta property="og:description" content="Fichero owasp/owasp-top10-2025.md de la skill security-audit"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/security-audit/owasp/owasp-top10-2025.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/security-audit/owasp/owasp-top10-2025.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/security-audit/owasp/owasp-top10-2025.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de security-audit (33)</h4><ul class="sibs"><li><a href="../../../skills/security-audit/ai-security/llm-security.html">ai-security/llm-security.md</a></li><li><a href="../../../skills/security-audit/attacks/clickjacking.html">attacks/clickjacking.md</a></li><li><a href="../../../skills/security-audit/attacks/csrf-attacks.html">attacks/csrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/jwt-security.html">attacks/jwt-security.md</a></li><li><a href="../../../skills/security-audit/attacks/mass-assignment.html">attacks/mass-assignment.md</a></li><li><a href="../../../skills/security-audit/attacks/path-traversal.html">attacks/path-traversal.md</a></li><li><a href="../../../skills/security-audit/attacks/ssrf-attacks.html">attacks/ssrf-attacks.md</a></li><li><a href="../../../skills/security-audit/attacks/xss-in-depth.html">attacks/xss-in-depth.md</a></li><li><a href="../../../skills/security-audit/attacks/xxe-attacks.html">attacks/xxe-attacks.md</a></li><li><a href="../../../skills/security-audit/checklists/api-security.html">checklists/api-security.md</a></li><li><a href="../../../skills/security-audit/checklists/code-review-security.html">checklists/code-review-security.md</a></li><li><a href="../../../skills/security-audit/checklists/http-methods-security.html">checklists/http-methods-security.md</a></li><li><a href="../../../skills/security-audit/checklists/post-remediation.html">checklists/post-remediation.md</a></li><li><a href="../../../skills/security-audit/checklists/pre-deployment.html">checklists/pre-deployment.md</a></li><li><a href="../../../skills/security-audit/checklists/wstg-checklist.html">checklists/wstg-checklist.md</a></li><li><a href="../../../skills/security-audit/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/security-audit/mobile/owasp-mastg.html">mobile/owasp-mastg.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-dotnet.html">owasp/owasp-dotnet.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-frameworks.html">owasp/owasp-frameworks.md</a></li><li><a href="../../../skills/security-audit/owasp/owasp-top10-2025.html" class="cur">owasp/owasp-top10-2025.md</a></li><li><a href="../../../skills/security-audit/patterns/attack-surface-mapping.html">patterns/attack-surface-mapping.md</a></li><li><a href="../../../skills/security-audit/patterns/authentication-patterns.html">patterns/authentication-patterns.md</a></li><li><a href="../../../skills/security-audit/patterns/secret-detection.html">patterns/secret-detection.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-coding-checklist.html">patterns/secure-coding-checklist.md</a></li><li><a href="../../../skills/security-audit/patterns/secure-headers.html">patterns/secure-headers.md</a></li><li><a href="../../../skills/security-audit/reports/cwe-references.html">reports/cwe-references.md</a></li><li><a href="../../../skills/security-audit/reports/mitigation-plan.html">reports/mitigation-plan.md</a></li><li><a href="../../../skills/security-audit/reports/report-format.html">reports/report-format.md</a></li><li><a href="../../../skills/security-audit/templates/AttackSimulation.html">templates/AttackSimulation.md</a></li><li><a href="../../../skills/security-audit/templates/SecureStartup.cs.html">templates/SecureStartup.cs.template</a></li><li><a href="../../../skills/security-audit/templates/SecurityHeaders.cs.html">templates/SecurityHeaders.cs.template</a></li><li><a href="../../../skills/security-audit/tools/context7-security.html">tools/context7-security.md</a></li><li><a href="../../../skills/security-audit/tools/sast-integration.html">tools/sast-integration.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/security-audit.html">security-audit</a></span><span>owasp</span><span>owasp-top10-2025.md</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>security-audit</span><span>owasp/</span></div><h1>owasp-top10-2025.md</h1><p class="lede">Referencia que <code>security-audit</code> carga bajo demanda desde su <code>SKILL.md</code>.</p><div class="meta-grid"><div><b><a href="../../../skills/security-audit.html">security-audit</a></b><span>skill</span></div><div><b>owasp</b><span>carpeta</span></div><div><b>10.816 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><blockquote><p>Skill: security-audit</p></blockquote>
+<p class="lede">Las 10 vulnerabilidades mas criticas segun OWASP 2025, con ejemplos en C#, Java, Python, PHP, Ruby, Go y JavaScript.</p>
+<blockquote><p>Ver tambien: <code>owasp/owasp-dotnet.md</code> para ejemplos especificos .NET 10, <code>owasp/owasp-frameworks.md</code> para seguridad por framework.</p></blockquote>
+<hr>
+<section class="sec" id="sec-a012025---control-de-acceso-roto">
+<h3 id="a012025---control-de-acceso-roto">A01:2025 - Control de Acceso Roto</h3>
+<p><strong>Descripcion:</strong> Las restricciones sobre usuarios autenticados no se aplican correctamente.</p>
+<p><strong>Vectores de Ataque:</strong></p>
+<ul>
+<li>Manipulacion de URLs y parametros (IDOR)</li>
+<li>Escalada de privilegios (horizontal/vertical)</li>
+<li>Manipulacion/evasion de JWT</li>
+<li>Configuracion incorrecta de CORS (<code>Access-Control-Allow-Origin: *</code>)</li>
+<li>Ausencia de controles de acceso en POST/PUT/DELETE</li>
+</ul>
+<p><strong>Patrones de Deteccion:</strong></p>
+<pre><code>- Uso directo de IDs del usuario sin verificacion de autorizacion
+- Falta de validacion de roles/permisos antes del acceso a datos
+- Verificaciones de roles hardcodeadas en lugar de autorizacion centralizada
+- Endpoints de API sin middleware de autenticacion
+- Ausencia de protecciones CSRF</code></pre>
+<p><strong>Remediacion C#:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// INSEGURO - Sin verificacion de autorizacion</span>
+<span class="tk-k">public</span> ActionResult Edit(<span class="tk-k">int</span> id)
+{
+    <span class="tk-k">var</span> user = _context.Users.FirstOrDefault(e =&gt; e.Id == id);
+    <span class="tk-k">return</span> View(<span class="tk-s">&quot;Details&quot;</span>, <span class="tk-k">new</span> UserViewModel(user));
+}
+
+<span class="tk-c">// SEGURO - Verificar propiedad del recurso</span>
+<span class="tk-k">public</span> ActionResult Edit(<span class="tk-k">int</span> id)
+{
+    <span class="tk-k">var</span> user = _context.Users.FirstOrDefault(e =&gt; e.Id == id);
+    <span class="tk-k">if</span> (user.Id != _userIdentity.GetUserId())
+        <span class="tk-k">return</span> Forbid();
+    <span class="tk-k">return</span> View(<span class="tk-s">&quot;Edit&quot;</span>, <span class="tk-k">new</span> UserViewModel(user));
+}</code></pre>
+<pre data-lang="java"><code>// SEGURO - Java: verificar propiedad
+public ActionResult edit(int id) {
+    var user = context.Users.firstOrDefault(e -&gt; e.getId() == id);
+    if (user.getId() != userIdentity.getUserId()) {
+        return new ErrorView(&quot;No tiene permisos para esta accion&quot;);
+    }
+    return new EditView(new UserViewModel(user));
+}</code></pre>
+<p><strong>Remediacion general:</strong></p>
+<ul>
+<li>Denegar por defecto; aplicar control de acceso del lado del servidor</li>
+<li>Implementar mecanismos de autorizacion centralizados y reutilizarlos</li>
+<li>Registrar fallos de control de acceso y alertar a los administradores</li>
+<li>Limitar la tasa de acceso a APIs</li>
+<li>Invalidar tokens JWT en el servidor tras el cierre de sesion</li>
+<li>Deshabilitar listado de directorios</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-a022025---configuracion-de-seguridad-incorrecta">
+<h3 id="a022025---configuracion-de-seguridad-incorrecta">A02:2025 - Configuracion de Seguridad Incorrecta</h3>
+<p><strong>Descripcion:</strong> Configuraciones por defecto inseguras, almacenamiento en la nube abierto, cabeceras HTTP mal configuradas, mensajes de error detallados.</p>
+<p><strong>Vectores de Ataque:</strong></p>
+<ul>
+<li>Credenciales por defecto (admin/admin)</li>
+<li>DEBUG = True en produccion</li>
+<li>Cabeceras de seguridad ausentes</li>
+<li>Listado de directorios habilitado</li>
+<li>Sistemas/frameworks sin parchear</li>
+</ul>
+<p><strong>Lista de Verificacion de Cabeceras:</strong></p>
+<pre data-lang="http"><code>Content-Security-Policy: default-src 'self'; script-src 'self'
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+Permissions-Policy: geolocation=(), camera=(), microphone=()</code></pre>
+<p><strong>Configuraciones inseguras a evitar:</strong></p>
+<pre data-lang="http"><code>Access-Control-Allow-Origin: *
+X-Permitted-Cross-Domain-Policies: all
+Referrer-Policy: unsafe-url</code></pre>
+<p><strong>Remediacion:</strong></p>
+<ul>
+<li>Implementar proceso de bastionado identico en todos los entornos</li>
+<li>Eliminar funcionalidades, componentes y ejemplos no utilizados</li>
+<li>Automatizar el proceso de verificacion de configuraciones</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-a032025---fallos-en-la-cadena-de-suministro-de-software">
+<h3 id="a032025---fallos-en-la-cadena-de-suministro-de-software">A03:2025 - Fallos en la Cadena de Suministro de Software</h3>
+<p><strong>Descripcion:</strong> Vulnerabilidades por componentes con vulnerabilidades conocidas, falta de verificacion de integridad, pipelines CI/CD inseguros.</p>
+<p><strong>Deteccion por lenguaje:</strong></p>
+<pre data-lang="bash"><code><span class="tk-c"># .NET</span>
+<span class="tk-k">dotnet</span> list package --vulnerable --include-transitive
+
+<span class="tk-c"># JavaScript/Node.js</span>
+<span class="tk-k">npm</span> audit
+<span class="tk-k">npm</span> audit fix
+
+<span class="tk-c"># Python</span>
+pip-audit
+safety check -r requirements.txt
+
+<span class="tk-c"># General</span>
+semgrep --config p/default
+snyk test
+trivy fs.</code></pre>
+<p><strong>Remediacion:</strong></p>
+<ul>
+<li>Inventariar continuamente todas las versiones de componentes</li>
+<li>Monitorizar CVE/NVD para vulnerabilidades</li>
+<li>Obtener componentes solo de fuentes oficiales</li>
+<li>Preferir paquetes firmados</li>
+<li>Usar herramientas SCA en CI/CD</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-a042025---fallos-criptograficos">
+<h3 id="a042025---fallos-criptograficos">A04:2025 - Fallos Criptograficos</h3>
+<p><strong>Descripcion:</strong> Fallos relacionados con la criptografia que conducen a la exposicion de datos sensibles.</p>
+<p><strong>Algoritmos debiles a detectar:</strong></p>
+<pre><code>MD5, SHA1 (para fines de seguridad)
+DES, 3DES, RC4
+Modo ECB para cifrados de bloque
+Claves de cifrado hardcodeadas
+HTTP en lugar de HTTPS
+TLS 1.0, 1.1</code></pre>
+<p><strong>Remediacion C#:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// INSEGURO</span>
+<span class="tk-k">var</span> hash = MD5.Create().ComputeHash(data);
+
+<span class="tk-c">// SEGURO</span>
+<span class="tk-k">var</span> hash = SHA256.Create().ComputeHash(data);
+
+<span class="tk-c">// Para contrasenas</span>
+<span class="tk-k">var</span> hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);</code></pre>
+<pre data-lang="python"><code><span class="tk-c"># INSEGURO</span>
+<span class="tk-k">import</span> hashlib
+digest = hashlib.md5(b<span class="tk-s">&quot;datos&quot;</span>)
+
+<span class="tk-c"># SEGURO</span>
+digest = hashlib.sha256(b<span class="tk-s">&quot;datos&quot;</span>)
+
+<span class="tk-c"># Para contrasenas - usar bcrypt, scrypt o Argon2</span>
+<span class="tk-k">import</span> bcrypt
+hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-a052025---inyeccion">
+<h3 id="a052025---inyeccion">A05:2025 - Inyeccion</h3>
+<p><strong>Descripcion:</strong> Los datos proporcionados por el usuario no se validan, filtran ni sanean.</p>
+<p><strong>Tipos:</strong> SQL, NoSQL, Comandos del SO, LDAP, XPath, ORM, OGNL, EL, SSTI</p>
+<p><strong>Vectores de Ataque:</strong></p>
+<pre><code># Inyeccion SQL
+' OR '1'='1
+' UNION SELECT 1,2,3--
+'; DROP TABLE users;--
+
+# Inyeccion de Comandos
+; ls -la /
+| cat /etc/passwd
+$(whoami)
+
+# SSTI
+{{7*7}}
+${7*7}</code></pre>
+<p><strong>Remediacion por lenguaje:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// INSEGURO</span>
+<span class="tk-k">var</span> sql = <span class="tk-s">&quot;UPDATE User SET FirstName = &quot;</span> + firstname + <span class="tk-s">&quot; WHERE Id = &quot;</span> + id;
+
+<span class="tk-c">// SEGURO - Entity Framework parametrizado</span>
+<span class="tk-k">var</span> sql = <span class="tk-s">@&quot;UPDATE [User] SET FirstName = @FirstName WHERE Id = @Id&quot;</span>;
+context.Database.ExecuteSqlCommand(sql,
+    <span class="tk-k">new</span> SqlParameter(<span class="tk-s">&quot;@FirstName&quot;</span>, firstname),
+    <span class="tk-k">new</span> SqlParameter(<span class="tk-s">&quot;@Id&quot;</span>, id));</code></pre>
+<pre data-lang="java"><code>// INSEGURO
+String query = &quot;SELECT * FROM users WHERE name = '&quot; + userInput + &quot;'&quot;;
+
+// SEGURO - PreparedStatement
+String query = &quot;SELECT * FROM users WHERE name = ?&quot;;
+PreparedStatement pstmt = connection.prepareStatement(query);
+pstmt.setString(1, userInput);</code></pre>
+<pre data-lang="python"><code><span class="tk-c"># INSEGURO - Inyeccion de Comandos</span>
+<span class="tk-k">import</span> os
+os.system(<span class="tk-s">&quot;ping &quot;</span> + user_input)
+
+<span class="tk-c"># SEGURO</span>
+<span class="tk-k">import</span> subprocess
+subprocess.run([<span class="tk-s">&quot;ping&quot;</span>, user_input], check=<span class="tk-k">True</span>)</code></pre>
+<pre data-lang="php"><code>// INSEGURO
+$query = &quot;SELECT * FROM users WHERE id = &quot; . $_GET['id'];
+
+// SEGURO - PDO
+$stmt = $pdo-&gt;prepare(&quot;SELECT * FROM users WHERE id = ?&quot;);
+$stmt-&gt;execute([$_GET['id']]);</code></pre>
+<pre data-lang="ruby"><code># INSEGURO
+@projects = Project.where(&quot;name like '&quot; + name + &quot;'&quot;)
+
+# SEGURO
+@projects = Project.where(&quot;name like ?&quot;, &quot;%#{ActiveRecord::Base.sanitize_sql_like(params[:name])}%&quot;)</code></pre>
+<pre data-lang="go"><code>// INSEGURO
+query := &quot;SELECT * FROM users WHERE email = '&quot; + email + &quot;'&quot;
+
+// SEGURO
+query := &quot;SELECT id, name, email FROM users WHERE email = ?&quot;
+row := db.QueryRow(query, email)</code></pre>
+<pre data-lang="javascript"><code><span class="tk-c">// INSEGURO - Inyeccion NoSQL (MongoDB)</span>
+db.users.find({username: req.body.username, password: req.body.password})
+
+<span class="tk-c">// SEGURO</span>
+<span class="tk-k">const</span> username = String(req.body.username);
+<span class="tk-k">const</span> password = String(req.body.password);
+db.users.find({username: username, password: password})</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-a062025---diseno-inseguro">
+<h3 id="a062025---diseno-inseguro">A06:2025 - Diseno Inseguro</h3>
+<p><strong>Descripcion:</strong> Defectos en el diseno que no pueden corregirse mediante la implementacion.</p>
+<p><strong>Verificaciones:</strong></p>
+<ul>
+<li>Se ha realizado modelado de amenazas?</li>
+<li>Se han definido requisitos de seguridad?</li>
+<li>Se usan patrones de diseno seguros?</li>
+<li>Se han considerado casos de abuso/uso indebido?</li>
+<li>Se ha implementado rate limiting?</li>
+<li>Se aplica defensa en profundidad?</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-a072025---fallos-de-autenticacion">
+<h3 id="a072025---fallos-de-autenticacion">A07:2025 - Fallos de Autenticacion</h3>
+<p><strong>Descripcion:</strong> Autenticacion rota y gestion de sesiones deficiente.</p>
+<p><strong>Vectores de Ataque:</strong></p>
+<ul>
+<li>Relleno de credenciales (credential stuffing)</li>
+<li>Ataques de fuerza bruta</li>
+<li>Credenciales por defecto</li>
+<li>Fijacion de sesion</li>
+<li>IDs de sesion expuestos en URLs</li>
+<li>Ausencia de MFA</li>
+</ul>
+<p><strong>Remediacion:</strong></p>
+<ul>
+<li>Implementar MFA (autenticacion multifactor)</li>
+<li>No desplegar con credenciales por defecto</li>
+<li>Verificar contrasenas contra las 10.000 peores contrasenas</li>
+<li>Seguir directrices NIST 800-63B</li>
+<li>Limitar/retrasar intentos fallidos de inicio de sesion</li>
+<li>Usar gestor de sesiones del lado del servidor con IDs de alta entropia</li>
+<li>Invalidar sesiones tras cierre de sesion, inactividad y tiempos absolutos</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-a082025---fallos-de-integridad-del-software-y-los-datos">
+<h3 id="a082025---fallos-de-integridad-del-software-y-los-datos">A08:2025 - Fallos de Integridad del Software y los Datos</h3>
+<p><strong>Descripcion:</strong> Codigo e infraestructura que no protegen contra violaciones de integridad.</p>
+<p><strong>Patrones de deserializacion insegura:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// INSEGURO - BinaryFormatter esta obsoleto y es peligroso</span>
+<span class="tk-c">// var formatter = new BinaryFormatter();</span>
+<span class="tk-c">// object obj = formatter.Deserialize(stream);</span>
+
+<span class="tk-c">// SEGURO - Usar System.Text.Json</span>
+<span class="tk-k">var</span> data = JsonSerializer.Deserialize&lt;MyType&gt;(jsonString);</code></pre>
+<pre data-lang="java"><code>// INSEGURO - Deserializacion Java
+ObjectInputStream ois = new ObjectInputStream(input);
+Object obj = ois.readObject(); // Riesgo de RCE!</code></pre>
+<pre data-lang="python"><code><span class="tk-c"># INSEGURO</span>
+<span class="tk-k">import</span> pickle
+data = pickle.loads(untrusted_data)  <span class="tk-c"># Riesgo de RCE!</span></code></pre>
+<p><strong>Verificaciones:</strong></p>
+<ul>
+<li>Actualizaciones de software sin firmar/verificar</li>
+<li>Pipelines CI/CD inseguros</li>
+<li>Actualizacion automatica sin verificacion de integridad</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-a092025---fallos-en-el-registro-y-alerta-de-seguridad">
+<h3 id="a092025---fallos-en-el-registro-y-alerta-de-seguridad">A09:2025 - Fallos en el Registro y Alerta de Seguridad</h3>
+<p><strong>Descripcion:</strong> Registro y monitorizacion insuficientes que permiten ataques no detectados.</p>
+<p><strong>Eventos que deben registrarse:</strong></p>
+<ol>
+<li>Todos los intentos de inicio de sesion (exitosos/fallidos)</li>
+<li>Fallos de control de acceso</li>
+<li>Fallos de validacion de entrada del lado del servidor</li>
+<li>Transacciones de alto valor con pista de auditoria</li>
+<li>Eventos de seguridad con: marca de tiempo, severidad, identidad, IP, resultado</li>
+</ol>
+<p><strong>Remediacion:</strong></p>
+<ul>
+<li>Usar gestion centralizada de logs (ELK, Splunk)</li>
+<li>Implementar alertas en tiempo real para actividad sospechosa</li>
+<li>Proteger pistas de auditoria con controles de integridad</li>
+<li>Establecer plan de respuesta a incidentes (NIST 800-61)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-a102025---manejo-inadecuado-de-condiciones-excepcionales">
+<h3 id="a102025---manejo-inadecuado-de-condiciones-excepcionales">A10:2025 - Manejo Inadecuado de Condiciones Excepcionales</h3>
+<p><strong>Descripcion:</strong> La aplicacion no maneja correctamente los errores, revelando informacion o entrando en estados inseguros.</p>
+<p><strong>Patrones a detectar:</strong></p>
+<pre><code>- Trazas de pila expuestas a usuarios
+- Mensajes de error de base de datos visibles
+- Rutas internas/IPs filtradas
+- Bloques catch vacios
+- Patrones fail-open (permitir acceso en caso de error)</code></pre>
+<p><strong>Manejo seguro:</strong></p>
+<pre data-lang="csharp"><code><span class="tk-c">// C# - Manejo seguro de errores</span>
+<span class="tk-k">try</span>
+{
+    <span class="tk-k">await</span> ProcessPaymentAsync(request);
+}
+<span class="tk-k">catch</span> (Exception ex)
+{
+    _logger.LogError(ex, <span class="tk-s">&quot;Error procesando pago para user {UserId}&quot;</span>, userId);
+    <span class="tk-k">return</span> StatusCode(<span class="tk-n">500</span>, <span class="tk-k">new</span> ProblemDetails
+    {
+        Title = <span class="tk-s">&quot;Error interno&quot;</span>,
+        Detail = <span class="tk-s">&quot;No se pudo procesar el pago&quot;</span>  <span class="tk-c">// Sin detalles tecnicos</span>
+    });
+}</code></pre>
+<pre data-lang="go"><code>func (s *server) ProcessPayment(ctx context.Context, req *pb.PaymentRequest) (*pb.PaymentResponse, error) {
+    if err := validatePayment(req); err != nil {
+        log.Printf(&quot;Validacion de pago fallida para usuario %s: %v&quot;, getUserID(ctx), err)
+        return nil, status.Error(codes.InvalidArgument, &quot;application de pago invalida&quot;)
+    }
+}</code></pre>
+<hr>
+<p><em>Pattern 1.0.0</em></p>
+</section><p style="margin-top:32px"><a href="../../../skills/security-audit.html#ficheros">← Volver a la ficha de security-audit</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/security-audit/owasp/owasp-frameworks.html"><small>Anterior</small>owasp/owasp-frameworks.md</a><a class="next" href="../../../skills/security-audit/patterns/attack-surface-mapping.html"><small>Siguiente</small>patterns/attack-surface-mapping.md</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/security-audit/owasp/owasp-top10-2025.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#a012025---control-de-acceso-roto">A01:2025 - Control de Acceso Roto</a></li><li class="l2"><a href="#a022025---configuracion-de-seguridad-incorrecta">A02:2025 - Configuracion de Seguridad Incorrecta</a></li><li class="l2"><a href="#a032025---fallos-en-la-cadena-de-suministro-de-software">A03:2025 - Fallos en la Cadena de Suministro de Software</a></li><li class="l2"><a href="#a042025---fallos-criptograficos">A04:2025 - Fallos Criptograficos</a></li><li class="l2"><a href="#a052025---inyeccion">A05:2025 - Inyeccion</a></li><li class="l2"><a href="#a062025---diseno-inseguro">A06:2025 - Diseno Inseguro</a></li><li class="l2"><a href="#a072025---fallos-de-autenticacion">A07:2025 - Fallos de Autenticacion</a></li><li class="l2"><a href="#a082025---fallos-de-integridad-del-software-y-los-datos">A08:2025 - Fallos de Integridad del Software y los Datos</a></li><li class="l2"><a href="#a092025---fallos-en-el-registro-y-alerta-de-seguridad">A09:2025 - Fallos en el Registro y Alerta de Seguridad</a></li><li class="l2"><a href="#a102025---manejo-inadecuado-de-condiciones-excepcionales">A10:2025 - Manejo Inadecuado de Condiciones Excepcionales</a></li></ol></nav></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

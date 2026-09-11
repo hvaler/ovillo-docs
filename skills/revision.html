@@ -1,0 +1,161 @@
+<!doctype html><html lang="es" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>revision · Ovillo</title><meta name="description" content="Analiza el impacto de cambios antes de modificar código crítico"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="revision · Ovillo"><meta property="og:description" content="Analiza el impacto de cambios antes de modificar código crítico"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/revision.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/revision.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="skills/revision.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>workflow (35)</h4><ul class="sibs"><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/asignar.html">asignar</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/cicd-release.html">cicd-release</a></li><li><a href="../skills/cicd-status.html">cicd-status</a></li><li><a href="../skills/clean.html">clean</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/continuar.html">continuar</a></li><li><a href="../skills/equipo.html">equipo</a></li><li><a href="../skills/estado.html">estado</a></li><li><a href="../skills/eval-gap.html">eval-gap</a></li><li><a href="../skills/finalizar-evolutivo.html">finalizar-evolutivo</a></li><li><a href="../skills/git-sync.html">git-sync</a></li><li><a href="../skills/init.html">init</a></li><li><a href="../skills/jira.html">jira</a></li><li><a href="../skills/liberar.html">liberar</a></li><li><a href="../skills/mcp-forget.html">mcp-forget</a></li><li><a href="../skills/mcp-register.html">mcp-register</a></li><li><a href="../skills/mi-config.html">mi-config</a></li><li><a href="../skills/migrar.html">migrar</a></li><li><a href="../skills/migrate-to-cpm.html">migrate-to-cpm</a></li><li><a href="../skills/nuevo-evolutivo.html">nuevo-evolutivo</a></li><li><a href="../skills/nuevo-proyecto.html">nuevo-proyecto</a></li><li><a href="../skills/onboarding.html">onboarding</a></li><li><a href="../skills/optimizar.html">optimizar</a></li><li><a href="../skills/pausar.html">pausar</a></li><li><a href="../skills/prepara-entrega.html">prepara-entrega</a></li><li><a href="../skills/recuperar.html">recuperar</a></li><li><a href="../skills/revision.html" class="cur">revision</a></li><li><a href="../skills/sos.html">sos</a></li><li><a href="../skills/sync.html">sync</a></li><li><a href="../skills/tomar.html">tomar</a></li><li><a href="../skills/verificar-claude.html">verificar-claude</a></li><li><a href="../skills/verify.html">verify</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../skills/index.html">Skills</a></span><span>revision</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>/hv:revision</span><span>solo usuario</span></div><h1>revision</h1><p class="lede">Analiza el impacto de cambios antes de modificar código crítico</p><div class="meta-grid"><div><b>workflow</b><span>clase</span></div><div><b><code>/hv:revision</code></b><span>invocación</span></div><div><b>1</b><span>ficheros</span></div><div><b>294</b><span>palabras</span></div><div><b>2026-09-08</b><span>último cambio</span></div></div><section class="sec" id="sec-ficha"><h2 id="ficha">Ficha técnica</h2><div class="tbl"><table class="fm"><tr><th>disable-model-invocation</th><td><code>true</code></td></tr></table></div></section><section class="sec" id="sec-activacion"><h2 id="activacion">Activación</h2><p>Solo el usuario la lanza con <code>/hv:revision</code>: lleva <code>disable-model-invocation: true</code>, así que el modelo no puede invocarla ni su descripción entra en contexto (cuesta 0 tokens hasta que se usa).</p></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros del pack <span class="pill">0</span></h2><p class="muted">Solo SKILL.md.</p></section><section class="sec" id="sec-contenido"><h2 id="contenido">Contenido</h2></section><blockquote><p><strong>Solo usuario</strong>: lleva <code>disable-model-invocation: true</code>, asi que el modelo no puede lanzarla por su cuenta ni su descripcion entra en contexto. Se ejecuta solo con <code>/hv:revision</code>.</p></blockquote>
+<hr>
+<blockquote><p>Analiza el impacto de cambios antes de modificar código crítico</p></blockquote>
+<section class="sec" id="sec-extended-thinking-mode">
+<h3 id="extended-thinking-mode">🧠 Extended Thinking Mode</h3>
+<p><strong>think harder - Analiza profundamente el impacto de cada cambio.</strong></p>
+<hr>
+</section>
+<section class="sec" id="sec-importante-estructura-de-carpetas">
+<h3 id="importante-estructura-de-carpetas">IMPORTANTE: Estructura de Carpetas</h3>
+<p>El código fuente está en <code>src/</code>. El análisis de impacto debe considerar esta estructura.</p>
+<pre><code>MiProyecto/                     ← Raíz del repo (aquí está .git)
+├── _hilo/                     ← Contexto del proyecto
+├── docs/architecture/                  ← Diagramas
+├── src/              ← CÓDIGO FUENTE ⭐
+│   ├── MiSolucion.sln|.slnx    ← .slnx solo .NET 8+
+│   ├── MiProyecto.API/
+│   ├── MiProyecto.Domain/
+│   └── ...
+├── docs/testing/                 ← Tests adicionales
+└── docs/           ← Documentación</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-análisis-de-cambios">
+<h3 id="análisis-de-cambios">Análisis de Cambios</h3>
+<h4 id="1-identificar-archivos-modificados">1. Identificar Archivos Modificados</h4>
+<pre data-lang="bash"><code><span class="tk-c"># Git está en la raíz, mostrará cambios en src/</span>
+<span class="tk-k">git</span> diff --name-only
+<span class="tk-k">git</span> diff --staged --name-only
+
+<span class="tk-c"># Filtrar solo cambios en código</span>
+<span class="tk-k">git</span> diff --name-only | grep <span class="tk-s">&quot;src/&quot;</span></code></pre>
+<h4 id="2-clasificar-por-área-dentro-de-src">2. Clasificar por Área (dentro de src/)</h4>
+<div class="tbl"><table><thead><tr><th>Área</th><th>Ruta Típica</th><th>Impacto</th></tr></thead><tbody><tr><td>Controllers / API</td><td><code>src/*/Controllers/</code></td><td>Alto</td></tr><tr><td>Services / Application</td><td><code>src/*/Services/</code></td><td>Alto</td></tr><tr><td>Domain / Entities</td><td><code>src/*/Domain/</code></td><td>Muy Alto</td></tr><tr><td>Infrastructure / Repositories</td><td><code>src/*/Infrastructure/</code></td><td>Alto</td></tr><tr><td>Tests</td><td><code>src/*.Tests/</code></td><td>Medio</td></tr><tr><td>Configuración</td><td><code>src/*/appsettings*.json</code></td><td>Alto</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-análisis-de-dependencias">
+<h3 id="análisis-de-dependencias">Análisis de Dependencias</h3>
+<h4 id="1-leer-mapa-de-dependencias">1. Leer Mapa de Dependencias</h4>
+<p>Consultar <code>_hilo/DEPENDENCIAS.md</code>:</p>
+<ul>
+<li>Identificar componentes afectados</li>
+<li>Buscar integraciones relacionadas</li>
+<li>Verificar stored procedures dependientes</li>
+</ul>
+<h4 id="2-analizar-referencias-entre-proyectos">2. Analizar Referencias entre Proyectos</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Leer ProjectReference de cada .csproj en src/</span>
+Get-ChildItem -Path <span class="tk-s">&quot;src&quot;</span> -Filter <span class="tk-s">&quot;*.csproj&quot;</span> -Recurse | ForEach-Object {
+    Write-Host <span class="tk-s">&quot;Proyecto: $($_.Name)&quot;</span>
+    Select-String -Path <span class="tk-v">$_</span>.FullName -Pattern <span class="tk-s">&quot;ProjectReference&quot;</span>
+}</code></pre>
+<h4 id="3-cruzar-con-funcionalidades">3. Cruzar con Funcionalidades</h4>
+<p>Consultar <code>_hilo/FUNCIONALIDADES.md</code>:</p>
+<ul>
+<li>Identificar funcionalidades afectadas</li>
+<li>Verificar reglas de negocio</li>
+<li>Buscar dependientes</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-generación-de-informe">
+<h3 id="generación-de-informe">Generación de Informe</h3>
+<pre data-lang="markdown"><code>## Informe de Impacto
+
+### Archivos Modificados (en src/)
+- `src/MiProyecto.API/Controllers/ScholarshipsController.cs`
+- `src/MiProyecto.Domain/Entities/Scholarship.cs`
+- [lista de archivos]
+
+### Componentes Afectados Directamente
+- [lista]
+
+### Posible Impacto en:
+- [componentes dependientes]
+- [integraciones]
+- [procesos batch]
+
+### Tests a Ejecutar (en src/)
+- [ ] Tests unitarios: `src/MiProyecto.Tests/`
+- [ ] Tests de integración: `src/MiProyecto.IntegrationTests/`
+- [ ] Tests E2E de [flujos]
+
+### Riesgos Identificados
+| Riesgo | Probabilidad | Impacto | Mitigación |
+|--------|--------------|---------|------------|
+| [riesgo] | [alta/media/baja] | [descripción] | [acción] |
+
+### Recomendaciones
+1. [recomendación 1]
+2. [recomendación 2]</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-preguntas-al-desarrollador">
+<h3 id="preguntas-al-desarrollador">Preguntas al Desarrollador</h3>
+<ol>
+<li>&quot;He identificado impacto en {0}. ¿Quieres que profundice?&quot;</li>
+<li>&quot;¿Conoces dependencias adicionales no documentadas?&quot;</li>
+<li>&quot;¿Ejecuto los tests de las áreas afectadas? (<code>/testing-patterns</code>)&quot;</li>
+<li>&quot;¿Hay alguien que deba revisar estos cambios?&quot;</li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-acciones-sugeridas">
+<h3 id="acciones-sugeridas">Acciones Sugeridas</h3>
+<h4 id="si-el-impacto-es-alto">Si el impacto es ALTO:</h4>
+<ul>
+<li>Recomendar revisar con responsable técnico</li>
+<li>Sugerir crear rama de feature</li>
+<li>Proponer tests adicionales</li>
+<li>Ejecutar <code>/hv:analizar --security</code> antes de commit</li>
+</ul>
+<h4 id="si-el-impacto-es-medio">Si el impacto es MEDIO:</h4>
+<ul>
+<li>Sugerir ejecutar tests de integración</li>
+<li>Recomendar documentar cambios en <code>_hilo/DECISIONES.md</code></li>
+</ul>
+<h4 id="si-el-impacto-es-bajo">Si el impacto es BAJO:</h4>
+<ul>
+<li>Proceder con precaución normal</li>
+<li>Ejecutar tests unitarios (<code>/testing-patterns</code>)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-diagrama-de-dependencias-afectadas">
+<h3 id="diagrama-de-dependencias-afectadas">Diagrama de Dependencias Afectadas</h3>
+<p>Si hay múltiples componentes afectados, generar diagrama:</p>
+<pre class="mermaid" data-lang="mermaid"><code>graph LR
+    subgraph &quot;Cambios Directos&quot;
+        A[📝 ScholarshipsController.cs]
+        B[📝 Scholarship.cs]
+    end
+
+    subgraph &quot;Impacto Indirecto&quot;
+        C[ScholarshipService.cs]
+        D[ScholarshipRepository.cs]
+        E[ScholarshipValidator.cs]
+    end
+
+    subgraph &quot;Tests Afectados&quot;
+        T1[ScholarshipServiceTests.cs]
+        T2[ScholarshipControllerTests.cs]
+    end
+
+    A --&gt; C
+    B --&gt; C
+    B --&gt; D
+    C --&gt; E
+    C -.-&gt; T1
+    A -.-&gt; T2
+
+    classDef changed fill:#ffcdd2
+    classDef impacted fill:#fff9c4
+    classDef test fill:#c8e6c9
+
+    class A,B changed
+    class C,D,E impacted
+    class T1,T2 test</code><a class="mermaid-open" href="https://mermaid.live/edit#base64:eyJjb2RlIjoiZ3JhcGggTFJcbiAgICBzdWJncmFwaCBcIkNhbWJpb3MgRGlyZWN0b3NcIlxuICAgICAgICBBW/Cfk50gU2Nob2xhcnNoaXBzQ29udHJvbGxlci5jc11cbiAgICAgICAgQlvwn5OdIFNjaG9sYXJzaGlwLmNzXVxuICAgIGVuZFxuXG4gICAgc3ViZ3JhcGggXCJJbXBhY3RvIEluZGlyZWN0b1wiXG4gICAgICAgIENbU2Nob2xhcnNoaXBTZXJ2aWNlLmNzXVxuICAgICAgICBEW1NjaG9sYXJzaGlwUmVwb3NpdG9yeS5jc11cbiAgICAgICAgRVtTY2hvbGFyc2hpcFZhbGlkYXRvci5jc11cbiAgICBlbmRcblxuICAgIHN1YmdyYXBoIFwiVGVzdHMgQWZlY3RhZG9zXCJcbiAgICAgICAgVDFbU2Nob2xhcnNoaXBTZXJ2aWNlVGVzdHMuY3NdXG4gICAgICAgIFQyW1NjaG9sYXJzaGlwQ29udHJvbGxlclRlc3RzLmNzXVxuICAgIGVuZFxuXG4gICAgQSAtLT4gQ1xuICAgIEIgLS0+IENcbiAgICBCIC0tPiBEXG4gICAgQyAtLT4gRVxuICAgIEMgLS4tPiBUMVxuICAgIEEgLS4tPiBUMlxuXG4gICAgY2xhc3NEZWYgY2hhbmdlZCBmaWxsOiNmZmNkZDJcbiAgICBjbGFzc0RlZiBpbXBhY3RlZCBmaWxsOiNmZmY5YzRcbiAgICBjbGFzc0RlZiB0ZXN0IGZpbGw6I2M4ZTZjOVxuXG4gICAgY2xhc3MgQSxCIGNoYW5nZWRcbiAgICBjbGFzcyBDLEQsRSBpbXBhY3RlZFxuICAgIGNsYXNzIFQxLFQyIHRlc3QiLCJtZXJtYWlkIjoie1widGhlbWVcIjpcImRlZmF1bHRcIn0iLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6dHJ1ZX0=" rel="noopener" target="_blank">abrir en mermaid.live</a></pre>
+<p>Guardar en <code>docs/architecture/IMPACTO_CAMBIOS.md</code> si es significativo.</p>
+<hr>
+<p><em>Skill revision · kind: workflow</em></p>
+</section><section class="sec" id="sec-contexto"><h2 id="contexto">Coste de contexto</h2><p>Descripción de <strong>63</strong> caracteres (no se publica al modelo: workflow). Cuerpo: 294 palabras, se carga solo al activarse.</p></section><section class="sec" id="sec-historial"><h2 id="historial">Historial</h2><p>4 cambios · 2026-09-07 → 2026-09-08. Último cambio: <em>fix(fuentes): Lote A de la auditoria externa — prosa fosil, dato personal, frases rotas, /hv: canonico y correctivos del generador (ADR-022)</em> (<code>ff4b4fb</code>).</p></section><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/analizar.html">analizar</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/testing-patterns.html">testing-patterns</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/revision/SKILL.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#ficha">Ficha técnica</a></li><li class="l2"><a href="#activacion">Activación</a></li><li class="l2"><a href="#ficheros">Ficheros del pack</a></li><li class="l2"><a href="#contenido">Contenido</a></li><li class="l3"><a href="#extended-thinking-mode">🧠 Extended Thinking Mode</a></li><li class="l3"><a href="#importante-estructura-de-carpetas">IMPORTANTE: Estructura de Carpetas</a></li><li class="l3"><a href="#análisis-de-cambios">Análisis de Cambios</a></li><li class="l3"><a href="#análisis-de-dependencias">Análisis de Dependencias</a></li><li class="l3"><a href="#generación-de-informe">Generación de Informe</a></li><li class="l3"><a href="#preguntas-al-desarrollador">Preguntas al Desarrollador</a></li><li class="l3"><a href="#acciones-sugeridas">Acciones Sugeridas</a></li><li class="l3"><a href="#diagrama-de-dependencias-afectadas">Diagrama de Dependencias Afectadas</a></li><li class="l2"><a href="#contexto">Coste de contexto</a></li><li class="l2"><a href="#historial">Historial</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

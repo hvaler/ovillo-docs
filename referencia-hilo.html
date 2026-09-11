@@ -1,0 +1,470 @@
+<!doctype html><html lang="es" data-rel=""><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Referencia del Hilo · Ovillo</title><meta name="description" content="La memoria del proyecto: ficheros, esquema y quién escribe cada uno"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Referencia del Hilo · Ovillo"><meta property="og:description" content="La memoria del proyecto: ficheros, esquema y quién escribe cada uno"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/referencia-hilo.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/referencia-hilo.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="recursos/portal.css"></head><body data-page="referencia-hilo.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="guias/index.html">Guías<span class="n">35</span></a></li><li><a href="curso/index.html">Curso</a></li><li><a href="chuletas/index.html">Chuletas</a></li><li><a href="presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="skills/index.html">Skills<span class="n">68</span></a></li><li><a href="agents/index.html">Agents<span class="n">19</span></a></li><li><a href="hooks.html">Hooks<span class="n">22</span></a></li><li><a href="reglas.html">Reglas<span class="n">3</span></a></li><li><a href="hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="patron.html">Patrón</a></li><li><a href="decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="referencia-config.html">Configuración</a></li><li><a href="referencia-hilo.html" class="cur">Hilo</a></li><li><a href="changelog.html">Versiones</a></li><li><a href="indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="evaluaciones.html">Evaluaciones</a></li><li><a href="contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="buscar.html">Buscar</a></li><li><a href="privacidad.html">Datos y privacidad</a></li><li><a href="acerca.html">Acerca</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="index.html">Inicio</a></span><span>Referencia</span><span>Hilo</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>referencia</span><span>_hilo/</span><span>memoria del proyecto</span></div><h1>Referencia del Hilo</h1><p class="lede">El Hilo es la memoria del proyecto: estado, sesiones, decisiones y lecciones que las skills leen y escriben para no perder el contexto entre sesiones.</p><div class="meta-grid"><div><b>15</b><span>ficheros</span></div><div><b>SESION_ACTUAL.md · ESTADO_PROYECTO.json</b><span>siempre cargado</span></div><div><b><code>/hv:init</code></b><span>lo crea</span></div></div><section class="sec" id="sec-que-es"><h2 id="que-es">Qué es</h2><blockquote><p><strong>Hilo</strong> es la memoria dinamica de <strong>este</strong> proyecto dentro del ecosistema <strong>Ovillo</strong>: el estado actual, el historial y el contexto que sobreviven entre sesiones, personas y sprints. El codigo cambia con cada commit; el Hilo conserva que se decidio, que se aprendio, quien trabajo en que y que queda por hacer.</p></blockquote>
+<hr>
+<section class="sec" id="sec-que-hay-en-esta-carpeta">
+<h3 id="que-hay-en-esta-carpeta">Que hay en esta carpeta</h3>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Que guarda</th></tr></thead><tbody><tr><td><code>ESTADO_PROYECTO.json</code></td><td>Estado estructurado: equipo, configuracion (ramas, tipos de tarea), soluciones, infraestructura, evolutivos, <code>mcpSync</code>. Es contrato con las skills, los hooks y el Hub: no cambiar sus claves a mano. Esquema en <code>ESTADO_PROYECTO.schema.md</code>.</td></tr><tr><td><code>SESION_ACTUAL.md</code></td><td>Contexto de la sesion en curso (se carga siempre via <code>@import</code>).</td></tr><tr><td><code>LECCIONES.md</code></td><td>Patrones, errores y particularidades aprendidas.</td></tr><tr><td><code>DECISIONES.md</code></td><td>Decisiones tecnicas del proyecto (ADR ligeros).</td></tr><tr><td><code>HISTORIAL_CAMBIOS.md</code></td><td>Cronologia de cambios.</td></tr><tr><td><code>FUNCIONALIDADES.md</code></td><td>Catalogo funcional del proyecto.</td></tr><tr><td><code>DEPENDENCIAS.md</code></td><td>Mapa de dependencias y stack tecnologico.</td></tr><tr><td><code>CONTEXTO_TECNICO.md</code></td><td>Contexto tecnico estable, auto-detectado.</td></tr><tr><td><code>FEEDBACK_ECOSISTEMA.md</code></td><td>Feedback hacia Ovillo (FB-XXX).</td></tr><tr><td><code>AUDITORIA_NUGET.json</code>, <code>HISTORIAL_ANALISIS.json</code></td><td>Resultados de la ultima auditoria de paquetes y de los analisis profundos.</td></tr><tr><td><code>specs/</code></td><td>Especificaciones de evolutivos (una por codigo).</td></tr><tr><td><code>reuniones/</code></td><td>Actas de reuniones.</td></tr></tbody></table></div>
+<p>Quien lee y escribe cada archivo se deriva de las propias skills y hooks: la referencia del Hilo del portal de documentacion lo muestra actualizado en cada version. Cada skill workflow (<code>/hv:&lt;skill&gt;</code>) declara en su ficha los ficheros del Hilo que toca.</p>
+<hr>
+</section>
+<section class="sec" id="sec-como-encaja-en-ovillo">
+<h3 id="como-encaja-en-ovillo">Como encaja en Ovillo</h3>
+<ul>
+<li><strong>Hilo</strong> (<code>_hilo/</code>): memoria dinamica del proyecto (esta carpeta).</li>
+<li><strong>Patron</strong> (<code>_patron/</code>): base de conocimiento de la organizacion; estandares y guias que no cambian de un proyecto a otro.</li>
+<li><strong>Skills, agents y hooks</strong> (plugin <code>hv</code>): quienes leen y escriben el Hilo. La configuracion de la organizacion vive en <code>ecosystem.config.json</code>; la precedencia entre ambos ficheros la fija <code>.claude/CONFIGURACION.md</code>.</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-que-no-va-en-el-hilo">
+<h3 id="que-no-va-en-el-hilo">Que NO va en el Hilo</h3>
+<p>El Hilo se versiona con el proyecto y viaja a todo el equipo (y, si el proyecto se registra en el Hub, parte de el se sincroniza). Por eso <strong>nunca</strong> debe contener:</p>
+<ul>
+<li>Secretos: contrasenas, tokens, API keys, cadenas de conexion completas. En <code>acceso_bd</code> se guarda el <strong>nombre</strong> del secreto (<code>connection_string_key</code>), nunca su valor.</li>
+<li>Datos personales mas alla de lo imprescindible para el trabajo: alias, nombre y correo corporativo de los miembros del equipo. Nada de identificadores personales, telefonos ni datos de terceros.</li>
+<li>Prompts ni conversaciones con el asistente. La telemetria de agents (<code>agent-telemetry.jsonl</code>) es local, esta excluida por <code>.gitignore</code> y al Hub solo viaja un hash.</li>
+<li>Credenciales del propio Hub: <code>.mcp-credentials.json</code> es por desarrollador y esta excluido por <code>.gitignore</code>.</li>
+</ul>
+<p>El hook <code>secret-scanner</code> avisa (o bloquea, segun <code>hooks.policy</code>) si algo de esto se escribe. La politica completa de datos del ecosistema esta en el portal de documentacion (pagina «Datos y privacidad»).</p>
+<hr>
+</section>
+<section class="sec" id="sec-importante">
+<h3 id="importante">Importante</h3>
+<ul>
+<li><strong>No borrar</strong> archivos de esta carpeta.</li>
+<li><strong>No ignorar</strong> la carpeta en <code>.gitignore</code> (debe estar versionada); las dos excepciones anteriores ya estan en el <code>.gitignore</code> que escribe <code>/hv:init</code>.</li>
+<li><strong>Mantener actualizado</strong>: <code>SESION_ACTUAL.md</code> y <code>ESTADO_PROYECTO.json</code> se cargan en cada sesion via <code>@imports</code> en <code>CLAUDE.md</code>; el hook <code>hilo-json-guard</code> impide commitear un JSON del Hilo vacio o invalido.</li>
+</ul>
+<hr>
+<p><em>Hilo - Ovillo</em></p>
+</section></section><section class="sec" id="sec-ficheros"><h2 id="ficheros">Ficheros <span class="pill">15</span></h2><div class="tbl"><table><thead><tr><th>Fichero</th><th>Qué guarda</th><th>Quién escribe</th><th>Arranque</th></tr></thead><tbody><tr><td><code>_hilo/AUDITORIA_NUGET.json</code></td><td>última auditoría de paquetes</td><td><a href="skills/nugets-management.html">nugets-management</a></td><td>186 B</td></tr><tr><td><code>_hilo/CONTEXTO_TECNICO.md</code></td><td>contexto técnico estable</td><td><span class="muted">desarrollador</span></td><td>2059 B</td></tr><tr><td><code>_hilo/DECISIONES.md</code></td><td>decisiones del proyecto (ADR ligeros)</td><td><a href="skills/cicd-status.html">cicd-status</a>, <a href="skills/documentacion-tecnica.html">documentacion-tecnica</a>, <a href="skills/git-best-practices.html">git-best-practices</a>, <a href="skills/hub-client.html">hub-client</a>, <a href="skills/migrar.html">migrar</a>, <a href="skills/revision.html">revision</a> <span class="muted">+1</span></td><td>5241 B</td></tr><tr><td><code>_hilo/DEPENDENCIAS.md</code></td><td>dependencias y versiones</td><td><a href="skills/analizar.html">analizar</a>, <a href="skills/documentacion-tecnica.html">documentacion-tecnica</a>, <a href="skills/git-best-practices.html">git-best-practices</a>, <a href="skills/migrar.html">migrar</a>, <a href="skills/nugets-management.html">nugets-management</a>, <a href="skills/onboarding.html">onboarding</a> <span class="muted">+3</span></td><td>9239 B</td></tr><tr><td><code>_hilo/ESTADO_PROYECTO.json</code></td><td>estado estructurado: equipo, configuración, soluciones, infraestructura, mcpSync</td><td><a href="skills/analisis-arquitectura.html">analisis-arquitectura</a>, <a href="skills/analizar.html">analizar</a>, <a href="skills/asignar.html">asignar</a>, <a href="skills/cicd-deploy.html">cicd-deploy</a>, <a href="skills/cicd-init.html">cicd-init</a>, <a href="skills/cicd-release.html">cicd-release</a> <span class="muted">+43</span></td><td>7398 B</td></tr><tr><td><code>_hilo/ESTADO_PROYECTO.schema.md</code></td><td>esquema documentado del estado</td><td><a href="skills/onboarding.html">onboarding</a></td><td>13.230 B</td></tr><tr><td><code>_hilo/FEEDBACK_ECOSISTEMA.md</code></td><td>feedback hacia Ovillo</td><td><a href="skills/hub-client.html">hub-client</a></td><td>3040 B</td></tr><tr><td><code>_hilo/FUNCIONALIDADES.md</code></td><td>inventario funcional</td><td><a href="skills/documentacion-tecnica.html">documentacion-tecnica</a>, <a href="skills/estado.html">estado</a>, <a href="skills/finalizar-evolutivo.html">finalizar-evolutivo</a>, <a href="skills/git-best-practices.html">git-best-practices</a>, <a href="skills/nuevo-evolutivo.html">nuevo-evolutivo</a>, <a href="skills/onboarding.html">onboarding</a> <span class="muted">+5</span></td><td>4280 B</td></tr><tr><td><code>_hilo/HILO.md</code></td><td>qué es el Hilo y cómo lo usan las skills</td><td><span class="muted">desarrollador</span></td><td>3656 B</td></tr><tr><td><code>_hilo/HISTORIAL_ANALISIS.json</code></td><td>historial de análisis profundos</td><td><a href="skills/analizar.html">analizar</a></td><td>1698 B</td></tr><tr><td><code>_hilo/HISTORIAL_CAMBIOS.md</code></td><td>cronología de cambios</td><td><a href="skills/analisis-arquitectura.html">analisis-arquitectura</a>, <a href="skills/commit.html">commit</a>, <a href="skills/git-best-practices.html">git-best-practices</a>, <a href="skills/sync.html">sync</a></td><td>1474 B</td></tr><tr><td><code>_hilo/LECCIONES.md</code></td><td>lecciones aprendidas</td><td><a href="skills/git-best-practices.html">git-best-practices</a>, <a href="skills/hub-client.html">hub-client</a>, <a href="skills/pausar.html">pausar</a></td><td>4762 B</td></tr><tr><td><code>_hilo/reuniones/</code></td><td>actas de reuniones</td><td><a href="skills/init.html">init</a></td><td>1 fich.</td></tr><tr><td><code>_hilo/SESION_ACTUAL.md</code></td><td>la sesión en curso (se carga siempre)</td><td><a href="skills/nuevo-proyecto.html">nuevo-proyecto</a>, <a href="skills/optimizar.html">optimizar</a>, <a href="skills/pausar.html">pausar</a>, <a href="skills/verificar-claude.html">verificar-claude</a></td><td>2453 B</td></tr><tr><td><code>_hilo/specs/</code></td><td>especificaciones funcionales</td><td><a href="skills/continuar.html">continuar</a>, <a href="skills/estado.html">estado</a>, <a href="skills/finalizar-evolutivo.html">finalizar-evolutivo</a>, <a href="skills/init.html">init</a>, <a href="skills/jira.html">jira</a>, <a href="skills/liberar.html">liberar</a> <span class="muted">+5</span></td><td>1 fich.</td></tr></tbody></table></div></section><section class="sec" id="sec-esquema"><h2 id="esquema">Esquema de ESTADO_PROYECTO.json</h2><blockquote><p><strong>Proposito</strong>: documentacion extendida, ejemplos y opciones de <code>_hilo/ESTADO_PROYECTO.json</code>. Este archivo <strong>NO se importa en CLAUDE.md</strong> (no consume contexto en cada sesion). Claude lo consulta bajo demanda cuando necesita rellenar o interpretar una seccion del JSON (tipicamente durante <code>/hv:onboarding</code>, <code>/hv:cicd-init</code>, <code>/issue-tracker-sync</code> o <code>/hv:analizar</code>).</p>
+<p>Regla de mantenimiento: si anades un campo nuevo al JSON, documentalo AQUI (no inline en el JSON) y deja como mucho una linea <code>_doc</code> de puntero.</p></blockquote>
+<hr>
+<h3 id="equipo">equipo</h3>
+<p class="lede">Miembros del equipo. Configurar manualmente o via <code>/hv:onboarding</code> (paso <code>equipo</code>).</p>
+<div class="tbl"><table><thead><tr><th>Campo</th><th>Regla</th></tr></thead><tbody><tr><td><code>usuario</code></td><td>DEBE coincidir con el usuario Git (<code>git config user.name</code> o alias corto). Es la clave de matching para <code>/hv:tomar</code>, <code>/hv:equipo</code>, <code>asignadoA</code>.</td></tr><tr><td><code>nombre</code></td><td>DEBE coincidir <strong>EXACTAMENTE</strong> con el displayName de Active Directory (no email, no alias). Se usa como <code>System.AssignedTo</code> en Azure DevOps on-premises — Azure DevOps <strong>no resuelve</strong> email/UPN (HTTP 400 <code>unknown identity</code>). Verificar con: <code>curl --negotiate -u : '{URL}/_apis/identities?searchFilter=General&amp;filterValue={alias}&amp;api-version=6.0'</code></td></tr><tr><td><code>email</code></td><td>Email corporativo de la organizacion.</td></tr><tr><td><code>roles</code></td><td><strong>Array</strong> de roles (un miembro puede ser JP y developer a la vez). Si un JSON legacy tiene <code>rol</code> (string), se trata como array de un elemento. <code>/issue-tracker-sync</code> considera developer a quien tenga <code>desarrollador</code> en <code>roles</code>. Valores: <code>jefe_proyecto</code>, <code>desarrollador</code>, <code>analista</code>, <code>tester</code>, <code>arquitecto</code>, <code>lider_tecnico</code>.</td></tr><tr><td><code>git_author_name</code></td><td>Opcional. Solo si el nombre que figura en los commits (<code>git log --format=%an</code>) difiere de <code>nombre</code>. Ej.: <code>git config user.name='Ana P.'</code> pero el directorio dice <code>Ana Perez Gomez</code>. Si no se especifica, se usa <code>nombre</code> para el matching en git log.</td></tr><tr><td><code>githubLogin</code></td><td>Opcional (proyectos GitHub). Login de GitHub del miembro; es lo que acepta <code>--assignee</code>. Sin el, <code>/issue-tracker-sync</code> prueba <code>usuario</code> como login si es colaborador del repo y, si no, deja el issue sin asignar.</td></tr></tbody></table></div>
+<pre data-lang="json"><code><span class="tk-s">&quot;miembros&quot;</span>: [
+  {
+    <span class="tk-s">&quot;usuario&quot;</span>: <span class="tk-s">&quot;jgarcia&quot;</span>,
+    <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;Juan García López&quot;</span>,
+    <span class="tk-s">&quot;email&quot;</span>: <span class="tk-s">&quot;jgarcia@example.com&quot;</span>,
+    <span class="tk-s">&quot;roles&quot;</span>: [<span class="tk-s">&quot;desarrollador&quot;</span>],
+    <span class="tk-s">&quot;git_author_name&quot;</span>: null,
+    <span class="tk-s">&quot;githubLogin&quot;</span>: <span class="tk-s">&quot;jgarcia-dev&quot;</span>
+  },
+  {
+    <span class="tk-s">&quot;usuario&quot;</span>: <span class="tk-s">&quot;mmartinez&quot;</span>,
+    <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;Maria Martinez Ruiz&quot;</span>,
+    <span class="tk-s">&quot;email&quot;</span>: <span class="tk-s">&quot;mmartinez@example.com&quot;</span>,
+    <span class="tk-s">&quot;roles&quot;</span>: [<span class="tk-s">&quot;jefe_proyecto&quot;</span>, <span class="tk-s">&quot;desarrollador&quot;</span>],
+    <span class="tk-s">&quot;git_author_name&quot;</span>: <span class="tk-s">&quot;Maria Martinez&quot;</span>
+  }
+]</code></pre>
+<hr>
+<h3 id="configuracion">configuracion</h3>
+<h4 id="nivelIntegracionGit">nivelIntegracionGit</h4>
+<div class="tbl"><table><thead><tr><th>Valor</th><th>Comportamiento de Claude</th></tr></thead><tbody><tr><td><code>basico</code></td><td>Solo sugiere comandos Git, no ejecuta nada</td></tr><tr><td><code>medio</code></td><td>Pregunta confirmacion antes de ejecutar comandos Git</td></tr><tr><td><code>alto</code></td><td>Ejecuta comandos Git automaticamente (excepto destructivos)</td></tr></tbody></table></div>
+<h4 id="branching">branching</h4>
+<p>Estrategia de ramificacion. Se configura en <code>/hv:onboarding</code> y la leen <code>/hv:commit</code>, <code>/hv:git-sync</code>, <code>/hv:liberar</code>, la regla <code>devops-awareness</code> y <code>/hv:cicd-init</code> (R21 trigger + R24 branch-gated). Es el <strong>unico</strong> sitio del Hilo para <code>estrategia</code>, <code>ramaBase</code> y <code>convencionRamas</code>: las claves planas <code>configuracion.ramaBase</code> y <code>configuracion.convencionRamas</code> estan deprecadas (ADR-023; <code>resolve()</code> las lee como fallback con aviso hasta 2.0.0 y <code>config-check.js --migrate</code> las retira). El default de organizacion es <code>vcs.*</code> de <code>ecosystem.config.json</code>; ver <code>.claude/CONFIGURACION.md</code>. Los arrays <code>_estrategias_disponibles</code> (copia del enum <code>vcs.branchingStrategy</code> del schema, 13 estrategias), <code>_mergeStrategies</code> y <code>_convencionRamas_opciones</code> <strong>permanecen en el JSON</strong> porque los validan programaticamente <code>/git-best-practices</code> y <code>/hv:analizar</code> — no moverlos aqui.</p>
+<ul>
+<li><code>tiposTarea</code>: solo aplica con nomenclatura temporal o combinada (que contenga <code>{tipo}</code>); <code>null</code> = no aplica. Ejemplo:</li>
+</ul>
+<pre data-lang="json"><code><span class="tk-s">&quot;tiposTarea&quot;</span>: {
+  <span class="tk-s">&quot;DT&quot;</span>: <span class="tk-s">&quot;Deuda técnica&quot;</span>,
+  <span class="tk-s">&quot;HV&quot;</span>: <span class="tk-s">&quot;Evolutivo&quot;</span>,
+  <span class="tk-s">&quot;BUG&quot;</span>: <span class="tk-s">&quot;Corrección&quot;</span>,
+  <span class="tk-s">&quot;REF&quot;</span>: <span class="tk-s">&quot;Refactoring&quot;</span>
+}</code></pre>
+<hr>
+<h3 id="soluciones">soluciones</h3>
+<p>Soporte multi-solucion. Se auto-detecta al ejecutar <code>/hv:onboarding</code> o <code>integracion-vs.ps1</code>. Estructura de cada entrada de <code>soluciones[]</code>:</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;MyCompany.MiApp.sln&quot;</span>,
+  <span class="tk-s">&quot;ruta&quot;</span>: <span class="tk-s">&quot;src/MyCompany.MiApp.sln&quot;</span>,
+  <span class="tk-s">&quot;framework&quot;</span>: <span class="tk-s">&quot;.NET 10&quot;</span>,
+  <span class="tk-s">&quot;descripcion&quot;</span>: <span class="tk-s">&quot;API principal&quot;</span>,
+  <span class="tk-s">&quot;esActiva&quot;</span>: true
+}</code></pre>
+<p>Notas:</p>
+<ul>
+<li>Si <code>multiSolucion=true</code>, <code>/testing-patterns</code> y <code>/hv:analizar</code> preguntaran que solucion usar.</li>
+<li>Para <code>/hv:onboarding</code> se procesan TODAS las soluciones automaticamente.</li>
+<li><code>solucionActiva</code> guarda la ultima solucion seleccionada para comandos, y es el <strong>override</strong> del objetivo de compilacion: si apunta a un fichero que existe, gana a lo que se encuentre en disco.</li>
+<li><code>soluciones: []</code> significa <strong>sin solucion detectada</strong>, no un estado a medias: el objetivo de compilacion se resuelve del disco con <code>hooks/build-target.js</code> (ADR-037), y un repositorio de un solo <code>.csproj</code> es un caso soportado. Aqui no hay ninguna clave que apunte a un proyecto.</li>
+<li>Usar <code>integracion-vs.ps1 -All</code> para aplicar a todas sin preguntar.</li>
+</ul>
+<hr>
+<h3 id="jira">jira</h3>
+<p>Integracion con Jira. Se auto-configura al detectar un ticket Jira por primera vez.</p>
+<ul>
+<li><code>url</code> ejemplo: <code>https://miorg.atlassian.net</code> · <code>proyectoKey</code> ejemplo: <code>PROJ</code>.</li>
+<li>Cuando <code>habilitado=true</code>, evolutivos <code>PROYECTOKEY-XXX</code> muestran recordatorios de Jira. Evolutivos <code>EV-XX</code> o texto libre NO se vinculan a Jira.</li>
+<li>Fase 0: solo recordatorios manuales. Fase 2: automatizacion con MCP/API.</li>
+</ul>
+<hr>
+<h3 id="acceso_bd">acceso_bd</h3>
+<p>Claude puede conectarse a BD de desarrollo con enmascaramiento dinamico de datos personales.</p>
+<ul>
+<li><code>connection_string_key</code>: nombre de la variable/secreto con la cadena de conexion (nunca la cadena en si).</li>
+<li><code>usuario_claude</code>: usuario SQL especifico para Claude con enmascaramiento dinamico aplicado.</li>
+<li><code>permisos</code>: por defecto solo <code>select</code>. Ampliar requiere decision explicita del equipo.</li>
+</ul>
+<hr>
+<h3 id="infraestructura">infraestructura</h3>
+<p>Topologia de despliegue del proyecto. Se configura en <code>/hv:onboarding</code> Fase 5b. Cada entorno tiene servidor de <strong>Aplicaciones</strong> y de <strong>Servicios</strong>; el routing se decide por <code>tipo</code>+<code>publico</code> del entrypoint (R25).</p>
+<h4 id="entornos--ejemplo-completo">entornos[] — ejemplo completo</h4>
+<pre data-lang="json"><code><span class="tk-s">&quot;entornos&quot;</span>: [
+  {
+    <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;Dev&quot;</span>, <span class="tk-s">&quot;tipo&quot;</span>: <span class="tk-s">&quot;desarrollo&quot;</span>,
+    <span class="tk-s">&quot;servidor_app&quot;</span>: <span class="tk-s">&quot;dev01&quot;</span>, <span class="tk-s">&quot;servidor_servicios&quot;</span>: <span class="tk-s">&quot;svc01&quot;</span>,
+    <span class="tk-s">&quot;url_app&quot;</span>: <span class="tk-s">&quot;dev.example.org&quot;</span>, <span class="tk-s">&quot;url_servicios&quot;</span>: <span class="tk-s">&quot;dev-svc.example.org&quot;</span>,
+    <span class="tk-s">&quot;deploy_automatico&quot;</span>: true, <span class="tk-s">&quot;balanceo&quot;</span>: false
+  },
+  {
+    <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;Pre&quot;</span>, <span class="tk-s">&quot;tipo&quot;</span>: <span class="tk-s">&quot;staging&quot;</span>,
+    <span class="tk-s">&quot;servidor_app&quot;</span>: <span class="tk-s">&quot;pre.example.org&quot;</span>, <span class="tk-s">&quot;servidor_servicios&quot;</span>: <span class="tk-s">&quot;pre-svc.example.org&quot;</span>,
+    <span class="tk-s">&quot;url_app&quot;</span>: <span class="tk-s">&quot;pre.example.org&quot;</span>, <span class="tk-s">&quot;url_servicios&quot;</span>: <span class="tk-s">&quot;pre-svc.example.org&quot;</span>,
+    <span class="tk-s">&quot;deploy_automatico&quot;</span>: false, <span class="tk-s">&quot;balanceo&quot;</span>: false
+  },
+  {
+    <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;Pro&quot;</span>, <span class="tk-s">&quot;tipo&quot;</span>: <span class="tk-s">&quot;produccion&quot;</span>,
+    <span class="tk-s">&quot;servidores_app&quot;</span>: [<span class="tk-s">&quot;APP01.example.org&quot;</span>, <span class="tk-s">&quot;APP02.example.org&quot;</span>],
+    <span class="tk-s">&quot;servidores_servicios&quot;</span>: [<span class="tk-s">&quot;SVCNODE01.example.org&quot;</span>, <span class="tk-s">&quot;SVCNODE02.example.org&quot;</span>],
+    <span class="tk-s">&quot;url_app&quot;</span>: <span class="tk-s">&quot;www.example.org&quot;</span>, <span class="tk-s">&quot;url_servicios&quot;</span>: <span class="tk-s">&quot;svc.example.org&quot;</span>,
+    <span class="tk-s">&quot;deploy_automatico&quot;</span>: false, <span class="tk-s">&quot;balanceo&quot;</span>: true, <span class="tk-s">&quot;estrategia_deploy&quot;</span>: <span class="tk-s">&quot;rolling&quot;</span>
+  }
+]</code></pre>
+<p>Nota Pro/servicios: SVCNODE02 apagado por ahora — el deploy va solo al nodo online; se declara para cuando se encienda.</p>
+<h4 id="cicd">cicd</h4>
+<ul>
+<li><code>plataforma</code>: <code>azure-pipelines</code> | <code>github-actions</code> | <code>manual</code> | <code>null</code>.</li>
+<li><strong>R25</strong>: un pipeline por <strong>ENTRYPOINT</strong> de la solucion (Web/API con CD; Console con CD por tarea programada, <code>schtasks</code> lanzado desde el agente de build). <code>/hv:cicd-init</code> rellena <code>pipelines[]</code>; <code>/hv:cicd-deploy</code> y <code>/hv:cicd-status</code> lo leen.</li>
+</ul>
+<h5 id="pipelines--campos-por-entrada">pipelines[] — campos por entrada</h5>
+<div class="tbl"><table><thead><tr><th>Campo</th><th>Significado</th></tr></thead><tbody><tr><td><code>entrypoint</code></td><td>Proyecto entrypoint (ej. <code>MyCompany.X.Api</code>)</td></tr><tr><td><code>slug</code></td><td>Sufijo corto del YAML/definicion (<code>api</code>, <code>web</code>, <code>worker</code>)</td></tr><tr><td><code>tipo</code></td><td><code>web</code> \</td><td><code>api</code> \</td><td><code>console</code></td></tr><tr><td><code>publico</code></td><td>Solo APIs: <code>true</code> → servidores de Aplicaciones (default <code>false</code> → Servicios)</td></tr><tr><td><code>serverType</code></td><td><code>app</code> = Aplicaciones (web / API publica) · <code>svc</code> = Servicios (API privada) · <code>batch</code> = Console/Worker (sin tipo fijo; DeployTarget derivado del pool real, FB-002). Derivado de <code>tipo</code>+<code>publico</code> (R25); determina <code>DeployTarget=&lt;env&gt;-&lt;serverType&gt;</code></td></tr><tr><td><code>yaml</code></td><td>Nombre del fichero pipeline (<code>azure-pipelines.&lt;slug&gt;.yml</code>)</td></tr><tr><td><code>pipelineId</code></td><td>ID de la definicion Azure DevOps</td></tr><tr><td><code>fase</code></td><td>Fase de adopcion CI/CD (0/1/2)</td></tr><tr><td><code>stack</code></td><td><code>dotnet</code> \</td><td><code>netfx</code> \</td><td><code>spa</code> \</td><td><code>console</code></td></tr><tr><td><code>deployConfirm</code></td><td>Por entorno: <code>true</code> = <code>/hv:cicd-deploy</code> pide confirmacion (default solo <code>pro</code>)</td></tr><tr><td><code>ultimoBuildStatus</code></td><td>Cache del ultimo estado de build</td></tr></tbody></table></div>
+<p>Campos adicionales <strong>solo Console/Worker</strong> (CD via Tarea Programada): <code>mecanismo</code> (<code>tarea-programada</code> | <code>windows-service</code>), <code>taskName</code>, <code>taskScheduleArgs</code> (ej. <code>/SC HOURLY</code>), <code>taskRunAccount</code> (<code>NT AUTHORITY\SYSTEM</code>), <code>deployFolder</code>, <code>consoleExe</code>.</p>
+<h5 id="ejemplos">Ejemplos</h5>
+<pre data-lang="json"><code>{ <span class="tk-s">&quot;entrypoint&quot;</span>: <span class="tk-s">&quot;MyCompany.X.Api&quot;</span>, <span class="tk-s">&quot;slug&quot;</span>: <span class="tk-s">&quot;api&quot;</span>, <span class="tk-s">&quot;tipo&quot;</span>: <span class="tk-s">&quot;api&quot;</span>, <span class="tk-s">&quot;publico&quot;</span>: false,
+  <span class="tk-s">&quot;serverType&quot;</span>: <span class="tk-s">&quot;svc&quot;</span>, <span class="tk-s">&quot;yaml&quot;</span>: <span class="tk-s">&quot;azure-pipelines.api.yml&quot;</span>, <span class="tk-s">&quot;pipelineId&quot;</span>: <span class="tk-n">0</span>, <span class="tk-s">&quot;fase&quot;</span>: <span class="tk-n">2</span>,
+  <span class="tk-s">&quot;stack&quot;</span>: <span class="tk-s">&quot;dotnet&quot;</span>, <span class="tk-s">&quot;deployConfirm&quot;</span>: { <span class="tk-s">&quot;dev&quot;</span>: false, <span class="tk-s">&quot;pre&quot;</span>: false, <span class="tk-s">&quot;pro&quot;</span>: true },
+  <span class="tk-s">&quot;ultimoBuildStatus&quot;</span>: null }</code></pre>
+<pre data-lang="json"><code>{ <span class="tk-s">&quot;entrypoint&quot;</span>: <span class="tk-s">&quot;MyCompany.X.Worker&quot;</span>, <span class="tk-s">&quot;slug&quot;</span>: <span class="tk-s">&quot;worker&quot;</span>, <span class="tk-s">&quot;tipo&quot;</span>: <span class="tk-s">&quot;console&quot;</span>, <span class="tk-s">&quot;publico&quot;</span>: false,
+  <span class="tk-s">&quot;serverType&quot;</span>: <span class="tk-s">&quot;batch&quot;</span>, <span class="tk-s">&quot;yaml&quot;</span>: <span class="tk-s">&quot;azure-pipelines.worker.yml&quot;</span>, <span class="tk-s">&quot;pipelineId&quot;</span>: <span class="tk-n">0</span>, <span class="tk-s">&quot;fase&quot;</span>: <span class="tk-n">2</span>,
+  <span class="tk-s">&quot;stack&quot;</span>: <span class="tk-s">&quot;console&quot;</span>, <span class="tk-s">&quot;mecanismo&quot;</span>: <span class="tk-s">&quot;tarea-programada&quot;</span>, <span class="tk-s">&quot;taskName&quot;</span>: <span class="tk-s">&quot;MyCompany.X.Sync&quot;</span>,
+  <span class="tk-s">&quot;taskScheduleArgs&quot;</span>: <span class="tk-s">&quot;/SC HOURLY&quot;</span>, <span class="tk-s">&quot;taskRunAccount&quot;</span>: <span class="tk-s">&quot;NT AUTHORITY\\SYSTEM&quot;</span>,
+  <span class="tk-s">&quot;deployFolder&quot;</span>: <span class="tk-s">&quot;D:\\Apps\\MyCompany.X&quot;</span>, <span class="tk-s">&quot;consoleExe&quot;</span>: <span class="tk-s">&quot;MyCompany.X.Worker.exe&quot;</span>,
+  <span class="tk-s">&quot;deployConfirm&quot;</span>: { <span class="tk-s">&quot;dev&quot;</span>: false, <span class="tk-s">&quot;pre&quot;</span>: false, <span class="tk-s">&quot;pro&quot;</span>: true }, <span class="tk-s">&quot;ultimoBuildStatus&quot;</span>: null }</code></pre>
+<h4 id="aprobadores">aprobadores</h4>
+<p>Quien aprueba deploy a cada entorno (arrays de usuarios). Configurable por proyecto.</p>
+<h4 id="azuredevops-opcional-creado-por-issue-tracker-sync-en-proyectos-azure-devops">azureDevOps (opcional, creado por /issue-tracker-sync en proyectos Azure DevOps)</h4>
+<p>Estructura completa en <code>.claude/skills/issue-tracker-sync/references/azure-devops-rest-playbook.md</code>: <code>url</code>, <code>teamName</code>, <code>epicId</code>, <code>features{}</code>, <code>proceso</code> (<code>Scrum</code>|<code>Basic</code>|<code>Agile</code>|<code>CMMI</code>), <code>autoSync</code>, <code>pendingOps</code>. La regla <code>devops-awareness</code> lee <code>autoSync</code>.</p>
+<h4 id="github-opcional-creado-por-issue-tracker-sync-en-proyectos-github">github (opcional, creado por /issue-tracker-sync en proyectos GitHub)</h4>
+<p>Estructura completa en <code>.claude/skills/issue-tracker-sync/references/github-playbook.md</code>: <code>owner</code>, <code>repo</code>, <code>epicIssue</code> (numero del issue <code>type:epic</code>), <code>features{}</code> (numero del issue <code>type:feature</code> por area; <code>{}</code> en <code>modoPlano</code>), <code>milestones{}</code>, <code>project{ owner, number, id, statusFieldId, statusOptions{todo,inProgress,done} }</code>, <code>docsEnLugarDeWiki</code>, <code>autoSync</code>, <code>ultimaSync</code>, <code>pendingOps</code>. Solo uno de <code>azureDevOps</code>/<code>github</code> por proyecto.</p>
+<hr>
+<h3 id="criticidad--calendario">criticidad · calendario</h3>
+<ul>
+<li><code>criticidad.sla</code> ejemplo: <code>99.9%</code> · <code>horario_mantenimiento</code> ejemplo: <code>Sabados 02:00-06:00</code>.</li>
+<li><code>dependencias_inter_proyecto</code> ejemplo: <code>[&quot;Proyecto X depende de nuestra API&quot;, &quot;Consumimos datos de Proyecto Y&quot;]</code>.</li>
+<li><code>calendario.freeze_periods</code> ejemplo: <code>&quot;2026-03-01 a 2026-03-15 (cierre fiscal)&quot;</code>.</li>
+</ul>
+<hr>
+<h3 id="mcpSync">mcpSync</h3>
+<p>Sincronizacion con el Hub Ovillo.</p>
+<p><strong>Modelo de identidad — tres archivos, NO mezclar</strong> (detalle en <code>.claude/skills/mcp-config/SKILL.md</code>):</p>
+<div class="tbl"><table><thead><tr><th>Archivo</th><th>Scope</th><th>Commiteable</th><th>Contenido</th></tr></thead><tbody><tr><td><code>_hilo/.mcp-project.json</code></td><td>per-PROYECTO</td><td>✅</td><td><code>projectId</code>, <code>serverUrl</code> (para que otros devs se unan via <code>/v2/join</code>)</td></tr><tr><td><code>ESTADO_PROYECTO.json.mcpSync</code></td><td>per-PROYECTO</td><td>✅</td><td><code>habilitado</code>, <code>categorias</code>, <code>projectId</code>, <code>ultimaSync</code></td></tr><tr><td><code>_hilo/.mcp-credentials.json</code></td><td>per-DEV</td><td>❌ gitignored</td><td><code>apiKey</code>, <code>devAlias</code>, <code>devEmail</code>, <code>telemetryOptIn</code></td></tr></tbody></table></div>
+<p>Reglas:</p>
+<ul>
+<li><code>habilitado=true</code> lo activa <code>/hv:mcp-register</code> (o el instalador si la organizacion fijo <code>hub.registerOnInstall=true</code>). Si esta en <code>false</code>, <code>/hub-client</code> rechaza.</li>
+<li><code>projectId</code> se asigna al registrar el proyecto y se commitea.</li>
+<li><code>enviarNombreCompleto</code> (opcional, default <code>false</code>): la categoria <code>equipo</code> envia solo el alias; con <code>true</code> incluye tambien el nombre completo de cada miembro (dato personal, ADR-024). Politica de datos: pagina «Datos y privacidad» del portal.</li>
+<li>Cada categoria es un toggle independiente; si el Hub anade categorias nuevas, el script las activa por defecto (forward-compat). <code>feedbackEcosistema</code> sube <code>_hilo/FEEDBACK_ECOSISTEMA.md</code>.</li>
+<li><strong><code>telemetryOptIn</code> NO existe aqui</strong> — es per-dev; si aparece (residual de versiones anteriores), eliminarlo y usar <code>/hv:mcp-register</code>.</li>
+</ul>
+<hr>
+<h3 id="evolutivos">evolutivos</h3>
+<p>Gestion de evolutivos con soporte para trabajo colaborativo. Estructura de cada evolutivo (en <code>pendientes[]</code>, <code>enProgreso[]</code> o <code>completados[]</code>):</p>
+<pre data-lang="json"><code>{
+  <span class="tk-s">&quot;codigo&quot;</span>: <span class="tk-s">&quot;EV-XX&quot;</span>,
+  <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Descripción breve&quot;</span>,
+  <span class="tk-s">&quot;estado&quot;</span>: <span class="tk-s">&quot;pendiente|en_progreso|pausado|completado|cancelado&quot;</span>,
+  <span class="tk-s">&quot;asignadoA&quot;</span>: <span class="tk-s">&quot;usuario_git o null si no asignado&quot;</span>,
+  <span class="tk-s">&quot;rama&quot;</span>: <span class="tk-s">&quot;feature/EV-XX o null&quot;</span>,
+  <span class="tk-s">&quot;prioridad&quot;</span>: <span class="tk-s">&quot;alta|media|baja&quot;</span>,
+  <span class="tk-s">&quot;fechaCreacion&quot;</span>: <span class="tk-s">&quot;YYYY-MM-DD&quot;</span>,
+  <span class="tk-s">&quot;fechaInicio&quot;</span>: <span class="tk-s">&quot;YYYY-MM-DD o null&quot;</span>,
+  <span class="tk-s">&quot;fechaEstimada&quot;</span>: <span class="tk-s">&quot;YYYY-MM-DD o null&quot;</span>,
+  <span class="tk-s">&quot;fechaCompletado&quot;</span>: <span class="tk-s">&quot;YYYY-MM-DD o null&quot;</span>,
+  <span class="tk-s">&quot;creadoPor&quot;</span>: <span class="tk-s">&quot;usuario_git&quot;</span>,
+  <span class="tk-s">&quot;notas&quot;</span>: <span class="tk-s">&quot;Notas adicionales&quot;</span>
+}</code></pre>
+<p><code>evolutivoActivo</code> (raiz del JSON) = codigo del evolutivo actualmente en trabajo; se actualiza con <code>/hv:continuar</code>.</p>
+<hr>
+<h3 id="dominiosexternos-opcional">dominiosExternos (opcional)</h3>
+<p>Mapeo de integraciones externas → Context7 (regla <code>domain-api-docs.md</code>). Ver esa regla para la estructura (<code>nombre</code>, <code>carpetaPattern</code>, <code>context7Library</code>, <code>anchorTopics</code>, <code>skipPaths</code>).</p>
+<hr>
+<p><em>Schema de ESTADO_PROYECTO.json — Ovillo.</em></p></section><section class="sec" id="sec-arranque"><h2 id="arranque">Estado de arranque</h2><p>El JSON vacío que <code>/hv:init</code> escribe; las claves son contrato con el Hub y los hooks (invariante).</p><details><summary>ESTADO_PROYECTO.json (6108 B)</summary><pre data-lang="json"><code>{
+  <span class="tk-s">&quot;_schema&quot;</span>: <span class="tk-s">&quot;Documentacion de campos, ejemplos y opciones extendidas: _hilo/ESTADO_PROYECTO.schema.md (NO se carga en contexto; consultar bajo demanda)&quot;</span>,
+  <span class="tk-s">&quot;ecosistema&quot;</span>: {
+    <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;Ovillo&quot;</span>,
+    <span class="tk-s">&quot;version&quot;</span>: <span class="tk-s">&quot;1.0.2&quot;</span>,
+    <span class="tk-s">&quot;repositorio&quot;</span>: null,
+    <span class="tk-s">&quot;_repositorio_doc&quot;</span>: <span class="tk-s">&quot;owner/repo del ecosistema en GitHub (lo usa /eval-gap para abrir issues); null si el ecosistema vive en Azure DevOps&quot;</span>,
+    <span class="tk-s">&quot;componentes&quot;</span>: {
+      <span class="tk-s">&quot;Ovillo&quot;</span>: {
+        <span class="tk-s">&quot;descripcion&quot;</span>: <span class="tk-s">&quot;Ecosistema completo (plantilla + comandos + skills + reglas)&quot;</span>,
+        <span class="tk-s">&quot;carpeta&quot;</span>: <span class="tk-s">&quot;/&quot;</span>
+      },
+      <span class="tk-s">&quot;Hilo&quot;</span>: {
+        <span class="tk-s">&quot;descripcion&quot;</span>: <span class="tk-s">&quot;Sistema de memoria del proyecto (estado, sesiones, lecciones)&quot;</span>,
+        <span class="tk-s">&quot;carpeta&quot;</span>: <span class="tk-s">&quot;_hilo/&quot;</span>
+      },
+      <span class="tk-s">&quot;Patrón&quot;</span>: {
+        <span class="tk-s">&quot;descripcion&quot;</span>: <span class="tk-s">&quot;Base de conocimiento (_patron, rules, patterns)&quot;</span>,
+        <span class="tk-s">&quot;carpeta&quot;</span>: <span class="tk-s">&quot;_patron/&quot;</span>
+      }
+    }
+  },
+  <span class="tk-s">&quot;proyecto&quot;</span>: {
+    <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;[NOMBRE_PROYECTO]&quot;</span>,
+    <span class="tk-s">&quot;descripcion&quot;</span>: <span class="tk-s">&quot;[Descripcion breve del proyecto]&quot;</span>,
+    <span class="tk-s">&quot;owner&quot;</span>: <span class="tk-s">&quot;[Departamento/Area propietaria]&quot;</span>,
+    <span class="tk-s">&quot;jefe_proyecto&quot;</span>: <span class="tk-s">&quot;[Nombre del jefe de proyecto]&quot;</span>,
+    <span class="tk-s">&quot;responsable_tecnico&quot;</span>: <span class="tk-s">&quot;[Nombre del lider tecnico]&quot;</span>,
+    <span class="tk-s">&quot;fecha_inicio&quot;</span>: <span class="tk-s">&quot;[YYYY-MM-DD]&quot;</span>,
+    <span class="tk-s">&quot;repositorio&quot;</span>: <span class="tk-s">&quot;[URL del repositorio]&quot;</span>
+  },
+  <span class="tk-s">&quot;equipo&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;'usuario' = usuario Git. 'nombre' = displayName EXACTO de AD (System.AssignedTo en Azure DevOps Server). 'roles' = array (multi-rol). Ver schema.md#equipo&quot;</span>,
+    <span class="tk-s">&quot;miembros&quot;</span>: []
+  },
+  <span class="tk-s">&quot;configuracion&quot;</span>: {
+    <span class="tk-s">&quot;nivelIntegracionGit&quot;</span>: <span class="tk-s">&quot;medio&quot;</span>,
+    <span class="tk-s">&quot;_niveles_disponibles&quot;</span>: [
+      <span class="tk-s">&quot;basico&quot;</span>,
+      <span class="tk-s">&quot;medio&quot;</span>,
+      <span class="tk-s">&quot;alto&quot;</span>
+    ],
+    <span class="tk-s">&quot;prefijoCommit&quot;</span>: <span class="tk-s">&quot;[{codigo}]&quot;</span>,
+    <span class="tk-s">&quot;branching&quot;</span>: {
+      <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Configurado en /onboarding. Lo usan /commit, /git-sync, /liberar, /cicd-init (R21/R24). Ver schema.md#branching&quot;</span>,
+      <span class="tk-s">&quot;estrategia&quot;</span>: <span class="tk-s">&quot;github-flow&quot;</span>,
+      <span class="tk-s">&quot;_estrategias_disponibles&quot;</span>: [
+        <span class="tk-s">&quot;github-flow&quot;</span>,
+        <span class="tk-s">&quot;github-flow-simplificado&quot;</span>,
+        <span class="tk-s">&quot;trunk-based&quot;</span>,
+        <span class="tk-s">&quot;release-flow&quot;</span>,
+        <span class="tk-s">&quot;oneflow&quot;</span>,
+        <span class="tk-s">&quot;gitflow&quot;</span>,
+        <span class="tk-s">&quot;gitlab-flow&quot;</span>,
+        <span class="tk-s">&quot;developer-flow&quot;</span>,
+        <span class="tk-s">&quot;developer-branch&quot;</span>,
+        <span class="tk-s">&quot;ship-show-ask&quot;</span>,
+        <span class="tk-s">&quot;stacked-prs&quot;</span>,
+        <span class="tk-s">&quot;forking&quot;</span>,
+        <span class="tk-s">&quot;environment-branching&quot;</span>
+      ],
+      <span class="tk-s">&quot;ramaBase&quot;</span>: <span class="tk-s">&quot;main&quot;</span>,
+      <span class="tk-s">&quot;ramaDevelop&quot;</span>: null,
+      <span class="tk-s">&quot;mergeStrategy&quot;</span>: <span class="tk-s">&quot;squash&quot;</span>,
+      <span class="tk-s">&quot;_mergeStrategies&quot;</span>: [
+        <span class="tk-s">&quot;squash&quot;</span>,
+        <span class="tk-s">&quot;no-ff&quot;</span>,
+        <span class="tk-s">&quot;rebase&quot;</span>,
+        <span class="tk-s">&quot;merge&quot;</span>
+      ],
+      <span class="tk-s">&quot;releasesBranches&quot;</span>: false,
+      <span class="tk-s">&quot;convencionRamas&quot;</span>: <span class="tk-s">&quot;feature/{codigo}-{descripcion}&quot;</span>,
+      <span class="tk-s">&quot;_convencionRamas_opciones&quot;</span>: [
+        <span class="tk-s">&quot;feature/{codigo}-{descripcion}&quot;</span>,
+        <span class="tk-s">&quot;yyyyMMdd-{tipo}-{codigo}-{descripcion}&quot;</span>,
+        <span class="tk-s">&quot;yyyyMMdd-{tipo}/{codigo}-{descripcion}&quot;</span>,
+        <span class="tk-s">&quot;custom&quot;</span>
+      ],
+      <span class="tk-s">&quot;pushFeatures&quot;</span>: true,
+      <span class="tk-s">&quot;tiposTarea&quot;</span>: null,
+      <span class="tk-s">&quot;branchPolicies&quot;</span>: {
+        <span class="tk-s">&quot;reviewersMinimo&quot;</span>: <span class="tk-n">1</span>,
+        <span class="tk-s">&quot;buildValidation&quot;</span>: true,
+        <span class="tk-s">&quot;linkedWorkItems&quot;</span>: false,
+        <span class="tk-s">&quot;commentResolution&quot;</span>: true
+      },
+      <span class="tk-s">&quot;flujoDespliegue&quot;</span>: <span class="tk-s">&quot;main → demo (auto) → prod (manual)&quot;</span>
+    }
+  },
+  <span class="tk-s">&quot;soluciones&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Multi-solucion: auto-detectado por /onboarding e integracion-vs.ps1. Estructura de cada entrada en schema.md#soluciones&quot;</span>,
+    <span class="tk-s">&quot;multiSolucion&quot;</span>: false,
+    <span class="tk-s">&quot;solucionActiva&quot;</span>: null,
+    <span class="tk-s">&quot;soluciones&quot;</span>: []
+  },
+  <span class="tk-s">&quot;jira&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Se auto-configura al detectar un ticket Jira. Ver schema.md#jira&quot;</span>,
+    <span class="tk-s">&quot;habilitado&quot;</span>: false,
+    <span class="tk-s">&quot;proyectoKey&quot;</span>: null,
+    <span class="tk-s">&quot;url&quot;</span>: null
+  },
+  <span class="tk-s">&quot;estado&quot;</span>: {
+    <span class="tk-s">&quot;modo&quot;</span>: <span class="tk-s">&quot;puesta_a_punto&quot;</span>,
+    <span class="tk-s">&quot;_modos_disponibles&quot;</span>: [
+      <span class="tk-s">&quot;puesta_a_punto&quot;</span>,
+      <span class="tk-s">&quot;desarrollo&quot;</span>,
+      <span class="tk-s">&quot;mantenimiento&quot;</span>,
+      <span class="tk-s">&quot;soporte_uap&quot;</span>
+    ],
+    <span class="tk-s">&quot;fase_actual&quot;</span>: <span class="tk-s">&quot;onboarding&quot;</span>,
+    <span class="tk-s">&quot;_fases_disponibles&quot;</span>: [
+      <span class="tk-s">&quot;onboarding&quot;</span>,
+      <span class="tk-s">&quot;diseno&quot;</span>,
+      <span class="tk-s">&quot;desarrollo&quot;</span>,
+      <span class="tk-s">&quot;pruebas&quot;</span>,
+      <span class="tk-s">&quot;despliegue&quot;</span>,
+      <span class="tk-s">&quot;documentacion&quot;</span>,
+      <span class="tk-s">&quot;produccion&quot;</span>
+    ],
+    <span class="tk-s">&quot;sprint_actual&quot;</span>: null,
+    <span class="tk-s">&quot;version_actual&quot;</span>: <span class="tk-s">&quot;0.0.0&quot;</span>,
+    <span class="tk-s">&quot;ultima_actualizacion&quot;</span>: <span class="tk-s">&quot;[YYYY-MM-DD]&quot;</span>,
+    <span class="tk-s">&quot;actualizado_por&quot;</span>: <span class="tk-s">&quot;[Nombre]&quot;</span>
+  },
+  <span class="tk-s">&quot;acceso_bd&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Conexion de Claude a BD de desarrollo con enmascaramiento dinamico. Ver schema.md#acceso_bd&quot;</span>,
+    <span class="tk-s">&quot;habilitado&quot;</span>: false,
+    <span class="tk-s">&quot;entorno&quot;</span>: <span class="tk-s">&quot;desarrollo&quot;</span>,
+    <span class="tk-s">&quot;connection_string_key&quot;</span>: null,
+    <span class="tk-s">&quot;usuario_claude&quot;</span>: null,
+    <span class="tk-s">&quot;enmascaramiento_dinamico&quot;</span>: true,
+    <span class="tk-s">&quot;columnas_enmascaradas&quot;</span>: [
+      <span class="tk-s">&quot;email&quot;</span>,
+      <span class="tk-s">&quot;telefono&quot;</span>,
+      <span class="tk-s">&quot;dni&quot;</span>,
+      <span class="tk-s">&quot;direccion&quot;</span>,
+      <span class="tk-s">&quot;nombre_completo&quot;</span>,
+      <span class="tk-s">&quot;cuenta_bancaria&quot;</span>
+    ],
+    <span class="tk-s">&quot;tablas_restringidas&quot;</span>: [],
+    <span class="tk-s">&quot;permisos&quot;</span>: {
+      <span class="tk-s">&quot;select&quot;</span>: true,
+      <span class="tk-s">&quot;insert&quot;</span>: false,
+      <span class="tk-s">&quot;update&quot;</span>: false,
+      <span class="tk-s">&quot;delete&quot;</span>: false,
+      <span class="tk-s">&quot;execute_sp&quot;</span>: false
+    }
+  },
+  <span class="tk-s">&quot;infraestructura&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Topologia de despliegue (/onboarding Fase 5b). Routing por tipo+publico del entrypoint (R25). Ejemplos de entornos y pipelines[] (web/api/console) en schema.md#infraestructura&quot;</span>,
+    <span class="tk-s">&quot;entornos&quot;</span>: [],
+    <span class="tk-s">&quot;cicd&quot;</span>: {
+      <span class="tk-s">&quot;plataforma&quot;</span>: null,
+      <span class="tk-s">&quot;pipeline_existente&quot;</span>: false,
+      <span class="tk-s">&quot;deployment_groups&quot;</span>: false,
+      <span class="tk-s">&quot;pipelines&quot;</span>: []
+    },
+    <span class="tk-s">&quot;aprobadores&quot;</span>: {
+      <span class="tk-s">&quot;Pre&quot;</span>: [],
+      <span class="tk-s">&quot;Pro&quot;</span>: []
+    }
+  },
+  <span class="tk-s">&quot;criticidad&quot;</span>: {
+    <span class="tk-s">&quot;nivel&quot;</span>: null,
+    <span class="tk-s">&quot;_niveles_disponibles&quot;</span>: [
+      <span class="tk-s">&quot;alta&quot;</span>,
+      <span class="tk-s">&quot;media&quot;</span>,
+      <span class="tk-s">&quot;baja&quot;</span>
+    ],
+    <span class="tk-s">&quot;sla&quot;</span>: null,
+    <span class="tk-s">&quot;horario_mantenimiento&quot;</span>: null,
+    <span class="tk-s">&quot;dependencias_inter_proyecto&quot;</span>: []
+  },
+  <span class="tk-s">&quot;calendario&quot;</span>: {
+    <span class="tk-s">&quot;deadline&quot;</span>: null,
+    <span class="tk-s">&quot;freeze_periods&quot;</span>: [],
+    <span class="tk-s">&quot;release_cycle&quot;</span>: null,
+    <span class="tk-s">&quot;_release_cycle_opciones&quot;</span>: [
+      <span class="tk-s">&quot;continuo&quot;</span>,
+      <span class="tk-s">&quot;semanal&quot;</span>,
+      <span class="tk-s">&quot;quincenal&quot;</span>,
+      <span class="tk-s">&quot;mensual&quot;</span>,
+      <span class="tk-s">&quot;por_sprint&quot;</span>
+    ]
+  },
+  <span class="tk-s">&quot;mcpSync&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Sincronizacion con el Hub del ecosistema (opt-in; default de organizacion en ecosystem.config.json -&gt; hub). SCOPE per-PROYECTO (commiteable); credenciales per-DEV en _hilo/.mcp-credentials.json (gitignored). Ver schema.md#mcpSync&quot;</span>,
+    <span class="tk-s">&quot;_NO_anadir_telemetryOptIn_aqui&quot;</span>: <span class="tk-s">&quot;telemetryOptIn es PER-DEV — vive SOLO en .mcp-credentials.json y mcp.ProyectoDevs. Anadirlo aqui permitiria a un dev cambiar el opt-in de todo el equipo. Usar /mcp-register.&quot;</span>,
+    <span class="tk-s">&quot;habilitado&quot;</span>: false,
+    <span class="tk-s">&quot;serverUrl&quot;</span>: null,
+    <span class="tk-s">&quot;projectId&quot;</span>: null,
+    <span class="tk-s">&quot;enviarNombreCompleto&quot;</span>: false,
+    <span class="tk-s">&quot;categorias&quot;</span>: {
+      <span class="tk-s">&quot;decisiones&quot;</span>: true,
+      <span class="tk-s">&quot;lecciones&quot;</span>: true,
+      <span class="tk-s">&quot;nugets&quot;</span>: true,
+      <span class="tk-s">&quot;deuda&quot;</span>: true,
+      <span class="tk-s">&quot;evolutivos&quot;</span>: true,
+      <span class="tk-s">&quot;equipo&quot;</span>: true,
+      <span class="tk-s">&quot;feedbackEcosistema&quot;</span>: true
+    },
+    <span class="tk-s">&quot;ultimaSync&quot;</span>: null
+  },
+  <span class="tk-s">&quot;onboarding&quot;</span>: {
+    <span class="tk-s">&quot;completado&quot;</span>: false,
+    <span class="tk-s">&quot;fecha_inicio_onboarding&quot;</span>: null,
+    <span class="tk-s">&quot;fecha_fin_onboarding&quot;</span>: null,
+    <span class="tk-s">&quot;pasos_completados&quot;</span>: {
+      <span class="tk-s">&quot;informacion_general&quot;</span>: false,
+      <span class="tk-s">&quot;stack_tecnologico&quot;</span>: false,
+      <span class="tk-s">&quot;estructura_codigo&quot;</span>: false,
+      <span class="tk-s">&quot;base_datos&quot;</span>: false,
+      <span class="tk-s">&quot;integraciones&quot;</span>: false,
+      <span class="tk-s">&quot;infraestructura_despliegue&quot;</span>: false,
+      <span class="tk-s">&quot;autenticacion&quot;</span>: false,
+      <span class="tk-s">&quot;funcionalidades&quot;</span>: false,
+      <span class="tk-s">&quot;dependencias&quot;</span>: false,
+      <span class="tk-s">&quot;tests_existentes&quot;</span>: false,
+      <span class="tk-s">&quot;documentacion_existente&quot;</span>: false,
+      <span class="tk-s">&quot;equipo&quot;</span>: false,
+      <span class="tk-s">&quot;problemas_conocidos&quot;</span>: false
+    }
+  },
+  <span class="tk-s">&quot;desarrollo&quot;</span>: {
+    <span class="tk-s">&quot;modulos_en_desarrollo&quot;</span>: [],
+    <span class="tk-s">&quot;funcionalidades_en_progreso&quot;</span>: [],
+    <span class="tk-s">&quot;bloqueadores&quot;</span>: [],
+    <span class="tk-s">&quot;proxima_entrega&quot;</span>: null,
+    <span class="tk-s">&quot;notas_sprint&quot;</span>: <span class="tk-s">&quot;&quot;</span>
+  },
+  <span class="tk-s">&quot;evolutivoActivo&quot;</span>: null,
+  <span class="tk-s">&quot;evolutivos&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Estructura de cada evolutivo (codigo, titulo, estado, asignadoA, rama, prioridad, fechas, creadoPor, notas) en schema.md#evolutivos&quot;</span>,
+    <span class="tk-s">&quot;pendientes&quot;</span>: [],
+    <span class="tk-s">&quot;enProgreso&quot;</span>: [],
+    <span class="tk-s">&quot;completados&quot;</span>: []
+  },
+  <span class="tk-s">&quot;ultimaSesion&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Se actualiza con /pausar y se lee con /continuar&quot;</span>,
+    <span class="tk-s">&quot;fecha&quot;</span>: null,
+    <span class="tk-s">&quot;evolutivoActivo&quot;</span>: null,
+    <span class="tk-s">&quot;usuario&quot;</span>: null,
+    <span class="tk-s">&quot;ramaActiva&quot;</span>: null,
+    <span class="tk-s">&quot;proximoPaso&quot;</span>: null,
+    <span class="tk-s">&quot;resumenSesion&quot;</span>: null,
+    <span class="tk-s">&quot;archivosModificados&quot;</span>: [],
+    <span class="tk-s">&quot;notas&quot;</span>: null
+  },
+  <span class="tk-s">&quot;metricas&quot;</span>: {
+    <span class="tk-s">&quot;cobertura_tests&quot;</span>: null,
+    <span class="tk-s">&quot;ultimo_build&quot;</span>: null,
+    <span class="tk-s">&quot;ultimo_deploy&quot;</span>: null,
+    <span class="tk-s">&quot;incidencias_abiertas&quot;</span>: <span class="tk-n">0</span>,
+    <span class="tk-s">&quot;evolutivos_completados_mes&quot;</span>: <span class="tk-n">0</span>
+  },
+  <span class="tk-s">&quot;alertas&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Claude muestra estas alertas al iniciar sesion&quot;</span>,
+    <span class="tk-s">&quot;activas&quot;</span>: []
+  },
+  <span class="tk-s">&quot;historial_modos&quot;</span>: [
+    {
+      <span class="tk-s">&quot;modo&quot;</span>: <span class="tk-s">&quot;puesta_a_punto&quot;</span>,
+      <span class="tk-s">&quot;fecha&quot;</span>: <span class="tk-s">&quot;[YYYY-MM-DD]&quot;</span>,
+      <span class="tk-s">&quot;motivo&quot;</span>: <span class="tk-s">&quot;Incorporacion de proyecto existente a Ovillo&quot;</span>
+    }
+  ]
+}</code></pre></details></section><section class="related"><h2>Relacionados</h2><ul><li><a href="hooks/hilo-json-guard.html">hilo-json-guard</a></li><li><a href="adr/ADR-005.html">ADR-005</a></li></ul></section><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/_hilo/</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#que-es">Qué es</a></li><li class="l3"><a href="#que-hay-en-esta-carpeta">Que hay en esta carpeta</a></li><li class="l3"><a href="#como-encaja-en-ovillo">Como encaja en Ovillo</a></li><li class="l3"><a href="#que-no-va-en-el-hilo">Que NO va en el Hilo</a></li><li class="l3"><a href="#importante">Importante</a></li><li class="l2"><a href="#ficheros">Ficheros</a></li><li class="l2"><a href="#esquema">Esquema</a></li><li class="l3"><a href="#equipo">equipo</a></li><li class="l3"><a href="#configuracion">configuracion</a></li><li class="l3"><a href="#soluciones">soluciones</a></li><li class="l3"><a href="#jira">jira</a></li><li class="l3"><a href="#acceso_bd">acceso_bd</a></li><li class="l3"><a href="#infraestructura">infraestructura</a></li><li class="l3"><a href="#criticidad--calendario">criticidad · calendario</a></li><li class="l3"><a href="#mcpSync">mcpSync</a></li><li class="l3"><a href="#evolutivos">evolutivos</a></li><li class="l3"><a href="#dominiosexternos-opcional">dominiosExternos (opcional)</a></li><li class="l2"><a href="#arranque">Estado de arranque</a></li></ol></nav></div><script src="recursos/search-index.js" defer></script><script src="recursos/portal.js" defer></script></body></html>

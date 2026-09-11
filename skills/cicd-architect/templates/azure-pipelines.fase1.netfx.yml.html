@@ -1,0 +1,108 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · templates/azure-pipelines.fase1.netfx.yml.template · Ovillo</title><meta name="description" content="Fichero templates/azure-pipelines.fase1.netfx.yml.template de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · templates/azure-pipelines.fase1.netfx.yml.template · Ovillo"><meta property="og:description" content="Fichero templates/azure-pipelines.fase1.netfx.yml.template de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html" class="cur">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/Get-TemplateStamp.html">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/cicd-architect.html">cicd-architect</a></span><span>templates</span><span>azure-pipelines.fase1.netfx.yml.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>templates/</span><span>5344 B</span></div><h1>azure-pipelines.fase1.netfx.yml.template</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>5344 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code><span class="tk-c"># =============================================================================</span>
+<span class="tk-c"># {{PROYECTO_NOMBRE}} - Pipeline CI  (FASE 1: build validation)  [stack .NET Framework clasico]</span>
+<span class="tk-c"># Ovillo cicd-architect netfx-fase1 @ {{TEMPLATE_STAMP}}   (sello de plantilla; /cicd-status detecta drift)</span>
+<span class="tk-c"># -----------------------------------------------------------------------------</span>
+<span class="tk-c"># Receta VALIDADA end-to-end en piloto MyCompany.WebCorporativa (2026-06-04, build #20260604.10 verde).</span>
+<span class="tk-c"># Stack: .NET Framework 4.8 (MSBuild + packages.config) + test SDK-style netXX por ProjectReference.</span>
+<span class="tk-c">#   Restore: NuGetCommand@2   |   Build: VSBuild@1 (MSBuild)   |   Test: VSTest@2</span>
+<span class="tk-c">#   NO usar UseDotNet@2 / DotNetCoreCLI@2 (R4 asume 'dotnet'; aqui es MSBuild clasico).</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># ESTRUCTURA PLANA (pool + steps a nivel raiz, SIN 'stages:'/'jobs:'): en Azure DevOps Server 2020 un pool a nivel</span>
+<span class="tk-c">#   de job dentro de 'stages:' NO lo resuelve la ejecucion manual (&quot;No pool was specified&quot;). Para una</span>
+<span class="tk-c">#   FASE 1 de un solo job, el formato plano con pool RAIZ funciona manual Y por push. (FASE 2 multi-stage</span>
+<span class="tk-c">#   usara pool por stage/job.)</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># Placeholders /cicd-init: {{PROYECTO_NOMBRE}} {{SLN_PATH}} {{BRANCH}} {{SRC_DIR}} {{TEST_DIR}} {{NUGET_CONFIG_PATH}} {{TESTPLATFORM_NUPKG}}</span>
+<span class="tk-c">#</span>
+<span class="tk-c"># === PRERREQUISITOS QUE /cicd-init DEBE GARANTIZAR (lecciones del piloto) ===</span>
+<span class="tk-c">#  1. definition.queue != NULL (TEC-007): tras crear la definicion, asignar la cola el pool configurado por API.</span>
+<span class="tk-c">#     Si NULL -&gt; TODO build falla instant con &quot;No pool was specified&quot; (da igual el pool del YAML).</span>
+<span class="tk-c">#     Tipico al crear el pipeline por el wizard de la UI (la UI deja queue=NULL; el POST de /cicd-init la pone).</span>
+<span class="tk-c">#  2. NuGet.config en el repo con el feed interno de la organización ('Internal'): el agente NO hereda el config de</span>
+<span class="tk-c">#     user. Generar {{NUGET_CONFIG_PATH}} con &lt;clear/&gt; + Internal (\\fileserver.example.org\repositorio\Paquetes) + nuget.org.</span>
+<span class="tk-c">#  3. El .sln debe tener el header 'Microsoft Visual Studio Solution File...' en la LINEA 1 (tras BOM).</span>
+<span class="tk-c">#     Un comentario '# ...' delante rompe el parser MSBuild14 de nuget.exe (&quot;No file format header found&quot;).</span>
+<span class="tk-c">#  4. Rol de la cola del proyecto: 'Project Valid Users' = User (no Reader) para que el dueno autorice</span>
+<span class="tk-c">#     la canalizacion (PATCH pipelinePermissions). Proyecto nuevo nace con Reader -&gt; AccessDenied.</span>
+<span class="tk-c">#  5. Agente de build con VS Build Tools (msbuild + VSTest). En el piloto ya estaba VS 2022 BuildTools.</span>
+<span class="tk-c">#  6. Todos los proyectos del .sln (incl. el de tests) COMMITEADOS (si falta -&gt; MSB3202 en CI).</span>
+<span class="tk-c"># =============================================================================</span>
+
+trigger:
+  branches:
+    include:
+      - <span class="tk-v">{{BRANCH}}</span>
+  paths:
+    include:
+      - <span class="tk-s">'{{SRC_DIR}}/**'</span>
+      - <span class="tk-s">'{{SRC_DIR}}/**/*'</span>        <span class="tk-c"># R7: doble patron</span>
+      - <span class="tk-s">'{{TEST_DIR}}/**'</span>
+      - <span class="tk-s">'{{TEST_DIR}}/**/*'</span>
+      - <span class="tk-s">'azure-pipelines.yml'</span>
+
+pr: none
+
+variables:
+  - name: solution
+    value: <span class="tk-s">'{{SLN_PATH}}'</span>
+  - name: buildConfiguration
+    value: <span class="tk-s">'Release'</span>
+  - name: buildPlatform
+    value: <span class="tk-s">'Any CPU'</span>
+
+pool:
+  name: <span class="tk-v">{{BUILD_POOL}}</span>                  <span class="tk-c"># R1: pool a nivel RAIZ (pipeline plano)</span>
+  demands:
+    - Agent.ComputerName -equals <span class="tk-v">{{BUILD_AGENT}}</span>
+
+steps:
+  - checkout: self
+    clean: <span class="tk-k">true</span>
+
+  - task: NuGetToolInstaller@<span class="tk-n">1</span>
+    displayName: <span class="tk-s">'Instalar nuget.exe'</span>
+    inputs:
+      versionSpec: <span class="tk-s">'6.x'</span>
+
+  <span class="tk-c"># CRITICO: feedsToUse:config + nugetConfigPath. Sin esto, NuGetCommand@2 crea un config temporal</span>
+  <span class="tk-c"># con SOLO nuget.org e ignora el NuGet.config del repo -&gt; los paquetes internos MyCompany.* dan NotFound.</span>
+  - task: NuGetCommand@<span class="tk-n">2</span>
+    displayName: <span class="tk-s">'NuGet restore (solucion)'</span>
+    inputs:
+      command: <span class="tk-s">'restore'</span>
+      restoreSolution: <span class="tk-s">'$(solution)'</span>
+      feedsToUse: <span class="tk-s">'config'</span>
+      nugetConfigPath: <span class="tk-s">'{{NUGET_CONFIG_PATH}}'</span>    <span class="tk-c"># ej. {{SRC_DIR}}/NuGet.config con el feed Internal</span>
+
+  - task: VSBuild@<span class="tk-n">1</span>
+    displayName: <span class="tk-s">'VSBuild solucion (MSBuild)'</span>
+    inputs:
+      solution: <span class="tk-s">'$(solution)'</span>
+      vsVersion: <span class="tk-s">'latest'</span>
+      configuration: <span class="tk-s">'$(buildConfiguration)'</span>
+      platform: <span class="tk-s">'$(buildPlatform)'</span>
+
+  <span class="tk-c"># TEC-008: el agente trae vstest 16.11 (enum vsTestVersion sin 17.0); para adapter MSTest &gt;=4.x</span>
+  <span class="tk-c"># se instala vstest 18.x desde el feed Internal (netShare). Prerequisito: Microsoft.TestPlatform en el feed (PERMISOS_CICD).</span>
+  - task: VisualStudioTestPlatformInstaller@<span class="tk-n">1</span>
+    displayName: <span class="tk-s">'vstest.console 18.x (feed Internal)'</span>
+    inputs:
+      packageFeedSelector: <span class="tk-s">'netShare'</span>
+      netShare: <span class="tk-s">'{{TESTPLATFORM_NUPKG}}'</span>   <span class="tk-c"># ej. \\fileserver.example.org\repositorio\MyOrg\PaquetesNuget\Microsoft.TestPlatform.18.6.0.nupkg</span>
+  - task: VSTest@<span class="tk-n">2</span>
+    displayName: <span class="tk-s">'VSTest'</span>
+    inputs:
+      vsTestVersion: <span class="tk-s">'toolsInstaller'</span>      <span class="tk-c"># usa el 18.x del installer, NO el 16.11 del agente (TEC-008)</span>
+      testSelector: <span class="tk-s">'testAssemblies'</span>
+      testAssemblyVer2: |
+        **\*Tests.dll
+        !**\*TestAdapter.dll
+        !**\obj\**
+      searchFolder: <span class="tk-s">'$(System.DefaultWorkingDirectory)'</span>
+      configuration: <span class="tk-s">'$(buildConfiguration)'</span>
+      codeCoverageEnabled: <span class="tk-k">false</span>
+      <span class="tk-c"># codeCoverageEnabled:false A PROPOSITO: si el agente no tiene el profiler IntelliTrace</span>
+      <span class="tk-c"># (x64\Microsoft.IntelliTrace.Profiler.dll), el colector de cobertura VS crashea y vstest.console</span>
+      <span class="tk-c"># devuelve exit 1 AUNQUE TODOS LOS TESTS PASEN (&quot;Test Run Failed&quot; con Passed:N/N). Validado en piloto.</span>
+      <span class="tk-c"># Cobertura para el gate G7/R18 en netfx no usa el '.coverage' de VS; via coverlet + dotnet test en FASE 2.</span>
+</code></pre><p style="margin-top:32px"><a href="../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/cicd-architect/references/troubleshooting-frecuente.html"><small>Anterior</small>references/troubleshooting-frecuente.md</a><a class="next" href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html"><small>Siguiente</small>templates/azure-pipelines.fase2.console.yml.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

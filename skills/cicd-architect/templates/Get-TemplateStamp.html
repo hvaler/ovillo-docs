@@ -1,0 +1,128 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cicd-architect · templates/Get-TemplateStamp.ps1 · Ovillo</title><meta name="description" content="Fichero templates/Get-TemplateStamp.ps1 de la skill cicd-architect"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="cicd-architect · templates/Get-TemplateStamp.ps1 · Ovillo"><meta property="og:description" content="Fichero templates/Get-TemplateStamp.ps1 de la skill cicd-architect"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/Get-TemplateStamp.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/cicd-architect/templates/Get-TemplateStamp.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/cicd-architect/templates/Get-TemplateStamp.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de cicd-architect (43)</h4><ul class="sibs"><li><a href="../../../skills/cicd-architect/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/cicd-architect/references/azure-devops-server-2020-quick-ref.html">references/azure-devops-server-2020-quick-ref.md</a></li><li><a href="../../../skills/cicd-architect/references/classic-migration.html">references/classic-migration.md</a></li><li><a href="../../../skills/cicd-architect/references/diseno-stages.html">references/diseno-stages.md</a></li><li><a href="../../../skills/cicd-architect/references/fases-adopcion.html">references/fases-adopcion.md</a></li><li><a href="../../../skills/cicd-architect/references/invariantes-resumen.html">references/invariantes-resumen.md</a></li><li><a href="../../../skills/cicd-architect/references/troubleshooting-frecuente.html">references/troubleshooting-frecuente.md</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase1.netfx.yml.html">templates/azure-pipelines.fase1.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.console.yml.html">templates/azure-pipelines.fase2.console.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.dotnet.yml.html">templates/azure-pipelines.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.branch-gated.yml.html">templates/azure-pipelines.fase2.netfx.branch-gated.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.netfx.yml.html">templates/azure-pipelines.fase2.netfx.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.fase2.vue.yml.html">templates/azure-pipelines.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/azure-pipelines.nettool.yml.html">templates/azure-pipelines.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/coverage-gate.html">templates/coverage-gate.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/Get-TemplateStamp.html" class="cur">templates/Get-TemplateStamp.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html">templates/github/_reusable-dotnet-build.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/coverage-gate/action.yml.html">templates/github/actions/coverage-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/quality-sync/action.yml.html">templates/github/actions/quality-sync/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-gate/action.yml.html">templates/github/actions/security-gate/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/actions/security-scan/action.yml.html">templates/github/actions/security-scan/action.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.dotnet.yml.html">templates/github/cd.fase2.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/cd.fase2.vue.yml.html">templates/github/cd.fase2.vue.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.fase1.dotnet.yml.html">templates/github/ci.fase1.dotnet.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/ci.nettool.yml.html">templates/github/ci.nettool.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/github/README.html">templates/github/README.md</a></li><li><a href="../../../skills/cicd-architect/templates/github/security.yml.html">templates/github/security.yml.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.github.ps1.html">templates/Provision-QualityCiKey.github.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/Provision-QualityCiKey.ps1.html">templates/Provision-QualityCiKey.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/registrar-pipeline-azure-devops.ps1.html">templates/registrar-pipeline-azure-devops.ps1.template</a></li><li><a href="../../../skills/cicd-architect/templates/security-scan.html">templates/security-scan.ps1</a></li><li><a href="../../../skills/cicd-architect/templates/steps/backup-pre-deploy.html">templates/steps/backup-pre-deploy.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/coverage-gate.html">templates/steps/coverage-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/deploy-scheduled-task.html">templates/steps/deploy-scheduled-task.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/download-artifact-rest.html">templates/steps/download-artifact-rest.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/quality-sync.html">templates/steps/quality-sync.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/rollback-on-fail.html">templates/steps/rollback-on-fail.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-scan-build.html">templates/steps/security-scan-build.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/security-verdict-gate.html">templates/steps/security-verdict-gate.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort-spa.html">templates/steps/smoke-besteffort-spa.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-besteffort.html">templates/steps/smoke-besteffort.yml</a></li><li><a href="../../../skills/cicd-architect/templates/steps/smoke-strict-dotnet.html">templates/steps/smoke-strict-dotnet.yml</a></li><li><a href="../../../skills/cicd-architect/templates/validate-pipeline-complete.html">templates/validate-pipeline-complete.ps1</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/cicd-architect.html">cicd-architect</a></span><span>templates</span><span>Get-TemplateStamp.ps1</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>cicd-architect</span><span>templates/</span><span>5797 B</span></div><h1>Get-TemplateStamp.ps1</h1><p class="lede">Fichero que <code>/hv:cicd-architect</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/cicd-architect.html">cicd-architect</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>5797 B</b><span>tamaño</span></div><div><b>2026-09-09</b><span>último cambio del pack</span></div></div><pre data-lang="powershell"><code><span class="tk-c">#Requires -Version 5.1</span>
+<span class="tk-c">&lt;#
+.SYNOPSIS
+    Calcula el sello de plantilla por HASH DE CONTENIDO del *.yml.template de un stack CI/CD.
+
+.DESCRIPTION
+    Devuelve los primeros 12 hex del SHA256 del template del stack, con los line-endings
+    NORMALIZADOS a LF antes de hashear (robusto a CRLF / git autocrlf entre consumidores).
+
+    Es la UNICA fuente de verdad del hash: la invocan IGUAL /cicd-init (al sellar el YAML
+    en FASE 2.8.1) y /cicd-status (al comprobar drift en seccion 1.5). Si las dos partes
+    calcularan el hash por separado y divergieran, /cicd-status marcaria drift SIEMPRE.
+
+    Por que hash-de-template y no el zip-sha del ECOSISTEMA (esquema previo, h13): el zip-sha
+    cambia en CADA release aunque el template del stack sea identico -&gt; /cicd-status marcaba
+    drift cosmetico en cada bump (re-render = solo refrescar el sello). El hash de contenido
+    del template solo cambia cuando el template REALMENTE cambia -&gt; drift fiable.
+
+    El placeholder {{TEMPLATE_STAMP}} forma parte del contenido hasheado, pero es CONSTANTE
+    en el .template (nunca se sustituye en el fuente), asi que no afecta a la deteccion.
+
+.PARAMETER Stack
+    Token de stack del sello: dotnet | console | vue | netfx | netfx-branch-gated | netfx-fase1 | nettool
+    (Azure Pipelines) | github-dotnet-fase1 | github-dotnet | github-vue | github-nettool | github-reusable | github-security
+    (GitHub Actions).
+    Se resuelve al *.yml.template correspondiente con el mapa interno.
+
+.PARAMETER Template
+    Alternativa a -Stack: ruta directa al *.yml.template (tiene prioridad sobre -Stack).
+
+.PARAMETER TemplatesDir
+    Carpeta de templates. Default: .claude/skills/cicd-architect/templates (relativa al cwd,
+    que es la raiz del repo donde vive azure-pipelines.yml).
+
+.OUTPUTS
+    Imprime en stdout los 12 hex del hash (ej. '9f3c1a2b4d5e'). exit 0 OK / exit 2 error.
+
+.EXAMPLE
+    pwsh Get-TemplateStamp.ps1 -Stack netfx-branch-gated
+    # -&gt; 9f3c1a2b4d5e
+
+.EXAMPLE
+    $h = &amp; pwsh .claude/skills/cicd-architect/templates/Get-TemplateStamp.ps1 -Stack dotnet
+#&gt;</span>
+[CmdletBinding()]
+<span class="tk-k">param</span>(
+    [string] <span class="tk-v">$Stack</span>,
+    [string] <span class="tk-v">$Template</span>,
+    [string] <span class="tk-v">$TemplatesDir</span> = <span class="tk-s">'.claude/skills/cicd-architect/templates'</span>
+)
+
+<span class="tk-v">$ErrorActionPreference</span> = <span class="tk-s">'Stop'</span>
+
+<span class="tk-c"># Modo plugin (hv@ovillo): los templates NO estan en .claude/skills/ del repo consumidor sino junto a este</span>
+<span class="tk-c"># script (${CLAUDE_PLUGIN_ROOT}/skills/cicd-architect/templates). Si la ruta relativa no existe, usar la del script.</span>
+<span class="tk-k">if</span> (-not (Test-Path -LiteralPath <span class="tk-v">$TemplatesDir</span>) -and <span class="tk-v">$PSScriptRoot</span>) { <span class="tk-v">$TemplatesDir</span> = <span class="tk-v">$PSScriptRoot</span> }
+
+<span class="tk-k">try</span> {
+    <span class="tk-c"># Mapa stack -&gt; fichero template. Tokens identicos a los de la cabecera de cada template</span>
+    <span class="tk-c"># (# Ovillo cicd-architect &lt;stack&gt; @ {{TEMPLATE_STAMP}}). Unica copia del mapa en el</span>
+    <span class="tk-c"># ecosistema: /cicd-init y /cicd-status pasan -Stack y NO duplican la tabla.</span>
+    <span class="tk-v">$map</span> = @{
+        <span class="tk-s">'dotnet'</span>             = <span class="tk-s">'azure-pipelines.fase2.dotnet.yml.template'</span>
+        <span class="tk-s">'console'</span>            = <span class="tk-s">'azure-pipelines.fase2.console.yml.template'</span>
+        <span class="tk-s">'vue'</span>                = <span class="tk-s">'azure-pipelines.fase2.vue.yml.template'</span>
+        <span class="tk-s">'netfx'</span>              = <span class="tk-s">'azure-pipelines.fase2.netfx.yml.template'</span>
+        <span class="tk-s">'netfx-branch-gated'</span> = <span class="tk-s">'azure-pipelines.fase2.netfx.branch-gated.yml.template'</span>
+        <span class="tk-s">'netfx-fase1'</span>        = <span class="tk-s">'azure-pipelines.fase1.netfx.yml.template'</span>
+        <span class="tk-s">'nettool'</span>            = <span class="tk-s">'azure-pipelines.nettool.yml.template'</span>
+        <span class="tk-c"># GitHub Actions (templates/github/): un sello por fichero generado</span>
+        <span class="tk-s">'github-dotnet-fase1'</span> = <span class="tk-s">'github/ci.fase1.dotnet.yml.template'</span>
+        <span class="tk-s">'github-dotnet'</span>       = <span class="tk-s">'github/cd.fase2.dotnet.yml.template'</span>
+        <span class="tk-s">'github-vue'</span>          = <span class="tk-s">'github/cd.fase2.vue.yml.template'</span>
+        <span class="tk-s">'github-nettool'</span>      = <span class="tk-s">'github/ci.nettool.yml.template'</span>
+        <span class="tk-s">'github-reusable'</span>     = <span class="tk-s">'github/_reusable-dotnet-build.yml.template'</span>
+        <span class="tk-s">'github-security'</span>     = <span class="tk-s">'github/security.yml.template'</span>
+    }
+
+    <span class="tk-k">if</span> (-not <span class="tk-v">$Template</span>) {
+        <span class="tk-k">if</span> ([string]::IsNullOrWhiteSpace(<span class="tk-v">$Stack</span>) -or -not <span class="tk-v">$map</span>.ContainsKey(<span class="tk-v">$Stack</span>)) {
+            Write-Host <span class="tk-s">&quot;ERROR: stack desconocido: '$Stack'. Validos: $($map.Keys -join ', '). O pasar -Template &lt;ruta&gt;.&quot;</span> -ForegroundColor Red
+            <span class="tk-k">exit</span> <span class="tk-n">2</span>
+        }
+        <span class="tk-v">$Template</span> = Join-Path <span class="tk-v">$TemplatesDir</span> <span class="tk-v">$map</span>[<span class="tk-v">$Stack</span>]
+    }
+
+    <span class="tk-k">if</span> (-not (Test-Path -LiteralPath <span class="tk-v">$Template</span>)) {
+        Write-Host <span class="tk-s">&quot;ERROR: template no encontrado: $Template&quot;</span> -ForegroundColor Red
+        <span class="tk-k">exit</span> <span class="tk-n">2</span>
+    }
+
+    <span class="tk-c"># Leer BYTES CRUDOS (sin decodificar). CRITICO: NO usar Get-Content -Raw aqui -- decodifica</span>
+    <span class="tk-c"># con el encoding por defecto del shell (PS 5.1 = ANSI/CP1252, PS 7 = UTF-8), y como los</span>
+    <span class="tk-c"># templates tienen acentos/em-dashes el string resultante difiere por shell -&gt; hash distinto</span>
+    <span class="tk-c"># -&gt; drift falso si el dev renderiza con un shell y comprueba con otro. Hashear bytes es</span>
+    <span class="tk-c"># encoding-agnostico. Normalizar EOL a nivel de byte (CRLF y CR sueltos -&gt; LF) para ser</span>
+    <span class="tk-c"># robusto a git autocrlf entre consumidores.</span>
+    <span class="tk-v">$raw</span> = [System.IO.File]::ReadAllBytes(<span class="tk-v">$Template</span>)
+    <span class="tk-v">$out</span> = New-Object System.Collections.Generic.List[byte]
+    <span class="tk-k">for</span> (<span class="tk-v">$i</span> = <span class="tk-n">0</span>; <span class="tk-v">$i</span> -lt <span class="tk-v">$raw</span>.Length; <span class="tk-v">$i</span>++) {
+        <span class="tk-v">$b</span> = <span class="tk-v">$raw</span>[<span class="tk-v">$i</span>]
+        <span class="tk-k">if</span> (<span class="tk-v">$b</span> -eq 0x0D) {
+            <span class="tk-v">$out</span>.Add([byte]0x0A)                                            <span class="tk-c"># CR -&gt; LF</span>
+            <span class="tk-k">if</span> ((<span class="tk-v">$i</span> + <span class="tk-n">1</span>) -lt <span class="tk-v">$raw</span>.Length -and <span class="tk-v">$raw</span>[<span class="tk-v">$i</span> + <span class="tk-n">1</span>] -eq 0x0A) { <span class="tk-v">$i</span>++ }  <span class="tk-c"># CRLF -&gt; un solo LF</span>
+        }
+        <span class="tk-k">else</span> {
+            <span class="tk-v">$out</span>.Add(<span class="tk-v">$b</span>)
+        }
+    }
+    <span class="tk-v">$bytes</span> = <span class="tk-v">$out</span>.ToArray()
+
+    <span class="tk-v">$sha</span> = [System.Security.Cryptography.SHA256]::Create()
+    <span class="tk-k">try</span> {
+        <span class="tk-v">$hashBytes</span> = <span class="tk-v">$sha</span>.ComputeHash(<span class="tk-v">$bytes</span>)
+    }
+    <span class="tk-k">finally</span> {
+        <span class="tk-v">$sha</span>.Dispose()
+    }
+
+    <span class="tk-v">$hex</span> = -join (<span class="tk-v">$hashBytes</span> | ForEach-Object { <span class="tk-v">$_</span>.ToString(<span class="tk-s">'x2'</span>) })
+    Write-Output <span class="tk-v">$hex</span>.Substring(<span class="tk-n">0</span>, <span class="tk-n">12</span>)
+    <span class="tk-k">exit</span> <span class="tk-n">0</span>
+}
+<span class="tk-k">catch</span> {
+    Write-Host <span class="tk-s">&quot;ERROR inesperado en Get-TemplateStamp.ps1: $($_.Exception.Message)&quot;</span> -ForegroundColor Red
+    <span class="tk-k">exit</span> <span class="tk-n">2</span>
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/cicd-architect.html#ficheros">← Volver a la ficha de cicd-architect</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/cicd-architect/templates/coverage-gate.html"><small>Anterior</small>templates/coverage-gate.ps1</a><a class="next" href="../../../skills/cicd-architect/templates/github/_reusable-dotnet-build.yml.html"><small>Siguiente</small>templates/github/_reusable-dotnet-build.yml.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/cicd-architect/templates/Get-TemplateStamp.ps1</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

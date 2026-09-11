@@ -1,0 +1,183 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>api-integration-patterns · templates/ApiResponse.cs.template · Ovillo</title><meta name="description" content="Fichero templates/ApiResponse.cs.template de la skill api-integration-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="api-integration-patterns · templates/ApiResponse.cs.template · Ovillo"><meta property="og:description" content="Fichero templates/ApiResponse.cs.template de la skill api-integration-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/templates/ApiResponse.cs.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/api-integration-patterns/templates/ApiResponse.cs.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/api-integration-patterns/templates/ApiResponse.cs.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.2.3 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">40</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de api-integration-patterns (19)</h4><ul class="sibs"><li><a href="../../../skills/api-integration-patterns/checklists/api-integration-checklist.html">checklists/api-integration-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/checklists/security-checklist.html">checklists/security-checklist.md</a></li><li><a href="../../../skills/api-integration-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/api-integration-patterns/examples/external-api-example.html">examples/external-api-example.md</a></li><li><a href="../../../skills/api-integration-patterns/examples/polly-advanced.html">examples/polly-advanced.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/api-versioning.html">patterns/api-versioning.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/circuit-breaker.html">patterns/circuit-breaker.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/httpclient-factory.html">patterns/httpclient-factory.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/oauth2-client-credentials.html">patterns/oauth2-client-credentials.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/response-caching.html">patterns/response-caching.md</a></li><li><a href="../../../skills/api-integration-patterns/patterns/retry-policy.html">patterns/retry-policy.md</a></li><li><a href="../../../skills/api-integration-patterns/references/integration-examples.html">references/integration-examples.md</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Generate-ApiClient.html">scripts/Generate-ApiClient.ps1</a></li><li><a href="../../../skills/api-integration-patterns/scripts/Test-ApiConnection.html">scripts/Test-ApiConnection.ps1</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiClient.cs.html">templates/ApiClient.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html">templates/ApiOptions.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ApiResponse.cs.html" class="cur">templates/ApiResponse.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html">templates/DelegatingHandler.cs.template</a></li><li><a href="../../../skills/api-integration-patterns/templates/ExternalApiClient.cs.html">templates/ExternalApiClient.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></span><span>templates</span><span>ApiResponse.cs.template</span></nav><span class="sp"></span><span class="pill">v1.2.3</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>api-integration-patterns</span><span>templates/</span><span>5594 B</span></div><h1>ApiResponse.cs.template</h1><p class="lede">Fichero que <code>/hv:api-integration-patterns</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/api-integration-patterns.html">api-integration-patterns</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>5594 B</b><span>tamaño</span></div><div><b>2026-09-08</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>// TEMPLATE: API Response Wrappers
+// Uso: Wrappers genéricos para respuestas de API con manejo de errores
+
+namespace MyCompany.MyApp.Infrastructure.ApiClients.Models;
+
+/// &lt;summary&gt;
+/// Wrapper genérico para respuestas exitosas/fallidas
+/// &lt;/summary&gt;
+public record ApiResponse&lt;T&gt;
+{
+    public bool Success { get; init; }
+    public T? Data { get; init; }
+    public string? ErrorMessage { get; init; }
+    public string? ErrorCode { get; init; }
+    public int StatusCode { get; init; }
+    public DateTime Timestamp { get; init; } = DateTime.UtcNow;
+    public Dictionary&lt;string, string&gt;? Metadata { get; init; }
+
+    /// &lt;summary&gt;
+    /// Crea una respuesta exitosa
+    /// &lt;/summary&gt;
+    public static ApiResponse&lt;T&gt; SuccessResponse(T data, int statusCode = <span class="tk-n">200</span>)
+        =&gt; new()
+        {
+            Success = <span class="tk-k">true</span>,
+            Data = data,
+            StatusCode = statusCode
+        };
+
+    /// &lt;summary&gt;
+    /// Crea una respuesta de error
+    /// &lt;/summary&gt;
+    public static ApiResponse&lt;T&gt; ErrorResponse(
+        string errorMessage,
+        int statusCode = <span class="tk-n">500</span>,
+        string? errorCode = <span class="tk-k">null</span>)
+        =&gt; new()
+        {
+            Success = <span class="tk-k">false</span>,
+            ErrorMessage = errorMessage,
+            ErrorCode = errorCode,
+            StatusCode = statusCode
+        };
+
+    /// &lt;summary&gt;
+    /// Crea una respuesta de error desde excepción
+    /// &lt;/summary&gt;
+    public static ApiResponse&lt;T&gt; FromException(Exception ex, int statusCode = <span class="tk-n">500</span>)
+        =&gt; new()
+        {
+            Success = <span class="tk-k">false</span>,
+            ErrorMessage = ex.Message,
+            ErrorCode = ex.GetType().Name,
+            StatusCode = statusCode,
+            Metadata = new Dictionary&lt;string, string&gt;
+            {
+                [<span class="tk-s">&quot;ExceptionType&quot;</span>] = ex.GetType().FullName ?? <span class="tk-s">&quot;Unknown&quot;</span>,
+                [<span class="tk-s">&quot;StackTrace&quot;</span>] = ex.StackTrace ?? <span class="tk-s">&quot;N/A&quot;</span>
+            }
+        };
+}
+
+/// &lt;summary&gt;
+/// Respuesta paginada genérica
+/// &lt;/summary&gt;
+public record PaginatedApiResponse&lt;T&gt;
+{
+    public List&lt;T&gt; Items { get; init; } = new();
+    public int TotalCount { get; init; }
+    public int Page { get; init; }
+    public int PageSize { get; init; }
+    public int TotalPages =&gt; (int)Math.Ceiling(TotalCount / (double)PageSize);
+    public bool HasNextPage =&gt; Page &lt; TotalPages;
+    public bool HasPreviousPage =&gt; Page &gt; <span class="tk-n">1</span>;
+    public string? NextPageUrl { get; init; }
+    public string? PreviousPageUrl { get; init; }
+
+    public static PaginatedApiResponse&lt;T&gt; Create(
+        List&lt;T&gt; items,
+        int totalCount,
+        int page,
+        int pageSize,
+        string? baseUrl = <span class="tk-k">null</span>)
+    {
+        var result = new PaginatedApiResponse&lt;T&gt;
+        {
+            Items = items,
+            TotalCount = totalCount,
+            Page = page,
+            PageSize = pageSize
+        };
+
+        if (!string.IsNullOrEmpty(baseUrl))
+        {
+            if (result.HasNextPage)
+                result = result with { NextPageUrl = $<span class="tk-s">&quot;{baseUrl}?page={page + 1}&amp;pageSize={pageSize}&quot;</span> };
+
+            if (result.HasPreviousPage)
+                result = result with { PreviousPageUrl = $<span class="tk-s">&quot;{baseUrl}?page={page - 1}&amp;pageSize={pageSize}&quot;</span> };
+        }
+
+        return result;
+    }
+}
+
+/// &lt;summary&gt;
+/// Respuesta de validación con errores por campo
+/// &lt;/summary&gt;
+public record ValidationErrorResponse
+{
+    public string Message { get; init; } = <span class="tk-s">&quot;Validation error&quot;</span>;
+    public Dictionary&lt;string, List&lt;string&gt;&gt; Errors { get; init; } = new();
+    public int StatusCode { get; init; } = <span class="tk-n">400</span>;
+
+    public static ValidationErrorResponse Create(Dictionary&lt;string, List&lt;string&gt;&gt; errors)
+        =&gt; new() { Errors = errors };
+
+    public static ValidationErrorResponse Create(string field, string error)
+        =&gt; new()
+        {
+            Errors = new Dictionary&lt;string, List&lt;string&gt;&gt;
+            {
+                [field] = new List&lt;string&gt; { error }
+            }
+        };
+}
+
+/// &lt;summary&gt;
+/// Respuesta estándar de API externa (cuando la API externa usa este formato)
+/// &lt;/summary&gt;
+public record ExternalApiResponse&lt;T&gt;
+{
+    public T? Result { get; init; }
+    public string? Status { get; init; }
+    public string? Message { get; init; }
+    public int? Code { get; init; }
+    public List&lt;string&gt;? Errors { get; init; }
+
+    public bool IsSuccess =&gt; Status?.Equals(<span class="tk-s">&quot;success&quot;</span>, StringComparison.OrdinalIgnoreCase) == <span class="tk-k">true</span>
+                             || Code is &gt;= <span class="tk-n">200</span> and &lt; <span class="tk-n">300</span>;
+}
+
+/// &lt;summary&gt;
+/// Extension methods para trabajar con respuestas
+/// &lt;/summary&gt;
+public static class ApiResponseExtensions
+{
+    /// &lt;summary&gt;
+    /// Convierte resultado nullable en ApiResponse
+    /// &lt;/summary&gt;
+    public static ApiResponse&lt;T&gt; ToApiResponse&lt;T&gt;(this T? data, string? notFoundMessage = <span class="tk-k">null</span>)
+        where T : class
+    {
+        return data is not <span class="tk-k">null</span>
+            ? ApiResponse&lt;T&gt;.SuccessResponse(data)
+            : ApiResponse&lt;T&gt;.ErrorResponse(notFoundMessage ?? <span class="tk-s">&quot;Resource not found&quot;</span>, <span class="tk-n">404</span>, <span class="tk-s">&quot;NOT_FOUND&quot;</span>);
+    }
+
+    /// &lt;summary&gt;
+    /// Ejecuta acción y captura en ApiResponse
+    /// &lt;/summary&gt;
+    public static async Task&lt;ApiResponse&lt;T&gt;&gt; ExecuteSafelyAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; action)
+    {
+        try
+        {
+            var result = await action();
+            return ApiResponse&lt;T&gt;.SuccessResponse(result);
+        }
+        catch (HttpRequestException ex)
+        {
+            return ApiResponse&lt;T&gt;.FromException(ex, <span class="tk-n">503</span>); // Service Unavailable
+        }
+        catch (TimeoutException ex)
+        {
+            return ApiResponse&lt;T&gt;.FromException(ex, <span class="tk-n">504</span>); // Gateway Timeout
+        }
+        catch (Exception ex)
+        {
+            return ApiResponse&lt;T&gt;.FromException(ex, <span class="tk-n">500</span>);
+        }
+    }
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/api-integration-patterns.html#ficheros">← Volver a la ficha de api-integration-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/api-integration-patterns/templates/ApiOptions.cs.html"><small>Anterior</small>templates/ApiOptions.cs.template</a><a class="next" href="../../../skills/api-integration-patterns/templates/DelegatingHandler.cs.html"><small>Siguiente</small>templates/DelegatingHandler.cs.template</a></nav><footer><span>Ovillo v1.2.3</span><span>tag v1.2.3 (2026-09-10) · 1 decisión posterior</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 40 decisiones</span><span>fuente: <code>ovillo/.claude/skills/api-integration-patterns/templates/ApiResponse.cs.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>
