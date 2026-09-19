@@ -1,0 +1,205 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · templates/ArchitectureTests.vertical-slices.cs.template · Ovillo</title><meta name="description" content="Fichero templates/ArchitectureTests.vertical-slices.cs.template de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · templates/ArchitectureTests.vertical-slices.cs.template · Ovillo"><meta property="og:description" content="Fichero templates/ArchitectureTests.vertical-slices.cs.template de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/templates/ArchitectureTests.vertical-slices.cs.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/templates/ArchitectureTests.vertical-slices.cs.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/templates/ArchitectureTests.vertical-slices.cs.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.15.5 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">61</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (21)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.clean.cs.html">templates/ArchitectureTests.clean.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.hexagonal.cs.html">templates/ArchitectureTests.hexagonal.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.minimal.cs.html">templates/ArchitectureTests.minimal.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.n-layer.cs.html">templates/ArchitectureTests.n-layer.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.vertical-slices.cs.html" class="cur">templates/ArchitectureTests.vertical-slices.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>templates</span><span>ArchitectureTests.vertical-slices.cs.template</span></nav><span class="sp"></span><span class="pill">v1.15.5</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>templates/</span><span>10.577 B</span></div><h1>ArchitectureTests.vertical-slices.cs.template</h1><p class="lede">Fichero que <code>/hv:testing-patterns</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>10.577 B</b><span>tamaño</span></div><div><b>2026-09-18</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>// ============================================================================
+// TEMPLATE: ArchitectureTests.cs - las reglas de Vertical Slices, ejecutables
+// Skill: testing-patterns (ADR-046)
+// ============================================================================
+// USO: Reemplazar {{ProjectNamespace}}. Se genera UNA VEZ por proyecto.
+// Destino: src/tests/{{ProjectNamespace}}.Tests.Architecture/ArchitectureTests.cs
+// Aplica cuando `configuracion.arquitectura.estilo` del Hilo vale `vertical-slices`.
+//
+// ESTE JUEGO <span class="tk-k">NO</span> ES UNA VARIANTE DEL DE CLEAN: ES SU CONTRARIO.
+//
+// En Clean las reglas defienden las capas horizontales: Domain <span class="tk-k">no</span> conoce Infrastructure, el
+// contrato del repositorio vive aqui y <span class="tk-k">no</span> alla. En Vertical Slices esas capas <span class="tk-k">NO</span> EXISTEN a
+// proposito, y aplicarles las reglas de Clean seria peor que <span class="tk-k">no</span> tener ninguna: rojo permanente
+// sobre un proyecto perfectamente sano.
+//
+// Lo que este estilo defiende es otra cosa: que una feature <span class="tk-k">no</span> conozca a otra. El acoplamiento
+// DENTRO de una slice es barato y deseable -- para cambiar <span class="tk-s">&quot;crear pedido&quot;</span> abres un fichero, <span class="tk-k">no</span>
+// cuatro carpetas --; entre slices es lo que convierte el proyecto en un monolito enredado sin que
+// nadie tome la decision de enredarlo.
+//
+// PAQUETE:
+//   &lt;PackageReference Include=<span class="tk-s">&quot;NetArchTest.eNhancedEdition&quot;</span> Version=<span class="tk-s">&quot;1.4.5&quot;</span> /&gt;
+// <span class="tk-k">NO</span> `NetArchTest.Rules` (sin publicar desde <span class="tk-n">2021</span> y sin licencia en el nuspec). Y aqui importa mas
+// que en Clean: la primitiva `Slice()` que hace la regla principal es del fork, el original <span class="tk-k">no</span> la
+// tiene.
+//
+// EL FALLO CLASICO, y como se evita: si un filtro <span class="tk-k">no</span> selecciona ningun tipo, la regla se cumple
+// sobre el conjunto vacio y el test pasa EN VERDE sin vigilar nada. `Cumple()` exige por eso que la
+// regla haya mirado al menos un tipo. La regla de slices lo comprueba aparte, contando features:
+// con una sola slice <span class="tk-s">&quot;ninguna feature depende de otra&quot;</span> es cierto y <span class="tk-k">no</span> significa nada.
+
+using System.Reflection;
+using NetArchTest.Rules;
+using Xunit;
+
+namespace {{ProjectNamespace}}.Tests.Architecture;
+
+public class ArchitectureTests
+{
+    private const string Features = <span class="tk-s">&quot;{{ProjectNamespace}}.Features&quot;</span>;
+    private const string Comun = <span class="tk-s">&quot;{{ProjectNamespace}}.Common&quot;</span>;
+    private const string Persistencia = <span class="tk-s">&quot;{{ProjectNamespace}}.Persistence&quot;</span>;
+
+    private static readonly Assembly[] Ensamblados = new[]
+    {
+        typeof({{ProjectNamespace}}.Common.ErrorKind).Assembly,
+        // Common es lo unico que TODAS las slices referencian y que existe en los dos modos de
+        // acceso a datos, asi que es el ancla estable. Antes habia una segunda a
+        // `Persistence.AppDbContext`, y con procedimientos ese tipo <span class="tk-k">no</span> existe: las reglas, que
+        // hablan de independencia entre features, <span class="tk-k">no</span> compilaban sin un ORM detras (ADR-054).
+        // Si tu proyecto parte Persistence en su propio ensamblado, anade aqui un tipo suyo.
+    }.Distinct().ToArray();
+
+    private static Types Todos() =&gt; Types.InAssemblies(Ensamblados);
+
+    /// &lt;summary&gt;Afirma la regla Y que la regla ha mirado algo.&lt;/summary&gt;
+    private static void Cumple(TestResult resultado, string regla)
+    {
+        var mirados = resultado.SelectedTypesForTesting?.Count() ?? <span class="tk-n">0</span>;
+        Assert.<span class="tk-k">True</span>(mirados &gt; <span class="tk-n">0</span>,
+            $<span class="tk-s">&quot;{regla}\n  La regla no selecciono ningun tipo: el filtro esta mal o la capa no existe. &quot;</span> +
+            <span class="tk-s">&quot;Un test de arquitectura que no mira nada esta roto, no conforme.&quot;</span>);
+
+        if (resultado.IsSuccessful) return;
+
+        var culpables = string.Join(<span class="tk-s">&quot;\n    &quot;</span>, resultado.FailingTypes.Select(t =&gt; t.FullName));
+        Assert.<span class="tk-k">True</span>(<span class="tk-k">false</span>, $<span class="tk-s">&quot;{regla}\n  Lo incumplen:\n    {culpables}&quot;</span>);
+    }
+
+    /// &lt;summary&gt;
+    /// La afirmacion contraria: que un namespace este VACIO. `Cumple()` <span class="tk-k">no</span> sirve para esto, porque
+    /// su guardia contra el verde vacio exige justo lo contrario -- que haya tipos seleccionados.
+    /// &lt;/summary&gt;
+    private static void NoExisteNada(string espacio, string regla)
+    {
+        var intrusos = Todos().That().ResideInNamespace(espacio).GetTypes()
+            .Select(t =&gt; t.FullName).OrderBy(n =&gt; n).ToList();
+        Assert.<span class="tk-k">True</span>(intrusos.Count == <span class="tk-n">0</span>,
+            $<span class="tk-s">&quot;{regla}\n  Existen {intrusos.Count} tipo(s) ahi:\n    &quot;</span> + string.Join(<span class="tk-s">&quot;\n    &quot;</span>, intrusos));
+    }
+
+    // ---------------------------------------------------------------- la regla que define el estilo
+
+    [Fact]
+    public void Ninguna_feature_conoce_a_otra()
+    {
+        // Contar las slices primero. Con NINGUNA, el filtro esta mal y hay que decirlo: ese es el
+        // verde vacio de verdad. Con UNA, <span class="tk-s">&quot;ninguna depende de otra&quot;</span> es trivialmente cierto y el test
+        // <span class="tk-k">no</span> afirma nada -- pero eso <span class="tk-k">no</span> es un defecto, es un proyecto de una sola feature, que es
+        // exactamente lo que genera un CRUD de una entidad. Fallar ahi ponia en rojo el producto.
+        var slices = Todos().That().ResideInNamespace(Features).GetTypes()
+            .Select(t =&gt; t.ReflectionType.Namespace)   // IType <span class="tk-k">no</span> expone Namespace; ReflectionType es el Type real
+            .Where(n =&gt; n is not <span class="tk-k">null</span> &amp;&amp; n.Length &gt; Features.Length + <span class="tk-n">1</span>)
+            .Select(n =&gt; n!.Substring(Features.Length + <span class="tk-n">1</span>).Split(<span class="tk-s">'.'</span>)[<span class="tk-n">0</span>])
+            .Distinct().OrderBy(n =&gt; n).ToList();
+
+        Assert.<span class="tk-k">True</span>(slices.Count &gt;= <span class="tk-n">1</span>,
+            $<span class="tk-s">&quot;No hay ninguna feature bajo {Features}: el filtro esta mal o el prefijo no es ese. &quot;</span> +
+            <span class="tk-s">&quot;Un test de arquitectura que no mira nada esta roto, no conforme.&quot;</span>);
+
+        var r = Todos().Slice().ByNamespacePrefix(Features)
+            .Should().NotHaveDependenciesBetweenSlices()
+            .GetResult();
+
+        Assert.<span class="tk-k">True</span>(r.IsSuccessful,
+            <span class="tk-s">&quot;Una feature conoce a otra, y eso es lo que este estilo existe para impedir.\n&quot;</span> +
+            <span class="tk-s">&quot;  Si dos features necesitan lo mismo, sube a Common POR DECISION, o comunicalas por un\n&quot;</span> +
+            <span class="tk-s">&quot;  identificador o un evento. Una referencia directa de tipos convierte dos slices en una.\n&quot;</span> +
+            <span class="tk-s">&quot;  Features: &quot;</span> + string.Join(<span class="tk-s">&quot;, &quot;</span>, slices));
+    }
+
+    // ---------------------------------------------------------------- lo compartido <span class="tk-k">no</span> mira hacia abajo
+
+    [Fact]
+    public void Lo_compartido_no_conoce_ninguna_feature()
+    {
+        Cumple(Todos()
+            .That().ResideInNamespace(Comun)
+            .ShouldNot().HaveDependencyOnAny(Features)
+            .GetResult(),
+            <span class="tk-s">&quot;En cuanto Common conoce una feature deja de ser un nucleo compartido y pasa a ser el &quot;</span> +
+            <span class="tk-s">&quot;concentrador que acopla todo con todo por la puerta de atras.&quot;</span>);
+    }
+
+    [Fact]
+    public void La_persistencia_no_conoce_ninguna_feature()
+    {
+        // DOS FORMAS VALIDAS, y por eso esta regla <span class="tk-k">no</span> puede exigir que el namespace exista:
+        //
+        //   con ORM  -&gt; hay un `Persistence` compartido (contexto y mapeos), y entonces la regla
+        //               muerde: ese almacen sirve a las features y <span class="tk-k">no</span> sabe cuales hay.
+        //   con SP   -&gt; <span class="tk-k">NO</span> hay capa de persistencia. Cada slice abre su conexion e invoca sus
+        //               procedimientos, que es lo maximo que este estilo puede prometer.
+        //
+        // Exigir el namespace pondria en rojo una configuracion correcta del estilo; darlo por bueno
+        // sin mirar dejaria pasar el caso real. Se comprueba cual de las dos es (ADR-054).
+        var enPersistencia = Todos().That().ResideInNamespace(Persistencia).GetTypes().Any();
+        if (!enPersistencia) return;
+
+        Cumple(Todos()
+            .That().ResideInNamespace(Persistencia)
+            .ShouldNot().HaveDependencyOnAny(Features)
+            .GetResult(),
+            <span class="tk-s">&quot;El almacen sirve a las features; no sabe cuales hay.&quot;</span>);
+    }
+
+    // ---------------------------------------------------------------- que <span class="tk-k">no</span> vuelvan las capas
+
+    [Fact]
+    public void No_hay_capas_horizontales()
+    {
+        // La deriva tipica: alguien echa de menos la estructura conocida y empieza a crear
+        // Application/ o Infrastructure/ al lado de Features/. A partir de ahi el proyecto <span class="tk-k">no</span> es ni
+        // una cosa ni la otra. Si de verdad hacen falta esas capas, la decision es cambiar de estilo
+        // en el Hilo -- y entonces aplica el otro juego de reglas --, <span class="tk-k">no</span> mezclarlas en silencio.
+        //
+        // DOMAIN <span class="tk-k">NO</span> ESTA EN LA LISTA, y es deliberado. Un modelo de dominio compartido <span class="tk-k">no</span> es una capa
+        // horizontal colandose: es lo que HACE POSIBLE la independencia entre slices. Si cada feature
+        // tuviera su propia entidad, la que necesitara la de otra tendria que referenciar
+        // Features.Otra -- y eso incumple la regla principal. El estilo corta el COMPORTAMIENTO, <span class="tk-k">no</span>
+        // el modelo. Prohibir Domain aqui ponia en rojo el CRUD que el propio ecosistema genera.
+        foreach (var capa in new[] { <span class="tk-s">&quot;Application&quot;</span>, <span class="tk-s">&quot;Infrastructure&quot;</span> })
+        {
+            NoExisteNada($<span class="tk-s">&quot;{{ProjectNamespace}}.{capa}&quot;</span>,
+                $<span class="tk-s">&quot;En Vertical Slices no hay capa {capa}: lo que la feature necesita vive con la feature.&quot;</span>);
+        }
+    }
+
+    [Fact]
+    public void Todo_tipo_de_Features_pertenece_a_una_feature()
+    {
+        var sueltos = Todos().That().ResideInNamespace(Features).GetTypes()
+            .Where(t =&gt; t.ReflectionType.Namespace == Features)
+            .Select(t =&gt; t.FullName).OrderBy(n =&gt; n).ToList();
+
+        Assert.<span class="tk-k">True</span>(sueltos.Count == <span class="tk-n">0</span>,
+            <span class="tk-s">&quot;Hay tipos colgando de la raiz de Features, sin pertenecer a ninguna slice. O son de una &quot;</span> +
+            <span class="tk-s">&quot;feature concreta y bajan a ella, o son compartidos y suben a Common:\n    &quot;</span> +
+            string.Join(<span class="tk-s">&quot;\n    &quot;</span>, sueltos));
+    }
+
+    // ---------------------------------------------------------------- forma de los tipos
+
+    [Fact]
+    public void Los_handlers_son_sealed()
+    {
+        Cumple(Todos()
+            .That().AreClasses().And().HaveNameEndingWith(<span class="tk-s">&quot;Handler&quot;</span>)
+            .Should().BeSealed()
+            .GetResult(),
+            <span class="tk-s">&quot;Un handler es el final de una cadena, no una base de la que heredar.&quot;</span>);
+    }
+}
+
+// ============================================================================
+// LO QUE <span class="tk-k">NO</span> ESTA AQUI, Y POR QUE
+//
+// <span class="tk-k">No</span> hay regla sobre donde vive el contrato HTTP. En Vertical Slices el request del caso de uso ES
+// a menudo el cuerpo de la peticion, y esa fusion es una decision del estilo, <span class="tk-k">no</span> un descuido: se
+// paga versionando la slice entera cuando cambia la API. Si tu proyecto quiere separarlos, es una
+// regla que puedes anadir; <span class="tk-k">no</span> se impone porque <span class="tk-k">no</span> es lo que el estilo dice.
+//
+// Tampoco hay reglas de direccion entre capas, porque <span class="tk-k">no</span> hay capas. Ese es el juego de `clean`.
+// ============================================================================
+</code></pre><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/templates/ArchitectureTests.n-layer.cs.html"><small>Anterior</small>templates/ArchitectureTests.n-layer.cs.template</a><a class="next" href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html"><small>Siguiente</small>templates/FakeBuilder.cs.template</a></nav><footer><span>Ovillo v1.15.5</span><span>tag v1.15.5 (2026-09-19) · sin decisiones posteriores</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 61 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/templates/ArchitectureTests.vertical-slices.cs.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

@@ -1,0 +1,50 @@
+Ovillo
+Copyright 2026 Hugo Valer Rojas (https://github.com/hvaler)
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+software except in compliance with the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the
+License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+either express or implied. See the License for the specific language governing permissions
+and limitations under the License.
+
+----------------------------------------------------------------------------------------------
+SCAFFOLDING EXCEPTION
+----------------------------------------------------------------------------------------------
+As an additional permission under Section 4 of the License, the files that Ovillo writes into
+your own project (CLAUDE.md, .claude/rules/, _hilo/, _patron/, ops/, the CI/CD pipeline
+templates and any other file materialized by /hv:init or by an Ovillo skill or agent) may be
+used, modified and redistributed as part of your project under the terms you choose, without
+reproducing this NOTICE, the LICENSE or any attribution to Ovillo. Ovillo itself (the plugin,
+the distributable zip, the installers and the documentation portal) remains under the License.
+
+EXCEPCION PARA EL ANDAMIAJE
+Como permiso adicional bajo la Seccion 4 de la Licencia, los ficheros que Ovillo escribe en tu
+proyecto (CLAUDE.md, .claude/rules/, _hilo/, _patron/, ops/, las plantillas de pipeline CI/CD y
+cualquier otro fichero materializado por /hv:init o por una skill o agent de Ovillo) pueden
+usarse, modificarse y redistribuirse como parte de tu proyecto bajo los terminos que elijas, sin
+reproducir este NOTICE, la LICENSE ni ninguna atribucion a Ovillo. Ovillo en si (el plugin, el
+zip distribuible, los instaladores y el portal de documentacion) sigue bajo la Licencia.
+
+----------------------------------------------------------------------------------------------
+TRADEMARKS
+----------------------------------------------------------------------------------------------
+"Claude" and "Claude Code" are trademarks of Anthropic. Ovillo is an independent project and is
+not affiliated with, sponsored by or endorsed by Anthropic. ".NET", "Azure DevOps" and "GitHub"
+are trademarks of their respective owners.
+
+----------------------------------------------------------------------------------------------
+THIRD-PARTY NOTICES
+----------------------------------------------------------------------------------------------
+The documentation portal bundles the following fonts (latin subset, woff2) under the
+SIL Open Font License, Version 1.1. The full license text and the authors' notices are
+reproduced in recursos/fonts/OFL.txt inside the portal.
+
+  Fraunces
+    Copyright 2018 The Fraunces Project Authors (https://github.com/undercasetype/Fraunces)
+
+  IBM Plex Sans, IBM Plex Mono
+    Copyright (c) 2017 IBM Corp. with Reserved Font Name "Plex"

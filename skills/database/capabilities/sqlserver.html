@@ -1,0 +1,121 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>database · capabilities/sqlserver.json · Ovillo</title><meta name="description" content="Fichero capabilities/sqlserver.json de la skill database"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="database · capabilities/sqlserver.json · Ovillo"><meta property="og:description" content="Fichero capabilities/sqlserver.json de la skill database"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/database/capabilities/sqlserver.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/database/capabilities/sqlserver.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/database/capabilities/sqlserver.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.15.5 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">61</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de database (3)</h4><ul class="sibs"><li><a href="../../../skills/database/capabilities/postgres.html">capabilities/postgres.json</a></li><li><a href="../../../skills/database/capabilities/sqlserver.html" class="cur">capabilities/sqlserver.json</a></li><li><a href="../../../skills/database/references/postgres.html">references/postgres.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/database.html">database</a></span><span>capabilities</span><span>sqlserver.json</span></nav><span class="sp"></span><span class="pill">v1.15.5</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>database</span><span>capabilities/</span><span>5708 B</span></div><h1>sqlserver.json</h1><p class="lede">Fichero que <code>/hv:database</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/database.html">database</a></b><span>skill</span></div><div><b>capabilities</b><span>carpeta</span></div><div><b>5708 B</b><span>tamaño</span></div><div><b>2026-09-16</b><span>último cambio del pack</span></div></div><pre data-lang="json"><code>{
+  <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Matriz de capacidades por version. Es el UNICO sitio donde vive 'desde que version existe cada cosa': de aqui salen la tabla de la skill, los avisos del hook sql-nomenclatura-guard y la lista de 'lo que SI puedes usar' de tu version. Antes estaba escrita dos veces, en prosa y en ifs, y divergia.&quot;</span>,
+
+  <span class="tk-s">&quot;motor&quot;</span>: <span class="tk-s">&quot;sqlserver&quot;</span>,
+  <span class="tk-s">&quot;orden&quot;</span>: <span class="tk-s">&quot;Entero mayor: el ano de la version (2016 &lt; 2017 &lt; 2019 &lt; 2022 &lt; 2025). La version interna (13.x..17.x) es informativa.&quot;</span>,
+  <span class="tk-s">&quot;fuente&quot;</span>: <span class="tk-s">&quot;Microsoft Learn: 'What's new in SQL Server 2025' y las notas de version anteriores. Verificado 2026-09-16.&quot;</span>,
+
+  <span class="tk-s">&quot;_deteccion_doc&quot;</span>: <span class="tk-s">&quot;Regex (sintaxis JS, sin flags) que delata el uso de la feature en el SQL escrito. null = no hay forma fiable de detectarla sin falsos positivos: la feature entra en la documentacion pero el hook no avisa de ella.&quot;</span>,
+
+  <span class="tk-s">&quot;versiones&quot;</span>: [
+    { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2016&quot;</span>, <span class="tk-s">&quot;interna&quot;</span>: <span class="tk-s">&quot;13.x&quot;</span>, <span class="tk-s">&quot;nota&quot;</span>: <span class="tk-s">&quot;Solo mantenimiento; evitar desarrollos nuevos&quot;</span> },
+    { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2017&quot;</span>, <span class="tk-s">&quot;interna&quot;</span>: <span class="tk-s">&quot;14.x&quot;</span>, <span class="tk-s">&quot;nota&quot;</span>: <span class="tk-s">&quot;Parque on-premise habitual&quot;</span> },
+    { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2019&quot;</span>, <span class="tk-s">&quot;interna&quot;</span>: <span class="tk-s">&quot;15.x&quot;</span>, <span class="tk-s">&quot;nota&quot;</span>: <span class="tk-s">&quot;&quot;</span> },
+    { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2022&quot;</span>, <span class="tk-s">&quot;interna&quot;</span>: <span class="tk-s">&quot;16.x&quot;</span>, <span class="tk-s">&quot;nota&quot;</span>: <span class="tk-s">&quot;&quot;</span> },
+    { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;interna&quot;</span>: <span class="tk-s">&quot;17.x&quot;</span>, <span class="tk-s">&quot;nota&quot;</span>: <span class="tk-s">&quot;Ultima version. Varias novedades exigen activar PREVIEW_FEATURES con ALTER DATABASE SCOPED CONFIGURATION&quot;</span> }
+  ],
+
+  <span class="tk-s">&quot;features&quot;</span>: [
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;UTF8_COLLATIONS&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2019&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Collations UTF-8 (*_UTF8)&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Collations clasicas SQL_Latin1_General_*&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;_UTF8\\b&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;GENERATE_SERIES&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2022&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;GENERATE_SERIES&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;CTE recursivo o tabla de numeros&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bGENERATE_SERIES\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;IS_DISTINCT_FROM&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2022&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;IS [NOT] DISTINCT FROM&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;((a = b) OR (a IS NULL AND b IS NULL))&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bIS\\s+(?:NOT\\s+)?DISTINCT\\s+FROM\\b&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;DATE_BUCKET&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2022&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;DATE_BUCKET&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Aritmetica con DATEADD/DATEDIFF&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bDATE_BUCKET\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;GREATEST_LEAST&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2022&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;GREATEST / LEAST&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;CASE WHEN o subquery con VALUES&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\b(?:GREATEST|LEAST)\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;STRING_SPLIT_ORDINAL&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2022&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;STRING_SPLIT con enable_ordinal&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Solo el valor; el orden se reconstruye aparte&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;STRING_SPLIT\\s*\\([^)]+,\\s*[^,)]+,\\s*1\\s*\\)&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;BITWISE_FUNCS&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2022&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;BIT_COUNT, LEFT_SHIFT, RIGHT_SHIFT&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Operadores bitwise manuales&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\b(?:BIT_COUNT|LEFT_SHIFT|RIGHT_SHIFT)\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;APPROX_PERCENTILE&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2022&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;APPROX_PERCENTILE_CONT / _DISC&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;PERCENTILE_CONT dentro de un CTE&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bAPPROX_PERCENTILE_(?:CONT|DISC)\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;JSON_AGG_CONSTRUCTORS&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;JSON_OBJECTAGG / JSON_ARRAYAGG&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Construir el JSON con FOR JSON o concatenacion&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bJSON_(?:OBJECT|ARRAY)AGG\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;CURRENT_DATE&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;CURRENT_DATE&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;CAST(SYSDATETIME() AS date)&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bCURRENT_DATE\\b(?!\\s*\\()&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;UNISTR&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;UNISTR&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;NCHAR() por punto de codigo&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bUNISTR\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;EDIT_DISTANCE&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;EDIT_DISTANCE (exige PREVIEW_FEATURES)&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Sin equivalente en T-SQL: resolver en la aplicacion&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bEDIT_DISTANCE\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;PRODUCT_AGG&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;PRODUCT() (agregado)&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;EXP(SUM(LOG(x))), con su caso de ceros y negativos&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: null,
+      <span class="tk-s">&quot;_deteccion_null&quot;</span>: <span class="tk-s">&quot;PRODUCT( colisiona con una tabla o UDF llamada Product, que es de lo mas comun.&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;SUBSTRING_OPTIONAL_LENGTH&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;SUBSTRING con length opcional&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Pasar siempre el tercer argumento&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: null,
+      <span class="tk-s">&quot;_deteccion_null&quot;</span>: <span class="tk-s">&quot;Distinguir SUBSTRING(a,b) de SUBSTRING(a,b,c) por regex es fragil con expresiones anidadas.&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;DATEADD_BIGINT&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;DATEADD con number de tipo bigint&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Trocear el incremento en varios DATEADD&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: null,
+      <span class="tk-s">&quot;_deteccion_null&quot;</span>: <span class="tk-s">&quot;El tipo del argumento no se ve en el texto del SQL.&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;VECTOR&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Tipo vector, funciones e indice vectorial&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Sin equivalente: almacenar fuera o en columnas binarias&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: null,
+      <span class="tk-s">&quot;_deteccion_null&quot;</span>: <span class="tk-s">&quot;VECTOR( casaria con cualquier columna o funcion que lleve esa palabra.&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;REGEX_FUNCS&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2025&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Soporte de expresiones regulares&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;LIKE con patrones, o resolver en la aplicacion&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: null,
+      <span class="tk-s">&quot;_deteccion_null&quot;</span>: <span class="tk-s">&quot;Los nombres concretos varian por edicion y algunos van tras PREVIEW_FEATURES.&quot;</span>
+    }
+  ],
+
+  <span class="tk-s">&quot;base_comun&quot;</span>: {
+    <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;2017&quot;</span>,
+    <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Base comun: usar con confianza en cualquier version soportada&quot;</span>,
+    <span class="tk-s">&quot;items&quot;</span>: [
+      <span class="tk-s">&quot;STRING_AGG&quot;</span>, <span class="tk-s">&quot;TRIM&quot;</span>, <span class="tk-s">&quot;TRANSLATE&quot;</span>, <span class="tk-s">&quot;CONCAT_WS&quot;</span>, <span class="tk-s">&quot;OPENJSON basico&quot;</span>,
+      <span class="tk-s">&quot;temporal tables system-versioned&quot;</span>, <span class="tk-s">&quot;columnstore actualizable&quot;</span>, <span class="tk-s">&quot;Graph tables&quot;</span>,
+      <span class="tk-s">&quot;Adaptive Query Processing basico&quot;</span>, <span class="tk-s">&quot;Resumable online index rebuild&quot;</span>
+    ]
+  }
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/database.html#ficheros">← Volver a la ficha de database</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/database/capabilities/postgres.html"><small>Anterior</small>capabilities/postgres.json</a><a class="next" href="../../../skills/database/references/postgres.html"><small>Siguiente</small>references/postgres.md</a></nav><footer><span>Ovillo v1.15.5</span><span>tag v1.15.5 (2026-09-19) · sin decisiones posteriores</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 61 decisiones</span><span>fuente: <code>ovillo/.claude/skills/database/capabilities/sqlserver.json</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

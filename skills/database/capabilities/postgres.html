@@ -1,0 +1,75 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>database · capabilities/postgres.json · Ovillo</title><meta name="description" content="Fichero capabilities/postgres.json de la skill database"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="database · capabilities/postgres.json · Ovillo"><meta property="og:description" content="Fichero capabilities/postgres.json de la skill database"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/database/capabilities/postgres.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/database/capabilities/postgres.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/database/capabilities/postgres.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.15.5 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">61</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de database (3)</h4><ul class="sibs"><li><a href="../../../skills/database/capabilities/postgres.html" class="cur">capabilities/postgres.json</a></li><li><a href="../../../skills/database/capabilities/sqlserver.html">capabilities/sqlserver.json</a></li><li><a href="../../../skills/database/references/postgres.html">references/postgres.md</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/database.html">database</a></span><span>capabilities</span><span>postgres.json</span></nav><span class="sp"></span><span class="pill">v1.15.5</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-rule">regla por ruta</span><span>database</span><span>capabilities/</span><span>3772 B</span></div><h1>postgres.json</h1><p class="lede">Fichero que <code>/hv:database</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/database.html">database</a></b><span>skill</span></div><div><b>capabilities</b><span>carpeta</span></div><div><b>3772 B</b><span>tamaño</span></div><div><b>2026-09-16</b><span>último cambio del pack</span></div></div><pre data-lang="json"><code>{
+  <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Matriz de capacidades por version de PostgreSQL. Mismo contrato que sqlserver.json: de aqui salen la documentacion y los avisos del hook, y no hay una segunda copia en prosa ni en codigo.&quot;</span>,
+
+  <span class="tk-s">&quot;motor&quot;</span>: <span class="tk-s">&quot;postgres&quot;</span>,
+  <span class="tk-s">&quot;orden&quot;</span>: <span class="tk-s">&quot;Entero mayor: 15 &lt; 16 &lt; 17 &lt; 18. Una version como '16.4' cuenta como 16.&quot;</span>,
+  <span class="tk-s">&quot;fuente&quot;</span>: <span class="tk-s">&quot;Notas de version oficiales (postgresql.org/docs/NN/release-NN.html), consultadas via Context7, que indexa la documentacion POR VERSION MAYOR. Verificado 2026-09-16.&quot;</span>,
+
+  <span class="tk-s">&quot;_cobertura&quot;</span>: <span class="tk-s">&quot;Cubre lo que anaden 17 y 18, que es lo que necesita gatear un proyecto en 16 (la version de los proyectos actuales). Lo que anadieron 15 y 16 esta en base_comun o sin catalogar todavia: se anade cuando haga falta gatear un proyecto en 15, y se anade VERIFICADO, no de memoria.&quot;</span>,
+
+  <span class="tk-s">&quot;versiones&quot;</span>: [
+    { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;15&quot;</span>, <span class="tk-s">&quot;nota&quot;</span>: <span class="tk-s">&quot;MERGE llega aqui&quot;</span> },
+    { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;16&quot;</span>, <span class="tk-s">&quot;nota&quot;</span>: <span class="tk-s">&quot;Version de los proyectos actuales del parque&quot;</span> },
+    { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;17&quot;</span>, <span class="tk-s">&quot;nota&quot;</span>: <span class="tk-s">&quot;SQL/JSON y MERGE ampliado&quot;</span> },
+    { <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;18&quot;</span>, <span class="tk-s">&quot;nota&quot;</span>: <span class="tk-s">&quot;Ultima version&quot;</span> }
+  ],
+
+  <span class="tk-s">&quot;features&quot;</span>: [
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;JSON_TABLE&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;17&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;JSON_TABLE()&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;jsonb_to_recordset / jsonb_array_elements con LATERAL&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bJSON_TABLE\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;SQLJSON_CONSTRUCTORS&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;17&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Constructores SQL/JSON: JSON(), JSON_SCALAR(), JSON_SERIALIZE()&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Casts a jsonb y to_jsonb()&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bJSON_(?:SCALAR|SERIALIZE)\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;SQLJSON_QUERY_FUNCS&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;17&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;JSON_EXISTS(), JSON_QUERY(), JSON_VALUE()&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Operadores jsonpath: @?, jsonb_path_query, jsonb_path_exists&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bJSON_(?:EXISTS|QUERY|VALUE)\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;MERGE_NOT_MATCHED_BY_SOURCE&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;17&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;MERGE ... WHEN NOT MATCHED BY SOURCE&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Un DELETE aparte con NOT EXISTS contra el origen&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bWHEN\\s+NOT\\s+MATCHED\\s+BY\\s+SOURCE\\b&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;MERGE_ACTION&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;17&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;merge_action() en el RETURNING de un MERGE&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Sin equivalente: deducir la accion en la aplicacion&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bmerge_action\\s*\\(\\s*\\)&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;UUIDV7&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;18&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;uuidv7()&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;gen_random_uuid() (v4, sin orden temporal) o generar el UUIDv7 en la aplicacion&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\buuidv7\\s*\\(&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;RETURNING_OLD_NEW&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;18&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;RETURNING con los alias OLD y NEW&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;RETURNING devuelve el valor que corresponda al comando; para el anterior, leerlo antes en la misma transaccion&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bRETURNING\\b[^;]{0,200}?\\b(?:old|new)\\s*\\.&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;TEMPORAL_CONSTRAINTS&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;18&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Restricciones temporales (PK, UNIQUE y FK sobre rangos) con WITHOUT OVERLAPS&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;Indice de exclusion (EXCLUDE USING gist) con el operador &amp;&amp;&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bWITHOUT\\s+OVERLAPS\\b&quot;</span>
+    },
+    {
+      <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;VIRTUAL_GENERATED_COLUMNS&quot;</span>, <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;18&quot;</span>, <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Columnas generadas virtuales (y pasan a ser el default)&quot;</span>,
+      <span class="tk-s">&quot;alternativa&quot;</span>: <span class="tk-s">&quot;GENERATED ALWAYS AS (...) STORED, que ocupa espacio&quot;</span>,
+      <span class="tk-s">&quot;deteccion&quot;</span>: <span class="tk-s">&quot;\\bGENERATED\\s+ALWAYS\\s+AS\\b[^;]{0,120}?\\bVIRTUAL\\b&quot;</span>
+    }
+  ],
+
+  <span class="tk-s">&quot;base_comun&quot;</span>: {
+    <span class="tk-s">&quot;desde&quot;</span>: <span class="tk-s">&quot;16&quot;</span>,
+    <span class="tk-s">&quot;titulo&quot;</span>: <span class="tk-s">&quot;Base comun del parque actual: usar con confianza&quot;</span>,
+    <span class="tk-s">&quot;items&quot;</span>: [
+      <span class="tk-s">&quot;MERGE (desde 15)&quot;</span>, <span class="tk-s">&quot;jsonb con operadores y jsonpath&quot;</span>, <span class="tk-s">&quot;GENERATED ALWAYS AS ... STORED&quot;</span>,
+      <span class="tk-s">&quot;generate_series()&quot;</span>, <span class="tk-s">&quot;CTE materializadas y no materializadas&quot;</span>, <span class="tk-s">&quot;INSERT ... ON CONFLICT&quot;</span>,
+      <span class="tk-s">&quot;particionado declarativo&quot;</span>, <span class="tk-s">&quot;indices GIN y GiST&quot;</span>, <span class="tk-s">&quot;gen_random_uuid()&quot;</span>
+    ]
+  }
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/database.html#ficheros">← Volver a la ficha de database</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/database.html"><small>Anterior</small>Ficha de database</a><a class="next" href="../../../skills/database/capabilities/sqlserver.html"><small>Siguiente</small>capabilities/sqlserver.json</a></nav><footer><span>Ovillo v1.15.5</span><span>tag v1.15.5 (2026-09-19) · sin decisiones posteriores</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 61 decisiones</span><span>fuente: <code>ovillo/.claude/skills/database/capabilities/postgres.json</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

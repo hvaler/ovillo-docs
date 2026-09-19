@@ -1,0 +1,158 @@
+<!doctype html><html lang="es" data-rel="../../../../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>generador-crud · templates/clean/datos/dapper/Repository.cs.template · Ovillo</title><meta name="description" content="Fichero templates/clean/datos/dapper/Repository.cs.template de la skill generador-crud"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="generador-crud · templates/clean/datos/dapper/Repository.cs.template · Ovillo"><meta property="og:description" content="Fichero templates/clean/datos/dapper/Repository.cs.template de la skill generador-crud"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/generador-crud/templates/clean/datos/dapper/Repository.cs.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/generador-crud/templates/clean/datos/dapper/Repository.cs.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../../../../recursos/portal.css"></head><body data-page="skills/generador-crud/templates/clean/datos/dapper/Repository.cs.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../../../../index.html">Ovillo<small>v1.15.5 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../../../../index.html">Inicio</a></li><li><a href="../../../../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../../../../curso/index.html">Curso</a></li><li><a href="../../../../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../../../../patron.html">Patrón</a></li><li><a href="../../../../../../decisiones.html">Decisiones<span class="n">61</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../../../../referencia-config.html">Configuración</a></li><li><a href="../../../../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../../../../changelog.html">Versiones</a></li><li><a href="../../../../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../../../../buscar.html">Buscar</a></li><li><a href="../../../../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../../../../acerca.html">Acerca</a></li></ul><h4>Pack de generador-crud (87)</h4><ul class="sibs"><li><a href="../../../../../../skills/generador-crud/eval-set.html">eval-set.json</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/ApiContracts.cs.html">templates/clean/ApiContracts.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/AuditableEntity.cs.html">templates/clean/AuditableEntity.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/Command.cs.html">templates/clean/Command.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/CommandHandler.cs.html">templates/clean/CommandHandler.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/Controller.cs.html">templates/clean/Controller.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/CursorPage.cs.html">templates/clean/CursorPage.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/dapper-sp/DbSession.cs.html">templates/clean/datos/dapper-sp/DbSession.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/dapper-sp/LookupQueries.cs.html">templates/clean/datos/dapper-sp/LookupQueries.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/dapper-sp/Queries.cs.html">templates/clean/datos/dapper-sp/Queries.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/dapper-sp/Repository.cs.html">templates/clean/datos/dapper-sp/Repository.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/dapper/compartidas.html">templates/clean/datos/dapper/compartidas.json</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/dapper/LookupQueries.cs.html">templates/clean/datos/dapper/LookupQueries.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/dapper/Queries.cs.html">templates/clean/datos/dapper/Queries.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/dapper/Repository.cs.html" class="cur">templates/clean/datos/dapper/Repository.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/efcore/ApplicationDbContext.cs.html">templates/clean/datos/efcore/ApplicationDbContext.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/efcore/Configuration.cs.html">templates/clean/datos/efcore/Configuration.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/efcore/Interceptors.cs.html">templates/clean/datos/efcore/Interceptors.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/efcore/LookupRepository.cs.html">templates/clean/datos/efcore/LookupRepository.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/efcore/Queries.cs.html">templates/clean/datos/efcore/Queries.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/datos/efcore/Repository.cs.html">templates/clean/datos/efcore/Repository.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/DomainException.cs.html">templates/clean/DomainException.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/Dto.cs.html">templates/clean/Dto.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/EndpointFilters.cs.html">templates/clean/EndpointFilters.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/Entity.cs.html">templates/clean/Entity.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/Exceptions.cs.html">templates/clean/Exceptions.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/Interfaces.cs.html">templates/clean/Interfaces.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/IQueries.cs.html">templates/clean/IQueries.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/IRepository.cs.html">templates/clean/IRepository.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/LookupEntity.cs.html">templates/clean/LookupEntity.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/MinimalApiEndpoints.cs.html">templates/clean/MinimalApiEndpoints.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/PaginatedResult.cs.html">templates/clean/PaginatedResult.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/Query.cs.html">templates/clean/Query.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/QueryHandler.cs.html">templates/clean/QueryHandler.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/SoftDeleteEntity.cs.html">templates/clean/SoftDeleteEntity.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/clean/Validator.cs.html">templates/clean/Validator.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/Controller.cs.html">templates/hexagonal/Controller.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/datos/dapper-sp/StoreAdapter.cs.html">templates/hexagonal/datos/dapper-sp/StoreAdapter.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/datos/dapper/StoreAdapter.cs.html">templates/hexagonal/datos/dapper/StoreAdapter.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/datos/efcore/AppDbContext.cs.html">templates/hexagonal/datos/efcore/AppDbContext.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/datos/efcore/Configuration.cs.html">templates/hexagonal/datos/efcore/Configuration.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/datos/efcore/StoreAdapter.cs.html">templates/hexagonal/datos/efcore/StoreAdapter.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/DomainException.cs.html">templates/hexagonal/DomainException.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/Dtos.cs.html">templates/hexagonal/Dtos.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/Entity.cs.html">templates/hexagonal/Entity.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/Ports.cs.html">templates/hexagonal/Ports.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/hexagonal/UseCase.cs.html">templates/hexagonal/UseCase.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/minimal/datos/ado-sp/Endpoints.cs.html">templates/minimal/datos/ado-sp/Endpoints.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/minimal/datos/dapper-sp/Endpoints.cs.html">templates/minimal/datos/dapper-sp/Endpoints.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/minimal/datos/dapper/Endpoints.cs.html">templates/minimal/datos/dapper/Endpoints.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/minimal/datos/efcore/AppDbContext.cs.html">templates/minimal/datos/efcore/AppDbContext.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/minimal/datos/efcore/Endpoints.cs.html">templates/minimal/datos/efcore/Endpoints.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/minimal/Entity.cs.html">templates/minimal/Entity.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/Controller.cs.html">templates/n-layer/Controller.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/datos/ado-sp/ConnectionFactory.cs.html">templates/n-layer/datos/ado-sp/ConnectionFactory.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/datos/ado-sp/Repository.cs.html">templates/n-layer/datos/ado-sp/Repository.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/datos/dapper-sp/ConnectionFactory.cs.html">templates/n-layer/datos/dapper-sp/ConnectionFactory.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/datos/dapper-sp/Repository.cs.html">templates/n-layer/datos/dapper-sp/Repository.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/datos/dapper/compartidas.html">templates/n-layer/datos/dapper/compartidas.json</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/datos/dapper/Repository.cs.html">templates/n-layer/datos/dapper/Repository.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/datos/efcore/AppDbContext.cs.html">templates/n-layer/datos/efcore/AppDbContext.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/datos/efcore/Configuration.cs.html">templates/n-layer/datos/efcore/Configuration.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/datos/efcore/Repository.cs.html">templates/n-layer/datos/efcore/Repository.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/Dto.cs.html">templates/n-layer/Dto.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/Entity.cs.html">templates/n-layer/Entity.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/n-layer/Service.cs.html">templates/n-layer/Service.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/sql/sqlserver/Procedimientos.sql.html">templates/sql/sqlserver/Procedimientos.sql.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/compartidas.html">templates/vertical-slices/compartidas.json</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper-sp/Create.cs.html">templates/vertical-slices/datos/dapper-sp/Create.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper-sp/Delete.cs.html">templates/vertical-slices/datos/dapper-sp/Delete.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper-sp/Get.cs.html">templates/vertical-slices/datos/dapper-sp/Get.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper-sp/List.cs.html">templates/vertical-slices/datos/dapper-sp/List.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper-sp/Update.cs.html">templates/vertical-slices/datos/dapper-sp/Update.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper/Create.cs.html">templates/vertical-slices/datos/dapper/Create.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper/Delete.cs.html">templates/vertical-slices/datos/dapper/Delete.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper/Get.cs.html">templates/vertical-slices/datos/dapper/Get.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper/List.cs.html">templates/vertical-slices/datos/dapper/List.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/dapper/Update.cs.html">templates/vertical-slices/datos/dapper/Update.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/efcore/AppDbContext.cs.html">templates/vertical-slices/datos/efcore/AppDbContext.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/efcore/Configuration.cs.html">templates/vertical-slices/datos/efcore/Configuration.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/efcore/Create.cs.html">templates/vertical-slices/datos/efcore/Create.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/efcore/Delete.cs.html">templates/vertical-slices/datos/efcore/Delete.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/efcore/Get.cs.html">templates/vertical-slices/datos/efcore/Get.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/efcore/List.cs.html">templates/vertical-slices/datos/efcore/List.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/datos/efcore/Update.cs.html">templates/vertical-slices/datos/efcore/Update.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/PaginatedResult.cs.html">templates/vertical-slices/PaginatedResult.cs.template</a></li><li><a href="../../../../../../skills/generador-crud/templates/vertical-slices/Result.cs.html">templates/vertical-slices/Result.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../../../../index.html">Inicio</a></span><span><a href="../../../../../../skills/index.html">Skills</a></span><span><a href="../../../../../../skills/generador-crud.html">generador-crud</a></span><span>templates</span><span>Repository.cs.template</span></nav><span class="sp"></span><span class="pill">v1.15.5</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>generador-crud</span><span>templates/</span><span>7639 B</span></div><h1>Repository.cs.template</h1><p class="lede">Fichero que <code>/hv:generador-crud</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../../../../skills/generador-crud.html">generador-crud</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>7639 B</b><span>tamaño</span></div><div><b>2026-09-19</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>// ============================================================================
+// TEMPLATE: Repository.cs - Repositorio del agregado con Dapper y SQL propio (por entidad)
+// Skill: generador-crud, acceso a datos por SQL (ADR-055)
+// ============================================================================
+// USO: Reemplazar {{Entity}}, {{Entities}}, {{Namespace}}, {{Schema}} y los fragmentos
+//      {{ColumnasSp}}, {{ValoresSpCrear}}, {{ParametrosSpCrear_Valores}}, {{AsignacionesSpActualizar}},
+//      {{ParametrosDapperCrear}}, {{ParametrosDapperActualizar}}, {{ImplementacionMetodosEspecificosSql}}
+// Destino: src/Infrastructure/Persistence/Repositories/{{Entity}}Repository.cs
+//
+// La interfaz I{{Entity}}Repository es de DOMAIN y es LA MISMA que implementan los adaptadores de EF
+// Core y de procedimientos. El caso de uso <span class="tk-k">no</span> cambia al cambiar de modo.
+//
+// EL MODELO DE ESCRITURA ES EL DE ADR-053: `AddAsync` y `UpdateAsync` ESCRIBEN al llamarlas, y mutar
+// un agregado devuelto por `GetByIdAsync` <span class="tk-k">no</span> persiste nada. La transaccion la abre la sesion en la
+// primera escritura y la confirma `IUnitOfWork.SaveChangesAsync`.
+//
+// LA SESION SE REUTILIZA del modo `dapper-sp` (ver compartidas.json): confirmar una unidad de trabajo
+// <span class="tk-k">no</span> depende de donde viva el SQL.
+//
+// PARAMETRIZADO SIEMPRE: los valores viajan como parametros de Dapper (`@Name`), nunca interpolados.
+// ============================================================================
+
+using Dapper;
+using {{Namespace}}.Domain.Entities;
+using {{Namespace}}.Domain.Repositories;
+
+namespace {{Namespace}}.Infrastructure.Persistence.Repositories;
+
+public class {{Entity}}Repository : I{{Entity}}Repository
+{
+    /// &lt;summary&gt;Tope de GetAllAsync: sin el, una tabla que crece convierte el metodo en un incidente.&lt;/summary&gt;
+    private const int MaxSinPaginar = <span class="tk-n">200</span>;
+
+    // ─────────────────────────────────────────────────────────────────────── el SQL, en un solo sitio
+
+    private const string SqlGet = <span class="tk-s">&quot;&quot;</span>&quot;
+        SELECT {{ColumnasSp}}
+        FROM {{Schema}}.{{Entities}}
+        WHERE Id = @Id;
+        <span class="tk-s">&quot;&quot;</span>&quot;;
+
+    // El desempate por Id evita que una fila salga repetida en una pagina y falte en la siguiente.
+    private const string SqlTodos = <span class="tk-s">&quot;&quot;</span>&quot;
+        SELECT TOP (@Tope) {{ColumnasSp}}
+        FROM {{Schema}}.{{Entities}}
+        ORDER BY CreatedAt DESC, Id ASC;
+        <span class="tk-s">&quot;&quot;</span>&quot;;
+
+    private const string SqlCrear = <span class="tk-s">&quot;&quot;</span>&quot;
+        INSERT INTO {{Schema}}.{{Entities}} ({{ValoresSpCrear}}, CreatedAt)
+        VALUES ({{ParametrosSpCrear_Valores}}, @CreatedAt);
+
+        SELECT CAST(SCOPE_IDENTITY() AS INT);
+        <span class="tk-s">&quot;&quot;</span>&quot;;
+
+    private const string SqlActualizar = <span class="tk-s">&quot;&quot;</span>&quot;
+        UPDATE {{Schema}}.{{Entities}}
+        SET {{AsignacionesSpActualizar}},
+            ModifiedAt = @ModifiedAt
+        WHERE Id = @Id;
+
+        SELECT @@ROWCOUNT;
+        <span class="tk-s">&quot;&quot;</span>&quot;;
+
+    private const string SqlExiste = <span class="tk-s">&quot;&quot;</span>&quot;
+        SELECT CASE WHEN EXISTS (
+            SELECT <span class="tk-n">1</span> FROM {{Schema}}.{{Entities}} WHERE Id = @Id
+        ) THEN <span class="tk-n">1</span> ELSE <span class="tk-n">0</span> END;
+        <span class="tk-s">&quot;&quot;</span>&quot;;
+
+    // ───────────────────────────────────────────────────────────────────────
+
+    private readonly IDbSession _session;
+
+    public {{Entity}}Repository(IDbSession session)
+    {
+        _session = session;
+    }
+
+    public async Task&lt;{{Entity}}?&gt; GetByIdAsync(int id, CancellationToken ct = default)
+    {
+        var conexion = await _session.ConexionAsync(ct);
+
+        return await conexion.QuerySingleOrDefaultAsync&lt;{{Entity}}&gt;(new CommandDefinition(
+            SqlGet, new { Id = id }, _session.Transaccion, cancellationToken: ct));
+    }
+
+    public async Task&lt;IReadOnlyList&lt;{{Entity}}&gt;&gt; GetAllAsync(CancellationToken ct = default)
+    {
+        var conexion = await _session.ConexionAsync(ct);
+
+        return (await conexion.QueryAsync&lt;{{Entity}}&gt;(new CommandDefinition(
+            SqlTodos, new { Tope = MaxSinPaginar }, _session.Transaccion, cancellationToken: ct))).ToList();
+    }
+
+    public async Task&lt;{{Entity}}&gt; AddAsync({{Entity}} entity, CancellationToken ct = default)
+    {
+        await _session.EnEscrituraAsync(ct);
+        _session.Auditar(entity, esAlta: <span class="tk-k">true</span>);
+
+        var conexion = await _session.ConexionAsync(ct);
+
+        var id = await conexion.ExecuteScalarAsync&lt;int&gt;(new CommandDefinition(
+            SqlCrear, {{ParametrosDapperCrear}}, _session.Transaccion, cancellationToken: ct));
+
+        _session.Anotar(<span class="tk-n">1</span>);
+
+        // El agregado recien creado <span class="tk-k">no</span> tiene Id -- lo asigna la base --, asi que se relee. Devolver la
+        // instancia de entrada con Id <span class="tk-n">0</span> dejaria al handler registrando <span class="tk-s">&quot;created&quot;</span> con id <span class="tk-n">0</span> y al
+        // controlador emitiendo una Location que <span class="tk-k">no</span> resuelve.
+        return await GetByIdAsync(id, ct)
+            ?? throw new InvalidOperationException(
+                $<span class="tk-s">&quot;El INSERT devolvio el id {id} y la lectura posterior no encuentra esa fila.&quot;</span>);
+    }
+
+    public async Task UpdateAsync({{Entity}} entity, CancellationToken ct = default)
+    {
+        await _session.EnEscrituraAsync(ct);
+        _session.Auditar(entity, esAlta: <span class="tk-k">false</span>);
+
+        var conexion = await _session.ConexionAsync(ct);
+        var id = entity.Id;
+
+        var filas = await conexion.ExecuteScalarAsync&lt;int&gt;(new CommandDefinition(
+            SqlActualizar, {{ParametrosDapperActualizar}}, _session.Transaccion, cancellationToken: ct));
+
+        _session.Anotar(filas);
+    }
+
+    public async Task&lt;bool&gt; ExistsAsync(int id, CancellationToken ct = default)
+    {
+        var conexion = await _session.ConexionAsync(ct);
+
+        return await conexion.ExecuteScalarAsync&lt;bool&gt;(new CommandDefinition(
+            SqlExiste, new { Id = id }, _session.Transaccion, cancellationToken: ct));
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // MÉTODOS ESPECÍFICOS
+    // ═══════════════════════════════════════════════════════════════════════
+
+    {{ImplementacionMetodosEspecificosSql}}
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// REGISTRO EN DI (en Infrastructure/DependencyInjection.cs)
+// ═══════════════════════════════════════════════════════════════════════════
+/*
+services.AddScoped&lt;I{{Entity}}Repository, {{Entity}}Repository&gt;();
+*/
+
+// ═══════════════════════════════════════════════════════════════════════════
+// INDICE QUE ESTE REPOSITORIO NECESITA
+// ═══════════════════════════════════════════════════════════════════════════
+/*
+CREATE INDEX IX_{{Entities}}_Orden <span class="tk-k">ON</span> {{Schema}}.{{Entities}} (CreatedAt DESC, Id ASC);
+*/
+</code></pre><p style="margin-top:32px"><a href="../../../../../../skills/generador-crud.html#ficheros">← Volver a la ficha de generador-crud</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../../../../skills/generador-crud/templates/clean/datos/dapper/Queries.cs.html"><small>Anterior</small>templates/clean/datos/dapper/Queries.cs.template</a><a class="next" href="../../../../../../skills/generador-crud/templates/clean/datos/efcore/ApplicationDbContext.cs.html"><small>Siguiente</small>templates/clean/datos/efcore/ApplicationDbContext.cs.template</a></nav><footer><span>Ovillo v1.15.5</span><span>tag v1.15.5 (2026-09-19) · sin decisiones posteriores</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 61 decisiones</span><span>fuente: <code>ovillo/.claude/skills/generador-crud/templates/clean/datos/dapper/Repository.cs.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../../../../recursos/search-index.js" defer></script><script src="../../../../../../recursos/portal.js" defer></script></body></html>
