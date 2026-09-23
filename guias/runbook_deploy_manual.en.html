@@ -1,0 +1,106 @@
+<!doctype html><html lang="en" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manual deployment runbook — Phase 0 · Ovillo</title><meta name="description" content="Manual deployment runbook — Phase 0"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="Manual deployment runbook — Phase 0 · Ovillo"><meta property="og:description" content="Manual deployment runbook — Phase 0"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/runbook_deploy_manual.en.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/runbook_deploy_manual.en.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/runbook_deploy_manual.en.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.19.0 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">82</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 08_CICD (9)</h4><ul class="sibs"><li><a href="../guias/auditar_pipeline.en.html">Auditing your CI/CD pipeline (<code>cicd-pipeline-reviewer</code> · <code>github-actions-reviewer</code>)</a></li><li><a href="../guias/cicd-readme.en.html">08_CICD — Continuous Integration / Continuous Deployment</a></li><li><a href="../guias/guia_completa_cicd.en.html">Complete Ovillo CI/CD guide — the <code>/hv:cicd-*</code> workflows and all their variants</a></li><li><a href="../guias/guia_fases_adopcion.en.html">CI/CD adoption guide — phases 0, 1 and 2</a></li><li><a href="../guias/guia_github_actions.en.html">CI/CD guide with GitHub Actions — phases 0, 1 and 2, commands and security</a></li><li><a href="../guias/permisos_cicd.en.html">CI/CD permissions and infrastructure — TEMPLATE</a></li><li><a href="../guias/runbook_actualizar_pipeline.en.html">Runbook — Updating the pipeline after a template refresh</a></li><li><a href="../guias/runbook_deploy_manual.en.html" class="cur">Manual deployment runbook — Phase 0</a></li><li><a href="../guias/runbook_template.en.html">CI/CD operational runbook — <code>{{PROYECTO_NOMBRE}}</code></a></li></ul></aside><main id="principal" lang="en"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 08_CICD</span><span>Manual deployment runbook — Phase 0</span></nav><span class="sp"></span><span class="pill">v1.19.0</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 08_CICD</span><span>english</span><span><a href="../guias/runbook_deploy_manual.html">versión en español</a></span></div><h1>Manual deployment runbook — Phase 0</h1><div class="meta-grid"><div><b>2 min</b><span>lectura</span></div><div><b>455</b><span>palabras</span></div><div><b>4</b><span>secciones</span></div><div><b>2026-09-22</b><span>última edición</span></div><div><b>1</b><span>cambios</span></div></div><blockquote><p><strong>When to use this runbook</strong>: a project in <strong>phase 0</strong> (no pipeline, neither on Azure DevOps nor on GitHub Actions). A manual deployment by a person after <code>/hv:verify</code> comes out green. If your project is in <strong>phase 1</strong> or <strong>phase 2</strong>, use the RUNBOOK.md that <code>/hv:cicd-init</code> generated.</p></blockquote>
+<hr>
+<section class="sec" id="sec-prerequisites">
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li><input type="checkbox" disabled> <code>/hv:verify</code> green locally across its 7 phases (build + diagnostics + anti-patterns + tests + security + format + diff review)</li>
+<li><input type="checkbox" disabled> Tests with adequate coverage (≥70% line, ≥60% branch — the ecosystem's criterion)</li>
+<li><input type="checkbox" disabled> <code>appsettings.json</code> with the correct <code>Production</code> values on the target server (do NOT overwrite it with your Development one)</li>
+<li><input type="checkbox" disabled> Secrets in the server's <code>appsettings.Production.json</code> (NEVER committed — see <code>_hilo/DEUDA_TECNICA.md</code> if they are not in a secrets vault yet)</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-procedure-one-page-at-most-readable-under-pressure">
+<h3 id="procedure-one-page-at-most-readable-under-pressure">Procedure (one page at most, readable under pressure)</h3>
+<h4 id="1-publish-the-artifact-locally">1. Publish the artifact locally</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># From the .NET solution</span>
+dotnet publish src/&lt;YourProject&gt;.Web/&lt;YourProject&gt;.Web.csproj `
+    --configuration Release `
+    --output ./publish-output `
+    --no-build</code></pre>
+<p>Check that <code>./publish-output/</code> holds the DLLs + <code>web.config</code> (if IIS) + <code>appsettings.json</code>.</p>
+<h4 id="2-pre-deploy-backup-on-the-target-server">2. Pre-deploy backup on the target server</h4>
+<p>RDP into the server (DEV/DEMO/PROD). As Administrator:</p>
+<pre data-lang="powershell"><code><span class="tk-v">$app</span> = <span class="tk-s">&quot;&lt;AppName&gt;&quot;</span>  <span class="tk-c"># e.g. ScholarshipManagement</span>
+<span class="tk-v">$iisPath</span> = <span class="tk-s">&quot;C:\inetpub\wwwroot\$app&quot;</span>
+<span class="tk-v">$backupRoot</span> = <span class="tk-s">&quot;D:\Backups\$app&quot;</span>
+<span class="tk-v">$stamp</span> = Get-Date -Format <span class="tk-s">&quot;yyyyMMdd-HHmm&quot;</span>
+<span class="tk-v">$backupPath</span> = Join-Path <span class="tk-v">$backupRoot</span> <span class="tk-s">&quot;backup-$stamp&quot;</span>
+
+New-Item -ItemType Directory -Path <span class="tk-v">$backupRoot</span> -Force | Out-Null
+Copy-Item -Path <span class="tk-v">$iisPath</span> -Destination <span class="tk-v">$backupPath</span> -Recurse -Force
+Write-Host <span class="tk-s">&quot;Backup created: $backupPath&quot;</span></code></pre>
+<h4 id="3-stop-the-app-pool">3. Stop the app pool</h4>
+<pre data-lang="powershell"><code><span class="tk-v">$appPool</span> = <span class="tk-s">&quot;&lt;AppPoolName&gt;&quot;</span>  <span class="tk-c"># e.g. ScholarshipManagementAppPool</span>
+&amp; <span class="tk-s">&quot;$env:WINDIR\System32\inetsrv\appcmd.exe&quot;</span> stop apppool <span class="tk-v">$appPool</span>
+Start-Sleep -Seconds <span class="tk-n">3</span></code></pre>
+<h4 id="4-copy-the-publish-output-into-wwwroot">4. Copy the publish output into wwwroot</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Clean it (the backup from step 2 is preserved)</span>
+Remove-Item -Path <span class="tk-s">&quot;$iisPath\*&quot;</span> -Recurse -Force -Exclude <span class="tk-s">&quot;appsettings.Production.json&quot;</span>,<span class="tk-s">&quot;web.Production.config&quot;</span>
+
+<span class="tk-c"># Copy publish-output to the server (over an SMB share or by RDP copy/paste)</span>
+<span class="tk-c"># Assuming the files are in C:\temp\publish-output\:</span>
+Copy-Item -Path <span class="tk-s">&quot;C:\temp\publish-output\*&quot;</span> -Destination <span class="tk-v">$iisPath</span> -Recurse -Force</code></pre>
+<blockquote><p>⚠️ <strong>Do NOT overwrite</strong> the target server's <code>appsettings.Production.json</code> or <code>web.Production.config</code>. Those hold the environment's secrets.</p></blockquote>
+<h4 id="5-start-the-app-pool">5. Start the app pool</h4>
+<pre data-lang="powershell"><code>&amp; <span class="tk-s">&quot;$env:WINDIR\System32\inetsrv\appcmd.exe&quot;</span> start apppool <span class="tk-v">$appPool</span>
+Start-Sleep -Seconds <span class="tk-n">5</span></code></pre>
+<h4 id="6-post-deploy-smoke-test">6. Post-deploy smoke test</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># From the server (localhost) — bypass the SSL check, because the certificate is for the public FQDN, not localhost</span>
+<span class="tk-v">$callback</span> = [System.Net.ServicePointManager]::ServerCertificateValidationCallback
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = { <span class="tk-v">$true</span> }
+<span class="tk-k">try</span> {
+    <span class="tk-v">$url</span> = <span class="tk-s">&quot;https://localhost/&lt;YourApp&gt;/health/live&quot;</span>  <span class="tk-c"># or equivalent</span>
+    <span class="tk-v">$r</span> = Invoke-WebRequest -Uri <span class="tk-v">$url</span> -UseBasicParsing -TimeoutSec <span class="tk-n">15</span>
+    <span class="tk-k">if</span> (<span class="tk-v">$r</span>.StatusCode -eq <span class="tk-n">200</span>) {
+        Write-Host <span class="tk-s">&quot;OK local smoke: $url -&gt; 200&quot;</span> -ForegroundColor Green
+    } <span class="tk-k">else</span> {
+        Write-Warning <span class="tk-s">&quot;local smoke: $url -&gt; $($r.StatusCode)&quot;</span>
+    }
+} <span class="tk-k">finally</span> {
+    [System.Net.ServicePointManager]::ServerCertificateValidationCallback = <span class="tk-v">$callback</span>
+}</code></pre>
+<p>Then, from the developer's browser (outside the server), open <code>https://&lt;env&gt;.example.org/&lt;YourApp&gt;/</code> and confirm a 200 with the expected content.</p>
+<h4 id="7-if-the-smoke-test-fails--manual-rollback">7. If the smoke test fails — manual rollback</h4>
+<pre data-lang="powershell"><code><span class="tk-c"># Stop the pool</span>
+&amp; <span class="tk-s">&quot;$env:WINDIR\System32\inetsrv\appcmd.exe&quot;</span> stop apppool <span class="tk-v">$appPool</span>
+Start-Sleep -Seconds <span class="tk-n">3</span>
+
+<span class="tk-c"># Restore from the backup</span>
+Remove-Item -Path <span class="tk-s">&quot;$iisPath\*&quot;</span> -Recurse -Force -Exclude <span class="tk-s">&quot;appsettings.Production.json&quot;</span>,<span class="tk-s">&quot;web.Production.config&quot;</span>
+Copy-Item -Path <span class="tk-s">&quot;$backupPath\*&quot;</span> -Destination <span class="tk-v">$iisPath</span> -Recurse -Force
+
+<span class="tk-c"># Start the pool again</span>
+&amp; <span class="tk-s">&quot;$env:WINDIR\System32\inetsrv\appcmd.exe&quot;</span> start apppool <span class="tk-v">$appPool</span>
+
+<span class="tk-c"># Find the cause in the logs before trying again</span></code></pre>
+<h4 id="8-record-the-deployment">8. Record the deployment</h4>
+<p>Update <code>_hilo/HISTORIAL_CAMBIOS.md</code>:</p>
+<pre data-lang="markdown"><code>## YYYY-MM-DD HH:MM — Manual deployment to &lt;ENV&gt;
+
+- **Version**: &lt;version or commit SHA&gt;
+- **Deployed by**: &lt;name&gt;
+- **Backup**: D:\Backups\&lt;App&gt;\backup-&lt;timestamp&gt;
+- **Smoke**: OK / FAILED (with detail if it failed)
+- **Notes**: &lt;observations&gt;</code></pre>
+<hr>
+</section>
+<section class="sec" id="sec-when-to-move-to-phase-1">
+<h3 id="when-to-move-to-phase-1">When to move to phase 1</h3>
+<p>If you deploy by hand <strong>more than once a month</strong>, or the team grows to two or more developers, consider promoting to phase 1:</p>
+<pre><code>claude /hv:cicd-init  # detects phase 0 and rewrites to phase 1 (idempotent)</code></pre>
+<p>Phase 1 adds automatically: build validation on PRs, remote <code>dotnet test</code>, and an artifact produced by the CI/CD platform. The deployment is still manual, but you no longer run <code>dotnet publish</code> locally — you download the artifact from the green build.</p>
+<hr>
+</section>
+<section class="sec" id="sec-anti-patterns">
+<h3 id="anti-patterns">Anti-patterns</h3>
+<ul>
+<li>❌ <strong>Skipping <code>/hv:verify</code></strong> because &quot;the change is small&quot;: most broken phase-0 deployments come from NOT running <code>/hv:verify</code> before pushing.</li>
+<li>❌ <strong>Not taking a pre-deploy backup</strong>: if something fails, you have no way back. The backup is <strong>MANDATORY</strong>, even for &quot;small changes&quot;.</li>
+<li>❌ <strong>Overwriting <code>appsettings.Production.json</code></strong>: it holds the environment's secrets. If you need to change something, edit the one on the server — do NOT copy yours.</li>
+<li>❌ <strong>Deploying to PROD without going through DEMO first</strong>: even by hand, keeping the DEV → DEMO → PROD chain helps catch bugs.</li>
+<li>❌ <strong>Forgetting to record it in <code>HISTORIAL_CAMBIOS.md</code></strong>: if the app breaks in two days, nobody will know which deployment caused it.</li>
+</ul>
+<hr>
+<p><em>Template of the manual deployment runbook for phase 0 — Ovillo. <code>/hv:cicd-init</code> adapts it with the project's own data.</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/08_CICD/RUNBOOK_DEPLOY_MANUAL_EN.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/review.html">review</a></li><li><a href="../skills/team.html">team</a></li><li><a href="../skills/tests.html">tests</a></li><li><a href="../skills/verify.html">verify</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/runbook_actualizar_pipeline.en.html"><small>Anterior</small>Runbook — Updating the pipeline after a template refresh</a><a class="next" href="../guias/runbook_template.en.html"><small>Siguiente</small>CI/CD operational runbook — <code>{{PROYECTO_NOMBRE}}</code></a></nav><footer><span>Ovillo v1.19.0</span><span>tag v1.19.0 (2026-09-23) · sin decisiones posteriores</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 82 decisiones</span><span>fuente: <code>ovillo/_patron/08_CICD/RUNBOOK_DEPLOY_MANUAL_EN.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#prerequisites">Prerequisites</a></li><li class="l2"><a href="#procedure-one-page-at-most-readable-under-pressure">Procedure (one page at most, readable under pressure)</a></li><li class="l3"><a href="#1-publish-the-artifact-locally">1. Publish the artifact locally</a></li><li class="l3"><a href="#2-pre-deploy-backup-on-the-target-server">2. Pre-deploy backup on the target server</a></li><li class="l3"><a href="#3-stop-the-app-pool">3. Stop the app pool</a></li><li class="l3"><a href="#4-copy-the-publish-output-into-wwwroot">4. Copy the publish output into wwwroot</a></li><li class="l3"><a href="#5-start-the-app-pool">5. Start the app pool</a></li><li class="l3"><a href="#6-post-deploy-smoke-test">6. Post-deploy smoke test</a></li><li class="l3"><a href="#7-if-the-smoke-test-fails--manual-rollback">7. If the smoke test fails — manual rollback</a></li><li class="l3"><a href="#8-record-the-deployment">8. Record the deployment</a></li><li class="l2"><a href="#when-to-move-to-phase-1">When to move to phase 1</a></li><li class="l2"><a href="#anti-patterns">Anti-patterns</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>

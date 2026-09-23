@@ -1,0 +1,237 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · templates/ArchitectureTests.clean.cs.template · Ovillo</title><meta name="description" content="Fichero templates/ArchitectureTests.clean.cs.template de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · templates/ArchitectureTests.clean.cs.template · Ovillo"><meta property="og:description" content="Fichero templates/ArchitectureTests.clean.cs.template de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/templates/ArchitectureTests.clean.cs.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/templates/ArchitectureTests.clean.cs.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/templates/ArchitectureTests.clean.cs.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.19.0 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">82</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (21)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.clean.cs.html" class="cur">templates/ArchitectureTests.clean.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.hexagonal.cs.html">templates/ArchitectureTests.hexagonal.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.minimal.cs.html">templates/ArchitectureTests.minimal.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.n-layer.cs.html">templates/ArchitectureTests.n-layer.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.vertical-slices.cs.html">templates/ArchitectureTests.vertical-slices.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>templates</span><span>ArchitectureTests.clean.cs.template</span></nav><span class="sp"></span><span class="pill">v1.19.0</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>templates/</span><span>10.436 B</span></div><h1>ArchitectureTests.clean.cs.template</h1><p class="lede">Fichero que <code>/hv:testing-patterns</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>10.436 B</b><span>tamaño</span></div><div><b>2026-09-21</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>// ============================================================================
+// TEMPLATE: ArchitectureTests.cs - las reglas de capa, ejecutables
+// Skill: testing-patterns (ADR-044)
+// ============================================================================
+// USO: Reemplazar {{ProjectNamespace}}. Se genera UNA VEZ por proyecto.
+// Destino: src/tests/{{ProjectNamespace}}.Tests.Architecture/ArchitectureTests.cs
+//
+// POR QUE EXISTE:
+//
+// Las reglas de capa del ecosistema estaban escritas en prosa (el checklist de
+// analisis-arquitectura) y las revisaba un agente. Una regla que solo revisa un humano o un
+// agente se viola el dia que nadie mira. Estos tests las ponen donde <span class="tk-k">no</span> se pueden ignorar:
+// en `dotnet test`, o sea en el pipeline, en cada PR.
+//
+// PAQUETE, y por que este:
+//
+//   &lt;PackageReference Include=<span class="tk-s">&quot;NetArchTest.eNhancedEdition&quot;</span> Version=<span class="tk-s">&quot;1.4.5&quot;</span> /&gt;
+//
+// <span class="tk-k">NO</span> `NetArchTest.Rules`. Ese es el original y su ultima version es de <span class="tk-n">2021</span>-05-23, con el
+// nuspec SIN licencia declarada. `eNhancedEdition` es su fork, MIT, con publicaciones
+// recientes, y conserva el namespace `NetArchTest.Rules`: los `using` <span class="tk-k">no</span> cambian.
+//
+// EL FALLO CLASICO DE ESTOS TESTS, y como se evita aqui:
+//
+// Si el filtro <span class="tk-k">no</span> selecciona ningun tipo -un namespace mal escrito, un renombrado, una capa
+// que aun <span class="tk-k">no</span> existe- la regla se cumple sobre el conjunto vacio y el test pasa EN VERDE.
+// A partir de ahi <span class="tk-k">no</span> vigila nada y nadie se entera. Por eso `Cumple()` exige ademas que la
+// regla haya mirado al menos un tipo: un test de arquitectura que <span class="tk-k">no</span> selecciona nada esta
+// roto, <span class="tk-k">no</span> conforme.
+
+using System.Reflection;
+using NetArchTest.Rules;
+using Xunit;
+
+namespace {{ProjectNamespace}}.Tests.Architecture;
+
+public class ArchitectureTests
+{
+    private const string Dominio = <span class="tk-s">&quot;{{ProjectNamespace}}.Domain&quot;</span>;
+    private const string Aplicacion = <span class="tk-s">&quot;{{ProjectNamespace}}.Application&quot;</span>;
+    private const string Infraestructura = <span class="tk-s">&quot;{{ProjectNamespace}}.Infrastructure&quot;</span>;
+    private const string Api = <span class="tk-s">&quot;{{ProjectNamespace}}.Api&quot;</span>;
+
+    // Un tipo ancla por capa, solo para localizar los ensamblados. Con cuatro proyectos son
+    // cuatro; con uno solo, `Distinct()` lo deja en uno. Las reglas filtran por NAMESPACE, asi
+    // que valen igual en los dos montajes y siguen valiendo si el proyecto se parte mas tarde.
+    private static readonly Assembly[] Ensamblados = new[]
+    {
+        typeof({{ProjectNamespace}}.Domain.Entities.AuditableEntity).Assembly,
+        typeof({{ProjectNamespace}}.Application.Common.Interfaces.IUnitOfWork).Assembly,
+        // Ancla en el repositorio y <span class="tk-k">NO</span> en el contexto de EF Core: este estilo se genera tambien con
+        // Dapper y procedimientos (ADR-053), donde <span class="tk-k">no</span> hay `ApplicationDbContext` y estas reglas -- que
+        // hablan de capas, <span class="tk-k">no</span> de tecnologia -- <span class="tk-k">no</span> compilarian siquiera. Sustituye `Scholarship` por
+        // cualquier entidad tuya: solo sirve para localizar el ensamblado.
+        typeof({{ProjectNamespace}}.Infrastructure.Persistence.Repositories.{{Entity}}Repository).Assembly,
+        typeof({{ProjectNamespace}}.Api.Filters.LoggingFilter).Assembly,
+    }.Distinct().ToArray();
+
+    private static Types Todos() =&gt; Types.InAssemblies(Ensamblados);
+
+    /// &lt;summary&gt;
+    /// Afirma la regla Y que la regla ha mirado algo. Sin la segunda mitad, un filtro que <span class="tk-k">no</span>
+    /// casa con nada produce un test verde que <span class="tk-k">no</span> vigila nada.
+    /// &lt;/summary&gt;
+    private static void Cumple(TestResult resultado, string regla)
+    {
+        var mirados = resultado.SelectedTypesForTesting?.Count() ?? <span class="tk-n">0</span>;
+        Assert.<span class="tk-k">True</span>(mirados &gt; <span class="tk-n">0</span>,
+            $<span class="tk-s">&quot;{regla}\n  La regla no selecciono ningun tipo: el filtro esta mal o la capa no existe. &quot;</span> +
+            <span class="tk-s">&quot;Un test de arquitectura que no mira nada esta roto, no conforme.&quot;</span>);
+
+        if (resultado.IsSuccessful) return;
+
+        var culpables = string.Join(<span class="tk-s">&quot;\n    &quot;</span>, resultado.FailingTypes.Select(t =&gt; t.FullName));
+        Assert.<span class="tk-k">True</span>(<span class="tk-k">false</span>, $<span class="tk-s">&quot;{regla}\n  Lo incumplen:\n    {culpables}&quot;</span>);
+    }
+
+    // ---------------------------------------------------------------- direccion de dependencias
+
+    [Fact]
+    public void El_dominio_no_conoce_ninguna_otra_capa()
+    {
+        Cumple(Todos()
+            .That().ResideInNamespace(Dominio)
+            .ShouldNot().HaveDependencyOnAny(Aplicacion, Infraestructura, Api)
+            .GetResult(),
+            <span class="tk-s">&quot;Domain es el centro: las dependencias entran, no salen.&quot;</span>);
+    }
+
+    [Fact]
+    public void El_dominio_no_conoce_EF_Core()
+    {
+        Cumple(Todos()
+            .That().ResideInNamespace(Dominio)
+            .ShouldNot().HaveDependencyOnAny(<span class="tk-s">&quot;Microsoft.EntityFrameworkCore&quot;</span>)
+            .GetResult(),
+            <span class="tk-s">&quot;El dominio se persiste, no sabe persistirse. EF Core vive en Infrastructure.&quot;</span>);
+    }
+
+    [Fact]
+    public void El_dominio_no_conoce_HTTP_ni_serializacion()
+    {
+        Cumple(Todos()
+            .That().ResideInNamespace(Dominio)
+            .ShouldNot().HaveDependencyOnAny(
+                <span class="tk-s">&quot;Microsoft.AspNetCore&quot;</span>, <span class="tk-s">&quot;System.Text.Json&quot;</span>, <span class="tk-s">&quot;Newtonsoft.Json&quot;</span>)
+            .GetResult(),
+            <span class="tk-s">&quot;Una entidad con atributos de serializacion deja de ser del dominio y pasa a ser del transporte.&quot;</span>);
+    }
+
+    [Fact]
+    public void La_aplicacion_no_conoce_ni_Infrastructure_ni_Api()
+    {
+        Cumple(Todos()
+            .That().ResideInNamespace(Aplicacion)
+            .ShouldNot().HaveDependencyOnAny(Infraestructura, Api)
+            .GetResult(),
+            <span class="tk-s">&quot;Los casos de uso hablan con interfaces; quien las implementa es cosa del arranque.&quot;</span>);
+    }
+
+    [Fact]
+    public void La_aplicacion_no_conoce_EF_Core()
+    {
+        Cumple(Todos()
+            .That().ResideInNamespace(Aplicacion)
+            .ShouldNot().HaveDependencyOnAny(<span class="tk-s">&quot;Microsoft.EntityFrameworkCore&quot;</span>)
+            .GetResult(),
+            <span class="tk-s">&quot;Un IQueryable que se escapa de Infrastructure convierte el repositorio en decorado. &quot;</span> +
+            <span class="tk-s">&quot;Si este test se pone rojo, la consulta se ha ido de capa.&quot;</span>);
+    }
+
+    [Fact]
+    public void Infrastructure_no_conoce_la_Api()
+    {
+        Cumple(Todos()
+            .That().ResideInNamespace(Infraestructura)
+            .ShouldNot().HaveDependencyOnAny(Api)
+            .GetResult(),
+            <span class="tk-s">&quot;Infrastructure sirve a Application, no al transporte que hoy tenga delante.&quot;</span>);
+    }
+
+    // ---------------------------------------------------------------- donde vive cada cosa
+
+    [Fact]
+    public void Las_implementaciones_de_repositorio_viven_en_Infrastructure()
+    {
+        Cumple(Todos()
+            .That().AreClasses().And().HaveNameEndingWith(<span class="tk-s">&quot;Repository&quot;</span>)
+            .Should().ResideInNamespace(Infraestructura)
+            .GetResult(),
+            <span class="tk-s">&quot;Una clase Repository fuera de Infrastructure es acceso a datos filtrado a otra capa.&quot;</span>);
+    }
+
+    [Fact]
+    public void Los_contratos_de_repositorio_viven_en_el_dominio()
+    {
+        // El contrato de un repositorio de agregado es lenguaje del negocio (<span class="tk-s">&quot;dame el pedido&quot;</span>,
+        // <span class="tk-s">&quot;guarda el pedido&quot;</span>), asi que pertenece a la capa que define ese lenguaje. Los puertos
+        // TECNICOS del caso de uso -- IUnitOfWork, ICurrentUserService, IClock -- se quedan en
+        // Application, que es de quien son. Si un contrato de repositorio acaba en Infrastructure
+        // junto a su implementacion, la inversion de dependencias deja de invertir nada.
+        Cumple(Todos()
+            .That().AreInterfaces().And().HaveNameEndingWith(<span class="tk-s">&quot;Repository&quot;</span>)
+            .Should().ResideInNamespace(Dominio + <span class="tk-s">&quot;.Repositories&quot;</span>)
+            .GetResult(),
+            <span class="tk-s">&quot;Un repositorio de agregado se declara donde vive su lenguaje: el dominio.&quot;</span>);
+    }
+
+    [Fact]
+    public void Las_lecturas_paginadas_son_contrato_de_Application()
+    {
+        // La contrapartida de la regla anterior: una lectura paginada devuelve un modelo de lectura,
+        // <span class="tk-k">no</span> un agregado, y es del caso de uso. Tenerla en el repositorio de dominio obligaria al
+        // dominio a conocer los tipos de pagina, que viven en Application.
+        Cumple(Todos()
+            .That().AreInterfaces().And().HaveNameEndingWith(<span class="tk-s">&quot;Queries&quot;</span>)
+            .Should().ResideInNamespace(Aplicacion)
+            .GetResult(),
+            <span class="tk-s">&quot;Las consultas de pantalla son del caso de uso, no del dominio.&quot;</span>);
+    }
+
+    [Fact]
+    public void Los_controllers_solo_viven_en_la_Api()
+    {
+        Cumple(Todos()
+            .That().AreClasses().And().HaveNameEndingWith(<span class="tk-s">&quot;Controller&quot;</span>)
+            .Should().ResideInNamespace(Api)
+            .GetResult(),
+            <span class="tk-s">&quot;Un Controller fuera de Api es transporte metido donde no toca.&quot;</span>);
+    }
+
+    // ---------------------------------------------------------------- forma de los tipos
+
+    [Fact]
+    public void Las_entidades_del_dominio_heredan_de_AuditableEntity()
+    {
+        Cumple(Todos()
+            .That().ResideInNamespace(Dominio + <span class="tk-s">&quot;.Entities&quot;</span>)
+                .And().AreClasses().And().AreNotAbstract()
+            .Should().Inherit(typeof({{ProjectNamespace}}.Domain.Entities.AuditableEntity))
+            .GetResult(),
+            <span class="tk-s">&quot;Quien y cuando toco una fila no es opcional: sale de la base, no de acordarse.&quot;</span>);
+    }
+
+    [Fact]
+    public void Los_handlers_son_sealed()
+    {
+        Cumple(Todos()
+            .That().AreClasses().And().HaveNameEndingWith(<span class="tk-s">&quot;Handler&quot;</span>)
+            .Should().BeSealed()
+            .GetResult(),
+            <span class="tk-s">&quot;Un handler es el final de una cadena, no una base de la que heredar.&quot;</span>);
+    }
+
+    [Fact]
+    public void Las_interfaces_empiezan_por_I()
+    {
+        Cumple(Todos()
+            .That().AreInterfaces().And().ResideInNamespace(<span class="tk-s">&quot;{{ProjectNamespace}}&quot;</span>)
+            .Should().HaveNameStartingWith(<span class="tk-s">&quot;I&quot;</span>)
+            .GetResult(),
+            <span class="tk-s">&quot;Convencion de nomenclatura de la organizacion.&quot;</span>);
+    }
+}
+
+// ============================================================================
+// COMO ANADIR UNA REGLA
+//
+// Una regla nueva solo merece la pena si es plausible que alguien la incumpla por descuido.
+// Antes de dejarla fija, comprobar que FALLA: introducir la violacion a proposito, ver el
+// test rojo, y deshacerla. Un test de arquitectura que nunca ha estado rojo <span class="tk-k">no</span> se ha probado.
+//
+// Reglas que <span class="tk-k">NO</span> van aqui porque NetArchTest <span class="tk-k">no</span> las ve: llamadas concretas dentro de un metodo
+// (`DateTime.Now`, `Thread.Sleep`, `.Result`), que son de un analizador de Roslyn; y el
+// contenido de las cadenas SQL, que es del hook `sql-nomenclatura-guard`.
+// ============================================================================
+</code></pre><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html"><small>Anterior</small>templates/ApiTestBase.cs.template</a><a class="next" href="../../../skills/testing-patterns/templates/ArchitectureTests.hexagonal.cs.html"><small>Siguiente</small>templates/ArchitectureTests.hexagonal.cs.template</a></nav><footer><span>Ovillo v1.19.0</span><span>tag v1.19.0 (2026-09-23) · sin decisiones posteriores</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 82 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/templates/ArchitectureTests.clean.cs.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

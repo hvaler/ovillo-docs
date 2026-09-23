@@ -1,0 +1,118 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>testing-patterns · templates/ArchitectureTests.minimal.cs.template · Ovillo</title><meta name="description" content="Fichero templates/ArchitectureTests.minimal.cs.template de la skill testing-patterns"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="testing-patterns · templates/ArchitectureTests.minimal.cs.template · Ovillo"><meta property="og:description" content="Fichero templates/ArchitectureTests.minimal.cs.template de la skill testing-patterns"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/templates/ArchitectureTests.minimal.cs.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/testing-patterns/templates/ArchitectureTests.minimal.cs.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/testing-patterns/templates/ArchitectureTests.minimal.cs.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.19.0 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">82</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de testing-patterns (21)</h4><ul class="sibs"><li><a href="../../../skills/testing-patterns/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/testing-patterns/patterns/api-contract-testing.html">patterns/api-contract-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/builders.html">patterns/builders.md</a></li><li><a href="../../../skills/testing-patterns/patterns/bunit-patterns.html">patterns/bunit-patterns.md</a></li><li><a href="../../../skills/testing-patterns/patterns/integration-fixtures.html">patterns/integration-fixtures.md</a></li><li><a href="../../../skills/testing-patterns/patterns/mocking-avanzado.html">patterns/mocking-avanzado.md</a></li><li><a href="../../../skills/testing-patterns/patterns/performance-testing.html">patterns/performance-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/snapshot-testing.html">patterns/snapshot-testing.md</a></li><li><a href="../../../skills/testing-patterns/patterns/test-data-factory.html">patterns/test-data-factory.md</a></li><li><a href="../../../skills/testing-patterns/references/test-helpers.html">references/test-helpers.md</a></li><li><a href="../../../skills/testing-patterns/references/test-templates.html">references/test-templates.md</a></li><li><a href="../../../skills/testing-patterns/references/workflow-test.html">references/workflow-test.md</a></li><li><a href="../../../skills/testing-patterns/templates/ApiTestBase.cs.html">templates/ApiTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.clean.cs.html">templates/ArchitectureTests.clean.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.hexagonal.cs.html">templates/ArchitectureTests.hexagonal.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.minimal.cs.html" class="cur">templates/ArchitectureTests.minimal.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.n-layer.cs.html">templates/ArchitectureTests.n-layer.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/ArchitectureTests.vertical-slices.cs.html">templates/ArchitectureTests.vertical-slices.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/FakeBuilder.cs.html">templates/FakeBuilder.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/IntegrationTestBase.cs.html">templates/IntegrationTestBase.cs.template</a></li><li><a href="../../../skills/testing-patterns/templates/TestBase.cs.html">templates/TestBase.cs.template</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/testing-patterns.html">testing-patterns</a></span><span>templates</span><span>ArchitectureTests.minimal.cs.template</span></nav><span class="sp"></span><span class="pill">v1.19.0</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>testing-patterns</span><span>templates/</span><span>6089 B</span></div><h1>ArchitectureTests.minimal.cs.template</h1><p class="lede">Fichero que <code>/hv:testing-patterns</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/testing-patterns.html">testing-patterns</a></b><span>skill</span></div><div><b>templates</b><span>carpeta</span></div><div><b>6089 B</b><span>tamaño</span></div><div><b>2026-09-21</b><span>último cambio del pack</span></div></div><pre data-lang="template"><code>// ============================================================================
+// TEMPLATE: ArchitectureTests.cs - las dos reglas de una app minima, ejecutables
+// Skill: testing-patterns (ADR-048)
+// ============================================================================
+// USO: Reemplazar {{ProjectNamespace}}. Se genera UNA VEZ por proyecto.
+// Destino: src/tests/{{ProjectNamespace}}.Tests.Architecture/ArchitectureTests.cs
+// Aplica cuando `configuracion.arquitectura.estilo` del Hilo vale `minimal`.
+//
+// SON DOS REGLAS. <span class="tk-k">NO</span> FALTAN LAS DEMAS: ES QUE <span class="tk-k">NO</span> LAS HAY.
+//
+// Este es el juego mas corto de todos, y la brevedad es el contenido. Un proyecto unico <span class="tk-k">no</span> tiene
+// fronteras de ensamblado que vigilar; toda la separacion es de carpetas, y eso son convenciones,
+// <span class="tk-k">no</span> invariantes. Escribir aqui trece reglas para que se parezca a `clean` seria fingir una
+// cobertura que el estilo <span class="tk-k">no</span> pide y que ademas estorbaria.
+//
+// LA REGLA QUE <span class="tk-k">NO</span> ESTA, Y QUE CASI ESCRIBO:
+//
+//   <span class="tk-s">&quot;Los endpoints no tocan el acceso a datos directamente.&quot;</span>
+//
+// Es FALSA aqui. En una app de un proyecto, un `MapGet` que consulta el contexto y devuelve es el
+// patron idiomatico y recomendado; ponerle un servicio en medio <span class="tk-s">&quot;porque toca&quot;</span> es la ceremonia que
+// este estilo existe para evitar. Una regla asi pondria en rojo un proyecto perfectamente sano.
+//
+// Es el mismo error que habria sido aplicarle a `n-layer` la inversion de dependencias de Clean, o a
+// `hexagonal` los nombres de las cuatro capas. Cada estilo se vigila con SUS reglas o con ninguna.
+//
+// LO QUE SI QUEDA son dos cosas, y son las de abajo: una direccion que sigue importando aunque <span class="tk-k">no</span>
+// haya capas, y el aviso de que el proyecto ha dejado de ser minimal.
+//
+// PAQUETE:
+//   &lt;PackageReference Include=<span class="tk-s">&quot;NetArchTest.eNhancedEdition&quot;</span> Version=<span class="tk-s">&quot;1.4.5&quot;</span> /&gt;
+
+using System.Reflection;
+using NetArchTest.Rules;
+using Xunit;
+
+namespace {{ProjectNamespace}}.Tests.Architecture;
+
+public class ArchitectureTests
+{
+    private const string Endpoints = <span class="tk-s">&quot;{{ProjectNamespace}}.Endpoints&quot;</span>;
+    private const string Datos = <span class="tk-s">&quot;{{ProjectNamespace}}.Data&quot;</span>;
+
+    private static readonly Assembly[] Ensamblados = new[]
+    {
+        // Ancla en la ENTIDAD y <span class="tk-k">no</span> en el contexto de EF Core: este estilo se genera tambien con
+        // Dapper y procedimientos (ADR-054), donde <span class="tk-k">no</span> hay `AppDbContext` -- y estas reglas, que
+        // hablan de la forma del proyecto y <span class="tk-k">no</span> de la tecnologia, <span class="tk-k">no</span> compilarian siquiera.
+        // Sustituye `Scholarship` por cualquier entidad tuya: solo sirve para localizar el ensamblado.
+        typeof({{ProjectNamespace}}.Data.{{Entity}}).Assembly,
+    }.Distinct().ToArray();
+
+    private static Types Todos() =&gt; Types.InAssemblies(Ensamblados);
+
+    /// &lt;summary&gt;Afirma la regla Y que la regla ha mirado algo.&lt;/summary&gt;
+    private static void Cumple(TestResult resultado, string regla)
+    {
+        var mirados = resultado.SelectedTypesForTesting?.Count() ?? <span class="tk-n">0</span>;
+        Assert.<span class="tk-k">True</span>(mirados &gt; <span class="tk-n">0</span>,
+            $<span class="tk-s">&quot;{regla}\n  La regla no selecciono ningun tipo: el filtro esta mal o esa parte no existe. &quot;</span> +
+            <span class="tk-s">&quot;Un test de arquitectura que no mira nada esta roto, no conforme.&quot;</span>);
+
+        if (resultado.IsSuccessful) return;
+
+        var culpables = string.Join(<span class="tk-s">&quot;\n    &quot;</span>, resultado.FailingTypes.Select(t =&gt; t.FullName));
+        Assert.<span class="tk-k">True</span>(<span class="tk-k">false</span>, $<span class="tk-s">&quot;{regla}\n  Lo incumplen:\n    {culpables}&quot;</span>);
+    }
+
+    // ---------------------------------------------------------------- la direccion que queda
+
+    [Fact]
+    public void El_acceso_a_datos_no_conoce_los_endpoints()
+    {
+        // Al reves si: el endpoint habla con el almacen directamente y esta bien. Pero el almacen
+        // mirando al endpoint es el unico acoplamiento que sigue siendo un error aunque <span class="tk-k">no</span> haya
+        // capas, porque es el que impide sacar el acceso a datos el dia que el proyecto crezca.
+        Cumple(Todos()
+            .That().ResideInNamespace(Datos)
+            .ShouldNot().HaveDependencyOnAny(Endpoints)
+            .GetResult(),
+            <span class="tk-s">&quot;El almacen no sabe quien lo consulta. Es lo unico que hay que mantener si algun dia &quot;</span> +
+            <span class="tk-s">&quot;esto deja de ser un solo proyecto.&quot;</span>);
+    }
+
+    // ---------------------------------------------------------------- el aviso de que ya <span class="tk-k">no</span> es minimal
+
+    [Fact]
+    public void El_proyecto_sigue_siendo_minimal()
+    {
+        // <span class="tk-k">No</span> vigila una violacion: vigila que la ETIQUETA siga siendo cierta. El dia que aparecen
+        // capas, el proyecto ha crecido y lo honesto es cambiar el estilo en el Hilo -- y recibir
+        // entonces el juego de reglas que si le corresponde -- en vez de quedarse con `minimal`
+        // declarado y una arquitectura que ya es otra cosa.
+        var capas = new[] { <span class="tk-s">&quot;Application&quot;</span>, <span class="tk-s">&quot;Domain&quot;</span>, <span class="tk-s">&quot;Infrastructure&quot;</span>, <span class="tk-s">&quot;Business&quot;</span> };
+        var encontradas = new List&lt;string&gt;();
+        foreach (var capa in capas)
+        {
+            var tipos = Todos().That().ResideInNamespace($<span class="tk-s">&quot;{{ProjectNamespace}}.{capa}&quot;</span>).GetTypes().ToList();
+            if (tipos.Count &gt; <span class="tk-n">0</span>) encontradas.Add($<span class="tk-s">&quot;{capa} ({tipos.Count} tipos)&quot;</span>);
+        }
+
+        Assert.<span class="tk-k">True</span>(encontradas.Count == <span class="tk-n">0</span>,
+            <span class="tk-s">&quot;Han aparecido capas: &quot;</span> + string.Join(<span class="tk-s">&quot;, &quot;</span>, encontradas) + <span class="tk-s">&quot;.\n&quot;</span> +
+            <span class="tk-s">&quot;  Esto ya no es una app minima, y el estilo declarado en el Hilo ha dejado de describirla.\n&quot;</span> +
+            <span class="tk-s">&quot;  Cambiar `configuracion.arquitectura.estilo` a `n-layer` o `clean` segun hacia donde haya\n&quot;</span> +
+            <span class="tk-s">&quot;  crecido: el juego de reglas correspondiente si tiene algo que decir sobre esas capas.\n&quot;</span> +
+            <span class="tk-s">&quot;  Este test no se arregla borrando las capas, sino decidiendo cual es ahora el estilo.&quot;</span>);
+    }
+}
+
+// ============================================================================
+// CUANDO ESTE FICHERO SE QUEDA CORTO
+//
+// Si echas de menos reglas, probablemente el proyecto ya <span class="tk-k">no</span> sea minimal. Eso <span class="tk-k">no</span> es un fallo de la
+// plantilla: es la senal para la que existe la segunda regla. Cambia el estilo en el Hilo y
+// `ArchitectureTests.&lt;estilo&gt;.cs.template` te dara el juego que corresponda.
+// ============================================================================
+</code></pre><p style="margin-top:32px"><a href="../../../skills/testing-patterns.html#ficheros">← Volver a la ficha de testing-patterns</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/testing-patterns/templates/ArchitectureTests.hexagonal.cs.html"><small>Anterior</small>templates/ArchitectureTests.hexagonal.cs.template</a><a class="next" href="../../../skills/testing-patterns/templates/ArchitectureTests.n-layer.cs.html"><small>Siguiente</small>templates/ArchitectureTests.n-layer.cs.template</a></nav><footer><span>Ovillo v1.19.0</span><span>tag v1.19.0 (2026-09-23) · sin decisiones posteriores</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 82 decisiones</span><span>fuente: <code>ovillo/.claude/skills/testing-patterns/templates/ArchitectureTests.minimal.cs.template</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

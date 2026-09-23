@@ -1,0 +1,118 @@
+<!doctype html><html lang="en" data-rel="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CI/CD operational runbook — {{PROYECTO_NOMBRE}} · Ovillo</title><meta name="description" content="CI/CD operational runbook — {{PROYECTO_NOMBRE}}"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="CI/CD operational runbook — {{PROYECTO_NOMBRE}} · Ovillo"><meta property="og:description" content="CI/CD operational runbook — {{PROYECTO_NOMBRE}}"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/guias/runbook_template.en.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/guias/runbook_template.en.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../recursos/portal.css"></head><body data-page="guias/runbook_template.en.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout has-toc"><aside class="side" aria-label="Navegación"><a class="brand" href="../index.html">Ovillo<small>v1.19.0 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../guias/index.html" class="cur">Guías<span class="n">35</span></a></li><li><a href="../curso/index.html">Curso</a></li><li><a href="../chuletas/index.html">Chuletas</a></li><li><a href="../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../skills/index.html">Skills<span class="n">68</span></a></li><li><a href="../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../patron.html">Patrón</a></li><li><a href="../decisiones.html">Decisiones<span class="n">82</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../referencia-config.html">Configuración</a></li><li><a href="../referencia-hilo.html">Hilo</a></li><li><a href="../changelog.html">Versiones</a></li><li><a href="../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../evaluaciones.html">Evaluaciones</a></li><li><a href="../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../buscar.html">Buscar</a></li><li><a href="../privacidad.html">Datos y privacidad</a></li><li><a href="../acerca.html">Acerca</a></li></ul><h4>Patrón · 08_CICD (9)</h4><ul class="sibs"><li><a href="../guias/auditar_pipeline.en.html">Auditing your CI/CD pipeline (<code>cicd-pipeline-reviewer</code> · <code>github-actions-reviewer</code>)</a></li><li><a href="../guias/cicd-readme.en.html">08_CICD — Continuous Integration / Continuous Deployment</a></li><li><a href="../guias/guia_completa_cicd.en.html">Complete Ovillo CI/CD guide — the <code>/hv:cicd-*</code> workflows and all their variants</a></li><li><a href="../guias/guia_fases_adopcion.en.html">CI/CD adoption guide — phases 0, 1 and 2</a></li><li><a href="../guias/guia_github_actions.en.html">CI/CD guide with GitHub Actions — phases 0, 1 and 2, commands and security</a></li><li><a href="../guias/permisos_cicd.en.html">CI/CD permissions and infrastructure — TEMPLATE</a></li><li><a href="../guias/runbook_actualizar_pipeline.en.html">Runbook — Updating the pipeline after a template refresh</a></li><li><a href="../guias/runbook_deploy_manual.en.html">Manual deployment runbook — Phase 0</a></li><li><a href="../guias/runbook_template.en.html" class="cur">CI/CD operational runbook — <code>{{PROYECTO_NOMBRE}}</code></a></li></ul></aside><main id="principal" lang="en"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../index.html">Inicio</a></span><span><a href="../guias/index.html">Guías</a></span><span>Patrón · 08_CICD</span><span>CI/CD operational runbook — <code>{{PROYECTO_NOMBRE}}</code></span></nav><span class="sp"></span><span class="pill">v1.19.0</span><button class="tb" type="button" data-present title="Modo presentación (cada sección es una diapositiva)">▶ Presentar</button><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span>guía</span><span>Patrón · 08_CICD</span><span>english</span><span><a href="../guias/runbook_template.html">versión en español</a></span></div><h1>CI/CD operational runbook — <code>{{PROYECTO_NOMBRE}}</code></h1><div class="meta-grid"><div><b>6 min</b><span>lectura</span></div><div><b>1295</b><span>palabras</span></div><div><b>8</b><span>secciones</span></div><div><b>2026-09-22</b><span>última edición</span></div><div><b>1</b><span>cambios</span></div></div><blockquote><p><strong>When to use this runbook</strong>: a project in <strong>phase 2</strong> with a full CD pipeline. If your project is in <strong>phase 0</strong>, use <code>RUNBOOK_DEPLOY_MANUAL.md</code>. If it is in <strong>phase 1</strong>, this runbook does not fully apply yet (there is no CD).</p>
+<p><strong>Policy</strong>: each section one page at most, readable under pressure. No long paragraphs. This is a <strong>template</strong>. <code>/hv:cicd-init</code> fills it in with the project's data. The <code>{{placeholders}}</code> — whose names stay as they are, because the wizard substitutes them — are replaced when the real runbook is generated.</p></blockquote>
+<hr>
+<section class="sec" id="sec-1-the-build-fails-in-ci">
+<h3 id="1-the-build-fails-in-ci">1. The build fails in CI</h3>
+<p><strong>Typical symptoms</strong>: <code>dotnet build</code> / <code>npm run build</code> red, tests red, lint error, coverage gate not met (line &lt;70% or branch &lt;60%).</p>
+<p><strong>Diagnosis</strong>:</p>
+<ol>
+<li>Open the build in the Azure DevOps UI: <code>{{PIPELINE_URL}}</code></li>
+<li>Scroll to the first red step. Read the last ~30 lines of the log.</li>
+<li>Is it a bug in the code? → fix + commit + push (CI is queued again automatically)</li>
+<li>Is it infrastructure (agent offline, NuGet/npm registry down, disk full)? → see section 5, &quot;Contacts and escalation&quot;</li>
+</ol>
+<p><strong>Frequent causes in the organization</strong> (in order of likelihood):</p>
+<ul>
+<li>A test that passes locally because it reaches a real <code>localhost:5000</code> (R12.4)</li>
+<li><code>appsettings.Development.json</code> committed by mistake with real credentials</li>
+<li>An absolute path in <code>vite.config.ts</code> pointing at another repository on the developer's filesystem (R12.1)</li>
+<li><code>package-lock.json</code> out of date with respect to <code>package.json</code> (you forgot to commit the lockfile after <code>npm install</code>)</li>
+<li>The .NET SDK for the required <code>&lt;TargetFramework&gt;</code> is not installed on the build agent</li>
+<li>Coverage gate not met: line/branch coverage below the threshold (coverage-gate.ps1; exit 3 only with <code>-Mode block</code>)</li>
+</ul>
+<p><strong>Re-queue</strong>: after the fix, <code>git push</code> triggers a new CI run. Do <strong>NOT</strong> queue it by hand from the Azure DevOps UI (see the <code>feedback_no_manual_queue</code> note).</p>
+<hr>
+</section>
+<section class="sec" id="sec-1b-the-build-does-not-queue-after-the-push-r7">
+<h3 id="1b-the-build-does-not-queue-after-the-push-r7">1b. The build does NOT queue after the push (R7)</h3>
+<p><strong>Symptom</strong>: you <code>git push</code> and <strong>the build does not even appear</strong> in Azure DevOps (it is not failing: it never starts). Typical when the commit <strong>only touches deep subfolders</strong> (for example <code>docs/testing/**</code>, nested resources).</p>
+<p><strong>Cause</strong>: a confirmed Azure DevOps Server 2020 bug with <code>trigger.paths.include</code> and <code>settingsSourceType=2</code> — the <code>'&lt;dir&gt;/**'</code> patterns do not match deep subdirectories (R7). The project's YAML already emits the double pattern <code>'&lt;dir&gt;/**'</code> + <code>'&lt;dir&gt;/**/*'</code> as a defence, but detection is still flaky for very deeply nested paths.</p>
+<p><strong>What it is NOT</strong>: do not confuse it with &quot;the build is queued but stuck in <code>notStarted</code>/<code>Checkpoint.Authorization</code>&quot; (that is a pool permission, TEC-003, see section 5).</p>
+<p><strong>Workaround — queue it by hand over REST</strong> (a legitimate exception to the &quot;do not queue by hand&quot; rule, which applies to the normal flow):</p>
+<pre data-lang="powershell"><code><span class="tk-c"># Needs a PAT or --negotiate. Replace {{ADO_COLLECTION_PROJECT_URL}} and definitionId.</span>
+<span class="tk-v">$body</span> = @{ definition = @{ id = {{PIPELINE_DEFINITION_ID}} }; sourceBranch = <span class="tk-s">'refs/heads/{{RAMA_BASE}}'</span> } | ConvertTo-Json
+Invoke-RestMethod -Uri <span class="tk-s">&quot;{{ADO_COLLECTION_PROJECT_URL}}/_apis/build/builds?api-version=6.0&quot;</span> `
+  -Method Post -UseDefaultCredentials -ContentType <span class="tk-s">'application/json'</span> -Body <span class="tk-v">$body</span></code></pre>
+<p><strong>Underlying fix</strong>: make sure the commit also touches a path that DOES trigger (code under <code>{{SRC_DIR}}/</code>), or accept queueing by hand for test-only pushes.</p>
+<hr>
+</section>
+<section class="sec" id="sec-2-the-deployment-to-demo-fails">
+<h3 id="2-the-deployment-to-demo-fails">2. The deployment to DEMO fails</h3>
+<p><strong>Typical symptoms</strong>: the <code>Build</code> stage green, the <code>DeployDemo</code> stage red.</p>
+<p><strong>DEMO server</strong>: <code>{{DEMO_SERVER_FQDN}}</code> (computer name: <code>{{DEMO_COMPUTER_NAME}}</code>)</p>
+<p><strong>Diagnosis</strong>:</p>
+<ol>
+<li>Look at the log of the <code>IISWebAppDeploymentOnMachineGroup@0</code> step</li>
+<li>Typical errors:</li>
+<ul>
+<li><code>Could not find a part of the path '&lt;wwwroot&gt;'</code> → the path does not exist; ask the infrastructure team to create the IIS site</li>
+<li><code>Access to the path is denied</code> → the agent's account (<code>NT AUTHORITY\SYSTEM</code> by convention) lacks permissions; ask the infrastructure team</li>
+<li><code>One or more files locked</code> → on in-process ASP.NET Core, <code>TakeAppOfflineFlag: true</code> is missing (R10). Edit the YAML and re-queue.</li>
+<li><code>The remote server returned an error: (401) Unauthorized</code> in MSDeploy → the agent's credential expired</li>
+<li>Smoke test <code>https://{{DEMO_FQDN}}/...</code> returning 404 or timing out → see &quot;Alternative verification&quot; below</li>
+</ul>
+</ol>
+<p><strong>Verification after the fix</strong>: the pipeline's own smoke test confirms it (strict for a .NET API, best-effort for an SPA — it emits a warning plus diagnostics without throwing, R11).</p>
+<p><strong>Alternative verification by a person</strong> (when the best-effort smoke emits a warning): open <code>{{DEMO_URL}}</code> from your browser (NOT from the server — hairpin NAT). If it loads with a 200 and the expected content, the deployment is green even though the automatic smoke could not confirm it.</p>
+<hr>
+</section>
+<section class="sec" id="sec-3-the-deployment-to-prod-fails">
+<h3 id="3-the-deployment-to-prod-fails">3. The deployment to PROD fails</h3>
+<p><strong>Typical symptoms</strong>: the <code>DeployProd</code> stage red after the approval gate of the <code>{{PROD_APPROVERS_GROUP}}</code> group.</p>
+<p><strong>PROD servers</strong>: <code>{{PROD_SERVER_A}}</code> + <code>{{PROD_SERVER_B}}</code> (rolling deploy, two in sequence).</p>
+<p><strong>Automatic rollback</strong>: if the post-deploy smoke test fails, the job's <code>condition: failed()</code> step restores the pre-deploy backup automatically (R15). The log will say &quot;Rollback executed&quot; and the job ends red. The site is left on the version PRIOR to the deployment.</p>
+<p><strong>If the automatic rollback also fails</strong> (rare, but documented):</p>
+<ol>
+<li>RDP into the PROD server: <code>{{PROD_SERVER_FQDN}}</code></li>
+<li>Find the most recent backup: <code>dir D:\Backups\{{APP_NAME}}\backup-*</code> (sort by date)</li>
+<li>Read the marker to confirm the BuildId: <code>type D:\Backups\{{APP_NAME}}\backup-&lt;BuildId&gt;\_backup-metadata.txt</code></li>
+<li>Stop the app pool: <code>appcmd stop apppool {{APP_POOL}}</code></li>
+<li>Delete the current wwwroot (preserving <code>appsettings.Production.json</code>):</li>
+</ol>
+<pre><code>   pushd C:\inetpub\wwwroot\{{APP_NAME}}
+   for /f &quot;delims=&quot; %i in ('dir /b /a-d ^| findstr /v /i &quot;appsettings.Production.json web.Production.config&quot;') do del /Q &quot;%i&quot;</code></pre>
+<ol>
+<li>Restore: <code>xcopy /E /Y D:\Backups\{{APP_NAME}}\backup-&lt;BuildId&gt;\* C:\inetpub\wwwroot\{{APP_NAME}}\</code></li>
+<li>Start the pool again: <code>appcmd start apppool {{APP_POOL}}</code></li>
+<li>Check for a 200 from an external browser (NOT from the server, because of hairpin NAT)</li>
+<li>If the second PROD server (<code>{{PROD_SERVER_B}}</code>) was also affected by the rolling deploy, repeat steps 1-8 there</li>
+<li>Tell the team and write a post-mortem in <code>_hilo/INCIDENTES.md</code></li>
+</ol>
+<hr>
+</section>
+<section class="sec" id="sec-4-the-app-is-down-after-a-green-deployment">
+<h3 id="4-the-app-is-down-after-a-green-deployment">4. The app is down after a green deployment</h3>
+<p><strong>Typical symptoms</strong>: build green, deployment green, smoke green, but users report 500/503.</p>
+<p><strong>Tell them apart</strong>:</p>
+<ul>
+<li>Does the app answer <code>/health/ready</code>? If it does, it is a bug in the app, NOT in the deployment. Hotfix in code.</li>
+<li>Is an external dependency down (a reporting engine, the identity provider, SQL Server)? → look at the app's logs; this is not a pipeline problem. Tell the infrastructure team if it is the organization's infrastructure.</li>
+<li>Is a secret empty or badly rotated? → go to the Azure DevOps UI, variable group <code>{{PIPELINE_NAME}}-secrets</code>, and check the values.</li>
+</ul>
+<p><strong>Recycle the pool without going back to the backup</strong> (if the app is simply confused by caches or connections):</p>
+<pre><code>appcmd recycle apppool {{APP_POOL}}</code></pre>
+<p><strong>If none of that works</strong>: manual rollback (see section 3).</p>
+<hr>
+</section>
+<section class="sec" id="sec-5-contacts-and-escalation">
+<h3 id="5-contacts-and-escalation">5. Contacts and escalation</h3>
+<div class="tbl"><table><thead><tr><th>Kind of problem</th><th>Contact</th><th>How</th></tr></thead><tbody><tr><td>Agent offline / capability misconfigured</td><td>The organization's infrastructure team</td><td><code>{{CONTACTO_SISTEMAS}}</code></td></tr><tr><td>Azure DevOps permissions (pool, project, environment)</td><td>Admin of the configured pool (<code>cicd.buildPool</code>)</td><td><code>{{CONTACTO_ADMIN_POOL}}</code></td></tr><tr><td>App or code bug</td><td><code>{{RESPONSABLE_TECNICO}}</code></td><td>Chat / email</td></tr><tr><td>Secrets and rotations</td><td><code>{{RESPONSABLE_SECRETOS}}</code> (see <code>SECRETOS.md</code> if it exists)</td><td>Chat</td></tr><tr><td>Deciding on a PROD rollback under pressure</td><td><code>{{JEFE_PROYECTO}}</code> + <code>{{RESPONSABLE_TECNICO}}</code></td><td>Chat, ASAP</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="sec" id="sec-6-backups">
+<h3 id="6-backups">6. Backups</h3>
+<ul>
+<li><strong>Location</strong>: <code>{{BACKUP_ROOT}}</code> on each target server (typically <code>D:\Backups\{{APP_NAME}}\</code>)</li>
+<li><strong>Format</strong>: <code>backup-&lt;BuildId&gt;/</code> with <code>_backup-metadata.txt</code> inside (BuildId + BuildNumber + SourceVersion + Timestamp)</li>
+<li><strong>Retention</strong>: 7 days, automatic (the deploy job's <code>condition: always()</code> step deletes the old ones, R17)</li>
+<li><strong>Builds that reach PROD</strong>: mark them &quot;Retain indefinitely&quot; by hand in the Azure DevOps UI, so the pipeline's <code>retentionRules</code> do not delete them</li>
+<li><strong>Restoring a specific backup</strong>: see section 3, step by step</li>
+</ul>
+<hr>
+</section>
+<section class="sec" id="sec-github-actions-equivalents-if-cicdplatform--github-actions">
+<h3 id="github-actions-equivalents-if-cicdplatform--github-actions">GitHub Actions equivalents (if <code>cicd.platform = github-actions</code>)</h3>
+<p>When it generates the runbook, <code>/hv:cicd-init</code> substitutes: the build UI becomes the run (<code>{{PIPELINE_URL}}</code> → <code>https://github.com/&lt;owner&gt;/&lt;repo&gt;/actions/workflows/cd-&lt;slug&gt;.yml</code>); re-queueing is <code>git push</code> (or <code>gh run rerun &lt;id&gt;</code> for the same commit — never &quot;Re-run&quot; a deployment to pro without reading the smoke first); the secrets live in <em>Settings → Environments → &lt;env&gt; → Secrets</em> (<code>gh secret list --env pro</code>), not in a variable group; the &quot;agent&quot; is the runner (<code>gh api repos/&lt;o&gt;/&lt;r&gt;/actions/runners</code> for self-hosted; a hosted one has no state to look at); retention is the artifact's <code>retention-days</code> (raise it to 90 for builds that reach pro); contacts: &quot;GitHub permissions (environments, secrets, runners) → repo admin / organization owner&quot;. Rollback (G9): <code>/hv:cicd-deploy --env &lt;env&gt; --tag &lt;previous&gt;</code>.</p>
+<hr>
+<p><em>Runbook generated by <code>/hv:cicd-init</code>. Keep it current: when a new failure scenario shows up, add a section. When a section becomes obsolete, archive it in <code>RUNBOOK_HISTORICO.md</code>.</em></p>
+</section><p style="margin-top:40px"><span class="muted">Fuente: <code>ovillo/_patron/08_CICD/RUNBOOK_TEMPLATE_EN.md</code></span></p><section class="related"><h2>Relacionados</h2><ul><li><a href="../skills/api.html">api</a></li><li><a href="../skills/application.html">application</a></li><li><a href="../skills/cicd-deploy.html">cicd-deploy</a></li><li><a href="../skills/cicd-init.html">cicd-init</a></li><li><a href="../skills/commit.html">commit</a></li><li><a href="../skills/infrastructure.html">infrastructure</a></li><li><a href="../skills/team.html">team</a></li><li><a href="../skills/tests.html">tests</a></li></ul></section><nav class="pn" aria-label="Anterior y siguiente"><a href="../guias/runbook_deploy_manual.en.html"><small>Anterior</small>Manual deployment runbook — Phase 0</a></nav><footer><span>Ovillo v1.19.0</span><span>tag v1.19.0 (2026-09-23) · sin decisiones posteriores</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 82 decisiones</span><span>fuente: <code>ovillo/_patron/08_CICD/RUNBOOK_TEMPLATE_EN.md</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../LICENSE.txt">Apache-2.0</a></span></footer></main><nav class="toc" aria-label="Índice de la página"><h4>En esta página</h4><ol><li class="l2"><a href="#1-the-build-fails-in-ci">1. The build fails in CI</a></li><li class="l2"><a href="#1b-the-build-does-not-queue-after-the-push-r7">1b. The build does NOT queue after the push (R7)</a></li><li class="l2"><a href="#2-the-deployment-to-demo-fails">2. The deployment to DEMO fails</a></li><li class="l2"><a href="#3-the-deployment-to-prod-fails">3. The deployment to PROD fails</a></li><li class="l2"><a href="#4-the-app-is-down-after-a-green-deployment">4. The app is down after a green deployment</a></li><li class="l2"><a href="#5-contacts-and-escalation">5. Contacts and escalation</a></li><li class="l2"><a href="#6-backups">6. Backups</a></li><li class="l2"><a href="#github-actions-equivalents-if-cicdplatform--github-actions">GitHub Actions equivalents (if cicd.platform = github-actions)</a></li></ol></nav></div><script src="../recursos/search-index.js" defer></script><script src="../recursos/portal.js" defer></script></body></html>
