@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hvaler.github.io/ovillo-docs/sitemap.xml

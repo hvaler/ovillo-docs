@@ -1,0 +1,247 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>webapp-layout · criteria/a11y.json · Ovillo</title><meta name="description" content="Fichero criteria/a11y.json de la skill webapp-layout"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="webapp-layout · criteria/a11y.json · Ovillo"><meta property="og:description" content="Fichero criteria/a11y.json de la skill webapp-layout"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/webapp-layout/criteria/a11y.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/webapp-layout/criteria/a11y.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/webapp-layout/criteria/a11y.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.21.2 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">68</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">86</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de webapp-layout (16)</h4><ul class="sibs"><li><a href="../../../skills/webapp-layout/criteria/a11y.html" class="cur">criteria/a11y.json</a></li><li><a href="../../../skills/webapp-layout/eval-set.html">eval-set.json</a></li><li><a href="../../../skills/webapp-layout/patterns/accesibilidad.html">patterns/accesibilidad.md</a></li><li><a href="../../../skills/webapp-layout/patterns/colores-corporativos.html">patterns/colores-corporativos.md</a></li><li><a href="../../../skills/webapp-layout/patterns/dark-mode.html">patterns/dark-mode.md</a></li><li><a href="../../../skills/webapp-layout/patterns/layout-estandar.html">patterns/layout-estandar.md</a></li><li><a href="../../../skills/webapp-layout/patterns/print-styles.html">patterns/print-styles.md</a></li><li><a href="../../../skills/webapp-layout/patterns/responsive.html">patterns/responsive.md</a></li><li><a href="../../../skills/webapp-layout/templates/_ErrorPage.html">templates/_ErrorPage.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Footer.html">templates/_Footer.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Header.html">templates/_Header.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Layout.html">templates/_Layout.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Loading.html">templates/_Loading.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/_Sidebar.html">templates/_Sidebar.cshtml</a></li><li><a href="../../../skills/webapp-layout/templates/forms.html">templates/forms.css</a></li><li><a href="../../../skills/webapp-layout/templates/site.html">templates/site.css</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/webapp-layout.html">webapp-layout</a></span><span>criteria</span><span>a11y.json</span></nav><span class="sp"></span><span class="pill">v1.21.2</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-knowledge">conocimiento</span><span>webapp-layout</span><span>criteria/</span><span>7783 B</span></div><h1>a11y.json</h1><p class="lede">Fichero que <code>/hv:webapp-layout</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/webapp-layout.html">webapp-layout</a></b><span>skill</span></div><div><b>criteria</b><span>carpeta</span></div><div><b>7783 B</b><span>tamaño</span></div><div><b>2026-10-03</b><span>último cambio del pack</span></div></div><pre data-lang="json"><code>{
+  <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Fuente unica de los umbrales de accesibilidad y de la paleta aprobada. Ningun ratio se escribe aqui ni en ningun otro sitio: se DERIVA del hex. Tres de los siete ratios que el producto llevaba a mano eran falsos, y uno prohibia un color que si cumple AA. Lo comprueba scripts/check-a11y.js. Patron de ADR-041 (la matriz de capacidades como dato leido por una sola via).&quot;</span>,
+  <span class="tk-s">&quot;version&quot;</span>: <span class="tk-n">1</span>,
+  <span class="tk-s">&quot;norma&quot;</span>: <span class="tk-s">&quot;WCAG 2.1&quot;</span>,
+  <span class="tk-s">&quot;umbrales&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Ratio de contraste minimo exigido por nivel y tipo de contenido (WCAG 1.4.3 para AA, 1.4.6 para AAA). 'texto grande' = &gt;=18.66px en negrita o &gt;=24px.&quot;</span>,
+    <span class="tk-s">&quot;AA&quot;</span>: {
+      <span class="tk-s">&quot;textoNormal&quot;</span>: <span class="tk-n">4.5</span>,
+      <span class="tk-s">&quot;textoGrande&quot;</span>: <span class="tk-n">3.0</span>,
+      <span class="tk-s">&quot;componentesYGraficos&quot;</span>: <span class="tk-n">3.0</span>
+    },
+    <span class="tk-s">&quot;AAA&quot;</span>: {
+      <span class="tk-s">&quot;textoNormal&quot;</span>: <span class="tk-n">7.0</span>,
+      <span class="tk-s">&quot;textoGrande&quot;</span>: <span class="tk-n">4.5</span>,
+      <span class="tk-s">&quot;componentesYGraficos&quot;</span>: <span class="tk-n">3.0</span>
+    }
+  },
+  <span class="tk-s">&quot;paleta&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Combinaciones aprobadas con el USO al que sirve cada una. El ratio NO se escribe: la puerta lo calcula desde el hex y falla si no llega al nivel declarado. Un color de estado tiene DOS entradas cuando su tono de marca no llega a texto: el de marca como componentesYGraficos y su variante -texto como textoNormal. Si una no llega, no se ajusta el numero: se cambia el color.&quot;</span>,
+    <span class="tk-s">&quot;combinaciones&quot;</span>: [
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;texto-primario&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#33475B&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;texto-oscuro&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#333333&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;texto-atenuado&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#666666&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;texto-sobre-azul&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#33475B&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;enlace&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#4A6FA5&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;enlace-alterno&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#0066CC&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;error&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#CC0000&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;exito&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#28A745&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;componentesYGraficos&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;exito-texto&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#1E7E34&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;info&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#17A2B8&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;componentesYGraficos&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;info-texto&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#117A8B&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;warning-texto&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#664D03&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;warning-sobre-bg&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#333333&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFF8E1&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;texto-atenuado-aaa&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#595959&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AAA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;enlace-aaa&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#3C5A86&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AAA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;enlace-alterno-aaa&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#0057AE&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AAA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;error-aaa&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#B60000&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AAA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;exito-texto-aaa&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#18662A&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AAA&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;nombre&quot;</span>: <span class="tk-s">&quot;info-texto-aaa&quot;</span>,
+        <span class="tk-s">&quot;color&quot;</span>: <span class="tk-s">&quot;#0E6270&quot;</span>,
+        <span class="tk-s">&quot;fondo&quot;</span>: <span class="tk-s">&quot;#FFFFFF&quot;</span>,
+        <span class="tk-s">&quot;uso&quot;</span>: <span class="tk-s">&quot;textoNormal&quot;</span>,
+        <span class="tk-s">&quot;nivel&quot;</span>: <span class="tk-s">&quot;AAA&quot;</span>
+      }
+    ],
+    <span class="tk-s">&quot;_sin_declarar&quot;</span>: <span class="tk-s">&quot;#FFC107 NO figura sobre blanco a proposito: da 1,63 y no llega ni al umbral de componentes. Es color de fondo (--brand-warning-bg) y lleva texto oscuro encima, que es la combinacion warning-sobre-bg. Declararlo seria pedirle a la puerta que aprobara algo inusable.&quot;</span>,
+    <span class="tk-s">&quot;_niveles&quot;</span>: <span class="tk-s">&quot;Las combinaciones con nivel AAA son la paleta de contraste reforzado, que se usa cuando accessibility.contrastLevel vale 'aaa'. Las de nivel AA son la paleta por defecto. Seis colores de texto necesitan variante porque sobre blanco se quedan entre 5,0 y 5,9; los demas ya llegan a 7:1 sin tocarlos. 'exito' e 'info' figuran como cumpliendo AAA porque su uso es componentesYGraficos y ESE umbral no sube en AAA (sigue en 3): no es que el color mejore, es que el criterio no se endurece.&quot;</span>
+  },
+  <span class="tk-s">&quot;criterios&quot;</span>: {
+    <span class="tk-s">&quot;_doc&quot;</span>: <span class="tk-s">&quot;Los criterios que la puerta comprueba sobre las plantillas generadas. 'ambito' es donde PUEDE cumplirse: medir un criterio de marcado contra el CSS es como se produce un verde vacio.&quot;</span>,
+    <span class="tk-s">&quot;AA&quot;</span>: [
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;1.1.1&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;toda &lt;img&gt; lleva alt&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;1.3.1&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;landmarks &lt;main&gt; y &lt;nav&gt;, y toda &lt;nav&gt; con nombre accesible&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;1.4.10&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;meta viewport&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2.1.1&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;sin tabindex positivo&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2.4.1&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;skip link al contenido&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2.4.2&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;&lt;title&gt; de pagina&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2.4.7&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;css&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;foco visible, y nunca outline:none sin reponerlo&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2.4.8&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;aria-current en el elemento activo&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;3.1.1&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;lang en &lt;html&gt;&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;3.3.2&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;label asociado a cada campo&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;4.1.2&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;aria-expanded en plegables y nombre en controles solo-icono&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;4.1.3&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;region de estado con aria-live o role=alert&quot;</span>
+      }
+    ],
+    <span class="tk-s">&quot;AAA&quot;</span>: [
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;1.4.6&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;css&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;contraste reforzado 7:1&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2.3.3&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;css&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;respeta prefers-reduced-motion&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;2.4.9&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;proposito del enlace por su propio texto&quot;</span>
+      },
+      {
+        <span class="tk-s">&quot;id&quot;</span>: <span class="tk-s">&quot;3.3.5&quot;</span>,
+        <span class="tk-s">&quot;ambito&quot;</span>: <span class="tk-s">&quot;marcado&quot;</span>,
+        <span class="tk-s">&quot;que&quot;</span>: <span class="tk-s">&quot;ayuda contextual en los campos&quot;</span>
+      }
+    ]
+  },
+  <span class="tk-s">&quot;_alcance_aaa&quot;</span>: <span class="tk-s">&quot;contrastLevel gobierna SOLO el contraste (WCAG 1.4.3 para aa y 1.4.6 para aaa), que es lo que esta paleta y esta puerta pueden cumplir y demostrar. NO es conformidad AAA completa: la norma tiene ~28 criterios AAA y aqui se comprueban cuatro. La propia WCAG desaconseja exigir AAA como politica general de un sitio, porque hay contenido para el que algunos criterios no se pueden satisfacer. Por eso la clave se llama contrastLevel y no level: declarar 'accessibility.level: aaa' prometeria algo que el producto no entrega (ADR-084).&quot;</span>
+}
+</code></pre><p style="margin-top:32px"><a href="../../../skills/webapp-layout.html#ficheros">← Volver a la ficha de webapp-layout</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/webapp-layout.html"><small>Anterior</small>Ficha de webapp-layout</a><a class="next" href="../../../skills/webapp-layout/eval-set.html"><small>Siguiente</small>eval-set.json</a></nav><footer><span>Ovillo v1.21.2</span><span>tag v1.21.2 (2026-10-03) · sin decisiones posteriores</span><span>68 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 86 decisiones</span><span>fuente: <code>ovillo/.claude/skills/webapp-layout/criteria/a11y.json</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

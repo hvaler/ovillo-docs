@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Reportar una vulnerabilidad (privado)
+    url: https://github.com/hvaler/ovillo-docs/security/advisories/new
+    about: Problemas de seguridad en Ovillo, el plugin, los instaladores, el Hub o el portal. No abras una issue pública.
+  - name: Portal de documentación
+    url: https://hvaler.github.io/ovillo-docs/
+    about: Guías, fichas de skills, agents y hooks, curso, chuletas y presentaciones.
