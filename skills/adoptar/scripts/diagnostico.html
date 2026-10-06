@@ -1,0 +1,326 @@
+<!doctype html><html lang="es" data-rel="../../../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>adoptar · scripts/diagnostico.js · Ovillo</title><meta name="description" content="Fichero scripts/diagnostico.js de la skill adoptar"><meta property="og:type" content="article"><meta property="og:site_name" content="Ovillo"><meta property="og:title" content="adoptar · scripts/diagnostico.js · Ovillo"><meta property="og:description" content="Fichero scripts/diagnostico.js de la skill adoptar"><meta property="og:locale" content="es_ES"><meta property="og:url" content="https://hvaler.github.io/ovillo-docs/skills/adoptar/scripts/diagnostico.html"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://hvaler.github.io/ovillo-docs/skills/adoptar/scripts/diagnostico.html"><script>try{var t=JSON.parse(localStorage.getItem("ovillo.theme"));if(t&&t!=="auto")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%232E5C8A%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%228.5%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%207.5c4%203%204%2014%200%2017M9%2012c5%201%209%201%2014%200M9%2020c5-1%209-1%2014%200%22%20fill%3D%22none%22%20stroke%3D%22%23F5F6F7%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="../../../recursos/portal.css"></head><body data-page="skills/adoptar/scripts/diagnostico.html"><a class="skip" href="#principal">Saltar al contenido</a><div class="layout"><aside class="side" aria-label="Navegación"><a class="brand" href="../../../index.html">Ovillo<small>v1.31.0 · ecosistema Claude Code</small></a><input class="search" type="search" placeholder="Buscar… (Ctrl+K)" data-search aria-label="Buscar en el portal"><h4>Empezar</h4><ul><li><a href="../../../index.html">Inicio</a></li><li><a href="../../../guias/index.html">Guías<span class="n">35</span></a></li><li><a href="../../../curso/index.html">Curso</a></li><li><a href="../../../chuletas/index.html">Chuletas</a></li><li><a href="../../../presentaciones/index.html">Presentaciones</a></li></ul><h4>Ecosistema</h4><ul><li><a href="../../../skills/index.html" class="cur">Skills<span class="n">69</span></a></li><li><a href="../../../agents/index.html">Agents<span class="n">19</span></a></li><li><a href="../../../hooks.html">Hooks<span class="n">22</span></a></li><li><a href="../../../reglas.html">Reglas<span class="n">3</span></a></li><li><a href="../../../hub.html">Hub (MCP)<span class="n">15</span></a></li><li><a href="../../../patron.html">Patrón</a></li><li><a href="../../../decisiones.html">Decisiones<span class="n">103</span></a></li></ul><h4>Referencia</h4><ul><li><a href="../../../referencia-config.html">Configuración</a></li><li><a href="../../../referencia-hilo.html">Hilo</a></li><li><a href="../../../changelog.html">Versiones</a></li><li><a href="../../../indice.html">Índice</a></li></ul><h4>Calidad</h4><ul><li><a href="../../../evaluaciones.html">Evaluaciones</a></li><li><a href="../../../contexto.html">Contexto</a></li></ul><h4>Portal</h4><ul><li><a href="../../../buscar.html">Buscar</a></li><li><a href="../../../privacidad.html">Datos y privacidad</a></li><li><a href="../../../acerca.html">Acerca</a></li></ul><h4>Pack de adoptar (1)</h4><ul class="sibs"><li><a href="../../../skills/adoptar/scripts/diagnostico.html" class="cur">scripts/diagnostico.js</a></li></ul></aside><main id="principal"><div class="topbar"><nav class="crumbs" aria-label="Migas"><span><a href="../../../index.html">Inicio</a></span><span><a href="../../../skills/index.html">Skills</a></span><span><a href="../../../skills/adoptar.html">adoptar</a></span><span>scripts</span><span>diagnostico.js</span></nav><span class="sp"></span><span class="pill">v1.31.0</span><button class="tb" type="button" data-fav aria-pressed="false">☆</button><button class="tb" type="button" data-theme-toggle aria-label="Tema">◑</button></div><div class="eyebrow"><span class="kind kind-workflow">workflow</span><span>adoptar</span><span>scripts/</span><span>14.248 B</span></div><h1>diagnostico.js</h1><p class="lede">Fichero que <code>/hv:adoptar</code> usa o materializa en el proyecto. Se muestra tal cual está en el plugin.</p><div class="meta-grid"><div><b><a href="../../../skills/adoptar.html">adoptar</a></b><span>skill</span></div><div><b>scripts</b><span>carpeta</span></div><div><b>14.248 B</b><span>tamaño</span></div><div><b>2026-10-04</b><span>último cambio del pack</span></div></div><pre data-lang="javascript"><code>#!/usr/bin/env node
+<span class="tk-c">// diagnostico.js - Mide un repositorio ANTES de adoptar Ovillo. No escribe nada.</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Existe porque lo caro de adoptar no es arreglar, es ENTERARSE. En un proyecto real la memoria</span>
+<span class="tk-c">// siempre cargada eran 125.853 tokens -- nueve veces el techo -- y no habia forma de verlo desde</span>
+<span class="tk-c">// dentro: `measure-context.js` vive en el repositorio del constructor y no viaja.</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Lo que busca son defectos que NO DAN SINTOMA:</span>
+<span class="tk-c">//   - `globs:` en el frontmatter es INERTE (la clave que acota es `paths:`), asi que la unidad</span>
+<span class="tk-c">//     carga en todas las sesiones creyendo estar acotada.</span>
+<span class="tk-c">//   - `paths: []` tampoco acota: array vacio = siempre.</span>
+<span class="tk-c">//   - un BOM antes del `---` puede impedir que se lea el frontmatter entero.</span>
+<span class="tk-c">//   - un `@import` crece sin tope y se carga ENTERO en cada sesion.</span>
+<span class="tk-c">// Ninguno de los cuatro falla, ni avisa, ni se nota. Solo cuestan contexto, cada vez.</span>
+<span class="tk-c">//</span>
+<span class="tk-c">// Uso:  node &lt;ruta&gt;/diagnostico.js [--json] [--root &lt;dir&gt;]</span>
+<span class="tk-c">// Exit: 0 siempre. Esto informa; decidir es de quien lee (y arreglar, de quien decide).</span>
+
+<span class="tk-s">'use strict'</span>;
+<span class="tk-k">const</span> fs = <span class="tk-k">require</span>(<span class="tk-s">'fs'</span>);
+<span class="tk-k">const</span> path = <span class="tk-k">require</span>(<span class="tk-s">'path'</span>);
+
+<span class="tk-k">const</span> ARGS = process.argv.slice(<span class="tk-n">2</span>);
+<span class="tk-k">const</span> JSON_OUT = ARGS.includes(<span class="tk-s">'--json'</span>);
+<span class="tk-k">const</span> ROOT = (() =&gt; {
+  <span class="tk-k">const</span> i = ARGS.indexOf(<span class="tk-s">'--root'</span>);
+  <span class="tk-k">if</span> (i &gt;= <span class="tk-n">0</span> &amp;&amp; ARGS[i + <span class="tk-n">1</span>]) <span class="tk-k">return</span> path.resolve(ARGS[i + <span class="tk-n">1</span>]);
+  <span class="tk-k">return</span> process.env.CLAUDE_PROJECT_DIR || process.cwd();
+})();
+
+<span class="tk-c">// El catalogo vigente esta donde vive este script: &lt;raiz&gt;/skills/adoptar/scripts/ -&gt; &lt;raiz&gt;/skills.</span>
+<span class="tk-c">// Asi vale igual con el plugin y con el zip, sin depender de CLAUDE_PLUGIN_ROOT, que en la shell</span>
+<span class="tk-c">// de un script NO existe (ADR-063).</span>
+<span class="tk-k">const</span> CATALOGO = path.resolve(__dirname, <span class="tk-s">'..'</span>, <span class="tk-s">'..'</span>);
+
+<span class="tk-k">const</span> CH_POR_TOKEN = <span class="tk-n">4</span>;
+<span class="tk-k">const</span> toks = (ch) =&gt; Math.round(ch / CH_POR_TOKEN);
+<span class="tk-k">const</span> TECHO_TOK = <span class="tk-n">14000</span>;          <span class="tk-c">// el techo que Ovillo se impone al contexto siempre cargado</span>
+<span class="tk-k">const</span> IMPORT_MAX_CH = <span class="tk-n">8000</span>;       <span class="tk-c">// lo que ADR-095 fija para un @import que puede crecer</span>
+
+<span class="tk-k">function</span> leer(p) {
+  <span class="tk-k">try</span> { <span class="tk-k">return</span> fs.readFileSync(p, <span class="tk-s">'utf8'</span>); } <span class="tk-k">catch</span> (e) { <span class="tk-k">return</span> <span class="tk-k">null</span>; }
+}
+<span class="tk-k">function</span> tieneBom(p) {
+  <span class="tk-k">try</span> {
+    <span class="tk-k">const</span> fd = fs.openSync(p, <span class="tk-s">'r'</span>);
+    <span class="tk-k">const</span> b = Buffer.alloc(<span class="tk-n">3</span>);
+    fs.readSync(fd, b, <span class="tk-n">0</span>, <span class="tk-n">3</span>, <span class="tk-n">0</span>);
+    fs.closeSync(fd);
+    <span class="tk-k">return</span> b[<span class="tk-n">0</span>] === 0xEF &amp;&amp; b[<span class="tk-n">1</span>] === 0xBB &amp;&amp; b[<span class="tk-n">2</span>] === 0xBF;
+  } <span class="tk-k">catch</span> (e) { <span class="tk-k">return</span> <span class="tk-k">false</span>; }
+}
+<span class="tk-k">function</span> md(dir) {
+  <span class="tk-k">const</span> out = [];
+  <span class="tk-k">const</span> anda = (d) =&gt; {
+    <span class="tk-k">let</span> ents;
+    <span class="tk-k">try</span> { ents = fs.readdirSync(d, { withFileTypes: <span class="tk-k">true</span> }); } <span class="tk-k">catch</span> (e) { <span class="tk-k">return</span>; }
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> e <span class="tk-k">of</span> ents.sort((a, b) =&gt; (a.name.toLowerCase() &lt; b.name.toLowerCase() ? -1 : <span class="tk-n">1</span>))) {
+      <span class="tk-k">const</span> p = path.join(d, e.name);
+      <span class="tk-k">if</span> (e.isDirectory()) anda(p);
+      <span class="tk-k">else</span> <span class="tk-k">if</span> (e.name.toLowerCase().endsWith(<span class="tk-s">'.md'</span>)) out.push(p);
+    }
+  };
+  anda(dir);
+  <span class="tk-k">return</span> out;
+}
+<span class="tk-k">function</span> frontmatter(texto) {
+  <span class="tk-k">const</span> m = /^---\s*\n([\s\S]*?)\n---/.exec(texto.replace(/^﻿/, <span class="tk-s">''</span>));
+  <span class="tk-k">return</span> m ? m[<span class="tk-n">1</span>] : <span class="tk-k">null</span>;
+}
+
+<span class="tk-k">const</span> R = { root: ROOT, contexto: {}, inertes: [], boms: [], imports: [], previo: {}, layout: {} };
+
+<span class="tk-c">// ------------------------------------------------------------ A. contexto siempre cargado</span>
+(() =&gt; {
+  <span class="tk-k">const</span> claude = path.join(ROOT, <span class="tk-s">'CLAUDE.md'</span>);
+  <span class="tk-k">const</span> texto = leer(claude);
+  <span class="tk-k">if</span> (texto === <span class="tk-k">null</span>) { R.contexto.sinClaudeMd = <span class="tk-k">true</span>; <span class="tk-k">return</span>; }
+
+  <span class="tk-k">const</span> piezas = [{ ruta: <span class="tk-s">'CLAUDE.md'</span>, ch: Buffer.byteLength(texto, <span class="tk-s">'utf8'</span>) }];
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> linea <span class="tk-k">of</span> texto.split(<span class="tk-s">'\n'</span>)) {
+    <span class="tk-k">const</span> m = /^@(\S+)/.exec(linea.trim());
+    <span class="tk-k">if</span> (!m) <span class="tk-k">continue</span>;
+    <span class="tk-k">const</span> rel = m[<span class="tk-n">1</span>];
+    <span class="tk-k">const</span> abs = path.join(ROOT, rel);
+    <span class="tk-k">const</span> ch = fs.existsSync(abs) ? fs.statSync(abs).size : <span class="tk-k">null</span>;
+    piezas.push({ ruta: rel, ch, esImport: <span class="tk-k">true</span> });
+    R.imports.push({ ruta: rel, ch, excede: ch !== <span class="tk-k">null</span> &amp;&amp; ch &gt; IMPORT_MAX_CH });
+  }
+  R.contexto.piezas = piezas;
+  R.contexto.totalCh = piezas.reduce((a, p) =&gt; a + (p.ch || <span class="tk-n">0</span>), <span class="tk-n">0</span>);
+  R.contexto.totalTok = toks(R.contexto.totalCh);
+})();
+
+<span class="tk-c">// ------------------------------------- B y C. claves inertes y BOM, en lo que define contexto</span>
+(() =&gt; {
+  <span class="tk-c">// Solo las UNIDADES, no lo que llevan dentro: `skills/&lt;n&gt;/SKILL.md` y los `.md` sueltos de</span>
+  <span class="tk-c">// `rules/` y `agents/`. Un `references/x.md` o un `patterns/y.md` es un recurso empaquetado:</span>
+  <span class="tk-c">// no tiene frontmatter porque no le toca, y no entra en contexto por su cuenta. La primera</span>
+  <span class="tk-c">// version recorria el arbol entero y daba 100+ falsos positivos que enterraban los de verdad --</span>
+  <span class="tk-c">// que es el aviso inatendible de ADR-069 fabricado por mi.</span>
+  <span class="tk-k">const</span> unidades = [];
+  <span class="tk-k">const</span> skillsDir = path.join(ROOT, <span class="tk-s">'.claude'</span>, <span class="tk-s">'skills'</span>);
+  <span class="tk-k">if</span> (fs.existsSync(skillsDir)) {
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> e <span class="tk-k">of</span> fs.readdirSync(skillsDir, { withFileTypes: <span class="tk-k">true</span> })) {
+      <span class="tk-k">if</span> (!e.isDirectory()) <span class="tk-k">continue</span>;
+      <span class="tk-k">const</span> f = path.join(skillsDir, e.name, <span class="tk-s">'SKILL.md'</span>);
+      <span class="tk-k">if</span> (fs.existsSync(f)) unidades.push(f);
+    }
+  }
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> d <span class="tk-k">of</span> [<span class="tk-s">'rules'</span>, <span class="tk-s">'agents'</span>]) {
+    <span class="tk-k">const</span> dir = path.join(ROOT, <span class="tk-s">'.claude'</span>, d);
+    <span class="tk-k">if</span> (!fs.existsSync(dir)) <span class="tk-k">continue</span>;
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> e <span class="tk-k">of</span> fs.readdirSync(dir, { withFileTypes: <span class="tk-k">true</span> })) {
+      <span class="tk-k">if</span> (e.isFile() &amp;&amp; e.name.toLowerCase().endsWith(<span class="tk-s">'.md'</span>)) unidades.push(path.join(dir, e.name));
+    }
+  }
+
+  <span class="tk-k">let</span> mirados = <span class="tk-n">0</span>;
+  {
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> f <span class="tk-k">of</span> unidades) {
+      <span class="tk-k">const</span> texto = leer(f);
+      <span class="tk-k">if</span> (texto === <span class="tk-k">null</span>) <span class="tk-k">continue</span>;
+      mirados++;
+      <span class="tk-k">const</span> rel = path.relative(ROOT, f).split(path.sep).join(<span class="tk-s">'/'</span>);
+      <span class="tk-k">if</span> (tieneBom(f)) R.boms.push(rel);
+      <span class="tk-k">const</span> fm = frontmatter(texto);
+      <span class="tk-k">if</span> (fm === <span class="tk-k">null</span>) {
+        <span class="tk-k">if</span> (/^#/.test(texto.replace(/^﻿/, <span class="tk-s">''</span>))) R.inertes.push({ ruta: rel, motivo: <span class="tk-s">'sin frontmatter: nada la acota'</span> });
+        <span class="tk-k">continue</span>;
+      }
+      <span class="tk-k">if</span> (/^globs:/m.test(fm)) {
+        R.inertes.push({ ruta: rel, motivo: <span class="tk-s">'`globs:` es inerte; la clave que acota es `paths:`'</span> });
+      }
+      <span class="tk-k">const</span> p = /^paths:\s*(\[\s*\])?\s*$/m.exec(fm);
+      <span class="tk-k">if</span> (p &amp;&amp; p[<span class="tk-n">1</span>]) R.inertes.push({ ruta: rel, motivo: <span class="tk-s">'`paths: []` no acota: array vacio = carga siempre'</span> });
+    }
+  }
+  <span class="tk-c">// Un cero solo vale si pudo ser otra cosa: hay que decir cuantas se miraron (ADR-044, ADR-078).</span>
+  R.inertesMirados = mirados;
+})();
+
+<span class="tk-c">// ------------------------------------------------------- E. ecosistema previo, y su mapeo</span>
+(() =&gt; {
+  <span class="tk-k">const</span> dir = (d) =&gt; {
+    <span class="tk-k">const</span> p = path.join(ROOT, <span class="tk-s">'.claude'</span>, d);
+    <span class="tk-k">if</span> (!fs.existsSync(p)) <span class="tk-k">return</span> [];
+    <span class="tk-k">try</span> {
+      <span class="tk-k">return</span> fs.readdirSync(p, { withFileTypes: <span class="tk-k">true</span> })
+        .filter((e) =&gt; (d === <span class="tk-s">'skills'</span> ? e.isDirectory() : e.isFile()))
+        .map((e) =&gt; e.name.replace(/\.(md|js|ps1)$/i, <span class="tk-s">''</span>));
+    } <span class="tk-k">catch</span> (e) { <span class="tk-k">return</span> []; }
+  };
+  <span class="tk-k">const</span> previo = { commands: dir(<span class="tk-s">'commands'</span>), skills: dir(<span class="tk-s">'skills'</span>), hooks: dir(<span class="tk-s">'hooks'</span>), rules: dir(<span class="tk-s">'rules'</span>), agents: dir(<span class="tk-s">'agents'</span>) };
+
+  <span class="tk-k">let</span> catalogo = <span class="tk-k">null</span>;
+  <span class="tk-k">try</span> {
+    catalogo = <span class="tk-k">new</span> Set(fs.readdirSync(CATALOGO, { withFileTypes: <span class="tk-k">true</span> })
+      .filter((e) =&gt; e.isDirectory() &amp;&amp; fs.existsSync(path.join(CATALOGO, e.name, <span class="tk-s">'SKILL.md'</span>)))
+      .map((e) =&gt; e.name));
+  } <span class="tk-k">catch</span> (e) { catalogo = <span class="tk-k">null</span>; }
+
+  previo.total = previo.commands.length + previo.skills.length + previo.hooks.length
+    + previo.rules.length + previo.agents.length;
+
+  <span class="tk-c">// Los hooks se mapean contra los hooks, no contra las skills. La primera version solo miraba</span>
+  <span class="tk-c">// comandos y skills, y en el caso real dejaba fuera 16 hooks de los que mapeaban LOS 16.</span>
+  <span class="tk-k">let</span> catHooks = <span class="tk-k">null</span>;
+  <span class="tk-k">try</span> {
+    catHooks = <span class="tk-k">new</span> Set(fs.readdirSync(path.join(CATALOGO, <span class="tk-s">'..'</span>, <span class="tk-s">'hooks'</span>), { withFileTypes: <span class="tk-k">true</span> })
+      .filter((e) =&gt; e.isFile() &amp;&amp; e.name.endsWith(<span class="tk-s">'.js'</span>))
+      .map((e) =&gt; e.name.replace(/\.js$/, <span class="tk-s">''</span>)));
+  } <span class="tk-k">catch</span> (e) { catHooks = <span class="tk-k">null</span>; }
+
+  <span class="tk-k">if</span> (catHooks &amp;&amp; catHooks.size &amp;&amp; previo.hooks.length) {
+    previo.hooksMapean = previo.hooks.filter((n) =&gt; catHooks.has(n));
+    previo.hooksSinMapear = previo.hooks.filter((n) =&gt; !catHooks.has(n));
+    previo.catalogoHooks = catHooks.size;
+  }
+
+  <span class="tk-k">if</span> (catalogo &amp;&amp; catalogo.size) {
+    <span class="tk-k">const</span> candidatos = previo.commands.concat(previo.skills);
+    previo.mapean = candidatos.filter((n) =&gt; catalogo.has(n));
+    previo.sinMapear = candidatos.filter((n) =&gt; !catalogo.has(n));
+    previo.catalogo = catalogo.size;
+  } <span class="tk-k">else</span> {
+    <span class="tk-c">// Decirlo, en vez de publicar un cero que parece &quot;no hay nada que mapear&quot;.</span>
+    previo.mapeoImposible = <span class="tk-s">'no se encontro el catalogo de skills junto a este script'</span>;
+  }
+  R.previo = previo;
+})();
+
+<span class="tk-c">// --------------------------------------------------------------------- F. layout</span>
+(() =&gt; {
+  <span class="tk-k">const</span> esperado = [<span class="tk-s">'src'</span>, <span class="tk-s">'docs'</span>, <span class="tk-s">'ops'</span>, <span class="tk-s">'_hilo'</span>, <span class="tk-s">'_patron'</span>];
+  R.layout.presentes = esperado.filter((d) =&gt; fs.existsSync(path.join(ROOT, d)));
+  R.layout.faltan = esperado.filter((d) =&gt; !fs.existsSync(path.join(ROOT, d)));
+
+  <span class="tk-c">// Un Hilo con otro nombre sigue siendo un Hilo. Sin esto, un proyecto que YA tiene memoria de</span>
+  <span class="tk-c">// proyecto --bajo `_duran`, `_memoria`, lo que sea-- se lee como si no tuviera ninguna, y la</span>
+  <span class="tk-c">// adopcion se plantea como &quot;montar&quot; cuando en realidad es &quot;renombrar y actualizar&quot;. Fue el</span>
+  <span class="tk-c">// hallazgo mas util del caso real y la primera version no lo veia.</span>
+  <span class="tk-k">const</span> CONTRATO = [<span class="tk-s">'ESTADO_PROYECTO.json'</span>, <span class="tk-s">'SESION_ACTUAL.md'</span>, <span class="tk-s">'DECISIONES.md'</span>, <span class="tk-s">'LECCIONES.md'</span>,
+    <span class="tk-s">'HISTORIAL_CAMBIOS.md'</span>, <span class="tk-s">'FUNCIONALIDADES.md'</span>, <span class="tk-s">'DEPENDENCIAS.md'</span>];
+  R.layout.hilosAlternativos = [];
+  <span class="tk-k">try</span> {
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> e <span class="tk-k">of</span> fs.readdirSync(ROOT, { withFileTypes: <span class="tk-k">true</span> })) {
+      <span class="tk-k">if</span> (!e.isDirectory() || e.name === <span class="tk-s">'_hilo'</span> || e.name.startsWith(<span class="tk-s">'.'</span>)) <span class="tk-k">continue</span>;
+      <span class="tk-k">let</span> hay = <span class="tk-n">0</span>;
+      <span class="tk-k">for</span> (<span class="tk-k">const</span> f <span class="tk-k">of</span> CONTRATO) <span class="tk-k">if</span> (fs.existsSync(path.join(ROOT, e.name, f))) hay++;
+      <span class="tk-k">if</span> (hay &gt;= <span class="tk-n">3</span>) R.layout.hilosAlternativos.push({ dir: e.name, coinciden: hay, de: CONTRATO.length });
+    }
+  } <span class="tk-k">catch</span> (e) { <span class="tk-c">/* raiz ilegible */</span> }
+  <span class="tk-c">// Donde esta el codigo de verdad: el .csproj mas somero que no sea de test.</span>
+  <span class="tk-k">const</span> proyectos = [];
+  <span class="tk-k">const</span> anda = (d, prof) =&gt; {
+    <span class="tk-k">if</span> (prof &gt; <span class="tk-n">4</span>) <span class="tk-k">return</span>;
+    <span class="tk-k">let</span> ents;
+    <span class="tk-k">try</span> { ents = fs.readdirSync(d, { withFileTypes: <span class="tk-k">true</span> }); } <span class="tk-k">catch</span> (e) { <span class="tk-k">return</span>; }
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> e <span class="tk-k">of</span> ents) {
+      <span class="tk-k">if</span> (e.name === <span class="tk-s">'node_modules'</span> || e.name === <span class="tk-s">'bin'</span> || e.name === <span class="tk-s">'obj'</span> || e.name.startsWith(<span class="tk-s">'.'</span>)) <span class="tk-k">continue</span>;
+      <span class="tk-k">const</span> p = path.join(d, e.name);
+      <span class="tk-k">if</span> (e.isDirectory()) anda(p, prof + <span class="tk-n">1</span>);
+      <span class="tk-k">else</span> <span class="tk-k">if</span> (/\.csproj$/i.test(e.name) &amp;&amp; !/tests?\./i.test(e.name)) {
+        proyectos.push(path.relative(ROOT, p).split(path.sep).join(<span class="tk-s">'/'</span>));
+      }
+    }
+  };
+  anda(ROOT, <span class="tk-n">0</span>);
+  R.layout.proyectos = proyectos.slice(<span class="tk-n">0</span>, <span class="tk-n">8</span>);
+  R.layout.codigoEnRaizSrc = proyectos.some((p) =&gt; p.startsWith(<span class="tk-s">'src/'</span>));
+})();
+
+<span class="tk-c">// --------------------------------------------------------------------- informe</span>
+<span class="tk-k">if</span> (JSON_OUT) {
+  console.log(JSON.stringify(R, <span class="tk-k">null</span>, <span class="tk-n">2</span>));
+  process.exit(<span class="tk-n">0</span>);
+}
+
+<span class="tk-k">const</span> L = [];
+L.push(<span class="tk-s">'Diagnostico de adopcion  ·  '</span> + ROOT);
+L.push(<span class="tk-s">''</span>);
+
+L.push(<span class="tk-s">'CONTEXTO SIEMPRE CARGADO'</span>);
+<span class="tk-k">if</span> (R.contexto.sinClaudeMd) {
+  L.push(<span class="tk-s">'  no hay CLAUDE.md: el proyecto parte de cero y no arrastra contexto.'</span>);
+} <span class="tk-k">else</span> {
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> p <span class="tk-k">of</span> R.contexto.piezas) {
+    <span class="tk-k">const</span> marca = p.ch === <span class="tk-k">null</span> ? <span class="tk-s">'  (NO EXISTE)'</span> : <span class="tk-s">''</span>;
+    L.push(<span class="tk-s">'  '</span> + (p.esImport ? <span class="tk-s">'@'</span> : <span class="tk-s">' '</span>) + <span class="tk-s">' '</span> + p.ruta.padEnd(<span class="tk-n">42</span>)
+      + String(p.ch === <span class="tk-k">null</span> ? <span class="tk-s">'-'</span> : p.ch).padStart(<span class="tk-n">8</span>) + <span class="tk-s">' ch  ~'</span>
+      + String(p.ch === <span class="tk-k">null</span> ? <span class="tk-s">'-'</span> : toks(p.ch)).padStart(<span class="tk-n">6</span>) + <span class="tk-s">' tok'</span> + marca);
+  }
+  <span class="tk-k">const</span> t = R.contexto.totalTok;
+  L.push(<span class="tk-s">'  '</span> + <span class="tk-s">''</span>.padEnd(<span class="tk-n">44</span>) + String(R.contexto.totalCh).padStart(<span class="tk-n">8</span>) + <span class="tk-s">' ch  ~'</span> + String(t).padStart(<span class="tk-n">6</span>) + <span class="tk-s">' tok'</span>
+    + (t &gt; TECHO_TOK ? <span class="tk-s">'   PASA del techo de '</span> + TECHO_TOK + <span class="tk-s">' en '</span> + (t - TECHO_TOK) : <span class="tk-s">'   (techo '</span> + TECHO_TOK + <span class="tk-s">')'</span>));
+  <span class="tk-k">const</span> gordos = R.imports.filter((i) =&gt; i.excede);
+  <span class="tk-k">if</span> (gordos.length) {
+    L.push(<span class="tk-s">''</span>);
+    L.push(<span class="tk-s">'  Un @import se carga ENTERO en cada sesion. Estos pasan de '</span> + IMPORT_MAX_CH + <span class="tk-s">' ch:'</span>);
+    <span class="tk-k">for</span> (<span class="tk-k">const</span> i <span class="tk-k">of</span> gordos) L.push(<span class="tk-s">'    - '</span> + i.ruta + <span class="tk-s">'  '</span> + i.ch + <span class="tk-s">' ch (~'</span> + toks(i.ch) + <span class="tk-s">' tok)'</span>);
+  }
+}
+L.push(<span class="tk-s">''</span>);
+
+L.push(<span class="tk-s">'CLAVES QUE NO ACOTAN  (miradas: '</span> + R.inertesMirados + <span class="tk-s">')'</span>);
+<span class="tk-k">if</span> (!R.inertesMirados) L.push(<span class="tk-s">'  no hay skills, reglas ni agents propios que mirar.'</span>);
+<span class="tk-k">else</span> <span class="tk-k">if</span> (!R.inertes.length) L.push(<span class="tk-s">'  ninguna: las '</span> + R.inertesMirados + <span class="tk-s">' miradas acotan o cargan siempre a proposito.'</span>);
+<span class="tk-k">else</span> <span class="tk-k">for</span> (<span class="tk-k">const</span> i <span class="tk-k">of</span> R.inertes) L.push(<span class="tk-s">'  - '</span> + i.ruta.padEnd(<span class="tk-n">44</span>) + <span class="tk-s">'  '</span> + i.motivo);
+L.push(<span class="tk-s">''</span>);
+
+L.push(<span class="tk-s">'BOM ANTES DEL FRONTMATTER'</span>);
+<span class="tk-k">if</span> (!R.boms.length) L.push(<span class="tk-s">'  ninguno.'</span>);
+<span class="tk-k">else</span> {
+  L.push(<span class="tk-s">'  '</span> + R.boms.length + <span class="tk-s">' fichero(s); un BOM antes del `---` puede impedir que se lea el frontmatter entero:'</span>);
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> b <span class="tk-k">of</span> R.boms.slice(<span class="tk-n">0</span>, <span class="tk-n">10</span>)) L.push(<span class="tk-s">'    - '</span> + b);
+}
+L.push(<span class="tk-s">''</span>);
+
+L.push(<span class="tk-s">'ECOSISTEMA PREVIO'</span>);
+<span class="tk-k">if</span> (!R.previo.total) L.push(<span class="tk-s">'  ninguno: no hay .claude/ con comandos, skills, hooks, reglas ni agents.'</span>);
+<span class="tk-k">else</span> {
+  <span class="tk-k">for</span> (<span class="tk-k">const</span> k <span class="tk-k">of</span> [<span class="tk-s">'commands'</span>, <span class="tk-s">'skills'</span>, <span class="tk-s">'hooks'</span>, <span class="tk-s">'rules'</span>, <span class="tk-s">'agents'</span>]) {
+    <span class="tk-k">if</span> (R.previo[k].length) L.push(<span class="tk-s">'  '</span> + k.padEnd(<span class="tk-n">10</span>) + String(R.previo[k].length).padStart(<span class="tk-n">3</span>));
+  }
+  <span class="tk-k">if</span> (R.previo.mapeoImposible) {
+    L.push(<span class="tk-s">'  '</span> + R.previo.mapeoImposible + <span class="tk-s">': el mapeo NO se ha hecho (no es que no haya).'</span>);
+  } <span class="tk-k">else</span> {
+    L.push(<span class="tk-s">'  de '</span> + (R.previo.commands.length + R.previo.skills.length) + <span class="tk-s">' comandos/skills, '</span>
+      + R.previo.mapean.length + <span class="tk-s">' coinciden por nombre con el catalogo de '</span> + R.previo.catalogo + <span class="tk-s">'.'</span>);
+    <span class="tk-k">if</span> (R.previo.sinMapear.length) {
+      L.push(<span class="tk-s">'  sin coincidencia por nombre (muchos existen renombrados; hay que mirarlos):'</span>);
+      L.push(<span class="tk-s">'    '</span> + R.previo.sinMapear.join(<span class="tk-s">', '</span>));
+    }
+  }
+  <span class="tk-k">if</span> (R.previo.hooksMapean) {
+    L.push(<span class="tk-s">'  de '</span> + R.previo.hooks.length + <span class="tk-s">' hooks, '</span> + R.previo.hooksMapean.length
+      + <span class="tk-s">' coinciden por nombre con los '</span> + R.previo.catalogoHooks + <span class="tk-s">' del ecosistema.'</span>);
+    <span class="tk-k">if</span> (R.previo.hooksSinMapear.length) {
+      L.push(<span class="tk-s">'    sin coincidencia: '</span> + R.previo.hooksSinMapear.join(<span class="tk-s">', '</span>));
+    }
+  }
+}
+L.push(<span class="tk-s">''</span>);
+
+L.push(<span class="tk-s">'LAYOUT'</span>);
+L.push(<span class="tk-s">'  presentes: '</span> + (R.layout.presentes.join(<span class="tk-s">' '</span>) || <span class="tk-s">'(ninguno)'</span>));
+L.push(<span class="tk-s">'  faltan   : '</span> + (R.layout.faltan.join(<span class="tk-s">' '</span>) || <span class="tk-s">'(ninguno)'</span>));
+<span class="tk-k">for</span> (<span class="tk-k">const</span> h <span class="tk-k">of</span> R.layout.hilosAlternativos || []) {
+  L.push(<span class="tk-s">'  `'</span> + h.dir + <span class="tk-s">'/` tiene '</span> + h.coinciden + <span class="tk-s">' de los '</span> + h.de + <span class="tk-s">' ficheros del contrato del Hilo:'</span>);
+  L.push(<span class="tk-s">'    es un Hilo con otro nombre. Adoptar aqui es RENOMBRAR Y ACTUALIZAR, no montar de cero.'</span>);
+}
+<span class="tk-k">if</span> (R.layout.proyectos.length) {
+  L.push(<span class="tk-s">'  codigo   : '</span> + R.layout.proyectos.slice(<span class="tk-n">0</span>, <span class="tk-n">4</span>).join(<span class="tk-s">', '</span>)
+    + (R.layout.proyectos.length &gt; <span class="tk-n">4</span> ? <span class="tk-s">' ...'</span> : <span class="tk-s">''</span>));
+  <span class="tk-k">if</span> (!R.layout.codigoEnRaizSrc) {
+    L.push(<span class="tk-s">'  el codigo NO esta bajo src/ en la raiz. Ovillo lo espera ahi y no es configurable'</span>);
+    L.push(<span class="tk-s">'  (ADR-005). Moverlo es una decision aparte: este informe no mueve nada.'</span>);
+  }
+}
+L.push(<span class="tk-s">''</span>);
+L.push(<span class="tk-s">'Esto no ha escrito nada. Avisar y arreglar son cosas distintas.'</span>);
+
+console.log(L.join(<span class="tk-s">'\n'</span>));
+process.exit(<span class="tk-n">0</span>);
+</code></pre><p style="margin-top:32px"><a href="../../../skills/adoptar.html#ficheros">← Volver a la ficha de adoptar</a></p><nav class="pn" aria-label="Anterior y siguiente"><a href="../../../skills/adoptar.html"><small>Anterior</small>Ficha de adoptar</a></nav><footer><span>Ovillo v1.31.0</span><span>tag v1.31.0 (2026-10-06) · sin decisiones posteriores</span><span>69 skills · 19 agents · 22 hooks · 3 reglas · 15 tools · 103 decisiones</span><span>fuente: <code>ovillo/.claude/skills/adoptar/scripts/diagnostico.js</code></span><span>Copyright 2026 Hugo Valer Rojas · <a href="../../../LICENSE.txt">Apache-2.0</a></span></footer></main></div><script src="../../../recursos/search-index.js" defer></script><script src="../../../recursos/portal.js" defer></script></body></html>

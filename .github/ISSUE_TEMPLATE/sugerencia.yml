@@ -1,0 +1,31 @@
+name: Sugerencia
+description: Una guía, chuleta, lección del curso o presentación que falta, o una mejora del portal.
+title: "[idea] "
+labels: ["sugerencia"]
+body:
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo
+      options:
+        - Guía
+        - Chuleta
+        - Lección del curso
+        - Presentación
+        - Ficha (skill, agent, hook, Hub)
+        - Portal (navegación, búsqueda, tema, presentación)
+        - Otra
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Qué propones
+      description: Qué falta o qué cambiarías, y a quién le serviría.
+    validations:
+      required: true
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto
+      description: Enlaces a páginas del portal relacionadas, ejemplos, referencias.
